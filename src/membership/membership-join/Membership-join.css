@@ -6,10 +6,13 @@
     align-items: center;
 }
 .Membership_join-content{
-    width:580px; height:840px;
-    border: solid 1px black;
+    width:580px; height:650px;  margin-top: 50px;   margin-bottom: 50px;
+    border: solid 1px rgb(182, 182, 182);
     padding-left: 69px; padding-right: 69px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 .Membership_join-footer{
     display: flex;
@@ -21,10 +24,38 @@
 }
 .Membership_join-content-sec1{
     width:100%;
-    border-bottom: solid 1px black;
+}
+
+.Membership_join-content-sec1-s1{
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+.Membership_join-content-sec1-s3{
+    font-size: 1.3rem;
+}
+
+.Membership_join-content-sec2-s1, .Membership_join-content-sec2-s2, .Membership_join-content-sec2-s3, .Membership_join-content-sec2-s4, .Membership_join-content-sec2-s5, .Membership_join-content-sec2-s6{
+    border : none;
+    border-bottom: solid 1px  rgb(182, 182, 182);
+    color: black;
+    display:block;
+    width:100%;
+    font-size: 1.2rem; margin-bottom: 30px;
 }
 .Membership_join-content-sec2-btn{
-    background: rgb(243, 243, 243);
+    border: none;     display:block;
+    width:100%;   font-size: 1.2rem;    cursor: pointer;    height: 40px;
+    background: cornflowerblue;
     text-align: center;
-    border-radius: 15px;
+    border-radius: 15px;    transition: 0.3s;
+}
+.Membership_join-content-sec2-btn:hover{
+    background: rgb(94, 130, 197);
+}
+
+.Membership_join-content-sec1-s2{
+    width:60px; background: rgb(243, 243, 243);     margin-bottom: 20px;
+}
+.level-bar-lv2{
+    width:66%; height: 5px; background: black;
 }
