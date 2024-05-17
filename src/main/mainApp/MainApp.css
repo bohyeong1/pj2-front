@@ -1,0 +1,26 @@
+.mainApp{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.main-gnb{
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: solid 1px black;
+}
+.main-content{
+    top:1160px; width:1200px;
+}
+.main-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}

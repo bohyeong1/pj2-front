@@ -1,0 +1,23 @@
+/* 메인메뉴 기본 레이아웃 */
+.main-menu-container{
+    width:1200px;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    border: solid 1px black;
+
+}
+.main-menu-list,.main-menu-logo{
+    text-decoration: none;
+    color: rgb(3, 3, 58);
+    font-weight: bold;    
+}
+
+.main-menu-logo,.main-menu-right{
+    display: flex;
+    align-items: center;
+}
+
+.main-menu-right{
+    gap: 19.2px
+}

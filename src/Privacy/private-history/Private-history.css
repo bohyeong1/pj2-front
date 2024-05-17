@@ -1,0 +1,26 @@
+.Private_history-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Private_history-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;
+}
+.pri-his-con-main{
+    background: pink; width:100%;
+    height:600px;
+}
+.pri-his-con-main-title, .pri-his-con-main-sec1, .pri-his-con-main-sec2{
+    border-bottom: solid 1px black;
+}
+.Private_history-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}

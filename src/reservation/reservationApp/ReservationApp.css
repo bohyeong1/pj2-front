@@ -1,0 +1,29 @@
+.ReservationApp{
+    width: 1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* 메인콘텐츠 */
+.ReservationApp-content{
+    width:1200px; height: 100vh;
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+}
+.ReservationApp-content-sec1{
+    width:65%;     border: solid 1px black;
+}
+.ReservationApp-content-sec2{
+    width:33%;    border: solid 1px black;
+}
+/* 푸터 */
+.ReservationApp-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}

@@ -1,0 +1,46 @@
+.Detail_infoApp-container{
+    width:1920px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.Detail_infoApp-img{
+    width:1200px;
+    height:512px;
+    border: solid 1px black;
+    display: flex;
+    justify-content: space-between;
+}
+.Detail_infoApp-sec1,.Detail_infoApp-sec2,.Detail_infoApp-sec3,.Detail_infoApp-sec4,.Detail_infoApp-sec5,.Detail_infoApp-sec6{
+    width:1200px;
+    border: solid 1px black;
+}
+.info-imgBox1 ,.info-imgBox2{
+    width:595px;  height: 100%;
+}
+/* 푸터 */
+.Detail_infoApp-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+
+}
+
+/* 섹션1 */
+.Detail_infoApp-sec1{
+    display: flex;
+    justify-content: space-between;
+}
+.det-info-con1{
+    width:65%;
+    height:100vh;
+    border: solid 1px black;
+}
+.det-info-con2{
+    width:33%;
+    height: 50vh;
+    border: solid 1px black;
+}

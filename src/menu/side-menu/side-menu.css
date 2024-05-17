@@ -1,0 +1,11 @@
+.side-menu-container{
+    width:300px;
+    height:100vh;
+    border: solid 5px beige;
+    background: white;
+    position: relative;
+    z-index: 2;
+}
+.side-menu-filter, .side-content-category, .side-content-price, .side-content-grade, .side-content-discount, .side-content-facility{
+    border-bottom: solid 1px black;
+}

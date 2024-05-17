@@ -1,0 +1,30 @@
+.Membership_join-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Membership_join-content{
+    width:580px; height:840px;
+    border: solid 1px black;
+    padding-left: 69px; padding-right: 69px;
+    box-sizing: border-box;
+}
+.Membership_join-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}
+.Membership_join-content-sec1{
+    width:100%;
+    border-bottom: solid 1px black;
+}
+.Membership_join-content-sec2-btn{
+    background: rgb(243, 243, 243);
+    text-align: center;
+    border-radius: 15px;
+}

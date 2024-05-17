@@ -1,0 +1,27 @@
+.Private_resister-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+
+}
+.Private_resister-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Private_resister-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;     height: 500px;
+}
+.pri-res-con-main{
+    width:100%;
+}
+.pri-res-con-main-title{
+    border-bottom:solid 1px black ;
+    width:100%;
+}

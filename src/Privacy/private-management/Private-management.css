@@ -1,0 +1,19 @@
+.Private_management-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Private_management-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;
+}
+.Private_management-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}

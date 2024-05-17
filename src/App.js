@@ -1,23 +1,34 @@
 import logo from './logo.svg';
 import './App.css';
+import MainApp from './main/mainApp/MainApp';
+import SubApp from './sub/subApp/SubApp';
+import Detail_infoApp from './detail_info/detail_infoApp/Detail_infoApp';
+import ReservationApp from './reservation/reservationApp/ReservationApp';
+import AgreeTerms from './membership/agreeTerms/AgreeTerms';
+import Membership_join from './membership/membership-join/Membership-join';
+import Mem_join_complete from './membership/mem-join-comlete/Mem-join-complete';
+import Private_history from './Privacy/private-history/Private-history';
+import Private_management from './Privacy/private-management/Private-management';
+import Private_message from './Privacy/private-message/Private-message';
+import Private_point from './Privacy/private-point/Private-point';
+import Private_resister from './Privacy/private-resister/Private-resister';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+
+      <MainApp></MainApp>
+      {/* <SubApp></SubApp> */}
+      {/* <Detail_infoApp></Detail_infoApp> */}
+      {/* <ReservationApp></ReservationApp> */}
+      {/* <AgreeTerms></AgreeTerms> */}
+      {/* <Membership_join></Membership_join> */}
+      {/* <Mem_join_complete></Mem_join_complete> */}
+      {/* <Private_history></Private_history> */}
+      {/* <Private_management></Private_management> */}
+      {/* <Private_message></Private_message> */}
+      {/* <Private_point></Private_point> */}
+      {/* <Private_resister></Private_resister> */}
     </div>
   );
 }

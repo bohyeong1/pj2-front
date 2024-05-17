@@ -1,0 +1,33 @@
+.AgreeTerms-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.AgreeTerms-content{
+    width:580px; height:840px;
+    border: solid 1px black;
+    padding-left: 69px; padding-right: 69px;
+    box-sizing: border-box;
+}
+.AgreeTerms-content-sec1{
+    width:100%;
+    border-bottom: solid 1px black;
+}
+.AgreeTerms-content-sec2{
+    width:100%;
+}
+.AgreeTerms-content-sec2-btn{
+    background: rgb(243, 243, 243);
+    text-align: center;
+    border-radius: 15px;
+}
+.AgreeTerms-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}
