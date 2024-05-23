@@ -1,0 +1,13 @@
+.filter-btn{
+    border-radius: 5px;
+    border: none; margin-right: 15px; font-size: 1rem; margin-bottom: 10px; transition: 0.2s;
+    cursor: pointer;
+}
+.filter-btn:hover{
+    background: rgb(200, 200, 200);
+}
+
+.active{
+    background: rgb(80,80,80);
+    color: white;
+}

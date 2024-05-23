@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Small_main({data}){
 
     return(
-        <img className='small-main-img' src={`${data.img_url}`}></img>           
+        <img className='small-main-img' src={`${data.main_img}`}></img>           
     )
 }
 

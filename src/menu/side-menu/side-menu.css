@@ -9,3 +9,12 @@
 .side-menu-filter, .side-content-category, .side-content-price, .side-content-grade, .side-content-discount, .side-content-facility{
     border-bottom: solid 1px black;
 }
+
+.category-title,.facility-title,.category-title,.grade-title,.discount-title,.side-menu-filter{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-top: 10px; margin-bottom: 15px;
+}
+.category-content,.facility-content,.grade-content{
+    margin-bottom: 10px;
+}

@@ -1,0 +1,23 @@
+.PriceBtn-box{
+    position: relative;
+    /* border: solid 1px black; */
+    margin-top: 15px; margin-bottom: 15px;
+    
+}
+.PriceBtn-bar-box{
+    width:100%;
+    /* height: 8px; border-radius: 15px; background: rgb(200, 200, 200); */
+
+}
+.PriceBtn-bar{
+    width: 100%;
+    background: linear-gradient(to right, #FFE283 0%, #FFE283 0%, #ececec 0%, #ececec 100%);;
+    border-radius: 15px;
+    height: 14px;
+    -webkit-appearance: none;
+    transition: 0.4s;
+}
+.PriceBtn-bar::-webkit-slider-thumb{
+    width: 25px; height: 25px; appearance: none; background: #ffca1d; border-radius: 15px; cursor: pointer;
+}
+

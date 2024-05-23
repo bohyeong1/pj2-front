@@ -1,0 +1,30 @@
+.lv1-img-container{
+    display: flex;
+    /* gap : 20px; */
+}
+.lv1-description-container{
+    width: 1200px;
+    height: 280px;
+    border: solid 1px black;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+/* .lv1-content-container{
+    height: 280px;
+} */
+.lv1-img-wrapper{
+    width:180px;
+    height:100%;
+    margin-right: 30px;
+    display: inline-block;
+    text-decoration: none;
+    color: black;
+}
+.lv1-description-content{
+    gap:20px;
+    overflow: hidden;
+}
+.lv1-img-title{
+    margin-top: 20px;
+}

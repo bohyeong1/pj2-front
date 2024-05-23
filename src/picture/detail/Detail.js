@@ -4,7 +4,7 @@ import './Detail.css'
 function Detail ({data}){
 
     return(
-        <img className="detail-img" src={data.img_url}></img>
+        <img className="detail-img" src={data.main_img}></img>
     )
 }
 
