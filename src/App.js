@@ -8,6 +8,8 @@ import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoA
 } from './pages';
 
 
+
+
 import ReservationApp from './reservation/reservationApp/ReservationApp';
 import AgreeTerms from './pages/membership/agreeTerms/AgreeTerms';
 import Private_history from './Privacy/private-history/Private-history';

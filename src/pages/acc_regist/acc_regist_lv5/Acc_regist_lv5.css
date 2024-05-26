@@ -4,7 +4,7 @@
     bottom: 0;
 }
 .Acc_regist_lv5-container{
-    width:1920px;
+    width:1920px;   height: 100vh;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -14,4 +14,45 @@
 .Acc_regist_lv5_content{
     margin-top: 50px;   margin-bottom: 20vh;
     width:600px;
+}
+.Acc_regist_lv5-con-title{
+    margin-bottom: 10px;
+    font-size: 2rem;    font-weight: bold;
+}
+.Acc_regist_lv5-con-sec1{
+    width:100%;
+    box-sizing: border-box; padding-top: 10px;
+}
+.Acc_regist_lv5-con-s1-b1{
+    color: red; margin-bottom: 40px;
+}
+.Acc_regist_lv5-con-s1-b2{
+    width: 100%;
+    padding-bottom: 30px; border-bottom: solid 1px rgb(150,150,150); margin-bottom: 30px;
+    display: flex; flex-direction: column;  gap: 30px;
+}
+.ac_reg_lv5-con-s1-b2-in{
+    width: 100%; box-sizing: border-box; font-size: 1rem; padding-top: 10px; padding-bottom: 10px;  padding-left: 10px; 
+    border-radius: 10px;       border: solid 1px rgb(180,180,180);
+}
+.popup{
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; border-radius: 10px;
+}
+
+/* 지도 */
+.Acc_regist_lv5-con-s1-b3{
+
+}
+.Acc_regist_lv5-con-s1-b3-t1{
+    display: flex;  justify-content: space-between;
+}
+.Acc_regist_lv5-con-s1-b3-t1-d2{
+    box-sizing: border-box; padding-top: 5px;   padding-bottom: 5px;    padding-left: 10px; padding-right: 10px;    background: rgb(243, 243, 243); border-radius: 10px;    
+    transition: 0.3s;   cursor: pointer;    
+}
+.Acc_regist_lv5-con-s1-b3-t1-d2:hover{
+    background: rgb(200, 200, 200);
+}
+.Acc_regist_lv5-con-s1-b3-t2{
+    width: 100%;    height: 30vh;
 }
