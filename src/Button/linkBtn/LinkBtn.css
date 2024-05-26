@@ -1,0 +1,9 @@
+.link-btn{
+    border-radius: 5px;
+    border: none; margin-right: 15px; font-size: 1rem; margin-bottom: 10px; transition: 0.2s;
+    cursor: pointer;
+}
+
+.link-btn:hover{
+    background: rgb(200, 200, 200);
+}

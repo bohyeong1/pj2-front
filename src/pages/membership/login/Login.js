@@ -2,7 +2,7 @@ import React from "react";
 import './Login.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from "../../../menu/footer/Footer";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,NavLink } from "react-router-dom";
 
 const BASE_URL = 'http://127.0.0.1:3700'
 
@@ -59,15 +59,22 @@ function Login (){
 
             <div className="Login-content">
                 <form className="log-con-main" onSubmit={submit}>
+                    <div className="log-c-wrapper">
+                        <div className="log-c-text">아이디</div>
+                        <input type="text" placeholder="아이디" className="user-Id" id="userId"></input>
+                    </div>
 
-                    <input type="text" placeholder="아이디" className="user-Id" id="userId"></input>
+                    <div className="log-c-wrapper">
+                        <div className="log-c-text">비밀번호</div>
+                        <input type="password" placeholder="비밀번호" className="user-Password" id="userPassword"></input>
+                    </div>
 
-                    <input type="password" placeholder="비밀번호" className="user-Password" id="userPassword"></input>
 
                     <input className="submitBtn" type="submit" value="로그인"></input>
                 </form>
                 <div className="Login-con2">
-                    회원가입/ 계정찾기 / 비밀번호 찾기
+                    <div className="Login-con2-b1">계정이 없으신가요?</div>
+                    <NavLink to='/Membership_join' className="Login-con2-b2">회원가입</NavLink>
                 </div>
             </div>
 

@@ -1,0 +1,17 @@
+.Acc_regist_lv5-footer{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+}
+.Acc_regist_lv5-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc_regist_lv5_content{
+    margin-top: 50px;   margin-bottom: 20vh;
+    width:600px;
+}

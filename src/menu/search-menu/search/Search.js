@@ -65,6 +65,7 @@ function Search({data, tg_value}){
 
     // NavLink to={`/SubApp/${ele}`}
 
+    ////드롭다운 토글함수
     const openDropdown = (e) => {
         console.log('서치')
         e.stopPropagation()
@@ -75,7 +76,7 @@ function Search({data, tg_value}){
                 setSelectedDropdown(e.target.id)
             }
     }
-    ////////////////////////////윈도우 전역에 이벤트 주기 (협업에서 이렇게 하면 욕처먹을듯ㅇㅇ)
+    ////////////////////////////윈도우 전역에 이벤트 주기 (협업에서 이렇게 하면 욕처먹을듯// 임포트 할 수 있는 유틸함수로 뺄것)
     window.addEventListener('click',(e)=>{
         console.log('확인')
         e.stopPropagation()

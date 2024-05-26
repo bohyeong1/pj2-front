@@ -17,8 +17,7 @@ function Search_menu(){
                     </div>
                     <Search></Search>
                 </div>
-            </div>
-            
+            </div>            
         </div>
     )
 }

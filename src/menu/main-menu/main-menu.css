@@ -7,10 +7,16 @@
     border: solid 1px black;
 
 }
+
+.main-menu-list{
+    cursor: pointer;
+}
+
 .main-menu-list,.main-menu-logo{
     text-decoration: none;
     color: rgb(3, 3, 58);
     font-weight: bold;    
+    position: relative;
 }
 
 .main-menu-logo,.main-menu-right{
@@ -19,5 +25,15 @@
 }
 
 .main-menu-right{
-    gap: 19.2px
+    gap: 19.2px;
+    position: relative;
+}
+
+.main-menu-host{
+    /* display: flex; */  
+    display: none; 
+}
+.hostmenu-active{
+    display: flex;    align-items: center;    gap:19px;       color: rgb(3, 3, 58);
+    font-weight: bold; cursor: pointer;
 }

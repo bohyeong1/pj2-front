@@ -29,7 +29,7 @@ function SubApp (){
     }
 
     ////서버로 보내는 쿼리 데이터 생성 for문
-    const finalKey = {}
+    const finalKey = {}              ///스테이트로 뺄까말까 추후 고려사항/랜더링 너무 많아질듯
     for(const value of keyInv){
         if(value === 'discount'){
             finalKey[value] = {$exists:true}
@@ -64,7 +64,7 @@ function SubApp (){
     },[SearchParams.toString(),params.city])
 
 
-    /////////////초기 디폴트 숙소 데이터
+    /////////////초기 디폴트 숙소 데이터(서치 메뉴에 필요함 ㅇㅇ)
     useEffect(()=>{
         connectData('http://127.0.0.1:3700/api/common','POST')
         .then(result => {

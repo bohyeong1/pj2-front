@@ -1,61 +1,29 @@
 import logo from './logo.svg';
 import './App.css';
 import { Route,Routes } from 'react-router-dom';
-// import { Component } from 'react';
 import React, {useEffect, useState} from 'react';
-import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp} from './pages';
+import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
+        ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
 
-// import MainApp from './pages/main/mainApp/MainApp';
-// import SubApp from './sub/subApp/SubApp';
-// import Detail_infoApp from './detail_info/detail_infoApp/Detail_infoApp';
+} from './pages';
+
+
 import ReservationApp from './reservation/reservationApp/ReservationApp';
 import AgreeTerms from './pages/membership/agreeTerms/AgreeTerms';
-// import Membership_join from './pages/membership/membership-join/Membership-join';
-// import Mem_join_complete from './pages/membership/mem-join-comlete/Mem-join-complete';
 import Private_history from './Privacy/private-history/Private-history';
 import Private_management from './Privacy/private-management/Private-management';
 import Private_message from './Privacy/private-message/Private-message';
 import Private_point from './Privacy/private-point/Private-point';
 import Private_resister from './Privacy/private-resister/Private-resister';
-// import Login from './pages/membership/login/Login';
+
+import LogModal from './modal/logModal/LogModal';
+
 
 
 const BASE_URL = 'http://127.0.0.1:3700'           ///베이스 url
 
 
-
-// const dummyData = [{
-    
-//     main_img:'https://cdn.mhns.co.kr/news/photo/202201/520746_630720_356.jpg',
-//     title:'제주호텔',
-//     cityName:'제주도',
-//     price:12000,
-//     adress:'대전 둔산동 그린아트',
-//     evaluation:4.5,
-//     category:'모텔',
-//     keyword:['친환경']
-// },{
-    
-//     main_img:'http://www.bokjinews.com/news/photo/202304/99645_33265_5629.jpg',
-//     title:'서울신라호텔',
-//     cityName:'서울',
-//     price:20000,
-//     adress:'대전 탄방동 탄방역',
-//     evaluation:4.8,
-//     category:'호텔',
-//     keyword:['가족여행']
-// }]
-
-
-
-
-
-
-
 function App(){
-
-
-
 
 
   const [data, setData] = useState([])
@@ -116,6 +84,15 @@ async function saveData(){
         <Route exact path='/SubApp/Detail_infoApp' element={<Detail_infoApp data={data.accomodations}></Detail_infoApp>}>         ////////숙소 상세페이지
           <Route exact path=':house' element={<Detail_infoApp data={data.accomodations}></Detail_infoApp>}></Route>
         </Route>
+        <Route exact path='/Acc_regist' element={<Acc_regist></Acc_regist>}></Route>                                    ///// 숙소 호스팅 페이지
+        <Route exact path='/Acc_regist/Acc_manage' element={<Acc_manage></Acc_manage>}></Route>
+        <Route exact path='Acc_regist/Acc_regist_lv0' element={<Acc_regist_lv0></Acc_regist_lv0>}></Route>              ///////////숙소 등록 페이지 lv0
+        <Route exact path='/Acc_regist/Acc_regist_lv1' element={<Acc_regist_lv1></Acc_regist_lv1>}></Route>                 /////숙소 등록 페이지lv1
+        <Route exact path='Acc_regist/Acc_regist_lv2' element={<Acc_regist_lv2></Acc_regist_lv2>}></Route>                 ////////숙소 등록 페이지lv2
+        <Route exact path='Acc_regist/Acc_regist_lv3' element={<Acc_regist_lv3></Acc_regist_lv3>}></Route>              //////////////// 숙소 등록 페이지 lv3
+        <Route exact path='Acc_regist/Acc_regist_lv4' element={<Acc_regist_lv4></Acc_regist_lv4>}></Route>              /////////////숙소 등록 페이지 lv4
+        <Route exact path='Acc_regist/Acc_regist_lv5' element={<Acc_regist_lv5></Acc_regist_lv5>}></Route>              /////////////숙소 등록 페이지 lv5
+        
       </Routes>
 
     {/* <MainApp></MainApp> */}
@@ -131,6 +108,8 @@ async function saveData(){
     {/* <Private_point></Private_point> */}
     {/* <Private_resister></Private_resister> */}
     {/* <Login></Login> */}
+    {/* <LogModal></LogModal> */}
+
     </div>
   )
 }

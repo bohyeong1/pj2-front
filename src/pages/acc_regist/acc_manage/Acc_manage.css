@@ -1,0 +1,7 @@
+.Acc_manage-sec1{
+    margin-top: 50px;   margin-bottom: 50px;
+    font-size: 2rem;    display: flex;  justify-content: space-between;}
+.Acc_manage-s1-addBtn{
+    background: rgb(243, 243, 243);   border-radius: 50%;   width:50px; height:50px;   line-height: 40px;
+    display: flex;  justify-content: center;    align-items: center;    cursor: pointer;
+}

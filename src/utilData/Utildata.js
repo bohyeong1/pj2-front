@@ -1,6 +1,5 @@
 
-
-
+////데이터 연결 유틸 함수
 async function connectData(url, method, data = null, token = null){
     const dataJson = await fetch(url,{
       headers:{
