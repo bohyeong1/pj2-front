@@ -13,3 +13,4 @@ export {default as Acc_regist_lv2} from './acc_regist/acc_regist_lv2/Acc_regist_
 export {default as Acc_regist_lv3} from './acc_regist/acc_regist_lv3/Acc_regist_lv3'
 export {default as Acc_regist_lv4} from './acc_regist/acc_regist_lv4/Acc_regist_lv4'
 export {default as Acc_regist_lv5} from './acc_regist/acc_regist_lv5/Acc_regist_lv5'
+export {default as Acc_regist_lv6} from './acc_regist/acc_regist_lv6/Acc_regist_lv6'

@@ -1,4 +1,5 @@
 const default_data = {
+    d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL
     d_category : ['모텔','호텔','리조트','한옥','원룸','주택','펜션', '캠핑', '아파트'],                 /////카테고리 디폴트 데이터
     d_service_facility : ['수영장','주차장','안마기','족구장','사우나','전자레인지','건조기','엘리베이터','아침식사','와이파이','무료주차','에어컨','TV','세탁기','난방'],   ///서비스시설 디폴트
     d_grade : ['1등급','2등급','3등급','4등급','5등급'],        ////등급 디폴트
@@ -115,7 +116,7 @@ const default_data = {
     ],
     // 숙소 등록 절차
     regist_step:[
-        'Acc_regist_lv0','Acc_regist_lv1','Acc_regist_lv2','Acc_regist_lv3','Acc_regist_lv4','Acc_regist_lv5'
+        'Acc_regist_lv0','Acc_regist_lv1','Acc_regist_lv2','Acc_regist_lv3','Acc_regist_lv4','Acc_regist_lv5','Acc_regist_lv6'
     ]
 }
 

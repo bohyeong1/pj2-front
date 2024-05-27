@@ -4,6 +4,7 @@ import { Route,Routes } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
+        ,Acc_regist_lv6
 
 } from './pages';
 
@@ -94,6 +95,8 @@ async function saveData(){
         <Route exact path='Acc_regist/Acc_regist_lv3' element={<Acc_regist_lv3></Acc_regist_lv3>}></Route>              //////////////// 숙소 등록 페이지 lv3
         <Route exact path='Acc_regist/Acc_regist_lv4' element={<Acc_regist_lv4></Acc_regist_lv4>}></Route>              /////////////숙소 등록 페이지 lv4
         <Route exact path='Acc_regist/Acc_regist_lv5' element={<Acc_regist_lv5></Acc_regist_lv5>}></Route>              /////////////숙소 등록 페이지 lv5
+        <Route exact path='Acc_regist/Acc_regist_lv6' element={<Acc_regist_lv6></Acc_regist_lv6>}></Route>              /////////////숙소 등록 페이지 lv6
+
         
       </Routes>
 

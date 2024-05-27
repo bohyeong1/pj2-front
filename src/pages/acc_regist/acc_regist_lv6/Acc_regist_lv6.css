@@ -1,0 +1,40 @@
+.Acc_regist_lv6-footer{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+}
+.Acc_regist_lv6-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Acc_regist_lv6{
+    margin-top: 50px;   margin-bottom: 20vh;
+    width:600px;
+}
+.Acc_regist_lv6-con-title{
+    margin-bottom: 50px;
+    font-size: 2rem;    font-weight: bold;
+}
+.Acc_regist_lv6-con-title-s1{
+    font-size: 1rem;    margin-top: 15px; font-weight:normal;
+}
+.Acc_regist_lv6-con-sec1{
+    width:100%;
+    display: flex; flex-wrap: wrap; gap:30px;
+}
+.Acc_regist_lv6-con-s1-box{
+    border-radius: 10px; border: solid 2px rgb(180,180,180); width: 30%; 
+    box-sizing: border-box; padding: 20px;  cursor: pointer;
+}
+.Acc_regist_lv6-con-s1-box-tex1{
+    margin-top: 10px;   margin-bottom: 10px;    font-weight: bold; font-size: 1.2rem;
+}
+.Acc_regist_lv6-con-s1-box-tex2{
+    color: rgb(80,80,80);
+}
+.Acc_regist_lv6-con-s1-box:hover{
+    border: solid 2px black;
+}

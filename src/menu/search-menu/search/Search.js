@@ -78,7 +78,7 @@ function Search({data, tg_value}){
     }
     ////////////////////////////윈도우 전역에 이벤트 주기 (협업에서 이렇게 하면 욕처먹을듯// 임포트 할 수 있는 유틸함수로 뺄것)
     window.addEventListener('click',(e)=>{
-        console.log('확인')
+        // console.log('확인')
         e.stopPropagation()
         if(e.target.classList.contains('b-l-box1-title') || e.target.classList.contains('b-l-box2-title') || e.target.classList.contains('b-l-box3-title')){
             return

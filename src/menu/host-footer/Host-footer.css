@@ -1,6 +1,7 @@
 .Host_footer-container{
     width:100%;
     display: flex; align-items: center; gap: 30px;  flex-direction: column;
+    background: rgb(253, 253, 248);
 }
 .host_footer-con-sec2{
     width: 1200px;

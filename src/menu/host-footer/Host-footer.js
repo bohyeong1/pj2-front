@@ -12,7 +12,7 @@ function Host_footer(){
     const location = useLocation()
     const thisUrl = location.pathname.split('/')
     const thisStep = regist_step.indexOf(thisUrl[thisUrl.length-1])       //////현재 페이지 등록 단계의 인덱스
-    console.log(regist_step.indexOf(thisUrl[thisUrl.length-1]) )
+    // console.log(regist_step.indexOf(thisUrl[thisUrl.length-1]) )
 
     /////////이전 페이지 url 리턴 함수
     function createPrevUrl(index){
@@ -38,7 +38,7 @@ function Host_footer(){
 
     ////////////////////////////////절차 단계를 나타내는 state bar 애니메이션
     function stateBarAni(){
-        console.log('확인')
+        // console.log('확인')
         // const stepBar = document.querySelector('.host_footer-con-s1-bar')
         // stepBar.style.width = `${thisStep/(regist_step.length - 1)*100}%`
     }
