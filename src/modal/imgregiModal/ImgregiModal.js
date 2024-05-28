@@ -16,10 +16,7 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
 
 
         ///////이미지 onchange
-    function displayModalImg(){
-
-
-       
+    function displayModalImg(){       
         if(!mainState){
             const m_blob = new Blob([mainimgInput.current.files[0]], { type: 'image/jpeg' });      
             const imageSrc  = URL.createObjectURL(m_blob)
@@ -67,7 +64,7 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
             const arrayMountInput = Array.from(mountInput.current)
             // console.log(typeof arrayMountInput)
             for(let input of arrayMountInput){
-                console.log(input.files.length)
+                // console.log(input.files.length)
                 if((input.files.length === 0)){
                     input.click()
                     break
@@ -92,14 +89,14 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
         }else
         // 서브이미지
         {
-            console.log(subimgForm.current.subImg)
+            // console.log(subimgForm.current.subImg)
             try{
                 const subimgInv = []
                 for(let file of subimgForm.current.subImg){
                     const image = file.files[0]
                     subimgInv.push(image)
                 }
-                console.log(subimgInv)
+                // console.log(subimgInv)
 
                 // 4개의 파일이 다 들어왔을 시
                 if(!subimgInv.includes(undefined)){

@@ -12,18 +12,34 @@ function Acc_regist_lv6(){
     const [modalState, setModalState] = useState(false)             ///////모달창 키고 끄기
     const [subImgFile, setSubImgFile] = useState([])             ///////////서브 이미지 파일
 
-
-    console.log(subImgFile)
+    ////////ref
+    const lv6_mainImg = useRef()
+    const lv6_subImg = useRef([])
 
     useEffect(()=>{
         if(mainImgFile){
+            // 메인이미지 등록
             setMainImgState(true)
-        }else{
-            return
-        }
-    },[mainImgFile])
+            console.log(mainImgFile)
+            const blob = new Blob([mainImgFile], { type: 'image/jpeg' });        
+            console.log( URL.createObjectURL(blob))          
+            lv6_mainImg.current.src  = URL.createObjectURL(blob)
 
- 
+        }
+
+        if(subImgFile.length != 0){
+            for(let file of subImgFile){
+                const index = subImgFile.indexOf(file)
+
+
+                const blob = new Blob([file], { type: 'image/jpeg' });        
+                console.log(lv6_subImg.current[index])          
+                lv6_subImg.current[index].src = URL.createObjectURL(blob)
+            }
+        }
+    },[mainImgFile,subImgFile])
+
+    // style={{display:`${mainImgState ? 'none' : 'block'}`}}     btn 이미지 사라졋다 나타낫다 하기
 
     /////////////////하위 컴포넌트에서 상위 컴포넌트로 이미지 파일 넘기기
     function deliverFile(file){
@@ -140,10 +156,24 @@ function Acc_regist_lv6(){
 
                 <div className="Acc_regist_lv6-con-sec2">
                     <div className="Acc_regist_lv6-con-s2-b1">
-                        <img className="Acc_regist_lv6-con-s2-b1-d1"></img>
+                        <img className="Acc_regist_lv6-con-s2-b1-d1" ref={lv6_mainImg}></img>
                         <button className="Acc_regist_lv6-con-s2-b1-btn" onClick={()=>{setModalState(!modalState)}}>사진 등록</button>
                     </div>
-                    <div className="Acc_regist_lv6-con-s2-b2"></div>
+                    {/* 서브이미지 디스플레이 */}
+                    <div className="Acc_regist_lv6-con-s2-b2" >
+                        <div className="Acc_regist_lv6-con-s2-b2-d1" style={{display:`${!mainImgState ? 'none' : 'block'}`}}>
+                            <img className="Acc_regist_lv6-subimg" ref={(ele)=>{lv6_subImg.current[0] = ele}}></img>
+                        </div>
+                        <div className="Acc_regist_lv6-con-s2-b2-d1" style={{display:`${!mainImgState ? 'none' : 'block'}`}}>
+                            <img className="Acc_regist_lv6-subimg" ref={(ele)=>{lv6_subImg.current[1] = ele}}></img>
+                        </div>
+                        <div className="Acc_regist_lv6-con-s2-b2-d1" style={{display:`${!mainImgState ? 'none' : 'block'}`}}>
+                            <img className="Acc_regist_lv6-subimg" ref={(ele)=>{lv6_subImg.current[2] = ele}}></img>
+                        </div>
+                        <div className="Acc_regist_lv6-con-s2-b2-d1" style={{display:`${!mainImgState ? 'none' : 'block'}`}}>
+                            <img className="Acc_regist_lv6-subimg" ref={(ele)=>{lv6_subImg.current[3] = ele}}></img>
+                        </div>
+                    </div>
                 </div>
 
             </div>
