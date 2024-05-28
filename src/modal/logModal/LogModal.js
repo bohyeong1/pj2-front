@@ -5,7 +5,7 @@ import './LogModal.css'
 function LogModal({log_m_state}){
     const navigate = useNavigate()
     const location = useLocation()
-    console.log(location.pathname)
+    // console.log(location.pathname)
 
     function logout(){
         localStorage.removeItem('log')
