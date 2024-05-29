@@ -1,6 +1,6 @@
 import React from "react";
 import './Res-con-payment.css'
-import Detail from "../../../picture/detail/Detail";
+import Detail from "../../../../picture/detail/Detail";
 
 function Res_con_payment({data}){
     return(

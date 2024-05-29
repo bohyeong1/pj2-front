@@ -151,7 +151,7 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
 
             <div className="ImgregiModal-con-sec2">
                 {/* 메인이미지 */}
-                <div className="ImgregiModal-con-s2-b1" style={{display:`${!mainState ? 'block' : 'none'}`}}>
+                <div className="ImgregiModal-con-s2-b1" id="main_ig_modal" style={{display:`${!mainState ? 'block' : 'none'}`, width:'500px', height:'510px'}}>
                     <img className="ImgregiModal-con-s2-b1-d1" id="modal_dis_imgs" ref={main_modal_img}></img>
                     <div className="ImgregiModal-con-s2-b1-d2">
                         <span className="ImgregiModal-text">메인</span>

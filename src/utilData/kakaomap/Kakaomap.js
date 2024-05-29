@@ -12,7 +12,7 @@ function Kakaomap({setDataHandler, adressData}){
 
     useEffect(()=>{
 
-        console.log(adressData)
+        // console.log(adressData)
 
         const {kakao} = window
 

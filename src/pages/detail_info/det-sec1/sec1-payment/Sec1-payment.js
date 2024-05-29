@@ -1,8 +1,9 @@
 import React from "react";
+import { useNavigate} from "react-router-dom";
 import './Sec1-payment.css'
 
 function Sec1_payment({data}){
-    console.log(data)
+    const navigate = useNavigate()
     return(
         <div className="Sec1_payment-container">
             <div className="Sec1_payment-sec1">
@@ -15,7 +16,7 @@ function Sec1_payment({data}){
                         </div>
                         <div className="Sec1_payment-con-sec2">인원/명수</div>
                     </div>
-                    <div className="Sec1_payment-sec1-s1-btn">예약하기</div>
+                    <div className="Sec1_payment-sec1-s1-btn" onClick={()=>{navigate('/ReservationApp')}}>예약하기</div>
                 </div>
                 <div className="Sec1_payment-sec1-s2"></div>
                 <div className="Sec1_payment-sec1-s3"></div>

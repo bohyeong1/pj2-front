@@ -4,22 +4,11 @@ import { Route,Routes } from 'react-router-dom';
 import React, {useEffect, useState} from 'react';
 import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
-        ,Acc_regist_lv6
+        ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12,
+        Private_history,Private_management,ReservationApp
 
 } from './pages';
 
-
-
-
-import ReservationApp from './reservation/reservationApp/ReservationApp';
-import AgreeTerms from './pages/membership/agreeTerms/AgreeTerms';
-import Private_history from './Privacy/private-history/Private-history';
-import Private_management from './Privacy/private-management/Private-management';
-import Private_message from './Privacy/private-message/Private-message';
-import Private_point from './Privacy/private-point/Private-point';
-import Private_resister from './Privacy/private-resister/Private-resister';
-
-import LogModal from './modal/logModal/LogModal';
 
 
 
@@ -89,15 +78,30 @@ async function saveData(){
         </Route>
         <Route exact path='/Acc_regist' element={<Acc_regist></Acc_regist>}></Route>                                    ///// 숙소 호스팅 페이지
         <Route exact path='/Acc_regist/Acc_manage' element={<Acc_manage></Acc_manage>}></Route>
-        <Route exact path='Acc_regist/Acc_regist_lv0' element={<Acc_regist_lv0></Acc_regist_lv0>}></Route>              ///////////숙소 등록 페이지 lv0
+        <Route exact path='/Acc_regist/Acc_regist_lv0' element={<Acc_regist_lv0></Acc_regist_lv0>}></Route>              ///////////숙소 등록 페이지 lv0
         <Route exact path='/Acc_regist/Acc_regist_lv1' element={<Acc_regist_lv1></Acc_regist_lv1>}></Route>                 /////숙소 등록 페이지lv1
-        <Route exact path='Acc_regist/Acc_regist_lv2' element={<Acc_regist_lv2></Acc_regist_lv2>}></Route>                 ////////숙소 등록 페이지lv2
-        <Route exact path='Acc_regist/Acc_regist_lv3' element={<Acc_regist_lv3></Acc_regist_lv3>}></Route>              //////////////// 숙소 등록 페이지 lv3
-        <Route exact path='Acc_regist/Acc_regist_lv4' element={<Acc_regist_lv4></Acc_regist_lv4>}></Route>              /////////////숙소 등록 페이지 lv4
-        <Route exact path='Acc_regist/Acc_regist_lv5' element={<Acc_regist_lv5></Acc_regist_lv5>}></Route>              /////////////숙소 등록 페이지 lv5
-        <Route exact path='Acc_regist/Acc_regist_lv6' element={<Acc_regist_lv6></Acc_regist_lv6>}></Route>              /////////////숙소 등록 페이지 lv6
+        <Route exact path='/Acc_regist/Acc_regist_lv2' element={<Acc_regist_lv2></Acc_regist_lv2>}></Route>                 ////////숙소 등록 페이지lv2
+        <Route exact path='/Acc_regist/Acc_regist_lv3' element={<Acc_regist_lv3></Acc_regist_lv3>}></Route>              //////////////// 숙소 등록 페이지 lv3
+        <Route exact path='/Acc_regist/Acc_regist_lv4' element={<Acc_regist_lv4></Acc_regist_lv4>}></Route>              /////////////숙소 등록 페이지 lv4
+        <Route exact path='/Acc_regist/Acc_regist_lv5' element={<Acc_regist_lv5></Acc_regist_lv5>}></Route>              /////////////숙소 등록 페이지 lv5
+        <Route exact path='/Acc_regist/Acc_regist_lv6' element={<Acc_regist_lv6></Acc_regist_lv6>}></Route>              /////////////숙소 등록 페이지 lv6
+        <Route exact path='/Acc_regist/Acc_regist_lv7' element={<Acc_regist_lv7></Acc_regist_lv7>}></Route>              /////////////숙소 등록 페이지 lv7
+        <Route exact path='/Acc_regist/Acc_regist_lv8' element={<Acc_regist_lv8></Acc_regist_lv8>}></Route>              /////////////숙소 등록 페이지 lv8
+        <Route exact path='/Acc_regist/Acc_regist_lv9' element={<Acc_regist_lv9></Acc_regist_lv9>}></Route>              /////////////숙소 등록 페이지 lv9
+        <Route exact path='/Acc_regist/Acc_regist_lv10' element={<Acc_regist_lv10></Acc_regist_lv10>}></Route>              /////////////숙소 등록 페이지 lv10
+        <Route exact path='/Acc_regist/Acc_regist_lv11' element={<Acc_regist_lv11></Acc_regist_lv11>}></Route>              /////////////숙소 등록 페이지 lv11
+        <Route exact path='/Acc_regist/Acc_regist_lv12' element={<Acc_regist_lv12></Acc_regist_lv12>}></Route>              /////////////숙소 등록 페이지 lv12
 
+
+        <Route exact path='/Private_history' element={<Private_history></Private_history>}></Route>              /////////////마이페이지 - 예약내역 리스트
+        <Route exact path='/Private_management' element={<Private_management></Private_management>}></Route>              /////////////마이페이지 - 정보수정
+
+
+        <Route exact path='/ReservationApp' element={<ReservationApp></ReservationApp>}></Route>              /////////////예약하기
         
+
+
+
       </Routes>
 
     {/* <MainApp></MainApp> */}

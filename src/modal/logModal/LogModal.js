@@ -21,10 +21,10 @@ function LogModal({log_m_state}){
     return(
         <div className={`logModal-container ${log_m_state ? 'lm_active' : null}`}>
             <div className="logmodal-con-box1">
-                <div className="logmodal-con-b1-t1" id="log_btn">계정관리</div>                
+                <div className="logmodal-con-b1-t1" id="log_btn" onClick={()=>{navigate('/Private_management')}}>계정관리</div>                
             </div>
             <div className="logmodal-con-box2">
-                <div className="logmodal-con-b2-t1" id="log_btn">예약 내역</div>
+                <div className="logmodal-con-b2-t1" id="log_btn" onClick={()=>{navigate('/Private_history')}}>예약 내역</div>
                 <div className="logmodal-con-b2-t2" id="log_btn">위시리스트</div>
                 <div className="logmodal-con-b2-t3" id="log_btn" onClick={()=>{navigate('/Acc_regist')}}>호스팅</div>
             </div>

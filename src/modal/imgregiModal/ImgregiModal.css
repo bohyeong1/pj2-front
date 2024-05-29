@@ -5,6 +5,8 @@
     border-radius: 10px; 
     top:50%; left:50%; transform: translate(-50%, -50%);
     display: none;
+    box-shadow : rgba(0,0,0,0.5) 0 0 0 9999px;
+    z-index : 100;
 }
 
 .ImgregiModal-con-sec1{
@@ -27,12 +29,14 @@
 
 /* 이미지 디스플레이 */
 .ImgregiModal-con-sec2{
-    width: 100%;    display: flex; flex-wrap: wrap; justify-content: space-between; box-sizing: border-box;
+    width: 100%;    display: flex; flex-wrap: wrap; justify-content: space-between; box-sizing: border-box; position: relative;
 }
+
 .ImgregiModal-con-s2-b1{
     width:245px; height:245px;  background:rgb(243, 243, 243) ; border-radius: 10px;    margin-bottom: 10px;    margin-top: 10px;
     position: relative;
 }
+
 .ImgregiModal-con-s2-b1-d2{
     position: absolute; left:50%; top:50%; transform: translate(-50%,-50%); font-size: 1.5rem;  background: black;  color: white; cursor: pointer;
     border-radius: 50%; width: 35px;    height: 35px;   display: flex; justify-content: center;

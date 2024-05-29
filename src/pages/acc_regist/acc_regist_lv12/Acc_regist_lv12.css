@@ -1,0 +1,26 @@
+.Acc_regist_lv12-footer{
+    width:100%;
+    position: fixed;
+    bottom: 0;
+}
+.Acc_regist_lv12-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc_regist_lv12_content{
+    margin-top: 50px;   margin-bottom: 20vh;
+    width:600px;
+}
+.Acc_regist_lv12-con-title{
+    margin-bottom: 50px;
+    font-size: 2rem;    font-weight: bold;
+}
+
+.Acc_regist_lv12-con-sec1{
+    width:100%;
+    display: flex; flex-wrap: wrap; gap:30px;
+}
