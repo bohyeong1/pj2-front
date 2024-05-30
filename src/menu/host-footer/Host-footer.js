@@ -1,11 +1,13 @@
 import React,{useRef} from "react";
 import './Host-footer.css'
-import { useLocation } from "react-router-dom";
+import { useLocation} from "react-router-dom";
 import LinkBtn from "../../Button/linkBtn/LinkBtn";
 import default_data from "../../utilData/defaultData";
 
-function Host_footer(){
+function Host_footer({fetchHandlerFun, dropData}){
 
+
+    // console.log(fetchHandlerFun, dropData)
     // const stepBar = useRef()       ////스탭바 ref
 
     const regist_step = default_data.regist_step
@@ -52,7 +54,7 @@ function Host_footer(){
             </div>
             <div className="host_footer-con-sec2">
                 <LinkBtn text='이전' url={prevUrl}></LinkBtn>
-                <LinkBtn text='다음' url={nextUrl}></LinkBtn>
+                <LinkBtn text='다음' url={nextUrl} fetchHandlerFun = {fetchHandlerFun} dropData={dropData} index = {thisStep}></LinkBtn>
             </div>
 
         </div>

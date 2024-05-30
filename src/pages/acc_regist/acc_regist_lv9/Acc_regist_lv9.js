@@ -6,10 +6,6 @@ import default_data from "../../../utilData/defaultData";
 
 function Acc_regist_lv9(){
 
-    // alert text 스테이트
-    const [lv9TextState, Lv9TextState] = useState(false)
-
-
 
 
     // text 상태 div Ref

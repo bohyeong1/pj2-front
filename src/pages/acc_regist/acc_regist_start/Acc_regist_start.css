@@ -1,0 +1,12 @@
+.Acc_regist_start-container{
+    width:1920px; 
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc_regist_start-content{
+    margin-top: 50px;
+    display: flex;  justify-content: space-between;
+}

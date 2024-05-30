@@ -44,9 +44,10 @@ function Login (){
             // setDataState(!dataState)
             alert(data.message)
         }else{
-            console.log(data.name)
+            console.log(data)
             localStorage.setItem('log',data.token)
             localStorage.setItem('userName',data.name)
+            sessionStorage.setItem('userData',JSON.stringify(data))
             navigate('/')
         }
     }

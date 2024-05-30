@@ -13,7 +13,7 @@ function Acc_manage(){
             <div className="Acc_manage-content">
                 <div className="Acc_manage-sec1">
                     <div className="Acc_manage-s1-title">숙소</div>
-                    <div className="Acc_manage-s1-addBtn" onClick={()=>{navigate('/Acc_regist/Acc_regist_lv0')}}>
+                    <div className="Acc_manage-s1-addBtn" onClick={()=>{navigate('/Acc_regist/Acc_regist_start')}}>
                         +
                     </div>
                 </div>

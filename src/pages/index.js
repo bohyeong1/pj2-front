@@ -23,3 +23,4 @@ export {default as Acc_regist_lv12} from './acc_regist/acc_regist_lv12/Acc_regis
 export {default as Private_history} from './Privacy/private-history/Private-history'
 export {default as Private_management} from './Privacy/private-management/Private-management'
 export {default as ReservationApp}  from './reservation/reservationApp/ReservationApp'
+export {default as Acc_regist_start} from './acc_regist/acc_regist_start/Acc_regist_start'

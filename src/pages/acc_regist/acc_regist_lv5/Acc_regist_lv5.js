@@ -26,8 +26,10 @@ function Acc_regist_lv5(){
     function inputData(data){
 
         // data.sido 시,도 정보             main_adress에 저장할 것
+        // data.sigungu 시,군,구 정보        
         // data.roadAddress 도로명 주소     sub_adress에 저장할 것
 
+        console.log(data.sigungu)
         adressRef.current.value = data.roadAddress
         SetpopupState('none')
         setMain_adress(data.roadAddress)

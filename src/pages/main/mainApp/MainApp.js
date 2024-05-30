@@ -24,6 +24,7 @@ function MainApp({city, log}){
     },[])
 
 
+    
     //메인화면 색션 필터 util 함수 /////관리자 페이지로 메인화면 출력 선택하게 옮기면 함수 일부 수정ㅇㅇ
     function sectionFilterData(data,value1,value2){                    ////////////value1 = key값 존재하는지 필터링, value2 = 키값에 해당하는 키워드 필터링 
         if(data){

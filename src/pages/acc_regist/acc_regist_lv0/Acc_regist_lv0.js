@@ -3,7 +3,9 @@ import './Acc_regist_lv0.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Host_footer from "../../../menu/host-footer/Host-footer";
 
+
 function Acc_regist_lv0(){
+
     return(
         <div className='Acc_regist_lv0-container'>
             <Main_menu></Main_menu>
