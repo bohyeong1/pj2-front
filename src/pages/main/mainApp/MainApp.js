@@ -13,6 +13,8 @@ import connectData from "../../../utilData/Utildata";
 
 
 function MainApp({city, log}){
+
+    console.log(log)
   
     const [renderData,setRenderData] = useState()    
 
@@ -35,13 +37,13 @@ function MainApp({city, log}){
                             if(ele[value1].length===0){
                                 return
                             }else{
-                                const v_filteredData = ele[value1].filter((v_ele)=>{
-                                    return v_ele === value2
+                                const v_filteredData = ele[value1].filter((v_ele)=>{              /////////////value가 배열형태일때
+                                    return v_ele.name === value2
                                 })
                                 return v_filteredData
                             }                            
                         }else{
-                            return ele.value1 === value2
+                            return ele.value1 === value2                                       /////////////value가 string형태일때
                         }
                     })
                     return filteredData
@@ -59,10 +61,10 @@ function MainApp({city, log}){
         }
     }
 
-    
+console.log('전송받은 숙소 데이터 :', renderData)    
 
 const m_discount = sectionFilterData(renderData,'discount')          /////할인여부 분류
-const m_eco = sectionFilterData(renderData,'keyword','친환경')               //////친환경 분류
+const m_eco = sectionFilterData(renderData,'keywords','가족여행')               //////친환경 분류
 
     return(
         <div className="mainApp">
@@ -73,7 +75,7 @@ const m_eco = sectionFilterData(renderData,'keyword','친환경')               
             </div>
             <div className="main-content">
                 <Lv1_description title={'국내 인기 여행지'} data = {city}></Lv1_description>
-                <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description>
+                {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
                 <Lv2_description title={'인기 추천 숙소'} data={renderData}></Lv2_description>
                 <Lv2_description title={'친환경 숙소'} data={m_eco}></Lv2_description>
                 <Lv2_description title={'가족여행 숙소'} data={renderData}></Lv2_description>

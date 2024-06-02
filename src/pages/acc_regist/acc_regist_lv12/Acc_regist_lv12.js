@@ -1,10 +1,26 @@
-import React from "react";
+import React, {useEffect} from "react";
 import './Acc_regist_lv12.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Host_footer from "../../../menu/host-footer/Host-footer";
 import default_data from "../../../utilData/defaultData";
+import connectData from "../../../utilData/Utildata";
 
 function Acc_regist_lv12(){
+
+    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+
+    ///숙소 데이터 업데이트 패치 끝!!!~~~~
+    async function finishRegist(){
+        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
+        {seller : userData._id,
+        sellState : true
+        }, localStorage.getItem('log'))
+        
+    } 
+
+    useEffect(()=>{
+        finishRegist()
+    },[])
 
     return(
         <div className="Acc_regist_lv12-container">

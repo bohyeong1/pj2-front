@@ -57,7 +57,7 @@ function SubApp (){
         .then(result => {
             const filteredData = result.accomodations.filter((ele)=>{
             const cityParam = params.city
-            return ele.cityName === cityParam
+            return ele.search_adress === cityParam
             })
             setList(filteredData)
         })

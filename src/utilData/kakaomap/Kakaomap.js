@@ -6,7 +6,7 @@ import './Kakaomap.css'
 
 
 
-function Kakaomap({setDataHandler, adressData}){
+function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn}){
 
 
 
@@ -42,7 +42,11 @@ function Kakaomap({setDataHandler, adressData}){
     
             // 정상적으로 검색이 완료됐으면 
             if (status === kakao.maps.services.Status.OK) {
-    
+                // console.log(result[0].y, result[0].x)
+
+                setMain_adress_fun(adressData, result[0]. x,result[0].y)
+
+
                 let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
     
                 // 결과값으로 받은 위치를 마커로 표시합니다
@@ -50,31 +54,23 @@ function Kakaomap({setDataHandler, adressData}){
                 // // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
                 map.setCenter(coords);
 
-
-
-                // 인포윈도우로 장소에 대한 설명을 표시합니다
-                // const infowindow = new kakao.maps.InfoWindow({
-                //     content: '<div style="width:150px;text-align:center;padding:6px 0;">자세한 위치를 클릭해서 조절해 주세요</div>'
-                // });
-                // infowindow.open(map, marker);   
-
                 } 
                 })
         }
-
-
-
 
         kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
             
             // 클릭한 위도, 경도 정보를 가져옵니다 
             const latlng = mouseEvent.latLng; 
+
+            set_sub_coorFn(latlng.La, latlng.Ma)
             
             // 마커 위치를 클릭한 위치로 옮깁니다
             marker.setPosition(latlng);
             
-            setDataHandler([latlng.getLat(),latlng.getLng()])      
+           
         });
+
     },[adressData])
 
 

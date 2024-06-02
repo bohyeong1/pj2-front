@@ -12,6 +12,7 @@ import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoA
 
 
 
+
 const BASE_URL = 'http://127.0.0.1:3700'           ///베이스 url
 
 
@@ -102,12 +103,13 @@ async function saveData(){
         <Route exact path='/Private_management' element={<Private_management></Private_management>}></Route>              /////////////마이페이지 - 정보수정
 
 
-        <Route exact path='/ReservationApp' element={<ReservationApp></ReservationApp>}></Route>              /////////////예약하기
-        
-
-
+        <Route exact path='/ReservationApp' element={<ReservationApp></ReservationApp>}>                    /////////////예약하기    
+          <Route exact path=':reservation' element={<ReservationApp></ReservationApp>}></Route>
+        </Route>             
 
       </Routes>
+
+
 
     {/* <MainApp></MainApp> */}
     {/* <SubApp></SubApp> */}

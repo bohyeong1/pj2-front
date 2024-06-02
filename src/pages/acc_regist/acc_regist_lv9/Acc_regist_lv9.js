@@ -3,9 +3,11 @@ import './Acc_regist_lv9.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Host_footer from "../../../menu/host-footer/Host-footer";
 import default_data from "../../../utilData/defaultData";
+import connectData from "../../../utilData/Utildata";
 
 function Acc_regist_lv9(){
 
+    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
 
 
     // text 상태 div Ref
@@ -14,6 +16,28 @@ function Acc_regist_lv9(){
     const ac_regi_lv9_input = useRef()
 
 
+    // 선택된 카테고리의 data값 state
+    const [sellectData, setSellectData] = useState()
+
+
+    ////////////////////디바운싱
+    function debounce(func, delay) {
+        let timer;
+        return function() {
+            const args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
+        }
+    }
+
+    //////////////////타이틀 스테이트값 1초 디바운스 한후에 스테이트에 담기 ㅇㅇ
+    function handleFn(){
+        setSellectData(ac_regi_lv9_input.current.value)
+    }
+    const debounceSetTitle = debounce(handleFn,1000)
+
     function lv8TextInputChange(){
         const length = ac_regi_lv9_input.current.value.length
         ac_regi_lv9_stringstate.current.innerText = `${length}/400`
@@ -21,8 +45,21 @@ function Acc_regist_lv9(){
             ac_regi_lv9_alert.current.style.display = 'block'
         }else{
             ac_regi_lv9_alert.current.style.display = 'none'
+            debounceSetTitle()
         }
 
+    }
+
+    console.log(sellectData)
+
+
+    ///숙소 데이터 업데이트 패치
+    async function fetchCategory(data){
+
+        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
+        {seller : userData._id,
+        summary : data
+        }, localStorage.getItem('log'))
     }
 
     return(
@@ -51,7 +88,7 @@ function Acc_regist_lv9(){
             </div>
 
             <div className="Acc_regist_lv9-footer">
-                <Host_footer></Host_footer>
+                <Host_footer fetchHandlerFun = {fetchCategory} dropData = {sellectData}></Host_footer>
             </div>
 
 

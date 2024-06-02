@@ -13,6 +13,7 @@ function Acc_regist_start(){
     // console.log(localStorage.getItem('log'))
     const navigate = useNavigate()
 
+    console.log(userData)
 
     async function registStart(){
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register`, 'POST', {seller : userData._id}, localStorage.getItem('log'))

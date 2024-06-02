@@ -18,7 +18,7 @@ function Lv3_description({title,data}){
                                 <Large_main data={ele}></Large_main>
                             </div>
                             <div className="lv3-img-text">
-                                <div className="lv3-img-tex1">{ele.keyword.map((ele)=>{return ele})}</div>
+                                <div className="lv3-img-tex1">{ele.keywords.map((ele)=>{return ele.name})}</div>
                                 <div className="lv3-img-tex2-box">
                                     <div className="lv3-img-tex2-1">{ele.title}</div>
                                     <div className="lv3-img-tex2-2">할인 이벤트</div>

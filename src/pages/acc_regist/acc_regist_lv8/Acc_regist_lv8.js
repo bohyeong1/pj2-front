@@ -1,8 +1,9 @@
-import React, {useRef, useState} from "react";
+import React, {useRef, useState, useEffect} from "react";
 import './Acc_regist_lv8.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Host_footer from "../../../menu/host-footer/Host-footer";
 import default_data from "../../../utilData/defaultData";
+import connectData from "../../../utilData/Utildata";
 
 function Acc_regist_lv8(){
 
@@ -14,16 +15,69 @@ function Acc_regist_lv8(){
     const regi_lv8_s3_alert = useRef()          ///수용인원 경고 text
 
 
+    // 선택된 카테고리의 data값 state
+    const [sellectData, setSellectData] = useState()
+
+    ///서버에 보내는 data값 저장하는 state
+    const [title, setTitle] = useState()
+    const [capacity, setCapacity] = useState()
+
+
+    ////////////////////디바운싱
+    function debounce(func, delay) {
+        let timer;
+        return function() {
+            const args = arguments;
+            clearTimeout(timer);
+            timer = setTimeout(() => {
+                func.apply(this, args);
+            }, delay);
+        }
+    }
+
+        
+    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+        
+    ///숙소 데이터 업데이트 패치
+    async function fetchCategory(data){
+
+
+        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
+        {seller : userData._id,
+        title : data.title,
+        capacity : data.capacity
+        }, localStorage.getItem('log'))
+    }
+    
+    //////////////////타이틀 스테이트값 2초 디바운스 한후에 스테이트에 담기 ㅇㅇ
+    function handleFn(){
+        setTitle(ac_regi_lv8_input.current.value)
+    }
+    const debounceSetTitle = debounce(handleFn,2000)
+
+    ////////경고문구 띄우는 함수
     function lv8TextInputChange(){
         const length = ac_regi_lv8_input.current.value.length
         ac_regi_lv8_stringstate.current.innerText = `${length}/20`
         if(length>20){
             ac_regi_lv8_alert.current.style.display = 'block'
         }else{
-            ac_regi_lv8_alert.current.style.display = 'none'
+            ac_regi_lv8_alert.current.style.display = 'none' 
+            debounceSetTitle()
         }
-
     }
+
+
+    /////////////////최종적으로 드롭하는 데이터값ㄱ 업데이트
+    useEffect(()=>{
+        setSellectData({
+            capacity:capacity || 1,
+            title:title || null
+        })
+    },[capacity,title])
+
+    console.log(sellectData)
+
 
     return(
         <div className="Acc_regist_lv8-container">
@@ -39,8 +93,7 @@ function Acc_regist_lv8(){
 
                     <form className="Acc_regist_lv8-con-s1-b1">                        
                         <textarea  className="Acc_regist_lv8-con-s1-b1-t1" ref={ac_regi_lv8_input} type='text' style={{width:'100%', boxSizing:'border-box', height:'100%', 
-                        textAlign : 'top', padding : '10px', fontSize : '1rem', lineHeight:'1.5rem'}} placeHolder='숙소를 설명하는 이름을 지어주세요!'  onChange={lv8TextInputChange}></textarea >
-                        <input  className="Acc_regist_lv8-con-s1-b1-t2" type='submit' style={{display:'none'}}></input>
+                        textAlign : 'top', padding : '10px', fontSize : '1rem', lineHeight:'1.5rem'}} placeholder='숙소를 설명하는 이름을 지어주세요!'  onChange={lv8TextInputChange}></textarea >
                     </form>
 
                     <div className="Acc_regist_lv8-con-s1-b2">
@@ -64,6 +117,8 @@ function Acc_regist_lv8(){
                                 rb_btn.disabled=false
                                 regi_lv8_s3_alert.current.style.display='none'
                                 }
+
+                                setCapacity(Number(regi_lv8_value.current.innerText))        /////capacity값 스테이트에 담기
                                 } 
                         }>-</button>
 
@@ -82,9 +137,9 @@ function Acc_regist_lv8(){
                                     regi_lv8_s3_alert.current.style.display='block'
                                 }else{
                                     const lb_btn = document.querySelector(`.Acc_regist_lv8-con-s2-b1-d2-lb`)
-                                    lb_btn.disabled=false
-     
+                                    lb_btn.disabled=false     
                                 }
+                                setCapacity(Number(regi_lv8_value.current.innerText))        /////capacity값 스테이트에 담기
                             }        
                         }>+</button>
                     </div>
@@ -96,7 +151,7 @@ function Acc_regist_lv8(){
             </div>
 
             <div className="Acc_regist_lv8-footer">
-                <Host_footer></Host_footer>
+                <Host_footer fetchHandlerFun = {fetchCategory} dropData = {sellectData}></Host_footer>
             </div>
 
 

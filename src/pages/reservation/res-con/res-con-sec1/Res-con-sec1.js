@@ -1,28 +1,78 @@
 import React from "react";
 import './Res-con-sec1.css'
+import connectData from "../../../../utilData/Utildata";
+import default_data from "../../../../utilData/defaultData";
 
-function Res_con_sec1 (){
+
+function Res_con_sec1 ({data, param}){    
+
+    console.log(param)
+
+    const in_years = new Date(data?.checkIn).getFullYear()
+    const in_months = new Date(data?.checkIn).getMonth()
+    const in_days = new Date(data?.checkIn).getDate()
+
+    const out_years = new Date(data?.checkOut).getFullYear()
+    const out_months = new Date(data?.checkOut).getMonth()
+    const out_days = new Date(data?.checkOut).getDate()
+
+    const userData = JSON.parse(sessionStorage.getItem('userData')) 
+    
+    async function payment(){
+        await connectData(`${default_data.d_base_url}/api/reserv/reserv`, 'POST',{
+            homeid : param
+        })
+
+    }
+
     return(
         <div className="Res_con_sec1-container">
             <div className="Res_con_sec1-sec1">예약요청</div>
             <div className="Res_con_sec1-sec2">
                 <div className="Res_con_sec1-sec2-title">예약정보</div>
                 <div className="Res_con_sec1-sec2-content">
-                    <div className="Res_con_sec1-sec2-con-sec1">날짜</div>
-                    <div className="Res_con_sec1-sec2-con-sec2">게스트/명수</div>
+                    <div className="Res_con_sec1-sec2-con-sec1">
+                        <div className="Res_con_sec1-sec2-con-s1-b1">날짜</div>
+                        <div className="Res_con_sec1-sec2-con-s1-b2">{`${in_years}년 ${in_months}월 ${in_days}일 ~ ${out_years}년 ${out_months}월 ${out_days}일`}</div>
+                    </div>
+                    <div className="Res_con_sec1-sec2-con-sec2">
+                        <div className="Res_con_sec1-sec2-con-s1-b1">게스트</div>
+                        <div className="Res_con_sec1-sec2-con-s1-b2">{`게스트 ${data?.capacity}명`}</div>
+                    </div>
                 </div>
             </div>
             <div className="Res_con_sec1-sec3">
-                <div className="Res_con_sec1-sec3-title">예약하려면 로그인을 해주세요</div>
+                <div className="Res_con_sec1-sec3-title">기본 규칙</div>
                 <div className="Res_con_sec1-sec3-content">
-                    <div className="Res_con_sec1-sec3-con-sec1">ID : / PASSWORD :</div>
-                    <div className="Res_con_sec1-sec3-con-sec2">비회원 숙소 신청은 지원되지 않습니다.</div>
-                    <div className="Res_con_sec1-sec3-con-sec3">로그인</div>
+                    <div className="Res_con_sec1-sec3-con-sec1">훌륭한 게스트가 되기 위한 몇 가지 간단한 규칙을 지켜주실 것을 모든 게스트에게 당부드리고 있습니다</div>
+                    <div className="Res_con_sec1-sec3-con-sec2">숙소 이용규칙을 준수하세요</div>
+                    <div className="Res_con_sec1-sec3-con-sec3">호스트의 집도 자신의 집처럼 아껴주세요</div>
                 </div>
             </div>
             <div className="Res_con_sec1-sec4">
-                <div className="Res_con_sec1-sec4-title">아이디가 없다면 회원가입 해주세요</div>
-                <div className="Res_con_sec1-sec4-content">회원가입</div>
+                <div className="Res_con_sec1-sec4-title">요금 정책</div>
+                <div className="Res_con_sec1-sec4-content">
+                    <div className="Res_con_sec1-sec4-con-sec1">현재 페이지는 현금을 통한 거래를 허용하지 않습니다</div>
+                    <div className="Res_con_sec1-sec4-con-sec2">프론트엔드 기능 확인을 위해 가상의 마일리지를 통해 거래됩니다</div>
+                    <div className="Res_con_sec1-sec4-con-sec3">가상의 마일리지는 가입 시 300만원씩 주어집니다</div>
+                </div>
+            </div>
+            <div className="Res_con_sec1-sec5">
+                <div className="Res_con_sec1-sec5-title">결제 수단</div>
+                <div className="Res_con_sec1-sec5-content">
+                    <div className="Res_con_sec1-sec5-con-sec1">
+                        <div className="Res_con_sec1-sec5-con-sec1-b1">보유 마일리지</div>
+                        <div className="Res_con_sec1-sec5-con-sec1-b2">{`${userData.cashInv}원`}</div>
+                    </div>
+                    <div className="Res_con_sec1-sec5-con-sec2">
+                        <div className="Res_con_sec1-sec5-con-sec1-b1">결제 후 마일리지</div>
+                        <div className="Res_con_sec1-sec5-con-sec1-b2">{`${userData.cashInv - data?.totalPrice}원`}</div>
+                    </div>                    
+                </div>                
+            </div>
+            <div className="Res_con_sec1-sec6">
+                <button className="Res_con_sec1-sec6-btn" onClick={payment}>결제하기</button>
+                <button className="Res_con_sec1-sec6-btn">취소</button>                
             </div>
         </div>
     )

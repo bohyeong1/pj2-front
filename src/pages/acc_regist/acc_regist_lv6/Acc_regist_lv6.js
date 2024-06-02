@@ -7,10 +7,15 @@ import ImgregiModal from "../../../modal/imgregiModal/ImgregiModal";
 
 function Acc_regist_lv6(){
 
+    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+
     const [mainImgState, setMainImgState] = useState(false)           /////////메인 이미지 등록 여부
     const [mainImgFile, setMainImgFile] = useState(null)            ////////메인 이미지 파일 
     const [modalState, setModalState] = useState(false)             ///////모달창 키고 끄기
     const [subImgFile, setSubImgFile] = useState([])             ///////////서브 이미지 파일
+    
+    
+    const [sellectData, setSellectData] = useState({main:'', sub:''})         // 선택된 카테고리의 data값 state
 
     ////////ref
     const lv6_mainImg = useRef()
@@ -30,10 +35,8 @@ function Acc_regist_lv6(){
         if(subImgFile.length != 0){
             for(let file of subImgFile){
                 const index = subImgFile.indexOf(file)
-
-
                 const blob = new Blob([file], { type: 'image/jpeg' });        
-                console.log(lv6_subImg.current[index])          
+                // console.log(lv6_subImg.current[index])          
                 lv6_subImg.current[index].src = URL.createObjectURL(blob)
             }
         }
@@ -46,8 +49,17 @@ function Acc_regist_lv6(){
         if(file){
             if(!mainImgState){
                 setMainImgFile(file)
+                setSellectData({
+                    main:file,
+                    sub:sellectData.sub
+                    
+                })
             }else{                
                 setSubImgFile(file)
+                setSellectData({
+                    main:sellectData.main,
+                    sub:file
+                })
             }
 
             // console.log(mainImgFile)
@@ -61,10 +73,13 @@ function Acc_regist_lv6(){
         setModalState(!modalState)
     }
 
+console.log('서브',subImgFile)
+console.log('메인',mainImgFile)
+console.log('data', sellectData)
 
 
 
-    //////////////////이미지 폼데이터로 전환 후 서버로 패치/////////fetch를 쓸 경우 hearders꼮꼬꼬꼬꼬꼮 날리지말것 ---->이미지 하나
+    //////////////////이미지 폼데이터로 전환 후 서버로 패치, 연습용/////////fetch를 쓸 경우 hearders꼮꼬꼬꼬꼬꼮 날리지말것 ---->이미지 하나
 //     async function singleImgfetch(e){
 //         e.preventDefault()
 //         if(e.target.imgFile.files && e.target.imgFile.files[0]){
@@ -89,10 +104,6 @@ function Acc_regist_lv6(){
 //                     method: 'POST',
 //                     body: imgData
 //                   })
-
-
-//                   const blob = new Blob([e.target.imgFile.files[0]], { type: 'image/jpeg' });                  
-//                   displayImg.src  = URL.createObjectURL(blob)
 //             }
 //             catch(e){
 //                 alert('이미지 등록에 실패하셨습니다.')
@@ -102,44 +113,53 @@ function Acc_regist_lv6(){
 
 
 
-// ///////////////////////////////이미지 여러개 등록
-//     async function multiImgfetch(e){
-//         e.preventDefault()
-//         const files = Array.from(e.target.imgFile)        ///////유사배열 -> 배열로 변환
-//         const filteredFiles = files.filter((ele)=>{return ele.files.length !== 0})        /////////등록한 이미지 필터링
-//         // console.log(filteredFiles)
+// ///////////////////////////////이미지 한방에 여러개 등록
+    async function multiImgfetch(imgdata){
+        const file = imgdata.main
+        const files = Array.from(imgdata.sub)        ///////유사배열 -> 배열로 변환
 
-//         if(filteredFiles.length === 4){
-//             let imgData = new FormData()
-//             for(const file of filteredFiles){
-//                 imgData.append('homeImage', file.files[0], 'homeImage')
-//             }
+        console.log(file, files)
 
-//             ///////////////////////이미지 폼데이터 console확인
-//             // for (const pair of imgData) {                             
-//             //     console.log(pair); 
-//             // }
-
-//             try{
-//                 const result = await fetch((`${default_data.d_base_url}/api/accomodation/imgs`),{
-//                     headers:{
-//                     //   'Content-Type':'multipart/form-data',
-//                     //   'Authorization': `${token? 'Bearer' + token : ''}`, 
-//                     },
-//                     method: 'POST',
-//                     body: imgData
-
-//                   })
-
-//                 // console.log(filteredFiles[0].files[0])
+        if(files.length === 4 && file){
+            let imgDatas = new FormData()   ///sub, main 이미지 통합으로 관리 // 이름은 다르게 ㅇㅇ
+            imgDatas.append('mainImg',file,'mainImg') //메인 이미지 어펜드
 
 
-//             }
-//             catch(e){
-//                 console.log(e)
-//             }
-//         }        
-//     }
+            // 서브이미지 어펜드 ㅇ
+            for(const file of files){
+                imgDatas.append('subImg', file, 'subImg')
+            }
+
+            //////////////숙소의 ref 유저 데이터값
+            const userInfo = new Blob([JSON.stringify(userData._id)],{type:'application/json'})
+
+            // const text = await new Response(userInfo).text()            
+            // console.log(text)
+            imgDatas.append('userData',userInfo)
+
+            ///////////////////////이미지 폼데이터 console확인
+
+            for (const pair of imgDatas) {                             
+                console.log(pair); 
+            }
+
+
+            try{
+                const token = localStorage.getItem('log')
+                const result = await fetch((`${default_data.d_base_url}/api/accomodation/imgs`),{
+                    headers:{
+                        'Authorization': `${token? 'Bearer' + token : ''}`
+                    },
+                    method: 'POST',
+                    body: imgDatas
+                  })
+
+            }
+            catch(e){
+                console.log(e)
+            }
+        }        
+    }
 
 
 
@@ -179,7 +199,7 @@ function Acc_regist_lv6(){
             </div>
 
             <div className="Acc_regist_lv6-footer">
-                <Host_footer></Host_footer>
+                <Host_footer fetchHandlerFun = {multiImgfetch} dropData = {sellectData}></Host_footer>
             </div>
 
             <ImgregiModal mainState={mainImgState} mainImgFile={mainImgFile}  deliverFile={deliverFile} modalState={modalState}

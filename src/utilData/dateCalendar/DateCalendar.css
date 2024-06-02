@@ -1,0 +1,27 @@
+.DateCalendar-container{
+    width: 100%;
+    height: 100%;
+    z-index: 3;
+}
+.DateCalendar-con-header{
+    display: flex; justify-content: space-between;
+}
+.DateCalendar-con-m-day{
+    display: flex; border: solid 1px black;
+}
+.DateCalendar-con-m-day-box{
+    width: 100%;
+    text-align: center;
+}
+/* 날짜 */
+.DateCalendar-con-m-dates{
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    text-align: center;
+}
+
+/* 날짜 개개인 박스 */
+.Calendar-box{
+    cursor: pointer;
+}

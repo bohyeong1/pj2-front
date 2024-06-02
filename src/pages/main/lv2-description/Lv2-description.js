@@ -19,10 +19,10 @@ function Lv2_description({title, data}){
                                 <Midium_main data={ele}></Midium_main>
                             </div>
                             <div className="lv2-img-text">
-                                <div className="lv2-img-tex1">{ele.category}</div>
+                                <div className="lv2-img-tex1">{ele.category.name}</div>
                                 <div className="lv2-img-tex2">{ele.title}</div>
-                                <div className="lv2-img-tex3">{ele.adress}</div>
-                                <div className="lv2-img-tex4">{ele.evaluation}</div>
+                                <div className="lv2-img-tex3">{ele.main_adress.name}</div>
+                                {/* <div className="lv2-img-tex4">{ele.evaluation}</div> */}
                                 <div className="lv2-img-tex5">{ele.price}</div>
                             </div>
                         </NavLink>

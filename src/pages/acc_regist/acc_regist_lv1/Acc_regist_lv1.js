@@ -41,7 +41,6 @@ function Acc_regist_lv1(){
             }
         }
 
-
         setSellectData(default_data.d_category_icon[id])
     }
 

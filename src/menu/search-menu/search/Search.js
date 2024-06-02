@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
-import CalendarData from "../../../utilData/calendar/Calendar";
 import './Search.css'
+import DateCalendar from "../../../utilData/dateCalendar/DateCalendar";
 
 
 function Search({data, tg_value}){
@@ -77,15 +77,15 @@ function Search({data, tg_value}){
             }
     }
     ////////////////////////////윈도우 전역에 이벤트 주기 (협업에서 이렇게 하면 욕처먹을듯// 임포트 할 수 있는 유틸함수로 뺄것)
-    window.addEventListener('click',(e)=>{
-        // console.log('확인')
-        e.stopPropagation()
-        if(e.target.classList.contains('b-l-box1-title') || e.target.classList.contains('b-l-box2-title') || e.target.classList.contains('b-l-box3-title')){
-            return
-        }else{
-            setSelectedDropdown(null)
-        }
-    })
+    // window.addEventListener('click',(e)=>{
+    //     // console.log('확인')
+    //     e.stopPropagation()
+    //     if(e.target.classList.contains('b-l-box1-title') || e.target.classList.contains('wraper') || e.target.classList.contains('b-l-box3-title')){
+    //         return
+    //     }else{
+    //         setSelectedDropdown(null)
+    //     }
+    // })
 
     
     // function ToggleComponent(cname){        
@@ -126,7 +126,7 @@ function Search({data, tg_value}){
                    <input className="b-l-box2-title" id={2} onClick={openDropdown} value='날짜'></input>
 
                     <div className={`search-b-l-box2-dr ${selectedDropdown == 2 && 'drop_active'}`}>
-                        <CalendarData></CalendarData>
+                        <DateCalendar></DateCalendar>
                     </div>
                 </div> 
 

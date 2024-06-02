@@ -46,4 +46,6 @@
 }
 .Acc_regist_lv3-con-s1-b1-d2-t1{
     font-size: 1.2rem;
+    display: flex; align-items: center; gap: 5px;
+
 }
