@@ -1,0 +1,48 @@
+.EvaluModal-wrapper{
+    position: fixed;
+    top:0; left:0;
+    background: black; opacity: 0.4;
+    width: 100vw;   height: 100vh;
+    z-index: 2;
+}
+.EvaluModal-container{
+    position: fixed;
+    top:50%; left:50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    width: 600px;
+    height: 600px;
+    z-index: 3; opacity: 1;
+    box-shadow: 0 0 20px 1px rgb(87, 87, 87) ;
+}
+
+.EvaluModal-con-b{
+    display: flex;
+    border-top: solid 1px black; box-sizing: border-box; padding: 20px;
+
+}
+
+/* 평점 */
+.EvaluModal-con-b-s2{
+    display: flex;
+    
+}
+.star{
+    appearance: none;
+    cursor: pointer;
+}
+.star_display{
+    padding: 1px;
+    cursor: pointer;
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 1px;
+    font-size: 35px;
+}
+
+.change_star{
+    -webkit-text-fill-color: orange;
+}
+
+
+/* ★ */

@@ -1,0 +1,35 @@
+.EvaluationApp-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Evaluation-con-content{
+    width:800px; box-sizing: border-box;
+    /* display: flex; */
+}
+.Evaluation-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    font-size: 5rem;
+    background: rgb(243, 243, 243);
+}
+.Evaluation-con-con-title{
+    margin-bottom: 50px; font-weight: bold;
+    font-size: 2rem;
+}
+
+.Evaluation-con-con-box{
+    display: flex; margin-bottom: 80px;
+}
+
+.Evaluation-con-con-b-d{
+    width:100%; box-sizing: border-box; padding-left: 15px;
+}
+
+.Evaluation-con-con-b-d:nth-child(1),.Evaluation-con-con-b-d:nth-child(2),.Evaluation-con-con-b-d:nth-child(3),.Evaluation-con-con-b-d:nth-child(4){
+    border-right: solid 1px black;
+}

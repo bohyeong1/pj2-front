@@ -6,7 +6,7 @@ import default_data from "../../../../utilData/defaultData";
 
 function Res_con_sec1 ({data, param}){    
 
-    console.log(param)
+    console.log(data)
 
     const in_years = new Date(data?.checkIn).getFullYear()
     const in_months = new Date(data?.checkIn).getMonth()
@@ -18,9 +18,15 @@ function Res_con_sec1 ({data, param}){
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) 
     
-    async function payment(){
+    async function payment(data){
         await connectData(`${default_data.d_base_url}/api/reserv/reserv`, 'POST',{
-            homeid : param
+            homeid : param,
+            buyerid : userData._id,
+            totalPrice : data.totalPrice,       /////최종가격
+            capacity : data.capacity,           ///////인원수
+            price : data.price,                ///1박당 가격
+            restDay : data.payday            /////숙박일수
+
         })
 
     }
@@ -71,7 +77,7 @@ function Res_con_sec1 ({data, param}){
                 </div>                
             </div>
             <div className="Res_con_sec1-sec6">
-                <button className="Res_con_sec1-sec6-btn" onClick={payment}>결제하기</button>
+                <button className="Res_con_sec1-sec6-btn" onClick={()=>{payment(data)}}>결제하기</button>
                 <button className="Res_con_sec1-sec6-btn">취소</button>                
             </div>
         </div>

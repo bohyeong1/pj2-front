@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react';
 import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
         ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12,
-        Private_history,Private_management,ReservationApp,Acc_regist_start
+        Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation
 
 } from './pages';
 
@@ -107,6 +107,9 @@ async function saveData(){
           <Route exact path=':reservation' element={<ReservationApp></ReservationApp>}></Route>
         </Route>             
 
+        <Route exact path='/evaluation' element={<Evaluation></Evaluation>}>              /////////////숙소 평가
+          <Route exact path=':evaluation' element={<Evaluation></Evaluation>}></Route>
+        </Route>
       </Routes>
 
 

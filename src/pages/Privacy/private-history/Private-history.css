@@ -24,3 +24,14 @@
     font-size: 5rem;
     background: rgb(243, 243, 243);
 }
+
+/* 예약완료 */
+.pri-his-con-main-sec2-b1{
+    display: flex;
+}
+.pri-his-con-m-s2-b1-d1{
+    border:solid 1px black; width: 80%;
+}
+.pri-his-con-m-s2-b1-d2{
+    border:solid 1px black; width: 20%;
+}
