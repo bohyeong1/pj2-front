@@ -3,7 +3,7 @@ import { useRef } from "react";
 import './Evalu_star.css'
 import default_data from "../../../utilData/defaultData";
 
-function Evalu_star(){
+function Evalu_star({index,evaluData,pullFunction}){
     //state
     const [radioState, setRadioState] = useState()
 
@@ -13,11 +13,15 @@ function Evalu_star(){
     // 평점 클릭
     function clickRadio(e){
         const target = e.target.id
-        console.log(e.target.previousSibling.value)
-        setRadioState(target)        
+        // console.log(e.target.previousSibling.value)
+        setRadioState(target)  
+        
+        const targetGrade = e.target.previousSibling.value
+
+        pullFunction(index,evaluData,targetGrade)
     }
 
-    console.log('리렌더링')
+    // console.log(evaluData)
 
     return(
         <div className ='Evalu_star-container' onClick={clickRadio}>
@@ -27,6 +31,7 @@ function Evalu_star(){
                         <input type='radio' value={el.value} className='star'></input>
                         <label className={`star_display ${id <= radioState ? 'change_star' : ''}`} id={id}>★</label>
                     </div>
+                    
                 )
             })}
         </div>

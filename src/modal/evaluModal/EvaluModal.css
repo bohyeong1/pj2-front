@@ -15,11 +15,15 @@
     z-index: 3; opacity: 1;
     box-shadow: 0 0 20px 1px rgb(87, 87, 87) ;
 }
-
 .EvaluModal-con-b{
     display: flex;
     border-top: solid 1px black; box-sizing: border-box; padding: 20px;
 
+}
+
+/* 헤더 */
+.EvaluModal-title{
+    display: flex; justify-content: space-between;
 }
 
 /* 평점 */
