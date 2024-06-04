@@ -10,25 +10,45 @@
 }
 .Login-content{
     width:580px; 
-    border: solid 1px black;
+    border: solid 1px #80CEE1;
     padding-left: 69px; padding-right: 69px; padding-top: 69px; padding-bottom: 69px;
     box-sizing: border-box;
     margin-bottom: 30vh;
 }
+
+/* 포커스 */
+.user-Id:focus, .user-Password:focus{
+    outline: solid 1px #80CEE1;
+}
+
+/* 체크박스 */
+.log-c-state{
+    display: flex;  gap: 15px;
+}
+.log-c-state-img{
+    width: 25px; height: 25px;
+    cursor: pointer;
+}
+.log-active{
+    filter: invert(46%) sepia(18%) saturate(7282%) hue-rotate(326deg) brightness(100%) contrast(92%);
+}
+
 .log-con-main{
     width:100%; height:300px;
     display: flex;
     flex-direction: column;     justify-content: space-between;
 }
-.user-Id, .user-Password, .submitBtn{
+.user-Id, .user-Password{
     display: block; height:50px; border:none;   background: rgb(243, 243, 243); border-radius: 10px;    width: 100%;    box-sizing: border-box;
-    padding-left: 10px;
+    padding-left: 10px; font-size: 1rem;
 }
 .submitBtn{
     cursor: pointer;    
+    display: block; height:50px; border:none;   background: #b8e0e9; border-radius: 10px;    width: 100%;    box-sizing: border-box;
+    padding-left: 10px; font-size: 1.2rem;  font-weight: bold;
 }
 .submitBtn:hover{
-    background: rgb(200, 200, 200);
+    background: #80CEE1;
 }
 .Login-footer{
     display: flex;
@@ -39,12 +59,17 @@
     background: rgb(243, 243, 243);
 }
 
-
+/* 회원가입 */
 .Login-con2{
     display: flex;  flex-direction: column; align-items: center;    margin-top: 30px;   gap:20px;
+
 }
 .Login-con2-b2{
-    text-decoration: none;  color: black;   font-size: 1.2rem;  font-weight: bold;
+    text-decoration: none;  color: black;   font-size: 1.2rem;  font-weight: bold;    box-sizing: border-box; 
+    padding-top: 10px; padding-bottom : 10px; padding-left: 20px; padding-right: 20px; border-radius: 15px;
+}
+.Login-con2-b2:hover{
+    background: #80CEE1;
 }
 
 .log-c-text{

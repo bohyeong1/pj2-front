@@ -4,6 +4,7 @@ import './MainApp.css'
 import Lv1_description from "../lv1-description/Lv1-description";
 import Lv2_description from "../lv2-description/Lv2-description";
 import Lv3_description from "../lv3-description/Lv3-description";
+import Lv4_description from "../lv4-description/Lv4-description";
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Side_menu from "../../../menu/side-menu/side-menu";
 import Search_menu from "../../../menu/search-menu/search-menu";
@@ -14,7 +15,7 @@ import connectData from "../../../utilData/Utildata";
 
 function MainApp({city, log}){
 
-    console.log(log)
+
   
     const [renderData,setRenderData] = useState()    
 
@@ -61,7 +62,9 @@ function MainApp({city, log}){
         }
     }
 
-console.log('전송받은 숙소 데이터 :', renderData)    
+// console.log('전송받은 숙소 데이터 :', renderData)    
+
+const imgurl ='https://img.allurekorea.com/allure/2023/08/style_64ec84b60dd21.jpg'
 
 const m_discount = sectionFilterData(renderData,'discount')          /////할인여부 분류
 const m_eco = sectionFilterData(renderData,'keywords','가족여행')               //////친환경 분류
@@ -77,8 +80,8 @@ const m_eco = sectionFilterData(renderData,'keywords','가족여행')           
                 <Lv1_description title={'국내 인기 여행지'} data = {city}></Lv1_description>
                 {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
                 <Lv2_description title={'인기 추천 숙소'} data={renderData}></Lv2_description>
-                <Lv2_description title={'친환경 숙소'} data={m_eco}></Lv2_description>
                 <Lv2_description title={'가족여행 숙소'} data={renderData}></Lv2_description>
+                <Lv4_description title={'친환경 숙소'} data={m_eco} imgurl = {imgurl}></Lv4_description>
                 <Lv3_description title={'할인 이벤트'} data={renderData}></Lv3_description>
                 <div>이벤트 홍보</div>
             </div>

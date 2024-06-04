@@ -1,0 +1,26 @@
+.Rslide_btn-container{
+    position: absolute;
+    top:50%;  z-index: 2;
+    background: white;  border-radius: 50%;
+    width: 40px;    height: 40px;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;  overflow: hidden;   cursor: pointer;
+}
+.Rslide_btn-con-img{
+    width:70%; height: 70%;
+    position: absolute; top: 50%;   left: 50%;    transform: translate(-50%,-50%);  transition: 0.2s;
+}
+
+.btn-right{
+    right: 0;
+    transform: translate(50%,-50%);
+}
+
+.btn-left{
+    left:0;
+    transform: translate(-50%,-50%) rotateY(180deg);
+
+}
+
+.Rslide_btn-con-img:hover{
+    filter: invert(46%) sepia(18%) saturate(7282%) hue-rotate(326deg) brightness(100%) contrast(92%);
+    
+}

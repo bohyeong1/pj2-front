@@ -7,6 +7,7 @@
     flex-direction: column;
     align-items: center;
     position: relative;
+    box-shadow: 0 0 50px 1px rgb(207, 207, 207) ;
 }
 
 .search-top-line{

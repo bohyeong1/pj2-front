@@ -1,0 +1,57 @@
+.lv4-img-container{
+    display: flex;
+    gap : 20px;
+}
+.Lv4-description-title{
+    font-size: 2rem;
+}
+.Lv4-description-container{
+    width: 1200px;
+    height: 550px;
+    position: relative;
+}
+.lv4-img-wrapper{
+    margin-top: 15px;
+    width: 280px;
+    margin-right: 25px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+}
+.Lv4-description-content{
+    gap:20px;
+    overflow: hidden;
+}
+.lv4-content-container{
+    display: flex;
+}
+
+/* 콘텐츠 레퍼 */
+.lv4-des-con-wrapper{
+    width: 100%; height: 70%; z-index: 2; position: absolute; bottom: 0;  background: linear-gradient(to bottom, rgba(252, 252, 252, 0), rgba(17, 74, 18, 1));
+    opacity: 0.8;  color: white;
+}
+/* 배경이미지 */
+.lv4-des-con-backImg{
+    position: absolute; top:0; left:0;  width: 100%;    height: 100%;   border-radius: 20px;    z-index: 1;
+}
+
+
+
+
+/* 카테고리 내용 */
+.lv4-img-text{
+    margin-top: 15px;   display: flex;  flex-direction: column; gap:5px; 
+}
+.lv4-img-tex1{
+    font-size: 0.85rem; 
+}
+.lv4-img-tex2{
+    font-size: 1.1rem;  font-weight: bold;
+}
+.lv4-img-tex3, .lv4-img-tex4{
+    font-size: 1rem;
+}
+.lv4-img-tex5{
+    font-size: 1.1rem;  font-weight: bold;
+}

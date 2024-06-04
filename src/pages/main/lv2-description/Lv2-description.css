@@ -2,21 +2,17 @@
     display: flex;
     gap : 20px;
 }
-/* .lv2-content-container{
-    height:280px;
-} */
+.lv2-description-title{
+    font-size: 1.3rem;
+}
 .lv2-description-container{
     width: 1200px;
-    height: 320px;
-    border: solid 1px black;
-    /* display: flex;
-    flex-direction: column;
-    gap:20px; */
+    height: 350px;
+    position: relative;
 }
 .lv2-img-wrapper{
     margin-top: 15px;
     width: 280px;
-    height:285px;
     margin-right: 25px;
     display: inline-block;
     text-decoration: none;
@@ -26,9 +22,29 @@
     gap:20px;
     overflow: hidden;
 }
-.lv2-img-text{
-    margin-top: 10px;
-}
 .lv2-content-container{
     display: flex;
+}
+.lv2-des-con-wrapper{
+    width: 100%; height: 100%;  position: relative; z-index: 2;
+}
+
+
+
+
+/* 카테고리 내용 */
+.lv2-img-text{
+    margin-top: 15px;   display: flex;  flex-direction: column; gap:5px; 
+}
+.lv2-img-tex1{
+    font-size: 0.85rem;  color: rgb(100,100,100);
+}
+.lv2-img-tex2{
+    font-size: 1.1rem;  font-weight: bold;
+}
+.lv2-img-tex3, .lv2-img-tex4{
+    font-size: 1rem; color: rgb(100,100,100);
+}
+.lv2-img-tex5{
+    font-size: 1.1rem;  font-weight: bold;
 }

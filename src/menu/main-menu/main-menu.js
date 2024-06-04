@@ -9,8 +9,6 @@ const Logo =
     img:''}
 
 const Main_menus = [    
-    {name:'이벤트'},
-    {name:'고객센터'},
     {name:'회원가입/로그인',
     url:'/Login'}
 ]
@@ -36,23 +34,25 @@ function Main_menu(){
     const [userName, setUserName] = useState()
     const [logModalState, setLogModalState] = useState(false)
 
+    ///로그데이터
+    const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
+    const logDataParse = JSON.parse(logData) || null
 
-    const logData = localStorage.getItem('log')
-    const username = localStorage.getItem('userName')
+    // console.log(logDataParse)
     /////////////////로그인 상태 유지
     useEffect(()=>{
-      if(logData && username){
+      if(logData){
         setLogState(true)
-        setUserName(localStorage.getItem('userName'))
+        setUserName(logDataParse.name)
       }
 
       setHostLocation(location.pathname.includes('/Acc_regist'))
   
-    },[localStorage.getItem('log'), localStorage.getItem('userName'),hostlocation])
+    },[logState, userName, hostlocation])
 
 
     function clickLogbtn(url,id){
-        if(logState && id === 2){
+        if(logState && id === 0){
             setLogModalState(!logModalState)
         }else{
             navigate(url)
@@ -62,25 +62,29 @@ function Main_menu(){
 
 
     return(
-       <div className="main-menu-container">
-            <Link to={Logo.url} className="main-menu-logo">{Logo.name}</Link>
+        <div className="main-menu-wrapper">
+            <div className="main-menu-container">
+                    <Link to={Logo.url} className="main-menu-logo">{Logo.name}</Link>
 
-            <div className={`main-menu-host ${hostlocation ? 'hostmenu-active' : ''}`}>
-                {host_menus.map((ele,id)=>{
-                    return(
-                        <div key={id} onClick={()=>{navigate(ele.url)}}>{ele.name}</div>
-                    )
-                })}
+                    <div className={`main-menu-host ${hostlocation ? 'hostmenu-active' : ''}`}>
+                        {host_menus.map((ele,id)=>{
+                            return(
+                                <div key={id} onClick={()=>{navigate(ele.url)}}>{ele.name}</div>
+                            )
+                        })}
+                    </div>
+
+                        <div className="main-menu-right">
+                            {Main_menus.map((ele,id)=>{
+                            return(
+                                <div onClick={()=>{clickLogbtn(ele.url, id)}} key={id} className='main-menu-list'>
+                                    <img className="main-menu-log-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANUlEQVR4nO3VsQkAMAwDwd9/rGiwZIIUAYs0f6DaIBAGSQUBdjn5dXg1GpOunJM0Jn4nSTw4Ff6YkoE1i0QAAAAASUVORK5CYII="></img>
+                                    {ele.name === '회원가입/로그인' ? (logState ? `${userName}님`:ele.name) : ele.name}</div>
+                            )
+                            })}
+                            <LogModal log_m_state = {logModalState}></LogModal>
+                        </div>            
             </div>
-
-                <div className="main-menu-right">
-                    {Main_menus.map((ele,id)=>{
-                    return(
-                        <div onClick={()=>{clickLogbtn(ele.url, id)}} key={id} className='main-menu-list'>{ele.name === '회원가입/로그인' ? (logState ? `${userName}님`:ele.name) : ele.name}</div>
-                    )
-                    })}
-                    <LogModal log_m_state = {logModalState}></LogModal>
-                </div>            
        </div>
     )
 }
