@@ -14,11 +14,7 @@
     transform: translate(50%,-50%);
 }
 
-.btn-left{
-    left:0;
-    transform: translate(-50%,-50%) rotateY(180deg);
 
-}
 
 .Rslide_btn-con-img:hover{
     filter: invert(46%) sepia(18%) saturate(7282%) hue-rotate(326deg) brightness(100%) contrast(92%);

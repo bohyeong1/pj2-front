@@ -1,4 +1,4 @@
-import React, {useRef, useState, useEffect} from "react";
+import React, {useRef, useState} from "react";
 import './Lv1-description.css'
 import { NavLink } from "react-router-dom";
 import Small_main from "../../../picture/small-main/Small-main";
@@ -66,7 +66,6 @@ function Lv1_description({title, data}){
 
     ///ref
     const slideContainer = useRef()
-    const slideWrapper = useRef()
 
 
 
@@ -92,7 +91,7 @@ function Lv1_description({title, data}){
     return(
         <div className="lv1-description-container">
             <div className="lv1-description-title">{title}</div>
-            <div className="lv1-description-content" ref={slideWrapper} onClick={(el)=>{console.log(el.target.scrollLeft)}}>
+            <div className="lv1-description-content">
                 <div className="lv1-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
                     {data ? data.map((ele,id)=>{                                              
                         return(
@@ -112,9 +111,9 @@ function Lv1_description({title, data}){
             </div>
 
                 {/* left */}
-                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left}></Lslide_btn>
+                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={0}></Lslide_btn>
                 {/* right */}
-                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left}></Rslide_btn>
+                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={0}></Rslide_btn>
         </div>
     )
 }

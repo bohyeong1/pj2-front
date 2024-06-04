@@ -10,10 +10,7 @@ import Sec1_payment from "../det-sec1/sec1-payment/Sec1-payment";
 import connectData from "../../../utilData/Utildata";
 import default_data from "../../../utilData/defaultData";
 
-const user = {                         //////////////호스트 정보
-    name:'서보형',
-    carrer:3
-}
+
 
 
 
@@ -22,7 +19,8 @@ function Detail_infoApp({data}){
 
 
     ///state
-    const [sellectData, setSellectData] = useState()
+    const [sellectData, setSellectData] = useState() ///숙소 data
+    const [user, setUser] = useState()  ///유저 data
 
     ////////////숙소 한개 데이터 패치
     async function fetchAccomodation(){
@@ -32,8 +30,9 @@ function Detail_infoApp({data}){
         const homeData = await connectData(`${default_data.d_base_url}/api/common/sellect`, 'POST', 
         {_id:houseParam
         })
-        console.log(homeData.accomodations[0])
-        setSellectData(homeData.accomodations[0])
+        console.log(homeData)
+        setSellectData(homeData.accomodations)
+        setUser(homeData.seller)
     } 
 
     useEffect(()=>{
@@ -41,15 +40,6 @@ function Detail_infoApp({data}){
 
     },[])
 
-    console.log(sellectData)
-    // const filteredData = data.filter((ele)=>{
-    //     const houseParam = params.house
-    //     return ele._id === houseParam
-    // })
-
-    // const finalData = filteredData[0]
-
-    // console.log(finalData)
     return(
         <div className="Detail_infoApp-container">
             <Main_menu></Main_menu>

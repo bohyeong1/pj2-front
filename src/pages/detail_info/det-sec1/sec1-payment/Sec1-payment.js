@@ -58,16 +58,21 @@ function Sec1_payment({data, params}){
             <div className="Sec1_payment-container">
                 <div className="Sec1_payment-sec1">
                     <div className="Sec1_payment-sec1-s1">
-                        <div className="Sec1_payment-sec1-s1-tite">{`${data.price + data.addPrice * (capacity - 1)} / 박`}</div>
+                        <div className="Sec1_payment-sec1-s1-tite">
+                            <span style={{fontSize:'1.5rem', fontWeight:'bold'}}>{`${data.price + data.addPrice * (capacity - 1)}원`}</span>
+                            <span> /박</span>
+                        </div>
                         <div className="Sec1_payment-sec1-s1-content">
                             <div className="Sec1_payment-con-sec1">
-                                <div className="Sec1_payment-con-sec1-s1">체크인
+                                <div className="Sec1_payment-con-sec1-s1">
+                                    <span className="Sec1_pay_check">체크인</span>
                                     <div className="Sec1_payment-con-sec1-s1-b1">
                                         {`${pay_checkIn ? `${pay_checkIn.getMonth()}월 ${pay_checkIn.getDate()}일` : `${new Date().getMonth()}월 ${new Date().getDate()}일`}`}
                                     </div>
                                 </div>
-                                <div className="Sec1_payment-con-sec1-s2">체크아웃
-                                    <div>
+                                <div className="Sec1_payment-con-sec1-s2">
+                                    <span className="Sec1_pay_check">체크아웃</span>
+                                    <div className="Sec1_payment-con-sec1-s2-b1">
                                         {`${pay_checkOut ? `${pay_checkOut.getMonth()}월 ${pay_checkOut.getDate()}일` :  `${new Date().getMonth()}월 ${new Date().getDate()}일`}`}
                                     </div>    
                                 </div>                                
@@ -75,6 +80,8 @@ function Sec1_payment({data, params}){
                             <div className="Sec1_payment-con-sec1-s2">
                             <DateCalendar pullCheckOutData={pullCheckOutData}  pullCheckInData={pullCheckInData}></DateCalendar>
                             </div>
+
+
                             <div className="Sec1_payment-con-sec3">
                                 <div className="Sec1_payment-con-s1-b1">
                                     인원
@@ -95,7 +102,9 @@ function Sec1_payment({data, params}){
 
                                         setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
                                         } 
-                                }>-</button>
+                                }>
+                                    <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIUlEQVR4nGNgGAWjYBSMApLBfyrhgbNgFIyCUTAKGDABAOkcI91xODUvAAAAAElFTkSuQmCC"></img>
+                                </button>
 
                                 <div className="Sec1_payment-con-s1-b2-t1">
                                     <span ref={Sec1_payment_value} className="Sec1_payment-con-s1-b2_val">2</span>
@@ -116,10 +125,14 @@ function Sec1_payment({data, params}){
                                         }
                                         setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
                                     }        
-                                }>+</button>
+                                }>
+                                    <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANElEQVR4nGNgGAVUBv+hmGbg/6gFhMD/0SCieRD9pxIeOAsIgf+jqYgQ+D8aRMM/iEYgAACwS0O9h1hB4QAAAABJRU5ErkJggg=="></img>
+                                </button>
                                 </div>
                             </div>
                         </div>
+
+
                         <div className="Sec1_payment-sec1-s1-btn" onClick={clickReservation}>예약하기</div>
                     </div>
                     <div className="Sec1_payment-sec1-s2"></div>
@@ -127,8 +140,11 @@ function Sec1_payment({data, params}){
                 </div>
                 <div className="Sec1_payment-sec2">예약 확정 전에는 요금이 청구되지 않습니다.</div>
                 <div className="Sec1_payment-sec3">
-                    {data.price && data.addPrice && pay_day ? `${data.price + data.addPrice * (capacity - 1)} * ${pay_day} = 
-                    ${(data.price + data.addPrice * (capacity - 1)) * pay_day }원` : '가격 합계'}
+                    <span style={{fontWeight:'bold'}}>총합계</span>
+                    <span>
+                        {data.price && data.addPrice && pay_day ? `${data.price + data.addPrice * (capacity - 1)} x ${pay_day} = 
+                        ${(data.price + data.addPrice * (capacity - 1)) * pay_day }원` : '가격 합계'}
+                    </span>
                 </div>
             </div>
         )

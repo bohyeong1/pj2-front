@@ -7,7 +7,7 @@ function Search_menu(){
     return(
         <div className="search-menu-container">
             <div className="img-box">
-               <img className="innerImg" src="https://img.freepik.com/free-photo/beautiful-shot-sea-with-mountains-distance-blue-sky_181624-22886.jpg?t=st=1717468961~exp=1717472561~hmac=37f12e1603f7f000036bc88314b265d7c8ca3803063f30bc6c3007314ca958ac&w=1380"></img>
+               <img className="innerImg" src="https://img.freepik.com/free-photo/umbrella-chair-around-outdoor-swimming-pool-resort-hotel-vacation-leisure_74190-14754.jpg?t=st=1717503613~exp=1717507213~hmac=9ec3825949f7eaf01a7c44df35d56f683d82a985d9656197d03cbe55bd5552a5&w=1380"></img>
             </div>
             <div className="search-wrapper">
                 <div className="search-menu-content">

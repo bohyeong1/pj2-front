@@ -101,8 +101,8 @@ function Search({data, tg_value}){
     return(
         <div className="search-content-search">
             <div className="search-top-line">
-                <div className="top-line-text1">숙박</div>
-                <div className="top-line-text2">대실</div>
+                <div className="top-line-text1">어디로 떠나고 싶으세요?</div>
+
             </div>
 
             <div className="search-bottom-line">         

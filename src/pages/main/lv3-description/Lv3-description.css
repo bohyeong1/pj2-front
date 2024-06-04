@@ -2,19 +2,15 @@
     display: flex;
     gap : 20px;
 }
-/* .lv2-content-container{
-    height:280px;
-} */
+
 .lv3-description-container{
     width: 1200px;
-    height: 450px;
-    border: solid 1px black;
-    /* display: flex;
+    height:375px;
+    display: flex;
     flex-direction: column;
-    gap:20px; */
+    gap:20px;   position: relative;
 }
 .lv3-img-wrapper{
-    margin-top: 15px;
     width: 280px;
     height:375px;
     margin-right: 25px;
@@ -24,7 +20,10 @@
     color: black;
 }
 .lv3-description-content{
-    overflow: hidden;
+    overflow: hidden;    
+    position: relative;
+    width: 1200px;
+    height: 330px;
 }
 .lv3-img-text{
     border: solid 1px black;
@@ -49,3 +48,10 @@
     height:400px;
     display: flex;
 }
+.lv3-content-container{
+    display: flex; gap: 24px;   position: absolute; top:0; left: 0; transition: 0.6s;
+}
+.lv3-description-title{
+    font-size: 1.3rem;  font-weight: 600;
+}
+
