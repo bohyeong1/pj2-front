@@ -21,12 +21,10 @@ function Dates({thisMonth, thisDate, clickDay, hoverDay, hoverDate,checkoutDate}
         end:new Date(end_of_week)
     })
 
-    
-
-    console.log(new Date(currentDate))
+    // console.log(new Date(currentDate))
 
     return(
-        <div className="wraper">
+        <div className="date_wraper">
             <div className="DateCalendar-con-m-day">
                 {week?.map((el,id)=>{
                     return(
@@ -38,10 +36,13 @@ function Dates({thisMonth, thisDate, clickDay, hoverDay, hoverDate,checkoutDate}
             <div className="DateCalendar-con-m-dates">
                 {date_array?.map((el)=>{
                     return(
-                        <div className="Calendar-box" style={{color:`${el.getTime() === thisDate?.getTime() || el.getTime() === checkoutDate?.getTime() ? 'white' : 
-                        `${el < new Date(currentDate) ? 'purple' :`${thisMonth.getMonth() !== el.getMonth() ? 'purple' : el.getDay()===0 ? 'red' : `${el.getDay()===6 ? 'blue':'black'}`}`}`}`,
-                        background:`${el.getTime() === thisDate?.getTime() || el.getTime() === checkoutDate?.getTime() ? 'black' : `${thisDate<el && el<=hoverDate ? 'beige':'white'}`}`}}
-                         key={el} onClick={()=>{clickDay(el)}} onMouseOver={()=>{hoverDay(el)}}>{`${el.getDate()}`}</div>
+                        <button className="Calendar-box" style={{color:`${el.getTime() === thisDate?.getTime() || el.getTime() === checkoutDate?.getTime() ? 'white' : 
+                        `${el < new Date() ? 'rgb(220,220,220)' :`${thisMonth.getMonth() !== el.getMonth() ? 'rgb(220,220,220)' : el.getDay()===0 ? 'red' : `${el.getDay()===6 ? 'blue':'black'}`}`}`}`,
+                        background:`${el.getTime() === thisDate?.getTime() || el.getTime() === checkoutDate?.getTime() ? '#80CEE1' : `${thisDate<el && el<=hoverDate ? '#E6F4F1':'white'}`}`,
+                        cursor:`${el < new Date() ? 'default' : 'pointer'}`}}
+                        key={el} onClick={()=>{clickDay(el)
+                            console.log(`${(el < new Date()) ? false : true}`)}} onMouseOver={()=>{hoverDay(el)}}
+                            disabled={(el < new Date()) ? true : false}>{`${el.getDate()}`}</button>
                 )
                 })}
              </div>            

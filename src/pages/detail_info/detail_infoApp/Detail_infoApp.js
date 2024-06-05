@@ -7,6 +7,10 @@ import Detail from "../../../picture/detail/Detail";
 import Footer from "../../../menu/footer/Footer";
 import Det_sec1 from "../det-sec1/Det-sec1";
 import Sec1_payment from "../det-sec1/sec1-payment/Sec1-payment";
+import Det_sec2 from "../det-sec2/Det-sec2";
+import Det_sec3 from "../det-sec3/Det-sec3";
+
+
 import connectData from "../../../utilData/Utildata";
 import default_data from "../../../utilData/defaultData";
 
@@ -19,8 +23,8 @@ function Detail_infoApp({data}){
 
 
     ///state
-    const [sellectData, setSellectData] = useState() ///숙소 data
-    const [user, setUser] = useState()  ///유저 data
+    const [sellectData, setSellectData] = useState() ///숙소, User, 평가 data
+
 
     ////////////숙소 한개 데이터 패치
     async function fetchAccomodation(){
@@ -31,8 +35,7 @@ function Detail_infoApp({data}){
         {_id:houseParam
         })
         console.log(homeData)
-        setSellectData(homeData.accomodations)
-        setUser(homeData.seller)
+        setSellectData(homeData)
     } 
 
     useEffect(()=>{
@@ -45,23 +48,27 @@ function Detail_infoApp({data}){
             <Main_menu></Main_menu>
             <div className="Detail_infoApp-img">
                 <div className="info-imgBox1">
-                    <Detail data={sellectData}></Detail>
+                    <Detail data={sellectData?.accomodations}></Detail>
                 </div>
                 <div className="info-imgBox2">
-                    <Detail_many data={sellectData}></Detail_many>
+                    <Detail_many data={sellectData?.accomodations}></Detail_many>
                 </div>
             </div>
             <div className="Detail_infoApp-sec1">
                 <div className="det-info-con1">
-                    <Det_sec1 data={sellectData} user={user}></Det_sec1>
+                    <Det_sec1 data={sellectData?.accomodations} user={sellectData?.seller}></Det_sec1>
                 </div>
                 <div className="det-info-con2">
-                    <Sec1_payment data={sellectData} params={params.house}></Sec1_payment>
+                    <Sec1_payment data={sellectData?.accomodations} params={params.house}></Sec1_payment>
                 </div>
             </div>
-            <div className="Detail_infoApp-sec2">섹션 2 / 숙소 평가</div>
-            <div className="Detail_infoApp-sec3">섹션 3 / 사용자 댓글</div>
-            <div className="Detail_infoApp-sec4">섹션 4 / 숙소 위치/ 지도 api</div>
+            <div className="Detail_infoApp-sec2">
+                <Det_sec2 data={sellectData?.accomodations}></Det_sec2>
+            </div>
+            <div className="Detail_infoApp-sec3">
+                <Det_sec3 data={sellectData?.aggreEvalu}></Det_sec3>
+            </div>
+            <div className="Detail_infoApp-sec4">섹션 4 / 숙소 평가</div>
             <div className="Detail_infoApp-sec5">섹션 5 / 호스트 정보</div>
             <div className="Detail_infoApp-sec6">섹션 6 / 숙소 이용규칙/ 환불정책</div>
 

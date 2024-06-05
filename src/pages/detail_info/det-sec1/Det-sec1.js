@@ -7,7 +7,7 @@ import './Det-sec1.css';
 // }
 
 function Det_sec1({data, user}){
-    console.log(data)
+
     if(data){
         return(
             <div className="det-sec1-container">

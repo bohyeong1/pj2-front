@@ -22,11 +22,11 @@ function EvaluModal({displayState,pullEvaluData}){
         let copiedObj = data
         copiedObj.evaluation[index].grade = setdata
         setEvaluation(copiedObj)
-        console.log(gradeOutput)
+        // console.log(gradeOutput)
         gradeOutput.current[index].innerText = copiedObj.evaluation[index].grade + '점'
     }
 
-    console.log(evaluation.evaluation[1].grade)
+
 
     // 숙소 평가 등록
     function registEvalu(){

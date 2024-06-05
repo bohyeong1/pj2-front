@@ -32,7 +32,8 @@
 /* 섹션1 */
 .Detail_infoApp-sec1{
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between;    box-sizing: border-box;  padding-bottom: 30px;
+    border-bottom: solid 1px rgb(210,210,210);
 }
 .det-info-con1{
     width:55%;
@@ -41,6 +42,30 @@
 }
 .det-info-con2{
     width:33%;
-    height: 600px;
+    height: 760px;
     box-sizing: border-box;
+}
+
+
+/* 섹션2 */
+.Detail_infoApp-sec2{
+    min-height: 50vh;    box-sizing: border-box;  padding-bottom: 30px;  border-bottom: solid 1px rgb(210,210,210);
+}
+
+/* 섹션3 */
+.Detail_infoApp-sec3{
+    min-height: 50vh;  box-sizing: border-box;  padding-bottom: 30px;  border-bottom: solid 1px rgb(210,210,210);
+}
+
+/* 섹션4 */
+.Detail_infoApp-sec4{
+    min-height: 50vh;  box-sizing: border-box;  padding-bottom: 30px;  border-bottom: solid 1px rgb(210,210,210);
+}
+/* 섹션5 */
+.Detail_infoApp-sec5{
+    min-height: 50vh;  box-sizing: border-box;  padding-bottom: 30px;  border-bottom: solid 1px rgb(210,210,210);
+}
+/* 섹션6 */
+.Detail_infoApp-sec6{
+    min-height: 50vh;  box-sizing: border-box;  padding-bottom: 30px;  border-bottom: solid 1px rgb(210,210,210);
 }

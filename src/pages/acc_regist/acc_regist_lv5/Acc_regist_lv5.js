@@ -182,7 +182,7 @@ console.log('필터', sellectData)
                         </div>
                         <div className="Acc_regist_lv5-con-s1-b3-t2">
                             <Kakaomap adressData={initial_adress} setMain_adress_fun={setMain_adress_fun}
-                            set_sub_coorFn={set_sub_coorFn} sub_ad_date={sub_adress}></Kakaomap>
+                            set_sub_coorFn={set_sub_coorFn} sub_ad_date={sub_adress} event={true}></Kakaomap>
                         </div>
                     </div>
 

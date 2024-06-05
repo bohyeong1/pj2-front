@@ -48,7 +48,7 @@ function DateCalendar({pullCheckOutData, pullCheckInData}){
         }
     }
 
-    console.log('렌더링 횟수 체크')
+    // console.log('렌더링 횟수 체크')
  
     /////////날짜 버튼 마우스 호버시
     function hoverDay(date){
@@ -65,9 +65,17 @@ function DateCalendar({pullCheckOutData, pullCheckInData}){
     return(
         <div className="DateCalendar-container">
             <div className="DateCalendar-con-header">
-                <button className="DateCalendar-con-h-nav-btn go-prev" disabled={new Date().getMonth() === thisMonth.getMonth() ? true : false} onClick={prevMonth}>&lt;</button>       
+                <button className="DateCalendar-con-h-nav-btn go-prev" disabled={new Date().getMonth() === thisMonth.getMonth() ? true : false} onClick={prevMonth}
+                style={{cursor:`${new Date().getMonth() === thisMonth.getMonth() ? 'default' : 'pointer'}`,
+                        opacity:`${new Date().getMonth() === thisMonth.getMonth() ? 0.2 : 1}`}}>
+                    <img className="DateCalendar-con-h-nav-btn-l"
+                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+ElEQVR4nO3YO0oEQRQF0IMgIiYaGmqkK3ABugHNXIVbcAuGpuIG3IAfUAxE9zChmWAyoPhkoE0GBHukne7nO3Djrlv9qypKKaWUUv69Szxhe+gzEU1ecShBkWhyhmUJigQesSlBkcALDiQoMskHTrBo4EW+coN1CYoEnrEnQZHAO46xMOvF7lpesOtcYK3rWfurjLCToUhgjKMMRaLJOVYyFAncVxHzvwuR5dEaZ3jZR7N8fm97MPCY+iGu6pk2Bd5+u0TpUptF464e+0mJ66Ev41NsrCZb3X0D8t3hw4aBiamcYskARZYDuis8YGveAymllFJK0b1PWPYJBNI2YFUAAAAASUVORK5CYII="></img>    
+                </button>       
                 <div className="DateCalendar-con-h-year-month">{`${thisMonth.getFullYear()}년 ${thisMonth.getMonth()+1}월`}</div>             
-                <button className="DateCalendar-con-h-nav-btn go-next" onClick={nextMonth}>&gt;</button>
+                <button className="DateCalendar-con-h-nav-btn go-next" onClick={nextMonth}>
+                    <img className="DateCalendar-con-h-nav-btn-r"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA+ElEQVR4nO3YO0oEQRQF0IMgIiYaGmqkK3ABugHNXIVbcAuGpuIG3IAfUAxE9zChmWAyoPhkoE0GBHukne7nO3Djrlv9qypKKaWUUv69Szxhe+gzEU1ecShBkWhyhmUJigQesSlBkcALDiQoMskHTrBo4EW+coN1CYoEnrEnQZHAO46xMOvF7lpesOtcYK3rWfurjLCToUhgjKMMRaLJOVYyFAncVxHzvwuR5dEaZ3jZR7N8fm97MPCY+iGu6pk2Bd5+u0TpUptF464e+0mJ66Ev41NsrCZb3X0D8t3hw4aBiamcYskARZYDuis8YGveAymllFJK0b1PWPYJBNI2YFUAAAAASUVORK5CYII="></img>
+                </button>
             </div>
             <div className="DateCalendar-con-main">
                 <Dates thisMonth = {thisMonth} thisDate={thisDate} clickDay = {clickDay} hoverDay={hoverDay} hoverDate={hoverDate} checkoutDate={checkoutDate}></Dates>

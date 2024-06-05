@@ -16,7 +16,7 @@ function Evalu_star({index,evaluData,pullFunction}){
         // console.log(e.target.previousSibling.value)
         setRadioState(target)  
         
-        const targetGrade = e.target.previousSibling.value
+        const targetGrade = Number(e.target.previousSibling.value)
 
         pullFunction(index,evaluData,targetGrade)
     }

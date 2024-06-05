@@ -1,12 +1,7 @@
 import React,{useEffect, useState} from "react";
 import './Kakaomap.css'
-// import { Map,MapMarker } from "react-kakao-maps-sdk";
 
-
-
-
-
-function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn}){
+function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn, event}){
 
 
 
@@ -44,7 +39,12 @@ function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn}){
             if (status === kakao.maps.services.Status.OK) {
                 // console.log(result[0].y, result[0].x)
 
-                setMain_adress_fun(adressData, result[0]. x,result[0].y)
+
+                //주소setState함수 있을때만 << regist페이지에서씀 ㅇ
+                if(setMain_adress_fun){
+                    setMain_adress_fun(adressData, result[0]. x,result[0].y)
+                }
+
 
 
                 let coords = new kakao.maps.LatLng(result[0].y, result[0].x);
@@ -58,18 +58,19 @@ function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn}){
                 })
         }
 
-        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
+        if(event){
+            kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
             
-            // 클릭한 위도, 경도 정보를 가져옵니다 
-            const latlng = mouseEvent.latLng; 
+                // 클릭한 위도, 경도 정보를 가져옵니다 
+                const latlng = mouseEvent.latLng; 
+    
+                set_sub_coorFn(latlng.La, latlng.Ma)
+                
+                // 마커 위치를 클릭한 위치로 옮깁니다
+                marker.setPosition(latlng);                 
+            });
+        }
 
-            set_sub_coorFn(latlng.La, latlng.Ma)
-            
-            // 마커 위치를 클릭한 위치로 옮깁니다
-            marker.setPosition(latlng);
-            
-           
-        });
 
     },[adressData])
 

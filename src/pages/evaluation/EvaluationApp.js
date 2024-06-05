@@ -23,11 +23,26 @@ function Evaluation(){
     const [textData, setTextData] = useState()
 
     function pullEvaluData(data){
-        setSellectData(data)
+        // setSellectData(data)
         setDisplayState(false)
+        let totalAvg = 0
         for(let i=0; i< data.evaluation.length; i++){
             evaluOutput.current[i].innerText = `평점 : ${data.evaluation[i].grade}`
+            totalAvg += Number(data.evaluation[i].grade)
+
         }
+        //평균평점
+        const totalObj = {
+            name:'avgGrade',
+            title:'평균평점',
+            url:'',
+            grade:totalAvg / data.evaluation.length
+        }
+
+        // console.log([...data.evaluation, totalObj])
+        setSellectData([...data.evaluation, totalObj])
+
+        // console.log(totalObj)
     }
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
@@ -67,15 +82,15 @@ function Evaluation(){
         const evaluationData = connectData(`${default_data.d_base_url}/api/evalu/regist`, 'POST',{
             writerid : userData._id,
             homeid : params.evaluation,
-            evaluation : sellectData.evaluation,
+            evaluation : sellectData,
             text : textData
         })
     }
 
     // console.log(textData)
-    // console.log(sellectData)
+    console.log(sellectData)
 
-    console.log(params.evaluation)
+    // console.log(totalGrade)
 
 
     return(
