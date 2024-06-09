@@ -4,34 +4,58 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap:30px;
 }
 .Private_history-content{
     width:1200px; box-sizing: border-box;
-    display: flex;
+    display: flex;  gap:30px;
 }
 .pri-his-con-main{
-    background: pink; width:100%;
-    height:600px;
+    width:100%;
+    height:600px;   display: flex;  flex-direction: column; gap:40px;
 }
-.pri-his-con-main-title, .pri-his-con-main-sec1, .pri-his-con-main-sec2{
-    border-bottom: solid 1px black;
-}
+
 .Private_history-footer{
     display: flex;
     flex-direction: column;
     align-items: center;
     width:100%;
-    font-size: 5rem;
     background: rgb(243, 243, 243);
 }
-
+/* 예약내역 */
+.pri-his-con-main-title{
+    font-size: 1.3rem; font-weight: bold;   box-sizing: border-box; 
+}
+.pri-his-con-main-sec1{
+    display: flex;
+    flex-direction: column; gap:20px;   border-bottom: solid 1px rgb(210, 210, 210);
+    box-sizing: border-box; padding-bottom: 20px;
+}
 /* 예약완료 */
 .pri-his-con-main-sec2-b1{
     display: flex;
 }
+.pri-his-con-main-sec2{
+    display: flex;
+    flex-direction: column; gap:20px;
+}
 .pri-his-con-m-s2-b1-d1{
-    border:solid 1px black; width: 80%;
+    width: 80%;
 }
 .pri-his-con-m-s2-b1-d2{
-    border:solid 1px black; width: 20%;
+    width: 20%;
+}
+.pri-his-con-main-sec2-title{
+    font-size: 1.3rem; font-weight: bold;   box-sizing: border-box; 
+}
+.pri-his-con-m-s2-b1-d2{
+    display: flex;  flex-direction: column; justify-content: center;    gap:20px;
+}
+.pri-his-con-m-s2-b1-d2 > button {
+    border: none;   box-sizing: border-box; padding-top: 10px;  padding-bottom: 10px;   border-radius: 10px;    font-size: 1rem;    font-weight: bold;  cursor: pointer;
+    background: #b8e0e9;
+}
+
+.pri-his-con-m-s2-b1-d2 > button:hover{
+    background: #80CEE1;
 }

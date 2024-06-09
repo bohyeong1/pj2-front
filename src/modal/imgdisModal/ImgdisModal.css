@@ -1,0 +1,44 @@
+.ImgdisModal-container{
+    position: fixed;
+    top:50%; left:50%; transform: translate(-50%, -60%);
+    width: 1000px;   height: 700px;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; background: white;  border-radius: 15px;   z-index: 4;
+    display: flex;  flex-direction: column; gap:30px;   align-items: center;
+}
+.ImgdisModal-wrapper{
+    width: 1920px;  height: 1080px; position: fixed;    top:0; left: 0; z-index: 3;    background: black; opacity: 0.4;
+}
+
+/* 헤더 */
+.ImgdisModal-con-sec1{
+    display: flex;  justify-content: space-between; box-sizing: border-box; padding: 10px;  width: 100%;
+}
+.ImgdisModal-con-s1-b1{
+    height: 40px; width: 40px;  transition: 0.3s;   border-radius: 50%; display: flex;  justify-content: center;    align-items: center;
+}
+.ImgdisModal-con-s1-b1 > img{
+    height: 70%;
+}
+.ImgdisModal-con-s1-b1:hover{
+    background: rgb(220,220,220);
+}
+.ImgdisModal-con-s1-b2{
+    display: flex;  align-items: center;    font-size: 1.2rem;
+}
+
+/* 섹션 2 */
+.ImgdisModal-con-sec2{
+    width: 80%;    height: 80%;  background: beige; position: relative;
+}
+/* 섹션2-슬라이더 레퍼 */
+.ImgdisModal-con-sec2-wrapper{
+    width: 100%;    height: 100%; display: flex;  justify-content: center;  position: relative; overflow: hidden;
+}
+/* 섹션2-슬라이더 */
+.ImgdisModal-con-s2-slider{
+    height: 100%;   position: absolute; top: 0; left: 0;
+    display: flex;  transition: 0.6s;
+}
+/* 이미지 */
+.ImgdisModal-img{
+    height: 100%;   width: 800px;
+}

@@ -14,7 +14,7 @@ function Membership_join(){
     const navigate = useNavigate()
 
     if(dataState === false){
-        alert('비밀번호가 틀리셨습니다.')
+        alert('유효하지 않은 정보를 입력하셨습니다.')
     }
 
     // 데이터 서버와 연결
@@ -29,6 +29,7 @@ function Membership_join(){
                 email:data.email,
                 userId:data.id,
                 password:data.password,
+                nickname:data.userNickname,
                 confirmPassword:data.userPasswordConfirm
             })
         })   
@@ -41,26 +42,28 @@ function Membership_join(){
     async function submit(e){
         e.preventDefault()
 
-        const name = e.target.userName.value
+        const name = (e.target.userName.value.length === 0 || !e.target.userName.value) ? null : e.target.userName.value
         const email = await e.target.userEmail.value
         const id = await e.target.userId.value
         const password = await e.target.userPassword.value
         const userPasswordConfirm = await e.target.userPasswordConfirm.value
-        const sex = await e.target.userSex.value
+        const userNickname = await e.target.userNickname.value
 
-        const data = await connectData({name, email, id, password, userPasswordConfirm, sex}, BASE_URL)
+        const data = await connectData({name, email, id, password, userPasswordConfirm, userNickname}, BASE_URL)
 
         e.target.userName.value=''
         e.target.userEmail.value=''
         e.target.userId.value=''
         e.target.userPassword.value=''
         e.target.userPasswordConfirm.value=''
-        e.target.userSex.value=''
+        e.target.userNickname.value=''
 
+        // console.log(data)
         if(data.code === 401){
             setDataState(!dataState)
         }else{
             console.log(data)
+            sessionStorage.setItem('userData',JSON.stringify(data.newUser))
             navigate('/Mem_join_complete')
         }
     }
@@ -85,12 +88,10 @@ function Membership_join(){
                     <input type="password" placeholder="비밀번호 확인" id="userPasswordConfirm" className="Membership_join-content-sec2-s3"></input>
                     <input type="text" placeholder="이름" id="userName" className="Membership_join-content-sec2-s4"></input>
                     <input type="text" placeholder="이메일" id="userEmail" className="Membership_join-content-sec2-s5"></input>
-                    <input type="text" placeholder="성별" id="userSex" className="Membership_join-content-sec2-s6"></input>
+                    <input type="text" placeholder="닉네임" id="userNickname" className="Membership_join-content-sec2-s6"></input>
                     <input type='submit' value='가입' className="Membership_join-content-sec2-btn"></input>                        
                 </form>
-                <div className="Membership_join-content-sec3">
-                    링크 이동
-                </div>
+
             </div>
 
             <div className="Membership_join-footer">

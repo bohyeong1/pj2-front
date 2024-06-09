@@ -8,13 +8,14 @@ function Host_footer({fetchHandlerFun, dropData}){
 
 
     // console.log(fetchHandlerFun, dropData)
-    // const stepBar = useRef()       ////스탭바 ref
 
     const regist_step = default_data.regist_step
     const location = useLocation()
     const thisUrl = location.pathname.split('/')
     const thisStep = regist_step.indexOf(thisUrl[thisUrl.length-1])       //////현재 페이지 등록 단계의 인덱스
-    // console.log(regist_step.indexOf(thisUrl[thisUrl.length-1]) )
+    const stepOfPercent = ((thisStep +1)/ regist_step.length).toFixed(2)
+
+    // console.log(stepOfPercent)
 
     /////////이전 페이지 url 리턴 함수
     function createPrevUrl(index){
@@ -38,19 +39,11 @@ function Host_footer({fetchHandlerFun, dropData}){
     const nextUrl = createNextUrl(thisStep)
 
 
-    ////////////////////////////////절차 단계를 나타내는 state bar 애니메이션
-    function stateBarAni(){
-        // console.log('확인')
-        // const stepBar = document.querySelector('.host_footer-con-s1-bar')
-        // stepBar.style.width = `${thisStep/(regist_step.length - 1)*100}%`
-    }
-    stateBarAni()
-
 
     return(
         <div className="Host_footer-container">
             <div className="host_footer-con-sec1">
-                <div className="host_footer-con-s1-bar">1</div>
+                <div className="host_footer-con-s1-bar" style={{width : `${100 * stepOfPercent}%`}}></div>
             </div>
             <div className="host_footer-con-sec2">
                 <LinkBtn text='이전' url={prevUrl}></LinkBtn>

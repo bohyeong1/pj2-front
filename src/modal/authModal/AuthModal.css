@@ -1,0 +1,51 @@
+.AuthModal-container{
+    position: fixed;
+    top:50%; left:50%; transform: translate(-50%, -60%);
+    width: 500px;   height:fit-content;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; background: white;  border-radius: 15px;   z-index: 4;
+    display: flex;  flex-direction: column; gap:30px;   align-items: center
+}
+.AuthModal-wrapper{
+    width: 1920px;  height: 1080px; position: fixed;    top:0; left: 0; z-index: 3;    background: black; opacity: 0.4;
+}
+/* 헤더 */
+.AuthModal-c-header{
+    display: flex;  justify-content: space-between; box-sizing: border-box; padding: 10px;  width: 100%; border-bottom: solid 1px rgb(210,210,210);
+}
+
+.AuthModal-c-s1-b1-close{
+    height: 40px; width: 40px;  transition: 0.3s;   border-radius: 50%; display: flex;  justify-content: center;    align-items: center;
+}
+.AuthModal-c-s1-b1-close > img{
+    height: 70%;
+}
+.AuthModal-c-s1-b1-close:hover{
+    background: rgb(220,220,220);
+}
+.AuthModal-con-s1-b2{
+    display: flex;  align-items: center;    font-size: 1.2rem;
+}
+
+/* 콘텐츠 */
+.AuthModal-c-content{
+    display: flex;  flex-direction: column; width: 100%;    box-sizing: border-box; padding-left: 30px; padding-right: 30px; gap:40px;  padding-bottom: 30px;
+}
+.AuthModal-c-c-b{
+    display: flex;  flex-direction: column; gap:10px;
+}
+
+.AuthModal-c-c-b > input{
+    border: none;   background: rgb(230,230,230);   border-radius: 15px;
+    font-size: 1.2rem;  box-sizing: border-box; padding: 10px;
+    width: 100%;    height: 50px;
+}
+.AuthModal-c-c-b > input:focus{
+    outline: solid 1px #80CEE1;
+}
+.AuthModal-submit{
+    cursor: pointer;    
+    display: block; height:50px; border:none;   background: #b8e0e9; border-radius: 10px;    width: 100%;    box-sizing: border-box;
+    padding-left: 10px; font-size: 1.2rem;  font-weight: bold;
+}
+.AuthModal-submit:hover{
+    background: #80CEE1;
+}

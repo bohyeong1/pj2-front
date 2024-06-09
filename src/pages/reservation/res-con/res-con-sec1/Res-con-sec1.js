@@ -2,11 +2,13 @@ import React from "react";
 import './Res-con-sec1.css'
 import connectData from "../../../../utilData/Utildata";
 import default_data from "../../../../utilData/defaultData";
-
+import { useNavigate } from "react-router-dom";
 
 function Res_con_sec1 ({data, param}){    
 
-    console.log(data)
+    const navigator = useNavigate()
+
+    // console.log(param)
 
     const in_years = new Date(data?.checkIn).getFullYear()
     const in_months = new Date(data?.checkIn).getMonth()
@@ -51,16 +53,16 @@ function Res_con_sec1 ({data, param}){
                 <div className="Res_con_sec1-sec3-title">기본 규칙</div>
                 <div className="Res_con_sec1-sec3-content">
                     <div className="Res_con_sec1-sec3-con-sec1">훌륭한 게스트가 되기 위한 몇 가지 간단한 규칙을 지켜주실 것을 모든 게스트에게 당부드리고 있습니다</div>
-                    <div className="Res_con_sec1-sec3-con-sec2">숙소 이용규칙을 준수하세요</div>
-                    <div className="Res_con_sec1-sec3-con-sec3">호스트의 집도 자신의 집처럼 아껴주세요</div>
+                    <div className="Res_con_sec1-sec3-con-sec2"><span>1</span> 숙소 이용규칙을 준수하세요</div>
+                    <div className="Res_con_sec1-sec3-con-sec2"><span>2</span> 호스트의 집도 자신의 집처럼 아껴주세요</div>
                 </div>
             </div>
             <div className="Res_con_sec1-sec4">
                 <div className="Res_con_sec1-sec4-title">요금 정책</div>
                 <div className="Res_con_sec1-sec4-content">
-                    <div className="Res_con_sec1-sec4-con-sec1">현재 페이지는 현금을 통한 거래를 허용하지 않습니다</div>
-                    <div className="Res_con_sec1-sec4-con-sec2">프론트엔드 기능 확인을 위해 가상의 마일리지를 통해 거래됩니다</div>
-                    <div className="Res_con_sec1-sec4-con-sec3">가상의 마일리지는 가입 시 300만원씩 주어집니다</div>
+                    <div className="Res_con_sec1-sec4-con-sec1"><span>1</span> 현재 페이지는 현금을 통한 거래를 허용하지 않습니다</div>
+                    <div className="Res_con_sec1-sec4-con-sec1"><span>2</span> 프론트엔드 기능 확인을 위해 가상의 마일리지를 통해 거래됩니다</div>
+                    <div className="Res_con_sec1-sec4-con-sec1"><span>3</span> 가상의 마일리지는 가입 시 200만원씩 주어집니다</div>
                 </div>
             </div>
             <div className="Res_con_sec1-sec5">
@@ -77,8 +79,10 @@ function Res_con_sec1 ({data, param}){
                 </div>                
             </div>
             <div className="Res_con_sec1-sec6">
-                <button className="Res_con_sec1-sec6-btn" onClick={()=>{payment(data)}}>결제하기</button>
-                <button className="Res_con_sec1-sec6-btn">취소</button>                
+                <button className="Res_con_sec1-sec6-btn" onClick={()=>{payment(data)
+                                                                        navigator('/Private_history')
+                }}>결제하기</button>
+                <button className="Res_con_sec1-sec6-btn" onClick={()=>{navigator('/')}}>취소</button>                
             </div>
         </div>
     )

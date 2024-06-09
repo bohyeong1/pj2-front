@@ -8,25 +8,38 @@ import default_data from "../../../utilData/defaultData";
 
 
 function Acc_regist_start(){
-    // console.log(JSON.parse(sessionStorage.getItem('userData')))
-    const userData = JSON.parse(sessionStorage.getItem('userData'))
-    // console.log(localStorage.getItem('log'))
+    ///로그데이터
+    const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
+    const logDataParse = JSON.parse(logData) || null
+
     const navigate = useNavigate()
 
-    console.log(userData)
+    // console.log(logDataParse)
 
+    //숙소 post요청 ( 초기생성 )
     async function registStart(){
-        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register`, 'POST', {seller : userData._id}, localStorage.getItem('log'))
+        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register`, 'POST', {seller : logDataParse._id}, localStorage.getItem('log'))
+        console.log(homeData)
 
+        if(homeData.code === 200){
+            // console.log(homeData)
+            sessionStorage.setItem('registData', JSON.stringify(homeData.newAccomodation))
+        }else{
+            alert('숙소등록에 실패하셨습니다!')
+        }
         navigate('/Acc_regist/Acc_regist_lv0')
     }
-
 
     return(
         <div className="Acc_regist_start-container">
             <Main_menu></Main_menu>
             <div className="Acc_regist_start-content">
-                <button onClick={registStart}>숙소 등록하기</button>
+                <div className="Acc_regist_start-title">{`${logDataParse.name}님, 환영합니다!`}</div>
+                <div className="Acc_regist_start-subtitle">
+                    <img src={default_data.d_imgs.home}></img>
+                    <span>숙소 등록 시작하기</span>
+                </div>
+                <button className="Acc_regist_start-btn" onClick={registStart}>숙소 등록하기</button>
             </div>
 
         </div>

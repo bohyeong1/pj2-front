@@ -1,12 +1,17 @@
 .Acc_manage-sec1{
-    margin-top: 50px;   margin-bottom: 50px;
-    font-size: 2rem;    display: flex;  justify-content: space-between;}
+    display: flex;  justify-content: space-between; align-items: center;
+}
 .Acc_manage-s1-addBtn{
     background: rgb(243, 243, 243);   border-radius: 50%;   width:50px; height:50px;   line-height: 40px;
     display: flex;  justify-content: center;    align-items: center;    cursor: pointer;
 }
+.Acc_manage-s1-addBtn:hover{
+    background: rgb(120,120,120);
+}
 .Acc_manage-content{
-    width: 1200px;
+    width: 1200px;  min-height: 500px;
+    display: flex;  flex-direction: column;
+    gap:30px; box-sizing: border-box;   padding-top: 50px;  padding-bottom: 50px;
 }
 .Acc_manage-container{
     width:1920px;
@@ -14,4 +19,54 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
+.Acc_manage-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+
+/* 헤더 */
+.Acc_manage-s1-title{
+    font-size: 2rem;    font-weight: bold;
+}
+
+/* 서브 헤더 */
+.Acc_manage-s2-title{
+    font-size : 1rem;   display: flex;  width: 100%;    justify-content: space-between;   gap:15px;
+    border-bottom: solid 1px rgb(210, 210, 210);    box-sizing: border-box; padding-bottom:30px ;
+}
+.Acc_manage-s2-t-b1{
+    display: flex;  width: 65%; align-items: center;
+}
+.Acc_manage-s2-t-b2{
+    width: 20%; display: flex;  align-items: center;
+}
+.Acc_manage-s2-t-b3{
+    width: 10%; display: flex;  align-items: center;
+}
+
+/* 숙소 리스트 콘텐츠 */
+.Acc_manage-s2-box{
+    display: flex;  flex-direction: column; gap:20px;
+}
+.Acc_manage-s2-b-c{
+    display: flex;  justify-content: space-between; width: 100%;    cursor: pointer; 
+}
+.Acc_manage-s2-b-c-b1{
+    display: flex;  width: 65%; gap:30px;   align-items: center;
+    
+}
+.Acc_manage-s2-b-c-b1-img{
+    width: 100px;   height: 100px;  border-radius: 10px;
+}
+.Acc_manage-s2-b-c-b2{
+    width: 20%; display: flex;  align-items: center;
+}
+.Acc_manage-s2-b-c-b3{
+    width: 10%; display: flex;  align-items: center;
+}
+

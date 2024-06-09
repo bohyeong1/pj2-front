@@ -1,14 +1,17 @@
 import React from "react";
 import './Detail-many.css'
 
-function Detail_many({data}){
+function Detail_many({data, handleFnc}){
     const imgs = data?.sub_img
 
     return(
         <div className="detail-box">
             {imgs?.map((ele,id)=>{
                 return(
-                    <img className="det-many-img" key={id} src={ele}></img>
+                    <div className="det-many-wrapper" style={{background:'black'}}>
+                        <img className="det-many-img" key={id} src={ele} onClick={handleFnc}></img>
+                    </div>
+
                 )
 
             })}

@@ -1,0 +1,38 @@
+.Private_point-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    gap: 30px;
+}
+.Private_point-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;  min-height: 800px;  gap: 30px;
+}
+.Private_point-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+.pri-po-con-main{
+    display: flex;  flex-direction: column; gap:50px;   width: 100%;
+}
+
+/* 헤더 */
+.pri-po-con-main-title{
+    font-size: 1.8rem;  font-weight: bold;
+}
+
+/* 포인트 */
+.pri-po-con-main-sec1{
+    width: 100%;    height: 200px;  background: #f2f8ff;   border-radius: 15px;   
+    box-sizing: border-box; padding: 30px; display: flex;   flex-direction: column; gap: 10px;
+}
+.pri-po-con-a-s1-b1{
+    color: #1273e4; border-bottom: solid 1px rgb(230,230,230); box-sizing: border-box; padding-bottom: 10px;
+}
+.pri-po-con-a-s1-b2{
+    font-size: 1.8rem;    color: #1273e4;
+}

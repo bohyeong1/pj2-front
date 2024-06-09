@@ -2,11 +2,15 @@
     border-radius: 15px;
     background: white;
     width: 100%;
-    height: 162px;
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    box-sizing: border-box; padding-bottom: 10px;
+
+}
+.search-shadow{
     box-shadow: 0 0 50px 1px rgb(207, 207, 207) ;
 }
 
@@ -14,17 +18,18 @@
     color: black;
     font-size: 20px;
     width:96%;
-    height: 50%;
-    border-bottom: solid 1px black;
-    display: flex;
-    gap: 30px;
-    align-items: center;
+    height: 81px;
+    border-bottom: solid 1px rgb(210,210,210);
+    position: relative;
+}
+.top-line-text1 > span{
+    position: absolute; top:50%; transform: translateY(-50%);
 }
 .search-bottom-line{
     color: black;
     font-size: 20px;
     width:96%;
-    height: 50%;
+    height: 81px;
     display: flex;
     gap:15px;
     align-items: center;
@@ -33,13 +38,16 @@
     height:80%; position: relative;
 
 }
-.b-l-box1-title,.b-l-box4-title,.b-l-box2-title,.b-l-box3-title{
+.b-l-box1-title, .b-l-box4-title, .b-l-box2-title, .b-l-box3-title{
     background: rgb(243, 243, 243);
     padding-left: 15px;
     border-radius: 15px;
     cursor: pointer;
+    border: none;
     line-height: 64.8px; height: 100%; width: 100%; box-sizing: border-box;
+    font-family: inherit;   font-size: 1.1rem;  color:rgb(110, 110, 110);
 }
+
 .bottom-line-box1,.search-b-l-box1-dr{
     width:35%;
 }
@@ -113,3 +121,4 @@
 .b-l-box4-title:hover{
     background: rgb(200, 200, 200);
 }
+

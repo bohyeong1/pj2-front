@@ -1,10 +1,10 @@
 import React from "react";
 import './Detail.css'
 
-function Detail ({data}){
+function Detail ({data, handleFnc}){
 
     return(
-        <img className="detail-img" src={data?.main_img}></img>
+        <img className="detail-img" src={data?.main_img} onClick={handleFnc}></img>
     )
 }
 

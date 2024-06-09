@@ -1,18 +1,17 @@
 .Host_footer-container{
     width:100%;
     display: flex; align-items: center; gap: 30px;  flex-direction: column;
-    background: rgb(253, 253, 248);
+    /* background: rgb(253, 253, 248); */   background: white;  z-index: 3; position: relative;
 }
 .host_footer-con-sec2{
     width: 1200px;
     display: flex; justify-content: space-between;
 }
 .host_footer-con-sec1{
-    width:100%; height: 15px;
-    background: rgb(200, 200, 200);
+    width:100%; height: 5px;
+    background: rgb(230, 230, 230);
 }
 .host_footer-con-s1-bar{
     width:0;    height: 100%;
     background: black;
-    transition: 0.5s;
 }

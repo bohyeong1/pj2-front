@@ -16,6 +16,8 @@ const island2 = ['울릉']
 function Acc_regist_lv5(){
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
 
 
     //////////////////////////state
@@ -31,9 +33,11 @@ function Acc_regist_lv5(){
     ///숙소 데이터 업데이트 패치
     async function fetchCategory(data){      
 
-
+        sessionStorage.setItem('city',JSON.stringify(filter_adress))
+        
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
         {seller : userData._id,
+            _id : registData._id,
             main_adress : data.main,
             sub_adress : data.sub,
             search_adress : data.filter
@@ -90,11 +94,11 @@ function Acc_regist_lv5(){
 
     ///////////////카카오맵에서 받아온 세부주소 위도경도 주소로 sub_adress 스테이트값 변경하기
     useEffect(()=>{
-        if(sub_coor.length != 0){
+        if(sub_coor.length != 0 && sub_adress){
             let sub_ad = sub_adress
+            console.log(sub_ad)
             sub_ad.coor = sub_coor
             SetSub_adress(sub_ad)
-
         }
 
         setSellectData({
@@ -108,7 +112,7 @@ function Acc_regist_lv5(){
     
 // console.log('메인',main_adress)
 // console.log('서브',sub_adress)
-console.log('필터', sellectData)
+// console.log('필터', sellectData)
 
 
 
@@ -182,12 +186,12 @@ console.log('필터', sellectData)
                         </div>
                         <div className="Acc_regist_lv5-con-s1-b3-t2">
                             <Kakaomap adressData={initial_adress} setMain_adress_fun={setMain_adress_fun}
-                            set_sub_coorFn={set_sub_coorFn} sub_ad_date={sub_adress} event={true}></Kakaomap>
+                            set_sub_coorFn={set_sub_coorFn} sub_ad_date={sub_adress} event={true} scroll={false}></Kakaomap>
                         </div>
                     </div>
 
                 </div>
-                <DaumPostcodeEmbed submitMode={false} onComplete={inputData} set_sub_coorFn={set_sub_coorFn} className="popup" style={popupStyle} autoClose={false}></DaumPostcodeEmbed>
+                <DaumPostcodeEmbed submitMode={false} onComplete={inputData} set_sub_coorFn={set_sub_coorFn} className="popup" style={popupStyle} autoClose={true}></DaumPostcodeEmbed>
             </div>
 
             <div className="Acc_regist_lv5-footer">

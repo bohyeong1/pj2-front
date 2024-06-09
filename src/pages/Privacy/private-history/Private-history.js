@@ -12,18 +12,22 @@ function Private_history(){
 
     const navigate = useNavigate()
 
-    const [resData, setResData] = useState([])
+    const [resData, setResData] = useState(null)
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
-    // console.log(userData)
 
     async function reservationData(){
         const resData = await connectData(`${default_data.d_base_url}/api/reserv`,'POST',{
             userId : userData._id
         })
-        setResData([resData])
+        // if(resData.length !== 0 && resData){
+
+        // }else{
+        //     console.log('예약목록 없음')
+        // }
+        setResData(resData)
     }
-    console.log(resData[0]?.accomodation)
+    // console.log(resData[0]?.accomodation)
 
 
     useEffect(()=>{
@@ -32,20 +36,23 @@ function Private_history(){
 
     // 숙소평가클릭
     function clickEvalu(url){
-        console.log(url.accomodation) 
+        // console.log(url.accomodation) 
         navigate(`/evaluation/${url.accomodation}`)
     }
+
+    console.log(resData)
 
     return(
         <div className="Private_history-container">
             <Main_menu></Main_menu>
             <div className="Private_history-content">
-                <Pri_side_menu></Pri_side_menu>
+                <Pri_side_menu data={default_data.pri_sidemenu}></Pri_side_menu>
                 <div className="pri-his-con-main">
-                    <div className="pri-his-con-main-title">예약내역</div>
+
                     <div className="pri-his-con-main-sec1">
+                        <div className="pri-his-con-main-title">예약내역</div>
                         <div className="pri-his-con-m-s1-b1">
-                            {resData?.map((el)=>{
+                            {resData ? resData?.map((el)=>{
                                 return(
                                     <div className="pri-his-con-m-s1-b1-d1">
                                         <div>
@@ -53,7 +60,7 @@ function Private_history(){
                                         </div>
                                     </div>
                                 )
-                            })}
+                            }) : <span>없음</span>}
                         </div>
                         <div className="pri-his-con-m-s1-b2">
 
@@ -61,20 +68,21 @@ function Private_history(){
                     </div>
                     <div className="pri-his-con-main-sec2">
                         <div className="pri-his-con-main-sec2-title">이용완료</div>
-                        {resData?.map((el)=>{
+                        {resData ? resData?.map((el)=>{
                                     return(
-                                        <div className="pri-his-con-main-sec2-b1" onClick={()=>{clickEvalu(el)}}>
+                                        <div className="pri-his-con-main-sec2-b1">
                                             <div className="pri-his-con-m-s2-b1-d1">
                                                 <Small_main data={el}></Small_main>
                                             </div>
                                             <div className="pri-his-con-m-s2-b1-d2">
                 
-                                                <button>숙소 평가/후기 작성</button>
+                                                <button onClick={()=>{clickEvalu(el)}}>숙소 평가/후기 작성</button>
                                                 <button>재방문하기</button>
                                             </div>
                                         </div>
                                     )
-                                })}
+                                })
+                            : <span>없음</span>}
 
                     </div>
                 </div>

@@ -11,13 +11,13 @@
 }
 .PriceBtn-bar{
     width: 100%;
-    background: linear-gradient(to right, #FFE283 0%, #FFE283 0%, #ececec 0%, #ececec 100%);;
+    background: linear-gradient(to right, black 0%, black 0%, #ececec 0%, #ececec 100%);;
     border-radius: 15px;
     height: 14px;
     -webkit-appearance: none;
     transition: 0.4s;
 }
 .PriceBtn-bar::-webkit-slider-thumb{
-    width: 25px; height: 25px; appearance: none; background: #ffca1d; border-radius: 15px; cursor: pointer;
+    width: 29px; height: 29px; appearance: none; background: black; border-radius: 15px; cursor: pointer;
 }
 

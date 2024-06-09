@@ -13,13 +13,18 @@ function Acc_regist_lv1(){
     const [sellectData, setSellectData] = useState(null)
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
 
+    console.log(registData)
     ///숙소 데이터 업데이트 패치
     async function fetchCategory(data){
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
         {seller : userData._id,
+        _id : registData._id,
         category : data
         }, localStorage.getItem('log'))
+
 
     } 
 

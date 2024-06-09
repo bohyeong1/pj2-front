@@ -8,6 +8,8 @@ import connectData from "../../../utilData/Utildata";
 function Acc_regist_lv9(){
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
 
 
     // text 상태 div Ref
@@ -58,6 +60,7 @@ function Acc_regist_lv9(){
 
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
         {seller : userData._id,
+        _id : registData._id,
         summary : data
         }, localStorage.getItem('log'))
     }

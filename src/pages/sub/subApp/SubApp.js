@@ -77,12 +77,12 @@ function SubApp (){
     // tg_value={search_tg_state}
     // onClick={search_toggle}
     return(
-        <div className="subApp"  >
+        <div className="subApp">
             <Main_menu></Main_menu>
             <div className="sub-content">
                 <Side_menu default_data={default_data}></Side_menu>
                 <div className="sub-main-content">
-                    <Search data={def_list} ></Search>
+                    <Search data={def_list} shadow={false} subtitle={false}></Search>
                     <SubList data={list}></SubList>
                 </div>
             </div>

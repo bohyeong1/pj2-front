@@ -8,6 +8,9 @@ import ImgregiModal from "../../../modal/imgregiModal/ImgregiModal";
 function Acc_regist_lv6(){
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
+
 
     const [mainImgState, setMainImgState] = useState(false)           /////////메인 이미지 등록 여부
     const [mainImgFile, setMainImgFile] = useState(null)            ////////메인 이미지 파일 
@@ -73,44 +76,9 @@ function Acc_regist_lv6(){
         setModalState(!modalState)
     }
 
-console.log('서브',subImgFile)
-console.log('메인',mainImgFile)
-console.log('data', sellectData)
-
-
-
-    //////////////////이미지 폼데이터로 전환 후 서버로 패치, 연습용/////////fetch를 쓸 경우 hearders꼮꼬꼬꼬꼬꼮 날리지말것 ---->이미지 하나
-//     async function singleImgfetch(e){
-//         e.preventDefault()
-//         if(e.target.imgFile.files && e.target.imgFile.files[0]){
-
-//             const image = e.target.imgFile.files[0]
-//             let imgData = new FormData()
-//             imgData.append('mainImage', image, 'mainImage')
-
-
-//             // 폼데이터 콘솔확인
-
-//             // for (const pair of imgData) {
-//             //     console.log(pair); 
-//             // }
-
-//             try{
-//                 const result = await fetch((`${default_data.d_base_url}/api/accomodation/img`),{
-//                     headers:{
-//                     //   'Content-Type':'multipart/form-data',
-//                     //   'Authorization': `${token? 'Bearer' + token : ''}`, 
-//                     },
-//                     method: 'POST',
-//                     body: imgData
-//                   })
-//             }
-//             catch(e){
-//                 alert('이미지 등록에 실패하셨습니다.')
-//             }
-//         }        
-//     }
-
+// console.log('서브',subImgFile)
+// console.log('메인',mainImgFile)
+// console.log('data', sellectData)
 
 
 // ///////////////////////////////이미지 한방에 여러개 등록
@@ -132,17 +100,17 @@ console.log('data', sellectData)
 
             //////////////숙소의 ref 유저 데이터값
             const userInfo = new Blob([JSON.stringify(userData._id)],{type:'application/json'})
+            ////////////////숙소 _id값
+            const home_id = new Blob([JSON.stringify(registData._id)],{type:'application/json'})
 
-            // const text = await new Response(userInfo).text()            
-            // console.log(text)
             imgDatas.append('userData',userInfo)
+            imgDatas.append('homeid', home_id)
 
             ///////////////////////이미지 폼데이터 console확인
 
             for (const pair of imgDatas) {                             
                 console.log(pair); 
             }
-
 
             try{
                 const token = localStorage.getItem('log')
@@ -161,7 +129,7 @@ console.log('data', sellectData)
         }        
     }
 
-
+// console.log(subImgFile.length)
 
 
     return(
@@ -171,13 +139,14 @@ console.log('data', sellectData)
             <div className="Acc_regist_lv6">
                 <div className="Acc_regist_lv6-con-title">
                     숙소를 대표하는 이미지를 등록해주세요
-                    <div className="Acc_regist_lv6-con-title-s1">최소 5장을 등록하셔야 합니다</div>
+                    <div className="Acc_regist_lv6-con-title-s1">5장을 등록하셔야 합니다</div>
                 </div>
 
                 <div className="Acc_regist_lv6-con-sec2">
                     <div className="Acc_regist_lv6-con-s2-b1">
                         <img className="Acc_regist_lv6-con-s2-b1-d1" ref={lv6_mainImg}></img>
-                        <button className="Acc_regist_lv6-con-s2-b1-btn" onClick={()=>{setModalState(!modalState)}}>사진 등록</button>
+                        <button className="Acc_regist_lv6-con-s2-b1-btn" style={{display:`${mainImgFile ? 'none' : 'block'}`}} 
+                        onClick={()=>{setModalState(!modalState)}}>사진 등록</button>
                     </div>
                     {/* 서브이미지 디스플레이 */}
                     <div className="Acc_regist_lv6-con-s2-b2" >
@@ -193,6 +162,8 @@ console.log('data', sellectData)
                         <div className="Acc_regist_lv6-con-s2-b2-d1" style={{display:`${!mainImgState ? 'none' : 'block'}`}}>
                             <img className="Acc_regist_lv6-subimg" ref={(ele)=>{lv6_subImg.current[3] = ele}}></img>
                         </div>
+                        <button className="Acc_regist_lv6-con-s2-b2-btn" style={{display:`${mainImgFile && subImgFile.length === 0 ? 'block' : 'none'}`}} 
+                        onClick={()=>{setModalState(!modalState)}}>사진 등록</button>
                     </div>
                 </div>
 

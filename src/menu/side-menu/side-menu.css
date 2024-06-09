@@ -1,19 +1,28 @@
 .side-menu-container{
     width:300px;
-    height:100vh;
-    border: solid 5px beige;
+    height:fit-content;
     background: white;
     position: relative;
     z-index: 2;
 }
 .side-menu-filter, .side-content-category, .side-content-price, .side-content-grade, .side-content-discount, .side-content-facility{
-    border-bottom: solid 1px black;
+    border-bottom: solid 1px rgb(210,210,210);  box-sizing: border-box; padding-top: 20px;  padding-bottom: 20px;
 }
-
-.category-title,.facility-title,.category-title,.grade-title,.discount-title,.side-menu-filter{
+.side-menu-filter{
+    display: flex;  justify-content: space-between; align-items: center;
+}
+.side-menu-fil-btn{
+    box-sizing: border-box; padding: 5px;   border: none;   border-radius: 5px; font-family: inherit;   color:#1273e4;  font-weight: bold;  text-decoration: underline;
+    cursor: pointer;    background: white;  font-size: 1rem;
+}
+.side-menu-filter,.price-title{
     font-weight: bold;
     font-size: 1.2rem;
-    margin-top: 10px; margin-bottom: 15px;
+}
+.category-title,.facility-title,.category-title,.grade-title,.discount-title{
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
 }
 .category-content,.facility-content,.grade-content{
     margin-bottom: 10px;

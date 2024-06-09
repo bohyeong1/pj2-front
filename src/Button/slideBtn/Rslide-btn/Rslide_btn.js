@@ -4,7 +4,7 @@ import './Rslide_btn.css'
 function Rslide_btn({moveSlide, btnState, direction, distance, left, px}){
     
 
-    console.log(px)
+    // console.log(px)
 
     return(
         <div className={`Rslide_btn-container ${direction ? 'btn-left' : 'btn-right'}`} onClick={(e) => moveSlide(distance)} style={{display: `${btnState ? 'none' : 'block' }`

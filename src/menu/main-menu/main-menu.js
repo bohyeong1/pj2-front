@@ -21,7 +21,7 @@ const host_menus = [
     {name:'숙소',
         url:'/Acc_regist/Acc_manage'
     },
-    {name:'호스팅 수입'}
+    {name:'호스트 소개'}
 ]
 
 function Main_menu(){    
@@ -33,6 +33,7 @@ function Main_menu(){
     const [logState, setLogState] = useState(false)
     const [userName, setUserName] = useState()
     const [logModalState, setLogModalState] = useState(false)
+    const [hostIndex, setHostIndex] = useState(null)
 
     ///로그데이터
     const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
@@ -47,9 +48,15 @@ function Main_menu(){
       }
 
       setHostLocation(location.pathname.includes('/Acc_regist'))
-  
+      const Index = host_menus.findIndex((obj)=>{return obj.url === location.pathname})
+    //   console.log(Index)
+      if(Index !== -1){
+        setHostIndex(Index)
+      }  
     },[logState, userName, hostlocation])
 
+
+    // console.log(hostIndex)
 
     function clickLogbtn(url,id){
         if(logState && id === 0){
@@ -69,7 +76,7 @@ function Main_menu(){
                     <div className={`main-menu-host ${hostlocation ? 'hostmenu-active' : ''}`}>
                         {host_menus.map((ele,id)=>{
                             return(
-                                <div key={id} onClick={()=>{navigate(ele.url)}}>{ele.name}</div>
+                                <div key={id} className={`${hostIndex === id ? 'current-host' : ''}`} onClick={()=>{navigate(ele.url)}}>{ele.name}</div>
                             )
                         })}
                     </div>

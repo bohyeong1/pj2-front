@@ -10,7 +10,7 @@ function Det_sec2({data}){
                 <div className="Det_sec2-con-s1-subtitle">{data?.search_adress}</div>
             </div>
             <div className="Det_sec2-con-sec2">
-                <Kakaomap event={false} adressData={data?.main_adress.name}></Kakaomap>
+                <Kakaomap event={false} adressData={data?.main_adress.name} scroll={false}></Kakaomap>
             </div>
         </div>
     )

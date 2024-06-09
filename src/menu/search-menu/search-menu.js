@@ -3,7 +3,8 @@ import './search-menu.css';
 import { Link } from "react-router-dom";
 import Search from "./search/Search";
 
-function Search_menu(){
+function Search_menu({shadow , subtitle}){
+    console.log(shadow)
     return(
         <div className="search-menu-container">
             <div className="img-box">
@@ -15,7 +16,7 @@ function Search_menu(){
                         <div className="search-text-1">그린 아트 학원</div>
                         <div className="search-text-2">여행은 보형짱 닷컴</div>
                     </div>
-                    <Search></Search>
+                    <Search shadow={shadow} subtitle={subtitle}></Search>
                 </div>
             </div>            
         </div>

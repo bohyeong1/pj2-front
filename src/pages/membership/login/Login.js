@@ -86,7 +86,7 @@ function Login (){
                 </form>
                 <div className="Login-con2">
                     <div className="Login-con2-b1">계정이 없으신가요?</div>
-                    <NavLink to='/Membership_join' className="Login-con2-b2">회원가입</NavLink>
+                    <NavLink to='/AgreeTerms' className="Login-con2-b2">회원가입</NavLink>
                 </div>
             </div>
 

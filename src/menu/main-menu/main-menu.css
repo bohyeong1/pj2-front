@@ -46,14 +46,17 @@
     gap: 25px;
     position: relative;
 }
-
+/* 호스트 메뉴 */
 .main-menu-host{
     /* display: flex; */  
     display: none; 
 }
 .hostmenu-active{
     display: flex;    align-items: center;    gap:19px;       color: rgb(3, 3, 58);
-    font-weight: bold; cursor: pointer;
+    cursor: pointer;
+}
+.current-host{
+    text-decoration: underline; text-decoration-thickness:  2px ; text-underline-position : under;    font-weight: bold;
 }
 
 /* 로그인상태메뉴 */

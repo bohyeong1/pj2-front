@@ -2,7 +2,7 @@
     width:100%;
     height:100%;
     font-size: 1.1rem;
-    display: flex;  flex-direction: column; gap:30px;
+    display: flex;  flex-direction: column; gap:50px;
 }
 
 /* 데이터 안들어 왔을 때 */
@@ -35,4 +35,19 @@
 }
 .Det_sec3-s1-b2-d2{
     color: rgb(150,150,150);
+}
+
+
+
+
+/* 섹션 2 */
+.Det_sec3-sec2{
+    width: 100%;  display: flex;
+}
+.Det_sec3-sec2-categories{
+    width: 100%;    display: flex;  flex-direction: column; gap:5px;    font-size: 1rem;  box-sizing: border-box; padding-right: 95px;   padding-left: 40px;
+    border-right: solid 1px rgb(210,210,210);
+}
+.Det_sec3-sec2-categories:nth-child(6){
+    border: none;
 }

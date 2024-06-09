@@ -22,7 +22,7 @@ function Lv1_description({title, data}){
 
         // console.log(parentBoxWidth)
         const subtracWidthValue = boxWidth - distance - left ///////남아있는 container의 width값
-        if(subtracWidthValue <parentBoxWidth){
+        if(subtracWidthValue === parentBoxWidth){
             setSlidePos(prevSlidePos => prevSlidePos - distance)
             setLeft(prevLeft => prevLeft + distance)
             // 버튼 비활성화 

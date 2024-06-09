@@ -16,15 +16,15 @@ function LinkBtn({text, url, fetchHandlerFun, dropData, index}){
             console.log('패치완료')
 
             if(!url){
-                console.log('url을 읽어들일 수 없습니다.')
+                alert('url을 읽어들일 수 없습니다.')
                 return
             }else{
                 navigate(`/Acc_regist/${url}`)
             }
         }catch(e){
-            console.log('데이터없음')
+            console.log('데이터없는 링크이동')
             if(!url){
-                console.log('url을 읽어들일 수 없습니다.')
+                alert('url을 읽어들일 수 없습니다.')
                 return
             }else{
                 navigate(`/Acc_regist/${url}`)

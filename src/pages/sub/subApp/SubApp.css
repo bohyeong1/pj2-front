@@ -3,11 +3,12 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap:30px;
 }
 .sub-content{
     width:1200px;
     display: flex;
-
+    gap:30px;
 }
 .sub-main-content{
     width:90%;
@@ -20,6 +21,5 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    font-size: 5rem;
     background: rgb(243, 243, 243);
 }

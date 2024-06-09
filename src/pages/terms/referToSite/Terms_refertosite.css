@@ -1,0 +1,37 @@
+.Terms_refertosite-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    gap: 30px;
+}
+.Terms_refertosite-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;  min-height: 800px;  gap: 30px;
+}
+.Terms_refertosite-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+.Terms_refertosite-con-main{
+    display: flex;  flex-direction: column; gap:50px;   width: 100%;
+}
+
+/* 헤더 */
+.Terms_refertosite-con-main-title{
+    font-size: 1.8rem;  font-weight: bold;
+}
+
+/* 컨텐츠 */
+.Terms_refertosite-con-a-s1-b1 > div > img{
+    width: 100px; height: 100px;    border-radius: 50%;     box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; 
+}
+.Terms_refertosite-con-a-s1-b1{
+    display: flex;  flex-direction: column; gap:30px;
+}
+.Terms_refertosite-con-main-sec1{
+    display: flex;  text-align: center; gap:60px;
+}

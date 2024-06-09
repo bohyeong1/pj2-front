@@ -1,11 +1,17 @@
 .Pri_side_menu-container{
     width:300px;
-    height:150px;
-    border: solid 5px beige;
+    height: fit-content;
+    border: solid 1px rgb(230,230,230);
     background: white;
     position: relative;
     z-index: 2;
+    box-sizing: border-box; border-radius: 10px ;
 }
-.Pri_side_menu-sec1,.Pri_side_menu-sec2,.Pri_side_menu-sec3,.Pri_side_menu-sec4,.Pri_side_menu-sec5{
-    border-bottom: solid 1px black;
+
+/* 메뉴들 */
+.Pri_side_menus{
+    box-sizing: border-box; padding: 20px;  font-size: 1.1rem;  cursor: pointer;
+}
+.pside_active{
+    color: #1273e4;
 }

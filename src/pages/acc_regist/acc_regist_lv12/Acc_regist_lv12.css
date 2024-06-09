@@ -12,15 +12,30 @@
 }
 
 .Acc_regist_lv12_content{
-    margin-top: 50px;   margin-bottom: 20vh;
+    display: flex;  flex-direction: column; gap:50px;   box-sizing: border-box; padding-top: 50px;
     width:600px;
 }
 .Acc_regist_lv12-con-title{
-    margin-bottom: 50px;
     font-size: 2rem;    font-weight: bold;
 }
 
+
+/* 움짤 */
+.Acc_regist_lv12-conbox{
+    display: flex;  justify-content: center;
+}
 .Acc_regist_lv12-con-sec1{
-    width:100%;
-    display: flex; flex-wrap: wrap; gap:30px;
+    width:400px; height: 400px;
+    display: flex; justify-content: center; align-items: center;    overflow: hidden;   border-radius: 15px;
+    pointer-events: none;
+}
+
+/* 버튼 */
+.Acc_regist_lv12-btn{
+    cursor: pointer;    
+    display: block; height:50px; border:none;   background: #b8e0e9; border-radius: 10px;    width: 100%;    box-sizing: border-box;
+    padding-left: 10px; font-size: 1.2rem;  font-weight: bold;
+}
+.Acc_regist_lv12-btn:hover{
+    background: #80CEE1;
 }

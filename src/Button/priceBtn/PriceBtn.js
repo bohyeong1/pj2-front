@@ -7,8 +7,8 @@ function PriceBtn({keyValue}){
     const [SearchParams, setSearchParams] = useSearchParams()
     
     function moveRangebar(e){
-        var gradient_value = 100 / e.target.attributes.max.value;
-        e.target.style.background = 'linear-gradient(to right, #FFE283 0%, #FFE283 '+gradient_value * e.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  e.target.value + '%, rgb(236, 236, 236) 100%)';
+        let gradient_value = 100 / e.target.attributes.max.value;
+        e.target.style.background = 'linear-gradient(to right, black 0%, black '+gradient_value * e.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  e.target.value + '%, rgb(236, 236, 236) 100%)';
 
         if(e.target.value ==='200000'){
             price_text.current.innerText = Number(e.target.value) + '원 이상' 

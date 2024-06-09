@@ -1,16 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, {useState} from "react";
 import './side-menu.css'
 import FilterBtn from "../../Button/filterBtn/FilterBtn";
 import PriceBtn from "../../Button/priceBtn/PriceBtn";
 import CheckBtn from "../../Button/checkBtn/CheckBtn";
 import BooleanBtn from "../../Button/booleanBtn/BooleanBtn";
+import { useNavigate, useLocation, useParams } from "react-router-dom";
 
 function Side_menu({default_data}){
+    
+    const params = useParams()
+    const location = useLocation()
+    const navigate = useNavigate()
+
+    const [url, setUrl] = useState(location.pathname)
+
+
+    // console.log(location.pathname.split('/')[1]+'/'+params.city)
+    // console.log(params)
 
     return(
         <div className="side-menu-container">
-            <div className="side-menu-filter">필터</div>
+            <div className="side-menu-filter">
+                <div>필터</div>
+                <button className="side-menu-fil-btn" onClick={()=>{navigate(`/${location.pathname.split('/')[1]+'/'+params.city}`)
+                                                                    window.location.reload()}}>초기화</button>
+            </div>
+
             <div className="side-menu-content">
                 <div className="side-content-category">
                     <div className="category-title">숙소유형</div>

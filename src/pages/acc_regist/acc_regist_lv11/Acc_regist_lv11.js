@@ -17,6 +17,11 @@ function Acc_regist_lv11(){
 
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
+
+
+
     ////////////////////디바운싱
     function debounce(func, delay) {
         let timer;
@@ -52,6 +57,7 @@ function Acc_regist_lv11(){
     async function fetchCategory(data){
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
         {seller : userData._id,
+        _id : registData._id,
         price : data.price,
         addPrice : data.addPrice
         }, localStorage.getItem('log'))
@@ -78,15 +84,31 @@ function Acc_regist_lv11(){
                 <div className="Acc_regist_lv11-con-title">
                     호스팅 가격을 정해주세요!
                 </div>
-                <div className="Acc_regist_lv11-con-sec1">  
-                    <div className="Acc_regist_lv11-con-s1-box1">예약 가격</div>                 
-                    <input type="text" ref={priceRef}
-                    onInput={(e)=>{e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')}}
-                    onChange={changePrice}/>
+                <div className="Acc_regist_lv11-con-sec1">
+                    <div className="Acc_regist_lv11-con-s1-box1">
+                        <div className="Acc_regist_lv11-title">예약 가격</div>     
+                        <div className="Acc_regist_lv11-content">
+                            <input type="text" ref={priceRef}
+                            onInput={(e)=>{e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')}}
+                            onChange={changePrice}/>
+                            <label>원</label>
+                        </div>            
 
-                    <div className="Acc_regist_lv11-con-s1-box2">추가 인원 가격</div>
-                    <input type="text" ref={addPriceRef} onInput={(e)=>{e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')}}
-                    onChange={changeAddPrice}></input>
+                    </div>  
+
+                    <div className="Acc_regist_lv11-con-s1-box2">
+                        <div className="Acc_regist_lv11-title">추가 인원 가격</div>
+                        <div className="Acc_regist_lv11-content">
+                            <input type="text" ref={addPriceRef} onInput={(e)=>{e.target.value = e.target.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1')}}
+                            onChange={changeAddPrice}></input>
+                            <label>원</label>
+                        </div>
+
+                    </div>
+
+                    <div>
+                        추후 등록하는 숙소 지역의 평균 가격을 보여주는 기능을 추가할 계획입니다!
+                    </div>
 
                 </div>
             </div>

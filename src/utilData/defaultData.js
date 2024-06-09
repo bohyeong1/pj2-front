@@ -208,6 +208,114 @@ const default_data = {
     ////////숙소 평가 볼 모델
     star :  [
         {value:1},{value:2},{value:3},{value:4},{value:5}
+    ],
+
+    // 유저 디폴트 이미지
+    d_userImg : {
+        man : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADy0lEQVR4nO2ZaYhOYRTHf+8wliwpW5R94ot9SxkfKML4YGl8oEnyxZJP1oQsWTKIokiSNCGhSBIpZGksjcgayZ4t2wxjmdGpM3V63Hvn3nnvNVPef93eeu7z/M95nvc8Z7uQQQYZxIWuwF2gHHgPPAJKgKPAWmAq0J06jMNAZYjnIbAFGEIdQm+gIuQG7HMFmAykakPpHGCxnvxro9QRoAswEBgFzNATPwt89dnIJaDPv1K8r9r1bw9FKqpRpBGQB+wGypy1P4FFSf4bWXri5T6nKAqtjMDXGljlsZEDQMO4lc/WU7eCvgFFwDigI1A/De91xuE+mgbfX6gH7HcEnNY74GI58Bm4oyc5X00uFULGJkfGrrg2sMIh3uyjUC+fe1Gpl3w70L8aWSuddRI70oKc3g9DuNFnXhOgOKTrvAFMCzCRPWbuR6BNOhu4ZsgueAhtAIzViFs1TyJwLjBblXnhs5F7wEifw7hv5u2sqfIjDIl4ns7O+0Lgu6PUOw83KuY2GNgBfPHYyC51rxYTzXuxgA412cCxgFPIUi9kFbkO9KiGszmw2sN1FgMtnU1bk1wfVfmW5kJKcOrmMWeDehxxgVPUk4SFnOhBj7vRwsyZ4ORPkWAX3yQ5zAJ+GVmHzDsxq0/mXc8oxFvNwnUkiwInERT7r0KRGZcsIDTO+xAmhS1GXomJM3PMuJhcaNw1CweZcSlMSvU3TjQF3hiZ/XQ814zdikL41ixsr2Ntjb3K5Y0ba4zMpTrWyQlqoVFqFp7Q7HC2GZPcPm4Mcy5ztv5WjUktERqFjovb5/hl8R4WkuM/B54BYwJ4g+a1NfwPPJI7Sb1DI6WR0ysF+KXCLJ6Z908DeIPm1XP+eRuJ86MobwkvexAWRlQsyrylHhmtXwIZCkMdMokPXhijyolSowP4wsyb5MiU+rrGyHYipZSBSaOZY65p18i3DeEyksc45zKnjQXOX3pS/XPcaKJpS2lc9m/N6KyziXMkG8gqtRBqFRd5Y2CbKS8rYv4XshwPdTFEbVEj7DVC5sXIm2d4paORGGyZ+VjNK12kgKuGdyEJIkuL8Sph02PgnGv43jtVWSLINwLfeqQVUds2ZYZPPF7iSDkpxiltr0SFRNiXhqc4JpMMhRytCWz667ZGgjBYs9JKfT7UxtebfCfNKFGTCILUFUuclkyZVl61ggJnExIfjmvrMEejq1zKAdpjfeLRCBtOLUO+wrzyqR2CHmmESWu9TqCNRmq3W+f1iOeaGbER9s/QTlshx7Sb9lWL8Zv6jWF8El9fMsjgf8YfADnO+hT0G1IAAAAASUVORK5CYII='
+        ,woman : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD9klEQVR4nO2ZbYhWRRTHf+22KKiLCpWB9UFXEembn5JoTXpbDAVZBUFdtPpg7aq1gVbWFq6pWymioOgKghG+IILIamqCGRqp+FptVF8EldIiLdciWePAf2C43Huf5+7e+9wHeX4w7H3mnDnnzOzcmTNzoUKFChWKZDQwC1gKrANWAK3AdGCEp/cwMA1YDLwPrALeAmYAo8iJGuB14DRwr0D5WaWQ3inZNNslYTLwgxfAv8BRYDPQBnQAncDXwD+enj0fB7ZIp03PR2XD6X0PPJN1J14D7srhVWABMCxGfyDwpIo9RzFctq/J9n+ynQnveKNmIzkkAx+1wFbPz9tpO5gJ9Mr4ErJnqXz1ajFIbVW6LcOrKR0d8nk7rVXtkAza3ypKRxVw2PPdLxplqCentX60fN9TLH3iAeC8jHxAfnyoGM4ppsRMlYGbBZbYrBmmGCyWl/piYH8OL3gUHyuWfSTkEW1K1ngc+TPW2yj9/K0gC9XwJOXDN4qpOUkjt+xZdlouLFFMB4ptMNhL9saHpBATSlRqA76fUEx3gEHFdORZNbgcqLfc6noR6Xha5XpIPndFMsvAC/KelHcE6ieq3rLfPzIud+XLsmafXapflmTZtZOczzzVnyB7TshXU6D+DdVbjAVxp7ng4WaZ6reTPZ/Jlx0dfCZ7p85Yarz9Y2RAtkr1a8ietfL1UaD+cW8/qSlm4+kJyWvWSdZO9rTLl/kMZsQuiRwTZ2CKlC6EyJZHGM+C9fJlCWOQS5I1xBlYJKU9IbLFktn8zZrP5csyjCB7JWuJM/CplD4Jkc1JurP2gy/ka3ZMjJZIRtIppXdDZG7F+Ins+SVi5fRXT7t+imR3TGI2xNuoHiU7Rngbb9hNTYvkO4v5l9o0CuOs5HYdmhWN8nEmQj5X8oNxRk5Kye5ow9gg+UayY5N82MoVxrRijhjfSWlShNy9J38Wm4EmZJB3rI26Np0kucUayXEprQSqQ+S2Sf4onfmkzyuy3R1x0VDtZRhfxRlyiaGV34BtmrP+2aBV8ovAgyl2wmy5zc6SQ0etYtimmFx89q7EsjDQwN24dwEP6VbDyd9MsSNugH4Fhup7Slfgpt4NcOxmGBydem063Z6RFyRv0u9bwGMpdMJs/BUY6Rc9v92Kpb6/s8AStOe83zZ/j8nJ2ZBjaRJqvWX9mPdu2N/nCyWHaWBXqDcUwBFgQB9sWJsvvaPtKHLiae+m3j7D1SVoO0abnrX9G3iKnLF5+7t3vdpc4OvUQL2st9TmhgakLKjzsgIX3FbtCw0qr6rOddqd/3ObTlFUK3CXucYVO3O/XOLvLYmp0lRZodsO++z8rZ7bJSvrDlSocD/yPwd9f27KV6qiAAAAAElFTkSuQmCC'
+    },
+
+    ///////// 닫기,열기,버튼 이미지등등 프론트에서 쓸 이미지들...
+    d_imgs: {
+        close:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABBUlEQVR4nO3ZTQqDMBAF4HeKPOkV2+MWbE9jKXUhRcQk8xeZt3Il8xFNZgiQyWQyV8odwORdBH41fGtpygPAAmB2xkxrDctaU3UKgOf6gjeAG+zDTQ2vnho8MZRCeGIojfDAUAthiaE2wgJjhtDEmCM0MG4ISYw7QgITBtGDCYdowYRF1GDCI85ghkEcYYZD7M0Q899zhEGteWWGW4lttp+T53DWlUt8Wtz5sSOMzVU52p2GwfDEFhsew4pzIiyGDYddOAw7TuwwGAq0He4YCvZObhgqNIDmGCp2sWYYi1a8aGMs54mihfEYioo0xnOyK1KYCONpkcBc5urtMpehmUwmg3D5AAklyc9YEtl/AAAAAElFTkSuQmCC'
+        ,telephone : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADS0lEQVR4nO2ZS0hUURjHf6ZZGJWUVqYWGbQSMlpkRYtE2oRBRAVFmGIYZLWM1tKqwih6CLWpXUXagx4LSVr0EiwhIm3Rg4qg1J5oz4lD/wuHYebOXBnvnIH5wd3M/c7c79x7vv/5vu9AlixpZR3QA4wCfcByMox84DgQibqGgVIyhOlAlxwfAVqAIuCyfrtOBjAHeCyH3wJLo+591L1GHGYa0CtHnwLzY9hs1f1PwDwcZBJwR04+AWb62Ha4vMQOyLlXQFkCW7PEBmVfj2MMybHVSdpvk70ZV4JDjMqxwgBjrmmMWWrO8FxOVQYYU6agN+M24wgdcsioUhB2aFw/jtAih84GHFekcb+BHBxgIfAX+AJMDTBuuyZi8jFn6JJTO5O0nwy8dFGGN1nrPS8J+/2yfwRMwCFylZoY55oT2M4CPsu2FgfZIOfeAQU+du2yMxmxk+QAD+TkQZ/Y+CqbJhxmCfAT+AOsimOzxyq0FuAwrVbgF8T5cldl8zDBMkx7qdsnR03JG4tCSxw6JRZOUqVS1zja4LORfpBNuyu7eywarNp9WUyL/50VL/jbcJijliTH66DUWF/vMI4yEbgtJ+/6BHad1C6iitNJioEXcvKGxCAWG63JtLkaM4uA93LyvI9K1VnL7JSrarZYm6Bx8rTPG6+xBKAzznLMlZiYpNNsvgNKXENjBfAticCutqS5J6pPVmvtU9HXRWA2IbEG+GFNJt6XqbA2zSGVxl5GEFHcmVqmSPe8jNp0NLeENZn11mTO+MSCyQCuRL114/A+JaA25RITz65DfbRQvoy3zC74qJn5YrsVNydVz/jRaMXioPpo485K66E3EySQpjWbLKVW7yyiJTmXEPIyT5rvpbj7WG91Qod9UqWU7jNeM+JNih9YYomEketQMoBuPXDUJ2seCzP0v98JMTc7Zq3tEykqvPZa+V6oNFjN8QGJwliptqR+LWmgytrBTRpyCJgS8D8qLCE5QhrJVw/gl1XXNCfZBCwGnmncLS3btGMOVu9bsdOv9my8XnO5ld70BuxJjzs5agJ6bzmixvk5HWlU6njcZM+vLbkNLYkMSp4Oh7p0ChCJc3VrYhmBCeZdwCWp24iy39aAKU2WLKSQf3jSBy3qRwNwAAAAAElFTkSuQmCC'
+        ,smile : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADcklEQVR4nO1ZS0hUURgeLKjoZTsNJQjt/FfT8TXOLrNdUJSt2kQFQpFCj4XmKtMhaJGPFrVpY4vMKRVpEVQwlKJzTsagbsIeWIhMRO3MRzRfnOPb1Dl37nVmpDnwweU8v++c/5z7n/84HImUSIlkOQGOJLzNLAan6+D0FJwGIdhPcDaloL5pEJyeqDqyLhxJsSfeT6kQ5AFnXyEIpsDZF9W2n1KjT7w7Zw8ENUPQhGni/2JC9RVwJkeHvKBTEPTNBuLLwIKy7/Uj7nVsmp11m4nTMtOiJjmWveR9+7ZCsI51Jy/mV6NDjmnfzMvTI2rkaW4luuAr2WxdQDTMRqwmgjXasWFjQ16oVQiBU1lk5Pv37wZnYzEVINR+CMpjO5LZvxt78jSHZnPkeVYKBP2KA+KYxQTesb1mZt8TB6SxDB59x2zGT0FcgbMRLQdQeYphOgtxwmhrGvpuJuPFle0K8lvmyTK722FBRJGO+dSs1cnUm0z01SbjeeW2FSHLZB272mEx/EZVeAHSn1+jk48PUtSAvuqdGH2chsnXmQpyFn1VO1SZrGNXOyyFV0MAGwq3lGPedDX48nyZN9aWbns7zJsQDWqYEPsR8w0rVhXwXWcFpuJYwOR/IEBsfBMaimMBg5aP0cU4W1qMM4fdlnDhqNuMCK/lH9liVB63LqDmtEtfgNaPTMOVmIPnfJFlAXcuFpowIR1XwoQz13ojz7KAzltOe505M+504OFBywLet2XrrkC9FnkzF5rffYRLx1yKSPmhYtS589GSl4NnOdnwZRnoIVKQ3zKvJT8Hde4ClJfM7J3LJ1z4ww37LzRmohGPavJwvyAXPYaBXiItdBsG7hU60VGraz7UZIq8EuDP2KVzqZ9+SeAFesQXQxQQpl/pmA4LRhw3VWEVGdoIM8hYvXkBwdtaMx+C3zgZEfl5ETJWGfZ8Jgyf0yf/oVyR0zl5GiyRNxNaDPkJI1cJvVmrE+/LIoxcmxGsMftdtgV5MZyxRTe4O95O+FRBCJQS/LkzCBwhfK4gjHdqHZcAZ+1yTFvIL10J1qizJ6yFElmD7eH1JUI4lc0+RtgsgAUjjoOaFhFwJtv6xMSpKWpPTCs88tVHFAiTvo2g+pg88q3oAIoDLnCqnj2xBtTNbuGZVd7yBlSZ36iSXmVcPLMmUiI5Nn76C9hjIuCDVgWzAAAAAElFTkSuQmCC'
+        ,plus :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANElEQVR4nGNgGAVUBv+hmGbg/6gFhMD/0SCieRD9pxIeOAsIgf+jqYgQ+D8aRMM/iEYgAACwS0O9h1hB4QAAAABJRU5ErkJggg=='
+        ,minus :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIUlEQVR4nGNgGAWjYBSMApLBfyrhgbNgFIyCUTAKGDABAOkcI91xODUvAAAAAElFTkSuQmCC'
+        ,home :'data:image/png;base64,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'
+        ,bedroom :'https://www.southernliving.com/thmb/Ese8RqlXapIv06Dyadkahils2IY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/27566_IdeaHouse15660F-1905e09febe248c4ab47eff5cdbf468d-62d993a843b24796aab125080d8482cf.jpg'
+        ,decoroom :'https://www.jfsgagu.co.kr/shopimages/jfsgagu/030008000112.jpg?1629943955'
+        ,door :'https://w0.peakpx.com/wallpaper/257/683/HD-wallpaper-beautiful-house-gate-windows-house-flowers-white.jpg'
+        ,myprofile :'https://i.namu.wiki/i/8rKhueRZ-qwXhLcVZqUktWRJA86XxE0poUTndbxUtaq9Go9gpK5mPdYvRShgJ7KACnmtqjxIDU1T1z3ynggpU77Ht_E7pfLGDetkHXa1LP6kLB3USXToNkiKZWcatojmSlTR00Yk8h17TMx-VR6-nQ.webp'
+        ,airbnb : 'https://www.infostockdaily.co.kr/news/photo/202311/195482_185184_309.jpg'
+        ,hotelsdotcom : 'https://newsfield.net/wp-content/uploads/2023/10/img-3.png'
+        ,yogi : 'https://play-lh.googleusercontent.com/6A-iaIqXD-HbulwwLeisCd7Ew95RBOvWStAf0twFmPxaRIxePEDGAtylfwonmv-R1lAm=w240-h480-rw'
+        ,down_arrow : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAABVElEQVR4nO2WsU7DMBCGv5dgANqKkaFMsMELVIKK1wBKeRY2UBEDI3uBN2l4AVDYaNhoFWTpIkWRa58dgxj6S78UxY6/3OV8Dqz1D9UDLoEXIAO+xJncGwHdlMBt4BZYAKXHS+AR2GkLPQUKBbDpOTCMhV5JBKHQevTjmEiXLaB1uDryTmR6XWnf0oDvE0IrTzRbRlO9oV5IJldq/AvQyhcu8LPlgUPgAMgVi5s5+8CRZWzqAr9aHjALGfU98FzmIC/aHM9cYFs1fwB7Mr4LvCnmvFvmFKFgH1wDLYHP0FS74FpoCcxCi2vVd+w3rn3FN3WBR4rKrUepibTymQvcVTaQXCpXu82+fQ3E6C5Bs2j6BuXBP08INdW8iVKDRD3bHIsnWmi9b7f9ETD/aFEaRqbdpPeYltoArqUyNVE+hHxTjTpytD1JFyrEM2kO55otsxZ/rR/urptHRM5dtwAAAABJRU5ErkJggg=='
+        ,main_home1:'https://img.icons8.com/matisse/100/cottage.png'
+        ,main_home2:'https://img.icons8.com/external-justicon-lineal-color-justicon/64/external-home-japan-justicon-lineal-color-justicon.png'
+        ,main_home3:'https://img.icons8.com/external-konkapp-outline-color-konkapp/64/external-apartment-real-estate-konkapp-outline-color-konkapp-1.png'
+    },
+
+    //////////////////////로그인 마이페이지 사이드메뉴
+    pri_sidemenu : [
+        {name:'내 정보관리',
+            url:'/Private_management'
+        },
+        {
+            name:'포인트',
+            url:'/Private_point'
+        },
+        {
+            name:'예약 내역',
+            url:'/Private_history'
+        },
+        {
+            name:'위시리스트',
+            url:'/Private_wish'
+        }
+    ],
+
+    ///////////////////////////약관 페이지 사이드 메뉴
+    terms_sidemenu :[
+        {name : '제작자 소개',
+            url:'/Terms_creator'
+        },
+        {name : '사용 라이브러리',
+            url:'/Terms_library'
+        },
+        {name : '홈페이지 약관',
+            url:'/Terms_homepage'
+        },
+        {name : '호스트 약관',
+            url:'/Terms_host'
+        },
+        {name : '개발현황',
+            url:'/Terms_develope'
+        },
+        {name : '참고사이트',
+            url:'/Terms_refertosite'
+        },
+    ],
+
+    /////////////////////////약관
+    service_terms:[
+        {
+            title : '제 1항(개인정보)',
+            text : '상용화 목적이 아닌 개발 공부 및 취업을 목적으로 제작 되었습니다. 본 홈페이지는 사용자의 개인정보를 요구하지 않으며 허위 정보 작성을 허용합니다. 개발자는 백엔드 공부가 부족하여 정보 보호에 관련된 서버 작업이 완전치 않으니 홈페이지 내 개인정보 유출로 인한 어떠한 책임도 지지 않습니다.'
+        },
+        {
+            title : '제 2항(이미지 등록)',
+            text : '프로그래밍 공부를 시작한 지 6개월 되었습니다. 네이버 클라우드 스토리지를 이번 기회에 처음 사용해 보았으므로 숙소 호스트 서비스를 이용 하시되, 너무 많은 이미지 등록은 자제해 주세요. 거지입니다.'
+        },
+        {
+            title : '제 3항(이미지 저작권)',
+            text : '본 홈페이지는 취업 및 학습의 목표로 제작되었으므로 이미지의 출처를 밝히지 않고 무분별한 사용을 한 점은 개발자 또한 인지하고 있는 부분입니다. 이미지 저작권과 관련되어 문제가 있다면 개발자의 이메일로 문의넣어주세요. 바로 내리겠습니다.'
+        },
+        {
+            title :'제 4항(홈페이지 방향성)',
+            text :'개발자는 실무를 경험해 보지 않았기 때문에 홈페이지의 서비스 흐름을 구축하는데 미숙한 부분이 많다고 생각됩니다. 홈페이지 이용시 개선해야 할 부분이나, 프로그래밍적인 코드의 개선점을 이메일로 보내주세요!'
+        }
+    ],
+
+    ///////////////////////호스트 약관
+    host_terms:[
+        {
+            title : '제 1항(숙소 결제)',
+            text : '프론트엔드의 기능 확인을 위해 결제에 이용되는 화폐는 홈페이지 내부에서 사용되는 가상의 화폐를 통해 거래되며 가입 시 200만원이 지급됩니다.'
+        },
+        {
+            title : '제 2항(숙소 주소)',
+            text : '본 홈페이지는 어떠한 개인정보도 요구하지 않으며 허위로 된 주소를 입력해 주세요. 개발자는 사용자의 개인정보 유출로 인한 2차 피해에 어떠한 책임도 없음을 알립니다.'
+        },
+        {
+            title : '제 3항(참고사이트)',
+            text : "본 홈페이지는 개발자의 학습 및 취업을 위한 수단으로 '에어비엔비', '여기어때', '호텔스닷컴'의 기능 및 디자인을 참고하여 제작되었습니다."
+        },
+        {
+            title : '제 4항(문의사항)',
+            text : '해당 홈페이지 이용 시 불편함 및 개선점은 개발자의 E-mail주소(tjqhgud9104@naver.com)으로 보내주세요.'
+        }
     ]
 }
 

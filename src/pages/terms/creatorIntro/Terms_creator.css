@@ -1,0 +1,62 @@
+@font-face {
+    font-family: 'ChosunGs';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/ChosunGs.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.Terms_creator-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    gap: 30px;
+}
+.Terms_creator-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;  min-height: 800px;  gap: 30px;
+}
+.Terms_creator-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+.Terms_creator-con-main{
+    display: flex;  flex-direction: column; gap:50px;   width: 100%;
+}
+
+/* 헤더 */
+.Terms_creator-con-main-title{
+    font-size: 1.8rem;  font-weight: bold;
+}
+
+/* 컨텐츠 */
+.Terms_creator-con-main-sec1{
+    display: flex;  flex-direction: column; gap:30px;
+}
+.Terms_creator-con-a-s1-b1{
+    display: flex;  width: 100%;    gap:60px;   box-sizing: border-box; padding-bottom: 30px;   border-bottom: solid 1px rgb(210,210,210);
+}
+.Terms_creator-img{
+    width: 200px; height: 200px;    border-radius: 50%;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; 
+}
+.Terms_creator-c-a-s1-b1-d1{
+    display: flex;  flex-direction: column;  justify-content: space-between;    width: 80%;
+}
+.Terms_creator-c-a-s1-b1-d1 > div{
+    display: flex;  gap:20px;   font-size: 1.1rem;
+}
+.Terms_creator-c-a-s1-b1-d1 > div > span:nth-child(1){
+    width: 15%; font-weight: bold;
+}
+
+/* 섹터2 */
+.Terms_creator-con-a-s1-b2 > span{
+    font-family: 'ChosunGs';    
+    font-size: 2rem;  line-height: 60px;
+}
+.Terms_creator-con-a-s1-b2 > span > span{
+    color: red; text-decoration: underline; text-decoration-line:underline;
+}

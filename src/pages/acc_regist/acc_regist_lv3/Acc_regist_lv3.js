@@ -15,41 +15,45 @@ function Acc_regist_lv3(){
 
 
 
-        // 선택된 카테고리의 data값 state
-        const [sellectData, setSellectData] = useState([{},{},{},{}])
-    
-        const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
-    
-        ///숙소 데이터 업데이트 패치
-        async function fetchCategory(data){
-            const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
-            {seller : userData._id,
-            base_facility : data
-            }, localStorage.getItem('log'))
-    
-        } 
-        
-        ///프론트쪽 카테고리 선택
-        function changeLv3Box(id){
-            // e.stopPropagation()
-            // console.log(categories.current[id])
-            for(let i=0; i<default_data.d_base_facility.length; i++){
-                if(i == id){
-                    categories.current[id].style.background = 'rgb(243, 243, 243)'
-                    categories.current[id].style.border = 'solid 2px black'
-                }
-                else{
-                    categories.current[i].style.background = 'white'
-                    categories.current[i].style.border = 'solid 2px rgb(180,180,180)'
-                }
-            }
+    // 선택된 카테고리의 data값 state
+    const [sellectData, setSellectData] = useState([{},{},{},{}])
 
-            let sellec_base_facility = default_data.d_base_facility
-            sellec_base_facility[id].counts = Number(regi_lv3_val.current[id].value) 
-            setSellectData(sellec_base_facility)
+    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
+
+    //현재 등록중인 숙소 데이터
+    const registData = JSON.parse(sessionStorage.getItem('registData'))
+
+    ///숙소 데이터 업데이트 패치
+    async function fetchCategory(data){
+        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
+        {seller : userData._id,
+        _id : registData._id,
+        base_facility : data
+        }, localStorage.getItem('log'))
+
+    } 
+    
+    ///프론트쪽 카테고리 선택
+    function changeLv3Box(id){
+        // e.stopPropagation()
+        // console.log(categories.current[id])
+        for(let i=0; i<default_data.d_base_facility.length; i++){
+            if(i == id){
+                categories.current[id].style.background = 'rgb(243, 243, 243)'
+                categories.current[id].style.border = 'solid 2px black'
+            }
+            else{
+                categories.current[i].style.background = 'white'
+                categories.current[i].style.border = 'solid 2px rgb(180,180,180)'
+            }
         }
 
-        console.log(sellectData)
+        let sellec_base_facility = default_data.d_base_facility
+        sellec_base_facility[id].counts = Number(regi_lv3_val.current[id].value) 
+        setSellectData(sellec_base_facility)
+    }
+
+    console.log(sellectData)
 
 
     return(

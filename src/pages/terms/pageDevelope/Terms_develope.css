@@ -1,0 +1,26 @@
+.Terms_develope-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    gap: 30px;
+}
+.Terms_develope-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;  min-height: 800px;  gap: 30px;
+}
+.Terms_develope-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+.Terms_develope-con-main{
+    display: flex;  flex-direction: column; gap:50px;   width: 100%;
+}
+
+/* 헤더 */
+.Terms_develope-con-main-title{
+    font-size: 1.8rem;  font-weight: bold;
+}

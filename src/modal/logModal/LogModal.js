@@ -29,7 +29,7 @@ function LogModal({log_m_state}){
                 <div className="logmodal-con-b2-t3" id="log_btn" onClick={()=>{navigate('/Acc_regist')}}>호스팅</div>
             </div>
             <div className="logmodal-con-box3">
-                <div className="logmodal-con-b3-t1" id="log_btn">호스팅 약관</div>
+                <div className="logmodal-con-b3-t1" id="log_btn" onClick={()=>{navigate('/Terms_host')}}>호스팅 약관</div>
                 <div className="logmodal-con-b3-t2" id="log_btn" onClick={logout}>로그아웃</div>
             </div>
 

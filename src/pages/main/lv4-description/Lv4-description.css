@@ -12,7 +12,6 @@
 }
 .lv4-img-wrapper{
     width: 280px;
-    margin-right: 25px;
     display: inline-block;
     text-decoration: none;
     color: white;
@@ -33,7 +32,7 @@
     opacity: 0.95;  color: white;   box-sizing: border-box; padding-left: 35px; 
     display: flex;
     flex-direction: column;
-    gap:20px;   
+    gap:20px;   overflow: hidden;
 }
 /* 배경이미지 */
 .lv4-des-con-backImg{

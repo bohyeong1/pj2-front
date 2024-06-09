@@ -25,3 +25,11 @@ export {default as Private_management} from './Privacy/private-management/Privat
 export {default as ReservationApp}  from './reservation/reservationApp/ReservationApp'
 export {default as Acc_regist_start} from './acc_regist/acc_regist_start/Acc_regist_start'
 export {default as Evaluation} from './evaluation/EvaluationApp'
+export {default as Private_point} from './Privacy/private-point/Private-point'
+export {default as Terms_host} from './terms/hostTerms/Terms_host'
+export {default as Terms_creator} from './terms/creatorIntro/Terms_creator'
+export {default as Terms_library} from './terms/usingLibrary/Terms_library'
+export {default as Terms_homepage} from './terms/serviceTerms/Terms_homepage'
+export {default as Terms_develope} from './terms/pageDevelope/Terms_develope'
+export {default as Terms_refertosite} from './terms/referToSite/Terms_refertosite'
+

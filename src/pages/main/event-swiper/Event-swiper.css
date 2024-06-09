@@ -1,0 +1,11 @@
+.Event_swiper-container{
+    width: 1200px;
+    height: 280px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;   position: relative; z-index: 1;
+    border: solid 1px black;
+}
+.Event_swiper-title{
+    font-size: 1.3rem;  font-weight: 600;
+}

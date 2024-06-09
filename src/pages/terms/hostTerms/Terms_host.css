@@ -1,0 +1,45 @@
+.Terms_host-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;    gap: 30px;
+}
+.Terms_host-content{
+    width:1200px; box-sizing: border-box;
+    display: flex;  min-height: 800px;  gap: 30px;
+}
+.Terms_host-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+.Terms_host-con-main{
+    display: flex;  flex-direction: column; gap:50px;   width: 100%;
+}
+
+/* 헤더 */
+.Terms_host-con-main-title{
+    font-size: 1.8rem;  font-weight: bold;
+}
+
+/* 컨텐츠 */
+.Terms_host-c-m-s1-b{
+    display: flex;  flex-direction: column; width: 100%;    height: fit-content;    gap:20px;
+    box-sizing: border-box; padding-bottom: 30px;   border-bottom: solid 1px rgb(210, 210, 210);
+}
+.Terms_host-con-main-sec1{
+    display: flex;  flex-direction: column; gap:30px;   width: 100%;    height: fit-content;
+}
+.Terms_host-c-m-s1-b-d{
+    display: flex;  justify-content: space-between; align-items: center;    font-weight: bold;  font-size: 1.2rem;    cursor: pointer;
+}
+.Terms_host-c-m-s1-b-d > img{
+    cursor: pointer;    transition: 0.5s;
+}
+.Terms_host-c-m-s1-b-d2{
+    background: rgb(240, 240, 240); box-sizing: border-box; padding-top: 15px;  padding-bottom: 15px;   border-radius: 15px;    padding-left: 10px;  padding-right: 10px;
+    line-height: 23px;  display: none;
+}

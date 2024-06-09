@@ -3,13 +3,16 @@
     height:100%;
     display: flex;
     flex-wrap: wrap;
-    gap:10px
+    gap:10px;
 }
-.det-many-img{
+.det-many-wrapper{
     width:292.5px;
     height:251px;
     cursor: pointer;
 }
+.det-many-img{
+    width: 100%;    height: 100%;
+}
 .det-many-img:hover{
-    opacity: 0.8;
+    opacity: 0.9;
 }

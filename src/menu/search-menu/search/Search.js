@@ -4,7 +4,7 @@ import './Search.css'
 import DateCalendar from "../../../utilData/dateCalendar/DateCalendar";
 
 
-function Search({data, tg_value}){
+function Search({data, shadow, subtitle}){
     const [cityName, setCityName] = useState()
     const [title, settitle] = useState()
     // 드롭다운 토글 스테이트
@@ -87,21 +87,43 @@ function Search({data, tg_value}){
     //     }
     // })
 
-    
-    // function ToggleComponent(cname){        
 
-    //     if(e.target.classList.contains('b-l-box1-title') || e.target.classList.contains('b-l-box2-title') || e.target.classList.contains('b-l-box3-title')){
-    //         return
-    //     }else{
-    //         setSelectedDropdown(null)
-    //     }
-    // }
+    // 플러스 버튼 눌렀을 때
+    function clickPlus(e){
+        e.stopPropagation()
+
+        b_box3_ref_val.current.innerText = Number(b_box3_ref_val.current.innerText)+1
+        b_box3_ref_box3.current.value= `인원수 ${b_box3_ref_val.current.innerText}명`
+        b_box3_ref.current.value= `${b_box3_ref_val.current.innerText}`
+        if(b_box3_ref_val.current.innerText==='10'){
+         e.target.disabled = true
+        }else{
+         const lb_btn = document.querySelector('.search-b-l-box3-dr-box2-lb')
+         lb_btn.disabled=false
+        }
+    }
+    // 마이너스 버튼 눌렀을 때
+    function clickMinus(e){
+        e.stopPropagation()
+
+        b_box3_ref_val.current.innerText = Number(b_box3_ref_val.current.innerText)-1
+        b_box3_ref_box3.current.value= `인원수 ${b_box3_ref_val.current.innerText}명`
+        b_box3_ref.current.value= `${b_box3_ref_val.current.innerText}`
+        if(b_box3_ref_val.current.innerText==='0'){
+         e.target.disabled = true
+        }else{
+         const rb_btn = document.querySelector('.search-b-l-box3-dr-box2-rb')
+         rb_btn.disabled=false
+        }
+    }
 
 
     return(
-        <div className="search-content-search">
-            <div className="search-top-line">
-                <div className="top-line-text1">어디로 떠나고 싶으세요?</div>
+        <div className={`search-content-search ${shadow ? 'search-shadow' : ''}`}>
+            <div className="search-top-line" style={{display:`${subtitle ? 'block' : 'none'}`}}>
+                <div className="top-line-text1">
+                    <span>어디로 떠나고 싶으세요?</span>
+                </div>
 
             </div>
 
@@ -133,45 +155,18 @@ function Search({data, tg_value}){
 
 
                 <div className="bottom-line-box3">
-                    <div ref={b_box3_ref} className="b-l-box3-title" id={3} onClick={openDropdown} >2</div>
+                    <input ref={b_box3_ref} className="b-l-box3-title" id={3} onClick={openDropdown} value={2} type="text"></input>
                     <div className={`search-b-l-box3-dr ${selectedDropdown == 3 && 'drop_active'}`}>
                         <div className="search-b-l-box3-dr-box1">
                             <div className="search-b-l-box3-dr-box1-title">인원</div>
                             <div className="search-b-l-box3-dr-box1-text">유아 및 아동도 포함해 주세요</div>
                         </div>
                         <div className="search-b-l-box3-dr-box2">
-                            <button className="search-b-l-box3-dr-box2-lb" onClick={(e)=>{
-                                        e.stopPropagation()
-
-                               b_box3_ref_val.current.innerText = Number(b_box3_ref_val.current.innerText)-1
-                               b_box3_ref_box3.current.innerText= `인원수 ${b_box3_ref_val.current.innerText}명`
-                               b_box3_ref.current.innerText= `${b_box3_ref_val.current.innerText}`
-                               if(b_box3_ref_val.current.innerText==='0'){
-                                e.target.disabled = true
-                               }else{
-                                const rb_btn = document.querySelector('.search-b-l-box3-dr-box2-rb')
-                                rb_btn.disabled=false
-                               }
-                            } 
-                            }>-</button>
+                            <button className="search-b-l-box3-dr-box2-lb" onClick={clickMinus}>-</button>
 
                             <span ref={b_box3_ref_val} className="b_box3_ref_val">2</span>
 
-                            <button className="search-b-l-box3-dr-box2-rb" onClick={(e)=>{
-                                        e.stopPropagation()
-
-                               b_box3_ref_val.current.innerText = Number(b_box3_ref_val.current.innerText)+1
-                               b_box3_ref_box3.current.innerText= `인원수 ${b_box3_ref_val.current.innerText}명`
-                               b_box3_ref.current.innerText= `${b_box3_ref_val.current.innerText}`
-                               if(b_box3_ref_val.current.innerText==='10'){
-                                e.target.disabled = true
-                               }else{
-                                const lb_btn = document.querySelector('.search-b-l-box3-dr-box2-lb')
-                                lb_btn.disabled=false
-                               }
-                            }
- 
-                            }>+</button>
+                            <button className="search-b-l-box3-dr-box2-rb" onClick={clickPlus}>+</button>
                         </div>
                         <div ref={b_box3_ref_box3} className="search-b-l-box3-dr-box3">인원수 2명</div>
                     </div>

@@ -1,6 +1,8 @@
 import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
 import './MainApp.css'
+import Event_swiper from "../event-swiper/Event-swiper";
+import Creator_description from "../creator-description/Creator-description";
 import Lv1_description from "../lv1-description/Lv1-description";
 import Lv2_description from "../lv2-description/Lv2-description";
 import Lv3_description from "../lv3-description/Lv3-description";
@@ -73,14 +75,16 @@ const m_eco = sectionFilterData(renderData,'keywords','가족여행')           
         <div className="mainApp">
             <div className="main-gnb">
                 <Main_menu log={log}></Main_menu>
-                <Search_menu></Search_menu>
+                <Search_menu shadow={true} subtitle={true}></Search_menu>
                 {/* <Side_menu></Side_menu> */}
             </div>
             <div className="main-content">
+                <Event_swiper></Event_swiper>
                 <Lv1_description title={'국내 인기 여행지'} data = {city}></Lv1_description>
                 {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
                 <Lv2_description title={'인기 추천 숙소'} data={renderData}></Lv2_description>
                 <Lv2_description title={'가족여행 숙소'} data={renderData}></Lv2_description>
+                <Creator_description></Creator_description>
                 <Lv4_description title={'친환경 숙소'} data={m_eco} imgurl = {imgurl}></Lv4_description>
                 <Lv3_description title={'할인 이벤트'} data={renderData}></Lv3_description>
                 <div>국내여행지</div>
