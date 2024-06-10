@@ -4,6 +4,7 @@ import './Lv4-description.css'
 import Midium_main from "../../../picture/midium-main/Midium-main";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
+import default_data from "../../../utilData/defaultData";
 
 
 function Lv4_description({title, data, imgurl}){
@@ -84,7 +85,9 @@ function Lv4_description({title, data, imgurl}){
                                     <div className="lv4-img-tex1">{ele.category.name}</div>
                                     <div className="lv4-img-tex2">{ele.title}</div>
                                     <div className="lv4-img-tex3">{ele.search_adress}</div>
-                                    <div className="lv4-img-tex4">{`${'평점'}`}</div>
+                                    <div className="lv4-img-tex4"><img style={{width:'20px', height:'20px'}} src={default_data.d_imgs.star}></img>
+                                    {`${ele.avgEvaluation.length != 0 ? (ele.avgEvaluation.reduce((prev, cur) => {return prev + cur},0)/ele.avgEvaluation.length).toFixed(2) : 
+                                    '미평가'}`}</div>
                                     <div className="lv4-img-tex5">{`${ele.price}원`}</div>
                                 </div>
                             </NavLink>
@@ -96,9 +99,9 @@ function Lv4_description({title, data, imgurl}){
                 </div>
 
                 {/* left */}
-                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={35}></Lslide_btn>
+                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1182} left={left} px={35}></Lslide_btn>
                 {/* right */}
-                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={35}></Rslide_btn>
+                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1182} left={left} px={35}></Rslide_btn>
 
         </div>
     )

@@ -236,7 +236,7 @@ const default_data = {
         ,slice_img2:'https://img.icons8.com/clouds/100/money.png'
         ,slice_img3:'https://scontent-ssn1-1.xx.fbcdn.net/v/t31.18172-8/11958035_10153119373749607_3935345007661394283_o.jpg?stp=dst-jpg_p180x540&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=0DstrVyKl9MQ7kNvgGdD6zC&_nc_ht=scontent-ssn1-1.xx&oh=00_AYCNGIOL-c8mrGe_MJvfmOuQd718mNUZd6Z-QJVUUeXmGA&oe=668DDCE0'
         ,slice_img4:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCaouF%2FbtqHEfnG1hF%2FaIj3a5yyOKEXZYFiTu0hW1%2Fimg.png'
-
+        ,star :'https://img.icons8.com/color/48/filled-star--v1.png'
     },
 
     //////////////////////로그인 마이페이지 사이드메뉴
@@ -318,6 +318,11 @@ const default_data = {
             title : '제 4항(문의사항)',
             text : '해당 홈페이지 이용 시 불편함 및 개선점은 개발자의 E-mail주소(tjqhgud9104@naver.com)으로 보내주세요.'
         }
+    ],
+
+    // ////////////////////별점
+    stars : [
+        'https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png'
     ]
 }
 

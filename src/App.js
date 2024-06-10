@@ -23,8 +23,8 @@ function App(){
 
   const [data, setData] = useState([])
   const [category, setCategory] = useState([])
-  const [logState, setLogState] = useState(false)
-  const [userName, setUserName] = useState()
+  // const [logState, setLogState] = useState(false)
+  // const [userName, setUserName] = useState()
 
   ///////데이터 연결
   async function connectData(url, method, data = null, token = null){

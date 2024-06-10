@@ -95,12 +95,12 @@ function Lv1_description({title, data}){
                 <div className="lv1-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
                     {data ? data.map((ele,id)=>{                                              
                         return(
-                        <NavLink to={`SubApp/${ele.cityName}`} key={id} className="lv1-img-wrapper">
+                        <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
                             <div className="lv1-img-container">
                                 <Small_main data={ele}></Small_main>
                             </div>
                             <div className="lv1-img-title">
-                                {ele.cityName}
+                                {ele.city}
                             </div>
                         </NavLink>
                         )                  

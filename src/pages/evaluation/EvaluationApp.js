@@ -24,6 +24,8 @@ function Evaluation(){
     const [textData, setTextData] = useState()
     const [evaluModal, setEvaluModal] = useState(false) ///평가 모달 상태값
 
+    const [totalAvg, setTotalAvg] = useState()
+
     // 평가 모달 껏다 키기
     function evaluModalState(){
         setEvaluModal(!evaluModal)
@@ -47,13 +49,13 @@ function Evaluation(){
 
         // console.log([...data.evaluation, totalObj])
         setSellectData([...data.evaluation, totalObj])
-
+        setTotalAvg(totalObj)
         // console.log(totalObj)
     }
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
 
-
+    // console.log(totalAvg)
     ////////////////////디바운싱
     function debounce(func, delay) {
         let timer;
@@ -85,18 +87,19 @@ function Evaluation(){
 
 
     async function fetchEvaluation(){
-        const evaluationData = connectData(`${default_data.d_base_url}/api/evalu/regist`, 'POST',{
+        const evaluationData = await connectData(`${default_data.d_base_url}/api/evalu/regist`, 'POST',{
             writerid : userData._id,
             homeid : params.evaluation,
             evaluation : sellectData,
-            text : textData
+            text : textData,
+            totalAvg : totalAvg
         })
 
         navigator('/Private_history')
     }
 
     // console.log(textData)
-    console.log(sellectData)
+    // console.log(sellectData)
 
     // console.log(totalGrade)
 
@@ -124,7 +127,8 @@ function Evaluation(){
 
                 <div className="Evaluation-con-con-b2">
                     <div className="Evaluation-con-con-b2-d1">리뷰 작성하기</div>
-                    <textarea className="Evaluation-con-con-b2-d2" placeholder="숙소에 대한 리뷰를 작성해 주세요!"  ref={evalu_text_ref}    onChange={evaluTextInputChange}
+                    <textarea className="Evaluation-con-con-b2-d2" placeholder="숙소에 대한 리뷰를 작성해 주세요!"  ref={evalu_text_ref}  onChange={evaluTextInputChange}
+                    spellCheck={false}
                     style={{boxSizing:'border-box', padding : '10px', lineHeight:'2rem'}}></textarea>
                 </div>
 

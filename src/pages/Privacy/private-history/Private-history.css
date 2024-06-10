@@ -34,9 +34,22 @@
 .pri-his-con-m-s1-b1{
     display: flex;  flex-direction: column; justify-content: center;    gap:20px;
 }
+
+.pri-his-con-m-s1-b1-d1{
+    display: flex;  gap:50px; height: fit-content;    box-sizing: border-box; padding-bottom: 20px;
+}
+
+.pri-his-con-m-s1-b1-d2{
+    display: flex;  flex-direction: column;    justify-content: space-between;  width: 30%; 
+}
+
+.pri-his-con-m-s1-b1-d2 > div > span:nth-child(1){
+    width: 25%;  display: inline-block;  color: rgb(150,150,150);    font-weight: bold;
+}
+
 /* 예약완료 */
 .pri-his-con-main-sec2-b1{
-    display: flex;
+    display: flex; height: fit-content;    box-sizing: border-box; padding-bottom: 20px;
 }
 .pri-his-con-main-sec2{
     display: flex;

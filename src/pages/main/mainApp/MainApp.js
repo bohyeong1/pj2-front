@@ -7,87 +7,80 @@ import Lv1_description from "../lv1-description/Lv1-description";
 import Lv2_description from "../lv2-description/Lv2-description";
 import Lv3_description from "../lv3-description/Lv3-description";
 import Lv4_description from "../lv4-description/Lv4-description";
+import Search_descripton from "../search-description/Search-descripton";
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Side_menu from "../../../menu/side-menu/side-menu";
 import Search_menu from "../../../menu/search-menu/search-menu";
 import Footer from "../../../menu/footer/Footer";
 import connectData from "../../../utilData/Utildata";
-
+// import default_data from "../../../utilData/defaultData";
 
 
 function MainApp({city, log}){
 
 
   
-    const [renderData,setRenderData] = useState()    
+    const [renderData,setRenderData] = useState()  
+    const [searchData, setSearchData] = useState() 
+    const [subdata, setSubdata]  = useState([])  ///////카테고리별 분류 데이터 프롭스로 내려주기
+
 
     useEffect(()=>{
         connectData('http://127.0.0.1:3700/api/common','POST')
         .then(result => {           
             setRenderData(result.accomodations)
+            setSearchData(result.search)
+
+            /////////////////////////////////slice로 20개까지 잘라서 스테이트에 담고 관리자 페이지 만들어서 분류할 키워드만 db에서 불러와서 쏴주는 식으로?
+            /////////숙소 데이터량이 많아지면 프론트에서 필터링하는 방법이 맞는지???
+            const eco = sectionFilterData(result.accomodations,'친환경')
+            const love = sectionFilterData(result.accomodations, '연인추천')
+            const view = sectionFilterData(result.accomodations,'색다른 공간')
+            
+            setSubdata([eco, love, view])
+            // console.log(view)
         })
     },[])
 
 
     
-    //메인화면 색션 필터 util 함수 /////관리자 페이지로 메인화면 출력 선택하게 옮기면 함수 일부 수정ㅇㅇ
-    function sectionFilterData(data,value1,value2){                    ////////////value1 = key값 존재하는지 필터링, value2 = 키값에 해당하는 키워드 필터링 
-        if(data){
-            if(value1){
-                if(value2){                    /////////////data, value1, value2 들어왔을때 -> 키값에 해당하는 키워드 필터링
-                    const filteredData = data.filter((ele)=>{                      
-                        if(Array.isArray(ele[value1])){
-                            if(ele[value1].length===0){
-                                return
-                            }else{
-                                const v_filteredData = ele[value1].filter((v_ele)=>{              /////////////value가 배열형태일때
-                                    return v_ele.name === value2
-                                })
-                                return v_filteredData
-                            }                            
-                        }else{
-                            return ele.value1 === value2                                       /////////////value가 string형태일때
-                        }
-                    })
-                    return filteredData
-                }else{                      /////////data, value1만 들어왔을때 -> key값 존재여부 필터링
-                    const filteredData = data.filter((ele)=>{
-                        return value1 in ele
-                    })
-                    return filteredData
-                }
-            }else{
-                console.log('key와 property값을 입력해 주세요')
+    //메인화면 색션 필터 util 함수 /////관리자 페이지로 메인화면 출력 선택하게 옮기면 함수 일부 수정ㅇㅇ//키워드 분류 함수//나중에 벡엔드에서 필터링해서 올지 고민해 볼 사항
+    function sectionFilterData(data,value){
+        const dataInv = []
+        for(const section of data){
+            const filterdData = section.keywords.filter((el)=>{return el.name === value})
+            if(filterdData.length != 0){
+                dataInv.push(section)
             }
-        }else{
-            console.log('데이터가 들어오지 않았습니다')
-        }
+        }                    
+       return dataInv
     }
 
-// console.log('전송받은 숙소 데이터 :', renderData)    
+// console.log('전송받은 검색 :',searchData)    
 
 const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
 
-const m_discount = sectionFilterData(renderData,'discount')          /////할인여부 분류
-const m_eco = sectionFilterData(renderData,'keywords','가족여행')               //////친환경 분류
+
+
+
 
     return(
         <div className="mainApp">
             <div className="main-gnb">
                 <Main_menu log={log}></Main_menu>
-                <Search_menu shadow={true} subtitle={true}></Search_menu>
+                <Search_menu shadow={true} subtitle={true} data={renderData}></Search_menu>
                 {/* <Side_menu></Side_menu> */}
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>
-                <Lv1_description title={'국내 인기 여행지'} data ={city}></Lv1_description>
+                <Lv1_description title={'국내 인기 여행지'} data ={searchData}></Lv1_description>
                 {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
-                <Lv2_description title={'연인추천 숙소'} data={renderData}></Lv2_description>
-                <Lv2_description title={'가족여행 숙소'} data={renderData}></Lv2_description>
+                <Lv2_description title={'연인추천 숙소'} data={subdata[1]}></Lv2_description>
+                <Lv2_description title={'뷰맛집 숙소'} data={subdata[2]}></Lv2_description>
                 <Creator_description></Creator_description>
-                <Lv4_description title={'친환경 숙소'} data={m_eco} imgurl = {imgurl}></Lv4_description>
+                <Lv4_description title={'친환경 숙소'} data={subdata[0]} imgurl = {imgurl}></Lv4_description>
                 <Lv3_description title={'할인 이벤트'} data={renderData}></Lv3_description>
-                <div>국내여행지</div>
+                <Search_descripton title={'국내여행지'} data={searchData}></Search_descripton>
             </div>
             <div className="main-footer">
                 <Footer></Footer>

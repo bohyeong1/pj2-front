@@ -4,7 +4,7 @@ import UserImg from "../../../utilData/userImg/UserImg";
 
 function Det_sec5({data, homeData}){    
 
-    // console.log(homeData)
+    // console.log()
     
     return(
         <div className="Det_sec5-container">
@@ -13,9 +13,9 @@ function Det_sec5({data, homeData}){
                 <div className="Det_sec5-con-sec1">
                     <UserImg data={data} adress={homeData?.search_adress}></UserImg>
                 </div>
-                <div className="Det_sec5-con-sec2">
+                <textarea readOnly spellCheck={false}  value={data?.hostText} className="Det_sec5-con-sec2">
 
-                </div>
+                </textarea>
             </div>
 
         </div>

@@ -13,6 +13,9 @@
 .de-s1-s1-1-tex1{
     font-size: 1.4rem;  font-weight: 600;
 }
+.de-s1-s1-1-tex2 > span{
+    color: rgb(150,150,150);    width: 81px;    display: inline-block;
+}
 
 /* 섹션1-2 */
 .det-sec1-sec2{
@@ -25,14 +28,32 @@
 /* 섹션1-1-2 */
 .det-sec1-sec1-2{
     box-sizing: border-box; padding-top: 20px;  padding-bottom: 20px;    border-bottom: solid 1px rgb(210,210,210);
-    display: flex;  flex-direction: column; gap: 5px;
+    display: flex; gap: 20px;
+}
+.det-sec1-sec1-2-b1{
+    display: flex;  width: 61px;    gap:10px; align-items: center;
+}
+.det-sec1-sec1-2-b1 > span{
+    display: flex;  align-items: center;
 }
 /* 섹션1-3 */
 .det-sec1-sec1-3{
     box-sizing: border-box; padding-top: 20px;  padding-bottom: 20px;    border-bottom: solid 1px rgb(210,210,210);
-    display: flex;  flex-direction: column; gap: 5px;
+    display: flex;  flex-direction: column; gap: 5px;   width: 100%;
+}
+.det-sec1-sec3-2{
+    width: 100%;    height: fit-content;    font-family: inherit;   font-size: 1.1rem;  line-height: 25px;  border: none;   resize: none;
+}
+.det-sec1-sec3-2:focus{
+    outline: none;
 }
 
+.de-s1-s1-3-tex1 > span{
+    color: rgb(150,150,150);    width: 81px;    display: inline-block;
+}
+.de-s1-s1-3-tex2 > span{
+    color: rgb(150,150,150);    display: inline-block;  width: 81px; 
+}
 /* 섹션 2 */
 .det-sec1-sec2-1{
     font-size: 1.2rem;  font-weight: 600;

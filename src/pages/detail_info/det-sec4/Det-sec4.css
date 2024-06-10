@@ -37,7 +37,7 @@
     width: 65px;    height: 65px;   background:skyblue; border-radius: 50%;
 }
 .Det_sec4-evaluation{
-    height: 100%;   display: flex;  align-items:last baseline;  box-sizing: border-box; padding-bottom: 10px;   
+    height: 100%;   display: flex;  justify-content: space-between;  box-sizing: border-box; padding-bottom: 10px;   flex-direction: column; 
 }
 
 /* 더보기버튼 */

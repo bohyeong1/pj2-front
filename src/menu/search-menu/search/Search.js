@@ -31,10 +31,10 @@ function Search({data, shadow, subtitle}){
         //도시 리스트
         const cityname = []
         data?.map((ele)=>{
-            if(cityname.includes(ele.cityName)){
+            if(cityname.includes(ele.search_adress)){
                 return
             }else{
-                return cityname.push(ele.cityName)
+                return cityname.push(ele.search_adress)
             }
         })
         setCityName(cityname)
@@ -131,7 +131,7 @@ function Search({data, shadow, subtitle}){
                 <div className="bottom-line-box1">
                     <input className="b-l-box1-title" ref={b_box1_ref} placeholder='지역' type='text' id={1} onClick={openDropdown}></input>
                     <div className={`search-b-l-box1-dr ${selectedDropdown == 1 && 'drop_active'}`} >
-                        <div className="search-b-l-box1-dr-title">보형짱닷컴 등록 순위</div>
+                        <div className="search-b-l-box1-dr-title">지역 검색하기</div>
                         {cityName?.map((ele,id)=>{
                                 return(
                                     <div onClick={(e)=>{

@@ -1,0 +1,16 @@
+.Search_descripton-container{
+    width: 1200px;
+    /* height: fit-content; */
+    position: relative;
+    display: flex;  box-sizing: border-box; padding-bottom: 100px;
+    flex-direction: column; gap:40px;
+}
+.Search_descripton-title{
+    font-size: 1.3rem;  font-weight: 600;
+}
+.Search_descripton-contents{
+    display: flex; flex-wrap: wrap; width: 100%;    row-gap: 20px;
+}
+.Search_descripton-contents > span{
+    width: 20%;   color: #1273e4;   cursor: pointer;
+}

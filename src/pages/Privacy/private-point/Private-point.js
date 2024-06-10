@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import './Private-point.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Pri_side_menu from "../../../menu/pri-side-menu/Pri-side-menu";
@@ -9,13 +9,23 @@ import default_data from "../../../utilData/defaultData";
 
 function Private_point(){
 
-    // async function getUserData(){
-    //     const user = await connectData(`${default_data.d_base_url}/api/users/update`, 'PUT')
-    // }
+    ///로그데이터
+    const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
+    const logDataParse = JSON.parse(logData) || null
 
-    // useEffect(()=>{
+    async function getUserData(){
+        const user = await connectData(`${default_data.d_base_url}/api/users/mileage`, 'POST',{
+            userId : JSON.parse(sessionStorage.getItem('userData')).userId,
 
-    // },[])
+        })
+        sessionStorage.setItem('userData', JSON.stringify(user))
+    }
+
+    useEffect(()=>{
+        getUserData()
+    },[])
+
+    console.log(JSON.parse(sessionStorage.getItem('userData')))
 
     return(
         <div className="Private_point-container">
@@ -30,7 +40,7 @@ function Private_point(){
 
                     <div className="pri-po-con-main-sec1">
                        <div className="pri-po-con-a-s1-b1">내 포인트</div>
-                       <div className="pri-po-con-a-s1-b2">~~~원</div>
+                       <div className="pri-po-con-a-s1-b2">{`${logDataParse.cashInv}원`}</div>
                     </div>
                 </div>
             </div>

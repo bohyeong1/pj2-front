@@ -13,6 +13,11 @@
 .Det_sec5-con-sec1{
   width:40%;
 }
+
 .Det_sec5-con-sec2{
-    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   width: 60%;     border-radius: 15px;
+        font-family: inherit;   font-size: 1.3rem;  line-height: 25px;  border: none;   resize: none;
+        box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   width: 60%;     border-radius: 15px;    box-sizing: border-box; padding: 20px;
+}
+.Det_sec5-con-sec2:focus{
+    outline: none;
 }

@@ -52,32 +52,58 @@ function Private_history(){
                     <div className="pri-his-con-main-sec1">
                         <div className="pri-his-con-main-title">예약내역</div>
                         <div className="pri-his-con-m-s1-b1">
-                            {resData?.length !== 0 ? resData?.map((el)=>{
+                            {resData?.length !== 0 ? resData?.map((el, id)=>{
                                 return(
-                                    <div className="pri-his-con-m-s1-b1-d1">
+                                    <div key={id} className="pri-his-con-m-s1-b1-d1" 
+                                    style={{borderBottom : `${id === resData.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}> 
                                         <div>
                                             <Small_main data={el}></Small_main>
+                                        </div>
+                                        <div className="pri-his-con-m-s1-b1-d2">
+                                            <div>                                            
+                                                <span>숙소 이름</span>
+                                                <span>{el.title}</span>
+                                            </div>
+                                            <div>
+                                                <span>집주인</span>
+                                                <span>{el.seller.name}</span>
+                                            </div>
+                                            <div>
+                                                <span>가격</span>
+                                                <span>{`${el.totalPrice}원`}</span>
+                                            </div>
+                                            <div style={{display:'flex'}}>
+                                                <span>주소</span>
+                                                <div style={{display:'flex', flexDirection:'column', gap:'5px'}}>
+                                                    <span style={{width:'fit-content'}}>{el.main_adress.name}</span>
+                                                    <span>{el.sub_adress.name}</span>
+                                                </div>
+
+                                            </div>
+                                            <div>
+                                                <span>예약 날짜</span>
+                                                <span>{el.totalPrice}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 )
                             }) : <span>없음</span>}
                         </div>
-                        <div className="pri-his-con-m-s1-b2">
 
-                        </div>
                     </div>
                     <div className="pri-his-con-main-sec2">
                         <div className="pri-his-con-main-sec2-title">이용완료</div>
-                        {resData?.length !== 0 ? resData?.map((el)=>{
+                        {resData?.length !== 0 ? resData?.map((el, id)=>{
                                     return(
-                                        <div className="pri-his-con-main-sec2-b1">
+                                        <div key={id} className="pri-his-con-main-sec2-b1"
+                                        style={{borderBottom : `${id === resData.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}>
                                             <div className="pri-his-con-m-s2-b1-d1">
                                                 <Small_main data={el}></Small_main>
                                             </div>
                                             <div className="pri-his-con-m-s2-b1-d2">
                 
                                                 <button onClick={()=>{clickEvalu(el)}}>숙소 평가/후기 작성</button>
-                                                <button>재방문하기</button>
+                                                <button onClick={()=>{navigate(`/SubApp/Detail_infoApp/${el.accomodation}`)}}>재방문하기</button>
                                             </div>
                                         </div>
                                     )

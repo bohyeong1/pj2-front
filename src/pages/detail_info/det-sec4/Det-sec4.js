@@ -43,7 +43,7 @@ function Det_sec4({data, replyModalState}){
         replyModalState()
     }
 
-    // console.log(data)
+    console.log(pageData)
 
     return(
         <div className="Det_sec4-container">
@@ -61,7 +61,19 @@ function Det_sec4({data, replyModalState}){
                             <div className="Det_sec4-con-s2-b1-content">
                                 <div className="Det_sec4-con-s2-b1-logimg">
                                     <img className="Det_sec4-imgBox" src={el.writerid.profileImg ? el.writerid.profileImg : default_data.d_userImg.man}></img>
-                                    <div className="Det_sec4-evaluation">평점</div>
+                                    <div className="Det_sec4-evaluation">
+                                        <div>
+                                            <span>{el.writerid.nickname}</span>
+                                        </div>
+                                        <div style={{height:'fit-content'}}>
+                                            {default_data.stars.slice(0,el.evaluation[4].grade).map((el)=>{
+                                                return(
+                                                    <img  style={{width:'20px', height:'20px'}} src={el}></img>
+                                                )
+                                            })}
+                                        </div>
+
+                                    </div>
                                 </div>
                                 <textarea readOnly className="Det_sec4-con-s2-b1-reply" value={`${el.text}`}>
                                     

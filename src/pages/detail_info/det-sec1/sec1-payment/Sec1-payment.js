@@ -53,6 +53,35 @@ function Sec1_payment({data, params}){
         navigate(`/ReservationApp/${params}`)
     }
 
+    // 플러스버튼
+    function clickPlus(e){
+        e.stopPropagation()
+        console.log(e.target.parentNode)
+        Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)-1
+        if(Sec1_payment_value.current.innerText==='1'){
+            e.target.parentNode.disabled = true
+        }else{
+            const rb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-rb`)
+            rb_btn.disabled=false
+            }
+            setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
+    }
+
+    // 마이너스버튼
+    function clickMinus(e){
+        e.stopPropagation()
+        console.log('확인')
+        Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)+1
+            if(Sec1_payment_value.current.innerText===`${data.capacity}`){
+                e.target.parentNode.disabled = true
+
+            }else{
+                const lb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-lb`)
+                lb_btn.disabled=false     
+            }
+            setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
+    }
+
 
 
     if(data){
@@ -83,28 +112,12 @@ function Sec1_payment({data, params}){
                             <DateCalendar pullCheckOutData={pullCheckOutData}  pullCheckInData={pullCheckInData}></DateCalendar>
                             </div>
 
-
                             <div className="Sec1_payment-con-sec3">
                                 <div className="Sec1_payment-con-s1-b1">
                                     인원
                                 </div>
                                 <div className="Sec1_payment-con-s1-b2">
-                                <button id="Sec1_payment-btn"  className={`Sec1_payment-con-s1-b2-lb`} onClick={(e)=>{
-                                    e.stopPropagation()
-
-                                    Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)-1
-
-                                    if(Sec1_payment_value.current.innerText==='1'){
-                                        e.target.disabled = true
-                                    }else{
-                                        const rb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-rb`)
-                                        rb_btn.disabled=false
-
-                                        }
-
-                                        setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
-                                        } 
-                                }>
+                                <button id="Sec1_payment-btn"  className={`Sec1_payment-con-s1-b2-lb`} onClick={clickPlus}>
                                     <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIUlEQVR4nGNgGAWjYBSMApLBfyrhgbNgFIyCUTAKGDABAOkcI91xODUvAAAAAElFTkSuQmCC"></img>
                                 </button>
 
@@ -113,21 +126,7 @@ function Sec1_payment({data, params}){
                                     <span>명</span>
                                 </div>
 
-                                <button id="Sec1_payment-btn" className={`Sec1_payment-con-s1-b2-rb`} onClick={(e)=>{
-                                    e.stopPropagation()
-                                    console.log('확인')
-                                    Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)+1
-
-                                        if(Sec1_payment_value.current.innerText===`${data.capacity}`){
-                                            e.target.disabled = true
-
-                                        }else{
-                                            const lb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-lb`)
-                                            lb_btn.disabled=false     
-                                        }
-                                        setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
-                                    }        
-                                }>
+                                <button id="Sec1_payment-btn" className={`Sec1_payment-con-s1-b2-rb`} onClick={clickMinus}>
                                     <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANElEQVR4nGNgGAVUBv+hmGbg/6gFhMD/0SCieRD9pxIeOAsIgf+jqYgQ+D8aRMM/iEYgAACwS0O9h1hB4QAAAABJRU5ErkJggg=="></img>
                                 </button>
                                 </div>
