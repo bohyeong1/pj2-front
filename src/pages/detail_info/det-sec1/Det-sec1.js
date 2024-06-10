@@ -6,7 +6,13 @@ import './Det-sec1.css';
 //     "주방": "아이콘2"
 // }
 
-function Det_sec1({data, user}){
+function Det_sec1({data, user, evaluations}){
+
+    console.log(user)
+
+    const date = new Date(user?.createAt)
+
+
 
     if(data){
         return(
@@ -18,10 +24,10 @@ function Det_sec1({data, user}){
                         침대 ${data.base_facility[1].counts ? data.base_facility[1].counts : 0}개. 
                         욕실 ${data.base_facility[3].counts ? data.base_facility[3].counts: 0}개. 소파 ${data.base_facility[2].counts ? data.base_facility[2].counts : 0}개`}</div>
                     </div>
-                    <div className="det-sec1-sec1-2">{`평점 ${data.evaluation} 후기 ${data.reply}`}</div>
+                    <div className="det-sec1-sec1-2">{`평점 ${data.evaluation} 후기 ${evaluations?.length}개`}</div>
                     <div className="det-sec1-sec1-3">
                         <div className="de-s1-s1-3-tex1">{`집주인 ${user.name}씨`}</div>
-                        <div className="de-s1-s1-3-tex2">{`판매경력 ${user.carrer}일`}</div>
+                        <div className="de-s1-s1-3-tex2">{`가입날짜 ${date.getFullYear() + '년 ' + date.getMonth() + '월 ' + date.getDate() + '일'}`}</div>
                     </div>               
     
                 </div>

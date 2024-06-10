@@ -21,7 +21,8 @@ const host_menus = [
     {name:'숙소',
         url:'/Acc_regist/Acc_manage'
     },
-    {name:'호스트 소개'}
+    {name:'호스트 소개',
+        url:'/Acc_regist/Acc_regist_intro'}
 ]
 
 function Main_menu(){    

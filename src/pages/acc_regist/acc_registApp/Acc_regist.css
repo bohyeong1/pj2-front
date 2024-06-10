@@ -54,7 +54,7 @@
     box-sizing: border-box; padding-bottom: 50px;
 }
 .Acc_regist-s2-b2{
-    display: flex;  gap:50px;   justify-content: space-between
+    display: flex;  gap:50px;   justify-content: space-between;
 }
 .Acc_regist-s2-b2-d2{
     box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   width: 60%;     border-radius: 15px;
@@ -66,8 +66,12 @@
 .Acc_regist-nodata-img{
     position: absolute; top:50%; transform: translateY(-50%); width: 38px;
 }
-
-
+.Acc_regist-s2-b2-d2-text{
+    width: 100%;    border: none;   resize: none;   font-size: 1.3rem;  font-family: inherit;
+}
+.Acc_regist-s2-b2-d2-text:focus{
+    outline: none;
+}
 /* sec3 */
 .Acc_regist-s3-b1{
     font-size: 2rem;

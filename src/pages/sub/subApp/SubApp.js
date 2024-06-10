@@ -45,15 +45,15 @@ function SubApp (){
             finalKey[value] = {$gte:SearchParams.get(value)}
         }
         else{
-            finalKey[value] = {$all:SearchParams.getAll(value)}
+            finalKey[`${value}.name`] = {$all:SearchParams.getAll(value)}
         }       
     }
 
 
-    // console.log(SearchParams.toString())
+    console.log(finalKey)
 
     useEffect(()=>{
-        connectData('http://127.0.0.1:3700/api/common','POST',{query:finalKey})
+        connectData(`${default_data.d_base_url}/api/common`,'POST',{query:finalKey})
         .then(result => {
             const filteredData = result.accomodations.filter((ele)=>{
             const cityParam = params.city

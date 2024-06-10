@@ -131,7 +131,7 @@ function Search({data, shadow, subtitle}){
                 <div className="bottom-line-box1">
                     <input className="b-l-box1-title" ref={b_box1_ref} placeholder='지역' type='text' id={1} onClick={openDropdown}></input>
                     <div className={`search-b-l-box1-dr ${selectedDropdown == 1 && 'drop_active'}`} >
-                        <div className="search-b-l-box1-dr-title">보형짱닷컴 검색 순위</div>
+                        <div className="search-b-l-box1-dr-title">보형짱닷컴 등록 순위</div>
                         {cityName?.map((ele,id)=>{
                                 return(
                                     <div onClick={(e)=>{

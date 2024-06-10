@@ -52,7 +52,7 @@ function Private_history(){
                     <div className="pri-his-con-main-sec1">
                         <div className="pri-his-con-main-title">예약내역</div>
                         <div className="pri-his-con-m-s1-b1">
-                            {resData ? resData?.map((el)=>{
+                            {resData?.length !== 0 ? resData?.map((el)=>{
                                 return(
                                     <div className="pri-his-con-m-s1-b1-d1">
                                         <div>
@@ -68,7 +68,7 @@ function Private_history(){
                     </div>
                     <div className="pri-his-con-main-sec2">
                         <div className="pri-his-con-main-sec2-title">이용완료</div>
-                        {resData ? resData?.map((el)=>{
+                        {resData?.length !== 0 ? resData?.map((el)=>{
                                     return(
                                         <div className="pri-his-con-main-sec2-b1">
                                             <div className="pri-his-con-m-s2-b1-d1">

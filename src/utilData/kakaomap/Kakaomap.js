@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from "react";
+import React,{useEffect} from "react";
 import './Kakaomap.css'
 
 function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn, event, scroll}){

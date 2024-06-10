@@ -12,7 +12,7 @@
 }
 .pri-his-con-main{
     width:100%;
-    height:600px;   display: flex;  flex-direction: column; gap:40px;
+    height:fit-content;   display: flex;  flex-direction: column; gap:40px;
 }
 
 .Private_history-footer{
@@ -30,6 +30,9 @@
     display: flex;
     flex-direction: column; gap:20px;   border-bottom: solid 1px rgb(210, 210, 210);
     box-sizing: border-box; padding-bottom: 20px;
+}
+.pri-his-con-m-s1-b1{
+    display: flex;  flex-direction: column; justify-content: center;    gap:20px;
 }
 /* 예약완료 */
 .pri-his-con-main-sec2-b1{

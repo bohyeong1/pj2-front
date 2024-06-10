@@ -32,4 +32,6 @@ export {default as Terms_library} from './terms/usingLibrary/Terms_library'
 export {default as Terms_homepage} from './terms/serviceTerms/Terms_homepage'
 export {default as Terms_develope} from './terms/pageDevelope/Terms_develope'
 export {default as Terms_refertosite} from './terms/referToSite/Terms_refertosite'
+export {default as Private_wish} from './Privacy/private-wish/Private-wish'
+export {default as Acc_regist_intro} from './acc_regist/acc_regist_intro/Acc_regist_intro'
 

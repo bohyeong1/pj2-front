@@ -1,6 +1,7 @@
 import React, {useState,useEffect} from "react";
 import './Det-sec4.css'
 import Pagination from "react-js-pagination";
+import default_data from "../../../utilData/defaultData";
 
 // 모달
 import ReplyModal from "../../../modal/replyModal/ReplyModal";
@@ -32,15 +33,17 @@ function Det_sec4({data, replyModalState}){
         setPageData(data.slice(startIndex,finishIndex))           ///////화면에 보여주는 페이지
     }
 
-        //댓글 모달 껏다 키기
-        function replyModalState(){
-            setReplyModal(!replyModal)
-        }
+    //댓글 모달 껏다 키기
+    function replyModalState(){
+        setReplyModal(!replyModal)
+    }
 
     function clickDisplayReply(data){
         setSellecUser(data)
         replyModalState()
     }
+
+    // console.log(data)
 
     return(
         <div className="Det_sec4-container">
@@ -57,7 +60,7 @@ function Det_sec4({data, replyModalState}){
                         return(
                             <div className="Det_sec4-con-s2-b1-content">
                                 <div className="Det_sec4-con-s2-b1-logimg">
-                                    <img className="Det_sec4-imgBox"></img>
+                                    <img className="Det_sec4-imgBox" src={el.writerid.profileImg ? el.writerid.profileImg : default_data.d_userImg.man}></img>
                                     <div className="Det_sec4-evaluation">평점</div>
                                 </div>
                                 <textarea readOnly className="Det_sec4-con-s2-b1-reply" value={`${el.text}`}>

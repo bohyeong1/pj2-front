@@ -7,7 +7,7 @@ import Evalu_star from "./evalu_star/Evalu_star";
 
 
 
-function EvaluModal({displayState,pullEvaluData}){
+function EvaluModal({pullEvaluData, evaluModalState,evaluModal}){
     ///숙소 평가 데이터
     const [evaluation, setEvaluation] = useState({
         evaluation : default_data.d_evaluation
@@ -45,12 +45,14 @@ function EvaluModal({displayState,pullEvaluData}){
     }
 
     return(
-        <>
-        <div className="EvaluModal-wrapper" style={{display:`${displayState ? 'block':'none'}`}}>
+        <div  style={{display:`${evaluModal ? 'block':'none'}`}}>
+        <div className="EvaluModal-wrapper">
         </div>
-        <div className="EvaluModal-container"  style={{display:`${displayState ? 'block':'none'}`}}>
+        <div className="EvaluModal-container">
             <div className="EvaluModal-title">
-                <button className="EvaluModal-title-b1">x</button>
+                <button className="EvaluModal-title-b1">
+                    <img src={default_data.d_imgs.close} style={{cursor:'pointer'}} onClick={()=>{evaluModalState()}}></img>
+                </button>
                 <div className="EvaluModal-title-b2">숙소를 평가해 주세요!</div>
                 <button className="EvaluModal-title-b3" onClick={registEvalu}>평가</button>
             </div>
@@ -72,7 +74,7 @@ function EvaluModal({displayState,pullEvaluData}){
                })} 
             </div>
         </div>
-        </>
+        </div>
     )
 }
 

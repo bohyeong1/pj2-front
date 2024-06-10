@@ -1,6 +1,7 @@
 /* 평점 */
 .Evalu_star-container{
     display: flex;
+    align-items: center;
     
 }
 .star{

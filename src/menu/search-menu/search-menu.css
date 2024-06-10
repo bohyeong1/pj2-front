@@ -3,6 +3,7 @@
     height:665px;
     position: relative;
     left:0;
+    z-index: 3;
 }
 .img-box{
    position: relative;  height: 550px;  box-sizing: border-box;

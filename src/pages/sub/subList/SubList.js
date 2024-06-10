@@ -27,7 +27,7 @@ function SubList({data}){
         setPageData(data.slice(startIndex,finishIndex))           ///////화면에 보여주는 페이지
     }
   
-    console.log(pageData)
+    // console.log(pageData)
 
     return(
         <div className="sublist-container">

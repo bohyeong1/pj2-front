@@ -7,7 +7,7 @@
     background: rgb(200, 200, 200);
 }
 
-.active{
+.fil_active{
     background: rgb(80,80,80);
     color: white;
 }

@@ -79,7 +79,7 @@ function Res_con_sec1 ({data, param}){
                 </div>                
             </div>
             <div className="Res_con_sec1-sec6">
-                <button className="Res_con_sec1-sec6-btn" onClick={()=>{payment(data)
+                <button className="Res_con_sec1-sec6-btn" onClick={async ()=>{await payment(data)
                                                                         navigator('/Private_history')
                 }}>결제하기</button>
                 <button className="Res_con_sec1-sec6-btn" onClick={()=>{navigator('/')}}>취소</button>                

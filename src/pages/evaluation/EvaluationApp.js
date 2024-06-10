@@ -1,5 +1,5 @@
 import React, {useState, useRef} from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import './Evaluation.css'
 import Main_menu from "../../menu/main-menu/main-menu";
 import Footer from "../../menu/footer/Footer";
@@ -8,6 +8,8 @@ import EvaluModal from "../../modal/evaluModal/EvaluModal";
 import connectData from "../../utilData/Utildata";
 
 function Evaluation(){
+    // 네비게이터
+    const navigator = useNavigate()
 
     const params = useParams()
 
@@ -18,13 +20,17 @@ function Evaluation(){
     const evalu_text_ref = useRef()
 
     // state
-    const [displayState, setDisplayState] = useState(false)
     const [sellectData, setSellectData] = useState()
     const [textData, setTextData] = useState()
+    const [evaluModal, setEvaluModal] = useState(false) ///평가 모달 상태값
+
+    // 평가 모달 껏다 키기
+    function evaluModalState(){
+        setEvaluModal(!evaluModal)
+    }
 
     function pullEvaluData(data){
-        // setSellectData(data)
-        setDisplayState(false)
+        setEvaluModal(false)
         let totalAvg = 0
         for(let i=0; i< data.evaluation.length; i++){
             evaluOutput.current[i].innerText = `평점 : ${data.evaluation[i].grade}`
@@ -85,6 +91,8 @@ function Evaluation(){
             evaluation : sellectData,
             text : textData
         })
+
+        navigator('/Private_history')
     }
 
     // console.log(textData)
@@ -112,7 +120,7 @@ function Evaluation(){
                         )                        
                     })}
                 </div>
-                <button className="Evaluation-con-con-b-btn" onClick={()=>{setDisplayState(true)}}>평가하기</button>
+                <button className="Evaluation-con-con-b-btn" onClick={()=>{setEvaluModal(true)}}>평가하기</button>
 
                 <div className="Evaluation-con-con-b2">
                     <div className="Evaluation-con-con-b2-d1">리뷰 작성하기</div>
@@ -128,7 +136,7 @@ function Evaluation(){
                 </div>
 
             </div>
-            <EvaluModal displayState={displayState} pullEvaluData={pullEvaluData}></EvaluModal>
+            <EvaluModal  pullEvaluData={pullEvaluData} evaluModalState={evaluModalState} evaluModal={evaluModal}></EvaluModal>
             <div className="Evaluation-footer">
                 <Footer></Footer>
             </div>

@@ -1,11 +1,17 @@
 .Event_swiper-container{
     width: 1200px;
-    height: 280px;
+    height: 230px;
     display: flex;
     flex-direction: column;
-    gap:20px;   position: relative; z-index: 1;
-    border: solid 1px black;
+    gap:20px;   position: relative; 
 }
 .Event_swiper-title{
     font-size: 1.3rem;  font-weight: 600;
+}
+/* 스와이퍼 */
+.Event-swiper-slide{
+    height: 100%;
+}
+.Event_swiper-content{
+    height: 100%;
 }

@@ -29,35 +29,40 @@ function Side_menu({default_data}){
             <div className="side-menu-content">
                 <div className="side-content-category">
                     <div className="category-title">숙소유형</div>
-
-                    <CheckBtn data={default_data.d_category} keyValue={'category'} c_name={'category-content'}></CheckBtn>
-
-
+                    <CheckBtn data={default_data.d_category_icon} keyValue={'category'} c_name={'category-content'}></CheckBtn>
                 </div>
+
                 <div className="side-content-price">
                     <div className="price-title">가격</div>
                     <div className="price-content">
                        <PriceBtn keyValue='price'></PriceBtn>
                     </div>
                 </div>
+
                 <div className="side-content-grade">
-                    <div className="grade-title">등급</div>
-                    <CheckBtn data={default_data.d_grade} keyValue={'grade'} c_name={'grade-content'}></CheckBtn>
+                    <div className="grade-title">키워드</div>
+                    {default_data.d_keyword.map((ele,id)=>{
+                        return(
+                           <FilterBtn key={id} text={ele.name} keyValue={'keywords'}></FilterBtn>
+                        )
+                    })                        
+                    }
                 </div>
+
                 <div className="side-content-discount">
                     <div className="discount-title">할인</div>
                     <div className="discount-content">
                         <BooleanBtn text='할인 상품' keyValue={'discount'}></BooleanBtn>
                     </div>
                 </div>
+                
                 <div className="side-content-facility">
-                    <div className="facility-title">시설</div>
-                    {default_data.d_service_facility.map((ele,id)=>{
+                    <div className="facility-title">추가 시설</div>
+                    {default_data.d_service_facility_icon.map((ele,id)=>{
                         return(
-                           <FilterBtn key={id} text={ele} keyValue={'service_facility'}></FilterBtn>
+                           <FilterBtn key={id} text={ele.name} keyValue={'service_facility'}></FilterBtn>
                         )
-                    })
-                        
+                    })                        
                     }
 
                 </div>

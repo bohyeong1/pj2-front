@@ -75,7 +75,7 @@ function Detail_infoApp({data}){
             {/* 요약 숙소 정보 섹션 */}
             <div className="Detail_infoApp-sec1">
                 <div className="det-info-con1">
-                    <Det_sec1 data={sellectData?.accomodations} user={sellectData?.seller}></Det_sec1>
+                    <Det_sec1 data={sellectData?.accomodations} user={sellectData?.seller} evaluations={sellectData?.evaluations}></Det_sec1>
                 </div>
                 <div className="det-info-con2">
                     <Sec1_payment data={sellectData?.accomodations} params={params.house}></Sec1_payment>
@@ -99,7 +99,7 @@ function Detail_infoApp({data}){
 
             {/* 호스트 정보 */}
             <div className="Detail_infoApp-sec5">
-                <Det_sec5 data={sellectData?.seller}></Det_sec5>
+                <Det_sec5 data={sellectData?.seller} homeData = {sellectData?.accomodations}></Det_sec5>
             </div>
 
             {/* 이용규칙 */}

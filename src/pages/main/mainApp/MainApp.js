@@ -80,9 +80,9 @@ const m_eco = sectionFilterData(renderData,'keywords','가족여행')           
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>
-                <Lv1_description title={'국내 인기 여행지'} data = {city}></Lv1_description>
+                <Lv1_description title={'국내 인기 여행지'} data ={city}></Lv1_description>
                 {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
-                <Lv2_description title={'인기 추천 숙소'} data={renderData}></Lv2_description>
+                <Lv2_description title={'연인추천 숙소'} data={renderData}></Lv2_description>
                 <Lv2_description title={'가족여행 숙소'} data={renderData}></Lv2_description>
                 <Creator_description></Creator_description>
                 <Lv4_description title={'친환경 숙소'} data={m_eco} imgurl = {imgurl}></Lv4_description>

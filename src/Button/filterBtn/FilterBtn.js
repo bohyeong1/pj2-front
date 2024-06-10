@@ -10,12 +10,16 @@ function FilterBtn({text,keyValue}){
     const [SearchParams,setSearchParams] = useSearchParams()
 
     function filterData(){
+
         setToggle(!toggle)
 
         if(!toggle){
             SearchParams.append(keyValue, text)
             setSearchParams(SearchParams)
         }else{
+
+            // console.log('확인')
+
             const copiedParams = SearchParams.getAll(keyValue)
             const filterParams = copiedParams.filter((ele)=>{
                 return ele !== text})
@@ -23,11 +27,14 @@ function FilterBtn({text,keyValue}){
             filterParams.map((ele)=>{SearchParams.append(keyValue,ele)})
             setSearchParams(SearchParams)
         }
+
+
     }
 
+    // console.log(toggle)
 
     return(
-        <button className={`filter-btn ${toggle ? 'active' : ''}`} onClick={filterData}>{text}</button>
+        <button className={`filter-btn ${toggle ? 'fil_active' : ''}`} onClick={filterData}>{text}</button>
     )
 }
 

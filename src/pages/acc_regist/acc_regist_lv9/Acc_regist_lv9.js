@@ -49,7 +49,6 @@ function Acc_regist_lv9(){
             ac_regi_lv9_alert.current.style.display = 'none'
             debounceSetTitle()
         }
-
     }
 
     console.log(sellectData)
@@ -77,7 +76,7 @@ function Acc_regist_lv9(){
 
                 <div className="Acc_regist_lv9-con-sec1">
                     <form className="Acc_regist_lv9-con-s1-b1">
-                        <textarea  className="Acc_regist_lv9-con-s1-b1-t1" ref={ac_regi_lv9_input} type='text' style={{width:'100%', boxSizing:'border-box', height:'100%', 
+                        <textarea  className="Acc_regist_lv9-con-s1-b1-t1" ref={ac_regi_lv9_input} type='text' spellCheck={false} style={{width:'100%', boxSizing:'border-box', height:'100%', 
                         textAlign : 'top', padding : '10px', fontSize : '1rem', lineHeight:'1.5rem'}} placeHolder='숙소를 설명하는 글을 작성해주세요!'  onChange={lv8TextInputChange}></textarea >
                         <input  className="Acc_regist_lv9-con-s1-b1-t2" type='submit' style={{display:'none'}}></input>
                     </form>

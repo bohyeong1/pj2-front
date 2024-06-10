@@ -5,9 +5,9 @@ import React, {useEffect, useState} from 'react';
 import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
         ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12,
-        Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation, AgreeTerms,Private_point,
+        Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation, AgreeTerms,Private_point,Acc_regist_intro,
 
-        Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite
+        Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,Private_wish
 
 } from './pages';
 
@@ -87,6 +87,7 @@ async function saveData(){
         </Route>
         <Route exact path='/Acc_regist' element={<Acc_regist></Acc_regist>}></Route>                                    ///// 숙소 호스팅 페이지
         <Route exact path='/Acc_regist/Acc_manage' element={<Acc_manage></Acc_manage>}></Route>
+        <Route exact path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                         /////호스트 텍스트 메시지 입력 페이지
 
 
         
@@ -107,10 +108,11 @@ async function saveData(){
         <Route exact path='/Acc_regist/Acc_regist_lv12' element={<Acc_regist_lv12></Acc_regist_lv12>}></Route>              /////////////숙소 등록 페이지 lv12
 
 
-
+        
         <Route exact path='/Private_history' element={<Private_history></Private_history>}></Route>              /////////////마이페이지 - 예약내역 리스트
         <Route exact path='/Private_management' element={<Private_management></Private_management>}></Route>              /////////////마이페이지 - 정보수정
         <Route exact path='/Private_point' element={<Private_point></Private_point>}></Route>              /////////////마이페이지 - 포인트확인
+        <Route exact path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                //////////////위시리스트
 
         Private_point
         <Route exact path='/ReservationApp' element={<ReservationApp></ReservationApp>}>                    /////////////예약하기    

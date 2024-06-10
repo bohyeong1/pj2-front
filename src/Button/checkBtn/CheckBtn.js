@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import './CheckBtn.css'
 
 function CheckBtn({data, c_name,keyValue}){
-    // console.log(c_name)
+    // console.log(data)
     const [SearchParams,setSearchParams] = useSearchParams()
 
 
@@ -40,8 +40,8 @@ function CheckBtn({data, c_name,keyValue}){
             {data.map((ele,id)=>{
                 return(
                     <div key={id} className={c_name}>
-                        <input className="check_btn" type='checkbox' value={ele} onClick={checkbtnClick} onInput={checkbtnInput} name={keyValue}></input>
-                        <label for={ele}>{ele}</label>
+                        <input className="check_btn" type='checkbox' value={ele.name} onClick={checkbtnClick} onInput={checkbtnInput} name={keyValue}></input>
+                        <label for={ele}>{ele.name}</label>
                     </div>
                 )
             })}

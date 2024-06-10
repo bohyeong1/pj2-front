@@ -1,8 +1,5 @@
 const default_data = {
     d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL
-    d_category : ['모텔','호텔','리조트','한옥','원룸','주택','펜션', '캠핑', '아파트'],                 /////카테고리 디폴트 데이터
-    d_service_facility : ['수영장','주차장','안마기','족구장','사우나','전자레인지','건조기','엘리베이터','아침식사','와이파이','무료주차','에어컨','TV','세탁기','난방'],   ///서비스시설 디폴트
-    d_grade : ['1등급','2등급','3등급','4등급','5등급'],        ////등급 디폴트
 
     // 카테고리 디폴트 데이타 + 아이콘
     d_category_icon : [{name:'주택',
@@ -227,7 +224,7 @@ const default_data = {
         ,bedroom :'https://www.southernliving.com/thmb/Ese8RqlXapIv06Dyadkahils2IY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/27566_IdeaHouse15660F-1905e09febe248c4ab47eff5cdbf468d-62d993a843b24796aab125080d8482cf.jpg'
         ,decoroom :'https://www.jfsgagu.co.kr/shopimages/jfsgagu/030008000112.jpg?1629943955'
         ,door :'https://w0.peakpx.com/wallpaper/257/683/HD-wallpaper-beautiful-house-gate-windows-house-flowers-white.jpg'
-        ,myprofile :'https://i.namu.wiki/i/8rKhueRZ-qwXhLcVZqUktWRJA86XxE0poUTndbxUtaq9Go9gpK5mPdYvRShgJ7KACnmtqjxIDU1T1z3ynggpU77Ht_E7pfLGDetkHXa1LP6kLB3USXToNkiKZWcatojmSlTR00Yk8h17TMx-VR6-nQ.webp'
+        ,myprofile :'https://kr.object.ncloudstorage.com/sbh-repository/4d2fa9b3-a00f-4dcc-87fa-4935003f15c1.PNG'
         ,airbnb : 'https://www.infostockdaily.co.kr/news/photo/202311/195482_185184_309.jpg'
         ,hotelsdotcom : 'https://newsfield.net/wp-content/uploads/2023/10/img-3.png'
         ,yogi : 'https://play-lh.googleusercontent.com/6A-iaIqXD-HbulwwLeisCd7Ew95RBOvWStAf0twFmPxaRIxePEDGAtylfwonmv-R1lAm=w240-h480-rw'
@@ -235,6 +232,11 @@ const default_data = {
         ,main_home1:'https://img.icons8.com/matisse/100/cottage.png'
         ,main_home2:'https://img.icons8.com/external-justicon-lineal-color-justicon/64/external-home-japan-justicon-lineal-color-justicon.png'
         ,main_home3:'https://img.icons8.com/external-konkapp-outline-color-konkapp/64/external-apartment-real-estate-konkapp-outline-color-konkapp-1.png'
+        ,slice_img1:'https://hacwon.kr/files/attach/images/131/593/010/f9d1cea7413ba6898b463492481f8bef.jpeg'
+        ,slice_img2:'https://img.icons8.com/clouds/100/money.png'
+        ,slice_img3:'https://scontent-ssn1-1.xx.fbcdn.net/v/t31.18172-8/11958035_10153119373749607_3935345007661394283_o.jpg?stp=dst-jpg_p180x540&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=0DstrVyKl9MQ7kNvgGdD6zC&_nc_ht=scontent-ssn1-1.xx&oh=00_AYCNGIOL-c8mrGe_MJvfmOuQd718mNUZd6Z-QJVUUeXmGA&oe=668DDCE0'
+        ,slice_img4:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCaouF%2FbtqHEfnG1hF%2FaIj3a5yyOKEXZYFiTu0hW1%2Fimg.png'
+
     },
 
     //////////////////////로그인 마이페이지 사이드메뉴

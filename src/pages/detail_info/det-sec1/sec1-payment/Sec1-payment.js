@@ -25,8 +25,10 @@ function Sec1_payment({data, params}){
 
     useEffect(()=>{
         if(pay_checkIn && pay_checkOut){
-            const payDay = pay_checkOut.getDate() - pay_checkIn.getDate() + 1
-            setPay_day(payDay)
+            console.log(pay_checkIn.getTime(), pay_checkOut.getTime())
+            const payDay = pay_checkOut.getTime() - pay_checkIn.getTime()
+            console.log(payDay, new Date(payDay).getDate())
+            setPay_day(new Date(payDay).getDate())
         }
     },[pay_checkOut])
 

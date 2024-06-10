@@ -65,6 +65,12 @@ function Mem_join_complete(){
                     method: 'POST',
                     body: imgData
                 })
+
+                const copiedData = {...logDataParse}
+                copiedData.profileImg = result.imgUrls
+                sessionStorage.setItem('userData', JSON.stringify(copiedData))
+                console.log(copiedData)
+
             }catch(e){
                 alert('이미지 등록에 실패하셨습니다.')
             }

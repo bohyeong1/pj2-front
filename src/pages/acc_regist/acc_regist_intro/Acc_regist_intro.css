@@ -1,0 +1,64 @@
+.Acc_regist_intro-container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc_regist_intro-content{
+   width:1200px;    display: flex;  flex-direction: column;
+}
+
+.Acc_regist_intro-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+/* 섹션1 */
+.Acc_regist_intro-sec1{
+    box-sizing: border-box; margin-top: 50px;   padding-bottom: 50px;   margin-bottom: 20px;
+    border-bottom: solid 1px rgb(210,210,210);
+}
+.Acc_regist_intro-s1-title{
+    font-size: 2rem;    font-weight: bold;
+}
+
+/* 섹션2 */
+/* 섹션2 - 수정버튼 */
+.Acc_regist_intro-s2-b1{
+    width: 100%;    height: fit-content;    display: flex;  justify-content: end;   align-items: center;
+}
+.Acc_regist_intro-s2-b1-btn{
+    border: none;   box-sizing: border-box; padding-left: 20px; padding-right: 20px;    padding-top: 10px;  padding-bottom: 10px;   border-radius: 10px;
+    font-size: 1.3rem;    font-weight: bold;  font-family: inherit; color: #1273e4; background: none;   cursor: pointer; 
+}
+.Acc_regist_intro-s2-b1-btn:hover{
+    text-decoration: underline;
+}
+/* 섹션2 - 디스플레이 */
+.Acc_regist_intro-sec2{
+    display: flex;  gap:20px;  width: 100%; box-sizing: border-box; margin-bottom: 50px;    flex-direction: column;
+}
+.Acc_regist_intro-s2-b2{
+    display: flex;  gap:50px;   justify-content: space-between; width: 100%;
+}
+.Acc_regist_intro-s2-b2-d2{
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   width: 60%;     border-radius: 15px;
+    box-sizing: border-box; padding: 30px;   font-size: 1.2rem;   
+}
+.Acc_regist_intro-nodata{
+    width: 100%;    text-align: left;   font-size: 1.5rem;  line-height: 38px;  position: relative;
+}
+.Acc_regist_intro-nodata-img{
+    position: absolute; top:50%; transform: translateY(-50%); width: 38px;
+}
+.Acc_regist_intro-s2-b2-d2-text{
+    width: 100%;    border: none;   resize: none;   font-size: 1.3rem;  font-family: inherit;
+}
+.Acc_regist_intro-s2-b2-d2-text:focus{
+    outline: none;
+}
+

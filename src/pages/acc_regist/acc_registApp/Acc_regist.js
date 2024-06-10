@@ -12,7 +12,7 @@ function Acc_regist(){
     const logDataParse = JSON.parse(logData) || null
 
 
-    console.log(logDataParse)
+    // console.log(logDataParse)
     const reserveData = null
 
     const navigator = useNavigate()
@@ -23,7 +23,7 @@ function Acc_regist(){
             
             <div className="Acc_regist-container">
                 <div className="Acc_regist-sec1">
-                    <div className="Acc_regist-s1-b1">{`${localStorage.getItem('userName')} 님, 반갑습니다!`}</div>
+                    <div className="Acc_regist-s1-b1">{`${logDataParse.name} 님, 반갑습니다!`}</div>
                     <div className="Acc_regist-s1-b2">
                         <div className="Acc_regist-s1-b2-b1">
                             <div className="Acc_regist-s1-b2-b1-t1">호스팅 정책</div>
@@ -33,7 +33,7 @@ function Acc_regist(){
                         <div className="Acc_regist-s1-b2-b2">
                             <div className="Acc_regist-s1-b2-b2-t1">호스트 소개하기</div>
                             <div className="Acc_regist-s1-b2-b2-t2">게스트들에게 자신을 소개하는 글을 작성해 보세요!</div>
-                            <div className="Acc_regist-s1-b2-b2-t3" onClick={()=>{}}>이동하기</div>
+                            <div className="Acc_regist-s1-b2-b2-t3" onClick={()=>{navigator('/Acc_regist/Acc_regist_intro')}}>이동하기</div>
                         </div>
 
                     </div>
@@ -41,7 +41,6 @@ function Acc_regist(){
 
                 <div className="Acc_regist-sec2">
                     <div className="Acc_regist-s2-b1">
-
                     </div>
                     <div className="Acc_regist-s2-b2">
                         <div className="Acc_regist-s2-b2-d1">
@@ -52,7 +51,8 @@ function Acc_regist(){
                                 <span style={{marginRight : '15px'}}>게스트에게 보여줄 내용을 작성해 주세요!</span>
                                 <img className="Acc_regist-nodata-img" src={default_data.d_imgs.smile}></img>
                             </div>
-                            <textarea style={{display:`${!logDataParse.hostText ? 'none' : 'block'}`}} value={logDataParse.hostText ? logDataParse.hostText : ''}></textarea>
+                            <textarea style={{display:`${!logDataParse.hostText ? 'none' : 'block'}`}} readOnly className="Acc_regist-s2-b2-d2-text" spellCheck={false}
+                            value={logDataParse.hostText ? logDataParse.hostText : ''}></textarea>
                             
                         </div>
                     </div>

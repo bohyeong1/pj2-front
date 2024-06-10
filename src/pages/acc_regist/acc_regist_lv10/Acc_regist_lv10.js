@@ -155,7 +155,8 @@ function Acc_regist_lv10(){
                                 id="Acc_regist_lv10-con-s1-b">
                                    <div className={`Acc_regist_lv10-con-s1-b${id}-d1`}>{ele.text}</div>
                                    <div className={`Acc_regist_lv10-con-s1-b${id}-d2`}>
-                                       <textarea className={`Acc_regist_lv10-con-s1-b${id}-d2-t1`} ref={addRulesRef} placeholder='추가 규칙을 작성해 주세요!' onChange={changeAddRule}></textarea>
+                                       <textarea className={`Acc_regist_lv10-con-s1-b${id}-d2-t1`} ref={addRulesRef} placeholder='추가 규칙을 작성해 주세요!' 
+                                       onChange={changeAddRule} spellCheck={false}></textarea>
                                    </div>
                                </div>
                             )
