@@ -1,6 +1,6 @@
 import React from 'react';
 import './Small-main.css'
-import { Link } from "react-router-dom";
+
 
 function Small_main({data}){
 

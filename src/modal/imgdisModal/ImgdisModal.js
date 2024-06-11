@@ -88,9 +88,9 @@ function ImgdisModal({data, imgModalState,imgModal}){
                     </div>
                 </div>
                 {/* left */}
-                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={800} left={left} px={0}></Lslide_btn>
+                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={800} left={left} px={0} top={260}></Lslide_btn>
                 {/* right */}
-                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={800} left={left} px={0}></Rslide_btn>
+                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={800} left={left} px={0} top={260}></Rslide_btn>
 
             </div>
 

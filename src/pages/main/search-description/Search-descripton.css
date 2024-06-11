@@ -14,3 +14,6 @@
 .Search_descripton-contents > span{
     width: 20%;   color: #1273e4;   cursor: pointer;
 }
+.Search_descripton-contents > span:hover{
+    text-decoration: underline; text-decoration-line: underline;
+}
