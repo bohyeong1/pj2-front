@@ -8,6 +8,7 @@ import default_data from "../../../utilData/defaultData";
 
 
 function Private_point(){
+    const [cashData, setCashData] = useState()
 
     ///로그데이터
     const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
@@ -19,6 +20,7 @@ function Private_point(){
 
         })
         sessionStorage.setItem('userData', JSON.stringify(user))
+        setCashData(user)
     }
 
     useEffect(()=>{
@@ -40,7 +42,7 @@ function Private_point(){
 
                     <div className="pri-po-con-main-sec1">
                        <div className="pri-po-con-a-s1-b1">내 포인트</div>
-                       <div className="pri-po-con-a-s1-b2">{`${logDataParse.cashInv}원`}</div>
+                       <div className="pri-po-con-a-s1-b2">{`${cashData?.cashInv}원`}</div>
                     </div>
                 </div>
             </div>

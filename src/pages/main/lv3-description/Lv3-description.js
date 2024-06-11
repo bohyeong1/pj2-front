@@ -95,9 +95,9 @@ function Lv3_description({title,data}){
                 
             </div>
             {/* left */}
-            <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={0}></Lslide_btn>
+            <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={0} top={210}></Lslide_btn>
             {/* right */}
-           <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={0}></Rslide_btn>  
+           <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={0} top={210}></Rslide_btn>  
         </div>
     )
 }

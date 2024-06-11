@@ -1,19 +1,40 @@
-import React from "react";
+import React, {useState,useEffect} from "react";
 import './Acc_regist.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from '../../../menu/footer/Footer'
 import { useNavigate } from "react-router-dom";
 import UserImg from "../../../utilData/userImg/UserImg";
 import default_data from "../../../utilData/defaultData";
+import connectData from "../../../utilData/Utildata";
+import History_main from "../../../picture/history-main/History-main";
 
 function Acc_regist(){
     ///로그데이터
     const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
     const logDataParse = JSON.parse(logData) || null
 
+    //////////숙소 데이터 state
+    const [reservData, setReservDataState] = useState(null)
 
-    // console.log(logDataParse)
-    const reserveData = null
+
+    async function getData(){
+        const homeData = await connectData(`${default_data.d_base_url}/api/reserv/host`, 'POST',{
+            userId : logDataParse._id
+        })
+        if(homeData){
+            setReservDataState(homeData)
+        }else{
+            alert('데이터를 받아오는데 실패하셨습니다')
+        }
+    }
+
+    useEffect(()=>{
+        getData()
+    },[])
+
+    console.log(reservData)
+
+
 
     const navigator = useNavigate()
 
@@ -64,7 +85,43 @@ function Acc_regist(){
                     <div className="Acc_regist-s3-b2">
                         <div className="Acc_regist-s3-b2-t1"></div>
                         <div className={`Acc_regist-s3-b2-t2 ${'reserve_active'}`}>
-                            {reserveData ? '데이터 있음' : '예약된 숙소가 없습니다'}
+                            {reservData?.length != 0 ? 
+                            <div className="Acc_regist-s3-b2-t2-d1">
+                                {reservData?.map((el, id)=>{
+                                    return(
+                                        <div key={id} className="Acc_regist-s3-b2-t2-d1-a1" 
+                                        style={{borderBottom : `${id === reservData?.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}> 
+                                            <div>
+                                                <History_main data={el}></History_main>
+                                            </div>
+                                            <div className="Acc_regist-s3-b2-t2-d1-a1-b1">
+                                                <div>                                            
+                                                    <span>숙소 이름</span>
+                                                    <span>{el.title}</span>
+                                                </div>
+                                                <div>
+                                                    <span>구매자</span>
+                                                    <span>{el.buyer.name}</span>
+                                                </div>
+                                                <div>
+                                                    <span>수입</span>
+                                                    <span>{`${el.totalPrice}원`}</span>
+                                                </div>
+                                                <div>
+                                                    <span>숙박 일수</span>
+                                                    <span>{el.restDay}</span>
+                                                </div>
+                                                <div>
+                                                    <span>숙박 시작일</span>
+                                                    <span>{`${new Date(el.createAt).getFullYear()}년 ${new Date(el.createAt).getMonth()}월 ${new Date(el.createAt).getDate()}일`}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    )
+                                  })}
+
+                        </div>                        
+                            : '예약된 숙소가 없습니다'}
                         </div>
                     </div>
                 </div>

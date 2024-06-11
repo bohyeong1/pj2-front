@@ -5,7 +5,7 @@ import default_data from "../defaultData";
 function UserImg({data, adress}){
 
     const date = new Date(data?.createAt)
-    console.log(data)
+    // console.log(data)
 
     return(
         <div className="UserImg-container">

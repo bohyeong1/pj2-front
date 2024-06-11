@@ -56,3 +56,6 @@
 .list-text-tex5{
     display: flex;  flex-direction: column; gap:5px;
 }
+.list-text-evaluation{
+    display: flex;  align-items: center;    gap:10px;
+}

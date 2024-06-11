@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import './SubList.css'
 import Detail from "../../../picture/detail/Detail";
 import Pagination from "react-js-pagination";
+import default_data from "../../../utilData/defaultData";
 
 function SubList({data}){
 
@@ -41,6 +42,9 @@ function SubList({data}){
                         <div className="list-text">
                             <div className="list-text-tex1">{`${ele.category.name}`}</div>
                             <div className="list-text-tex2">{ele.title}</div>
+                            <div className="list-text-evaluation"><img style={{width:'20px', height:'20px'}} src={default_data.d_imgs.star}></img>
+                                    {`${ele.avgEvaluation.length != 0 ? (ele.avgEvaluation.reduce((prev, cur) => {return prev + cur},0)/ele.avgEvaluation.length).toFixed(2) : 
+                                    '미평가'}`}</div>
                             <div className="list-text-tex3">{ele.search_adress}</div>
                             <div className="list-text-tex4">
                                 {ele?.keywords.map((el)=>{

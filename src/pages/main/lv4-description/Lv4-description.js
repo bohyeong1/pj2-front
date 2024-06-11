@@ -99,9 +99,9 @@ function Lv4_description({title, data, imgurl}){
                 </div>
 
                 {/* left */}
-                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1182} left={left} px={35}></Lslide_btn>
+                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1182} left={left} px={35} top={255}></Lslide_btn>
                 {/* right */}
-                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1182} left={left} px={35}></Rslide_btn>
+                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1182} left={left} px={35} top={255}></Rslide_btn>
 
         </div>
     )

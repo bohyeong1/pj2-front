@@ -36,7 +36,7 @@ function SubApp (){
         }
         else if(value === 'price'){
             if(SearchParams.get(value).includes('%')){
-                finalKey[value] = {$gt:SearchParams.get(value).split('%')[0]}
+                finalKey[value] = {$gte:SearchParams.get(value).split('%')[0]}
             }else{
                 finalKey[value] = {$lt:SearchParams.get(value)}
             }

@@ -66,8 +66,8 @@ function Mem_join_complete(){
                     body: imgData
                 })
 
-                const copiedData = {...logDataParse}
-                copiedData.profileImg = result.imgUrls
+                const copiedData = {...logDataParse, profileImg : result.imgUrls}
+
                 sessionStorage.setItem('userData', JSON.stringify(copiedData))
                 console.log(copiedData)
 

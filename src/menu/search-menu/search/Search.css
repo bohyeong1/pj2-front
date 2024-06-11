@@ -98,21 +98,23 @@
     width:100%;
 }
 .search-b-l-box3-dr-box2{
-    display: flex; justify-content: space-between; box-sizing: border-box; padding-left: 35px; padding-right: 35px; margin-top: 30px;
+    display: flex; justify-content: space-between; box-sizing: border-box; padding-left: 35px; padding-right: 35px; margin-top: 30px;   align-items: center;
 }
 .search-b-l-box3-dr-box1-title{
     font-size: 1rem;    font-weight: bold;  margin-bottom: 10px;    margin-top: 10px;
 }
 .search-b-l-box3-dr-box1-text{
-    font-size: 0.8rem;
+    font-size: 1rem;
 }
 .search-b-l-box3-dr-box3{
     font-size: 1rem;    margin-top: 30px;
 }
 .search-b-l-box3-dr-box2-rb,.search-b-l-box3-dr-box2-lb{
-    border-radius: 50%; border: solid 1px black;    cursor: pointer;
+    border-radius: 50%; background: white;    cursor: pointer;    width: 30px;    height: 30px; border: solid 1px rgb(150,150,150);
 }
-
+.search-b-l-box3-dr-box2-rb:hover, .search-b-l-box3-dr-box2-lb:hover{
+    background: rgb(200, 200, 200); border: none;
+}
 
 /* 검색btn */
 .b-l-box4-title{

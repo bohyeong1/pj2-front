@@ -43,7 +43,6 @@ function Private_management(){
             nickname : nickname,
             userId : logDataParse.userId
         })
-        console.log(updateData)
         if(updateData.code !== 200){
             alert('형식에 맞지 않는 데이터입니다.')
         }else{
@@ -51,6 +50,8 @@ function Private_management(){
             setModifyState(false)
         }
     }
+
+    console.log(logDataParse)
 
     return(
         <div className="Private_management-container">

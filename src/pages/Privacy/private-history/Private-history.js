@@ -6,7 +6,7 @@ import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from "../../../menu/footer/Footer";
 import connectData from "../../../utilData/Utildata";
 import default_data from "../../../utilData/defaultData";
-import Small_main from "../../../picture/small-main/Small-main";
+import History_main from "../../../picture/history-main/History-main";
 
 function Private_history(){
 
@@ -29,6 +29,7 @@ function Private_history(){
     }
     // console.log(resData[0]?.accomodation)
 
+    console.log(resData)
 
     useEffect(()=>{
         reservationData()
@@ -57,7 +58,7 @@ function Private_history(){
                                     <div key={id} className="pri-his-con-m-s1-b1-d1" 
                                     style={{borderBottom : `${id === resData.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}> 
                                         <div>
-                                            <Small_main data={el}></Small_main>
+                                            <History_main data={el}></History_main>
                                         </div>
                                         <div className="pri-his-con-m-s1-b1-d2">
                                             <div>                                            
@@ -98,7 +99,7 @@ function Private_history(){
                                         <div key={id} className="pri-his-con-main-sec2-b1"
                                         style={{borderBottom : `${id === resData.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}>
                                             <div className="pri-his-con-m-s2-b1-d1">
-                                                <Small_main data={el}></Small_main>
+                                                <History_main data={el}></History_main>
                                             </div>
                                             <div className="pri-his-con-m-s2-b1-d2">
                 

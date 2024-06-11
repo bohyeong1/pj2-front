@@ -1,7 +1,8 @@
 import React, {useState, useEffect, useRef} from "react";
-import { NavLink, useSearchParams, useNavigate } from "react-router-dom";
+import {  useSearchParams, useNavigate } from "react-router-dom";
 import './Search.css'
 import DateCalendar from "../../../utilData/dateCalendar/DateCalendar";
+import defaultData from '../../../utilData/defaultData'
 
 
 function Search({data, shadow, subtitle}){
@@ -107,6 +108,7 @@ function Search({data, shadow, subtitle}){
         e.stopPropagation()
 
         b_box3_ref_val.current.innerText = Number(b_box3_ref_val.current.innerText)-1
+        console.log(b_box3_ref.current)
         b_box3_ref_box3.current.value= `인원수 ${b_box3_ref_val.current.innerText}명`
         b_box3_ref.current.value= `${b_box3_ref_val.current.innerText}`
         if(b_box3_ref_val.current.innerText==='0'){
@@ -162,13 +164,17 @@ function Search({data, shadow, subtitle}){
                             <div className="search-b-l-box3-dr-box1-text">유아 및 아동도 포함해 주세요</div>
                         </div>
                         <div className="search-b-l-box3-dr-box2">
-                            <button className="search-b-l-box3-dr-box2-lb" onClick={clickMinus}>-</button>
+                            <button className="search-b-l-box3-dr-box2-lb" onClick={clickMinus}>
+                                <img   style={{width:'100%', height:'100%'}} src={defaultData.d_imgs.minus}></img>
+                            </button>
 
                             <span ref={b_box3_ref_val} className="b_box3_ref_val">2</span>
 
-                            <button className="search-b-l-box3-dr-box2-rb" onClick={clickPlus}>+</button>
+                            <button className="search-b-l-box3-dr-box2-rb" onClick={clickPlus}>
+                                <img style={{width:'100%', height:'100%'}} src={defaultData.d_imgs.plus}></img>
+                            </button>
                         </div>
-                        <div ref={b_box3_ref_box3} className="search-b-l-box3-dr-box3">인원수 2명</div>
+                        <div ref={b_box3_ref_box3} className="search-b-l-box3-dr-box3"></div>
                     </div>
                 </div>
 
