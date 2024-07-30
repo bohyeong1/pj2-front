@@ -19,7 +19,7 @@ function Footer(){
                         <div className="footer-con-s1-b1-sub-t1">
                             <img style={{height:'20px'}} src={default_data.d_imgs.telephone}></img>
                             010-5508-6125</div>
-                        <div className="footer-con-s1-b1-sub-t2">개인 전번이에요. 장난전화 ㄴㄴ</div>
+                        <div className="footer-con-s1-b1-sub-t2">개인 전화번호 입니다.</div>
                     </div>
                 </div>
                 <div className="footer-con-s1-b2">

@@ -6,13 +6,14 @@
     flex-direction: column; gap:40px;
 }
 .Search_descripton-title{
-    font-size: 1.3rem;  font-weight: 600;
+    font-size: 1.125rem;  font-weight: 600;
 }
 .Search_descripton-contents{
     display: flex; flex-wrap: wrap; width: 100%;    row-gap: 20px;
 }
 .Search_descripton-contents > span{
     width: 20%;   color: #1273e4;   cursor: pointer;
+    font-size: 0.875rem;
 }
 .Search_descripton-contents > span:hover{
     text-decoration: underline; text-decoration-line: underline;

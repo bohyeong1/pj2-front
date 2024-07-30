@@ -18,14 +18,14 @@ import ImgdisModal from "../../../modal/imgdisModal/ImgdisModal";
 
 
 
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
 
 
 
 
 
-function Detail_infoApp({data}){
+function Detail_infoApp(){
     let params = useParams()
 
 
@@ -56,9 +56,6 @@ function Detail_infoApp({data}){
     function imgModalState(){
         setImgModal(!imgModal)
     }
-
-
-
 
     return(
         <div className="Detail_infoApp-container">

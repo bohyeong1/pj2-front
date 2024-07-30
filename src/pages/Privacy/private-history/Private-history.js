@@ -4,7 +4,7 @@ import './Private-history.css'
 import Pri_side_menu from "../../../menu/pri-side-menu/Pri-side-menu";
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from "../../../menu/footer/Footer";
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
 import History_main from "../../../picture/history-main/History-main";
 

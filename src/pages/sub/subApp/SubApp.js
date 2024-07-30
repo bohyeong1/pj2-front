@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { useParams, useSearchParams } from "react-router-dom";
 import './SubApp.css'
 import Side_menu from "../../../menu/side-menu/side-menu";
@@ -8,7 +7,7 @@ import Search from "../../../menu/search-menu/search/Search";
 import SubList from "../subList/SubList";
 import Footer from "../../../menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
-import connectData from "../../../utilData/Utildata"
+import connectData from "../../../utilData/UtilFunction"
 
 function SubApp (){
     const params = useParams()              //파라미터

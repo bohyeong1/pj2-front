@@ -1,6 +1,6 @@
 import React from "react";
 import './Res-con-sec1.css'
-import connectData from "../../../../utilData/Utildata";
+import connectData from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
 import { useNavigate } from "react-router-dom";
 

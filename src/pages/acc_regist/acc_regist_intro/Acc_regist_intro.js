@@ -3,7 +3,6 @@ import './Acc_regist_intro.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from "../../../menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
-import connectData from "../../../utilData/Utildata";
 import UserImg from "../../../utilData/userImg/UserImg";
 import HostTextModal from "../../../modal/hostTextModal/HostTextModal";
 

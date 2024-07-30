@@ -1,11 +1,11 @@
 import React, {useRef, useState}from "react";
 import { NavLink } from "react-router-dom";
 import './Lv4-description.css'
-import Midium_main from "../../../picture/midium-main/Midium-main";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
 import default_data from "../../../utilData/defaultData";
-
+import { pop_three_texts } from "../../../utilData/UtilFunction";
+import Pastel_img from "../../../picture/pastel-img/pastel-img";
 
 function Lv4_description({title, data, imgurl}){
     
@@ -75,11 +75,17 @@ function Lv4_description({title, data, imgurl}){
                 <div className="Lv4-description-content">
                     <div className="lv4-content-container"  ref={slideContainer} style={{left: slidePos + 'px'}}>
                         {data ? data.map((ele,id)=>{  
-                                            
+                            let price
+                            if(String(ele.price).length > 3){
+                                price = pop_three_texts(ele.price)
+                            }else{
+                                price = ele.price
+                            } 
+
                             return(
                             <NavLink to={`SubApp/Detail_infoApp/${ele._id}`} key={id} className="lv4-img-wrapper">
                                 <div className="lv4-img-container">
-                                    <Midium_main data={ele}></Midium_main>
+                                    <Pastel_img url={ele.main_img}></Pastel_img>
                                 </div>
                                 <div className="lv4-img-text">
                                     <div className="lv4-img-tex1">{ele.category.name}</div>
@@ -88,7 +94,10 @@ function Lv4_description({title, data, imgurl}){
                                     <div className="lv4-img-tex4"><img style={{width:'20px', height:'20px'}} src={default_data.d_imgs.star}></img>
                                     {`${ele.avgEvaluation.length != 0 ? (ele.avgEvaluation.reduce((prev, cur) => {return prev + cur},0)/ele.avgEvaluation.length).toFixed(2) : 
                                     '미평가'}`}</div>
-                                    <div className="lv4-img-tex5">{`${ele.price}원`}</div>
+                                    <div className="lv4-img-tex5">
+                                        <span>{price}</span>
+                                        <span>원</span>
+                                    </div>
                                 </div>
                             </NavLink>
                             )                  

@@ -57,18 +57,15 @@ function Search({data, shadow, subtitle}){
     function searchBtn(){
         const city = b_box1_ref.current.value
         const capacity = b_box3_ref_val.current.innerText
-        console.log(city, capacity)
+        // console.log(city, capacity)
 
         setSelectedDropdown(null)
 
         navigate(`/SubApp/${city}?capacity=${capacity}`)
     }
 
-    // NavLink to={`/SubApp/${ele}`}
-
     ////드롭다운 토글함수
     const openDropdown = (e) => {
-        console.log('서치')
         e.stopPropagation()
             if(e.target.id === selectedDropdown){
                 setSelectedDropdown(null)
@@ -77,6 +74,7 @@ function Search({data, shadow, subtitle}){
                 setSelectedDropdown(e.target.id)
             }
     }
+
     ////////////////////////////윈도우 전역에 이벤트 주기 (협업에서 이렇게 하면 욕처먹을듯// 임포트 할 수 있는 유틸함수로 뺄것)
     // window.addEventListener('click',(e)=>{
     //     // console.log('확인')
@@ -131,7 +129,7 @@ function Search({data, shadow, subtitle}){
 
             <div className="search-bottom-line">         
                 <div className="bottom-line-box1">
-                    <input className="b-l-box1-title" ref={b_box1_ref} placeholder='지역' type='text' id={1} onClick={openDropdown}></input>
+                    <input className="b-l-box1-title" ref={b_box1_ref} placeholder='여행지를 검색해 보세요' type='text' id={1} onClick={openDropdown}></input>
                     <div className={`search-b-l-box1-dr ${selectedDropdown == 1 && 'drop_active'}`} >
                         <div className="search-b-l-box1-dr-title">지역 검색하기</div>
                         {cityName?.map((ele,id)=>{
@@ -140,7 +138,10 @@ function Search({data, shadow, subtitle}){
                                         e.stopPropagation()
                                         b_box1_ref.current.value=ele    
                                         setSelectedDropdown(`${Number(selectedDropdown)+1}`)
-                                    }} className="search-b-l-box1-dr-list" key={id} value={ele}>{`${id+1}. ${ele}`}</div>
+                                    }} className="search-b-l-box1-dr-list" key={id} value={ele}>
+                                        <span>{id+1}</span>
+                                        <span>{ele}</span>
+                                    </div>
                                 )
                         })}
                     </div>

@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import './Rslide_btn.css'
 
 function Rslide_btn({moveSlide, btnState, direction, distance, left, px, top}){

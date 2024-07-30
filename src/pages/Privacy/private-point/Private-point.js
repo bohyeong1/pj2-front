@@ -3,7 +3,7 @@ import './Private-point.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Pri_side_menu from "../../../menu/pri-side-menu/Pri-side-menu";
 import Footer from "../../../menu/footer/Footer";
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
 
 

@@ -1,6 +1,10 @@
-.lv3-img-container{
-    display: flex;
+.lv3-img-container{  
+    background-color: black;
     gap : 20px;
+    width:282px;
+    height:375px;
+    border-radius: 15px;    overflow: hidden;
+    position:relative;
 }
 
 .lv3-description-container{
@@ -51,6 +55,6 @@
     display: flex; gap: 24px;   position: absolute; top:0; left: 0; transition: 0.6s;
 }
 .lv3-description-title{
-    font-size: 1.3rem;  font-weight: 600;
+    font-size: 1.125rem;      font-weight: 600;
 }
 

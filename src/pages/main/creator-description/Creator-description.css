@@ -34,8 +34,8 @@
     height: fit-content;    color: white;   font-family: inherit;   font-size: 1rem;    cursor: pointer;
 }
 .Creator_description-b1-c3-btn2{
-    color :  #1273e4; border: none; background: none;   font-size: 1rem;    font-family: inherit;   box-sizing: border-box; padding-bottom: 5px;   font-weight: bold;
- cursor: pointer;
+    color :  #1273e4; border: none; background: none;   font-size: 1rem;    font-family: inherit;   box-sizing: border-box;   font-weight: bold;
+    cursor: pointer;    display: flex;  align-items: center;    height: 39px;
 }
 .Creator_description-b1-c3-btn1:hover{
     opacity: 0.97;

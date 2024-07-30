@@ -1,10 +1,9 @@
 import React, {useRef, useState} from "react";
 import './Lv1-description.css'
 import { NavLink } from "react-router-dom";
-import Small_main from "../../../picture/small-main/Small-main";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
-
+import Pastel_img from "../../../picture/pastel-img/pastel-img";
 
 
 function Lv1_description({title, data}){
@@ -84,8 +83,6 @@ function Lv1_description({title, data}){
     // const box = slideContainer.current
 
  
-    console.log(left)
-
  
 
     return(
@@ -97,7 +94,7 @@ function Lv1_description({title, data}){
                         return(
                         <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
                             <div className="lv1-img-container">
-                                <Small_main data={ele}></Small_main>
+                                <Pastel_img url={ele.url}></Pastel_img>
                             </div>
                             <div className="lv1-img-title">
                                 {ele.city}

@@ -1,7 +1,10 @@
 .lv1-img-container{
     display: flex; background: black;
     border-radius: 15px; 
-    /* gap : 20px; */
+    width:180px;
+    height:180px;
+    border-radius: 15px;    overflow: hidden;
+    position:relative;
 }
 .lv1-description-container{
     width: 1200px;
@@ -11,7 +14,7 @@
     gap:20px;   position: relative;
 }
 .lv1-description-title{
-    font-size: 1.3rem;  font-weight: 600;
+    font-size: 1.125rem;  font-weight: 600;
 }
 .lv1-img-wrapper{
     width:180px;
@@ -27,6 +30,7 @@
 }
 .lv1-img-title{
     margin-top: 20px;
+    padding-left: 4px;  font-size: 0.875rem;
 }
 .lv1-content-container{
     display: flex; gap: 20px;   position: absolute; top:0; left: 0; transition: 0.6s;

@@ -2,7 +2,7 @@ import React,{useRef, useState} from "react";
 import './Acc_regist_lv11.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Host_footer from "../../../menu/host-footer/Host-footer";
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
 
 function Acc_regist_lv11(){

@@ -1,7 +1,7 @@
 import React, {useRef, useState} from "react";
 import './AuthModal.css'
 import default_data from "../../utilData/defaultData";
-import connectData from "../../utilData/Utildata";
+import connectData from "../../utilData/UtilFunction";
 
 function AuthModal({AuthModalState, modalState, userData, modifyUser}){
 

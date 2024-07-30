@@ -4,7 +4,7 @@ import './Mem-join-complete.css'
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Footer from "../../../menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
-import connectData from "../../../utilData/Utildata";
+
 
 function Mem_join_complete(){
 

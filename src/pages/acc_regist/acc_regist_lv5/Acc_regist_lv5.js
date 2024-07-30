@@ -5,7 +5,7 @@ import Host_footer from "../../../menu/host-footer/Host-footer";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Kakaomap from "../../../utilData/kakaomap/Kakaomap";
 import default_data from "../../../utilData/defaultData";
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 
 
 ////////////검색어 만드는 디폴트 값 , 초기버전 

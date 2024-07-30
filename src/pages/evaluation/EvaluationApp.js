@@ -5,7 +5,7 @@ import Main_menu from "../../menu/main-menu/main-menu";
 import Footer from "../../menu/footer/Footer";
 import default_data from "../../utilData/defaultData";
 import EvaluModal from "../../modal/evaluModal/EvaluModal";
-import connectData from "../../utilData/Utildata";
+import connectData from "../../utilData/UtilFunction";
 
 function Evaluation(){
     // 네비게이터

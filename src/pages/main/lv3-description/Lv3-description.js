@@ -4,7 +4,7 @@ import './Lv3-description.css'
 import Large_main from "../../../picture/large-main/Large-main";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
-
+import Pastel_img from "../../../picture/pastel-img/pastel-img";
 
 function Lv3_description({title,data}){
     
@@ -72,14 +72,14 @@ function Lv3_description({title,data}){
             <div className="lv3-description-content">
                 <div className="lv3-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
                     {data ? data.map((ele,id)=>{  
-                                           
+                        
                         return(
                         <NavLink to={`SubApp/Detail_infoApp/${ele._id}`} key={id} className="lv3-img-wrapper">
                             <div className="lv3-img-container">
-                                <Large_main data={ele}></Large_main>
+                                <Pastel_img url={ele.main_img}></Pastel_img>
                             </div>
                             <div className="lv3-img-text">
-                                <div className="lv3-img-tex1">{ele.keywords.map((ele)=>{return ele.name})}</div>
+                                <div className="lv3-img-tex1">{ele.keywords.slice(0,3).map((ele)=>{return ele.name}).join(' ')}</div>
                                 <div className="lv3-img-tex2-box">
                                     <div className="lv3-img-tex2-1">{ele.title}</div>
                                     <div className="lv3-img-tex2-2">할인 이벤트</div>

@@ -1,7 +1,7 @@
 import React, {useRef} from "react";
 import './HostTextModal.css';
 import default_data from "../../utilData/defaultData";
-import connectData from "../../utilData/Utildata";
+import connectData from "../../utilData/UtilFunction";
 
 
 function HostTextModal({data, hostModal, hostModalState}){

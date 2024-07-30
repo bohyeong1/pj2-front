@@ -17,17 +17,17 @@
     display: flex;  flex-direction: column; gap: 10px;
 }
 .footer-con-s1-b1-h-t1{
-    font-size: 1.3rem;  color: rgb(60,60,60); font-weight: bold;
+    font-size: 1.125rem;  color: #707070; font-weight: bold;
 }
 .footer-con-s1-b1-h-t2{
-    font-size: 1rem;  color: rgb(120,120,120);
+    font-size: 0.875rem;  color: #999999;
 }
 .footer-con-s1-b1-sub{
     display: flex;  flex-direction: column; gap: 15px;
 }
 .footer-con-s1-b1-sub-t1{
     display: flex;  gap:20px;  align-items: center;
-    width:max-content;  box-sizing: border-box; padding: 10px;  border-radius: 10px;    border: solid 1px rgb(120,120,120);
+    width:max-content;  box-sizing: border-box; padding: 10px;  border-radius: 10px;    border: solid 2px rgb(235,235,235);
 }
 .footer-con-s1-b1-sub-t2{
     color: red; text-decoration: underline;
@@ -41,13 +41,20 @@
 .footer-con-s1-b2-p1{
     display: flex;  flex-direction: column; gap: 25px;
 }
+.footer-con-s1-b2-p1 > div:nth-child(1){
+    color: #999999; font-size: 0.9375rem;
+    font-weight: 700;
+}
 .footer-con-s1-b2-p1-container{
     display: flex;  flex-direction: column; gap: 10px;
+    color:rgb(112,112,112); font-size: 0.875rem;
 }
 .footer-link-to-terms{
     cursor: pointer;    color: rgb(120,120,120);
 }
-
+.footer-link-to-terms:hover{
+    color: rgb(190,190,190);
+}
 
 
 
@@ -57,8 +64,8 @@
     box-sizing: border-box; padding-bottom: 50px;
 }
 .fooer-con-s2-b1{
-    font-size: 0.9rem;  color: rgb(120,120,120);    width: 100%;
+    font-size: 0.75rem;  color: #999999;    width: 100%;    line-height: 1.25;
 }
 .fooer-con-s2-b2{
-    font-size: 1rem;  color: rgb(120,120,120);   width: 100%;
+    font-size: 0.875rem;  color: rgb(120,120,120);   width: 100%;
 }

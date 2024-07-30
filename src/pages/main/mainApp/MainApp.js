@@ -1,5 +1,4 @@
 import React,{useState,useEffect} from "react";
-import { Link } from "react-router-dom";
 import './MainApp.css'
 import Event_swiper from "../event-swiper/Event-swiper";
 import Creator_description from "../creator-description/Creator-description";
@@ -9,25 +8,68 @@ import Lv3_description from "../lv3-description/Lv3-description";
 import Lv4_description from "../lv4-description/Lv4-description";
 import Search_descripton from "../search-description/Search-descripton";
 import Main_menu from "../../../menu/main-menu/main-menu";
-import Side_menu from "../../../menu/side-menu/side-menu";
 import Search_menu from "../../../menu/search-menu/search-menu";
 import Footer from "../../../menu/footer/Footer";
-import connectData from "../../../utilData/Utildata";
-// import default_data from "../../../utilData/defaultData";
+import connectData from "../../../utilData/UtilFunction";
 
 
-function MainApp({city, log}){
-
-
+function MainApp(){
   
     const [renderData,setRenderData] = useState()  
     const [searchData, setSearchData] = useState() 
     const [subdata, setSubdata]  = useState([])  ///////카테고리별 분류 데이터 프롭스로 내려주기
 
+    const [dataStore, setDataStore] = useState()
 
     useEffect(()=>{
+        // async function All_data(){
+        //     let sec1, sec2, sec3, sec4, sec5
+        //     try {
+        //     [sec1, sec2, sec3, sec4, sec5] = await Promise.all(
+        //         [connectData('http://127.0.0.1:3700/api/common','POST',{
+        //             filter : 'city',
+        //             counts : 10
+        //         }),
+        //         connectData('http://127.0.0.1:3700/api/common','POST',{
+        //             filter : 'keywords',
+        //             keyword:'친환경',
+        //             counts : 20
+        //         }), 
+        //         connectData('http://127.0.0.1:3700/api/common','POST',{
+        //             filter : 'keywords',
+        //             keyword : '연인추천',
+        //             counts : 20
+        //         }),
+        //         connectData('http://127.0.0.1:3700/api/common','POST',{
+        //             filter : 'keywords',
+        //             keyword : '색다른 공간',
+        //             counts : 20
+        //         }),                
+        //         connectData('http://127.0.0.1:3700/api/common','POST',{
+        //             filter : 'discount',
+        //             counts : 8
+        //         })])
+
+        //     //   setLoading(true)
+        //     } catch (e) {
+        //       console.log(e)
+        //     //   setLoading(false)
+        //     } finally {
+        //         setDataStore({
+        //             sec1: sec1 || null,
+        //             sec2: sec2 || null,
+        //             sec3: sec3 || null,
+        //             sec4: sec4 || null,
+        //             sec5: sec5 || null
+        //         })
+        //     }            
+        // }
+
+        // All_data()
+
         connectData('http://127.0.0.1:3700/api/common','POST')
-        .then(result => {           
+        .then(result => {     
+            console.log(result)      
             setRenderData(result.accomodations)
             setSearchData(result.search)
 
@@ -38,11 +80,8 @@ function MainApp({city, log}){
             const view = sectionFilterData(result.accomodations,'색다른 공간')
             
             setSubdata([eco, love, view])
-            // console.log(view)
         })
     },[])
-
-
     
     //메인화면 색션 필터 util 함수 /////관리자 페이지로 메인화면 출력 선택하게 옮기면 함수 일부 수정ㅇㅇ//키워드 분류 함수//나중에 벡엔드에서 필터링해서 올지 고민해 볼 사항
     function sectionFilterData(data,value){
@@ -55,21 +94,16 @@ function MainApp({city, log}){
         }                    
        return dataInv
     }
-
-// console.log('전송받은 검색 :',searchData)    
+  
 
 const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
-
-
-
 
 
     return(
         <div className="mainApp">
             <div className="main-gnb">
-                <Main_menu log={log}></Main_menu>
+                <Main_menu></Main_menu>
                 <Search_menu shadow={true} subtitle={true} data={renderData}></Search_menu>
-                {/* <Side_menu></Side_menu> */}
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>

@@ -4,7 +4,7 @@ import Main_menu from "../../../menu/main-menu/main-menu";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../../menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
-import connectData from "../../../utilData/Utildata";
+import connectData from "../../../utilData/UtilFunction";
 
 function Acc_manage(){
     //////////숙소 데이터 state
