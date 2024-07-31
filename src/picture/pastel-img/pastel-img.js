@@ -1,7 +1,7 @@
 import React from 'react';
 import './pastel-img.css'
 
-
+// 파스텔톤 이미지 & 호버 이벤트 있음
 function Pastel_img({url}){
 
 

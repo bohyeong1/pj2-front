@@ -14,7 +14,6 @@ function LinkBtn({text, url, fetchHandlerFun, dropData, index}){
         try{
             await fetchHandlerFun(dropData)
             console.log('패치완료')
-
             if(!url){
                 alert('url을 읽어들일 수 없습니다.')
                 return

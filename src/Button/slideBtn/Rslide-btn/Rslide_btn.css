@@ -10,13 +10,10 @@
 }
 
 .btn-right{
-    right: 0;
+    right: 0;   top:50%;
     transform: translate(50%,-50%);
 }
 
-
-
 .Rslide_btn-con-img:hover{
-    filter: invert(46%) sepia(18%) saturate(7282%) hue-rotate(326deg) brightness(100%) contrast(92%);
-    
+    filter: invert(46%) sepia(18%) saturate(7282%) hue-rotate(326deg) brightness(100%) contrast(92%);    
 }

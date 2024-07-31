@@ -14,22 +14,21 @@ function Lv1_description({title, data}){
     const [LbtnState, setLbtnState] = useState(false)
     const [left, setLeft] = useState(0)
 
+    ///ref
+    const slideContainer = useRef()
+
     //오른쪽버튼
    function moveRSlide (distance) {
         const parentBoxWidth = slideContainer.current.parentNode.getBoundingClientRect().width ////부모너비
         const boxWidth = slideContainer.current.offsetWidth  ///박스의 너비
 
-        // console.log(parentBoxWidth)
         const subtracWidthValue = boxWidth - distance - left ///////남아있는 container의 width값
         if(subtracWidthValue <= parentBoxWidth){
             setSlidePos(prevSlidePos => prevSlidePos - distance)
             setLeft(prevLeft => prevLeft + distance)
             // 버튼 비활성화 
             setRbtnState(true)
-
             setLbtnState(false)
-
-
         }else{
             if(LbtnState){
                 setLbtnState(false)
@@ -42,7 +41,6 @@ function Lv1_description({title, data}){
     ///왼쪽버튼
     function moveLslide(distance){
         // const parentBoxWidth = slideContainer.current.parentNode.getBoundingClientRect().width //부모너비
-
         const subtractWidth = left - distance
 
         if(subtractWidth === 0){
@@ -63,8 +61,7 @@ function Lv1_description({title, data}){
         }
     }
 
-    ///ref
-    const slideContainer = useRef()
+
 
 
 
@@ -88,29 +85,33 @@ function Lv1_description({title, data}){
     return(
         <div className="lv1-description-container">
             <div className="lv1-description-title">{title}</div>
-            <div className="lv1-description-content">
-                <div className="lv1-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
-                    {data ? data.map((ele,id)=>{                                              
-                        return(
-                        <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
-                            <div className="lv1-img-container">
-                                <Pastel_img url={ele.url}></Pastel_img>
-                            </div>
-                            <div className="lv1-img-title">
-                                {ele.city}
-                            </div>
-                        </NavLink>
-                        )                  
-                        
-                    }) : null}
-                </div>                            
-                
+            <div className="lv1-description-wrapper">
+                <div className="lv1-content-gurabox">
+                    {/* left */}
+                    <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1224} left={left}></Lslide_btn>
+                    {/* right */}
+                    <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1224}></Rslide_btn>
+                </div>
+
+                <div className="lv1-description-content">
+                    <div className="lv1-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
+                        {data ? data.map((ele,id)=>{                                              
+                            return(
+                            <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
+                                <div className="lv1-img-container">
+                                    <Pastel_img url={ele.url}></Pastel_img>
+                                </div>
+                                <div className="lv1-img-title">
+                                    {ele.city}
+                                </div>
+                            </NavLink>
+                            )                  
+                            
+                        }) : null}
+                    </div>                           
+                </div>
             </div>
 
-                {/* left */}
-                <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={0} top={130}></Lslide_btn>
-                {/* right */}
-                <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={0} top={130}></Rslide_btn>
         </div>
     )
 }

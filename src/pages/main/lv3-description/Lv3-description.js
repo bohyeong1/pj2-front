@@ -1,7 +1,6 @@
 import React, {useRef, useState}from "react";
 import { NavLink } from "react-router-dom";
 import './Lv3-description.css'
-import Large_main from "../../../picture/large-main/Large-main";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
 import Pastel_img from "../../../picture/pastel-img/pastel-img";
@@ -95,9 +94,9 @@ function Lv3_description({title,data}){
                 
             </div>
             {/* left */}
-            <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left} px={0} top={210}></Lslide_btn>
+            <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1200} left={left}></Lslide_btn>
             {/* right */}
-           <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200} left={left} px={0} top={210}></Rslide_btn>  
+           <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1200}></Rslide_btn>  
         </div>
     )
 }

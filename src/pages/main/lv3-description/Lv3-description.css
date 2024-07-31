@@ -1,6 +1,5 @@
 .lv3-img-container{  
     background-color: black;
-    gap : 20px;
     width:282px;
     height:375px;
     border-radius: 15px;    overflow: hidden;
@@ -9,7 +8,7 @@
 
 .lv3-description-container{
     width: 1200px;
-    height:375px;
+    height:fit-content;
     display: flex;
     flex-direction: column;
     gap:20px;   position: relative;
@@ -26,11 +25,10 @@
     overflow: hidden;    
     position: relative;
     width: 1200px;
-    height: 330px;
+    height: 375px;
 }
 .lv3-img-text{
-    /* border: solid 1px black; */
-    width: 260px; height:160px;
+    width: 260px; height:fit-content;
     left:50%; transform: translateX(-50%);
     position: absolute;
     top:15px;
@@ -40,12 +38,15 @@
     gap:10px;
     color:white;
     text-shadow: 0px 0px 10px rgb(36, 36, 35);
+    pointer-events: none;
 }
 .lv3-img-tex2-box{
     font-size:1.5rem;
+
 }
 .lv3-img-tex3{
     font-size: 1.05rem;
+
 }
 .lv3-content-container{
     height:400px;
@@ -58,3 +59,6 @@
     font-size: 1.125rem;      font-weight: 600;
 }
 
+.lv3-img-tex1, .lv3-img-tex2-1, .lv3-img-tex2-2, .lv3-img-tex3{
+    backdrop-filter: blur(1px); width: fit-content;
+}

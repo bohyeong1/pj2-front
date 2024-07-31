@@ -2,7 +2,8 @@ const default_data = {
     d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL
 
     // 카테고리 디폴트 데이타 + 아이콘
-    d_category_icon : [{name:'주택',
+    d_category_icon : [
+    {name:'주택',
         url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVR4nO2WPShGURjHf75LUkJJKBkMioFFGbCwmA02vZlNDO9osRlltbDYLITi9T1gVAYGCSmJ8u3o1kOn6+N+uPe+9+b86qnbPec8z/M/5+mcBwyuqANWgCX5TiSdwDmgxK6AHhJEDpAGXkTAvJiSf2mZE2tKgTlJ+g0YB3Il8VGbuDJiSjNw5FBGvTKmZG6LbXxDK8UPyxAhA8CdBN4D6n+ZWwtsy9x7YFAbUz9Y6ORL+XwEnAaKXawrAqa0ddZ34TeJRyKkBtjUdjblw0dK1lo+trIhpAu4kCAnQNsffLWJj+9KKTQh1u0zAjxLgAWgPAC/FeJLAQ9hC7FfrWNAXoD+LV/DQH+YQpqAQ3F6DfQRDSpIIdYO3YrDA6CB6HiVuPopeaYAmPBxtQbJpBZ/QnLyRCWwLA6epb3IFkPAo/bKV7td2AGcycJToJ3s0wocS06XQLcb9U+yYBWoIj5UAIu2KvnSRZcAs7ZHyWo/4kaeLccZyf2TXRm4ibJR84my5bqjD64D+0BjgoQ0Ss4/tvlJEeKIERIRypzIfzsR5dP8xnHECMHbDsf+RNxihGBOxB2mtDyiTGkFtFMbtpY7sbdWBliLIM4n5h3BPIieUKa0XGJKyyPKlFbSS0vF3BzJxCBJ5WB6h2AwECLvVSqp4WT2eksAAAAASUVORK5CYII='
     },
     {name:'아파트',
@@ -234,7 +235,7 @@ const default_data = {
         ,main_home3:'https://img.icons8.com/external-konkapp-outline-color-konkapp/64/external-apartment-real-estate-konkapp-outline-color-konkapp-1.png'
         ,slice_img1:'https://hacwon.kr/files/attach/images/131/593/010/f9d1cea7413ba6898b463492481f8bef.jpeg'
         ,slice_img2:'https://img.icons8.com/clouds/100/money.png'
-        ,slice_img3:'https://scontent-ssn1-1.xx.fbcdn.net/v/t31.18172-8/11958035_10153119373749607_3935345007661394283_o.jpg?stp=dst-jpg_p180x540&_nc_cat=103&ccb=1-7&_nc_sid=5f2048&_nc_ohc=0DstrVyKl9MQ7kNvgGdD6zC&_nc_ht=scontent-ssn1-1.xx&oh=00_AYCNGIOL-c8mrGe_MJvfmOuQd718mNUZd6Z-QJVUUeXmGA&oe=668DDCE0'
+        ,slice_img3:'https://i.namu.wiki/i/K5rZ54srG1PusxQGEz1HxSyuAtz6uG0FBdcRqKbcycAte7LMAoe8LxJjWH_IrFnJRFMIqrWur_PIGRkRjsb4VDJ7yrkMLF_RwaxP5NcGRq8KWZE0Mjm7Y2IL3x05QOnwjKfneLzQ4pQZWD-epJdVOQ.svg'
         ,slice_img4:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCaouF%2FbtqHEfnG1hF%2FaIj3a5yyOKEXZYFiTu0hW1%2Fimg.png'
         ,star :'https://img.icons8.com/color/48/filled-star--v1.png'
     },

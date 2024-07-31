@@ -1,4 +1,6 @@
-////데이터 연결 유틸 함수
+//////////////////////////////////////////////////
+///////////////////데이터 연결 유틸 함수///////////
+/////////////////////////////////////////////////
 async function connectData(url, method, data = null, token = null){
     const dataJson = await fetch(url,{
       headers:{
@@ -17,7 +19,9 @@ async function connectData(url, method, data = null, token = null){
 export default connectData
 
 
-/////////// 가격 콤마 찍기
+//////////////////////////////////////////////////
+///////////////////////가격 콤마찍기///////////////
+/////////////////////////////////////////////////
 export function pop_three_texts(price){
   let copied_texts = String(price)
   let text_inv = []
@@ -30,3 +34,4 @@ export function pop_three_texts(price){
 
   return text_inv.join('')
 }
+
