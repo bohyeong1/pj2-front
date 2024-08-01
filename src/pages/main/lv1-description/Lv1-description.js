@@ -4,83 +4,67 @@ import { NavLink } from "react-router-dom";
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
 import Pastel_img from "../../../picture/pastel-img/pastel-img";
-
+import { Swiper,SwiperSlide } from "swiper/react";
 
 function Lv1_description({title, data}){
-
     ///state
     const [RbtnState, setRbtnState] = useState(false)
-    const [slidePos, setSlidePos] = useState(0)
-    const [LbtnState, setLbtnState] = useState(false)
-    const [left, setLeft] = useState(0)
+    const [LbtnState, setLbtnState] = useState(true)
 
     ///ref
-    const slideContainer = useRef()
+    const swiper_ref = useRef(null)
 
     //오른쪽버튼
-   function moveRSlide (distance) {
-        const parentBoxWidth = slideContainer.current.parentNode.getBoundingClientRect().width ////부모너비
-        const boxWidth = slideContainer.current.offsetWidth  ///박스의 너비
+    function moveRSlide () {
+        if (swiper_ref.current) {
+            swiper_ref.current.slideNext()
+            const btn_state = swiper_ref.current.isEnd
+            if(LbtnState){
+                setLbtnState(false)
+            }        
+            if(btn_state){
+                setRbtnState(true)
+            }
+        }
+    }    
 
-        const subtracWidthValue = boxWidth - distance - left ///////남아있는 container의 width값
-        if(subtracWidthValue <= parentBoxWidth){
-            setSlidePos(prevSlidePos => prevSlidePos - distance)
-            setLeft(prevLeft => prevLeft + distance)
-            // 버튼 비활성화 
-            setRbtnState(true)
-            setLbtnState(false)
+    ///왼쪽버튼
+    function moveLslide(){
+        if (swiper_ref.current) {
+            swiper_ref.current.slidePrev()
+            const btn_state = swiper_ref.current.isBeginning
+            if(btn_state){
+                setLbtnState(true)
+            }
+            if(RbtnState){
+                setRbtnState(false)
+            }
+        }
+    }
+
+    // 스와이퍼 드래그 했을 때 버튼 상태 추적
+    function swiper_change(){
+        const index = swiper_ref.current.activeIndex
+        const length = swiper_ref.current.slides.length
+        if(index === 0){
+            if(!LbtnState){
+                setLbtnState(true)
+            }
         }else{
             if(LbtnState){
                 setLbtnState(false)
             }
-            setSlidePos(prevSlidePos => prevSlidePos - distance)
-            setLeft(prevLeft => prevLeft + distance)
-        }
-    }
-    
-    ///왼쪽버튼
-    function moveLslide(distance){
-        // const parentBoxWidth = slideContainer.current.parentNode.getBoundingClientRect().width //부모너비
-        const subtractWidth = left - distance
-
-        if(subtractWidth === 0){
-            setSlidePos(prevSlidePos => prevSlidePos + distance)
-            // 버튼 비활성화 
-            setLbtnState(true)
-            setLeft(prevLeft => prevLeft -distance)
-            if(RbtnState){
-                setRbtnState(false)
+        }        
+        if(index === length-6){
+            if(!RbtnState){
+                setRbtnState(true)
             }
-
         }else{
             if(RbtnState){
                 setRbtnState(false)
             }
-            setSlidePos(prevSlidePos => prevSlidePos + distance)
-            setLeft(prevLeft => prevLeft - distance)
         }
     }
-
-
-
-
-
-    // 부모 컨테이너 너비 = 미는 양
-    // const parentBoxWidth = slideContainer.current.parentNode.getBoundingClientRect().width
-
-    //해당 div의 전체 width값
-    // const boxWidth = slideContainer.current.offsetWidth
-
-    //미는 방향 ->문자열로 넘김
-
-    //스크롤 left값 = 버튼의 활성화 비활성화 state요소
-    // const boxScrollLeft = slideContainer.current.scrollLeft
-
-    ///미는 박스의 ref
-    // const box = slideContainer.current
-
- 
- 
 
     return(
         <div className="lv1-description-container">
@@ -88,12 +72,31 @@ function Lv1_description({title, data}){
             <div className="lv1-description-wrapper">
                 <div className="lv1-content-gurabox">
                     {/* left */}
-                    <Lslide_btn  direction={true} btnState={LbtnState} moveSlide = {moveLslide} distance={1224} left={left}></Lslide_btn>
+                    <Lslide_btn btnState={LbtnState} handleFunction = {moveLslide}></Lslide_btn>
                     {/* right */}
-                    <Rslide_btn  direction={false} btnState={RbtnState} moveSlide = {moveRSlide} distance={1224}></Rslide_btn>
+                    <Rslide_btn btnState={RbtnState} handleFunction = {moveRSlide}></Rslide_btn>
                 </div>
 
                 <div className="lv1-description-content">
+                    <Swiper ref={swiper_ref} spaceBetween={24} slidesPerView={6} onSwiper={(target)=>{swiper_ref.current=target}} onSlideChange={swiper_change}>
+                        {data ? data.map((ele,id)=>{                                              
+                            return(
+                            <SwiperSlide key={id}>
+                                <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
+                                    <div className="lv1-img-container">
+                                        <Pastel_img url={ele.url}></Pastel_img>
+                                    </div>
+                                    <div className="lv1-img-title">
+                                        {ele.city}
+                                    </div>
+                                </NavLink>
+                            </SwiperSlide>
+                            )                  
+                        }) : null}
+                    </Swiper>                           
+                </div>
+
+                {/* <div className="lv1-description-content">
                     <div className="lv1-content-container" ref={slideContainer} style={{left: slidePos + 'px'}}>
                         {data ? data.map((ele,id)=>{                                              
                             return(
@@ -109,7 +112,7 @@ function Lv1_description({title, data}){
                             
                         }) : null}
                     </div>                           
-                </div>
+                </div> */}
             </div>
 
         </div>

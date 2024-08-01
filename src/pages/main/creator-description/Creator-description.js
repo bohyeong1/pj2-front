@@ -23,7 +23,6 @@ function Creator_description(){
                 <img className="Creator_description-b2-d3" src={default_data.d_imgs.main_home2}></img>
                 <img className="Creator_description-b2-d4" src={default_data.d_imgs.main_home3}></img>
             </div>
-
         </div>
     )
 

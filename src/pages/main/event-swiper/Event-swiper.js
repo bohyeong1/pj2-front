@@ -1,7 +1,7 @@
 import React from "react";
 import './Event-swiper.css'
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination, A11y, Autoplay } from 'swiper/modules';
+import { Pagination, A11y, Autoplay } from 'swiper/modules';
 import Slice from "../../../utilData/slice/Slice";
 import default_data from "../../../utilData/defaultData";
 
