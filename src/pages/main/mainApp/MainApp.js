@@ -15,9 +15,8 @@ import connectData from "../../../utilData/UtilFunction";
 
 
 function MainApp(){
-
+    // console.log('렌더 회수 체크')
     const [dataStore, setDataStore] = useState(null)
-
     useEffect(()=>{
         async function All_data(){
             let sec1, sec2, sec3, sec4, sec5

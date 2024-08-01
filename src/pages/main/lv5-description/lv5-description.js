@@ -8,23 +8,23 @@ import Pastel_img from "../../../picture/pastel-img/pastel-img";
 import { NavLink } from "react-router-dom";
 import MainBtn from "../../../Button/mainBtn/MainBtn";
 import { Swiper, SwiperSlide } from "swiper/react";
-import useFetch from "./business-hook";
-import useMainLv5Description from "./view-hook";
+
+
+
+import useMainLv5DesBusiness from "../hook-store/business-hooks/main-lv5-des-business";
+import useMainLv5DesStyle from "../hook-store/style-hooks/main-lv5-des-style";
 
 
 
 function Lv5_description({title}){
-    ///state
-    const [toggle, setToggle] = useState({key:'default'})
 
     // hook
-    const { RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change, toggle_btn} = useMainLv5Description()
-    const dataStore = useFetch(toggle, toggle_btn)
+    const { RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change, toggle_btn} = useMainLv5DesStyle()
+    const {dataStore,main_click,toggle} = useMainLv5DesBusiness(toggle_btn)
 
 
-    function main_click(e){
-        setToggle({key:e.target.dataset.value})
-    }
+
+
 
     return(
         <div className="lv5-description-container">

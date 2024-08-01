@@ -16,7 +16,6 @@ function Search_descripton({data, title}){
                     )
                 })}
             </div>
-
         </div>
     )
 

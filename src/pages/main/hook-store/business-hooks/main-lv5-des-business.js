@@ -1,9 +1,15 @@
 import { useState, useEffect } from 'react'
-import connectData from '../../../utilData/UtilFunction'
+import connectData from '../../../../utilData/UtilFunction'
 
-function useFetch(toggle , handle_fun){
+function useMainLv5DesBusiness(handle_fun){
     // state
     const [dataStore, setDataStore] = useState(null)
+    const [toggle, setToggle] = useState({key:'default'})
+
+    /// 분류 버튼 클릭
+    function main_click(e){
+        setToggle({key:e.target.dataset.value})
+    }
 
     // api 호출
     useEffect(() => {
@@ -34,7 +40,7 @@ function useFetch(toggle , handle_fun){
         }
     }, [toggle])
 
-    return dataStore
+    return {dataStore,main_click,toggle}
 }
 
-export default useFetch
+export default useMainLv5DesBusiness
