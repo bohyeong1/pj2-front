@@ -32,7 +32,7 @@
     width: 280px;
     display: inline-block;
     text-decoration: none;
-    color: black;
+    color: black;    user-select: none;
 }
 .lv5-description-content{
     overflow: hidden;    

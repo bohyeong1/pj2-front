@@ -25,7 +25,6 @@
 }
 .search-menu-content{
     width: 1200px;
-    /* height:fit-content; */
     color: white;  
 
 }
@@ -38,3 +37,38 @@
     display: flex;  flex-direction: column; gap:8px;
 }
 
+
+
+/* search 검색 박스 */
+.search-content-search{
+    border-radius: 15px;
+    background: white;
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    box-sizing: border-box; 
+    gap: 20px;
+    padding-bottom: 24px;   padding-left: 20;   padding-right: 20;
+}
+.search-shadow{
+    box-shadow: 0 0 50px 1px rgb(207, 207, 207) ;
+}
+
+.search-top-line{
+    color: black;
+    font-size: 1rem;
+    font-weight: 700;
+    width:96%;
+    height: 68px;
+    border-bottom: solid 1px rgb(235,235,235);
+    position: relative;
+}
+.top-line-text1 > span{
+    position: absolute; top:50%; transform: translateY(-50%);
+}
+.search-bottom-line-wrapper{
+    width: 96%; height: 48px;
+}

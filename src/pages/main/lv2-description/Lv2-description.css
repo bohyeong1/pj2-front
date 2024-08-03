@@ -24,6 +24,7 @@
     display: inline-block;
     text-decoration: none;
     color: black;
+    user-select: none;
 }
 .lv2-description-content{
     overflow: hidden;    

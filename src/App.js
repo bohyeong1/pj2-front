@@ -8,12 +8,17 @@ import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoA
         Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,Private_wish
 } from './pages';
 
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 
 function App(){
+
+  // gsap plugin 등록
+  gsap.registerPlugin(ScrollTrigger)
+
   return(
     <div className="App">
-
       <Routes>
         
         {/* ----------------------------------------

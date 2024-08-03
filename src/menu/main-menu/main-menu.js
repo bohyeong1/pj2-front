@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import './main-menu.css'
 import { Link ,useNavigate, useLocation} from "react-router-dom";
 import LogModal from "../../modal/logModal/LogModal";
+import Search from "../search-menu/search/Search";
 
 const Logo = 
     {name:'보형짱 닷컴',
@@ -25,7 +26,9 @@ const host_menus = [
         url:'/Acc_regist/Acc_regist_intro'}
 ]
 
-function Main_menu(){    
+function Main_menu({data}){    
+
+    // console.log(data)
 
     const navigate = useNavigate()
     const location = useLocation()
@@ -82,16 +85,21 @@ function Main_menu(){
                         })}
                     </div>
 
-                        <div className="main-menu-right">
-                            {Main_menus.map((ele,id)=>{
-                            return(
-                                <div onClick={()=>{clickLogbtn(ele.url, id)}} key={id} className='main-menu-list'>
-                                    <img className="main-menu-log-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANUlEQVR4nO3VsQkAMAwDwd9/rGiwZIIUAYs0f6DaIBAGSQUBdjn5dXg1GpOunJM0Jn4nSTw4Ff6YkoE1i0QAAAAASUVORK5CYII="></img>
-                                    {ele.name === '회원가입/로그인' ? (logState ? `${userName}님`:ele.name) : ele.name}</div>
-                            )
-                            })}
-                            <LogModal log_m_state = {logModalState}></LogModal>
-                        </div>            
+                    <div className="main-menu__search-input">
+                        <Search data={data} shadow={false} subtitle={false}></Search>
+                    </div>
+
+
+                    <div className="main-menu-right">
+                        {Main_menus.map((ele,id)=>{
+                        return(
+                            <div onClick={()=>{clickLogbtn(ele.url, id)}} key={id} className='main-menu-list'>
+                                <img className="main-menu-log-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANUlEQVR4nO3VsQkAMAwDwd9/rGiwZIIUAYs0f6DaIBAGSQUBdjn5dXg1GpOunJM0Jn4nSTw4Ff6YkoE1i0QAAAAASUVORK5CYII="></img>
+                                {ele.name === '회원가입/로그인' ? (logState ? `${userName}님`:ele.name) : ele.name}</div>
+                        )
+                        })}
+                        <LogModal log_m_state = {logModalState}></LogModal>
+                    </div>            
             </div>
        </div>
     )

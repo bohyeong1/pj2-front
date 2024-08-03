@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react";
+import React from "react";
 import './lv5-description.css'
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
 import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
@@ -8,8 +8,6 @@ import Pastel_img from "../../../picture/pastel-img/pastel-img";
 import { NavLink } from "react-router-dom";
 import MainBtn from "../../../Button/mainBtn/MainBtn";
 import { Swiper, SwiperSlide } from "swiper/react";
-
-
 
 import useMainLv5DesBusiness from "../hook-store/business-hooks/main-lv5-des-business";
 import useMainLv5DesStyle from "../hook-store/style-hooks/main-lv5-des-style";
@@ -21,10 +19,6 @@ function Lv5_description({title}){
     // hook
     const { RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change, toggle_btn} = useMainLv5DesStyle()
     const {dataStore,main_click,toggle} = useMainLv5DesBusiness(toggle_btn)
-
-
-
-
 
     return(
         <div className="lv5-description-container">

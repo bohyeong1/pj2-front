@@ -12,6 +12,7 @@
     height: 8vh;
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .main-menu-wrapper{
     width: 1920px;
@@ -69,4 +70,9 @@
 }
 .main-menu-log-img{
     width:25px; height: 25px;   margin-right: 15px;
+}
+
+/* 검색 메뉴 */
+.main-menu__search-input{
+    height: 40px;   width: 700px;
 }

@@ -1,4 +1,4 @@
-import React, {useRef, useState} from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import './Lv2-description.css'
 import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";

@@ -1,10 +1,12 @@
 import React from "react";
 import './search-menu.css';
-import { Link } from "react-router-dom";
 import Search from "./search/Search";
+import { forwardRef } from "react";
 
-function Search_menu({shadow , subtitle, data}){
-    // console.log(shadow)
+const Search_menu = forwardRef((props, ref)=>{
+    const { subtitle, shadow, data } = props
+    // console.log(props)
+
     return(
         <div className="search-menu-container">
             <div className="img-box">
@@ -16,11 +18,26 @@ function Search_menu({shadow , subtitle, data}){
                         <span className="search-text-1">그린 아트 학원</span>
                         <span className="search-text-2">여행은 보형짱 닷컴</span>
                     </div>
-                    <Search shadow={shadow} subtitle={subtitle} data={data}></Search>
+
+                    <div className={`search-content-search ${shadow ? 'search-shadow' : ''}`} ref={ref}>
+                        <div className="search-top-line" style={{display:`${subtitle ? 'block' : 'none'}`}}>
+                            <div className="top-line-text1">
+                                <span>어디로 떠나고 싶으세요?</span>
+                            </div>
+                        </div>
+                        <div className="search-bottom-line-wrapper">
+                            <Search data={data}></Search>
+                        </div>
+
+                    </div>
+
+
+
+
                 </div>
             </div>            
         </div>
     )
-}
+})
 
 export default Search_menu

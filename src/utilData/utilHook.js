@@ -62,9 +62,17 @@ const util_hooks = {
                 }
             }
         }
-
         return {RbtnState,setRbtnState,LbtnState,setLbtnState,swiper_ref, moveRSlide, moveLslide, swiper_change}
-    }
+    },
+
+    //////////////////////////////////////////
+    //////플러스, 마이너스 버튼 로직 모음///////
+    /////////////////////////////////////////
+    usePlusMinusBtn:()=>{
+
+    },
+
+
 }
 
 export default util_hooks

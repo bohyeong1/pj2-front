@@ -10,7 +10,7 @@
 }
 /* 스와이퍼 */
 .Event-swiper-slide{
-    height: 100%;
+    height: 100%;    user-select: none;
 }
 .Event_swiper-content{
     height: 100%;

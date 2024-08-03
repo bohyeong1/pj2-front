@@ -20,7 +20,7 @@
     width: 280px;
     display: inline-block;
     text-decoration: none;
-    color: white;
+    color: white;    user-select: none;
 }
 .Lv4-description-content{
     overflow: hidden;    

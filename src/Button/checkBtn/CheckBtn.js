@@ -3,9 +3,8 @@ import { useSearchParams } from "react-router-dom";
 import './CheckBtn.css'
 
 function CheckBtn({data, c_name ,keyValue}){
-    // console.log(data)
-    const [SearchParams,setSearchParams] = useSearchParams()
 
+    const [SearchParams,setSearchParams] = useSearchParams()
 
     function checkbtnInput(e){
         if(e.target.checked){

@@ -19,7 +19,7 @@
     display: inline-block;
     position: relative;
     text-decoration: none;
-    color: black;
+    color: black;    user-select: none;
 }
 .lv3-description-content{
     overflow: hidden;    

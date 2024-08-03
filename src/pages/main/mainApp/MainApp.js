@@ -1,4 +1,4 @@
-import React,{useState,useEffect} from "react";
+import React,{useState, useRef} from "react";
 import './MainApp.css'
 import Event_swiper from "../event-swiper/Event-swiper";
 import Creator_description from "../creator-description/Creator-description";
@@ -11,65 +11,45 @@ import Search_descripton from "../search-description/Search-descripton";
 import Main_menu from "../../../menu/main-menu/main-menu";
 import Search_menu from "../../../menu/search-menu/search-menu";
 import Footer from "../../../menu/footer/Footer";
-import connectData from "../../../utilData/UtilFunction";
-
+import useMainBusiness from "../hook-store/business-hooks/main-business";
+import useMainStyle from "../hook-store/style-hooks/main-style";
+import { reference_store, state_store } from "../../../utilData/UtilFunction";
 
 function MainApp(){
-    // console.log('렌더 회수 체크')
+    // console.log('렌더링 회수 체크')
+
+    // state
     const [dataStore, setDataStore] = useState(null)
-    useEffect(()=>{
-        async function All_data(){
-            let sec1, sec2, sec3, sec4, sec5
-            try {
-            [sec1, sec2, sec3, sec4, sec5] = await Promise.all(
-                [connectData('http://127.0.0.1:3700/api/common','POST',{
-                    filter : 'city',
-                    counts : 12
-                }),
-                connectData('http://127.0.0.1:3700/api/common','POST',{
-                    filter : 'keywords',
-                    keyword:'친환경',
-                    counts : 20
-                }), 
-                connectData('http://127.0.0.1:3700/api/common','POST',{
-                    filter : 'keywords',
-                    keyword : '연인추천',
-                    counts : 20
-                }),
-                connectData('http://127.0.0.1:3700/api/common','POST',{
-                    filter : 'keywords',
-                    keyword : '색다른 공간',
-                    counts : 20
-                }),                
-                connectData('http://127.0.0.1:3700/api/common','POST',{
-                    filter : 'discount',
-                    counts : 8
-                })])
 
+    // ref
+    const search_component = useRef(null)
+    const main_app_ref = useRef(null)
+    // hooks
+    const {} = useMainBusiness(undefined,
+        state_store([
+            {
+                'dataStore':dataStore,
+                'setDataStore':setDataStore
+            }
+        ]))
 
-            } catch (e) {
-              console.log(e)
-            } finally {
-                setDataStore({
-                    sec1: sec1 || null,
-                    sec2: sec2 || null,
-                    sec3: sec3 || null,
-                    sec4: sec4 || null,
-                    sec5: sec5 || null
-                })
-            }            
-        }
-        All_data()
-    },[])   
+    const {} = useMainStyle(undefined, undefined,
+        reference_store([
+            {'search_component':search_component},
+            {'main_app_ref':main_app_ref}
+        ])
+    )
 
-const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
-
+    console.log(dataStore?.sec1.search)
+    const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
 
     return(
-        <div className="mainApp">
+        <div className="mainApp" ref={main_app_ref}>
             <div className="main-gnb">
-                <Main_menu></Main_menu>
-                <Search_menu shadow={true} subtitle={true} data={dataStore?.sec1.search}></Search_menu>
+                <div className="main-gnb__menu-container">
+                    <Main_menu data={dataStore?.sec1.search}></Main_menu>
+                </div>
+                <Search_menu ref={search_component} shadow={true} subtitle={true} data={dataStore?.sec1.search} ></Search_menu>
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>
