@@ -1,12 +1,12 @@
 import React from "react";
 import './lv5-description.css'
-import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
-import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
+import Rslide_btn from "../../../utilComponent/Button/slideBtn/Rslide-btn/Rslide_btn";
+import Lslide_btn from "../../../utilComponent/Button/slideBtn/Lslide-btn/Lslide_btn";
 import default_data from "../../../utilData/defaultData";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 import Pastel_img from "../../../picture/pastel-img/pastel-img";
 import { NavLink } from "react-router-dom";
-import MainBtn from "../../../Button/mainBtn/MainBtn";
+import MainBtn from "../../../utilComponent/Button/mainBtn/MainBtn";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import useMainLv5DesBusiness from "../hook-store/business-hooks/main-lv5-des-business";

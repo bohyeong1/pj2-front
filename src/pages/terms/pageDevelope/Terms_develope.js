@@ -1,8 +1,8 @@
 import React from "react";
 import './Terms_develope.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Pri_side_menu from "../../../menu/pri-side-menu/Pri-side-menu";
-import Footer from "../../../menu/footer/Footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Pri_side_menu from "../../../utilComponent/menu/pri-side-menu/Pri-side-menu";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
 
 function Terms_develope(){

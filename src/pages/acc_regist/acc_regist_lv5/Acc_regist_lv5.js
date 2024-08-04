@@ -1,7 +1,7 @@
 import React,{useEffect, useState, useRef} from "react";
 import './Acc_regist_lv5.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Host_footer from "../../../menu/host-footer/Host-footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Host_footer from "../../../utilComponent/menu/host-footer/Host-footer";
 import DaumPostcodeEmbed from "react-daum-postcode";
 import Kakaomap from "../../../utilData/kakaomap/Kakaomap";
 import default_data from "../../../utilData/defaultData";

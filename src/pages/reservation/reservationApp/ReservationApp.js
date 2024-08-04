@@ -1,8 +1,8 @@
 import React, { useEffect , useState} from "react";
 import { useParams } from "react-router-dom";
 import './ReservationApp.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Footer from "../../../menu/footer/Footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import Res_con_sec1 from "../res-con/res-con-sec1/Res-con-sec1";
 import Res_con_payment from "../res-con/res-con-payment/Res-con-payment";
 

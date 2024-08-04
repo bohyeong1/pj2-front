@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
 import './Membership-join.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Footer from "../../../menu/footer/Footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 
 
 

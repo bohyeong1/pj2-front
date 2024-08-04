@@ -1,10 +1,10 @@
 import React, {useState} from "react";
 import './Acc_regist_intro.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Footer from "../../../menu/footer/Footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
 import UserImg from "../../../utilData/userImg/UserImg";
-import HostTextModal from "../../../modal/hostTextModal/HostTextModal";
+import HostTextModal from "../../../utilComponent/modal/hostTextModal/HostTextModal";
 
 
 function Acc_regist_intro(){

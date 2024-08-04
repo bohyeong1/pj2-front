@@ -1,0 +1,102 @@
+/* 메인메뉴 기본 레이아웃 */
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+.main-menu-wrapper{
+    width: 1920px;  height: fit-content;
+    display: flex;  justify-content: center;    border-bottom: solid 1px rgb(235,235,235);
+    position: absolute; top:0; left:0;  background-color: white;
+    height: 8vh;    transform-origin: bottom;
+    transition:1s;
+    /* overflow: hidden; */
+}
+/* 검색항목 클릭 시 엑티브 */
+.main-menu__active{
+    height: 18vh;
+    /* overflow: visible; */
+}
+.main-menu-container{
+    position: absolute; top:0; left:50%; transform: translateX(-50%);
+    width:1200px;
+    height: 8vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 12;
+}
+
+
+.main-menu-list{
+    cursor: pointer;
+}
+
+.main-menu-list,.main-menu-logo{
+    text-decoration: none;
+    color: rgb(3, 3, 58);
+    font-weight: bold;    
+    position: relative;
+
+}
+
+.main-menu-logo{
+    font-family: 'ClimateCrisisKR-1979';
+    font-size: 1.35rem;
+    color: #00A8D5;
+    font-weight:bold;
+}
+
+.main-menu-logo,.main-menu-right{
+    display: flex;
+    align-items: center;
+}
+
+.main-menu-right{
+    gap: 25px;
+    position: relative;
+}
+/* 호스트 메뉴 */
+.main-menu-host{
+    /* display: flex; */  
+    display: none; 
+}
+.hostmenu-active{
+    display: flex;    align-items: center;    gap:19px;       color: rgb(3, 3, 58);
+    cursor: pointer;
+}
+.current-host{
+    text-decoration: underline; text-decoration-thickness:  2px ; text-underline-position : under;    font-weight: bold;
+}
+
+/* 로그인상태메뉴 */
+.main-menu-list{
+    border: solid 1px rgb(210,210,210);  box-sizing: border-box; padding:10px;   border-radius: 15px;
+    font-size: 0.875rem; line-height: 25px; display: flex;
+}
+.main-menu-list:hover{
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;
+}
+.main-menu-log-img{
+    width:25px; height: 25px;   margin-right: 15px;
+}
+
+/* 검색 메뉴 preview*/
+.main-menu__search-container{
+    width: 900px;
+    height: 18vh;   position: absolute;
+    top:0; left:50%; transform: translateX(-50%);
+    z-index: 13;
+    display: flex;  flex-direction: column; align-items: center;
+}
+.main-menu__search-preview{
+    height: 40px;   width: 100%;
+    opacity: 0; pointer-events: none;   
+    position:absolute; margin: 18px auto;
+}
+.main-menu__search-preview-wrapper{
+    height: 76px;   width: 900px;
+    pointer-events: none;   display: flex;  align-items: center;    justify-content: center;
+    position:relative;
+}

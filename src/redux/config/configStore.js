@@ -1,11 +1,12 @@
-import {createStore} from 'redux'
-import { combineReducers } from 'redux'
-import counter from '../modules/counter.js'
+import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+import overay_reducer from "../modules/overaySlice";
 
-const rootReducer = combineReducers({
-    counter:counter
+const store = configureStore({
+    reducer:{
+        // 오버레이 state
+        overay_reducer : overay_reducer
+    }
 })
 
-const store = createStore(rootReducer)
-
-export default store
+export {store, Provider}

@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react";
 import './Acc_manage.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import { useNavigate } from "react-router-dom";
-import Footer from "../../../menu/footer/Footer";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 

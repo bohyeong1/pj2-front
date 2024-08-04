@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
 import './SubApp.css'
-import Side_menu from "../../../menu/side-menu/side-menu";
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Search from "../../../menu/search-menu/search/Search";
+import Side_menu from "../../../utilComponent/menu/side-menu/side-menu";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Search from "../../../utilComponent/menu/search-menu/search/Search";
 import SubList from "../subList/SubList";
-import Footer from "../../../menu/footer/Footer";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction"
 

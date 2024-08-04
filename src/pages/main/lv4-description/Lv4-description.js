@@ -1,8 +1,8 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import './Lv4-description.css'
-import Rslide_btn from "../../../Button/slideBtn/Rslide-btn/Rslide_btn";
-import Lslide_btn from "../../../Button/slideBtn/Lslide-btn/Lslide_btn";
+import Rslide_btn from "../../../utilComponent/Button/slideBtn/Rslide-btn/Rslide_btn";
+import Lslide_btn from "../../../utilComponent/Button/slideBtn/Lslide-btn/Lslide_btn";
 import default_data from "../../../utilData/defaultData";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 import Pastel_img from "../../../picture/pastel-img/pastel-img";

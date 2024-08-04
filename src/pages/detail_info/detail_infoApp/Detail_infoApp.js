@@ -1,10 +1,10 @@
 import React, {useEffect,useState} from "react";
 import './Detail_infoApp.css'
 import { useParams } from "react-router-dom";
-import Main_menu from "../../../menu/main-menu/main-menu";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Detail_many from "../../../picture/detail-many/Detail-many";
 import Detail from "../../../picture/detail/Detail";
-import Footer from "../../../menu/footer/Footer";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import Det_sec1 from "../det-sec1/Det-sec1";
 import Sec1_payment from "../det-sec1/sec1-payment/Sec1-payment";
 import Det_sec2 from "../det-sec2/Det-sec2";
@@ -14,7 +14,7 @@ import Det_sec5 from "../det-sec5/Det-sec5";
 import Det_sec6 from "../det-sec6/Det-sec6";
 
 // 모달
-import ImgdisModal from "../../../modal/imgdisModal/ImgdisModal";
+import ImgdisModal from "../../../utilComponent/modal/imgdisModal/ImgdisModal";
 
 
 

@@ -1,10 +1,10 @@
 import React, {useState, useRef} from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import './Evaluation.css'
-import Main_menu from "../../menu/main-menu/main-menu";
-import Footer from "../../menu/footer/Footer";
+import Main_menu from "../../utilComponent/menu/main-menu/main-menu";
+import Footer from "../../utilComponent/menu/footer/Footer";
 import default_data from "../../utilData/defaultData";
-import EvaluModal from "../../modal/evaluModal/EvaluModal";
+import EvaluModal from "../../utilComponent/modal/evaluModal/EvaluModal";
 import connectData from "../../utilData/UtilFunction";
 
 function Evaluation(){

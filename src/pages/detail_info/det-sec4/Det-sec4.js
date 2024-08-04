@@ -4,7 +4,7 @@ import Pagination from "react-js-pagination";
 import default_data from "../../../utilData/defaultData";
 
 // 모달
-import ReplyModal from "../../../modal/replyModal/ReplyModal";
+import ReplyModal from "../../../utilComponent/modal/replyModal/ReplyModal";
 
 function Det_sec4({data, replyModalState}){
 

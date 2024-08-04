@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import './Login.css'
-import Main_menu from "../../../menu/main-menu/main-menu";
-import Footer from "../../../menu/footer/Footer";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import Footer from "../../../utilComponent/menu/footer/Footer";
 import { useNavigate,NavLink } from "react-router-dom";
 
 const BASE_URL = 'http://127.0.0.1:3700'

@@ -1,7 +1,7 @@
 import React from "react";
 import './Acc_regist_start.css'
 import { useNavigate } from "react-router-dom";
-import Main_menu from "../../../menu/main-menu/main-menu";
+import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import connectData from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
 
