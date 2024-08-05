@@ -1,0 +1,10 @@
+.static-img{    
+    width:100%;
+    height:100%;
+    object-fit: cover;    
+    position:relative;
+    filter:saturate(150%); 
+}
+.static-img:hover{
+    opacity: 0.9;
+}

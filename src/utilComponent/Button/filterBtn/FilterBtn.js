@@ -2,8 +2,6 @@ import React,{useState} from "react";
 import { useSearchParams } from "react-router-dom";
 import './FilterBtn.css'
 
-
-
 function FilterBtn({text,keyValue}){
 
     const [toggle, setToggle] = useState(false)

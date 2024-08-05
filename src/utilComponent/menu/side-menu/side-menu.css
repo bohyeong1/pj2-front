@@ -6,24 +6,38 @@
     z-index: 2;
 }
 .side-menu-filter, .side-content-category, .side-content-price, .side-content-grade, .side-content-discount, .side-content-facility{
-    border-bottom: solid 1px rgb(210,210,210);  box-sizing: border-box; padding-top: 20px;  padding-bottom: 20px;
+    border-bottom: solid 1px rgb(235,235,235);  box-sizing: border-box; padding-top: 12px;  padding-bottom: 12px;
+    width: 100%;
 }
 .side-menu-filter{
     display: flex;  justify-content: space-between; align-items: center;
+    font-size: 1.125rem;    font-weight: bold;
 }
+
+
 .side-menu-fil-btn{
     box-sizing: border-box; padding: 5px;   border: none;   border-radius: 5px; font-family: inherit;   color:#1273e4;  font-weight: bold;  text-decoration: underline;
-    cursor: pointer;    background: white;  font-size: 1rem;
+    cursor: pointer;    background: white;  font-size: 0.875rem;
 }
-.side-menu-filter,.price-title{
+.price-title{
+    font-size: 1rem;
     font-weight: bold;
-    font-size: 1.2rem;
 }
 .category-title,.facility-title,.category-title,.grade-title,.discount-title{
     font-weight: bold;
-    font-size: 1.2rem;
+    font-size: 1rem;
     margin-bottom: 15px;
 }
 .category-content,.facility-content,.grade-content{
     margin-bottom: 10px;
+}
+.category-content{
+    display: flex;  gap:10px;   align-items: center;
+}
+
+.side-menu__facility-container{
+    width: 100%;    display: flex;  flex-wrap: wrap;    gap:8px;
+}
+.side-menu__grade-container{
+    width: 100%;    display: flex;  flex-wrap: wrap;    gap:8px;
 }

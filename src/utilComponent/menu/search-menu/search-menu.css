@@ -70,5 +70,5 @@
     position: absolute; top:50%; transform: translateY(-50%);
 }
 .search-bottom-line-wrapper{
-    width: 96%; height: 48px;
+    width: 96%; height: 48px;   position: relative;
 }

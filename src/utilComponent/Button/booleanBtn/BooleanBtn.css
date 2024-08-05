@@ -1,13 +1,16 @@
 .boolean_btn{
-    border-radius: 5px;
-    border: none; margin-right: 15px; font-size: 1rem; margin-bottom: 10px; transition: 0.2s;
-    cursor: pointer;
+    border-radius: 100px;
+    border: solid 1.5px rgb(235,235,235);   font-size: 0.8125rem; transition: 0.2s;
+    line-height: 0.8125rem; font-weight: 600;
+    cursor: pointer; padding: 8px 16px;
+    background-color: white;
 }
 .boolean_btn:hover{
-    background: rgb(200, 200, 200);
+    background: rgb(245, 245, 245);
 }
 
 .active{
-    background: rgb(80,80,80);
-    color: white;
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px rgb(171, 210, 255);
 }

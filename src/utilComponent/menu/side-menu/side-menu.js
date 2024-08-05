@@ -40,13 +40,16 @@ function Side_menu({default_data}){
                 </div>
 
                 <div className="side-content-grade">
-                    <div className="grade-title">키워드</div>
-                    {default_data.d_keyword.map((ele,id)=>{
-                        return(
-                           <FilterBtn key={id} text={ele.name} keyValue={'keywords'}></FilterBtn>
-                        )
-                    })                        
-                    }
+                    <div className="grade-title">#키워드</div>
+                    <div className="side-menu__grade-container">
+                        {default_data.d_keyword.map((ele,id)=>{
+                            return(
+                            <FilterBtn key={id} text={ele.name} keyValue={'keywords'}></FilterBtn>
+                            )
+                        })                        
+                        }
+                    </div>
+
                 </div>
 
                 <div className="side-content-discount">
@@ -58,12 +61,15 @@ function Side_menu({default_data}){
                 
                 <div className="side-content-facility">
                     <div className="facility-title">추가 시설</div>
-                    {default_data.d_service_facility_icon.map((ele,id)=>{
-                        return(
-                           <FilterBtn key={id} text={ele.name} keyValue={'service_facility'}></FilterBtn>
-                        )
-                    })                        
-                    }
+                    <div className="side-menu__facility-container">
+                        {default_data.d_service_facility_icon.map((ele,id)=>{
+                            return(
+                            <FilterBtn key={id} text={ele.name} keyValue={'service_facility'}></FilterBtn>
+                            )
+                        })                        
+                        }
+                    </div>
+
 
                 </div>
             </div>

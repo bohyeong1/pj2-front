@@ -1,43 +1,64 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
 import { NavLink } from "react-router-dom";
 import './SubList.css'
-import Detail from "../../../picture/detail/Detail";
 import Pagination from "react-js-pagination";
 import default_data from "../../../utilData/defaultData";
+import Static_img from "../../../picture/static-img/static-img";
+import { pop_three_texts } from "../../../utilData/UtilFunction";
+
+import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
+import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 
 function SubList({data}){
 
-    const [pageData, setPageData] = useState()
-    const [currentPage , setCurrentPage] = useState()
-    const [pageCount, setPageCount] = useState()
+    // state
+    const [pageData, setPageData] = useState(null)
+    const [currentPage , setCurrentPage] = useState(1)
+    const [total_count, setTotal_count] = useState(null)
+    const [count_number, setCount_number] = useState(10)
 
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
+    // const {sellectPageData} = useSubSubListBusiness(data, state_store([
+    //     {
+    //         'pageData':pageData,
+    //         'setPageData':setPageData
+    //     },
+    //     {
+    //         'currentPage':currentPage,
+    //         'setCurrentPage':setCurrentPage
+    //     },
+    //     {
+    //         'total_count':total_count,
+    //         'setTotal_count':setTotal_count
+    //     },
+    //     {
+    //         'count_number':count_number,
+    //         'setCount_number':setCount_number
+    //     }
+    // ]))
 
-    useEffect(()=>{
-        if(data){
-            setPageData(data.slice(0,6))   //한페이지 출력하는 data개수
-            setCurrentPage(1)                  ///초기 렌더링시 디폴트 페이지 넘버
-            setPageCount(Math.ceil(data.length / 6)) //총페이지 개수
-        }
-    },[data])
-
-    function sellectPageData(e){      
-        // console.log(e)
-        const startIndex = (e-1)*6
-        const finishIndex = startIndex + 6 
-        setCurrentPage(e)
-        setPageData(data.slice(startIndex,finishIndex))           ///////화면에 보여주는 페이지
-    }
-  
-    // console.log(pageData)
+    // style
+    const {} = useSubSubListStyle()
 
     return(
         <div className="sublist-container">
             {pageData?.map((ele, id)=>{
-                // console.log(ele._id)
+                // console.log(ele)
+                let price
+                if(String(ele.price).length > 3){
+                    price = pop_three_texts(ele.price)
+                }else{
+                    price = ele.price
+                } 
+
                 return(
                     <NavLink to={`Detail_infoApp/${ele._id}`} className="sublist-list" key={id}>
                         <div className="list-img">
-                            <Detail data={ele}></Detail>
+                            <Static_img url={ele.main_img}></Static_img>
                         </div>
                         <div className="list-text">
                             <div className="list-text-tex1">{`${ele.category.name}`}</div>
@@ -47,31 +68,34 @@ function SubList({data}){
                                     '미평가'}`}</div>
                             <div className="list-text-tex3">{ele.search_adress}</div>
                             <div className="list-text-tex4">
-                                {ele?.keywords.map((el)=>{
+                                {ele?.keywords.map((el, id)=>{
                                     return(
-                                        <span>{`${el.name}. `}</span>
+                                        <span key={id}>{`${el.name}. `}</span>
                                     )
                                 })}
                             </div>
                             <div className="list-text-tex5">
                                 <span className="list-text-t5-b1">편의 시설</span>
                                 <div className="list-text-t5-b2">
-                                    {ele?.service_facility.map((el)=>{
+                                    {ele?.service_facility.map((el, id)=>{
                                         return(
-                                            <span>{`${el.name}. `}</span>
+                                            <span key={id}>{`${el.name}. `}</span>
                                         )
                                     })}
                                 </div>
                             </div>
-                            <div className="list-text-tex6">{`${ele.price}원`}</div>
+                            <div className="list-text-tex6">
+                                <span>{price}</span>
+                                <span>원</span>
+                            </div>
                         </div>
                     </NavLink>
                 )
             })
             }
 
-            <Pagination pageCount={pageCount} activePage={currentPage}  itemsCountPerPage={6}  pageRangeDisplayed={5} totalItemsCount={data?.length} 
-                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination>
+            {/* <Pagination pageCount={pageCount} activePage={currentPage}  itemsCountPerPage={10}  pageRangeDisplayed={5} totalItemsCount={data?.length} 
+                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination> */}
         </div>
     )
 }

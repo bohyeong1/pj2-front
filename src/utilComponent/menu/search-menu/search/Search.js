@@ -7,7 +7,6 @@ import useMenuSearchStyle from "../../hook-store/style-hooks/menu-search-style";
 import { state_store, reference_store } from "../../../../utilData/UtilFunction";
 import { clickPlus, clickMinus } from "../../../../utilData/UtilFunction";
 import { forwardRef } from "react";
-import Overay from "../../../modal/overay/overay";
 
 const Search = forwardRef((props,ref) => {
 
@@ -29,8 +28,11 @@ const Search = forwardRef((props,ref) => {
 
     // overay ref
     const overay_ref = useRef(null)
-    
+
+
+    ////////////////////////////////////
     ////////////// hooks ///////////////
+    ////////////////////////////////////
     // business
     const {searchBtn, today_format} = useMenuSearchBusiness(data, 
         state_store([
@@ -69,7 +71,6 @@ const Search = forwardRef((props,ref) => {
  
     return(
         <>
-            {/* <Overay ref={overay_ref}></Overay> */}
             <div className="search-bottom__wrapper">
                 {/* 검색창 프리뷰 */}
                 <div className="search-bottom__preview" style={{display:`${preview?'flex':'none'}`}}>
@@ -87,7 +88,7 @@ const Search = forwardRef((props,ref) => {
                 </div>
 
                 {/* 검색창 실제 로직 */}
-                <div className="search-bottom-line">         
+                <div className="search-bottom-line" style={{display:`${preview && !open_target_id ? 'none' : 'flex'}`}}>         
                     <div className="bottom-line-box1">
                         <input className="b-l-box1-title" ref={b_box1_ref} placeholder='여행지를 검색해 보세요' defaultValue={null} type='text' data-toggle_data='search-location'
                         id={1} onClick={open_dropdown}></input>  

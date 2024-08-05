@@ -8,15 +8,13 @@
 .main-menu-wrapper{
     width: 1920px;  height: fit-content;
     display: flex;  justify-content: center;    border-bottom: solid 1px rgb(235,235,235);
-    position: absolute; top:0; left:0;  background-color: white;
-    height: 8vh;    transform-origin: bottom;
-    transition:1s;
-    /* overflow: hidden; */
+    background-color: white;
+    height: 8vh;    
+    transition:0.1s;
 }
 /* 검색항목 클릭 시 엑티브 */
 .main-menu__active{
     height: 18vh;
-    /* overflow: visible; */
 }
 .main-menu-container{
     position: absolute; top:0; left:50%; transform: translateX(-50%);
@@ -85,7 +83,7 @@
 /* 검색 메뉴 preview*/
 .main-menu__search-container{
     width: 900px;
-    height: 18vh;   position: absolute;
+    height: 8vh;   position: absolute;
     top:0; left:50%; transform: translateX(-50%);
     z-index: 13;
     display: flex;  flex-direction: column; align-items: center;
@@ -93,7 +91,8 @@
 .main-menu__search-preview{
     height: 40px;   width: 100%;
     opacity: 0; pointer-events: none;   
-    position:absolute; margin: 18px auto;
+    position:absolute; 
+    top:18px;
 }
 .main-menu__search-preview-wrapper{
     height: 76px;   width: 900px;

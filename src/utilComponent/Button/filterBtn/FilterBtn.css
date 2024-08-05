@@ -6,10 +6,11 @@
     background-color: white;
 }
 .filter-btn:hover{
-    background: rgb(200, 200, 200);
+    background: rgb(245, 245, 245);
 }
 
 .fil_active{
-    background: rgb(80,80,80);
-    color: white;
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px rgb(171, 210, 255);
 }
