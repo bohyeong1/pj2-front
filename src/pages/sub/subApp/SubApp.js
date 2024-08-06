@@ -6,7 +6,7 @@ import SubList from "../subList/SubList";
 import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
-
+import Dropdown from "../../../utilComponent/material/dropdown/dropdown";
 import useSubSubAppBusiness from "../hook-store/business-hooks/sub-subApp-business";
 import useSubSubAppStyle from "../hook-store/style-hooks/sub-subApp-style";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
@@ -76,6 +76,7 @@ function SubApp (){
                         <span className="sub-board__list-count">
                             {`'${city}' 숙소 ${total_count ? (String(total_count).length > 3 ? pop_three_texts(total_count) : total_count):'0'}개`}
                         </span>
+                        <Dropdown></Dropdown>
                     </div>
                     <SubList data={list} total_count={total_count} count_number={count_number} current_page={current_page} setCurrent_page={setCurrent_page}
                     total_page = {total_page}></SubList>

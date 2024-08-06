@@ -28,7 +28,7 @@ function Lv1_description({title, data}){
                         {data ? data.map((ele,id)=>{                                              
                             return(
                             <SwiperSlide key={id}>
-                                <NavLink to={`SubApp/${ele.city}`} key={id} className="lv1-img-wrapper">
+                                <NavLink to={`SubApp/${ele.city}?sort=createAt`} key={id} className="lv1-img-wrapper">
                                     <div className="lv1-img-container">
                                         <Pastel_img url={ele.url}></Pastel_img>
                                     </div>

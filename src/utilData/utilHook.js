@@ -81,7 +81,8 @@ const util_hooks = {
             }
         }
         ////서버로 보내는 쿼리 데이터 생성 for문
-        const final_key = {}              ///스테이트로 뺄까말까 추후 고려사항/랜더링 너무 많아질듯
+        const final_key = {}              ///필터 키
+        const sort_key = {}                 /////정렬 키
         for(const value of keyInv){
             if(value === 'discount'){
                 final_key[value] = {$exists:true}
@@ -96,12 +97,15 @@ const util_hooks = {
             else if(value === 'capacity'){
                 final_key[value] = {$gte:SearchParams.get(value)}
             }
+            else if(value ==='sort'){
+                sort_key[value] = SearchParams.get(value)
+            }
             else{
                 final_key[`${value}.name`] = {$all:SearchParams.getAll(value)}
             }       
         }
 
-        return final_key
+        return {final_key, sort_key}
     }   
 
 

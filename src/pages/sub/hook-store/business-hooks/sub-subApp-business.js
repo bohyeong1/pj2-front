@@ -13,7 +13,9 @@ function useSubSubAppBusiness(data,states,refs){
     const [SearchParams, setSearchParams] = useSearchParams()   //쿠ㅡ리스트링
 
     // url로부터 받아온 쿼리데이터 훅
-    const final_key = util_hooks.useJoinUrl()
+    const {final_key, sort_key} = util_hooks.useJoinUrl()
+
+    // console.log(sort_key)
 
     // 리덕스 디스패치
     const dispatch = useDispatch()
@@ -30,12 +32,15 @@ function useSubSubAppBusiness(data,states,refs){
         // 검색어 데이터 없을 때
         if(!search_state){
             Promise.all([
+                // 검색어
                 connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter:'city'
                 }),
+                // 숙소
                 connectData(`${default_data.d_base_url}/api/common/sub?page=${page}&limit=${limit}`,'POST',{
                     city:select_city,
-                    filters:final_key
+                    filters:final_key,
+                    sort:sort_key.sort
                 })                
             ]).then(result => {
                 const [search_data, accomodations_data] = result
@@ -67,7 +72,8 @@ function useSubSubAppBusiness(data,states,refs){
         else{
             connectData(`${default_data.d_base_url}/api/common/sub?page=${page}&limit=${limit}`,'POST',{
                 city:select_city,
-                filters:final_key
+                filters:final_key,
+                sort:sort_key.sort
             })
             .then(result => {
                 // console.log(result)

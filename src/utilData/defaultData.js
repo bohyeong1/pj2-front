@@ -238,6 +238,7 @@ const default_data = {
         ,slice_img3:'https://i.namu.wiki/i/K5rZ54srG1PusxQGEz1HxSyuAtz6uG0FBdcRqKbcycAte7LMAoe8LxJjWH_IrFnJRFMIqrWur_PIGRkRjsb4VDJ7yrkMLF_RwaxP5NcGRq8KWZE0Mjm7Y2IL3x05QOnwjKfneLzQ4pQZWD-epJdVOQ.svg'
         ,slice_img4:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCaouF%2FbtqHEfnG1hF%2FaIj3a5yyOKEXZYFiTu0hW1%2Fimg.png'
         ,star :'https://img.icons8.com/color/48/filled-star--v1.png'
+        ,drop_arrow:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6UlEQVR4nO3WwQoBURTG8X9KVnZKWVl4ABtLKytbNrwDXsJ4CCteYR6AbJSRZ1CUleykRGg0U9NpLM+5lK/u5m5+3du55x7450eSBwLgGa25BZoB/AQaro0FPBLoCahoo23gkUBvQEMbrQJncdqeNloE9gKdaKNZYCHQJZDThscC3UU3oJqBQC9ATRttRFUbo2E1d7TRMnAUpx1ikLVA/ahjqSdwBZdTrtrDKHXgKoqra4X3XTynTw3kAJQwSNZVywxTALYCn2KUasq3GNaASVpiELgDTSvcczH6OB324vF2lYBn791/vikvhQ9rMP7mWfoAAAAASUVORK5CYII='
     },
 
     //////////////////////로그인 마이페이지 사이드메뉴
@@ -357,6 +358,30 @@ const default_data = {
         {
             name:'호스트 소개',
             url:'/Acc_regist/Acc_regist_intro'
+        }
+    ],
+
+    /////////////////////////////////////////////////////드롭다운 메뉴들
+    dropdown_menus : [
+        {
+            name:'createAt',
+            title:'최신등록순'
+        },
+        {
+            name:'createAt',
+            title:'높은가격순'
+        },
+        {
+            name:'createAt',
+            title:'낮은가격순'
+        },
+        {
+            name:'createAt',
+            title:'리뷰많은순'
+        },
+        {
+            name:'createAt',
+            title:'평점높은순'
         }
     ]
 }
