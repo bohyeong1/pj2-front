@@ -9,6 +9,7 @@
     width:1200px;
     display: flex;
     gap:32px;
+    padding-top: 107px;
 }
 .sub-main-content{
     width:fit-content;
@@ -30,5 +31,13 @@
 }
 .sub-board__list-count{
     font-size: 1.5rem;  font-weight: 700;
+}
+
+/* 메뉴 */
+.subApp__menu-container{
+    width: 1920px;    height: fit-content;
+    position:fixed; top:0;  left:50%; transform: translateX(-50%);
+    z-index: 10;
+    background-color: white;
 }
 

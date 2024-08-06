@@ -1,4 +1,6 @@
 import {useState, useRef} from "react"
+import { useParams, useSearchParams } from "react-router-dom"
+
 
 const util_hooks = {
     //////////////////////////////////////////
@@ -38,7 +40,7 @@ const util_hooks = {
             }
         }
     
-        // 스와이퍼 드래그 했을 때 버튼 상태 추적
+        // 스와이퍼 드래그 했을 때 버튼 상태 추적 및 display 여부
         function swiper_change(){
             const index = swiper_ref.current.activeIndex
             const length = swiper_ref.current.slides.length
@@ -63,9 +65,44 @@ const util_hooks = {
             }
         }
         return {RbtnState,setRbtnState,LbtnState,setLbtnState,swiper_ref, moveRSlide, moveLslide, swiper_change}
-    }
+    },
 
-   
+    /////////////////////////////////////////////////////////////////
+    //////////쿼리스트링 파라미터 조회 후 백엔드 쿼리문 작성 훅/////////
+    ////////////////////////////////////////////////////////////////
+    useJoinUrl:()=>{    
+        const params = useParams()              //파라미터
+        const [SearchParams, setSearchParams] = useSearchParams()
+
+        const keyInv = []
+        for(const key of SearchParams.keys()){
+            if(!keyInv.includes(key)){
+                keyInv.push(key)
+            }
+        }
+        ////서버로 보내는 쿼리 데이터 생성 for문
+        const final_key = {}              ///스테이트로 뺄까말까 추후 고려사항/랜더링 너무 많아질듯
+        for(const value of keyInv){
+            if(value === 'discount'){
+                final_key[value] = {$exists:true}
+            }
+            else if(value === 'price'){
+                if(SearchParams.get(value).includes('%')){
+                    final_key[value] = {$gte:SearchParams.get(value).split('%')[0]}
+                }else{
+                    final_key[value] = {$lt:SearchParams.get(value)}
+                }
+            }
+            else if(value === 'capacity'){
+                final_key[value] = {$gte:SearchParams.get(value)}
+            }
+            else{
+                final_key[`${value}.name`] = {$all:SearchParams.getAll(value)}
+            }       
+        }
+
+        return final_key
+    }   
 
 
 }

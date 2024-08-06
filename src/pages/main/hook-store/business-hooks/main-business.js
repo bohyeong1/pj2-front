@@ -1,7 +1,15 @@
 import { useEffect } from "react";
 import connectData from "../../../../utilData/UtilFunction";
+import { useDispatch } from "react-redux";
+import { set_search_data } from "../../../../redux/modules/searchSlice";
+import my_session_storage from "../../../../sessionStorage/session_storage"
 
 function useMainBusiness(data, states, refs){
+
+    const dispatch = useDispatch()
+
+    // console.log(my_session_storage.hiru())
+
     // 초기 데이터 섹션별 fetch
     useEffect(()=>{
         async function All_data(){
@@ -41,6 +49,12 @@ function useMainBusiness(data, states, refs){
                     sec4: sec4 || null,
                     sec5: sec5 || null
                 })
+
+                // 검색어 리덕스에 저장
+                dispatch(set_search_data(sec1))
+
+                // 세션 스토리지에 검색어 저장
+                my_session_storage.save('search',sec1)
             }            
         }
         All_data()

@@ -11,7 +11,7 @@ import { forwardRef } from "react";
 const Search = forwardRef((props,ref) => {
 
     // props
-    const {data,  preview} = props
+    const {data, preview} = props
 
     // state
     const [selectedDropdown, setSelectedDropdown] = useState(null)

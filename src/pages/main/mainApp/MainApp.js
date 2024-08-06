@@ -49,14 +49,13 @@ function MainApp(){
         <div className="mainApp" ref={main_app_ref}>
             <div className="main-gnb">
                 <div className="main-gnb__menu-container">
-                    <Main_menu data={dataStore?.sec1.search} container_height={40} ref={search_menu}></Main_menu>
+                    <Main_menu data={dataStore?.sec1.search} preview={true} ref={search_menu} scroll={true}></Main_menu>
                 </div>
                 <Search_menu ref={search_component} shadow={true} subtitle={true} data={dataStore?.sec1.search} preview={false}></Search_menu>
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>
                 <Lv1_description title={'국내 인기 여행지'} data ={dataStore?.sec1.search}></Lv1_description>
-                {/* <Lv2_description title={'할인 해택 여행지'} data={m_discount}></Lv2_description> */}
                 <Lv2_description title={'연인추천 숙소'} data={dataStore?.sec3.accomodations}></Lv2_description>
                 <Lv2_description title={'뷰맛집 숙소'} data={dataStore?.sec4.accomodations}></Lv2_description>
                 <Creator_description></Creator_description>

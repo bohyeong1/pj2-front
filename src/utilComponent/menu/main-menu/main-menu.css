@@ -90,12 +90,14 @@
 }
 .main-menu__search-preview{
     height: 40px;   width: 100%;
-    opacity: 0; pointer-events: none;   
     position:absolute; 
     top:18px;
 }
+.main-menu_preview-active{
+    opacity:0; pointer-events: none;
+}
 .main-menu__search-preview-wrapper{
     height: 76px;   width: 900px;
-    pointer-events: none;   display: flex;  align-items: center;    justify-content: center;
+    display: flex;  align-items: center;    justify-content: center;
     position:relative;
 }

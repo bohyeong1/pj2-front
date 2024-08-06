@@ -3,10 +3,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { toggle_target } from "../../../../redux/modules/overaySlice"
 
 function useMenuSearchStyle(data,states,refs){
-
     // redux
     const dispatch = useDispatch()
-    const open_target_id = useSelector(state => state.overay_reducer.open_target_id)
+    const open_target_id = useSelector(state => state.overay.open_target_id)
 
     // 드롭다운 토글 함수 
     function open_dropdown(e){

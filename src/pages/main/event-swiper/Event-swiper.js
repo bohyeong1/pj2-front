@@ -23,8 +23,6 @@ function Event_swiper(){
                     spaceBetween={20}
                     autoplay={{ delay: 3000, disableOnInteraction: false }}
                     pagination={{ clickable: true, className:'swp-pagination' }}
-                    // onActiveIndexChange={(e)=>setSwiperIndex(e.realIndex)}
-                    // onSwiper={(e) => {setSwiper(e)}}
                 >
                     <SwiperSlide><Slice url={'https://daejeon.greenart.co.kr/'} img={default_data.d_imgs.slice_img1} title={'대전 그린컴퓨터학원'} text1={'신규 회원'} text2={'절찬리 모집중!'}></Slice></SwiperSlide>
                     <SwiperSlide><Slice url={'http://localhost:5000/Login'} img={default_data.d_imgs.slice_img2} title={'여행은? 보형짱닷컴'} text1={'여행의 패러다임'} text2={'보형짱닷컴!'}></Slice></SwiperSlide>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import './SubList.css'
 import Pagination from "react-js-pagination";
@@ -6,47 +6,32 @@ import default_data from "../../../utilData/defaultData";
 import Static_img from "../../../picture/static-img/static-img";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 
-import { state_store, reference_store } from "../../../utilData/UtilFunction";
+// import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
 import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 
-function SubList({data}){
 
-    // state
-    const [pageData, setPageData] = useState(null)
-    const [currentPage , setCurrentPage] = useState(1)
-    const [total_count, setTotal_count] = useState(null)
-    const [count_number, setCount_number] = useState(10)
+
+function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page}){
 
     ////////////////////////////////////
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    // const {sellectPageData} = useSubSubListBusiness(data, state_store([
-    //     {
-    //         'pageData':pageData,
-    //         'setPageData':setPageData
-    //     },
-    //     {
-    //         'currentPage':currentPage,
-    //         'setCurrentPage':setCurrentPage
-    //     },
-    //     {
-    //         'total_count':total_count,
-    //         'setTotal_count':setTotal_count
-    //     },
-    //     {
-    //         'count_number':count_number,
-    //         'setCount_number':setCount_number
-    //     }
-    // ]))
+
+    const {sellectPageData} = useSubSubListBusiness(data,undefined, undefined,
+        {
+            'current_page':current_page,
+            'setCurrent_page':setCurrent_page
+        }
+    )   
 
     // style
     const {} = useSubSubListStyle()
 
     return(
         <div className="sublist-container">
-            {pageData?.map((ele, id)=>{
+            {data ? data.length !== 0 ?  data.map((ele, id)=>{
                 // console.log(ele)
                 let price
                 if(String(ele.price).length > 3){
@@ -92,10 +77,10 @@ function SubList({data}){
                     </NavLink>
                 )
             })
-            }
+            :<span className="sublist-list_no-data">등록된 숙소가 존재하지 않아요!</span> :null}
 
-            {/* <Pagination pageCount={pageCount} activePage={currentPage}  itemsCountPerPage={10}  pageRangeDisplayed={5} totalItemsCount={data?.length} 
-                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination> */}
+            <Pagination pageCount={total_page} activePage={current_page}  itemsCountPerPage={count_number}  pageRangeDisplayed={5} totalItemsCount={total_count ? total_count : 0} 
+                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination>
         </div>
     )
 }

@@ -1,29 +1,31 @@
-import React, {useState} from "react";
+import React from "react";
 import './side-menu.css'
 import FilterBtn from "../../Button/filterBtn/FilterBtn";
 import PriceBtn from "../../Button/priceBtn/PriceBtn";
 import CheckBtn from "../../Button/checkBtn/CheckBtn";
 import BooleanBtn from "../../Button/booleanBtn/BooleanBtn";
-import { useNavigate, useLocation, useParams } from "react-router-dom";
 
-function Side_menu({default_data}){
-    
-    const params = useParams()
-    const location = useLocation()
-    const navigate = useNavigate()
+import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import useMenuSideBusiness from "../hook-store/business-hooks/menu-side-business";
+import useMenuSideStyle from "../hook-store/style-hooks/menu-side-style";
 
-    const [url, setUrl] = useState(location.pathname)
+function Side_menu({default_data}){    
 
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
+    const {initial_page} = useMenuSideBusiness()
 
-    // console.log(location.pathname.split('/')[1]+'/'+params.city)
-    // console.log(params)
+    // style
+    const {} =  useMenuSideStyle()
+
 
     return(
         <div className="side-menu-container">
             <div className="side-menu-filter">
                 <div>필터</div>
-                <button className="side-menu-fil-btn" onClick={()=>{navigate(`/${location.pathname.split('/')[1]+'/'+params.city}`)
-                                                                    window.location.reload()}}>초기화</button>
+                <button className="side-menu-fil-btn" onClick={initial_page}>초기화</button>
             </div>
 
             <div className="side-menu-content">
@@ -49,7 +51,6 @@ function Side_menu({default_data}){
                         })                        
                         }
                     </div>
-
                 </div>
 
                 <div className="side-content-discount">
@@ -69,8 +70,6 @@ function Side_menu({default_data}){
                         })                        
                         }
                     </div>
-
-
                 </div>
             </div>
         </div>

@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Pri-side-menu.css'
-import default_data from "../../../utilData/defaultData";
 import { useLocation, useNavigate } from "react-router-dom";
-
-
-
 
 function Pri_side_menu({data}){
 
@@ -18,7 +14,7 @@ function Pri_side_menu({data}){
         setPriSideState(index)
     },[location])
 
-    console.log(priSideState)
+    // console.log(priSideState)
 
     return(
         <div className='Pri_side_menu-container'>

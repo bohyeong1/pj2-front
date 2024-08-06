@@ -11,7 +11,7 @@ function useMenuSearchBusiness(data, states,refs){
         //도시 리스트
         const cityname = []
         if(citys){
-            citys.map((ele)=>{
+            citys?.map((ele)=>{
                 if(cityname.includes(ele.city)){
                     return
                 }else{

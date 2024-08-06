@@ -1,5 +1,5 @@
 const default_data = {
-    d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL
+    d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL / 로컬
 
     // 카테고리 디폴트 데이타 + 아이콘
     d_category_icon : [
@@ -324,6 +324,40 @@ const default_data = {
     // ////////////////////별점
     stars : [
         'https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png','https://img.icons8.com/color/48/filled-star--v1.png'
+    ],
+
+
+    ///////////////////////////////메인메뉴 메뉴들
+    Logo : 
+    {
+        name:'보형짱 닷컴',
+        url:'/',
+        img:''
+    },
+    Main_menus :
+    [    
+        {
+            name:'회원가입/로그인',
+            url:'/Login'
+        }
+    ],    
+    host_menus :
+    [
+        {
+            name:'투데이',
+            url:'/Acc_regist'
+        },
+        {
+            name:'달력'
+        },
+        {
+            name:'숙소',
+            url:'/Acc_regist/Acc_manage'
+        },
+        {
+            name:'호스트 소개',
+            url:'/Acc_regist/Acc_regist_intro'
+        }
     ]
 }
 

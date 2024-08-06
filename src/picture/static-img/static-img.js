@@ -1,7 +1,7 @@
 import React from 'react';
 import './static-img.css'
 
-// 파스텔톤 이미지 & 호버 이벤트 있음
+// saturate 150% 밝기 들어가있음 & 호버 이벤트 있음
 function Static_img({url}){
 
 

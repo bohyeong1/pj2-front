@@ -24,7 +24,7 @@ function App(){
   return(
     <Provider store = {store}>
       <div className="App">
-        {/* 모달창 오버레이 */}
+        {/* 모달창 오버레이 / redux로 모든 모달 및 드랍다운 전역관리*/}
         <Overay></Overay>
 
         <Routes>
