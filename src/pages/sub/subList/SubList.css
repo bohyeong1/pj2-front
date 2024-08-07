@@ -70,10 +70,19 @@
 }
 .list-text-evaluation{
     display: flex;  align-items: center;    gap:10px;
-    font-size: 0.75rem;
+    font-size: 0.75rem; height: 21px;
 }
-
-
+.list-text-evaluation > span:nth-child(2){
+    font-size: 0.8125rem;   color: #707070;
+}
+.list-evaluation__star-box{
+    height: 100%;   width: fit-content;
+    display: flex;  align-items: center;    padding: 4px 5px 3px 3px;   gap:3px;
+    border-radius: 6px;    background-color: #FFAD0A;
+}
+.list-evaluation__star-box > img{
+    width: 11px;    position: relative; top:-1px;
+}
 /* 데이터 없을 때 */
 .sublist-list_no-data{
     font-size: 1.25rem;

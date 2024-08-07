@@ -7,7 +7,7 @@ function useMenuSideBusiness(){
 
     // 페이지 초기화
     function initial_page(){
-        navigate(`/${location.pathname.split('/')[1]+'/'+params.city}`)
+        navigate(`/${location.pathname.split('/')[1]+'/'+params.city + '?' + 'sort=createAt'}`)
         // window.location.reload()
     }
     return {initial_page}

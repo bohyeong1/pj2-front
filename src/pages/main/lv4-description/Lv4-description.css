@@ -72,10 +72,26 @@
 }
 .lv4-img-tex4{
     font-size: 0.82rem;   font-weight: 500;    display: flex;  align-items: center;    gap:10px;
+    color: black;
 }
 .lv4-img-tex5{
     font-size: 1.125rem;  font-weight: 700;
 }
 .lv4-img-tex5 > span:nth-child(2){
     font-weight: 400;   font-size: 0.9375rem;
+}
+
+
+
+/* 평점 */
+.lv4-img-tex4 > span:nth-child(2){
+    font-size: 0.8125rem;   color: white;
+}
+.lv4-img-text4__star-box{
+    height: 100%;   width: fit-content;
+    display: flex;  align-items: center;    padding: 4px 5px 3px 3px;   gap:3px;
+    border-radius: 6px;    background-color: #FFAD0A;
+}
+.lv4-img-text4__star-box > img{
+    width: 11px;    position: relative; top:-1px;
 }

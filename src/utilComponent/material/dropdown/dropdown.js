@@ -1,5 +1,5 @@
 import './dropdown.css'
-import React, {useRef} from 'react'
+import React, {useRef, useState} from 'react'
 import default_data from '../../../utilData/defaultData'
 import { state_store, reference_store } from '../../../utilData/UtilFunction'
 import useMaterialDropdownBusiness from '../hook-store/business-hooks/materail-dropdown-business'
@@ -14,11 +14,20 @@ function Dropdown(){
     const drop_logo = useRef(null)
     const drop_options = useRef([])
 
+    // state
+    const [select_option , setSelect_option] = useState(null)
+
     ////////////////////////////////////
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    const {} = useMaterialDropdownBusiness(undefined,undefined,
+    const {click_option} = useMaterialDropdownBusiness(undefined,
+        state_store([
+            {
+                'select_option':select_option,
+                'setSelect_option':setSelect_option
+            }
+        ]),
         reference_store([
             {
                 'drop_list':drop_list
@@ -44,14 +53,15 @@ function Dropdown(){
 
     return(
         <div className="dropdown__custom-dr">
-            <div className="dropdown__custom-logo" ref={drop_logo} onClick={dropdown_toggle}>
-                <span>{default_data.dropdown_menus[0].title}</span>
+            <div className="dropdown__custom-logo" onClick={dropdown_toggle}>
+                <span ref={drop_logo}>{select_option?.textContent}</span>
                 <img className='dropdown__arrow-img' ref={drop_arrow} src={default_data.d_imgs.drop_arrow}></img>
             </div>
             <div className="dropdown__custom-options" ref={drop_list}>
                 {default_data.dropdown_menus.map((el, id)=>{
                     return(
-                        <div className="dropdown__list" ref={(el)=>{drop_options.current[id] = el}} key={id} data-value={el.name}>{el.title}</div>
+                        <div className={`dropdown__list ${select_option === drop_options.current[id] ? 'dropdown__list-active' : ''}`} ref={(el)=>{drop_options.current[id] = el}} 
+                        key={id} data-value={el.name} onClick={click_option}>{el.title}</div>
                     )
                 })}
             </div>

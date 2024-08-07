@@ -62,11 +62,26 @@
     font-size: 0.82rem; color: rgb(153,153,153);    font-weight: 600;
 }
 .lv2-img-tex4{
-    font-size: 0.82rem; color: rgb(112,112,112);    font-weight: 500;    display: flex;  align-items: center;    gap:10px;
+    font-size: 0.82rem; color: black;    font-weight: 500;    display: flex;  align-items: center;    gap:10px;
 }
 .lv2-img-tex5{
     font-size: 1.125rem;  font-weight: 700; color: rgb(51,51,51);
 }
 .lv2-img-tex5 > span:nth-child(2){
     font-weight: 400;   font-size: 0.9375rem;
+}
+
+
+
+/* 평점 */
+.lv2-img-tex4 > span:nth-child(2){
+    font-size: 0.8125rem;   color: #707070;
+}
+.lv2-img-text4__star-box{
+    height: 100%;   width: fit-content;
+    display: flex;  align-items: center;    padding: 4px 5px 3px 3px;   gap:3px;
+    border-radius: 6px;    background-color: #FFAD0A;
+}
+.lv2-img-text4__star-box > img{
+    width: 11px;    position: relative; top:-1px;
 }

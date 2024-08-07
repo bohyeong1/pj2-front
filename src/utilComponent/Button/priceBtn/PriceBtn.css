@@ -21,3 +21,10 @@
     width: 29px; height: 29px; appearance: none; background: black; border-radius: 15px; cursor: pointer;
 }
 
+
+
+
+.PriceSlider-container{
+    width: 100%;    
+}
+

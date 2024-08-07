@@ -55,9 +55,13 @@ function Lv5_description({title}){
                                             <div className="lv5-img-tex1">{ele.category.name}</div>
                                             <div className="lv5-img-tex2">{ele.title}</div>
                                             <div className="lv5-img-tex3">{ele.search_adress}</div>
-                                            <div className="lv5-img-tex4"><img style={{width:'20px', height:'20px'}} src={default_data.d_imgs.star}></img>
-                                            {`${ele.avgEvaluation.length != 0 ? (ele.avgEvaluation.reduce((prev, cur) => {return prev + cur},0)/ele.avgEvaluation.length).toFixed(2) : 
-                                            '미평가'}`}</div>
+                                            <div className="lv5-img-tex4">
+                                                <div className="lv5-img-text4__star-box">
+                                                    <img src={default_data.d_imgs.star}></img>
+                                                    <span>{`${ele.average ? ele.average.toFixed(2) : '미평가'}`}</span>
+                                                </div>
+                                                <span>{`${ele.counts_review !== 0 ? `${ele.counts_review}명 평가` : ''}`}</span>
+                                            </div>
                                             <div className="lv5-img-tex5">
                                                 <span>{price}</span>
                                                 <span>원</span>

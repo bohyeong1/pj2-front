@@ -9,6 +9,8 @@ import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useMenuSideBusiness from "../hook-store/business-hooks/menu-side-business";
 import useMenuSideStyle from "../hook-store/style-hooks/menu-side-style";
 
+import { PriceSlider } from "../../Button/priceBtn/PriceBtn";
+
 function Side_menu({default_data}){    
 
     ////////////////////////////////////
@@ -37,7 +39,8 @@ function Side_menu({default_data}){
                 <div className="side-content-price">
                     <div className="price-title">가격</div>
                     <div className="price-content">
-                       <PriceBtn keyValue='price'></PriceBtn>
+                       {/* <PriceBtn keyValue='price'></PriceBtn> */}
+                       <PriceSlider></PriceSlider>
                     </div>
                 </div>
 

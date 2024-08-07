@@ -9,16 +9,30 @@ function useMaterialDropdownBusiness(data, states, refs, props){
     // 새로고침 시 드랍다운 상태 유지
     useEffect(()=>{
         const sort_value = SearchParams.get('sort')
-        // console.log(refs.drop_options.current)
+        const decode_value = decodeURIComponent(sort_value)
+        // console.log(decode_value)
         const options = refs.drop_options.current
         const select_option = options.filter((el)=>{
-            return el.dataset.value === sort_value
+            return el.dataset.value === decode_value
         })
 
-        // console.log(select_option)
+        states.setSelect_option(select_option[0])
     },[])
 
-    return {}
+    // 드랍다운 옵션 선택 시
+    function click_option(e){
+        const value = e.target.dataset.value
+        const encode_value = encodeURIComponent(value)
+
+        SearchParams.delete('sort')
+        SearchParams.append('sort', encode_value)
+        setSearchParams(SearchParams)
+        states.setSelect_option(e.target)
+
+        refs.drop_list.current.classList.toggle('dr-active')
+    }
+
+    return {click_option}
 }
 
 export default useMaterialDropdownBusiness
