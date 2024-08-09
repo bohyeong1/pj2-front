@@ -239,6 +239,7 @@ const default_data = {
         ,slice_img4:'https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FCaouF%2FbtqHEfnG1hF%2FaIj3a5yyOKEXZYFiTu0hW1%2Fimg.png'
         ,star :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA/0lEQVR4nO3UTSsFURgH8F/hC5B01fUJlFgpLytF2fAZWNP1CWz5DiwoW1ZW3tYWUsqGjY21RqLE1dRR0xR35ozJ5v7r6dQ5zzy/Tk2HbmpMD47DWluW0cZSnchFQM7rAkbxGZC0xupAdjNAWjt/DQziNYe8YShm2ALWsY19nOEWSQ74riScn2IPW1jD/G/ICt5/GNguWOn3q51uM4enSOAZi2X+pIeSwCMmlMwwrgoCNxgRmUZBpKFCZgoi01WQjYJIqwpykBv2gZOwZvfTvujcZwZdYzLsj+Myc3YXC/SHB/EFm+jLnfeG1yEJfQMxyBQO0ezQ18QRZmOQbv4nX+SCjYAHjP4xAAAAAElFTkSuQmCC'
         ,drop_arrow:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAA6UlEQVR4nO3WwQoBURTG8X9KVnZKWVl4ABtLKytbNrwDXsJ4CCteYR6AbJSRZ1CUleykRGg0U9NpLM+5lK/u5m5+3du55x7450eSBwLgGa25BZoB/AQaro0FPBLoCahoo23gkUBvQEMbrQJncdqeNloE9gKdaKNZYCHQJZDThscC3UU3oJqBQC9ATRttRFUbo2E1d7TRMnAUpx1ikLVA/ahjqSdwBZdTrtrDKHXgKoqra4X3XTynTw3kAJQwSNZVywxTALYCn2KUasq3GNaASVpiELgDTSvcczH6OB324vF2lYBn791/vikvhQ9rMP7mWfoAAAAASUVORK5CYII='
+        ,map:'https://img.freepik.com/premium-vector/city-map-vector-illustration_185351-31.jpg?w=996'
     },
 
     //////////////////////로그인 마이페이지 사이드메뉴

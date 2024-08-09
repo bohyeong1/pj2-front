@@ -16,28 +16,28 @@ function CheckBtn({data, c_name ,keyValue}){
     ////////////////////////////////////
     // business
     const {checkbtnClick, checkbtnInput} = useButtonCheckbtnBusiness(undefined, undefined,reference_store([
-        {
-            'check_btn_input':check_btn_input,
-        },
-        {
-            'check_btn_gura':check_btn_gura
-        }
-    ]),
-    {
-        'keyValue':keyValue
-    })
+            {
+                'check_btn_input':check_btn_input,
+            },
+            {
+                'check_btn_gura':check_btn_gura
+            }
+        ]),
+            {
+                'keyValue':keyValue
+            })
     // style
     const {click_gurabox} = useButtonCheckbtnStyle(undefined, undefined,reference_store([
-        {
-            'check_btn_input':check_btn_input,
-        },
-        {
-            'check_btn_gura':check_btn_gura
-        }
-    ]),
-    {
-        'keyValue':keyValue
-    })
+            {
+                'check_btn_input':check_btn_input,
+            },
+            {
+                'check_btn_gura':check_btn_gura
+            }
+        ]),
+            {
+                'keyValue':keyValue
+            })
 
 
 

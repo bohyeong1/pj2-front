@@ -4,6 +4,7 @@
     align-items: center;
     flex-direction: column;
     gap:30px;
+    position: relative;
 }
 .sub-content{
     width:1200px;

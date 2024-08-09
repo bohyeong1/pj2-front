@@ -1,172 +1,91 @@
-import React, {useRef, useState, useEffect} from "react";
-import { useSearchParams } from "react-router-dom";
+import React, {useRef, useState} from "react";
 import './PriceBtn.css'
+import { useSearchParams } from "react-router-dom";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useButtonPricebtnBusiness from "../hook-store/business-hooks/button-pricebtn-business";
 import useButtonPricebtnStyle from "../hook-store/style-hooks/button-pricebtn-style";
-import Swiper from 'swiper';
-import 'swiper/swiper-bundle.css'
+import { pop_three_texts } from "../../../utilData/UtilFunction";
 
 
+function PriceBtn({keyValue1, keyValue2}){
+    // querystring
+    const [SearchParams] = useSearchParams()
 
-function PriceBtn({keyValue}){
-    const price_text = useRef()
-    const [SearchParams, setSearchParams] = useSearchParams()
+    // ref
+    const price_target = useRef(null)
+    const price_track = useRef(null)
+    const price_thumb = useRef(null)
     
-    function moveRangebar(e){
-        let gradient_value = 100 / e.target.attributes.max.value;
-        e.target.style.background = 'linear-gradient(to right, black 0%, black '+gradient_value * e.target.value +'%, rgb(236, 236, 236) ' +gradient_value *  e.target.value + '%, rgb(236, 236, 236) 100%)';
+    // 인덱스 range
+    const index_range = [0, 1, 2, 3, 4, 5, 6, 7]
 
-        if(e.target.value ==='200000'){
-            price_text.current.innerText = Number(e.target.value) + '원 이상' 
-        }else{
-            price_text.current.innerText = Number(e.target.value) + 30000 + '원 미만' 
-        }       
-    }
+    // max 인덱스
+    const max_index = 7
 
-    function upRange(e){
-        console.log(e.target.value)
-        if(e.target.value === '200000'){
-            SearchParams.set(keyValue, e.target.value +'%over')
-            setSearchParams(SearchParams)
-        }else{
-            SearchParams.set(keyValue,Number(e.target.value)+30000)
-            setSearchParams(SearchParams)
+    // 가격 range
+    const value_collections = [0, 30000, 50000, 100000, 200000, 300000, 400000, 500000]
+
+    // 새로고침 시 대응하기 위한 인덱스 추출
+    const min_index = value_collections.indexOf(parseInt(SearchParams.get('price-min').split('%')[0]))
+    const over_index = value_collections.indexOf(parseInt(SearchParams.get('price-over').split('%')[0]))
+
+    // state
+    const [index_min_state, setIndex_min_state] = useState(min_index)    
+    const [index_max_state, setIndex_max_state] = useState(over_index)
+
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
+    const {mouse_down, mouse_click} = useButtonPricebtnBusiness({
+        'index_range':index_range,
+        'max_index':max_index,
+        'value_collections':value_collections
+    },
+    state_store([
+        {
+            'index_min_state':index_min_state,
+            'setIndex_min_state':setIndex_min_state
+        },
+        {
+            'index_max_state':index_max_state,
+            'setIndex_max_state':setIndex_max_state
         }
-    }
+    ]),
+    reference_store([
+        {
+            'price_track':price_track,
+        },
+        {
+            'price_thumb':price_thumb
+        },
+        {
+            'price_target':price_target
+        }
+    ]),
+        {
+            'keyValue1':keyValue1,
+            'keyValue2':keyValue2
+        })
 
+    // style
+    const {} = useButtonPricebtnStyle()
+
+    // console.log(index_min_state, index_max_state)
 
     return(
-        <div className="PriceBtn-container">
-            <div className="PriceBtn-box">
-                <div className="PriceBtn-benchmark"></div>
-                <div className="PriceBtn-bar-box">
-                    <input type='range' min={20000} max={200000} step={30000} className="PriceBtn-bar" onInput={moveRangebar} onMouseUp={upRange}></input>
-                </div>
-            </div>            
-            <div className="PriceBtn-text" ref={price_text}></div>
+        <div className="pricebtn-wrapper">
+            <div className="pricebtn-container" data-drag={false} data-target={null} data-min_index={0} data-max_index={7} ref={price_target}
+            onMouseDown={mouse_down} onClick={mouse_click}>
+                <div className="pricebtn-track" ref={price_track}></div> 
+                <div className="pricebtn-thumb pricebtn-min" ref={price_thumb}></div>      
+                <div className="pricebtn-thumb pricebtn-max" ref={price_thumb}></div> 
+            </div>
+            <div className={`pricebtn__text ${index_min_state !== 0 || index_max_state !== 7 ? 'priece-text__active' : ''}`}>
+                {`${value_collections[index_min_state]}원 이상 ~ ${pop_three_texts(value_collections[index_max_state])}원 ${index_max_state < 7 ? '이하' : '이상'}`}
+            </div>
         </div>
     )
 }
 
 export default PriceBtn
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export const PriceSlider = () => {
-//     const swiperRef = useRef(null); // Swiper 인스턴스를 담을 ref
-//     const [value, setValue] = useState(20000); // 슬라이더의 현재 값
-
-
-//     //최댓값
-//     const max = 500000
-//     // 슬라이더 단계
-//     const steps = [0, 30000, 50000, 100000, 200000, 300000, 400000, 500000]
-
-//     useEffect(() => {
-//         // Swiper 인스턴스를 초기화
-//         swiperRef.current = new Swiper('.swiper-container', {
-//             slidesPerView: 'auto',
-//             spaceBetween: 10,
-//             freeMode: true,
-//             on: {
-//                 setTranslate: (swiper, translate) => {
-//                     const index = Math.round(-translate / swiper.width * (steps.length - 1))
-//                     setValue(steps[index])
-//                 },
-//                 touchEnd: (swiper) => {
-//                     const index = Math.round(swiper.getTranslate() / swiper.width * (steps.length - 1))
-//                     setValue(steps[index])
-//                 }
-//             }
-//         })
-//         // 클린업 함수로 컴포넌트 언마운트 시 Swiper 인스턴스를 제거
-//         return () => {
-//             if (swiperRef.current) {
-//                 swiperRef.current.destroy()
-//             }
-//         }
-//     }, [steps])
-
-
-
-
-//     return (
-//         <div className="PriceSlider-container">
-//             <div className="swiper-container" ref={swiperRef}>
-//                 <div className="swiper-wrapper">
-//                     {steps.map((stepValue, index) => (
-//                         <div key={index} className="swiper-slide">
-//                             {stepValue}
-//                         </div>
-//                     ))}
-//                 </div>
-//             </div>
-//             <div className="PriceSlider-text">
-//                 {value.toFixed(2)}
-//             </div>
-//         </div>
-//     )
-// }
-
-export const PriceSlider = () => {
-    const swiperContainerRef = useRef(null);
-    const swiperRef = useRef(null);
-    const [steps, setSteps] = useState([1, 2, 3, 4, 5]); // 예시 데이터를 위해 추가
-    const [value, setValue] = useState(steps[0]);
-  
-    useEffect(() => {
-      if (swiperContainerRef.current) {
-        // Swiper 인스턴스를 초기화
-        swiperRef.current = new Swiper(swiperContainerRef.current, {
-          slidesPerView: 'auto',
-          spaceBetween: 10,
-          freeMode: true,
-          on: {
-            setTranslate: (swiper, translate) => {
-              const index = Math.round(-translate / swiper.width * (steps.length - 1));
-              setValue(steps[index]);
-            },
-            touchEnd: (swiper) => {
-              const index = Math.round(swiper.getTranslate() / swiper.width * (steps.length - 1));
-              setValue(steps[index]);
-            },
-          },
-        });
-      }
-  
-      // 클린업 함수로 컴포넌트 언마운트 시 Swiper 인스턴스를 제거
-      return () => {
-        if (swiperRef.current) {
-          swiperRef.current.destroy();
-        }
-      };
-    }, [steps]);
-  
-    return (
-      <div>
-        <div className="swiper-container" ref={swiperContainerRef}>
-          <div className="swiper-wrapper">
-            {steps.map((step, index) => (
-              <div className="swiper-slide" key={index}>
-                Slide {step}
-              </div>
-            ))}
-          </div>
-        </div>
-        <div>
-          Current Value: {value}
-        </div>
-      </div>
-    );
-  };

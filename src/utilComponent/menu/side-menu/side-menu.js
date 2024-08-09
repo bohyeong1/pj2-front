@@ -4,12 +4,13 @@ import FilterBtn from "../../Button/filterBtn/FilterBtn";
 import PriceBtn from "../../Button/priceBtn/PriceBtn";
 import CheckBtn from "../../Button/checkBtn/CheckBtn";
 import BooleanBtn from "../../Button/booleanBtn/BooleanBtn";
+import default_data from "../../../utilData/defaultData";
+import Hazy_img from "../../../picture/hazy-img/hazy-img";
 
-import { state_store, reference_store } from "../../../utilData/UtilFunction";
+// import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useMenuSideBusiness from "../hook-store/business-hooks/menu-side-business";
 import useMenuSideStyle from "../hook-store/style-hooks/menu-side-style";
 
-import { PriceSlider } from "../../Button/priceBtn/PriceBtn";
 
 function Side_menu({default_data}){    
 
@@ -25,11 +26,18 @@ function Side_menu({default_data}){
 
     return(
         <div className="side-menu-container">
+            <div className="side-menu__map-container">
+                <div className="side-menu__map-img-container">
+                   <Hazy_img url={default_data.d_imgs.map}></Hazy_img>
+                </div>
+                <button className="side-menu__map-button">
+                    <span className="side-menu__map-button-text">지도 보기</span>
+                </button>
+            </div>
             <div className="side-menu-filter">
                 <div>필터</div>
                 <button className="side-menu-fil-btn" onClick={initial_page}>초기화</button>
             </div>
-
             <div className="side-menu-content">
                 <div className="side-content-category">
                     <div className="category-title">숙소유형</div>
@@ -39,8 +47,8 @@ function Side_menu({default_data}){
                 <div className="side-content-price">
                     <div className="price-title">가격</div>
                     <div className="price-content">
-                       {/* <PriceBtn keyValue='price'></PriceBtn> */}
-                       <PriceSlider></PriceSlider>
+                       <PriceBtn keyValue1='price-min' keyValue2='price-over'></PriceBtn>
+ 
                     </div>
                 </div>
 

@@ -63,7 +63,7 @@ function SubApp (){
     // style
     const {} = useSubSubAppStyle()  
 
-    console.log(list)
+    // console.log(list)
 
     return(
         <div className="subApp">

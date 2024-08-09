@@ -50,7 +50,7 @@ function Lv2_description({title, data}){
                                                 <img src={default_data.d_imgs.star}></img>
                                                 <span>{`${ele.average ? ele.average.toFixed(2) : '미평가'}`}</span>
                                             </div>
-                                            <span>{`${ele.counts_review !== 0 ? `${ele.counts_review}명 평가` : ''}`}</span>
+                                            <span>{`${ele.counts_review !== 0 && ele.counts_review ? `${ele.counts_review}명 평가` : ''}`}</span>
                                         </div>
                                         <div className="lv2-img-tex5">
                                             <span>{price}</span>

@@ -87,11 +87,16 @@ const util_hooks = {
             if(value === 'discount'){
                 final_key[value] = {$exists:true}
             }
-            else if(value === 'price'){
-                if(SearchParams.get(value).includes('%')){
-                    final_key[value] = {$gte:SearchParams.get(value).split('%')[0]}
-                }else{
-                    final_key[value] = {$lt:SearchParams.get(value)}
+            else if(value === 'price-min'){
+                final_key['price'] = {
+                    ...final_key['price'],
+                    $gte:parseInt(SearchParams.get(value).split('%')[0])}
+            }
+            else if(value === 'price-over'){
+                if(SearchParams.get(value).split('%')[0] !== '500000'){
+                    final_key['price'] = {
+                        ...final_key['price'],
+                        $lte:parseInt(SearchParams.get(value).split('%')[0])}
                 }
             }
             else if(value === 'capacity'){

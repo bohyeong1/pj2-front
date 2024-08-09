@@ -1,4 +1,4 @@
-function useButtonPricebtnStyle(){
+function useButtonPricebtnStyle(data, states, refs, props){
 
     return {}
 }

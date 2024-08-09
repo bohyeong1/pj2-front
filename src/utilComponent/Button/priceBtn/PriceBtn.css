@@ -1,30 +1,40 @@
-.PriceBtn-box{
-    position: relative;
-    /* border: solid 1px black; */
-    margin-top: 15px; margin-bottom: 15px;
-    
-}
-.PriceBtn-bar-box{
-    width:100%;
-    /* height: 8px; border-radius: 15px; background: rgb(200, 200, 200); */
-
-}
-.PriceBtn-bar{
-    width: 100%;
-    background: linear-gradient(to right, black 0%, black 0%, #ececec 0%, #ececec 100%);;
-    border-radius: 15px;
-    height: 14px;
-    -webkit-appearance: none;
-    transition: 0.4s;
-}
-.PriceBtn-bar::-webkit-slider-thumb{
-    width: 29px; height: 29px; appearance: none; background: black; border-radius: 15px; cursor: pointer;
+.pricebtn-wrapper{
+    position:relative; width: 288px;    height: 60px;
 }
 
+.pricebtn-container{
+    width: 288px;   height: 30px;
+    position: relative; 
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+.pricebtn-track{
+    width:288px;    height: 4px;    border-radius: 15px;
+    position:absolute;  top:50%; transform: translate(-50%,-50%);     left:50%;
+}
 
+.pricebtn-thumb{
+    width: 28px;    height: 28px;   position:absolute;  border-radius: 100px;   border: solid 1px rgb(225,225,225);
+    top:50%;    transform: translateY(-50%);    background-color: white;
+    cursor: pointer;
+}
 
+.pricebtn-min{
+    left:0; 
+}
+.pricebtn-max{
+    right:0;
+}
 
-.PriceSlider-container{
-    width: 100%;    
+/* text */
+.pricebtn__text{
+    position:absolute; bottom:0; 
+    font-size: 0.8125rem;   color:rgb(153,153,153)
+}
+/* 텍스트 버튼 엑티브 */
+.priece-text__active{
+    color:#1273E4
 }
 

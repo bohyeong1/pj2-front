@@ -11,7 +11,7 @@ function useMenuSearchBusiness(data, states,refs){
         //도시 리스트
         const cityname = []
         if(citys){
-            citys?.map((ele)=>{
+            citys?.forEach((ele)=>{
                 if(cityname.includes(ele.city)){
                     return
                 }else{
@@ -19,7 +19,7 @@ function useMenuSearchBusiness(data, states,refs){
                 }
             })
             states.setCityName(cityname)
-    
+
             //////////////////////////////////지역만으로 검색 제한시키면 필요없고, 숙소이름까지 포함하면 필요함 but 숙소 이름 포함하려면 전체 데이터를 fetch해야함 생각해봐야할 부분
             /////////////////////////////////////////              or 검색창에 숙소이름 입력시 fetch해서 백엔드에서 필터링해서 보내준다면? but 연관검색어나 검색어 자동완성기능 넣을 시
             // //////////////////////////////////////               프론트에서 처리가 아닌 백엔드에서 처리해야함. 한글자 칠때마다 fetch해서 연관검색어를 찾는다?
