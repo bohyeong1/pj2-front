@@ -10,7 +10,9 @@ function useMainStyle(data, states, refs){
             opacity:0,
             duration:0.2,
             onComplete:()=>{
-                gsap.set(refs.search_component.current,{pointerEvents:'none'})
+                if(refs.search_component.current){
+                    gsap.set(refs.search_component.current,{pointerEvents:'none'})
+                }
             },
             onReverseComplete:()=>{
                 gsap.set(refs.search_component.current,{pointerEvents:'auto'})
@@ -29,7 +31,10 @@ function useMainStyle(data, states, refs){
             opacity:1,
             duration:0.2,
             onComplete:()=>{
-                gsap.set(refs.search_menu.current,{pointerEvents:'auto'})
+                if(refs.search_menu.current){
+                    gsap.set(refs.search_menu.current,{pointerEvents:'auto'})
+                }
+
             },
             onReverseComplete:()=>{
                 gsap.set(refs.search_menu.current,{pointerEvents:'none'})

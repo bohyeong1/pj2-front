@@ -10,9 +10,13 @@ import { pop_three_texts } from "../../../utilData/UtilFunction";
 import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
 import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 
+/////////////////////////////////////////////////////////////////////////
+////////////////// scss reposible common style /////////////////////////
+///////////////////////////////////////////////////////////////////////
+import '../../../reponsibe-style-scss/subApp/subList.scss'
 
 
-function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page}){
+function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page, modal}){
 
     ////////////////////////////////////
     ////////////// hooks ///////////////
@@ -30,7 +34,11 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
     const {} = useSubSubListStyle()
 
     return(
-        <div className="sublist-container">
+        <div className={`sublist-container ${modal ? 'sublist-modal__active' : null}`}>
+            {/* 숙소 대분류 */}
+            {modal ? 
+            <div className="sublist__city-title">{`'${data[0].search_adress}' 숙소 검색 결과`}</div>:null}
+
             {data ? data.length !== 0 ?  data.map((ele, id)=>{
                 // console.log(ele)
                 let price
@@ -46,8 +54,11 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                             <Static_img url={ele.main_img}></Static_img>
                         </div>
                         <div className="list-text">
+                            {/* 숙소분류 */}
                             <div className="list-text-tex1">{`${ele.category.name}`}</div>
+                            {/* 제목 */}
                             <div className="list-text-tex2">{ele.title}</div>
+                            {/* 숙소평가 */}
                             <div className="list-text-evaluation">
                                 <div className="list-evaluation__star-box">
                                     <img src={default_data.d_imgs.star}></img>
@@ -55,7 +66,10 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                                 </div>
                                 <span>{`${ele.counts_review !== 0 ? `${ele.counts_review}명 평가` : ''}`}</span>
                             </div>
+                            {/* 숙소주소 */}
                             <div className="list-text-tex3">{ele.search_adress}</div>
+                            {/* 키워드 */}
+          
                             <div className="list-text-tex4">
                                 {ele?.keywords.map((el, id)=>{
                                     return(
@@ -63,6 +77,8 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                                     )
                                 })}
                             </div>
+                            {/* 편의시설 */}
+                            {!modal ?
                             <div className="list-text-tex5">
                                 <span className="list-text-t5-b1">편의 시설</span>
                                 <div className="list-text-t5-b2">
@@ -72,7 +88,8 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                                         )
                                     })}
                                 </div>
-                            </div>
+                            </div> : null}
+                            {/* 가격 */}
                             <div className="list-text-tex6">
                                 <span>{price}</span>
                                 <span>원</span>
@@ -83,8 +100,9 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
             })
             :<span className="sublist-list_no-data">등록된 숙소가 존재하지 않아요!</span> :null}
 
+            {!modal ?
             <Pagination pageCount={total_page} activePage={current_page}  itemsCountPerPage={count_number}  pageRangeDisplayed={5} totalItemsCount={total_count ? total_count : 0} 
-                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination>
+                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination> : null}
         </div>
     )
 }

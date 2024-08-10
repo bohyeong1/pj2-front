@@ -1,4 +1,4 @@
-import React from "react";
+import React, {forwardRef} from "react";
 import './side-menu.css'
 import FilterBtn from "../../Button/filterBtn/FilterBtn";
 import PriceBtn from "../../Button/priceBtn/PriceBtn";
@@ -12,7 +12,10 @@ import useMenuSideBusiness from "../hook-store/business-hooks/menu-side-business
 import useMenuSideStyle from "../hook-store/style-hooks/menu-side-style";
 
 
-function Side_menu({default_data}){    
+const Side_menu = forwardRef((props, ref) => {    
+
+    // props
+    const {modal} = props
 
     ////////////////////////////////////
     ////////////// hooks ///////////////
@@ -21,19 +24,24 @@ function Side_menu({default_data}){
     const {initial_page} = useMenuSideBusiness()
 
     // style
-    const {} =  useMenuSideStyle()
+    const {handle_modal} =  useMenuSideStyle(undefined,undefined,undefined,{
+        handle_ref : ref
+    })
+
+
 
 
     return(
         <div className="side-menu-container">
+            {!modal ? 
             <div className="side-menu__map-container">
                 <div className="side-menu__map-img-container">
                    <Hazy_img url={default_data.d_imgs.map}></Hazy_img>
                 </div>
-                <button className="side-menu__map-button">
+                <button className="side-menu__map-button" onClick={handle_modal}>
                     <span className="side-menu__map-button-text">지도 보기</span>
                 </button>
-            </div>
+            </div> : null}
             <div className="side-menu-filter">
                 <div>필터</div>
                 <button className="side-menu-fil-btn" onClick={initial_page}>초기화</button>
@@ -85,6 +93,6 @@ function Side_menu({default_data}){
             </div>
         </div>
     )
-}
+})
 
 export default Side_menu

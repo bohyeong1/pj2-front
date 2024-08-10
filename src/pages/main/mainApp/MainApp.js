@@ -43,8 +43,8 @@ function MainApp(){
         ])
     )
 
-    const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
-
+    // const imgurl ='http://www.cbiz.kr/news/photo/201907/16757_21366_1236.jpg'
+    const imgurl = 'https://cdn.ardentnews.co.kr/news/photo/202407/3656_17080_456.jpg'
     return(
         <div className="mainApp" ref={main_app_ref}>
             <div className="main-gnb">

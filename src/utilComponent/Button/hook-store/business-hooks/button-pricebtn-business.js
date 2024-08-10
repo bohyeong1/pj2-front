@@ -197,10 +197,6 @@ function useButtonPricebtnBusiness(data, states, refs, props){
 
     // 마우스 up, mouse drag이벤트 전역에 등록해놓고 useeffect로 관리
     useEffect(()=>{
-        // thumb 위치 새로고침 대응
-        move_thumb(states.index_min_state , 'pricebtn-min')
-        move_thumb(states.index_max_state , 'pricebtn-max')
-
         document.addEventListener('mousemove',mouse_drag)
         document.addEventListener('mouseup',mouse_up)
 

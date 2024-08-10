@@ -6,11 +6,12 @@ import { forwardRef } from "react";
 const Search_menu = forwardRef((props, ref)=>{
     const { subtitle, shadow, data } = props
     // console.log(props)
-
+    
+    // https://cdn.pixabay.com/photo/2018/01/28/08/49/sunset-3113049_1280.jpg
     return(
         <div className="search-menu-container">
             <div className="img-box">
-               <img className="innerImg" src="https://cdn.pixabay.com/photo/2018/01/28/08/49/sunset-3113049_1280.jpg"></img>
+               <img className="innerImg" src="https://static.yeogi.com/_next/static/media/04_Kv_PC_Light.83765441.webp"></img>
             </div>
             <div className="search-wrapper">
                 <div className="search-menu-content">
