@@ -1,3 +1,4 @@
+<pre>
 1. 프론트 배포 링크(url)
   - https://pj2-front.vercel.app/
     (백엔드 서버는 아직 배포 안열었음)
@@ -26,3 +27,4 @@
 
 6. 개발 다이어리
    memo.md 파일 참조
+</pre>
