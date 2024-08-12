@@ -1,6 +1,6 @@
 import React from "react";
 import './Det-sec2.css'
-import Kakaomap from "../../../utilData/kakaomap/Kakaomap";
+import Kakaomap from "../../../utilComponent/material/kakaomap/Kakaomap";
 
 function Det_sec2({data}){
     return(

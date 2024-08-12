@@ -6,7 +6,7 @@ import SubList from "../subList/SubList";
 import Footer from "../../../utilComponent/menu/footer/Footer";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 import Dropdown from "../../../utilComponent/material/dropdown/dropdown";
-import Sub_modal from "../../../utilComponent/modal/subModal/sub-modal";
+import Sub_modal from "../../../utilComponent/modal/mapModal/map-modal";
 
 import useSubSubAppBusiness from "../hook-store/business-hooks/sub-subApp-business";
 import useSubSubAppStyle from "../hook-store/style-hooks/sub-subApp-style";
@@ -15,7 +15,7 @@ import { state_store, reference_store } from "../../../utilData/UtilFunction";
 
 function SubApp (){
 
-    console.log('렌더회수 체크')
+    // console.log('렌더회수 체크')
     
     // state
     const [list, setList] = useState([])   //////////지역 필터 데이터
@@ -72,7 +72,7 @@ function SubApp (){
     return(
         <div className="subApp">
             {/* sub modal => data 개수 페이지 네이션으로 잘라온 40개 기준 정렬 지도에 표시 */}
-            <Sub_modal ref = {modal} data={list}></Sub_modal>
+            <Sub_modal ref = {modal} city={city} data={list}></Sub_modal>
             <div className="subApp__menu-container">
                 <Main_menu  data={search_keyword ? search_keyword : null} preview={true} scroll={false}></Main_menu>
             </div>

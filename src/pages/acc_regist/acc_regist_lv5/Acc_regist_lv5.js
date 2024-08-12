@@ -3,7 +3,7 @@ import './Acc_regist_lv5.css'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Host_footer from "../../../utilComponent/menu/host-footer/Host-footer";
 import DaumPostcodeEmbed from "react-daum-postcode";
-import Kakaomap from "../../../utilData/kakaomap/Kakaomap";
+import Kakaomap from "../../../utilComponent/material/kakaomap/Kakaomap";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 

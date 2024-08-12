@@ -16,7 +16,7 @@ import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 import '../../../reponsibe-style-scss/subApp/subList.scss'
 
 
-function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page, modal}){
+function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page, modal, city}){
 
     ////////////////////////////////////
     ////////////// hooks ///////////////
@@ -31,13 +31,13 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
     )   
 
     // style
-    const {} = useSubSubListStyle()
+    const {modal_list_click, modal_list_hover,modal_list_out,map_state} = useSubSubListStyle()
 
     return(
         <div className={`sublist-container ${modal ? 'sublist-modal__active' : null}`}>
             {/* 숙소 대분류 */}
             {modal ? 
-            <div className="sublist__city-title">{`'${data[0].search_adress}' 숙소 검색 결과`}</div>:null}
+            <div className="sublist__city-title">{`'${city}' 숙소 검색 결과`}</div>:null}
 
             {data ? data.length !== 0 ?  data.map((ele, id)=>{
                 // console.log(ele)
@@ -49,6 +49,10 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                 } 
 
                 return(
+                    !modal ? 
+                    ///////////////////////////////////////////////
+                    //////////////// 일반 창 레이아웃 //////////////
+                    ///////////////////////////////////////////////
                     <NavLink to={`Detail_infoApp/${ele._id}`} className="sublist-list" key={id}>
                         <div className="list-img">
                             <Static_img url={ele.main_img}></Static_img>
@@ -95,7 +99,59 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                                 <span>원</span>
                             </div>
                         </div>
-                    </NavLink>
+                    </NavLink> :
+
+                    ///////////////////////////////////////////////
+                    //////////////// 모달 창 레이아웃 //////////////
+                    ///////////////////////////////////////////////
+                    <div className={`sublist-list ${map_state[ele._id] === ele._id ? 'sublist-list__active': ''}`} key={id} data-key = {ele._id} 
+                    onClick={modal_list_click} onMouseEnter={modal_list_hover} onMouseLeave={modal_list_out}> 
+                        <div className="list-img">
+                            <Static_img url={ele.main_img}></Static_img>
+                        </div>
+                        <div className="list-text">
+                            {/* 숙소분류 */}
+                            <div className="list-text-tex1">{`${ele.category.name}`}</div>
+                            {/* 제목 */}
+                            <div className="list-text-tex2">{ele.title}</div>
+                            {/* 숙소평가 */}
+                            <div className="list-text-evaluation">
+                                <div className="list-evaluation__star-box">
+                                    <img src={default_data.d_imgs.star}></img>
+                                    <span>{`${ele.average ? ele.average.toFixed(2) : '미평가'}`}</span>
+                                </div>
+                                <span>{`${ele.counts_review !== 0 ? `${ele.counts_review}명 평가` : ''}`}</span>
+                            </div>
+                            {/* 숙소주소 */}
+                            <div className="list-text-tex3">{ele.search_adress}</div>
+                            {/* 키워드 */}
+          
+                            <div className="list-text-tex4">
+                                {ele?.keywords.map((el, id)=>{
+                                    return(
+                                        <span key={id}>{`${el.name}. `}</span>
+                                    )
+                                })}
+                            </div>
+                            {/* 편의시설 */}
+                            {!modal ?
+                            <div className="list-text-tex5">
+                                <span className="list-text-t5-b1">편의 시설</span>
+                                <div className="list-text-t5-b2">
+                                    {ele?.service_facility.map((el, id)=>{
+                                        return(
+                                            <span key={id}>{`${el.name}. `}</span>
+                                        )
+                                    })}
+                                </div>
+                            </div> : null}
+                            {/* 가격 */}
+                            <div className="list-text-tex6">
+                                <span>{price}</span>
+                                <span>원</span>
+                            </div>
+                        </div>
+                    </div>
                 )
             })
             :<span className="sublist-list_no-data">등록된 숙소가 존재하지 않아요!</span> :null}

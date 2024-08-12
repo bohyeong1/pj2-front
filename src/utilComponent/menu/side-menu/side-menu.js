@@ -49,13 +49,13 @@ const Side_menu = forwardRef((props, ref) => {
             <div className="side-menu-content">
                 <div className="side-content-category">
                     <div className="category-title">숙소유형</div>
-                    <CheckBtn data={default_data.d_category_icon} keyValue={'category'} c_name={'category-content'}></CheckBtn>
+                    <CheckBtn data={default_data.d_category_icon} keyValue={'category'} c_name={'category-content'} modal={modal ? modal : false}></CheckBtn>
                 </div>
 
                 <div className="side-content-price">
                     <div className="price-title">가격</div>
                     <div className="price-content">
-                       <PriceBtn keyValue1='price-min' keyValue2='price-over'></PriceBtn>
+                       <PriceBtn keyValue1='price-min' keyValue2='price-over' modal={modal ? modal : false}></PriceBtn>
  
                     </div>
                 </div>
@@ -65,7 +65,7 @@ const Side_menu = forwardRef((props, ref) => {
                     <div className="side-menu__grade-container">
                         {default_data.d_keyword.map((ele,id)=>{
                             return(
-                            <FilterBtn key={id} text={ele.name} keyValue={'keywords'}></FilterBtn>
+                            <FilterBtn key={id} text={ele.name} keyValue={'keywords'} modal={modal ? modal : false}></FilterBtn>
                             )
                         })                        
                         }
@@ -75,7 +75,7 @@ const Side_menu = forwardRef((props, ref) => {
                 <div className="side-content-discount">
                     <div className="discount-title">할인</div>
                     <div className="discount-content">
-                        <BooleanBtn text='할인 상품' keyValue={'discount'}></BooleanBtn>
+                        <BooleanBtn text='할인 상품' keyValue={'discount'} modal={modal ? modal : false}></BooleanBtn>
                     </div>
                 </div>
                 
@@ -84,7 +84,7 @@ const Side_menu = forwardRef((props, ref) => {
                     <div className="side-menu__facility-container">
                         {default_data.d_service_facility_icon.map((ele,id)=>{
                             return(
-                            <FilterBtn key={id} text={ele.name} keyValue={'service_facility'}></FilterBtn>
+                            <FilterBtn key={id} text={ele.name} keyValue={'service_facility'} modal={modal ? modal : false}></FilterBtn>
                             )
                         })                        
                         }

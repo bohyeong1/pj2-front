@@ -1,12 +1,13 @@
-import React, {forwardRef, useRef} from "react";
+import React, {forwardRef, useRef, useState} from "react";
 import default_data from "../../../utilData/defaultData";
-import './sub-modal.css'
+import './map-modal.css'
 import Side_menu from "../../menu/side-menu/side-menu";
 import SubList from "../../../pages/sub/subList/SubList";
+import Kakaomap from "../../material/kakaomap/Kakaomap";
 
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
-import useModalSubModalBusiness from "../hook-store/business-hooks/modal-submodal-business";
-import useModalSubModalStyle from "../hook-store/style-hooks/modal-submodal-style";
+import useModalMapModalBusiness from "../hook-store/business-hooks/modal-mapmodal-business";
+import useModalMapModalStyle from "../hook-store/style-hooks/modal-mapmodal-style";
 
 const Sub_modal = forwardRef((props, ref) => {
 
@@ -14,16 +15,16 @@ const Sub_modal = forwardRef((props, ref) => {
     const modal_ref = useRef(null)
 
     // props
-    const {data} = props
-    
+    const {data, city} = props
+  
     ////////////////////////////////////
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    const {} = useModalSubModalBusiness()
+    const {} = useModalMapModalBusiness()
 
     // style
-    const {close_btn} =  useModalSubModalStyle(undefined,undefined,
+    const {close_btn} =  useModalMapModalStyle(undefined,undefined,
         reference_store([
             {
                 'modal_ref':modal_ref
@@ -32,7 +33,6 @@ const Sub_modal = forwardRef((props, ref) => {
         {
             handle_ref:ref
         })
-
 
     return (
         <div className="sub-modal__wrapper" ref={modal_ref}>
@@ -56,11 +56,11 @@ const Sub_modal = forwardRef((props, ref) => {
                     </div>
                     {/* display accomodations */}
                     <div className="sub-modal__display">
-                        <SubList modal={true} data={data}></SubList>
+                        <SubList modal={true} data={data} city={city}></SubList>
                     </div>
                     {/* map */}
                     <div className="sub-modal__map">
-
+                        <Kakaomap city = {city} data={data}></Kakaomap>
                     </div>
                 </div>
             </div>
