@@ -7,7 +7,7 @@
 /* container */
 .sub-modal__container{
     margin: 40px;   height: calc(100% - 80px);  width: calc(100% - 80px);
-    overflow: hidden;   border-radius: 12px;    border: solid 1px black;    background-color: white;
+    overflow: hidden;   border-radius: 12px;    background-color: white;
 }
 /* header */
 .sub-modal__header{

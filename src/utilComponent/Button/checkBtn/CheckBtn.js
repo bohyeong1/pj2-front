@@ -16,7 +16,7 @@ function CheckBtn({data, c_name ,keyValue, modal}){
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    const {check_click, check_input, check_click_modal, check_input_modal} = useButtonCheckbtnBusiness(undefined, undefined,reference_store([
+    const {check_input_url, check_click_url, check_click_state, check_input_state} = useButtonCheckbtnBusiness(undefined, undefined,reference_store([
             {
                 'check_btn_input':check_btn_input,
             },
@@ -49,7 +49,7 @@ function CheckBtn({data, c_name ,keyValue, modal}){
                 return(
                     <div key={id} className={c_name}>
                         <input ref={(el)=>{check_btn_input.current[id] = el}} className="check_btn" type='checkbox' value={ele.name} 
-                        onClick={!modal ? check_click : check_click_modal} onInput={!modal ? check_input : check_input_modal} name={keyValue}></input>
+                        onClick={!modal ? check_click_url : check_click_state} onInput={!modal ? check_input_url : check_input_state} name={keyValue}></input>
                         <span ref={(el)=>{check_btn_gura.current[id] = el}} className="check_btn_gura" onClick={(e)=>{click_gurabox(e,id)}}></span>
                         <label className="check-btn__text" htmlFor={ele}>{ele.name}</label>
                     </div>

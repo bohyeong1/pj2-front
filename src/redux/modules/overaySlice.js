@@ -7,13 +7,18 @@ const overay_slice = createSlice({
         open_target_id:null
     },
     reducers:{
+        // toggle
         toggle_target: (state, action) => {
             state.open_target_id = state.open_target_id === action.payload.id ? null : action.payload.id
+        },
+        // close
+        close_target:(state, action) => {
+            state.open_target_id = null
         }
     }
 })
 
 // export action
-export const{toggle_target} = overay_slice.actions
+export const{toggle_target, close_target} = overay_slice.actions
 
 export default overay_slice.reducer

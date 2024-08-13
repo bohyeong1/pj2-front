@@ -1,7 +1,9 @@
 import { useImperativeHandle, useRef } from "react"
 import gsap from "gsap"
 import {useNavigate, useLocation} from 'react-router-dom'
-
+import { close_target } from "../../../../redux/modules/overaySlice"
+import { useDispatch } from "react-redux"
+        
 
 function useModalSubModalStyle(data, states, refs, props){
 
@@ -10,6 +12,9 @@ function useModalSubModalStyle(data, states, refs, props){
 
     // refs
     const {modal_ref} = refs
+
+    // dispatch
+    const dispatch = useDispatch()
 
     // url
     const navigate = useNavigate()
@@ -43,6 +48,7 @@ function useModalSubModalStyle(data, states, refs, props){
 
     // 사라지는 함수 컴포넌ㅌ 안에서 쓰기쉽게 재정의
     function close_btn(){
+        dispatch(close_target())
         handle_ref.current.disappear_modal()
     }
 

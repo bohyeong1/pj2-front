@@ -61,7 +61,7 @@ const Main_menu = forwardRef((props, ref) => {
 
 
     return(
-        <div className={`main-menu-wrapper ${overay_state ? 'main-menu__active' : ''}`}>
+        <div className={`main-menu-wrapper ${overay_state ==='search-toggle' ? 'main-menu__active' : ''}`}>
             <div className="main-menu-container">
                 <Link to={default_data.Logo.url} className="main-menu-logo">{default_data.Logo.name}</Link>
 

@@ -16,12 +16,25 @@ const Sub_modal = forwardRef((props, ref) => {
 
     // props
     const {data, city} = props
+ 
+    // state
+    const [filter_data, setFilter_data] = useState(null)
   
     ////////////////////////////////////
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    const {} = useModalMapModalBusiness()
+    const {} = useModalMapModalBusiness(undefined,
+        state_store([
+            {
+                'filter_data':filter_data,
+                'setFilter_data':setFilter_data
+            }
+        ]), undefined,
+        {
+            'city':city
+        }
+    )
 
     // style
     const {close_btn} =  useModalMapModalStyle(undefined,undefined,
@@ -33,7 +46,7 @@ const Sub_modal = forwardRef((props, ref) => {
         {
             handle_ref:ref
         })
-
+        // console.log(filter_data)
     return (
         <div className="sub-modal__wrapper" ref={modal_ref}>
             {/* header */}
@@ -56,11 +69,11 @@ const Sub_modal = forwardRef((props, ref) => {
                     </div>
                     {/* display accomodations */}
                     <div className="sub-modal__display">
-                        <SubList modal={true} data={data} city={city}></SubList>
+                        <SubList modal={true} data={filter_data ? filter_data : data} city={city}></SubList>
                     </div>
                     {/* map */}
                     <div className="sub-modal__map">
-                        <Kakaomap city = {city} data={data}></Kakaomap>
+                        <Kakaomap city = {city} data={filter_data ? filter_data : data}></Kakaomap>
                     </div>
                 </div>
             </div>

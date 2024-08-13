@@ -35,4 +35,5 @@
 .sublist-list_no-data{
     font-size: 1.25rem;
     display: block; width: 100%;    text-align: center;
+    margin-top: 50px;
 }

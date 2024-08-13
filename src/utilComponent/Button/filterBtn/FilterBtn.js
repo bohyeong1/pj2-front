@@ -1,30 +1,34 @@
 import React,{useState} from "react";
-import { useSearchParams } from "react-router-dom";
-import './FilterBtn.css'
+import './FilterBtn.css';
 
-function FilterBtn({text,keyValue}){
+import { state_store, reference_store } from "../../../utilData/UtilFunction"; 
+import useButtonFilterbtnBusiness from "../hook-store/business-hooks/button-filterbtn-business";
+import useButtonFilterbtnStyle from "../hook-store/style-hooks/button-filterbtn-style";
 
+function FilterBtn({text,keyValue, modal}){
+
+    // state
     const [toggle, setToggle] = useState(false)
-    const [SearchParams,setSearchParams] = useSearchParams()
 
-    function filterData(){
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
+    const {filter_data_url, filter_data_state} = useButtonFilterbtnBusiness(undefined, state_store([
+            {'toggle':toggle,
+            'setToggle':setToggle}
+        ]),undefined,
+            {
+                'keyValue':keyValue,
+                'text':text
+            })
 
-        setToggle(!toggle)
-        if(!toggle){
-            SearchParams.append(keyValue, text)
-            setSearchParams(SearchParams)
-        }else{
-            const copiedParams = SearchParams.getAll(keyValue)
-            const filterParams = copiedParams.filter((ele)=>{
-                return ele !== text})
-            SearchParams.delete(keyValue)
-            filterParams.map((ele)=>{SearchParams.append(keyValue,ele)})
-            setSearchParams(SearchParams)
-        }
-    }
+    // style
+    const {} = useButtonFilterbtnStyle()
+
 
     return(
-        <button className={`filter-btn ${toggle ? 'fil_active' : ''}`} onClick={filterData}>{text}</button>
+        <button className={`filter-btn ${toggle ? 'fil_active' : ''}`} onClick={!modal ? filter_data_url : filter_data_state}>{text}</button>
     )
 }
 

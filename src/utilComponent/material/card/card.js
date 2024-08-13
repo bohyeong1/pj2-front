@@ -10,9 +10,6 @@ import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useMaterialCardBusiness from '../hook-store/business-hooks/material-card-business'
 import useMaterialCardStyle from '../hook-store/style-hooks/material-card-style'
 
-/////////////////////////////////////////////////////////////////////////
-////////////////// scss reposible common style /////////////////////////
-///////////////////////////////////////////////////////////////////////
 import '../../../reponsibe-style-scss/material/card.scss'
 
 

@@ -17,7 +17,7 @@ import { store } from './redux/config/configStore';
 import Overay from './utilComponent/modal/overay/overay';
 
 function App(){
-
+  console.log('lender')
   // gsap plugin 등록
   gsap.registerPlugin(ScrollTrigger)
 

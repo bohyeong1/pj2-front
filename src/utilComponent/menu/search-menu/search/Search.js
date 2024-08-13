@@ -87,9 +87,9 @@ const Search = forwardRef((props,ref) => {
                 </div>
 
                 {/* 검색창 실제 로직 */}
-                <div className="search-bottom-line" style={{display:`${preview && !open_target_id ? 'none' : 'flex'}`}}>         
+                <div className="search-bottom-line" style={{display:`${preview && open_target_id !== 'search-toggle' ? 'none' : 'flex'}`}}>         
                     <div className="bottom-line-box1">
-                        <input className="b-l-box1-title" ref={b_box1_ref} placeholder='여행지를 검색해 보세요' defaultValue={null} type='text' data-toggle_data='search-location'
+                        <input className="b-l-box1-title" ref={b_box1_ref} placeholder='여행지를 검색해 보세요' defaultValue={null} type='text' data-toggle_data='search-toggle'
                         id={1} onClick={open_dropdown}></input>  
                         {/* 드롭다운 */}
                         <div className={`search-b-l-box1-dr ${b_box1_ref.current && b_box1_ref.current.dataset.toggle_data === open_target_id && 'drop_active'}`} >

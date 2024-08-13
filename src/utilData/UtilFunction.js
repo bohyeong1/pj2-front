@@ -95,31 +95,78 @@ export function pop_three_texts(price){
 
 // 플러스 버튼 눌렀을 때
 export function clickPlus(e, input, input_board, input_text, minus_btn){
-    e.stopPropagation()
+  e.stopPropagation()
 
-    input_board.current.innerText = Number(input_board.current.innerText)+1
-    input_text.current.value= `인원수 ${input_board.current.innerText}명`
-    input.current.value= `${input_board.current.innerText}`
-    if(input_board.current.innerText==='10'){
-        e.target.disabled = true
-    }else{
-        const lb_btn = minus_btn.current
-        lb_btn.disabled=false
-    }
+  input_board.current.innerText = Number(input_board.current.innerText)+1
+  input_text.current.value= `인원수 ${input_board.current.innerText}명`
+  input.current.value= `${input_board.current.innerText}`
+  if(input_board.current.innerText==='10'){
+      e.target.disabled = true
+  }else{
+      const lb_btn = minus_btn.current
+      lb_btn.disabled=false
+  }
 }
 // 마이너스 버튼 눌렀을 때
 export function clickMinus(e, input, input_board, input_text, plus_btn){
-    e.stopPropagation()
+  e.stopPropagation()
 
-    input_board.current.innerText = Number(input_board.current.innerText)-1
-    // console.log(b_box3_ref.current)
-    input_text.current.value= `인원수 ${input_board.current.innerText}명`
-    input.current.value= `${input_board.current.innerText}`
-    if(input_board.current.innerText==='0'){
-        e.target.disabled = true
-    }else{
-        const rb_btn = plus_btn.current
-        rb_btn.disabled=false
-    }
+  input_board.current.innerText = Number(input_board.current.innerText)-1
+  // console.log(b_box3_ref.current)
+  input_text.current.value= `인원수 ${input_board.current.innerText}명`
+  input.current.value= `${input_board.current.innerText}`
+  if(input_board.current.innerText==='0'){
+      e.target.disabled = true
+  }else{
+      const rb_btn = plus_btn.current
+      rb_btn.disabled=false
+  }
 }
+
+
+///////////////////////////////////////////////
+/////////////state -> query obj 변환///////////
+//////////////////////////////////////////////
+export function make_query_obj(obj){
+  if(!obj){return}
+  // 정렬 기준 없음
+  const keyInv = []
+  for(const key of Object.keys(obj)){
+      if(!keyInv.includes(key)){
+          keyInv.push(key)
+      }
+  }
+
+  ////서버로 보내는 쿼리 데이터 생성 for문
+  const final_key = {}              ///필터 키
+  for(const value of keyInv){
+    if(value === 'discount'){
+      final_key[value] = {$exists:true}
+    }
+    else if(value === 'price-min'){
+      final_key['price'] = {
+        ...final_key['price'],
+        $gte:parseInt(obj[value].split('%')[0])}
+    }
+    else if(value === 'price-over'){
+      if(obj[value].split('%')[0] !== '500000'){
+          final_key['price'] = {
+            ...final_key['price'],
+            $lte:parseInt(obj[value].split('%')[0])}
+      }
+    }
+    else if(value === 'capacity'){
+      final_key[value] = {$gte:obj[value]}
+    }
+    else if(value === 'category'){
+      final_key[`${value}.name`] = {$all:[obj[value]]}
+    }    
+    else{
+      final_key[`${value}.name`] = {$all:obj[value]}
+    }       
+  }
+  return {final_key}
+}
+
+
 

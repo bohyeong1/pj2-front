@@ -10,9 +10,6 @@ import { pop_three_texts } from "../../../utilData/UtilFunction";
 import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
 import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 
-/////////////////////////////////////////////////////////////////////////
-////////////////// scss reposible common style /////////////////////////
-///////////////////////////////////////////////////////////////////////
 import '../../../reponsibe-style-scss/subApp/subList.scss'
 
 
@@ -41,7 +38,7 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
 
             {/* list */}
             {data ? data.length !== 0 ?  data.map((ele, id)=>{
-                // console.log(ele)
+
                 let price
                 if(String(ele.price).length > 3){
                     price = pop_three_texts(ele.price)
