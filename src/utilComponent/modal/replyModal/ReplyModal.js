@@ -6,7 +6,7 @@ import default_data from "../../../utilData/defaultData";
 function ReplyModal({data, replyModalState,replyModal}){
     
 
-    console.log(data)
+    // console.log(data)
 
     return(
     <div className="ReplyModal" style={{display:`${replyModal ? 'block':'none'}`}}>

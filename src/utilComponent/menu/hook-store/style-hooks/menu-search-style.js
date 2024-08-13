@@ -22,8 +22,6 @@ function useMenuSearchStyle(data,states,refs){
         refs[`b_box${index}_ref`].current.focus()
     }
 
-
-
     return {open_dropdown, click_preview, open_target_id}
 }
 

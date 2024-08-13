@@ -1,5 +1,45 @@
 
+.card-container{
+    width: 170px; height: 28px;
+    display: flex;  
+    flex-direction: column; gap: 5px;  align-items: center;
+    position: relative;
+    z-index: 2;    
+}
 
+/* // 제목(가격) */
+.card-title{
+    text-align: center;
+    width: fit-content;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px ;
+    font-size: 0.875rem;
+    border: solid 1px rgb(140,140,140);    cursor: pointer;
+}
+/* // 컨텐츠 */
+.card-contents{
+    width: 324px;   height: 174px;  padding: 14px;
+    background-color: white;
+    position: absolute; top:33px; left:50%; transform: translateX(-50%);
+    display: none;  border-radius: 15px;
+    box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
+}
+
+/* hover & active */
+.card-contents__active{
+    display: flex;     
+}
+.card-title__active{
+    color: white;
+    border: solid 1px #1273E4;
+    background-color: #1273E4;
+}
+.card-title__hover{
+    background-color: rgb(240, 247, 255);
+    color: #1273E4;    
+    border: solid 1px rgb(171, 210, 255);
+}
 /* 호버 시 나타나는 클래스 */
 .card-contents__img{
     width: 116px;   height: 145px;  margin-right: 10px;

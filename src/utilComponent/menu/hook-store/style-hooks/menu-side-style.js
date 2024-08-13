@@ -2,13 +2,8 @@
 
 function useMenuSideStyle(data, states, refs, props){
 
-
-
     //props
     const {handle_ref} = props
-
-    // handle url
-
 
     // modal 제어
     function handle_modal(){

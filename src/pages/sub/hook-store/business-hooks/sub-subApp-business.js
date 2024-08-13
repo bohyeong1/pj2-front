@@ -29,7 +29,7 @@ function useSubSubAppBusiness(data,states,refs){
         const page = states.current_page
         const limit = states.count_number
 
-        // 검색어 데이터 없을 때
+        // 검색어 데이터 없을 때(사용자가 메인페이지 거치지 않고 바로 서브페이지 url로 들어왔을 때)
         if(!search_state){
             Promise.all([
                 // 검색어
@@ -68,7 +68,7 @@ function useSubSubAppBusiness(data,states,refs){
                 console.log(e)
             })
         }
-        // 검색어 데이터 있을 때
+        // 검색어 데이터 있을 때(일반적인 main page -> subpage 이동)
         else{
             connectData(`${default_data.d_base_url}/api/common/sub?page=${page}&limit=${limit}`,'POST',{
                 city:select_city,
@@ -76,7 +76,6 @@ function useSubSubAppBusiness(data,states,refs){
                 sort:sort_key.sort
             })
             .then(result => {
-                // console.log(result)
                 if(result.code === 200){
                     // 숙소 데이터 저장
                     states.setList(result.accomodations)

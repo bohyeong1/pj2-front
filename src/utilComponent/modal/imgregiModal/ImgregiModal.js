@@ -16,7 +16,7 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
 
 
 
-        ///////이미지 onchange
+    ///////이미지 onchange
     function displayModalImg(){       
         if(!mainState){
             const m_blob = new Blob([mainimgInput.current.files[0]], { type: 'image/jpeg' });      
@@ -158,34 +158,31 @@ function ImgregiModal({mainState, deliverFile, modalState, deliverModalState}){
                 </div> 
                 
 
-                {/* 서브이미지 */}
-                
-                    <div className="ImgregiModal-con-s2-b1" id="ig_modal1" style={{display:`${mainState ? 'block' : 'none'}`}}>
-                        <img className="ImgregiModal-con-s2-b1-d1-g1" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[0] = el}}></img>
-                        <div className="ImgregiModal-con-s2-b1-d2">
-                           <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
-                        </div>
+                {/* 서브이미지 */}                
+                <div className="ImgregiModal-con-s2-b1" id="ig_modal1" style={{display:`${mainState ? 'block' : 'none'}`}}>
+                    <img className="ImgregiModal-con-s2-b1-d1-g1" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[0] = el}}></img>
+                    <div className="ImgregiModal-con-s2-b1-d2">
+                        <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
                     </div>
-                    <div className="ImgregiModal-con-s2-b1" id="ig_modal2" style={{display:`${mainState ? 'block' : 'none'}`}}>
-                        <img className="ImgregiModal-con-s2-b1-d1-g2" id="modal_dis_imgs"ref={(el)=>{sub_modal_img.current[1] = el}}></img>
-                        <div className="ImgregiModal-con-s2-b1-d2">
-                            <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
-                        </div>
+                </div>
+                <div className="ImgregiModal-con-s2-b1" id="ig_modal2" style={{display:`${mainState ? 'block' : 'none'}`}}>
+                    <img className="ImgregiModal-con-s2-b1-d1-g2" id="modal_dis_imgs"ref={(el)=>{sub_modal_img.current[1] = el}}></img>
+                    <div className="ImgregiModal-con-s2-b1-d2">
+                        <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
                     </div>
-                    <div className="ImgregiModal-con-s2-b1" id="ig_modal3" style={{display:`${mainState ? 'block' : 'none'}`}}>
-                        <img className="ImgregiModal-con-s2-b1-d1-g3" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[2] = el}}></img>
-                        <div className="ImgregiModal-con-s2-b1-d2">
-                           <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
-                        </div>
+                </div>
+                <div className="ImgregiModal-con-s2-b1" id="ig_modal3" style={{display:`${mainState ? 'block' : 'none'}`}}>
+                    <img className="ImgregiModal-con-s2-b1-d1-g3" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[2] = el}}></img>
+                    <div className="ImgregiModal-con-s2-b1-d2">
+                        <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
                     </div>
-                    <div className="ImgregiModal-con-s2-b1" id="ig_modal4" style={{display:`${mainState ? 'block' : 'none'}`}}>
-                        <img className="ImgregiModal-con-s2-b1-d1-g4" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[3] = el}}></img>
-                        <div className="ImgregiModal-con-s2-b1-d2">
-                            <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
-                        </div>
+                </div>
+                <div className="ImgregiModal-con-s2-b1" id="ig_modal4" style={{display:`${mainState ? 'block' : 'none'}`}}>
+                    <img className="ImgregiModal-con-s2-b1-d1-g4" id="modal_dis_imgs" ref={(el)=>{sub_modal_img.current[3] = el}}></img>
+                    <div className="ImgregiModal-con-s2-b1-d2">
+                        <img className="ImgregiModal-img" src={default_data.d_imgs.plus}></img>
                     </div>
-
-
+                </div>
             </div>
 
             <div className="ImgregiModal-con-sec3">

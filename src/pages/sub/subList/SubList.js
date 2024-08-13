@@ -39,6 +39,7 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
             {modal ? 
             <div className="sublist__city-title">{`'${city}' 숙소 검색 결과`}</div>:null}
 
+            {/* list */}
             {data ? data.length !== 0 ?  data.map((ele, id)=>{
                 // console.log(ele)
                 let price

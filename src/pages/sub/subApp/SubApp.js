@@ -71,7 +71,7 @@ function SubApp (){
 
     return(
         <div className="subApp">
-            {/* sub modal => data 개수 페이지 네이션으로 잘라온 40개 기준 정렬 지도에 표시 */}
+            {/* sub modal => data 개수 페이지 네이션으로 잘라온 30개 기준 정렬 지도에 표시 */}
             <Sub_modal ref = {modal} city={city} data={list}></Sub_modal>
             <div className="subApp__menu-container">
                 <Main_menu  data={search_keyword ? search_keyword : null} preview={true} scroll={false}></Main_menu>

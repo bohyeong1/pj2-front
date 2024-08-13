@@ -13,11 +13,9 @@ function Evalu_star({index,evaluData,pullFunction}){
     // 평점 클릭
     function clickRadio(e){
         const target = e.target.id
-        // console.log(e.target.previousSibling.value)
-        setRadioState(target)  
-        
-        const targetGrade = Number(e.target.previousSibling.value)
 
+        setRadioState(target)          
+        const targetGrade = Number(e.target.previousSibling.value)
         pullFunction(index,evaluData,targetGrade)
     }
 

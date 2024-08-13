@@ -7,7 +7,6 @@ const Search_menu = forwardRef((props, ref)=>{
     const { subtitle, shadow, data } = props
     // console.log(props)
     
-    // https://cdn.pixabay.com/photo/2018/01/28/08/49/sunset-3113049_1280.jpg
     return(
         <div className="search-menu-container">
             <div className="img-box">

@@ -111,9 +111,7 @@ const util_hooks = {
         }
 
         return {final_key, sort_key}
-    }   
-
-
+    }  
 }
 
 export default util_hooks

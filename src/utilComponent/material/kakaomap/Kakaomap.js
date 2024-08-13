@@ -58,19 +58,14 @@ function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn, event, scrol
                         // portal container
                         const portal_container = document.createElement('div')
                         portal_container.className = 'kakaomap-container__portal-container'
-                        // console.log(el.main_adress.coor)
-                        const accomodation_coor = el.main_adress.coor
+                        const accomodation_coor = el.main_adress.coor                        
                         const position = new kakao.maps.LatLng(accomodation_coor[1],accomodation_coor[0])
-                        // console.log(position)
-
+                        
                         const custom_overlay = new kakao.maps.CustomOverlay({
                             position:position,
                             content:portal_container
                         })
-                        custom_overlay.setMap(map)
-
-
- 
+                        custom_overlay.setMap(map) 
 
                         // 리액트 카드 컴포넌트 렌더링
                         const root_container = ReactDOM.createRoot(portal_container)
