@@ -1,6 +1,6 @@
 import React from "react";
 import './Res-con-payment.css'
-import Detail from "../../../../picture/detail/Detail";
+
 
 function Res_con_payment({data}){
 
@@ -10,7 +10,7 @@ function Res_con_payment({data}){
         <div className="Res_con_payment-container">
             <div className="Res_con_payment-sec1">
                 <div className="Res_con_payment-sec1-s1">
-                    <Detail data={data}></Detail>
+                    {/* <Detail data={data}></Detail> */}
                 </div>
                 <div className="Res_con_payment-sec1-s2">
                     <div className="Res_con_payment-sec1-s2-s1">{data?.homeName}</div>

@@ -1,10 +1,10 @@
 import React from "react";
-import './Det-sec6.css'
+import './det_sec6.scss'
 
 
 function Det_sec6({data}){   
 
-    console.log(data)
+    // console.log(data)
 
     return(
         <div className="Det_sec6-container">

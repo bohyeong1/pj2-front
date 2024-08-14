@@ -1,6 +1,6 @@
 import React from "react";
-import './Det-sec5.css'
-import UserImg from "../../../utilData/userImg/UserImg";
+import './det_sec5.scss'
+import UserImg from "../../../../../utilData/userImg/UserImg";
 
 function Det_sec5({data, homeData}){    
 

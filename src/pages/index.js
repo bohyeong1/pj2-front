@@ -4,7 +4,7 @@ export {default as Membership_join} from './membership/membership-join/Membershi
 export {default as Mem_join_complete} from './membership/mem-join-comlete/Mem-join-complete'
 export {default as AgreeTerms} from './membership/agreeTerms/AgreeTerms'
 export {default as SubApp} from './sub/subApp/SubApp'
-export {default as Detail_infoApp} from './detail_info/detail_infoApp/Detail_infoApp'
+export {default as Detail_info_app} from './detail_info/detail_info_app/app/detail_info_app'
 export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'
 export {default as Acc_regist_lv1} from './acc_regist/acc_regist_lv1/Acc_regist_lv1'
 export {default as Acc_manage} from './acc_regist/acc_manage/Acc_manage'

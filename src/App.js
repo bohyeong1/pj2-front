@@ -1,7 +1,9 @@
 import './App.css';
 import { Route,Routes } from 'react-router-dom';
 import React from 'react';
-import { MainApp, Login, Membership_join, Mem_join_complete,SubApp ,Detail_infoApp,Acc_regist
+import { MainApp, Login, Membership_join, Mem_join_complete,SubApp,
+        // accomodations detail page
+        Detail_info_app,Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
         ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12,
         Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation, AgreeTerms,Private_point,Acc_regist_intro,
@@ -50,8 +52,14 @@ function App(){
           <Route exact path='/SubApp' element={<SubApp></SubApp>}>                                ////숙소 분류 페이지
             <Route exact path=':city' element={<SubApp></SubApp>}></Route>
           </Route>
-          <Route exact path='/SubApp/Detail_infoApp' element={<Detail_infoApp></Detail_infoApp>}>         ////////숙소 상세페이지
-            <Route exact path=':house' element={<Detail_infoApp></Detail_infoApp>}></Route>
+
+
+
+          {/* ----------------------------------------
+              -----------숙소 상세 페이지-----------------
+              ---------------------------------------- */}
+          <Route exact path='/SubApp/Detail_info_app' element={<Detail_info_app></Detail_info_app>}>         ////////숙소 상세페이지
+            <Route exact path=':house' element={<Detail_info_app></Detail_info_app>}></Route>
           </Route>
 
 

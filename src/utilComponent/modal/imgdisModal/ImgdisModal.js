@@ -4,7 +4,7 @@ import default_data from "../../../utilData/defaultData";
 import Lslide_btn from "../../Button/slideBtn/Lslide-btn/Lslide_btn";
 import Rslide_btn from "../../Button/slideBtn/Rslide-btn/Rslide_btn";
 
-function ImgdisModal({data, imgModalState,imgModal}){
+function ImgdisModal({data, img_modal_state,img_modal}){
     
             ///state
             const [RbtnState, setRbtnState] = useState(false)
@@ -65,12 +65,12 @@ function ImgdisModal({data, imgModalState,imgModal}){
             const slideContainer = useRef()
 
     return(
-    <div className="ImgdisModal" style={{display:`${imgModal ? 'block':'none'}`}}>
+    <div className="ImgdisModal" style={{display:`${img_modal ? 'block':'none'}`}}>
         <div className="ImgdisModal-wrapper"></div>
         <div className="ImgdisModal-container">
             <div className="ImgdisModal-con-sec1">
                 <div className="ImgdisModal-con-s1-b1">
-                    <img src={default_data.d_imgs.close} style={{cursor:'pointer'}} onClick={()=>{imgModalState()}}></img>
+                    <img src={default_data.d_imgs.close} style={{cursor:'pointer'}} onClick={()=>{img_modal_state()}}></img>
                 </div>
 
                 <div className="ImgdisModal-con-s1-b2">{data?.title}</div>

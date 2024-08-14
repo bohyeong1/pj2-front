@@ -11,7 +11,7 @@ function useModalSubModalStyle(data, states, refs, props){
     const {handle_ref} = props
 
     // refs
-    const {modal_ref} = refs
+    const {modal_ref, filter_ref, list_ref} = refs
 
     // dispatch
     const dispatch = useDispatch()
@@ -34,6 +34,9 @@ function useModalSubModalStyle(data, states, refs, props){
                 duration:0.3,
                 opacity:1
             })
+            // 스크롤 초기화
+            filter_ref.current.scrollTop = 0
+            list_ref.current.scrollTop = 0
         },
         // 사라짐
         disappear_modal:()=>{

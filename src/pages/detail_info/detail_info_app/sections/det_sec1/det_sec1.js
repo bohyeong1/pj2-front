@@ -1,11 +1,7 @@
 import React from "react";
-import './Det-sec1.css';
-import default_data from "../../../utilData/defaultData";
+import './det_sec1.scss';
+import default_data from "../../../../../utilData/defaultData";
 
-// const amenitiesMap = {
-//     "안뜰전망": '아이콘1',
-//     "주방": "아이콘2"
-// }
 
 function Det_sec1({data, user, evaluations}){
 

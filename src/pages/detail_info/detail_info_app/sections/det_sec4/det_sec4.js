@@ -1,10 +1,10 @@
 import React, {useState,useEffect} from "react";
-import './Det-sec4.css'
+import './det_sec4.scss'
 import Pagination from "react-js-pagination";
-import default_data from "../../../utilData/defaultData";
+import default_data from "../../../../../utilData/defaultData";
 
 // 모달
-import ReplyModal from "../../../utilComponent/modal/replyModal/ReplyModal";
+import ReplyModal from "../../../../../utilComponent/modal/replyModal/ReplyModal";
 
 function Det_sec4({data, replyModalState}){
 

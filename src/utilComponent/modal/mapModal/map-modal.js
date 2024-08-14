@@ -13,6 +13,8 @@ const Sub_modal = forwardRef((props, ref) => {
 
     // ref
     const modal_ref = useRef(null)
+    const filter_ref = useRef(null)
+    const list_ref = useRef(null)
 
     // props
     const {data, city} = props
@@ -41,6 +43,12 @@ const Sub_modal = forwardRef((props, ref) => {
         reference_store([
             {
                 'modal_ref':modal_ref
+            },
+            {
+                'filter_ref':filter_ref
+            },
+            {
+                'list_ref':list_ref
             }
         ]),
         {
@@ -62,13 +70,13 @@ const Sub_modal = forwardRef((props, ref) => {
                 {/* contents */}
                 <div className="sub-modal__contents-container">
                     {/* filter section */}
-                    <div className="sub-modal__filter">
+                    <div className="sub-modal__filter" ref={filter_ref}>
                         <div className="sub-modal__filter-container">
                             <Side_menu modal={true}></Side_menu>
                         </div>
                     </div>
                     {/* display accomodations */}
-                    <div className="sub-modal__display">
+                    <div className="sub-modal__display" ref={list_ref}>
                         <SubList modal={true} data={filter_data ? filter_data : data} city={city}></SubList>
                     </div>
                     {/* map */}

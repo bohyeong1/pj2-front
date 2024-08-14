@@ -1,7 +1,7 @@
 import React,{useState, useRef, useEffect} from "react";
 import { useNavigate} from "react-router-dom";
-import './Sec1-payment.css'
-import DateCalendar from "../../../../utilData/dateCalendar/DateCalendar";
+import './sec1_payment.scss'
+import DateCalendar from "../../../../../../utilData/dateCalendar/DateCalendar";
 
 function Sec1_payment({data, params}){
     //state

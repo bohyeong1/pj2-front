@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import './Det-sec3.css'
+import './det_sec3.scss'
 
 
 function Det_sec3({data, avgdata}){

@@ -7,14 +7,15 @@ import useButtonPricebtnStyle from "../hook-store/style-hooks/button-pricebtn-st
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 
 
-function PriceBtn({keyValue1, keyValue2}){
+function PriceBtn({keyValue1, keyValue2, modal}){
     // querystring
     const [SearchParams] = useSearchParams()
 
     // ref
     const price_target = useRef(null)
     const price_track = useRef(null)
-    const price_thumb = useRef(null)
+    const price_thumb = useRef([])
+    const button_target = useRef(null)
     
     // 인덱스 range
     const index_range = [0, 1, 2, 3, 4, 5, 6, 7]
@@ -37,11 +38,12 @@ function PriceBtn({keyValue1, keyValue2}){
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // business
-    const {mouse_down, mouse_click} = useButtonPricebtnBusiness({
-        'index_range':index_range,
-        'max_index':max_index,
-        'value_collections':value_collections
-    },
+    const {mouse_down, mouse_click} = useButtonPricebtnBusiness(
+        {
+            'index_range':index_range,
+            'max_index':max_index,
+            'value_collections':value_collections
+        },
     state_store([
         {
             'index_min_state':index_min_state,
@@ -61,6 +63,9 @@ function PriceBtn({keyValue1, keyValue2}){
         },
         {
             'price_target':price_target
+        },
+        {
+            'button_target':button_target
         }
     ]),
         {
@@ -78,8 +83,8 @@ function PriceBtn({keyValue1, keyValue2}){
             <div className="pricebtn-container" data-drag={false} data-target={null} data-min_index={0} data-max_index={7} ref={price_target}
             onMouseDown={mouse_down} onClick={mouse_click}>
                 <div className="pricebtn-track" ref={price_track}></div> 
-                <div className="pricebtn-thumb pricebtn-min" ref={price_thumb}></div>      
-                <div className="pricebtn-thumb pricebtn-max" ref={price_thumb}></div> 
+                <div className="pricebtn-thumb pricebtn-min" ref={(el)=>{price_thumb.current[0] = el}}></div>      
+                <div className="pricebtn-thumb pricebtn-max" ref={(el)=>{price_thumb.current[1] = el}}></div> 
             </div>
             <div className={`pricebtn__text ${index_min_state !== 0 || index_max_state !== 7 ? 'priece-text__active' : ''}`}>
                 {`${value_collections[index_min_state]}원 이상 ~ ${pop_three_texts(value_collections[index_max_state])}원 ${index_max_state < 7 ? '이하' : '이상'}`}

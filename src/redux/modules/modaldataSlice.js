@@ -17,6 +17,13 @@ const modaldata_slice = createSlice({
                 [action.payload.key]: action.payload.value
             }
         },
+        // key 한개 toggle x 
+        notoggle_modaldata : (state, action) => {
+            state.modal_data = {
+                ...state.modal_data,
+                [action.payload.key]: action.payload.value
+            }
+        },
         // key 여러개 입력
         add_modaldata : (state, action) => {
             if(!state.modal_data[action.payload.key]){
@@ -69,6 +76,6 @@ const modaldata_slice = createSlice({
     }
 })
 
-export const {set_modaldata, delete_modaldata, add_modaldata, initialized_modaldata} = modaldata_slice.actions
+export const {set_modaldata, delete_modaldata, add_modaldata, initialized_modaldata, notoggle_modaldata} = modaldata_slice.actions
 
 export default modaldata_slice.reducer
