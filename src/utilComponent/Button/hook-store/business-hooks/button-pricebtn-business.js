@@ -29,7 +29,7 @@ function useButtonPricebtnBusiness(data, states, refs, props){
             button_target.current = e.target
         }
     }
-console.log(button_target)
+
     // 마우스 업
     function mouse_up(e){
         if(price_target.current.dataset.drag === 'true'){

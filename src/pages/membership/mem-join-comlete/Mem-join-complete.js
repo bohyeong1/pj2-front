@@ -38,8 +38,6 @@ function Mem_join_complete(){
         if(imgFile_input.current.files[0]){
             setImgFile(imgFile_input.current.files[0])
         }
-        // userImg_display.current.src = imageSrc
-        // console.log(imgFile_input.current.files[0])
     }
 
     ///regist 이미지

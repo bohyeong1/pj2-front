@@ -54,7 +54,7 @@ const Sub_modal = forwardRef((props, ref) => {
         {
             handle_ref:ref
         })
-        // console.log(filter_data)
+
     return (
         <div className="sub-modal__wrapper" ref={modal_ref}>
             {/* header */}

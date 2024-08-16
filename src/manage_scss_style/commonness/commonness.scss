@@ -1,0 +1,37 @@
+@import 'colors';
+
+//////////////////////////////////////////////////
+////////////////// common style //////////////////
+/////////////////////////////////////////////////
+
+
+// =================================================
+// block not //
+.not-user-sellect{
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+
+// =================================================
+// submit button //
+// enable button
+.button-enable{
+    background-color: $blue-default;    color: white;   cursor: pointer;
+    border:none; outline: none; border-radius: 10px; font-weight: bold;  display: block; 
+    &:hover{
+      background: rgb(18, 110, 220);
+    }
+}
+// disable button 
+.button-disable{
+  display: block;  border:none;   background-color: $grey-end-end; border-radius: 10px;
+  font-weight: bold;  color: $grey-lv6; outline: none;  cursor:not-allowed
+}
+
+// =================================================
+// fail validation //
+.input-invalid{
+  outline:solid 0.5px red;
+}

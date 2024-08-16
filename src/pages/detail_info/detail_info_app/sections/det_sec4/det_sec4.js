@@ -43,7 +43,7 @@ function Det_sec4({data, replyModalState}){
         replyModalState()
     }
 
-    console.log(pageData)
+
 
     return(
         <div className="Det_sec4-container">

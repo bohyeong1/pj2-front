@@ -1,0 +1,82 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+.img-dis-modall__container{
+    position: fixed;
+    top:50%; left:50%; transform: translate(-50%, -60%);
+    width: 1000px;   height: 700px;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; background: white;  border-radius: 15px;   z-index: 16;
+    display: flex;  flex-direction: column; gap:30px;   align-items: center;
+
+}
+.img-dis-modall__wrapper{
+    width: 1920px;  height: 1080px; position: fixed;    top:0; left: 0; z-index: 3;    background: black; opacity: 0.4;
+}
+
+// 헤더 
+.img-dis-modall__con-section1{
+    display: flex;  justify-content: space-between; box-sizing: border-box; padding: 0 20px;  width: 100%;
+    height: 60px;   align-items: center;
+}
+.img-dis-modall__container-section1-button{
+    height: 20px; width: 20px;  transition: 0.3s;   border-radius: 50%; display: flex;  justify-content: center;    align-items: center;
+    cursor: pointer;
+}
+.img-dis-modall__container-section1-button > img{
+    height: 18px;   width: 18px;    
+}
+.img-dis-modall__container-section1-part2{
+    display: flex;  align-items: center;    font-size: 1.2rem;
+}
+.img-dis-modall__container-section1-gurabox{
+    width: 20px;
+}
+
+////////// 섹션 2 
+.img-dis-modall__container-section2{
+    width: 750px;    height: 490px;  position: relative; display: flex;  justify-content: center;  position: relative;
+}
+.img-dis-modall__gurabox{
+    width: 100%;    height: 100%;   position: absolute; top:0; left:0;  z-index: 2;
+}
+.img-dis-modall__slider{
+    width: 100%;    height: 100%;   position: absolute; top:0; left:0;
+    z-index: 1; overflow: hidden;
+}
+
+// 이미지 
+.img-dis-modall__img{
+    height: 100%;   width: 750px;
+    object-fit: cover;
+}
+// 상태 text
+.img-dis-modall__gurabox-text-container{
+    position: absolute; bottom: 0;  right:-125px;
+    padding: 5px 14px;  background-color: rgba(0,0,0,0.48);
+    font-size: 0.75rem;
+    display: flex;  gap:5px;
+    border-bottom-left-radius: 15px; border-top-left-radius: 15px;
+}
+.img-dis-modall__gurabox-text-container > span:nth-child(1){
+    color: white;
+}
+.img-dis-modall__gurabox-text-container > span:nth-child(2){
+    color: rgb(194,194,194);
+}
+
+
+////////////// 섹션 3
+.img-dis-modal__container-section3{
+    width: 100%;   height: 106px;
+    position: absolute; left:0; bottom: 0;   overflow: hidden;
+}
+.img-dis-modal__list{
+    width: 100%;   height: 100%;  display: flex;  gap:10px;
+    position: absolute; left:0; bottom: 0;  padding: 10px 10px;
+}
+.img-dis-modal__list-item{
+    width: 86px;    height: 86px;   border-radius: 10px;    overflow: hidden;
+}
+.img-dis-modal__target{
+    width: 94px;    height: 94px;   border-radius: 10px;    border: solid 2px $blue-default;
+    position : absolute; left:6px; top:6px;
+}
+

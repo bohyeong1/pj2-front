@@ -1,12 +1,12 @@
 import React from "react";
 import './loading.scss'
 import useMaterialLoadingStyle from "../hook-store/style-hooks/material_loading_style";
-import { state_store, reference_store } from '../../../utilData/UtilFunction'
+
 
 function Loading(){
 
     const {} = useMaterialLoadingStyle()
-    console.log('확인')
+
     return(
         <div className="loading__container">
             <div className="loading__circle">

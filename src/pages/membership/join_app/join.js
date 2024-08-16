@@ -1,14 +1,11 @@
 import React, {useState} from "react";
 import { useNavigate } from "react-router-dom";
-import './Membership-join.css'
+import './join.scss'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
-import Footer from "../../../utilComponent/menu/footer/Footer";
-
-
 
 const BASE_URL = 'http://127.0.0.1:3700'
 
-function Membership_join(){
+function Join(){
 
     const [dataState, setDataState] = useState(true)
     const navigate = useNavigate()
@@ -93,13 +90,9 @@ function Membership_join(){
                 </form>
 
             </div>
-
-            <div className="Membership_join-footer">
-                <Footer></Footer>
-            </div>
         </div>
     )
 
 }
 
-export default Membership_join
+export default Join

@@ -26,7 +26,10 @@ function MainApp(){
     const main_app_ref = useRef(null)
     const search_menu = useRef(null)
 
-    // hooks
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
     const {} = useMainBusiness(undefined,
         state_store([
             {
@@ -34,7 +37,7 @@ function MainApp(){
                 'setDataStore':setDataStore
             }
         ]))
-
+    // style
     const {} = useMainStyle(undefined, undefined,
         reference_store([
             {'search_component':search_component},

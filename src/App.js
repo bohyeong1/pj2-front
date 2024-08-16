@@ -1,4 +1,4 @@
-import './App.css';
+import './App.scss';
 import { Route,Routes } from 'react-router-dom';
 import React from 'react';
 import { MainApp, Login, Membership_join, Mem_join_complete,SubApp,

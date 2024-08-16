@@ -1,0 +1,86 @@
+@import '../../../manage_scss_style/commonness/colors';
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.agree-app{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+// =================================================
+// container //
+
+.agree-app__container{
+    width:384px;  height:650px;  margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap:20px; 
+}
+.agree-app__container-section1{
+    width:100%;
+    border-bottom: solid 1px $grey-lv7;
+}
+
+// =================================================
+// title //
+.agree-app__container-section1-part1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.agree-app__container-section1-part2{
+    width:60px; background: rgb(243, 243, 243);     margin-bottom: 20px;
+}
+.level-bar-lv1{
+    width:33%; height: 5px; background: black;
+}
+.agree-app__container-section1-part3{
+    font-size: 1.125rem;  margin-bottom: 40px;
+}
+.agree-app__container-section1-part4{
+    margin-bottom: 20px;     display: flex;  gap: 20px;  font-size: 1.075rem;
+}
+
+/* 컨텐츠 */
+.agree-app__container-section2{
+    width:100%; display: flex;  flex-direction: column; gap:20px;
+}
+.agree-app__container-section2-part1{
+    display: flex;  flex-direction: column; gap:30px;   height: 100%;
+}
+.agree-app__container-section1-s4 > label{
+    display: flex;  align-items: center; 
+}
+.agree-app__container-section2-part1-box{
+    display: flex;  gap:20px;   font-size: 1rem;  
+}
+.agree-app__container-section2-part1-box > label{
+    line-height: 1; 
+}
+.agree-app__container-section2-part1-box > label > span{
+    color:  #1273e4; margin-left: 5px;
+}
+.terms-checkbox{
+    cursor: pointer;    height: max-content;  cursor: pointer;
+}
+.terms-checkbox__daepyo{
+    cursor: pointer;    height: max-content;  cursor: pointer;
+}
+.terms-checkbox__daepyo[type=checkbox]{
+    zoom:1.4;
+}
+.terms-checkbox[type=checkbox]{
+    zoom:1.4;
+}
+// =================================================
+// button //
+.agree-app__container-section2-btn{
+    height:50px;  width: 100%;
+    padding-left: 10px; font-size: 1.125rem;  font-weight: bold;
+}

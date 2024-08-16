@@ -10,7 +10,7 @@ import { pop_three_texts } from "../../../utilData/UtilFunction";
 import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
 import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
 
-import '../../../reponsibe-style-scss/subApp/subList.scss'
+import '../../../manage_scss_style/responsible/subApp/subList.scss'
 
 
 function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page, modal, city}){

@@ -1,0 +1,95 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+// =================================================
+// container //
+.login__container{
+    width:1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+// =================================================
+// title //
+.login__title{
+    margin-top:64px; font-size: 1.5rem;   margin-bottom: 30px;
+    width: 384px;   font-weight: 700;
+}
+// =================================================
+// content //
+.login__content{
+    width:384px; 
+    padding-bottom: 69px;
+}
+.login__section-text{
+    margin-bottom: 10px; font-size: 0.825rem;
+    color:$grey-lv1;    font-weight: 600;
+    display: flex;  gap:1px;
+}
+.login_section-box{
+    width: 8px; position: relative;
+}
+.login_section-box > div{
+    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    background-color: red;
+}
+// 포커스 //
+.user-Id:focus, .user-Password:focus{
+    outline: solid 1px black;
+}
+
+/* 체크박스 */
+.login__state{
+    display: flex;  gap: 10px;
+    font-size: 0.875rem;    align-items: center;
+}
+.login__state-img{
+    width: 20px; height: 20px;
+    cursor: pointer;
+}
+.login__active{
+    filter: invert(21%) sepia(98%) saturate(7483%) hue-rotate(357deg) brightness(100%) contrast(109%);
+}
+
+.login__form{
+    width:100%; height:300px;
+    display: flex;
+    flex-direction: column;     justify-content: space-between;
+}
+.login__userid, .login__userpassword{
+    display: block; height:50px; border:none;   background: rgb(243, 243, 243); border-radius: 10px;    width: 100%;    box-sizing: border-box;
+    padding-left: 10px; font-size: 0.925rem;    font-weight: 500;
+}
+.login__userid-alram, .login__userpassword-alram{
+    font-size: 0.825rem;    color: red;    margin-top: 10px;    font-weight: 100;
+    display: block;
+}
+// =================================================
+// button //
+.login__button{ 
+    height:50px;  width: 100%;
+    padding-left: 10px; font-size: 1.125rem;  font-weight: bold;
+}
+.login__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+
+// =================================================
+// join //
+.login__go-join{
+    display: flex;  flex-direction: column; align-items: center;    margin-top: 30px;   gap:5px;
+}
+.login__go-join-text{
+    color: $grey-lv1;   font-size: 0.925rem;
+}
+.login__go-join-link{
+    text-decoration: none;  color: black;   font-size: 1.125rem;  font-weight: bold;    box-sizing: border-box; 
+    padding-top: 10px; padding-bottom : 10px; padding-left: 20px; padding-right: 20px; border-radius: 15px;
+}
+.login__go-join-link:hover{
+    text-decoration: underline;
+}
+

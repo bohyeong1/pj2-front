@@ -11,39 +11,30 @@ import Det_sec3 from "../sections/det_sec3/det_sec3";
 import Det_sec4 from "../sections/det_sec4/det_sec4";
 import Det_sec5 from "../sections/det_sec5/det_sec5";
 import Det_sec6 from "../sections/det_sec6/det_sec6";
-import ImgdisModal from "../../../../utilComponent/modal/imgdisModal/ImgdisModal";
+import Img_dis_modal from "../../../../utilComponent/modal/img_dis_modal/img_dis_modal";
 import connectData from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
 import Loading from '../../../../utilComponent/material/loading/loading'
-
+import useDetDetappStyle from "../../hook_store/style_hooks/det_detapp_style";
 
 function Detail_info_app(){
     let params = useParams()
 
-
     ///state
     const [sellect_data, setSellect_data] = useState() ///숙소, User, 평가 data
-    const [img_modal, setImg_modal] = useState(false) ///이미지 모달 상태값
     const [sub_img, setSub_img] = useState(null)
-    const [loading , setLoading] = useState(true)    
+    const [loading , setLoading] = useState(true)   
+    
+    ////////////////////////////////////
+    ////////////// hooks ///////////////
+    ////////////////////////////////////
+    // business
 
-
-
-    ////////////숙소 한개 데이터 패치
-    async function fetchAccomodation(){
-        const houseParam = params.house
-        const homeData = await connectData(`${default_data.d_base_url}/api/common/sellect`, 'POST', 
-            {_id:houseParam})
-        setSellect_data(homeData)
-
-        const copied_img = homeData.accomodations.sub_img
-        const limit_copied_img = copied_img.slice(0,4)
-        setSub_img(limit_copied_img)
-        setLoading(false)
-    } 
+    // style
+    const {img_modal_toggle} = useDetDetappStyle()
 
     useEffect(()=>{
-        // fetchAccomodation()
+        ////////////숙소 한개 데이터 패치
         const houseParam = params.house
         connectData(`${default_data.d_base_url}/api/common/sellect`, 'POST', {_id:houseParam})
         .then((result)=>{
@@ -62,24 +53,19 @@ function Detail_info_app(){
 
     },[])
 
-    // 이미지 모달 껏다 키기
-    function img_modal_state(){
-        setImg_modal(!img_modal)
-    }
-
     return(
         loading ? <Loading></Loading> : 
         <div className="detail-info-app__container">
             <Main_menu></Main_menu>
             <div className="detail-info-app__img">
-                <div className="detail-info-app_img-box1">
-                    <Original_img url={sellect_data?.accomodations.main_img} hover={true} handler={img_modal_state}></Original_img>
+                <div className="detail-info-app_img-box1" onClick={img_modal_toggle}>
+                    <Original_img url={sellect_data?.accomodations.main_img} hover={true}></Original_img>
                 </div>
                 <div className="detail-info-app_img-box2">
                     {sub_img?.map((el, id)=>{
                         return(
-                            <div className="detail-info-app_img-item" key={id}>
-                                <Original_img url={el} hover={true} handler={img_modal_state}></Original_img>
+                            <div className="detail-info-app_img-item" key={id} onClick={img_modal_toggle}>
+                                <Original_img url={el} hover={true}></Original_img>
                             </div>
                         )
                     })}
@@ -126,8 +112,8 @@ function Detail_info_app(){
             </div>
 
             {/* 모달 */}
-            <ImgdisModal data={sellect_data?.accomodations} img_modal_state={img_modal_state} img_modal={img_modal}></ImgdisModal>
-
+            <Img_dis_modal data={sellect_data?.accomodations} imgs = {sellect_data ? [sellect_data.accomodations.main_img, ...sellect_data.accomodations.sub_img] : null} 
+            img_modal_toggle={img_modal_toggle}></Img_dis_modal>
         </div>
     )
 }

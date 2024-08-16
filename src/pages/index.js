@@ -1,8 +1,14 @@
+
+//============================= 메  인 =============================//
 export {default as MainApp} from './main/mainApp/MainApp'
-export {default as Login} from './membership/login/Login'
-export {default as Membership_join} from './membership/membership-join/Membership-join'
+
+//============================= 로그인 =============================//
+export {default as Login} from './membership/login_app/login'
+export {default as Membership_join} from './membership/join_app/join'
 export {default as Mem_join_complete} from './membership/mem-join-comlete/Mem-join-complete'
-export {default as AgreeTerms} from './membership/agreeTerms/AgreeTerms'
+export {default as AgreeTerms} from './membership/agree_app/agree'
+
+//============================= 서  브 =============================//
 export {default as SubApp} from './sub/subApp/SubApp'
 export {default as Detail_info_app} from './detail_info/detail_info_app/app/detail_info_app'
 export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'

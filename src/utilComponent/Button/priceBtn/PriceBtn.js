@@ -5,7 +5,7 @@ import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useButtonPricebtnBusiness from "../hook-store/business-hooks/button-pricebtn-business";
 import useButtonPricebtnStyle from "../hook-store/style-hooks/button-pricebtn-style";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
-
+import '../../../manage_scss_style/commonness/commonness.scss'
 
 function PriceBtn({keyValue1, keyValue2, modal}){
     // querystring
@@ -80,7 +80,7 @@ function PriceBtn({keyValue1, keyValue2, modal}){
 
     return(
         <div className="pricebtn-wrapper">
-            <div className="pricebtn-container" data-drag={false} data-target={null} data-min_index={0} data-max_index={7} ref={price_target}
+            <div className="pricebtn-container not-user-sellect" data-drag={false} data-target={null} data-min_index={0} data-max_index={7} ref={price_target}
             onMouseDown={mouse_down} onClick={mouse_click}>
                 <div className="pricebtn-track" ref={price_track}></div> 
                 <div className="pricebtn-thumb pricebtn-min" ref={(el)=>{price_thumb.current[0] = el}}></div>      

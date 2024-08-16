@@ -7,7 +7,7 @@ const util_hooks = {
     ///////////스와이퍼 버튼 로직 모음/////////
     /////////////////////////////////////////
     //// number -> 슬라이더 한 파트당 이미지 등장 개수
-    useSwiperBtn : (number)=>{
+    useSwiperBtn : (number, handler)=>{
         const [RbtnState, setRbtnState] = useState(false)
         const [LbtnState, setLbtnState] = useState(true)
         const swiper_ref = useRef(null)
@@ -63,6 +63,11 @@ const util_hooks = {
                     setRbtnState(false)
                 }
             }
+            if(handler){
+                // handler
+                handler(index)
+            }
+
         }
         return {RbtnState,setRbtnState,LbtnState,setLbtnState,swiper_ref, moveRSlide, moveLslide, swiper_change}
     },
