@@ -1,14 +1,13 @@
-//////////////////////////////////////////////////
-///////////////////데이터 연결 유틸 함수///////////
-/////////////////////////////////////////////////
+// =================================================
+// 데이터 fetch utill function //
 async function connectData(url, method, data = null, token = null){
     const dataJson = await fetch(url,{
       headers:{
         'Content-Type':'application/json',
-        'Authorization': `${token? 'Bearer' + token : ''}`, 
+        'Authorization': `${token? 'Bearer ' + token : ''}`, 
       },
       method: method,
-      body: data? JSON.stringify(data) : null 
+      body: data? JSON.stringify(data) : undefined 
     })
 
     const result = await dataJson.json()
@@ -16,11 +15,9 @@ async function connectData(url, method, data = null, token = null){
   }
 export default connectData
 
-//////////////////////////////////////////
-////////////스테이트 저장소////////////////
-/////////////////////////////////////////
-////생명주기:임포트 해온 컴포넌트 범위/////
-////////파라미터 객체 형태로 넣을 것//////
+// =================================================
+// state 전달 함수 //
+//생명주기:임포트 해온 컴포넌트 범위
 export function state_store(states){
   const state_store = {}
   
@@ -46,11 +43,9 @@ export function state_store(states){
 }
 
 
-//////////////////////////////////////////
-//////////////Ref 저장소//////////////////
-/////////////////////////////////////////
-////생명주기:임포트 해온 컴포넌트 범위/////
-/////////파라미터 배열형태로 넣을것//////
+// =================================================
+// reference 전달 함수 //
+//생명주기:임포트 해온 컴포넌트 범위
 export function reference_store(refs){
   const reference_store = {}
   // 배열 검사
@@ -72,9 +67,8 @@ export function reference_store(refs){
 }
 
 
-//////////////////////////////////////////////////
-///////////////////////가격 콤마찍기///////////////
-/////////////////////////////////////////////////
+// =================================================
+// 가격 3자리마다 콤마찍기 //
 export function pop_three_texts(price){
   let copied_texts = String(price)
   let text_inv = []
@@ -89,9 +83,8 @@ export function pop_three_texts(price){
 }
 
 
-//////////////////////////////////////////
-//////플러스, 마이너스 버튼 로직 모음///////
-/////////////////////////////////////////
+// =================================================
+// 플러스 마이너스 버튼 //
 
 // 플러스 버튼 눌렀을 때
 export function clickPlus(e, input, input_board, input_text, minus_btn){
@@ -124,9 +117,8 @@ export function clickMinus(e, input, input_board, input_text, plus_btn){
 }
 
 
-///////////////////////////////////////////////
-/////////////state -> query obj 변환///////////
-//////////////////////////////////////////////
+// =================================================
+// state -> query obj 객체 변경 함수 //
 export function make_query_obj(obj){
   if(!obj){return}
   // 정렬 기준 없음
@@ -137,8 +129,8 @@ export function make_query_obj(obj){
       }
   }
 
-  ////서버로 보내는 쿼리 데이터 생성 for문
-  const final_key = {}              ///필터 키
+  // 서버로 보내는 쿼리 데이터 생성 for문
+  const final_key = {}             
   for(const value of keyInv){
     if(value === 'discount'){
       final_key[value] = {$exists:true}

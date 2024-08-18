@@ -1,11 +1,13 @@
 import {useState, useRef} from "react"
 import { useParams, useSearchParams } from "react-router-dom"
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../firebase/firebase";
+import default_data from "./defaultData";
 
 
 const util_hooks = {
-    //////////////////////////////////////////
-    ///////////스와이퍼 버튼 로직 모음/////////
-    /////////////////////////////////////////
+    // =================================================
+    // 스와이퍼 버튼 로직 모음 //
     //// number -> 슬라이더 한 파트당 이미지 등장 개수
     useSwiperBtn : (number, handler)=>{
         const [RbtnState, setRbtnState] = useState(false)
@@ -72,11 +74,10 @@ const util_hooks = {
         return {RbtnState,setRbtnState,LbtnState,setLbtnState,swiper_ref, moveRSlide, moveLslide, swiper_change}
     },
 
-    /////////////////////////////////////////////////////////////////
-    //////////쿼리스트링 파라미터 조회 후 백엔드 쿼리문 작성 훅/////////
-    ////////////////////////////////////////////////////////////////
+    // =================================================
+    // querystring 조회 후 query obj 객체 변환 훅 //
     useJoinUrl:()=>{    
-        const params = useParams()              //파라미터
+        const params = useParams()       
         const [SearchParams, setSearchParams] = useSearchParams()
 
         const keyInv = []
@@ -85,9 +86,9 @@ const util_hooks = {
                 keyInv.push(key)
             }
         }
-        ////서버로 보내는 쿼리 데이터 생성 for문
-        const final_key = {}              ///필터 키
-        const sort_key = {}                 /////정렬 키
+        //서버로 보내는 쿼리 데이터 생성 for문
+        const final_key = {}       
+        const sort_key = {}          
         for(const value of keyInv){
             if(value === 'discount'){
                 final_key[value] = {$exists:true}
@@ -114,9 +115,20 @@ const util_hooks = {
                 final_key[`${value}.name`] = {$all:SearchParams.getAll(value)}
             }       
         }
-
         return {final_key, sort_key}
-    }  
+    },
+
+    // =================================================
+    // 유저데이터 파이어베이스 연동 훅 //
+    useFireConnect : async(id, password)=>{
+        try{
+            const mapping_id = id + default_data.fire_mapping_email
+            const user_data = await signInWithEmailAndPassword(auth, mapping_id, password)
+            return user_data
+        }catch(e){
+            console.log(e)
+        }
+    }
 }
 
 export default util_hooks

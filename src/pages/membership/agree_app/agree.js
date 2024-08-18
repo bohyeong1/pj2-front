@@ -10,7 +10,8 @@ function Agree(){
 
     const navigate = useNavigate()
 
-    // state
+    // =================================================
+    // state //
     const [all_check, setAll_check] = useState(false)
     const [checkbox_state, setCheckbox_state]=useState({
         terms1 : false,
@@ -19,9 +20,8 @@ function Agree(){
         terms4 : false
     })
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // style
     const {all_check_box, sellect_check_box} = useMembershipAgreeStyle(undefined, state_store([
         {
@@ -44,11 +44,16 @@ function Agree(){
                         <div className="level-bar-lv1"></div>
                     </div>
                     <div className="agree-app__container-section1-part3">
-                        보형짱 닷컴 <br/> 서비스 약관에 동의해 주세요
+                        서비스 약관에 동의해 주세요
                     </div>
                     <div className="agree-app__container-section1-part4">
                         <input type="checkbox" className="terms-checkbox__daepyo" checked={all_check} onChange={all_check_box}></input>
-                        <label>전체 동의</label>
+                        <div className="agree-app_section-box-container">
+                            <label>전체 동의</label>
+                            <div className="agree_section-box">
+                                <div></div>
+                            </div>
+                        </div>                       
                     </div>
                 </div>
                 <div className="agree-app__container-section2">
@@ -80,7 +85,7 @@ function Agree(){
                     </div>
                     
                     <button className={`agree-app__container-section2-btn ${all_check ? 'button-enable' : 'button-disable'}`} 
-                    disabled = {all_check ? false:true} onClick={()=>{navigate('/Membership_join')}}>다음</button>
+                    disabled = {all_check ? false:true} onClick={()=>{navigate('/Join')}}>다음</button>
                     
                 </div>
             </div>

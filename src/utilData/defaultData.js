@@ -1,7 +1,22 @@
 const default_data = {
+    ////////////////////////////////////////////////////
+    ////////////////// default data ////////////////////
+    ////////////////////////////////////////////////////
+
+    // =================================================
+    // 베이스 url //
     d_base_url:'http://127.0.0.1:3700', ////////////////////////디폴트 서버 URL / 로컬
 
-    // 카테고리 디폴트 데이타 + 아이콘
+    // =================================================
+    // firebase url //
+    fire_url:'sukbak-project.firebaseapp.com',
+
+    // =================================================
+    // firebase mapping email //
+    fire_mapping_email : '@bohyeongzzang.com',
+
+    // =================================================
+    // accomodation - category default data structure //
     d_category_icon : [
     {name:'주택',
         url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVR4nO2WPShGURjHf75LUkJJKBkMioFFGbCwmA02vZlNDO9osRlltbDYLITi9T1gVAYGCSmJ8u3o1kOn6+N+uPe+9+b86qnbPec8z/M/5+mcBwyuqANWgCX5TiSdwDmgxK6AHhJEDpAGXkTAvJiSf2mZE2tKgTlJ+g0YB3Il8VGbuDJiSjNw5FBGvTKmZG6LbXxDK8UPyxAhA8CdBN4D6n+ZWwtsy9x7YFAbUz9Y6ORL+XwEnAaKXawrAqa0ddZ34TeJRyKkBtjUdjblw0dK1lo+trIhpAu4kCAnQNsffLWJj+9KKTQh1u0zAjxLgAWgPAC/FeJLAQ9hC7FfrWNAXoD+LV/DQH+YQpqAQ3F6DfQRDSpIIdYO3YrDA6CB6HiVuPopeaYAmPBxtQbJpBZ/QnLyRCWwLA6epb3IFkPAo/bKV7td2AGcycJToJ3s0wocS06XQLcb9U+yYBWoIj5UAIu2KvnSRZcAs7ZHyWo/4kaeLccZyf2TXRm4ibJR84my5bqjD64D+0BjgoQ0Ss4/tvlJEeKIERIRypzIfzsR5dP8xnHECMHbDsf+RNxihGBOxB2mtDyiTGkFtFMbtpY7sbdWBliLIM4n5h3BPIieUKa0XGJKyyPKlFbSS0vF3BzJxCBJ5WB6h2AwECLvVSqp4WT2eksAAAAASUVORK5CYII='
@@ -25,7 +40,8 @@ const default_data = {
     url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEY0lEQVR4nO2ZfYiVRRTGf5oflalZSVmpi2mSRIZFZSZqSFpkQbV/rVpr2R+CLdEXEn2Q1orFqhSlpqJhiFlhGFFUENmiRR+CbJFlVlaUpVFWbrW5cewZmV5n3nv33rkieh944d6ZM8/MvDNzzjPnhSqqqKKKIx2dgTeBb4BFwNVAnzL4ugPnATeJ7yugWf1UFLVAe+DZCWwAngWeAuYC93hPI/AYsBxYp8F+F+FqB66s5CQ6AZu9zvZo8HtyBlTo+Qv4FFgNzAAeVfn6Sk5kkjr5FvgN2AcM1TYYAlwOTAHuBGZpVdxzn8rrgWuBy4AzA1voFGAv0AbUVGoizZpIA7BEv+dXoJ9nxP1IBbiZIPLvgeOB4fr/M9AjcV8jxf0jcGxibt4W+d2BFZqeujPgfXHXpSQdI9JdQE+vvE7l5gBSY7q430lJ+rpI78+Ud9NWs7pLU3bIf9t3t7hHpCC8WGS/RALfw6pfRXosELcFyrKxXmRzIvUD5Cr/BE4lLYbIxVuc6l0O0fkispjRN8dunSZrsSM13hD3zHJInheJSYs8XCE700nHkBbXi/tjKYsO4xzgH0XZ0wvYdpLMsA6vIS26ADvEPa4UglVq/HiR9rfL/lXS4wFxP9fRhmcBf0vQDSyyzYme/jqbtOinsdiYzuhIw2V6A08H6hpyPNhStWsiPdZGYlkUA73Z28pklWmbCAcH2o5Q3W4FtJQYJ+4dOjcF8aQamALN4mbvHjEt0n6j6s02NbaI+7pChqcBf8hbnRuof9mbyMoIxxTVf0R6zBS3SaZcNMlwTaDuBLliN5Gvc+7gP8jmEtKiJ/Crd6ELoq/ndeyukcVkDe49T8zFbnBzc7ZnuVgsbtNhQTTK4KUCCvg2T5JY5iOEGjmF1gLSplTZ1K4L3UEOpY/UrRlcFGjcX+emTcKwQbYvFCE2LYOSGs3iviUWOV+LNLw3Uz9U/20rHhdpM1E22yugv+rE/YFf2Es3P6sYHWjUVWLQ6qd65VtVZgm6ECw78nkBm1LRXXm0/zmUWSp4q4A73ZlJBDTlRH+HO2TzCunRmA0DLtvXAtwV0EkuIZeVJaO8rEos0p7kxaWsSigXNZ46N8Wx/xrZmsn+fSIX6g717wqWWem+TfVX5XS4vMg7TSlwDsUW4ECwu0F+350X/5kXIXqoCHl9oZeBiTmGUjAceFHcn4UMbJuM1RnYppvZ/qULYLCWtzWwYj7eVYeWLi0Hg+RBWzIv2vLPZcMFx9k5NjfK5sMS+E8GblV+a583+F3aQeNLvQJnMdpLbw6L2Ji3+ykn4IYuafVSE+7a4FJSKxWjipLyHcUmr7MWnR37eONjnupXRDjs/NRq3/vOZ6/KahOfsWj+aalWxd+7W5VRv0D727lL2y7orU7UWzZV69q1aTXqtTqHHF20Zxd5qVT3fOEN1r5oPeFFZ/dslCjNcxyHHJ31MWehvjeGvla5rfigVvWwh5vUfOm2LxVws+eoiiqqqOIowb9S3HohQtZ6wAAAAABJRU5ErkJggg=='}
     ],
 
-    ///////숙박 공간
+    // =================================================
+    // accomodation - space category default data structure //
     d_house_space:[{name:'공간전체',
         text:'게스트가 숙소 전체를 단독으로 사용합니다.',
         url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB7klEQVR4nO2WPShGURjHf75LUkJJKBkMioFFGbCwmA02vZlNDO9osRlltbDYLITi9T1gVAYGCSmJ8u3o1kOn6+N+uPe+9+b86qnbPec8z/M/5+mcBwyuqANWgCX5TiSdwDmgxK6AHhJEDpAGXkTAvJiSf2mZE2tKgTlJ+g0YB3Il8VGbuDJiSjNw5FBGvTKmZG6LbXxDK8UPyxAhA8CdBN4D6n+ZWwtsy9x7YFAbUz9Y6ORL+XwEnAaKXawrAqa0ddZ34TeJRyKkBtjUdjblw0dK1lo+trIhpAu4kCAnQNsffLWJj+9KKTQh1u0zAjxLgAWgPAC/FeJLAQ9hC7FfrWNAXoD+LV/DQH+YQpqAQ3F6DfQRDSpIIdYO3YrDA6CB6HiVuPopeaYAmPBxtQbJpBZ/QnLyRCWwLA6epb3IFkPAo/bKV7td2AGcycJToJ3s0wocS06XQLcb9U+yYBWoIj5UAIu2KvnSRZcAs7ZHyWo/4kaeLccZyf2TXRm4ibJR84my5bqjD64D+0BjgoQ0Ss4/tvlJEeKIERIRypzIfzsR5dP8xnHECMHbDsf+RNxihGBOxB2mtDyiTGkFtFMbtpY7sbdWBliLIM4n5h3BPIieUKa0XGJKyyPKlFbSS0vF3BzJxCBJ5WB6h2AwECLvVSqp4WT2eksAAAAASUVORK5CYII='
@@ -41,7 +57,8 @@ const default_data = {
 
     ],
 
-    ////////////기본 시설 + icon
+    // =================================================
+    // accomodation - base facility default data structure //
     d_base_facility : [
         {name:'침실',
             counts:'',
@@ -63,7 +80,8 @@ const default_data = {
 
     ],
 
-    ///////////////서비스 시설 + 아이콘
+    // =================================================
+    // accomodation - service facility default data structure //
     d_service_facility_icon:[
     {name:'수영장',
     url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2YQWrCQBSGP8wBurWHqCfpQs8htJuCuvcieg9dmCNUaHuMqgt3TwKvUMVxdDB1Yv8PQkj88x6TMd/igbgvnoEZsAEMKDOve5SxN/l9LMi3bvCNVQ22wBvwSN51g8y9YdWsCXWDrL1hm2bUDfLz321K3bMaWg3Hn3GXC7kmpoUkoh2JYPrYE5G1IpislYisFcFkrURkrQgmayUia0UwWSsRWSuCyVr/3VplTfPYso66BTDy6d/Ir09lB8Dqguw3MLxido8HoAO8AsuDWdO73+94LpZ9AZ5qzga39XBQ9gH0gc8zhmq3yJahhWz8gQnQBVr+W3XuAVPgy3M5ZBfH90TkTSFrIWuZrCUaRCFrIWuZrCXIix26Wjzpu3X55wAAAABJRU5ErkJggg=='

@@ -1,3 +1,4 @@
+@import '../../../manage_scss_style/commonness/colors';
 @font-face {
     font-family: 'ClimateCrisisKR-1979';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
@@ -5,64 +6,83 @@
     font-style: normal;
 }
 
-.Membership_join-container{
+.join-app__container{
     width:1920px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.Membership_join-content{
-    width:580px; height:650px;  margin-top: 50px;   margin-bottom: 50px;
-    border: solid 1px rgb(182, 182, 182);
-    padding-left: 69px; padding-right: 69px;   padding-top: 40px;   padding-bottom: 40px;
-    box-sizing: border-box;
+// =================================================
+// container //
+.join-app__content{
+    width:384px;  height:650px;  margin-top: 64px;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap:20px; 
 }
-.Membership_join-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width:100%;
-    background: rgb(243, 243, 243);
-}
-.Membership_join-content-sec1{
+// =================================================
+// title //
+.join-app__content-section1{
     width:100%;
 }
 
-.Membership_join-content-sec1-s1{
+.join-app__content-section1-part1{
     font-size: 1.5rem;
-    margin-bottom: 20px;
-    font-family: 'ClimateCrisisKR-1979';    color: #00A8D5;
+    font-weight: 700;
+    margin-bottom: 30px;
 }
-.Membership_join-content-sec1-s3{
-    font-size: 1.3rem;
-}
-
-.Membership_join-content-sec2-s1, .Membership_join-content-sec2-s2, .Membership_join-content-sec2-s3, .Membership_join-content-sec2-s4, .Membership_join-content-sec2-s5, .Membership_join-content-sec2-s6{
-    border : none;
-    border-bottom: solid 1px  rgb(182, 182, 182);
-    color: black;
-    display:block;
-    width:100%;
-    font-size: 1.2rem; margin-bottom: 30px;
-}
-.Membership_join-content-sec2-btn{
-    border: none;     display:flex;
-    width:100%;   font-size: 1.2rem;    cursor: pointer;    height: 40px;
-    background: #b8e0e9;
-    justify-content: center;    align-items: center;
-    border-radius: 15px;    transition: 0.3s;
-}
-.Membership_join-content-sec2-btn:hover{
-    background: #80CEE1;
-}
-
-.Membership_join-content-sec1-s2{
-    width:60px; background: rgb(243, 243, 243);     margin-bottom: 20px;
+.join-app__content-section1-part2{
+    width:60px; background: rgb(243, 243, 243);     margin-bottom: 15px;
+    border-radius: 8px; overflow: hidden;
 }
 .level-bar-lv2{
-    width:66%; height: 5px; background: black;
+    width:50%; height: 5px; background: black;
 }
+.join-app__content-section1-part3{
+    font-size: 0.875rem;  margin-bottom: 15px;   color: $grey-lv1;
+    font-weight: 600; line-height: 1.2;
+}
+// =================================================
+// contents //
+.join-app__content-section2{
+    width:100%; height:fit-content;
+    display: flex;
+    flex-direction: column;     gap:25px;
+}
+.join-app__content-section2-part1, .join-app__content-section2-part2, .join-app__content-section2-part3, .join-app__content-section2-part4{
+    display: block; height:50px; border:none;   background: rgb(243, 243, 243); border-radius: 10px;    width: 100%;    box-sizing: border-box;
+    padding-left: 10px; font-size: 0.925rem;    font-weight: 500;
+}
+.join-app__content-section2-part1{
+    width: 70%;
+}
+.join-app__content-section2-input-button{
+    flex-grow: 1;    font-size: 1.125rem;  font-weight: bold; 
+}
+.join-app__content-section2-input-wrapper{
+    display: flex;  gap:5px;
+}
+.join-app_content-section2-password-wrapper{
+    display: flex;  flex-direction: column; gap:10px;
+}
+.join-app__text{
+    margin-bottom: 10px; font-size: 0.825rem;
+    color:$grey-lv1;    font-weight: 600;
+    display: flex;  gap:1px;
+}
+.join-app__box{
+    width: 8px; position: relative;
+}
+.join-app__box > div{
+    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    background-color: red;
+}
+// =================================================
+// button //
+.join-app__content-section2-btn{
+    height:50px;  width: 100%;  margin-top: 15px;
+    font-size: 1.125rem;  font-weight: bold;
+}
+
+

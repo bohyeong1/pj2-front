@@ -1,0 +1,55 @@
+@import '../../../manage_scss_style/commonness/colors';
+.join_prev1-app{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+// =================================================
+// container //
+.join_prev1-app__container{
+    width:384px;  height:650px;  margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap:20px; 
+}
+
+.join_prev1-app__container-section1{
+    width:100%;
+    border-bottom: solid 1px $grey-lv7;
+}
+
+// =================================================
+// title //
+.join_prev1-app__container-section1-part1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    
+}
+.join_prev1-app__container-section1-part2{
+    width:60px; background: rgb(243, 243, 243);     margin-bottom: 15px;
+    border-radius: 8px; overflow: hidden;
+}
+// .level-bar-lv2{
+//     width:50%; height: 5px; background: black;
+// }
+.join_prev1-app__container-section1-part3{
+    font-size: 0.875rem;  margin-bottom: 25px;   color: $grey-lv1;
+    font-weight: 600;
+}
+.join_prev1-app__container-section1-part4{
+    margin-bottom: 20px;     display: flex;  gap: 10px;  font-size: 1.075rem;   font-weight: 600;
+    align-items: center;    
+}
+.join_prev1-app_section-box-container{
+    display: flex;  gap:3px;
+}
+.join_prev1_section-box{
+    width: 8px; position: relative;
+}
+.join_prev1_section-box > div{
+    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    background-color: red;
+}

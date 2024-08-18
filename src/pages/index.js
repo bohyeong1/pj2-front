@@ -1,14 +1,17 @@
-
-//============================= 메  인 =============================//
+// =================================================
+// 메인 //
 export {default as MainApp} from './main/mainApp/MainApp'
 
-//============================= 로그인 =============================//
+// =================================================
+// 로그인 / 회원가입 //
 export {default as Login} from './membership/login_app/login'
-export {default as Membership_join} from './membership/join_app/join'
+export {default as Join} from './membership/join_app/join'
+export {default as Join_prev1} from './membership/join_prev1/join_prev1'
 export {default as Mem_join_complete} from './membership/mem-join-comlete/Mem-join-complete'
 export {default as AgreeTerms} from './membership/agree_app/agree'
 
-//============================= 서  브 =============================//
+// =================================================
+// 서브 //
 export {default as SubApp} from './sub/subApp/SubApp'
 export {default as Detail_info_app} from './detail_info/detail_info_app/app/detail_info_app'
 export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'

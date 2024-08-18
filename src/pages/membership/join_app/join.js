@@ -1,94 +1,108 @@
-import React, {useState} from "react";
+import React, {useRef, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import './join.scss'
+import '../../../manage_scss_style/commonness/commonness.scss'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
+import useMembershipJoinBusiness from "../hook-store/business-hooks/membership_join_business";
+import { state_store } from "../../../utilData/UtilFunction";
 
-const BASE_URL = 'http://127.0.0.1:3700'
 
 function Join(){
-
+    // =================================================
+    // state //
     const [dataState, setDataState] = useState(true)
+    const [duplicate, setDuplicate] = useState(null)
+
+
     const navigate = useNavigate()
 
-    if(dataState === false){
-        alert('유효하지 않은 정보를 입력하셨습니다.')
-    }
-
-    // 데이터 서버와 연결
-    async function connectData(data, url){
-        const userJson = await fetch(`${url}/api/users/register`,{
-            headers:{
-                'Content-Type':'application/json'
-            },
-            method:'POST',
-            body:JSON.stringify({
-                name:data.name,
-                email:data.email,
-                userId:data.id,
-                password:data.password,
-                nickname:data.userNickname,
-                confirmPassword:data.userPasswordConfirm
-            })
-        })   
-        
-        const user = await userJson.json()
-        return user
-    }
-
-    // 데이터 서브밋
-    async function submit(e){
-        e.preventDefault()
-
-        const name = (e.target.userName.value.length === 0 || !e.target.userName.value) ? null : e.target.userName.value
-        const email = await e.target.userEmail.value
-        const id = await e.target.userId.value
-        const password = await e.target.userPassword.value
-        const userPasswordConfirm = await e.target.userPasswordConfirm.value
-        const userNickname = await e.target.userNickname.value
-
-        const data = await connectData({name, email, id, password, userPasswordConfirm, userNickname}, BASE_URL)
-
-        e.target.userName.value=''
-        e.target.userEmail.value=''
-        e.target.userId.value=''
-        e.target.userPassword.value=''
-        e.target.userPasswordConfirm.value=''
-        e.target.userNickname.value=''
-
-        // console.log(data)
-        if(data.code === 401){
-            setDataState(!dataState)
-        }else{
-            console.log(data)
-            sessionStorage.setItem('userData',JSON.stringify(data.newUser))
-            navigate('/Mem_join_complete')
+    // =================================================
+    // hooks //
+    // business
+    const {register, handleSubmit, errors, isValid, submit, input_id, check_duplicate} = useMembershipJoinBusiness(undefined, state_store([
+        {
+            'dataState':dataState,
+            'setDataState':setDataState
+        },
+        {
+            'duplicate':duplicate,
+            'setDuplicate':setDuplicate
         }
-    }
-
+    ]))
 
     return(
-        <div className="Membership_join-container">
+        <div className="join-app__container">
             <Main_menu></Main_menu>
-            <div className="Membership_join-content">
-                <div className="Membership_join-content-sec1">
-                    <div className="Membership_join-content-sec1-s1">보형짱 닷컴</div>
-                    <div className="Membership_join-content-sec1-s2">
+            <div className="join-app__content">
+                <div className="join-app__content-section1">
+                    <div className="join-app__content-section1-part1">회원가입</div>
+                    <div className="join-app__content-section1-part2">
                         <div className="level-bar-lv2"></div>
                     </div>
-                    <div className="Membership_join-content-sec1-s3">
-                        보형짱 닷컴 계정으로 사용할 <br/> 아이디를 만들어 주세요
+                    <div className="join-app__content-section1-part3">
+                        보형짱 닷컴 계정을 만들어 주세요!
                     </div>
                 </div>
-                <form className="Membership_join-content-sec2" onSubmit={submit}>                                                       
-                    <input type="text" placeholder="아이디" id="userId" className="Membership_join-content-sec2-s1"></input>
-                    <input type="password" placeholder="비밀번호" id="userPassword" className="Membership_join-content-sec2-s2"></input>
-                    <input type="password" placeholder="비밀번호 확인" id="userPasswordConfirm" className="Membership_join-content-sec2-s3"></input>
-                    <input type="text" placeholder="이름" id="userName" className="Membership_join-content-sec2-s4"></input>
-                    <input type="text" placeholder="이메일" id="userEmail" className="Membership_join-content-sec2-s5"></input>
-                    <input type="text" placeholder="닉네임" id="userNickname" className="Membership_join-content-sec2-s6"></input>
-                    <input type='submit' value='가입' className="Membership_join-content-sec2-btn"></input>                        
-                </form>
+                <form className="join-app__content-section2" onSubmit={submit}>      
+                    <div className="join-app__content-section2-wrapper">
+                        <div className="join-app__text">
+                            <span>아이디</span>
+                            <div className="join-app__box">
+                                <div></div>
+                            </div>
+                        </div>
+                        {/* id */}
+                        <div className="join-app__content-section2-input-wrapper">
+                            <input type="text" placeholder="아이디" className={`join-app__content-section2-part1 ${errors.id ? 'input-invalid' : ''}`} 
+                            {...register('id')} autoComplete="off"></input>
 
+                            <button className={`join-app__content-section2-input-button ${input_id && input_id.length !== 0 && !errors.id ? 'button-enable' : 'button-disable'}`}
+                            disabled={input_id && input_id.length !== 0 && !errors.id ? false : true} onClick={(e)=>{check_duplicate(e,input_id)}} type="button">
+                                중복확인
+                            </button>
+                        </div>
+                        {errors.id && <span className="login__userid-alram">{errors.id.message}</span>}
+                        {duplicate && duplicate.duplicate_state && !errors.id && <span className="login__userid-alram">{duplicate.duplicate_text}</span>}
+                    </div>  
+                    <div className="join-app__content-section2-wrapper">
+                        <div className="join-app__text">
+                            <span>비밀번호</span>
+                            <div className="join-app__box">
+                                <div></div>
+                            </div>
+                        </div>
+                        <div className="join-app_content-section2-password-wrapper">
+                            {/* 비번 입력 */}
+                            <div>
+                                <input type="password" placeholder="비밀번호" className={`join-app__content-section2-part2 ${errors.password ? 'input-invalid' : ''}`}
+                                {...register('password')}></input>
+                                {errors.password && <span className="login__userpassword-alram">{errors.password.message}</span>}
+                            </div>
+
+                            {/* 비번확인 */}
+                            <div>
+                                <input type="password" placeholder="비밀번호 확인" className={`join-app__content-section2-part3 ${errors.password_confirm ? 'input-invalid' : ''}`}
+                                {...register('password_confirm')}></input>
+                                {errors.password_confirm && <span className="login__userpassword-alram">{errors.password_confirm.message}</span>}
+                            </div>                           
+                        </div>
+                    </div> 
+                    <div className="join-app__content-section2-wrapper">
+                        <div className="join-app__text">
+                            <span>이름</span>
+                            <div className="join-app__box">
+                                <div></div>
+                            </div>
+                        </div>
+                        {/* name */}
+                        <input type="text" placeholder="이름" className={`join-app__content-section2-part4 ${errors.name ? 'input-invalid' : ''}`}
+                        {...register('name')} autoComplete="off"></input>
+                        {errors.name && <span className="login__userpassword-alram">{errors.name.message}</span>}
+                    </div>                                              
+
+                    <input type='submit' value='가입' className={`join-app__content-section2-btn ${isValid ? 'button-enable' : 'button-disable'}`}
+                    disabled={!isValid}></input>                        
+                </form>
             </div>
         </div>
     )
