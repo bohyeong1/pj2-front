@@ -1,9 +1,8 @@
 import {useState, useRef} from "react"
-import { useParams, useSearchParams } from "react-router-dom"
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase/firebase";
+import { useParams, useSearchParams, navigate, useNavigate } from "react-router-dom"
 import default_data from "./defaultData";
-
+import connectData from "./UtilFunction";
+import { fire_connect } from "./UtilFunction";
 
 const util_hooks = {
     // =================================================
@@ -116,18 +115,6 @@ const util_hooks = {
             }       
         }
         return {final_key, sort_key}
-    },
-
-    // =================================================
-    // 유저데이터 파이어베이스 연동 훅 //
-    useFireConnect : async(id, password)=>{
-        try{
-            const mapping_id = id + default_data.fire_mapping_email
-            const user_data = await signInWithEmailAndPassword(auth, mapping_id, password)
-            return user_data
-        }catch(e){
-            console.log(e)
-        }
     }
 }
 

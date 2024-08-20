@@ -25,10 +25,10 @@
     color:$grey-lv1;    font-weight: 600;
     display: flex;  gap:1px;
 }
-.login_section-box{
+.login__section-box{
     width: 8px; position: relative;
 }
-.login_section-box > div{
+.login__section-box > div{
     position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
     background-color: red;
 }

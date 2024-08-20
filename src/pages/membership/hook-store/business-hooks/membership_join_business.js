@@ -4,14 +4,19 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import connectData from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
-import util_hooks from "../../../../utilData/utilHook";
+import { user_login } from "../../../../utilData/UtilFunction";
+import { useEffect } from "react";
 
 
 function useMembershipJoinBusiness(data, states, refs, props){
+
+    // =================================================
+    // navigate //
+    const navigate = useNavigate()
+
     // =================================================
     // state //
-
-    const {dataState, setDataState, duplicate, setDuplicate} = states
+    const {duplicate, setDuplicate, join_state, setJoin_state} = states
 
     // =================================================
     // validation schema //
@@ -51,21 +56,27 @@ function useMembershipJoinBusiness(data, states, refs, props){
 
     // =================================================
     // data submit //
-    async function submit(user){        
-        const {id, password} = user
+    async function submit(user){       
+        setJoin_state(false)
 
-        // firebase connect
-        const credential_user = await util_hooks.useFireConnect(id, password)
-        const user_data = credential_user.user
-        const user_token = await user_data.getIdToken()
+        const {id, password, password_confirm, name} = user
 
-        const data = await connectData(`${default_data.d_base_url}/api/users/login`, 'POST',null, user_token)
+        // user data 생성
+        const join_state = await connectData(`${default_data.d_base_url}/api/users/initailjoin`, 'POST',{
+            userId:id,
+            password:password,
+            password_confirm:password_confirm,
+            name:name
+        })
 
-        if(data.code !== 200){
-            alert(data.message)
+        // user login
+        if(join_state.join_state){
+            const user_data = await user_login(id, password)
+            // console.log(user_data)
+            setJoin_state(true)
         }else{
-            console.log(data)            
-            // navigate('/')
+            setJoin_state(true)
+            alert('회원정보를 제대로 기입해 주세요')
         }
     }
 
@@ -77,20 +88,27 @@ function useMembershipJoinBusiness(data, states, refs, props){
     // check_duplicate //
     async function check_duplicate(e,user){
         e.preventDefault()
-        // try{
-        //     const data = await connectData(`${default_data.d_base_url}/api/users/duplicate`, 'POST',{
-        //         userId:user
-        //     })
-        //     if(data.code === 200){
-        //         setDuplicate(data)
-        //     }else{
-        //         console.log(data)
-        //     }            
-        // }catch(e){
-        //     console.log(e)
-        // }
-        console.log('확인')
+        try{
+            const data = await connectData(`${default_data.d_base_url}/api/users/duplicate`, 'POST',{
+                userId:user
+            })
+            if(data.code === 200){
+                setDuplicate(data)
+            }else{
+                console.log(data)
+            }            
+        }catch(e){
+            console.log(e)
+        }
     }
+
+    // =================================================
+    // 다음 회원가입 절차로 이동 //
+    useEffect(()=>{
+        if(join_state){
+            navigate('/Email_prove')
+        }
+    },[join_state])
 
 
     return {register, handleSubmit, errors, isValid, submit, input_id, check_duplicate}

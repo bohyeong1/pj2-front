@@ -2,9 +2,7 @@ import { useForm } from "react-hook-form";
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
-import connectData from "../../../../utilData/UtilFunction";
-import default_data from "../../../../utilData/defaultData";
-import util_hooks from "../../../../utilData/utilHook";
+import { user_login } from "../../../../utilData/UtilFunction";
 
 
 function UseMembershipLoginBusiness(data, states, refs, props){
@@ -44,26 +42,15 @@ function UseMembershipLoginBusiness(data, states, refs, props){
     // data submit //
     async function submit(user){        
         const {id, password} = user
-
-        // firebase connect
-        const credential_user = await util_hooks.useFireConnect(id, password)
-        const user_data = credential_user.user
-        const user_token = await user_data.getIdToken()
-
-        const data = await connectData(`${default_data.d_base_url}/api/users/login`, 'POST',null, user_token)
-
-        if(data.code !== 200){
-            alert(data.message)
-        }else{
-            console.log(data)            
-            // navigate('/')
-        }
+        const user_data = await user_login(id, password)
+        console.log(user_data)
     }
-
+    
     // =================================================
     // login method //
     function click_login_method(){
         setLog_method(!log_method)
+
     }
 
     return {register, handleSubmit, errors, isValid, click_login_method, submit}

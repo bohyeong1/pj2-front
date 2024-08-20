@@ -3,12 +3,10 @@ import connectData from "../../../../utilData/UtilFunction";
 import { useDispatch } from "react-redux";
 import { set_search_data } from "../../../../redux/modules/searchSlice";
 import my_session_storage from "../../../../sessionStorage/session_storage"
-
+import default_data from "../../../../utilData/defaultData";
 function useMainBusiness(data, states, refs){
 
     const dispatch = useDispatch()
-
-    // console.log(my_session_storage.hiru())
 
     // 초기 데이터 섹션별 fetch
     useEffect(()=>{
@@ -16,26 +14,26 @@ function useMainBusiness(data, states, refs){
             let sec1, sec2, sec3, sec4, sec5
             try {
             [sec1, sec2, sec3, sec4, sec5] = await Promise.all(
-                [connectData('http://127.0.0.1:3700/api/common','POST',{
+                [connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter : 'city',
                     counts : 12
                 }),
-                connectData('http://127.0.0.1:3700/api/common','POST',{
+                connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter : 'keywords',
                     keyword:'친환경',
                     counts : 20
                 }), 
-                connectData('http://127.0.0.1:3700/api/common','POST',{
+                connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter : 'keywords',
                     keyword : '연인추천',
                     counts : 20
                 }),
-                connectData('http://127.0.0.1:3700/api/common','POST',{
+                connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter : 'keywords',
                     keyword : '색다른 공간',
                     counts : 20
                 }),                
-                connectData('http://127.0.0.1:3700/api/common','POST',{
+                connectData(`${default_data.d_base_url}/api/common`,'POST',{
                     filter : 'discount',
                     counts : 8
                 })])

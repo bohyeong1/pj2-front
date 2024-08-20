@@ -6,9 +6,9 @@ export {default as MainApp} from './main/mainApp/MainApp'
 // 로그인 / 회원가입 //
 export {default as Login} from './membership/login_app/login'
 export {default as Join} from './membership/join_app/join'
-export {default as Join_prev1} from './membership/join_prev1/join_prev1'
+export {default as Email_prove} from './membership/email_prove/email_prove'
 export {default as Mem_join_complete} from './membership/mem-join-comlete/Mem-join-complete'
-export {default as AgreeTerms} from './membership/agree_app/agree'
+export {default as Agree} from './membership/agree_app/agree'
 
 // =================================================
 // 서브 //

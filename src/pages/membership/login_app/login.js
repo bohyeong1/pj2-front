@@ -34,7 +34,7 @@ function Login (){
                     <div className="login__section">
                         <div className="login__section-text">
                             <span>아이디</span>
-                            <div className="login_section-box">
+                            <div className="login__section-box">
                                 <div></div>
                             </div>
                         </div>
@@ -46,7 +46,7 @@ function Login (){
                     <div className="login__section">
                         <div className="login__section-text">
                             <span>비밀번호</span>
-                            <div className="login_section-box">
+                            <div className="login__section-box">
                                 <div></div>
                             </div>
                         </div>
@@ -64,7 +64,7 @@ function Login (){
                 </form>
                 <div className="login__go-join">
                     <div className="login__go-join-text">계정이 없으신가요?</div>
-                    <NavLink to='/AgreeTerms' className="login__go-join-link">회원가입</NavLink>
+                    <NavLink to='/Agree' className="login__go-join-link">회원가입</NavLink>
                 </div>
             </div>
         </div>

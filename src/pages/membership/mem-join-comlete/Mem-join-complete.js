@@ -87,7 +87,7 @@ function Mem_join_complete(){
                 <div className="Mem_join_complete-content-sec1">
                     <div className="Mem_join_complete-content-sec1-s1">보형짱 닷컴</div>
                     <div className="Mem_join_complete-content-sec1-s2">
-                        <div className="level-bar-lv3"></div>
+                        <div className="level-bar-lv4"></div>
                     </div>
                     <div className="Mem_join_complete-content-sec1-s3">다른사람에게 보여질 이미지를 등록해 주세요!</div>
                 </div>

@@ -1,12 +1,23 @@
 import './App.scss';
 import { Route,Routes } from 'react-router-dom';
 import React from 'react';
-import { MainApp, Login, Join, Mem_join_complete,SubApp, Join_prev1,
-        // accomodations detail page
-        Detail_info_app,Acc_regist
+import { 
+        // =================================================
+        // main page //
+        MainApp, 
+        // =================================================
+        // membership page //
+        Login, Join, Mem_join_complete, Email_prove, Agree,
+        // =================================================
+        // sub accomodation page //
+        SubApp,
+        // =================================================
+        // accomodations detail page //
+        Detail_info_app,
+        Acc_regist
         ,Acc_regist_lv1, Acc_manage,Acc_regist_lv0, Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
         ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12,
-        Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation, AgreeTerms,Private_point,Acc_regist_intro,
+        Private_history,Private_management,ReservationApp,Acc_regist_start,Evaluation, Private_point,Acc_regist_intro,
         Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,Private_wish
 } from './pages';
 import gsap from 'gsap';
@@ -14,6 +25,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Provider } from 'react-redux';
 import { store } from './redux/config/configStore';
 import Overay from './utilComponent/modal/overay/overay';
+import Private_router from './private_router/private_router';
 
 function App(){
   console.log('lender')
@@ -34,12 +46,12 @@ function App(){
           <Route exact path='/' element={<MainApp></MainApp>}></Route>       ///메인
           
           {/* ----------------------------------------
-              -----------로그 페이지-----------------
+              -----------로그인 페이지-----------------
               ---------------------------------------- */}
           <Route exact path='/Login' element={<Login></Login>}></Route>                                                      ///로그인
           <Route exact path='/Join' element={<Join></Join>}></Route>                        ///회원가입
-          <Route exact path='/AgreeTerms' element={<AgreeTerms></AgreeTerms>}></Route>                                        ///회원가입 동의
-          <Route exact path='/Join_prev1' element={<Join_prev1></Join_prev1>}></Route>
+          <Route exact path='/Agree' element={<Agree></Agree>}></Route>                                        ///회원가입 동의
+          <Route exact path='/Email_prove' element={<Private_router data_state={true} element={Email_prove} />}></Route>   ////이메일 인증
           <Route exact path='/Mem_join_complete' element={<Mem_join_complete></Mem_join_complete>}></Route>                 ///회원가입 완료
 
 

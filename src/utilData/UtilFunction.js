@@ -1,19 +1,66 @@
+import default_data from "./defaultData"
+import { signInWithEmailAndPassword } from "firebase/auth"
+import { auth } from "../firebase/firebase"
+
 // =================================================
 // 데이터 fetch utill function //
 async function connectData(url, method, data = null, token = null){
-    const dataJson = await fetch(url,{
-      headers:{
-        'Content-Type':'application/json',
-        'Authorization': `${token? 'Bearer ' + token : ''}`, 
-      },
-      method: method,
-      body: data? JSON.stringify(data) : undefined 
-    })
+  const dataJson = await fetch(url,{
+    headers:{
+      'Content-Type':'application/json',
+      'Authorization': `${token? 'Bearer ' + token : ''}`, 
+    },
+    method: method,
+    body: data? JSON.stringify(data) : undefined 
+  })
 
     const result = await dataJson.json()
     return result
   }
 export default connectData
+
+// =================================================
+// 유저데이터 파이어베이스 연동 & db login 쿠키 저장 함수 //
+export async function user_login(id, password){
+  try{
+    // firebasse login
+    const mapping_id = id + default_data.fire_mapping_email
+    const user_data = await signInWithEmailAndPassword(auth, mapping_id, password)
+    const user_token = await user_data.user.getIdToken()
+
+    // db login
+    if(user_data && user_token){
+      const data = await fetch(`${default_data.d_base_url}/api/users/login`,{
+        headers:{
+          'Authorization': `Bearer ${user_token}`
+        },
+        method:'POST',
+        credentials:'include'
+      })
+      const parsing_data = await data.json()
+      return parsing_data
+    }
+    else{
+      console.log('firebase login 실패')
+    }
+  }catch(e){
+      console.log(e)
+  }
+}
+
+// =================================================
+// login 상태 체크 유저 정보 얻는 함수 //
+export async function get_user(boolean_value){
+  // boolean_value = true(사용자 정보 획득) false(db안거치고 http cookie에서 토큰 존재 유무만 체크)
+
+  const data = await fetch(`${default_data.d_base_url}/api/users/${boolean_value ? 'getuser' : 'maintain'}`,{
+    method:'GET',
+    credentials:'include'
+  })
+
+  const result = await data.json()
+  return result
+}
 
 // =================================================
 // state 전달 함수 //
@@ -159,6 +206,7 @@ export function make_query_obj(obj){
   }
   return {final_key}
 }
+
 
 
 

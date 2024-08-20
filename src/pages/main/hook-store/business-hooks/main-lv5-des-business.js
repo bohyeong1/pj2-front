@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import connectData from '../../../../utilData/UtilFunction'
-
+import default_data from '../../../../utilData/defaultData'
 function useMainLv5DesBusiness(handle_fun){
     // state
     const [dataStore, setDataStore] = useState(null)
@@ -17,7 +17,7 @@ function useMainLv5DesBusiness(handle_fun){
         async function select_data(filter_category, toggle_key) {
             let data
             try {
-                data = await connectData('http://127.0.0.1:3700/api/common', 'POST', {
+                data = await connectData(`${default_data.d_base_url}/api/common`, 'POST', {
                 filter: filter_category,
                 counts: 12,
                 keyword: toggle_key || null,
