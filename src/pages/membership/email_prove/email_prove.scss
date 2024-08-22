@@ -68,6 +68,7 @@
     display: flex;
     flex-direction: column;     gap:25px;
 }
+
 .email-prove-app__container-section2-input-wrapper{
     display: flex;  gap:5px;
 }
@@ -78,8 +79,22 @@
 .email-prove-app__container-section2-part1{
     width: 70%;
 }
+.email-prove-app__container-section2-part2{
+    padding-right: 70px;
+}
 .email-prove-app__container-section2-input-button{
     flex-grow: 1;    font-size: 1.125rem;  font-weight: bold; 
+}
+.email-prove-app__container-section2-code-wrapper{
+    position: relative;
+}
+.email-prove-app__timer-container{
+    position: absolute; right: 0;   top: 0; z-index: 2;
+    height: 50px;   padding: 0 10px;    display: flex;  align-items: center;
+}
+.email-prove-app__timer{
+    font-size: 0.825rem;    color: red;     font-weight: 100;
+    display: block; width: 100%;    text-align: center;
 }
 // =================================================
 // button //

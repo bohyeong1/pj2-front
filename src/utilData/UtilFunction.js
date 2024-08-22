@@ -208,5 +208,36 @@ export function make_query_obj(obj){
 }
 
 
+// =================================================
+// 카운트 다운 함수 //
+export function start_count(time, ref){
+
+  let timer = time
+  let minutes
+  let seconds
+
+  const interval = setInterval(() => {
+
+
+    minutes = Math.floor(timer / 60)
+    seconds = timer % 60
+
+    minutes = minutes < 10 ? '0' + minutes : minutes
+    seconds = seconds < 10 ? '0' + seconds : seconds
+
+    if(ref.current){
+      ref.current.textContent = `${minutes} : ${seconds}`
+    }
+    
+    timer--
+
+    if (timer < 0){
+      clearInterval(interval)          
+    }
+  }, 1000)
+  return interval
+}
+
+
 
 

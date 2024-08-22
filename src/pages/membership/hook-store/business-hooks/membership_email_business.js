@@ -4,6 +4,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import connectData from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
+import { start_count } from "../../../../utilData/UtilFunction";
 import { useEffect } from "react";
 
 function useMembershipEmailBusiness(data, states, refs, props){
@@ -12,19 +13,32 @@ function useMembershipEmailBusiness(data, states, refs, props){
     const navigate = useNavigate()
 
     // =================================================
-    // state //
-    // const {} = states
+    // refs //
+    const {timer} = refs
+
+    // =================================================
+    // states //
+    const {verification_state, setVerification_state} = states
+
+    // =================================================
+    // props //
+    const {login_user} = props
+
+    // =================================================
+    // interval //
+    let interval_var
 
     // =================================================
     // validation schema //
     const validation_schema = Yup.object().shape({
-        // id
+        // email
         email:Yup.string()
-        .required('아이디를 입력해 주세요.')
-        .min(7, '아이디는 7글자 이상 입력해 주세요.')
-        .max(12, '아이디는 12글자 이하 입력해 주세요.')
-        .matches(/[a-zA-Z]/, '아이디는 영문으로 작성해 주세요.')
-        .matches(/^[a-zA-Z0-9]+$/, '특수 문자는 사용하지 말아주세요.'),
+        .required('이메일을 입력해 주세요.')
+        .matches(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/, '기본적인 이메일 형식을 지켜주세요.'),
+        // code
+        code:Yup.string()
+        .required('코드를 입력해 주세요.')
+        .matches(/^.{6}$/, '코드는 6자리를 입력해 주세요.')
     })
 
     // =================================================
@@ -33,6 +47,23 @@ function useMembershipEmailBusiness(data, states, refs, props){
         resolver:yupResolver(validation_schema),
         mode:'all'
     })
+
+    // =================================================
+    // 인증코드 발급 //
+    async function verification_click(e, email){
+        e.preventDefault()
+        const verification_data = await connectData(`${default_data.d_base_url}/api/users/verification`, 'POST',{
+            userId : login_user.userId,
+            email : email
+        })
+        console.log(verification_data)
+        setVerification_state(verification_data)
+        // timer 실행
+        if(interval_var){
+            clearInterval(interval_var)
+        }
+        interval_var = start_count(600, timer, interval_var)
+    }
 
     // =================================================
     // data submit //
@@ -61,9 +92,8 @@ function useMembershipEmailBusiness(data, states, refs, props){
     }
 
     // =================================================
-    // id input value값 //
+    // email input value값 //
     const input_email = watch('email')
-
 
     // // =================================================
     // // 다음 회원가입 절차로 이동 //
@@ -73,7 +103,9 @@ function useMembershipEmailBusiness(data, states, refs, props){
     //     }
     // },[join_state])
 
-    return {register, handleSubmit, errors, isValid, submit, input_email}
+    
+
+    return {register, handleSubmit, errors, isValid, submit, input_email, verification_click}
 }
 
 export default useMembershipEmailBusiness
