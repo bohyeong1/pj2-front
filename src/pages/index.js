@@ -7,7 +7,7 @@ export {default as MainApp} from './main/mainApp/MainApp'
 export {default as Login} from './membership/login_app/login'
 export {default as Join} from './membership/join_app/join'
 export {default as Email_prove} from './membership/email_prove/email_prove'
-export {default as Mem_join_complete} from './membership/mem-join-comlete/Mem-join-complete'
+export {default as Profile} from './membership/profile/profile'
 export {default as Agree} from './membership/agree_app/agree'
 
 // =================================================

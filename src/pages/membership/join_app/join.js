@@ -63,8 +63,8 @@ function Join(){
                                 중복확인
                             </button>
                         </div>
-                        {errors.id && <span className="login__userid-alram">{errors.id.message}</span>}
-                        {duplicate && duplicate.userId === input_id && !errors.id && <span className="login__userid-alram" style={{color : `${duplicate.duplicate_state ? '#1273E4' : 'red'}`}}>
+                        {errors.id && <span className="input-alert-text">{errors.id.message}</span>}
+                        {duplicate && duplicate.userId === input_id && !errors.id && <span className="input-alert-text" style={{color : `${duplicate.duplicate_state ? '#1273E4' : 'red'}`}}>
                             {duplicate.duplicate_text}
                         </span>}
                     </div>  
@@ -80,14 +80,14 @@ function Join(){
                             <div>
                                 <input type="password" placeholder="비밀번호" className={`join-app__content-section2-part2 ${errors.password ? 'input-invalid' : ''}`}
                                 {...register('password')}></input>
-                                {errors.password && <span className="login__userpassword-alram">{errors.password.message}</span>}
+                                {errors.password && <span className="input-alert-text">{errors.password.message}</span>}
                             </div>
 
                             {/* 비번확인 */}
                             <div>
                                 <input type="password" placeholder="비밀번호 확인" className={`join-app__content-section2-part3 ${errors.password_confirm ? 'input-invalid' : ''}`}
                                 {...register('password_confirm')}></input>
-                                {errors.password_confirm && <span className="login__userpassword-alram">{errors.password_confirm.message}</span>}
+                                {errors.password_confirm && <span className="input-alert-text">{errors.password_confirm.message}</span>}
                             </div>                           
                         </div>
                     </div> 
@@ -101,7 +101,7 @@ function Join(){
                         {/* name */}
                         <input type="text" placeholder="이름" className={`join-app__content-section2-part4 ${errors.name ? 'input-invalid' : ''}`}
                         {...register('name')} autoComplete="off"></input>
-                        {errors.name && <span className="login__userpassword-alram">{errors.name.message}</span>}
+                        {errors.name && <span className="input-alert-text">{errors.name.message}</span>}
                     </div>                                              
 
                     <input type='submit' value='가입' className={`join-app__content-section2-btn 

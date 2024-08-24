@@ -7,7 +7,7 @@ import {
         MainApp, 
         // =================================================
         // membership page //
-        Login, Join, Mem_join_complete, Email_prove, Agree,
+        Login, Join, Profile, Email_prove, Agree,
         // =================================================
         // sub accomodation page //
         SubApp,
@@ -52,7 +52,7 @@ function App(){
           <Route exact path='/Join' element={<Join></Join>}></Route>                        ///회원가입
           <Route exact path='/Agree' element={<Agree></Agree>}></Route>                                        ///회원가입 동의
           <Route exact path='/Email_prove' element={<Private_router data_state={true} element={Email_prove} />}></Route>   ////이메일 인증
-          <Route exact path='/Mem_join_complete' element={<Mem_join_complete></Mem_join_complete>}></Route>                 ///회원가입 완료
+          <Route exact path='/Profile' element={<Private_router data_state={true} element={Profile} />}></Route>                 ///회원가입 완료
 
 
 

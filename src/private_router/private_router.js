@@ -11,6 +11,7 @@ function Private_router({data_state, element : Element, ...rest}){
     useEffect(()=>{
         get_user(data_state)
         .then(result => {
+            // console.log(result)
             try{
                 if(result.code === 200){
                     setUser_data(result)

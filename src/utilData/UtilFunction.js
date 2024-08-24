@@ -5,7 +5,7 @@ import { auth } from "../firebase/firebase"
 // =================================================
 // 데이터 fetch utill function //
 async function connectData(url, method, data = null, token = null){
-  const dataJson = await fetch(url,{
+  const data_json = await fetch(url,{
     headers:{
       'Content-Type':'application/json',
       'Authorization': `${token? 'Bearer ' + token : ''}`, 
@@ -14,10 +14,27 @@ async function connectData(url, method, data = null, token = null){
     body: data? JSON.stringify(data) : undefined 
   })
 
-    const result = await dataJson.json()
+    const result = await data_json.json()
     return result
   }
 export default connectData
+
+// =================================================
+// file data fetch utill function //
+export async function fileData(url, method, data){
+  if(!url || !method || !data){
+    alert('파라미터를 제대로 넣어주세요')
+    return
+  }
+  const data_file = await fetch(url,{
+    method : method,
+    body : data
+  })
+
+  const result = await data_file.json()
+  return result
+}
+
 
 // =================================================
 // 유저데이터 파이어베이스 연동 & db login 쿠키 저장 함수 //
@@ -207,36 +224,6 @@ export function make_query_obj(obj){
   return {final_key}
 }
 
-
-// =================================================
-// 카운트 다운 함수 //
-export function start_count(time, ref){
-
-  let timer = time
-  let minutes
-  let seconds
-
-  const interval = setInterval(() => {
-
-
-    minutes = Math.floor(timer / 60)
-    seconds = timer % 60
-
-    minutes = minutes < 10 ? '0' + minutes : minutes
-    seconds = seconds < 10 ? '0' + seconds : seconds
-
-    if(ref.current){
-      ref.current.textContent = `${minutes} : ${seconds}`
-    }
-    
-    timer--
-
-    if (timer < 0){
-      clearInterval(interval)          
-    }
-  }, 1000)
-  return interval
-}
 
 
 

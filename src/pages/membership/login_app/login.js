@@ -40,7 +40,7 @@ function Login (){
                         </div>
                         <input type="text" placeholder="bohyeongzzang123" className={`login__userid ${errors.id ? 'input-invalid' : ''}`}
                         {...register('id')} autoComplete="off"></input>
-                        {errors.id && <span className="login__userid-alram">{errors.id.message}</span>}
+                        {errors.id && <span className="input-alert-text">{errors.id.message}</span>}
                     </div>
 
                     <div className="login__section">
@@ -52,7 +52,7 @@ function Login (){
                         </div>
                         <input type="password" placeholder="비밀번호를 입력하세요." className={`login__userpassword ${errors.password ? 'input-invalid' : ''}`}
                         {...register('password')} autoComplete="off"></input>
-                        {errors.password && <span className="login__userpassword-alram">{errors.password.message}</span>}
+                        {errors.password && <span className="input-alert-text">{errors.password.message}</span>}
                     </div>
 
                     <div className="login__state">

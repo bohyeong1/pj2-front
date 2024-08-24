@@ -1,0 +1,147 @@
+@import '../../../manage_scss_style/commonness/colors';
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+// =================================================
+// container //
+.profile__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile__content{
+    width:384px;  height:650px;  margin-top: 64px;
+    display: flex;
+    flex-direction: column;
+    gap:20px; 
+}
+
+// =================================================
+// title //
+
+.profile__content-section1{
+    width:100%;
+    border-bottom: solid 1px $grey-lv7;
+}
+.profile__content-section1-part1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 30px;  
+}
+.profile__content-section1-part1 > span:nth-child(2){
+    font-size: 0.975rem;
+    font-weight: 500;   color:$blue-default;
+}
+.profile__content-section1-part3{
+    font-size: 0.875rem;  margin-bottom: 25px;   color: $grey-lv1;
+    font-weight: 600;  
+}
+
+.profile__content-section1-part2{
+    width:60px; background: rgb(243, 243, 243);     margin-bottom: 15px;
+    border-radius: 8px; overflow: hidden;
+}
+.level-bar-lv4{
+    width:100%; height: 5px; background: black;
+}
+
+
+// =================================================
+// contents //
+.profile__content-section2{
+    display: flex;  flex-direction: column; gap:25px;   width: 100%;    height: 100%;
+}
+.profile__content-section2-part1{
+    width:100%;
+    position: relative;
+}
+.profile__content-section2-part1-img{
+    width: 100%; height: 100%;   position: relative;    flex-direction: column;
+    display: flex;  align-items: center;    justify-content: center;    gap:10px;
+}
+
+.profile__content-section2-part1-profile{
+    position: relative;
+    border-radius: 100%; width: 130px; height: 130px;   
+    display: flex;  justify-content: center;    align-items: center;    overflow: hidden;
+}
+.profile__content-section2-part1-profile > span{
+    font-size: 25px;
+}
+.proflie__img-profile{
+    width: 100%;    height: 100%;   object-fit: cover;
+}
+.profile__content-section2-part2{
+    text-align: center; font-size: 1.2rem;
+}
+// btn
+.profile__content-section2-part1-profile-btn{
+    position: absolute;
+    display: inline-block;
+    left:50%;   font-size: 0.875rem; top: 105px;
+    border-radius: 100px;
+    border: solid 1.5px $grey-lv1;   font-size: 0.8125rem; transition: 0.2s;
+    line-height: 0.8125rem; font-weight: 600;   cursor: pointer; padding: 8px 16px;
+    background-color: white;
+}
+.profile__content-section2-part1-profile-btn:hover{
+    background-color: rgb(240, 247, 255);
+}
+.profile__content-section2-part1-default-btn{
+    position: absolute; border: none;   outline: none;
+    display: inline-block;  color: $blue-default;
+    right:-20px;   font-size: 0.875rem; top: -20px;
+    font-size: 0.8125rem; transition: 0.2s;
+    line-height: 0.8125rem; font-weight: 600;   cursor: pointer; padding: 8px 16px;
+    background-color: white;
+}
+.profile__content-section2-part1-default-btn:hover{
+    text-decoration: underline;
+}
+// profile text
+.profile__content-section2-part1-text-wrapper{
+    width: 100%; height: 100%;   display: flex;  flex-direction: column; gap:15px;   justify-content: center;
+}
+.proflie__content-section2-part1-text{
+    display: flex;  gap:20px;
+}
+.proflie__content-section2-part1-text-wrapper{
+    margin-bottom: 10px; font-size: 0.875rem;
+    color:$grey-lv1;    font-weight: 600;
+    display: flex;  gap:1px;    width: 60px;
+}
+.profile__letter{
+    letter-spacing: 3.5px;
+}
+.proflie__content-section2-part1-text > span:nth-child(2){
+    font-size: 0.875rem;   font-weight: 300;   letter-spacing: 0.3px;   color: $grey-lv1;
+}
+.proflie__content-section2-part1-text:nth-child(4) > span:nth-child(2){
+    color: $blue-default;
+}
+.profile__content-section2-part1-nameinput{
+    display: block;  height:19px; border:none;   background: none;
+    flex-grow: 1;   width: 230px;
+    font-size: 0.875rem;    font-weight: 500;
+}   
+.profile__content-section2-part1-nameinput::placeholder{
+    color: $blue-default;  font-weight: 600;
+}
+.profile__content-section2-part1-nameinput:-ms-input-placeholder{
+    color: $blue-default;   font-weight: 600;
+}  
+.profile__content-section2-part1-nameinput::-ms-input-placeholder{
+    color: $blue-default;   font-weight: 600;
+}
+// =================================================
+// button //
+.profile__content-section2-btn{
+    height: 50px;   width: 100%;   margin-top: 15px;
+    font-size: 1.125rem;   font-weight: bold;
+}

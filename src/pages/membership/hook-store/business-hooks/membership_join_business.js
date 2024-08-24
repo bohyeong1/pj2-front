@@ -75,7 +75,7 @@ function useMembershipJoinBusiness(data, states, refs, props){
             // console.log(user_data)
             setJoin_state(true)
         }else{
-            setJoin_state(true)
+            setJoin_state(false)
             alert('회원정보를 제대로 기입해 주세요')
         }
     }

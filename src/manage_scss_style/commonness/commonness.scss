@@ -34,3 +34,28 @@
 .input-invalid{
   outline:solid 0.5px red;
 }
+
+
+// =================================================
+// box-shadow //
+.box-shadow-lv1{
+  box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+}
+
+// =================================================
+// profile box style //
+.profile-box-style{
+  display: flex;  gap:10px; justify-content: center;  border-radius: 15px;
+  padding: 40px 0;
+}
+.profile-box-style-column{
+  display: flex;  gap:40px; align-items: center;  border-radius: 15px;
+  padding-top: 35px;  padding-left: 25px; padding-right: 25px;  padding-bottom: 25px;  flex-direction: column;
+}
+
+// =================================================
+// input alert text //
+.input-alert-text{
+  font-size: 0.825rem;    color: red;    margin-top: 10px;    font-weight: 100;
+  display: block;
+}

@@ -42,12 +42,12 @@ function Kakaomap({ adressData, setMain_adress_fun, set_sub_coorFn, event, scrol
             try{
                 geocoder.addressSearch(city, function(result, status) {
                     // 지도 중심 설정(지역)
-                    // console.log(parseFloat(result[0].y) - 0.0005, parseFloat(result[0].x) + 0.0005)
+                    // console.log(parseFloat(result[0].y) - 0.1, parseFloat(result[0].x) + 0.05)
                     // 카드 호버 시 상세정보가 표시 되므로 중심좌표 살짝 우하단으로 이동
                     const map_container = document.querySelector('.kakaomap-container')
                     const map = new kakao.maps.Map(map_container,{
-                        center: new kakao.maps.LatLng(parseFloat(result[0].y) - 0.0005, parseFloat(result[0].x) + 0.0002),
-                        level:8
+                        center: new kakao.maps.LatLng(parseFloat(result[0].y) - 0.1, parseFloat(result[0].x) + 0.05),
+                        level:9
                     })
                     // 지도 확대 축소 + - 버튼
                     const zoom_control = new kakao.maps.ZoomControl()
