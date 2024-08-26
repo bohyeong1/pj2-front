@@ -12,46 +12,47 @@ import useMenuMainStyle from "../hook-store/style-hooks/menu-main-style";
 
 const Main_menu = forwardRef((props, ref) => {    
 
-    // redux state 
+    // =================================================
+    // redux states //
     const overay_state = useSelector(state => state.overay.open_target_id)
 
-    // state
-    const [hostlocation, setHostLocation] = useState(false)
-    const [logState, setLogState] = useState(false)
-    const [userName, setUserName] = useState()
-    const [logModalState, setLogModalState] = useState(false)
-    const [hostIndex, setHostIndex] = useState(null)
+    // =================================================
+    // states //
+    const [host_location, setHost_location] = useState(false)
+    const [log_state, setLog_state] = useState(false)
+    const [log_modal_state, setLog_modal_state] = useState(false)
+    const [host_index, setHost_index] = useState(null)
 
-    // props
-    const {data, preview, scroll} = props
+    // =================================================
+    // props //
+    const {data, preview, scroll, login_user} = props
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // business
-    const {clickLogbtn, link_to_url} = useMenuMainBusiness(data, 
+    const {click_btn, link_to_url} = useMenuMainBusiness(data, 
         state_store([
             {
-                'hostlocation':hostlocation,
-                'setHostLocation':setHostLocation
+                'host_location':host_location,
+                'setHost_location':setHost_location
             },
             {
-                'logState':logState,
-                'setLogState':setLogState
+                'log_state':log_state,
+                'setLog_state':setLog_state
             },
             {
-                'userName':userName,
-                'setUserName':setUserName
+                'log_modal_state':log_modal_state,
+                'setLog_modal_state':setLog_modal_state
             },
             {
-                'logModalState':logModalState,
-                'setLogModalState':setLogModalState
-            },
-            {
-                'hostIndex':hostIndex,
-                'setHostIndex':setHostIndex
+                'host_index':host_index,
+                'setHost_index':setHost_index
             }
-        ]))
+        ]),undefined,
+        {
+            'login_user' : login_user
+        }
+    )
 
     // style
     const {} =  useMenuMainStyle()
@@ -65,10 +66,10 @@ const Main_menu = forwardRef((props, ref) => {
             <div className="main-menu-container">
                 <Link to={default_data.Logo.url} className="main-menu-logo">{default_data.Logo.name}</Link>
 
-                <div className={`main-menu-host ${hostlocation ? 'hostmenu-active' : ''}`}>
+                <div className={`main-menu-host ${host_location ? 'hostmenu-active' : ''}`}>
                     {default_data.host_menus.map((ele,id)=>{
                         return(
-                            <div key={id} className={`${hostIndex === id ? 'current-host' : ''}`} onClick={()=>{link_to_url(ele.url)}}>{ele.name}</div>
+                            <div key={id} className={`${host_index === id ? 'current-host' : ''}`} onClick={()=>{link_to_url(ele.url)}}>{ele.name}</div>
                         )
                     })}
                 </div>
@@ -76,12 +77,12 @@ const Main_menu = forwardRef((props, ref) => {
                 <div className="main-menu-right">
                     {default_data.Main_menus.map((ele,id)=>{
                         return(
-                            <div onClick={()=>{clickLogbtn(ele.url, id)}} key={id} className='main-menu-list'>
+                            <div onClick={()=>{click_btn(ele.url, id)}} key={id} className='main-menu-list'>
                                 <img className="main-menu-log-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAANUlEQVR4nO3VsQkAMAwDwd9/rGiwZIIUAYs0f6DaIBAGSQUBdjn5dXg1GpOunJM0Jn4nSTw4Ff6YkoE1i0QAAAAASUVORK5CYII="></img>
-                                {ele.name === '회원가입/로그인' ? (logState ? `${userName}님`:ele.name) : ele.name}</div>
+                                {ele.name === '회원가입/로그인' ? (login_user ? `${login_user.userId}`:ele.name) : ele.name}</div>
                         )
                     })}
-                    <LogModal log_m_state = {logModalState}></LogModal>
+                    <LogModal log_m_state = {log_modal_state}></LogModal>
                 </div>            
             </div>
             <div className="main-menu__search-container" style={{display:`${preview ? 'block' : 'none'}`}}>

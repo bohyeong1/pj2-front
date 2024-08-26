@@ -101,7 +101,6 @@ function useMembershipProfileBusiness(data, states, refs, props){
 
             try{
                 const result = await fileData(`${default_data.d_base_url}/api/users/profile`,'POST',form_data) 
-                console.log(result)
             }catch(e){
                 console.log(e)
             }
@@ -134,6 +133,14 @@ function useMembershipProfileBusiness(data, states, refs, props){
             return input_nickname.length !== 0 && !errors.nickname
         }
     }
+
+    // =================================================
+    // 다음 절차로 이동 //
+    useEffect(()=>{
+        if(loading_state){
+            navigate('/Join_complete')
+        }
+    },[loading_state])
 
     return {register, handleSubmit, errors, isValid, input_nickname, add_profile_img, click_input_img, default_profile_click, boolean_submit, submit}
 }

@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import { user_login } from "../../../../utilData/UtilFunction";
-
+import session_storage from "../../../../sessionStorage/session_storage";
 
 function UseMembershipLoginBusiness(data, states, refs, props){
 
@@ -44,6 +44,12 @@ function UseMembershipLoginBusiness(data, states, refs, props){
         const {id, password} = user
         const user_data = await user_login(id, password)
         console.log(user_data)
+
+        if(user_data && user_data.log_state){
+            console.log('확인')
+            session_storage.save('user_id', user_data.userId)
+            navigate('/')
+        }
     }
     
     // =================================================

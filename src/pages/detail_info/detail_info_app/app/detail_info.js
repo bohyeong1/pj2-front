@@ -1,5 +1,5 @@
 import React, {useEffect,useState} from "react";
-import './detail_info_app.scss'
+import './detail_info.scss'
 import { useParams } from "react-router-dom";
 import Main_menu from "../../../../utilComponent/menu/main-menu/main-menu";
 import Original_img from "../../../../picture/original_img/original_img";
@@ -17,7 +17,7 @@ import default_data from "../../../../utilData/defaultData";
 import Loading from '../../../../utilComponent/material/loading/loading'
 import useDetDetappStyle from "../../hook_store/style_hooks/det_detapp_style";
 
-function Detail_info_app(){
+function Detail_info(){
     let params = useParams()
 
     ///state
@@ -118,4 +118,4 @@ function Detail_info_app(){
     )
 }
 
-export default Detail_info_app 
+export default Detail_info 

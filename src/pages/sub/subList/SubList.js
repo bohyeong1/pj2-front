@@ -51,7 +51,7 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                     ///////////////////////////////////////////////
                     //////////////// 일반 창 레이아웃 //////////////
                     ///////////////////////////////////////////////
-                    <NavLink to={`Detail_info_app/${ele._id}`} className="sublist-list" key={id}>
+                    <NavLink to={`Detail_info/${ele._id}`} className="sublist-list" key={id}>
                         <div className="list-img">
                             <Static_img url={ele.main_img}></Static_img>
                         </div>

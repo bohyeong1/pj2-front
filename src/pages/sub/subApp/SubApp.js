@@ -94,7 +94,6 @@ function SubApp (){
             <div className="sub-footer">
               <Footer></Footer>
             </div>
-
         </div>
     )
 }

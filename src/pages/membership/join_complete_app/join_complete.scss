@@ -1,0 +1,41 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+.join-complete__app{
+    width:1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.join-complete__wrapper{
+    position: absolute;    top: 50%; left:50%; transform: translate(-50%, -50%);
+    display: flex;  justify-content: center;    align-items: center;
+}
+.join-complete__container{
+    width: fit-content; height: fit-content;    padding: 30px;
+    display: flex;      align-items: center;    justify-content: center;
+    flex-direction: column;
+    gap:20px; border-radius: 15px;  background-color: white;    z-index: 2;
+}
+.join-complete__container > span{
+    font-size: 2rem;
+}
+.join-complete__img{
+    width: 400px;   object-fit: cover;  position: absolute; z-index: 1;
+    top:95px;   left:-90px;
+}
+.join-complete__box-wrapper{
+    width: 100%;    position: relative;  height: 21px;
+}
+
+.join-complete__button{
+    position: absolute;
+    display: inline-block;
+    right: 0;   font-size: 0.875rem; 
+    border-radius: 100px;
+    border: solid 1.5px $grey-lv1;   font-size: 0.8125rem; transition: 0.2s;
+    line-height: 0.8125rem; font-weight: 600;   cursor: pointer; padding: 8px 16px;
+    background-color: white;
+}
+.join-complete__button:hover{
+    background-color: rgb(240, 247, 255);
+}

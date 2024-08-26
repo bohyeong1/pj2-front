@@ -47,7 +47,7 @@ function Lv5_description({title}){
                             } 
                             return(
                                 <SwiperSlide key={id}>
-                                    <NavLink to={`SubApp/Detail_info_app/${ele._id}`} key={id} className="lv5-img-wrapper">
+                                    <NavLink to={`SubApp/Detail_info/${ele._id}`} key={id} className="lv5-img-wrapper">
                                         <div className="lv5-img-container">
                                             <Pastel_img url={ele.main_img}></Pastel_img>
                                         </div>

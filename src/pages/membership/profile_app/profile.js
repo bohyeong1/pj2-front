@@ -68,7 +68,7 @@ function Profile({login_user}){
         <div className="profile__container">
             {/* loading */}
             {loading_state === false ? <Loading></Loading> : null}
-            <Main_menu></Main_menu>
+            <Main_menu login_user={login_user}></Main_menu>
             <div className="profile__content">
                 <div className="profile__content-section1">
                     <div className="profile__content-section1-part1">

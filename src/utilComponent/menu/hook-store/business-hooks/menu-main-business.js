@@ -6,28 +6,33 @@ function useMenuMainBusiness(data, states, refs, props){
     const navigate = useNavigate()
     const location = useLocation()
 
-    ///로그데이터
-    const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
-    const logDataParse = JSON.parse(logData) || null
+    // =================================================
+    // props //
+    const {login_user} = props
 
-    /////////////////로그인 상태 유지
+    // =================================================
+    // states //
+    const {host_location, setHost_location, log_state, setLog_state, log_modal_state, setLog_modal_state, host_index, setHost_index} = states
+
+    // =================================================
+    // login 상태 //
     useEffect(()=>{
-        if(logData){
-            states.setLogState(true)
-            states.setUserName(logDataParse.name)
+        if(login_user){
+            setLog_state(true)
         }
-            states.setHostLocation(location.pathname.includes('/Acc_regist'))
-            const Index = default_data.host_menus.findIndex((obj)=>{return obj.url === location.pathname})
+        setHost_location(location.pathname.includes('/Acc_regist'))
+        const Index = default_data.host_menus.findIndex((obj)=>{return obj.url === location.pathname})
         
         if(Index !== -1){
-            states.setHostIndex(Index)
+            setHost_index(Index)
         }  
-        },[states.logState, states.userName, states.hostlocation])
+        },[log_state, host_location])
   
-
-    function clickLogbtn(url,id){
-        if(states.logState && id === 0){
-            states.setLogModalState(!states.logModalState)
+    // =================================================
+    // click menu //
+    function click_btn(url,id){
+        if(log_state && id === 0){
+            setLog_modal_state(!log_modal_state)
         }else{
             navigate(url)
         }
@@ -37,7 +42,7 @@ function useMenuMainBusiness(data, states, refs, props){
         navigate(url)
     }
 
-    return {clickLogbtn, link_to_url}
+    return {click_btn, link_to_url}
 }
 
 export default useMenuMainBusiness

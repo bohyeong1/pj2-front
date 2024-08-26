@@ -14,21 +14,29 @@ import Footer from "../../../utilComponent/menu/footer/Footer";
 import useMainBusiness from "../hook-store/business-hooks/main-business";
 import useMainStyle from "../hook-store/style-hooks/main-style";
 import { reference_store, state_store } from "../../../utilData/UtilFunction";
+import session_storage from "../../../sessionStorage/session_storage";
 
 function MainApp(){
     // console.log('렌더링 회수 체크')
 
-    // state
+    // =================================================
+    // user //
+    const user_state = {
+        userId : session_storage.load('user_id')
+    }
+
+    // =================================================
+    // state //
     const [dataStore, setDataStore] = useState(null)
 
-    // ref
+    // =================================================
+    // ref //
     const search_component = useRef(null)
     const main_app_ref = useRef(null)
     const search_menu = useRef(null)
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // business
     const {} = useMainBusiness(undefined,
         state_store([
@@ -46,26 +54,28 @@ function MainApp(){
         ])
     )
 
+    // =================================================
+    // rending img //
     const imgurl = 'https://cdn.ardentnews.co.kr/news/photo/202407/3656_17080_456.jpg'
     
     return(
         <div className="mainApp" ref={main_app_ref}>
             <div className="main-gnb">
                 <div className="main-gnb__menu-container">
-                    <Main_menu data={dataStore?.sec1.search} preview={true} ref={search_menu} scroll={true}></Main_menu>
+                    <Main_menu data = {dataStore?.sec1.search} preview = {true} ref = {search_menu} scroll = {true} login_user = {user_state.userId ? user_state : null}></Main_menu>
                 </div>
-                <Search_menu ref={search_component} shadow={true} subtitle={true} data={dataStore?.sec1.search} preview={false}></Search_menu>
+                <Search_menu ref = {search_component} shadow = {true} subtitle = {true} data = {dataStore?.sec1.search} preview = {false}></Search_menu>
             </div>
             <div className="main-content">
                 <Event_swiper></Event_swiper>
-                <Lv1_description title={'국내 인기 여행지'} data ={dataStore?.sec1.search}></Lv1_description>
-                <Lv2_description title={'연인추천 숙소'} data={dataStore?.sec3.accomodations}></Lv2_description>
-                <Lv2_description title={'뷰맛집 숙소'} data={dataStore?.sec4.accomodations}></Lv2_description>
+                <Lv1_description title = {'국내 인기 여행지'} data ={dataStore?.sec1.search}></Lv1_description>
+                <Lv2_description title = {'연인추천 숙소'} data = {dataStore?.sec3.accomodations}></Lv2_description>
+                <Lv2_description title = {'뷰맛집 숙소'} data = {dataStore?.sec4.accomodations}></Lv2_description>
                 <Creator_description></Creator_description>
-                <Lv5_description title={'유형별 숙소'}></Lv5_description>
-                <Lv4_description title={'친환경 숙소'} data={dataStore?.sec2.accomodations} imgurl = {imgurl}></Lv4_description>
-                <Lv3_description title={'할인 이벤트'} data={dataStore?.sec5.accomodations}></Lv3_description>
-                <Search_descripton title={'국내여행지'} data={dataStore?.sec1.search}></Search_descripton>
+                <Lv5_description title = {'유형별 숙소'}></Lv5_description>
+                <Lv4_description title = {'친환경 숙소'} data = {dataStore?.sec2.accomodations} imgurl = {imgurl}></Lv4_description>
+                <Lv3_description title = {'할인 이벤트'} data = {dataStore?.sec5.accomodations}></Lv3_description>
+                <Search_descripton title = {'국내여행지'} data = {dataStore?.sec1.search}></Search_descripton>
             </div>
             <div className="main-footer">
                 <Footer></Footer>

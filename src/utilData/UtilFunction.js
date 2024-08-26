@@ -49,10 +49,14 @@ export async function user_login(id, password){
     if(user_data && user_token){
       const data = await fetch(`${default_data.d_base_url}/api/users/login`,{
         headers:{
-          'Authorization': `Bearer ${user_token}`
+          'Authorization' : `Bearer ${user_token}`,
+          'Content-Type' : 'application/json'
         },
         method:'POST',
-        credentials:'include'
+        body:JSON.stringify({
+          userId : id
+        }),
+        credentials : 'include'
       })
       const parsing_data = await data.json()
       return parsing_data
@@ -71,13 +75,30 @@ export async function get_user(boolean_value){
   // boolean_value = true(사용자 정보 획득) false(db안거치고 http cookie에서 토큰 존재 유무만 체크)
 
   const data = await fetch(`${default_data.d_base_url}/api/users/${boolean_value ? 'getuser' : 'maintain'}`,{
-    method:'GET',
-    credentials:'include'
+    method : 'GET',
+    credentials : 'include'
   })
 
   const result = await data.json()
   return result
 }
+
+// =================================================
+// cookie 보내서 유저 정보 post 요청하는 함수 //
+export async function update_user(url, data = null){
+  const user_data = await fetch(url,{
+    method : 'POST',
+    credentials : 'include',
+    headers : {
+      'Content-Type': 'application/json'
+    },
+    body: data? JSON.stringify(data) : undefined 
+  })
+
+  const result = await user_data.json()
+  return result
+}
+
 
 // =================================================
 // state 전달 함수 //

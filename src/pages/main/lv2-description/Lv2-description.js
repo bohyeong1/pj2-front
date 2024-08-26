@@ -37,7 +37,7 @@ function Lv2_description({title, data}){
                             } 
                             return(
                             <SwiperSlide key={id}>
-                                <NavLink to={`SubApp/Detail_info_app/${ele._id}`} key={id} className="lv2-img-wrapper">
+                                <NavLink to={`SubApp/Detail_info/${ele._id}`} key={id} className="lv2-img-wrapper">
                                     <div className="lv2-img-container">
                                         <Pastel_img url={ele.main_img}></Pastel_img>
                                     </div>

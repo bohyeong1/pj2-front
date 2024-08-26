@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from "react";
-import './Acc_regist.css'
+import './acc_regist.scss'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Footer from '../../../utilComponent/menu/footer/Footer'
 import { useNavigate } from "react-router-dom";
@@ -8,43 +8,38 @@ import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 import History_main from "../../../picture/history-main/History-main";
 
-function Acc_regist(){
-    ///로그데이터
-    const logData = sessionStorage.getItem('userData') || localStorage.getItem('userData')
-    const logDataParse = JSON.parse(logData) || null
-
-    //////////숙소 데이터 state
-    const [reservData, setReservDataState] = useState(null)
+function Acc_regist({login_user}){
 
 
-    async function getData(){
-        const homeData = await connectData(`${default_data.d_base_url}/api/reserv/host`, 'POST',{
-            userId : logDataParse._id
+    // =================================================
+    // states //
+    const [reserve_data, setReserve_dataState] = useState(null)
+
+
+    async function get_data(){
+        const home_data = await connectData(`${default_data.d_base_url}/api/reserv/host`, 'POST',{
+            userId : login_user._id
         })
-        if(homeData){
-            setReservDataState(homeData)
+        if(home_data){
+            setReserve_dataState(home_data)
         }else{
-            alert('데이터를 받아오는데 실패하셨습니다')
+            console.log('데이터를 받아오는데 실패하셨습니다')
         }
     }
 
     useEffect(()=>{
-        getData()
+        get_data()
     },[])
-
-    console.log(reservData)
-
-
 
     const navigator = useNavigate()
 
     return(
         <div className="Acc_registApp">
-            <Main_menu></Main_menu>
+            <Main_menu login_user={login_user}></Main_menu>
             
             <div className="Acc_regist-container">
                 <div className="Acc_regist-sec1">
-                    <div className="Acc_regist-s1-b1">{`${logDataParse.name} 님, 반갑습니다!`}</div>
+                    <div className="Acc_regist-s1-b1">{`${login_user.name} 님, 반갑습니다!`}</div>
                     <div className="Acc_regist-s1-b2">
                         <div className="Acc_regist-s1-b2-b1">
                             <div className="Acc_regist-s1-b2-b1-t1">호스팅 정책</div>
@@ -65,15 +60,15 @@ function Acc_regist(){
                     </div>
                     <div className="Acc_regist-s2-b2">
                         <div className="Acc_regist-s2-b2-d1">
-                            <UserImg data={logDataParse}></UserImg>
+                            <UserImg data={login_user}></UserImg>
                         </div>
                         <div className="Acc_regist-s2-b2-d2">
-                            <div className="Acc_regist-nodata"  style={{display:`${logDataParse.hostText ? 'none' : 'block'}`}}>
+                            <div className="Acc_regist-nodata"  style={{display:`${login_user.hostText ? 'none' : 'block'}`}}>
                                 <span style={{marginRight : '15px'}}>게스트에게 보여줄 내용을 작성해 주세요!</span>
                                 <img className="Acc_regist-nodata-img" src={default_data.d_imgs.smile}></img>
                             </div>
-                            <textarea style={{display:`${!logDataParse.hostText ? 'none' : 'block'}`}} readOnly className="Acc_regist-s2-b2-d2-text" spellCheck={false}
-                            value={logDataParse.hostText ? logDataParse.hostText : ''}></textarea>
+                            <textarea style={{display:`${!login_user.hostText ? 'none' : 'block'}`}} readOnly className="Acc_regist-s2-b2-d2-text" spellCheck={false}
+                            value={login_user.hostText ? login_user.hostText : ''}></textarea>
                             
                         </div>
                     </div>
@@ -85,12 +80,12 @@ function Acc_regist(){
                     <div className="Acc_regist-s3-b2">
                         <div className="Acc_regist-s3-b2-t1"></div>
                         <div className={`Acc_regist-s3-b2-t2 ${'reserve_active'}`}>
-                            {reservData?.length != 0 ? 
+                            {reserve_data?.length != 0 ? 
                             <div className="Acc_regist-s3-b2-t2-d1">
-                                {reservData?.map((el, id)=>{
+                                {reserve_data?.map((el, id)=>{
                                     return(
                                         <div key={id} className="Acc_regist-s3-b2-t2-d1-a1" 
-                                        style={{borderBottom : `${id === reservData?.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}> 
+                                        style={{borderBottom : `${id === reserve_data?.length - 1 ? 'none' : 'solid 1px rgb(210, 210, 210)'}`}}> 
                                             <div>
                                                 <History_main data={el}></History_main>
                                             </div>
@@ -119,7 +114,6 @@ function Acc_regist(){
                                         </div>
                                     )
                                   })}
-
                         </div>                        
                             : '예약된 숙소가 없습니다'}
                         </div>
