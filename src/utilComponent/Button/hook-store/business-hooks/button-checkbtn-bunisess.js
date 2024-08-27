@@ -4,23 +4,28 @@ import { set_modaldata, delete_modaldata } from "../../../../redux/modules/modal
 
 function useButtonCheckbtnBusiness(data,states,refs,props){
 
+    // =================================================
+    // querystring //
     const [SearchParams,setSearchParams] = useSearchParams()
 
-    // refs
+    // =================================================
+    // refs //
     const {check_btn_input} = refs
 
-    // props 
+    // =================================================
+    // props //
     const {modal, keyValue} = props
 
-
-
-    // dispatch
+    // =================================================
+    // dispatch //
     const dispatch = useDispatch()
 
     //////////////////////////////////////////
     //////////////// url 방식 ////////////////
     /////////////////////////////////////////
-    // on인풋
+
+    // =================================================
+    // on input //
     function check_input_url(e){
         if(e.target.checked){
             SearchParams.set(keyValue, e.target.value)
@@ -31,7 +36,8 @@ function useButtonCheckbtnBusiness(data,states,refs,props){
         }
     }
 
-    // 인풋 클릭
+    // =================================================
+    // input click //
     function check_click_url(e){
         check_btn_input.current.forEach((ele)=>{
             if(ele !== e.target){
@@ -40,12 +46,14 @@ function useButtonCheckbtnBusiness(data,states,refs,props){
         })
     }
 
-
+    // ================================================================================================================================= //
 
     //////////////////////////////////////////
     ////////////////state 방식////////////////
     /////////////////////////////////////////
-    // on인풋
+
+    // =================================================
+    // on input //
     function check_input_state(e){
 
         if(e.target.checked){
@@ -55,7 +63,8 @@ function useButtonCheckbtnBusiness(data,states,refs,props){
         }
     } 
 
-    // 인풋 클릭
+    // =================================================
+    // input click //
     function check_click_state(e){
         check_btn_input.current.forEach((ele)=>{
             if(ele !== e.target){

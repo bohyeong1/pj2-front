@@ -1,53 +1,59 @@
-import React,{useRef} from "react";
-import './Host-footer.css'
+import React, {useState} from "react";
+import './host_footer.scss'
 import { useLocation} from "react-router-dom";
-import LinkBtn from "../../Button/linkBtn/LinkBtn";
+import LinkBtn from "../../Button/link_btn/link_btn";
 import default_data from "../../../utilData/defaultData";
+import useMenuHostfooterBusiness from "../hook-store/business-hooks/menu_hostfooter_business";
+import { state_store } from "../../../utilData/UtilFunction";
 
-function Host_footer({fetchHandlerFun, dropData}){
-
-
-    // console.log(fetchHandlerFun, dropData)
-
-    const regist_step = default_data.regist_step
+function Host_footer({fetch_handler, drop_data, button_state}){
+    
+    // =================================================
+    // location //
     const location = useLocation()
-    const thisUrl = location.pathname.split('/')
-    const thisStep = regist_step.indexOf(thisUrl[thisUrl.length-1])       //////현재 페이지 등록 단계의 인덱스
-    const stepOfPercent = ((thisStep +1)/ regist_step.length).toFixed(2)
 
-    // console.log(stepOfPercent)
+    // =================================================
+    // states //
+    const [prev_url, setPrev_url] = useState(null)
+    const [next_url, setNext_url] = useState(null)
 
-    /////////이전 페이지 url 리턴 함수
-    function createPrevUrl(index){
-        if(index === 0){
-            return false
-        }else{
-            return regist_step[index-1]
-        }
-    }
+    // =================================================
+    // const //
+    const regist_step = default_data.regist_step
+    const this_url = location.pathname.split('/')
+    const this_step = regist_step.indexOf(this_url[this_url.length-1])
+    const percent = ((this_step +1)/ regist_step.length).toFixed(2)
 
-    //////////다음 페이지 url 리턴 함수
-    function createNextUrl(index){
-        if(index === regist_step.length-1){
-            return false
-        }else{
-            return regist_step[index+1]
-        }
-    }
+    // =================================================
+    // hooks //
+    // business
+    const {} = useMenuHostfooterBusiness({
+        'regist_step' : regist_step,
+        'this_step' : this_step        
+        },
+        state_store([
+            {
+                'prev_url' : prev_url,
+                'setPrev_url' : setPrev_url
+            },
+            {
+                'next_url' : next_url,
+                'setNext_url' : setNext_url
+            }
+        ])
+    )
 
-    const prevUrl = createPrevUrl(thisStep)
-    const nextUrl = createNextUrl(thisStep)
 
 
 
     return(
-        <div className="Host_footer-container">
-            <div className="host_footer-con-sec1">
-                <div className="host_footer-con-s1-bar" style={{width : `${100 * stepOfPercent}%`}}></div>
+        <div className="host-footer__container">
+            <div className="host-footer__container-section1">
+                <div className="host-footer__container-section1-bar" style={{width : `${100 * percent}%`}}></div>
             </div>
-            <div className="host_footer-con-sec2">
-                <LinkBtn text='이전' url={prevUrl}></LinkBtn>
-                <LinkBtn text='다음' url={nextUrl} fetchHandlerFun = {fetchHandlerFun} dropData={dropData} index = {thisStep}></LinkBtn>
+            <div className="host-footer__container-section2">
+                <LinkBtn text='이전' url={prev_url} button_state={button_state}></LinkBtn>
+                <LinkBtn text='다음' url={next_url} fetch_handler = {fetch_handler} drop_data={drop_data} index = {this_step} button_state={button_state}></LinkBtn>
             </div>
 
         </div>

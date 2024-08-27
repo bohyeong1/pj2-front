@@ -45,8 +45,8 @@ function useAccInitialBusiness(data, states, refs, props){
             const user_data = await update_user(`${default_data.d_base_url}/api/users/hostinitial`,{
                 userId : user_state
             })
-            console.log(user_data)
             if(user_data.host_state && user_data.log_state){
+                setLoading(true)
                 navigate('/Acc_initial_regist')
             }
             else{
@@ -55,6 +55,7 @@ function useAccInitialBusiness(data, states, refs, props){
         }catch(e){
             console.log(e)
         }
+
     }
 
     return {host_regist_click}

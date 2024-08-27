@@ -13,15 +13,24 @@
     -ms-user-select: none;
 }
 
+
+// =================================================
+// default button //
+.default-button{
+  height:50px;  width: fit-content;
+  font-size: 1.125rem;  font-weight: bold;
+  padding: 0 20px;
+}
+
 // =================================================
 // submit button //
-// enable button
+// enable button 
 .button-enable{
-    background-color: $blue-default;    color: white;   cursor: pointer;
-    border:none; outline: none; border-radius: 10px; font-weight: bold;  display: block; 
-    &:hover{
-      background: rgb(18, 110, 220);
-    }
+  background-color: $blue-default;    color: white;   cursor: pointer;
+  border:none; outline: none; border-radius: 10px; font-weight: bold;  display: block; 
+  &:hover{
+    background: rgb(18, 110, 220);
+  }
 }
 // disable button 
 .button-disable{
@@ -34,6 +43,7 @@
 .input-invalid{
   outline:solid 0.5px red;
 }
+
 
 
 // =================================================
@@ -58,4 +68,19 @@
 .input-alert-text{
   font-size: 0.825rem;    color: red;    margin-top: 10px;    font-weight: 100;
   display: block;
+}
+
+// =================================================
+// border on textarea //
+.border-textarea{
+  overflow: auto;
+  resize: none; 
+  border: 1px solid $grey-lv8;
+  outline: none;
+  padding: 15px;
+  font-size: 1rem;
+
+  &:focus{
+    border: 1px solid black;
+  }
 }
