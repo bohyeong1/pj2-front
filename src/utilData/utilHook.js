@@ -1,14 +1,11 @@
 import {useState, useRef} from "react"
-import { useParams, useSearchParams, navigate, useNavigate } from "react-router-dom"
-import default_data from "./defaultData";
-import connectData from "./UtilFunction";
-import { fire_connect } from "./UtilFunction";
+import { useParams, useSearchParams } from "react-router-dom"
 
 const util_hooks = {
     // =================================================
     // 스와이퍼 버튼 로직 모음 //
     //// number -> 슬라이더 한 파트당 이미지 등장 개수
-    useSwiperBtn : (number, handler)=>{
+    useSwiperBtn : function(number, handler){
         const [RbtnState, setRbtnState] = useState(false)
         const [LbtnState, setLbtnState] = useState(true)
         const swiper_ref = useRef(null)
@@ -75,7 +72,7 @@ const util_hooks = {
 
     // =================================================
     // querystring 조회 후 query obj 객체 변환 훅 //
-    useJoinUrl:()=>{    
+    useJoinUrl:function(){    
         const params = useParams()       
         const [SearchParams, setSearchParams] = useSearchParams()
 
@@ -115,6 +112,12 @@ const util_hooks = {
             }       
         }
         return {final_key, sort_key}
+    },
+
+    // =================================================
+    // get next level url //
+    useGetNextUrl : function(){
+        
     }
 }
 

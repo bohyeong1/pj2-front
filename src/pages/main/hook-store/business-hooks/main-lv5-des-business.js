@@ -16,15 +16,15 @@ function useMainLv5DesBusiness(handle_fun){
         // fetch data
         async function select_data(filter_category, toggle_key) {
             let data
-            try {
+            try{
                 data = await connectData(`${default_data.d_base_url}/api/common`, 'POST', {
                 filter: filter_category,
                 counts: 12,
                 keyword: toggle_key || null,
                 })
-            } catch (e) {
+            }catch(e){
                 console.log(e)
-            } finally {
+            }finally{
                 setDataStore(data.accomodations)
                 const data_length = data.accomodations.length
                 handle_fun(data_length)

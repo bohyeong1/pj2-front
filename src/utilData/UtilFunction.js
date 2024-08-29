@@ -85,7 +85,7 @@ export async function get_user(boolean_value){
 
 // =================================================
 // cookie 보내서 유저 정보 post 요청하는 함수 //
-export async function update_user(url, data = null){
+export async function connect_data_width_cookies(url, data = null){
   const user_data = await fetch(url,{
     method : 'POST',
     credentials : 'include',
@@ -227,9 +227,9 @@ export function make_query_obj(obj){
     }
     else if(value === 'price-over'){
       if(obj[value].split('%')[0] !== '500000'){
-          final_key['price'] = {
-            ...final_key['price'],
-            $lte:parseInt(obj[value].split('%')[0])}
+        final_key['price'] = {
+          ...final_key['price'],
+          $lte:parseInt(obj[value].split('%')[0])}
       }
     }
     else if(value === 'capacity'){

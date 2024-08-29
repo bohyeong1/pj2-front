@@ -27,7 +27,7 @@ function Conditional_router({data_state, element : Element, redirection_url}){
     if(user_data === null){
         return <Loading></Loading>
     }    
-    console.log(user_data)
+
     return(
         user_data && user_data.log_state ? 
         user_data.user.host_state ? <Element login_user = {user_data.user}/> : 

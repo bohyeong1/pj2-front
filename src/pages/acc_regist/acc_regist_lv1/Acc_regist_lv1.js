@@ -1,78 +1,82 @@
 import React, {useRef, useState} from "react";
-import './Acc_regist_lv1.css'
+import './Acc_regist_lv1.scss'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Host_footer from "../../../utilComponent/menu/host-footer/Host-footer";
 import default_data from '../../../utilData/defaultData'
-import connectData from "../../../utilData/UtilFunction";
+import session_storage from "../../../sessionStorage/session_storage";
+import useAccRegistLv1Business from "../hook_store/business_hooks/acc_regist_lv1_business";
+import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import '../../../manage_scss_style/commonness/commonness.scss'
 
-function Acc_regist_lv1(){
-    // 카테고리 ref
+function AccRegistLv1({login_user, this_step}){
+    // =================================================
+    // refs //
     const categories = useRef([])
 
-    // 선택된 카테고리의 data값 state
-    const [sellectData, setSellectData] = useState(null)
+    // =================================================
+    // accomodation information //
+    const accomodation = session_storage.load('house')
+   
+    // =================================================
+    // this level's accomodation field name //
+    const field_name = default_data.regist_field[this_step]
 
-    const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
-    //현재 등록중인 숙소 데이터
-    const registData = JSON.parse(sessionStorage.getItem('registData'))
+    // =================================================
+    // states //
+    const [current_data, setCurrent_data] = useState(null)
+    const [prev_data, setPrev_data] = useState()
+    const [button_state, setButton_state] = useState(null)
+    const [fetch_state, setFetch_state] = useState(null)
 
-    console.log(registData)
-    ///숙소 데이터 업데이트 패치
-    async function fetchCategory(data){
-        const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
-        {seller : userData._id,
-        _id : registData._id,
-        category : data
-        }, localStorage.getItem('log'))
-    } 
-
-    
-
-    ///프론트쪽 카테고리 선택
-    function clickLv0Box(id){
-        // e.stopPropagation()
-        // console.log(default_data.d_category_icon[id]) 
-
-        for(let i=0; i<default_data.d_category_icon.length; i++){
-            if(i == id){
-                categories.current[id].style.background = 'rgb(243, 243, 243)'
-                categories.current[id].style.border = 'solid 2px black'
+    // =================================================
+    // hooks //
+    const {fetch_acc, click_box} = useAccRegistLv1Business({
+        'field_name' : field_name,
+        'accomodation' : accomodation
+        },
+        state_store([
+            {
+                'current_data' : current_data,
+                'setCurrent_data' : setCurrent_data
+            },
+            {
+                'prev_data' : prev_data,
+                'setPrev_data' : setPrev_data
             }
-            else{
-                categories.current[i].style.background = 'white'
-                categories.current[i].style.border = 'solid 2px rgb(180,180,180)'
+        ]),
+        reference_store([
+            {
+                'categories' : categories
             }
+        ]),
+        {
+            'login_user' : login_user
         }
-
-        setSellectData(default_data.d_category_icon[id])
-    }
-
-
+    )
 
     return (
-        <div className="Acc_regist_lv1-container">
-            <Main_menu></Main_menu>
-            <div className="Acc_regist_lv1_content">
-                <div className="Acc_regist_lv1-con-title">
-                    등록하는 숙소를 설명하는 단어(카테고리)를 선택해 주세요!
+        <div className="Acc-regist-lv1__container">
+            <Main_menu login_user={login_user}></Main_menu>
+            <div className="Acc-regist-lv1__content">
+                <div className="Acc-regist-lv1__content-title">
+                    숙소 유형을 선택해 주세요!
                 </div>
-                <div className="Acc_regist_lv1-con-sec1">
+                <div className="Acc-regist-lv1__content-section1">
                     {default_data.d_category_icon.map((ele,id)=>{
                         return(
-                            <div className="Acc_regist_lv1-con-s1-box"  ref={(el)=>{categories.current[id]=el}} key={id} onClick={()=>{clickLv0Box(id)}}>
+                            <div className="Acc-regist-lv1__content-section1-box not-user-sellect"  ref={(el)=>{categories.current[id]=el}} key={id} onClick={()=>{click_box(id)}}>
                                 <img src={ele.url}/>
-                                <div className="Acc_regist_lv1-con-s1-box-tex">{ele.name}</div>
+                                <div className="Acc-regist-lv1__content-section1-box-text">{ele.name}</div>
                             </div>
                         )
-                    })}
-                    
+                    })}                    
                 </div>
             </div>
-            <div className="Acc_resist_lv1_footer">
-                <Host_footer fetchHandlerFun = {fetchCategory} dropData = {sellectData}></Host_footer>
+            <div className="Acc-regist-lv1__footer">
+                <Host_footer fetch_handler = {fetch_acc} dropData = {current_data} button_state={true} fetch_state={true}></Host_footer>
             </div>
         </div>
     )
 }
 
-export default Acc_regist_lv1
+export default AccRegistLv1

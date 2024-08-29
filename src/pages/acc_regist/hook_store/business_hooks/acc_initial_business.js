@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useSearchParams, useNavigate } from "react-router-dom"
-import { update_user } from "../../../../utilData/UtilFunction"
+import { connect_data_width_cookies } from "../../../../utilData/UtilFunction"
 import default_data from "../../../../utilData/defaultData"
 
 function useAccInitialBusiness(data, states, refs, props){
@@ -42,7 +42,7 @@ function useAccInitialBusiness(data, states, refs, props){
     async function host_regist_click(){
         setLoading(false)
         try{
-            const user_data = await update_user(`${default_data.d_base_url}/api/users/hostinitial`,{
+            const user_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/hostinitial`,{
                 userId : user_state
             })
             if(user_data.host_state && user_data.log_state){

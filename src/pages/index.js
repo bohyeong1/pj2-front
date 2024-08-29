@@ -24,7 +24,7 @@ export {default as Detail_info} from './detail_info/detail_info_app/app/detail_i
 export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'
 export {default as Acc_initial} from './acc_regist/acc_initial_app/acc_initial'
 export {default as Acc_initial_regist} from './acc_regist/acc_initial_regist_app/acc_initial_regist'
-export {default as Acc_regist_lv1} from './acc_regist/acc_regist_lv1/Acc_regist_lv1'
+export {default as AccRegistLv1} from './acc_regist/acc_regist_lv1/Acc_regist_lv1'
 export {default as Acc_manage} from './acc_regist/acc_manage/Acc_manage'
 export {default as Acc_regist_lv0} from './acc_regist/acc_regist_lv0_app/Acc_regist_lv0'
 export {default as Acc_regist_lv2} from './acc_regist/acc_regist_lv2/Acc_regist_lv2'

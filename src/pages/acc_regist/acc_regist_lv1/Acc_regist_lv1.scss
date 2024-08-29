@@ -1,0 +1,44 @@
+@import '../../../manage_scss_style/commonness/colors';
+.Acc-regist-lv1__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc-regist-lv1__content{
+    margin-top: 50px;   margin-bottom: 20vh;
+    width:800px;
+}
+
+.Acc-regist-lv1__content-title{
+    margin-bottom: 50px; font-weight: bold;
+    font-size: 1.725rem;
+}
+.Acc-regist-lv1__content-section1-box{
+    border-radius: 10px; background-color: $grey-end-end; width: 100%; 
+    box-sizing: border-box; padding: 20px;  cursor: pointer;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    display: flex;  align-items: center;    justify-content: center;    flex-direction: column;
+}
+.Acc-regist-lv1__content-section1{
+    width:100%;
+    display: grid; grid-template-columns: repeat(5, 1fr); gap:30px;
+}
+.Acc-regist-lv1__content-section1-box-text{
+    margin-top: 10px;   font-weight: 600;
+}
+.Acc-regist-lv1__active{
+    background-color: $blue-lv2;   box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    border: none;   scale: 1.02;
+}
+
+
+/* 푸터 */
+.Acc-regist-lv1__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;  left: 50%;
+    transform: translateX(-50%);
+}

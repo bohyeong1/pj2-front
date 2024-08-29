@@ -14,7 +14,8 @@ function useMenuHostfooterBusiness(data, states, refs, props){
     function create_prev_url(index){
         if(index === 0){
             return false
-        }else{
+        }
+        else{
             return regist_step[index-1]
         }
     }

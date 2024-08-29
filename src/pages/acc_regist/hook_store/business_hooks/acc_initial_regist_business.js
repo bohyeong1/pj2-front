@@ -2,7 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom"
 import { useForm } from "react-hook-form";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
-import { update_user } from "../../../../utilData/UtilFunction";
+import { connect_data_width_cookies } from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
 
 function useAccInitialRegistBusiness(data, states, refs, props){
@@ -47,7 +47,7 @@ function useAccInitialRegistBusiness(data, states, refs, props){
         const {text} = input_data
 
         try{
-            const host_data = await update_user(`${default_data.d_base_url}/api/users/hostinformation`,{
+            const host_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/hostinformation`,{
                 host_text : text
             })
             if(host_data && host_data.log_state){

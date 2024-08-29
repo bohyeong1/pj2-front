@@ -7,10 +7,12 @@ import useAccRegistLv0Business from "../hook_store/business_hooks/acc_regist_lv0
 import Loading from "../../../utilComponent/material/loading/loading";
 import { state_store } from "../../../utilData/UtilFunction";
 
-function Acc_regist_lv0(){
+function Acc_regist_lv0({login_user}){
     // =================================================
     // state //
     const [loading, setLoading] = useState(null)
+    const [button_state, setButton_state] = useState(true)
+    const [fetch_state, setFetch_state] = useState(null)
 
     // =================================================
     // hooks //
@@ -19,6 +21,10 @@ function Acc_regist_lv0(){
             {
                 'loading' : loading,
                 'setLoading' : setLoading
+            },
+            {
+                'fetch_state' : fetch_state,
+                'setFetch_state' : setFetch_state
             }
         ])
     )
@@ -26,12 +32,10 @@ function Acc_regist_lv0(){
     return(
         loading === false ? <Loading></Loading> :
         <div className='Acc-regist-lv0__container'>
-            <Main_menu></Main_menu>
+            <Main_menu login_user={login_user}></Main_menu>
             <div className="Acc-regist-lv0__content">
                 <div className="Acc-regist-lv0__content-section1">
-                    <span>간단한 절차를</span>
-                    <span>마무리하고</span>
-                    <span>숙소를 등록하세요!</span>
+                    <span>간단한 절차를 진행해 주세요!</span>
                 </div>
                 <div className="Acc-regist-lv0__content-section2">
                     <div className="Acc-regist-lv0__content-section2-part1">
@@ -66,9 +70,8 @@ function Acc_regist_lv0(){
                     </div>
                 </div>
             </div>
-
             <div className="Acc-resist-lv0__footer">
-                <Host_footer button_state = {true}></Host_footer>
+                <Host_footer button_state = {button_state} fetch_handler = {fetch_acc} drop_data = {null} fetch_state = {fetch_state}></Host_footer>
             </div>
         </div>
     )
