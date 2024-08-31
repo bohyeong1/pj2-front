@@ -7,6 +7,7 @@ import session_storage from "../../../sessionStorage/session_storage";
 import useAccRegistLv1Business from "../hook_store/business_hooks/acc_regist_lv1_business";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import '../../../manage_scss_style/commonness/commonness.scss'
+import Loading from "../../../utilComponent/material/loading/loading";
 
 function AccRegistLv1({login_user, this_step}){
     // =================================================
@@ -24,16 +25,13 @@ function AccRegistLv1({login_user, this_step}){
     // =================================================
     // states //
     const [current_data, setCurrent_data] = useState(null)
-    const [prev_data, setPrev_data] = useState()
-    const [button_state, setButton_state] = useState(null)
+    const [prev_data, setPrev_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
     const [fetch_state, setFetch_state] = useState(null)
+    const [loading, setLoading] = useState(null)
 
     // =================================================
     // hooks //
-    const {fetch_acc, click_box} = useAccRegistLv1Business({
-        'field_name' : field_name,
-        'accomodation' : accomodation
-        },
+    const {fetch_acc, click_box} = useAccRegistLv1Business(undefined,
         state_store([
             {
                 'current_data' : current_data,
@@ -42,19 +40,25 @@ function AccRegistLv1({login_user, this_step}){
             {
                 'prev_data' : prev_data,
                 'setPrev_data' : setPrev_data
+            },
+            {
+                'fetch_state' : fetch_state,
+                'setFetch_state' : setFetch_state
+            },
+            {
+                'loading' : loading,
+                'setLoading' : setLoading
             }
         ]),
         reference_store([
             {
                 'categories' : categories
             }
-        ]),
-        {
-            'login_user' : login_user
-        }
+        ])
     )
 
     return (
+        loading === false ? <Loading></Loading> :
         <div className="Acc-regist-lv1__container">
             <Main_menu login_user={login_user}></Main_menu>
             <div className="Acc-regist-lv1__content">
@@ -73,7 +77,7 @@ function AccRegistLv1({login_user, this_step}){
                 </div>
             </div>
             <div className="Acc-regist-lv1__footer">
-                <Host_footer fetch_handler = {fetch_acc} dropData = {current_data} button_state={true} fetch_state={true}></Host_footer>
+                <Host_footer fetch_handler = {fetch_acc} drop_data = {current_data} button_state={current_data ? current_data : false} fetch_state={fetch_state}></Host_footer>
             </div>
         </div>
     )

@@ -34,7 +34,28 @@
 // disable button 
 .button-disable{
   display: block;  border:none;   background-color: $grey-end-end; border-radius: 10px;
-  font-weight: bold;  color: $grey-lv6; outline: none;  cursor:not-allowed
+  font-weight: bold;  color: $grey-lv6; outline: none;  cursor:not-allowed;
+}
+
+// =================================================
+// small button enable//
+.small-button{
+  border-radius: 10px;
+  border: solid 1.5px rgb(235,235,235);  transition: 0.2s;
+  font-weight: 600;  cursor: pointer;  background-color: $blue-default; color: white;
+
+  &:hover{
+    background: rgb(18, 110, 220);
+  }
+}
+// small button disabled //
+.small-button-disabled{
+  border-radius: 10px;
+  border: solid 1.5px rgb(235,235,235);  transition: 0.2s;
+  font-weight: 600;  background-color: $blue-default; color: white;
+  background-color: $grey-end-end;
+  color: $grey-lv6;
+  cursor:not-allowed;
 }
 
 // =================================================
@@ -89,4 +110,8 @@
   box-sizing: border-box; padding: 20px;  cursor: pointer;
   box-shadow: 0 0 10px 1px rgb(207, 207, 207);
   display: flex;  align-items: center;    justify-content: center;    flex-direction: column;
+}
+.acc-regist-sellect-box-active{
+  background-color: $blue-lv2;   box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+  border: none;   scale: 1.02;
 }

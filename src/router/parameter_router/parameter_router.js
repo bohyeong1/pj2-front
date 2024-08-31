@@ -34,8 +34,9 @@ function Parameter_router({data_state, element : Element, redirection_url}){
         const current_home = session_storage.load('house')
         
         // 해당 숙소데이터값 없으면 가져오기
-        if(house_id && house_id !== current_home._id){
+        if(house_id && (!current_home || house_id !== current_home._id)){
             // fetch logic
+            console.log('session 없음')
         }else{
             get_user(data_state)
             .then(result => {

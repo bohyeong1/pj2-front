@@ -1,0 +1,39 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+.Acc-regist-lv2__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.Acc-regist-lv2__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc-regist-lv2__content{
+    margin-top: 50px;
+    width:800px;
+}
+.Acc-regist-lv2__content-title{
+    margin-bottom: 50px;
+    font-size: 1.725rem;    font-weight: bold;
+}
+.Acc-regist-lv2__content-section1{
+    width:100%;
+    display: grid; grid-template-columns: repeat(3, 1fr); gap:30px;
+}
+.Acc-regist-lv2__content-section1-box{
+    width: 100%; display: flex;  flex-direction: column; gap:10px;
+}
+.Acc-regist-lv2__content-section1-box > img{
+    height: 50px;
+}
+.Acc-regist-lv2__content-section1-box-text1{
+    margin-top: 10px;   margin-bottom: 10px;    font-weight: bold; font-size: 1.2rem;
+}
+.Acc-regist-lv2__content-section1-box-text2{
+    color: $grey-lv2;   flex-grow: 1;   line-height: 1.3;
+}

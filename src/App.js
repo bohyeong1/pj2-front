@@ -24,7 +24,7 @@ import {
         // =================================================
         // accomodations host page //
         Acc_regist, Acc_initial ,AccRegistLv1, Acc_manage,Acc_regist_lv0, 
-        Acc_regist_lv2, Acc_regist_lv3,Acc_regist_lv4, Acc_regist_lv5
+        AccRegistLv2, AccRegistLv3,AccRegistLv4, Acc_regist_lv5
         ,Acc_regist_lv6,Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9,
         Acc_regist_lv10,Acc_regist_lv11,Acc_regist_lv12, Acc_regist_start,
         Acc_regist_intro,Acc_initial_regist,
@@ -94,11 +94,12 @@ function App(){
           <Route exact path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                     {/*호스트 텍스트 메시지 입력 페이지*/}
           <Route exact path='/Acc_regist/Acc_regist_start' element={<Acc_regist_start></Acc_regist_start>}></Route>                                     {/*숙소 등록 시작 페이지*/}   
           <Route path="/Acc_regist/Acc_regist_lv0" element={<Parameter_router element={Acc_regist_lv0} data_state={true}/>} />
-          <Route path="/Acc_regist/Acc_regist_lv0/:house" element={<Parameter_router element={Acc_regist_lv0} data_state={true}/>}/>                   {/*숙소 등록 페이지 lv0*/}
-          <Route path="/Acc_regist/AccRegistLv1/:house" element={<Parameter_router element={AccRegistLv1} data_state={true}/>}/>                       {/*숙소 등록 페이지lv1*/}                                             
-          <Route exact path='/Acc_regist/Acc_regist_lv2' element={<Acc_regist_lv2></Acc_regist_lv2>}></Route>                                           {/*숙소 등록 페이지lv2*/}
-          <Route exact path='/Acc_regist/Acc_regist_lv3' element={<Acc_regist_lv3></Acc_regist_lv3>}></Route>                                           {/* 숙소 등록 페이지 lv3*/}
-          <Route exact path='/Acc_regist/Acc_regist_lv4' element={<Acc_regist_lv4></Acc_regist_lv4>}></Route>                                           {/*숙소 등록 페이지 lv4*/}
+          <Route path="/Acc_regist/Acc_regist_lv0/:house" element={<Parameter_router element={Acc_regist_lv0} data_state={true}/>}/>                    {/*숙소 등록 페이지 lv0*/}
+          <Route path="/Acc_regist/AccRegistLv1/:house" element={<Parameter_router element={AccRegistLv1} data_state={true}/>}/>                        {/*숙소 등록 페이지lv1*/} 
+          <Route path="/Acc_regist/AccRegistLv2/:house" element={<Parameter_router element={AccRegistLv2} data_state={true}/>}/>                        {/*숙소 등록 페이지lv2*/}   
+          <Route path="/Acc_regist/AccRegistLv3/:house" element={<Parameter_router element={AccRegistLv3} data_state={true}/>}/>                        {/* 숙소 등록 페이지 lv3*/}
+          <Route path="/Acc_regist/AccRegistLv4/:house" element={<Parameter_router element={AccRegistLv4} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv4*/}      
+                                       
           <Route exact path='/Acc_regist/Acc_regist_lv5' element={<Acc_regist_lv5></Acc_regist_lv5>}></Route>                                           {/*숙소 등록 페이지 lv5*/}
           <Route exact path='/Acc_regist/Acc_regist_lv6' element={<Acc_regist_lv6></Acc_regist_lv6>}></Route>                                           {/*숙소 등록 페이지 lv6*/}
           <Route exact path='/Acc_regist/Acc_regist_lv7' element={<Acc_regist_lv7></Acc_regist_lv7>}></Route>                                           {/*숙소 등록 페이지 lv7*/}

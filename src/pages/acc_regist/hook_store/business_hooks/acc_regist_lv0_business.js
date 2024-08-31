@@ -18,8 +18,8 @@ function useAccRegistLv0Business(data, states, refs, props){
     // fetch acc //
     async function fetch_acc(data ,index){
         setLoading(false)
-        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/registLv0`,{
-            sell_step : parseInt(index)
+        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/registLv0`,'POST',{
+            acc_step : parseInt(index)
         })
         if(acc_data && acc_data.acc_state){
             console.log(acc_data)
@@ -32,7 +32,7 @@ function useAccRegistLv0Business(data, states, refs, props){
     // =================================================
     // fetch 유무 결정 //
     useEffect(()=>{
-        if(param.house === session_storage.load('house')._id){
+        if(session_storage.load('house') && param.house === session_storage.load('house')._id){
             setFetch_state(false)
         }else{
             setFetch_state(true)

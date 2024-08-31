@@ -60,30 +60,30 @@ const default_data = {
     // accomodation - base facility default data structure //
     d_base_facility : [
         {name:'침실',
-            counts:'',
+            counts:0,
             url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACO0lEQVR4nO2ZT0tUURiHH5QxlXRjKNGAShEaUWCJrmoWtahd0qKQCEGjL6AmBAlu3EQtpG3rENrVohatgkBCv4ALI3AhERJtMrpx4HfhcLijM9e5c89lzgMv595zz8w9v/OeP+87A4FAINBgTgGRY+8pICXghuyFhNzDI+4Ai1WsPaH9IPADeIVnvE2YMrF1OG3N/RfgK9CJZ1yypsxNYFsi1hLavgT2gbN4zhOJ2ABOOM/OAP8cjxnPeMc14AD4CQwnPO+yPBfbBJ7RD3zXiE/hEReqjGoSbcAHTZXneMRrdcqM7rMa2j9V+wMJWbXMHIK5MKpOVYAZ4C9w8ojPfDpk+z1PTlTUAcOQrk15GFcSFnFs3RRIiJdUgpCCeWRSEaspY3qARxna7TRrrZqQPuUO5n5P5TvVx+12FGc12n4D34CRRghZBzatYO8csKX6rDeFTuAN8Bl4CDwGetMIua5y3Gk74TzPcne7rHeYOG5Xg2gStbqE3Fdp1oJNr/M8SyFlveMqcFrX5vyqS8gY8CchGLyr+rEmCCkBK5YX4uij7jWyrPR0FrgIzOl+uYkHZ5d1nVqIyb0XlN1FKudV3wwh3cAvaxtOJWTaip1uAQ9UxnXTRfFIVKN5u0ZKzodrfYl3Qmx3lqwvybuubiH2AluR+VDXuh7xmSgI8YyoJT1SzihROo6Vj3OyL2WcytZiS070kDpozJuhlheyqN9uffPIqv7SO3Jqmdz4o2MD5M9AQr9MXwOBQIBi8h8iYy6sgwUkugAAAABJRU5ErkJggg==',
         },    
         {name:'침대',
-            counts:'',
+            counts:0,
             url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABZUlEQVR4nO2WPUsEMRCGH1FsROGwkUM7C8HK9qxEK7XXH+AfEITrLfyqxav9D2LhB9gIgoitYGNzNiIoZ6GIjEQmsMjF1QXX5JwHhmSys5m8mZBdMAzDMAzjg15gE7gFmsC6jiXHBiCfbI0Eaeria8Ck9t1YcohayE8GMSGRIVaRyBCrSGRIp1dkHtgBLoEnHXPtBbAFjJOIEMmxN6AB9JGAkEOtzAhQAYaAKWAbeNaYM33mOf3BZhS1FnAMzH1XiFtkV2ADxoBrjTsAutu8X4at5gm513bxi2qOAncatxyY7zeoAnXgRXPNtkvs/aWMILf7IRY07gEYKPnWq2uuo+zCPd53R2pP+zfARGAyF3eucSslC6lqrsfswj1Zvx84Uf8V2AVmgEGgBxgGpoF9jbn6g++Q+HxFr9/YjI4VkhpiQiJDrCKRIanfWv9PSKyICUmtIhI4g7Eheb8oyQsxDMMwDAryDq3Vwnyhbkg0AAAAAElFTkSuQmCC'
         },
         {name:'소파',
-            counts:'',
+            counts:0,
             url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADjklEQVR4nO2ZeYhNURzHP2bGrmzZ/zBTYsiaUISUP1Ak2ZOM+MOaPX/4Q/K/7EvWSJbINlH+lNSUpUz2vSkaW2gYhnn61ffqNO57c994776b7qdOvXPP9v2de87vnN99EBMTExMTExMTk2uaAbOBU8AjoApIZClVaYyTGrNppoyYBbzMovD60gtgxr8YkA9sdzq8CSwCegEtyB4tgGJgMXDLGX+rNKXNVnXwFSgBGhE+jYD50mBatqTbwQzHiOHknhHAN2maFrSRba7namSzERUWSNOzoA5guhrY+swjOuQBd6RtapAGx1V5OdFjhbQdC1K5XJX7Ej36S9vdIJXfq3Jbokc7aTON9eJ5BzvNo0YzaTON/78hfYD9QK1zkq8FmpB7mgLrnZO+Vlp71604yTk966ZbOd4v7R23WzeZ5olexSKgWgWela2AsfIO9vxCDg25JA3l0tRSGg84y6zQKh7Sg4M+nXQA3qp8WPg2MMbxUqalLodVbkZRocyAJJ1tUvk5wqdUY29IUj5I5a8s804ZP4uNzlp6v4AePuX2qocCC4FtwEXgNvAa+AD8VP8f9HZtuV4B9gFLgFFAG59+e2lTV2mf+NFBfVu/XFdmcoqZ2a86O4AuCrZMyAMZmIkAyi6qR4C5QDdgp57vSqFriupcQzdcyzwFuqdwzbWaXc89e6lartpErJEXGQx0lbfzgiGb9Y5AP2C83sZe4Abwxcewn5qknkk0FeombHXn2YMC4LIeWIe7k0Rinvf4rOWzEhio9pkIoMwTLQPOA59S7Mt8afSML3U1NNf6rlHhhCTBzcKQTvwmmmU/TzlBGmuk2VfPSlU6S3Q5I42mNSntteZrtKmjRifgB/A9hZf9w2lZvI7osU7a7PtavYxX5Sc5+nKSinvSNo6AsfErNRhNdBgpTRXpfN/arEZHiQ6Hpcm0BaZIm6o6xYEUJsXS8kPa0mKPZqBSrq64oZ8sG0CBgim7b61ybuCpritJ6ZrBe1Qm0i9pShvv+l4GnHC+roSZ3mvsMuVNU1q0Bj6q8SgtqYfKzyT7zHKOgAJ9f07oDpZW2L1RDa8qX6L8/ZD2Sb7GSmhspCUhbYF57LyNxrriW34O4THHCS8aS0tC/2YFplKNhgCrnQ7C8lporEcae7WiUPv9hga4Xjf9099fDWSmjw6LHANj8YlFbxa82HVlafa01ov9K2AaTItNsGn7i99vE5z5vAJ14AAAAABJRU5ErkJggg=='
         },          
         {
             name:'욕실',
-            counts:'',
+            counts:0,
             url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACM0lEQVR4nO3Yy4tOYRzA8Y9xGZdyKZqNFAsbJZNCIRasSCELVpLN/ANGuWRjwywIRcpZWLkUxWQhJSLbKddCoywUJSbXcevU7623yWXeOed9z5mcb/3qfXrPe57zfZ/f8/ye51BRUQrGYDMu4yGeDSMe4Sq2ok0JmIwr+InXuIbzw4hevIrfXcfUokXOxsMcwsQGfzseB/AdlxTIIvzAmYz3ORJ/xkoFsT8eYHbG+8zAN/QoiNMYyOleL3FBQSR4m3Gh2IB9eI+n6MZqjDUKRDpwAh8jNdP4EulVa7/BnpAtpch6vIuV6hw2YmZ81xbzbTtuhtBzLFQykR0h8CBWvH+xLmrTAJYricgqfMXtBovfXLyI4jlHwSJp4XsSDzRrBP104hMuKlhkZ+T7tgx9HY7iu1iBIjdiNLJsDjtifvUUJZIun4M4nkN/d3BfQSJrI62OYk3G6MXnGJ2WiozDh7oil1fcbbVIe3ScHri25BR9UYdaKjIhRE5hXk5xK06hLU+twSakVl+rRWp7q+6cY2kRIqOCpAGR+bHVqLEgokZnXFNjSeyzUtKzybIcTqK5iKQrV39d+15Ejf64pkZaL07G5+kxN9IXFU2hElGNSPGptQldf5kjXXHN7+ZIO3ZjhSaRZfkdKjKUepGm04hI+qLh8QhFpkV7rxKIpKlzsK69K+JPHKs7UU4KqXSX0BT+y8peapJKpGQk1YiUjKQakZKRVCNSMpJqRErGlDhPV1T8b/wCl1YI1FbJ4F0AAAAASUVORK5CYII='
         }
-
     ],
 
     // =================================================
     // accomodation - service facility default data structure //
     d_service_facility_icon:[
-        {name:'수영장',
-        url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2YQWrCQBSGP8wBurWHqCfpQs8htJuCuvcieg9dmCNUaHuMqgt3TwKvUMVxdDB1Yv8PQkj88x6TMd/igbgvnoEZsAEMKDOve5SxN/l9LMi3bvCNVQ22wBvwSN51g8y9YdWsCXWDrL1hm2bUDfLz321K3bMaWg3Hn3GXC7kmpoUkoh2JYPrYE5G1IpislYisFcFkrURkrQgmayUia0UwWSsRWSuCyVr/3VplTfPYso66BTDy6d/Ir09lB8Dqguw3MLxido8HoAO8AsuDWdO73+94LpZ9AZ5qzga39XBQ9gH0gc8zhmq3yJahhWz8gQnQBVr+W3XuAVPgy3M5ZBfH90TkTSFrIWuZrCUaRCFrIWuZrCXIix26Wjzpu3X55wAAAABJRU5ErkJggg=='
+        {
+            name:'수영장',
+            url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2YQWrCQBSGP8wBurWHqCfpQs8htJuCuvcieg9dmCNUaHuMqgt3TwKvUMVxdDB1Yv8PQkj88x6TMd/igbgvnoEZsAEMKDOve5SxN/l9LMi3bvCNVQ22wBvwSN51g8y9YdWsCXWDrL1hm2bUDfLz321K3bMaWg3Hn3GXC7kmpoUkoh2JYPrYE5G1IpislYisFcFkrURkrQgmayUia0UwWSsRWSuCyVr/3VplTfPYso66BTDy6d/Ir09lB8Dqguw3MLxido8HoAO8AsuDWdO73+94LpZ9AZ5qzga39XBQ9gH0gc8zhmq3yJahhWz8gQnQBVr+W3XuAVPgy3M5ZBfH90TkTSFrIWuZrCUaRCFrIWuZrCXIix26Wjzpu3X55wAAAABJRU5ErkJggg=='
         },
         {name:'주차장',
         url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAB1klEQVR4nO2XPy8EQRjGf5KLSGhO0Ink6JQUotEoFD7EfQEqWglxQkPUakoFX8G/T6CQHEIncgUKf46RSZ6TywV7a3fn7O38kkluZ9553ve52Z3dAY/H40kjJuXti7YzkjZMJo2YH8aC+pu+Hf6YJ7tG/jOm7Y2YlLYv2sZI2m4xE1SnN+IY41ckCyvSB2wAF8BbiJ3mVXPWpdFSIyPAVQzb5yUw3CojHcCJ4o+AcSAXopic5hxJ41iazo3MKvYW6Obv9EjDallN50YOFbtAdBaldeDayCBQBV6AAaJjH/Zn4B0YcmlkRXG7xMeeNJddGRkF7hU3RXxYLSNtmyNSnUEBA3UP5mGIXaYZrFbtubM5+iPUGRiwpfFToIv46QLOlGMzQp2BAdcanyA5JpXDvmgTM1LVeCfJ0akcNldiRhrH14AnoBS+3l81TMg6Qgc0jj/q+uGHuGaOpt9pGNdGSipkNYKR7zSMayNJYbyRLK/IPLADLAFFYBoY02GrAPQC+bq5efUVFDOmOUVpWK25VhipvVPibNVWGKn9tmeJbWBfny7nQBm4AyrAh1pFfWXFnGrOdt15xLgyctPwD9rruAijHdnITF3CG13HRRhtV5uOx+PxkAyfhOQ4cLfIGP8AAAAASUVORK5CYII='
@@ -155,14 +155,14 @@ const default_data = {
     // =================================================
     // 숙소 등록 절차 //
     regist_step:[
-        'Acc_regist_lv0','AccRegistLv1','Acc_regist_lv2','Acc_regist_lv3','Acc_regist_lv4','Acc_regist_lv5','Acc_regist_lv6','Acc_regist_lv7','Acc_regist_lv8','Acc_regist_lv9'
+        'Acc_regist_lv0','AccRegistLv1','AccRegistLv2','AccRegistLv3','AccRegistLv4','AccRegistLv5','AccRegistLv6','Acc_regist_lv7','Acc_regist_lv8','Acc_regist_lv9'
         ,'Acc_regist_lv10','Acc_regist_lv11','Acc_regist_lv12'
     ],
 
     // =================================================
     // 숙소 등록 절차 data field name //
     regist_field:[
-        null, 'category'
+        null, 'category', 'space_category', 'base_facility', 'service_facility'
     ],
 
     // =================================================
@@ -316,7 +316,7 @@ const default_data = {
     ],
 
     // =================================================
-    // default img  no img and fail fetch //
+    // default img : no img and fail fetch //
     default_img : 'https://media.istockphoto.com/id/1357365823/ko/%EB%B2%A1%ED%84%B0/%EA%B8%B0%EB%B3%B8-%EC%9D%B4%EB%AF%B8%EC%A7%80-%EC%95%84%EC%9D%B4%EC%BD%98-%EB%B2%A1%ED%84%B0%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%9B%B9-%EC%82%AC%EC%9D%B4%ED%8A%B8-%EB%94%94%EC%9E%90%EC%9D%B8-%EB%98%90%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EC%95%B1%EC%97%90-%EB%8C%80%ED%95%9C-%EB%88%84%EB%9D%BD-%EB%90%9C-%EC%82%AC%EC%A7%84-%ED%8E%98%EC%9D%B4%EC%A7%80%EC%9E%85%EB%8B%88%EB%8B%A4-%EC%82%AC%EC%9A%A9%ED%95%A0-%EC%88%98-%EC%9E%88%EB%8A%94-%EC%82%AC%EC%A7%84%EC%9D%B4-%EC%97%86%EC%8A%B5%EB%8B%88%EB%8B%A4.jpg?s=1024x1024&w=is&k=20&c=kQnevkWDi-KhzvWzLwkYe4ERud1_7_rzkBBpvjQPb2g='
     ,
 

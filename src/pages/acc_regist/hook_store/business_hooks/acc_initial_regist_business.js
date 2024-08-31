@@ -21,9 +21,9 @@ function useAccInitialRegistBusiness(data, states, refs, props){
 
     // =================================================
     // Acc_initial로 부터 온 경우만 페이지 허용하기 //
-    // if(location.state?.from !== '/Acc_initial' && location.state?.from !== '/Acc_initial_regist'){
-    //     navigate('/Acc_regist')
-    // }
+    if(location.state?.from !== '/Acc_initial' && location.state?.from !== '/Acc_initial_regist'){
+        navigate('/Acc_regist')
+    }
 
     // =================================================
     // validation schema //
@@ -47,7 +47,7 @@ function useAccInitialRegistBusiness(data, states, refs, props){
         const {text} = input_data
 
         try{
-            const host_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/hostinformation`,{
+            const host_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/hostinformation`,'POST',{
                 host_text : text
             })
             if(host_data && host_data.log_state){

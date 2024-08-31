@@ -70,6 +70,20 @@ export async function user_login(id, password){
 }
 
 // =================================================
+// 1시간 주기로 토큰 재생성 및 업데이트 시 쿠키 재설정 함수 //
+export async function update_user_token(user_token){
+  const data = await fetch(`${default_data.d_base_url}/api/users/updateToken`,{
+    headers:{
+      'Authorization' : `Bearer ${user_token}`
+    },
+    method:'GET',
+    credentials : 'include'
+  })
+  const parsing_data = await data.json()
+  return parsing_data
+}
+
+// =================================================
 // login 상태 체크 유저 정보 얻는 함수 //
 export async function get_user(boolean_value){
   // boolean_value = true(사용자 정보 획득) false(db안거치고 http cookie에서 토큰 존재 유무만 체크)
@@ -85,9 +99,9 @@ export async function get_user(boolean_value){
 
 // =================================================
 // cookie 보내서 유저 정보 post 요청하는 함수 //
-export async function connect_data_width_cookies(url, data = null){
+export async function connect_data_width_cookies(url, method, data = null){
   const user_data = await fetch(url,{
-    method : 'POST',
+    method : method,
     credentials : 'include',
     headers : {
       'Content-Type': 'application/json'
@@ -172,17 +186,17 @@ export function pop_three_texts(price){
 // 플러스 마이너스 버튼 //
 
 // 플러스 버튼 눌렀을 때
-export function clickPlus(e, input, input_board, input_text, minus_btn){
+export function clickPlus(e, input, input_board, input_text, minus_btn, max_num){
   e.stopPropagation()
 
   input_board.current.innerText = Number(input_board.current.innerText)+1
-  input_text.current.value= `인원수 ${input_board.current.innerText}명`
+  input_text.current.value = `인원수 ${input_board.current.innerText}명`
   input.current.value= `${input_board.current.innerText}`
-  if(input_board.current.innerText==='10'){
+  if(input_board.current.innerText === `${max_num}`){
       e.target.disabled = true
   }else{
       const lb_btn = minus_btn.current
-      lb_btn.disabled=false
+      lb_btn.disabled = false
   }
 }
 // 마이너스 버튼 눌렀을 때
@@ -192,12 +206,12 @@ export function clickMinus(e, input, input_board, input_text, plus_btn){
   input_board.current.innerText = Number(input_board.current.innerText)-1
   // console.log(b_box3_ref.current)
   input_text.current.value= `인원수 ${input_board.current.innerText}명`
-  input.current.value= `${input_board.current.innerText}`
-  if(input_board.current.innerText==='0'){
+  input.current.value = `${input_board.current.innerText}`
+  if(input_board.current.innerText === '0'){
       e.target.disabled = true
   }else{
       const rb_btn = plus_btn.current
-      rb_btn.disabled=false
+      rb_btn.disabled = false
   }
 }
 
