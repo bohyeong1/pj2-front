@@ -116,7 +116,7 @@ function AccRegistLv3({login_user, this_step}){
                                 </div>
                                 <div className="Acc-regist-lv3__content-section1-box-part2">
                                     <button id="Acc-regist-lv3-btn" className={`Acc-regist-lv3__content-section1-box-part2-lb${id} small-button-disabled`}
-                                    disabled={current_data[id].counts === 0 ? true : false}
+                                    disabled={current_data[id]?.counts === 0 ? true : false}
                                     onClick={(e)=>{minus_click(e, id)}}>
                                         <i className="material-icons minus-button">remove</i>
                                     </button>
@@ -126,7 +126,7 @@ function AccRegistLv3({login_user, this_step}){
                                         <span>개</span>
                                     </div>
                                     <button id="Acc-regist-lv3-btn" className={`Acc-regist-lv3__content-section1-box-part2-rb${id} small-button`} 
-                                    disabled={current_data[id].counts >= 15 ? true : false}
+                                    disabled={current_data[id]?.counts >= 15 ? true : false}
                                     onClick={(e)=>{plus_click(e,id)}}>
                                         <i className="material-icons plus-button">add</i>
                                     </button>

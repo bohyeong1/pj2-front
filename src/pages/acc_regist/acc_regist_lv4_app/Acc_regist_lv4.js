@@ -8,6 +8,7 @@ import '../../../manage_scss_style/commonness/commonness.scss'
 import useAccRegistLv4Business from "../hook_store/business_hooks/acc_regist_lv4_business";
 import useAccRegistLv4Style from "../hook_store/style_hooks/acc_regist_lv4_style";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import Loading from "../../../utilComponent/material/loading/loading";
 
 function AccRegistLv4({login_user, this_step}){
     // =================================================
@@ -85,6 +86,7 @@ function AccRegistLv4({login_user, this_step}){
     )
 
     return(
+        loading === false ? <Loading></Loading> :
         <div className="Acc-regist-lv4__container">
             <Main_menu login_user={login_user}></Main_menu>
             <div className="Acc-regist-lv4__content">

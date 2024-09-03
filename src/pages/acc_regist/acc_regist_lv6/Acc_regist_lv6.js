@@ -76,12 +76,7 @@ function Acc_regist_lv6(){
         setModalState(!modalState)
     }
 
-// console.log('서브',subImgFile)
-// console.log('메인',mainImgFile)
-// console.log('data', sellectData)
-
-
-// ///////////////////////////////이미지 한방에 여러개 등록
+    ///////////////////////////////이미지 한방에 여러개 등록
     async function multiImgfetch(imgdata){
         const file = imgdata.main
         const files = Array.from(imgdata.sub)        ///////유사배열 -> 배열로 변환
@@ -128,9 +123,6 @@ function Acc_regist_lv6(){
             }
         }        
     }
-
-// console.log(subImgFile.length)
-
 
     return(
         <div className="Acc_regist_lv6-container">

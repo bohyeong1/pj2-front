@@ -1,6 +1,6 @@
 import React, {forwardRef, useRef, useState} from "react";
 import default_data from "../../../utilData/defaultData";
-import './map-modal.css'
+import './map-modal.scss'
 import Side_menu from "../../menu/side-menu/side-menu";
 import SubList from "../../../pages/sub/subList/SubList";
 import Kakaomap from "../../material/kakaomap/Kakaomap";

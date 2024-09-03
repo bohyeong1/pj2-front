@@ -11,8 +11,6 @@ function Dates({thisMonth, thisDate, clickDay, hoverDay, hoverDate,checkoutDate}
 
     const week = ['일', '월', '화', '수', '목', '금', '토']       
 
-
-
     const currentDate = `${new Date().getFullYear()}-${new Date().getMonth()+1}-${new Date().getDate()}`
      
     ///////한달 날짜 배열 
@@ -20,8 +18,6 @@ function Dates({thisMonth, thisDate, clickDay, hoverDay, hoverDate,checkoutDate}
         start:new Date(start_of_week),
         end:new Date(end_of_week)
     })
-
-    // console.log(new Date(currentDate))
 
     return(
         <div className="date_wraper">
@@ -40,9 +36,9 @@ function Dates({thisMonth, thisDate, clickDay, hoverDay, hoverDate,checkoutDate}
                         `${el < new Date() ? 'rgb(220,220,220)' :`${thisMonth.getMonth() !== el.getMonth() ? 'rgb(220,220,220)' : el.getDay()===0 ? 'red' : `${el.getDay()===6 ? 'blue':'black'}`}`}`}`,
                         background:`${el.getTime() === thisDate?.getTime() || el.getTime() === checkoutDate?.getTime() ? '#80CEE1' : `${thisDate<el && el<=hoverDate ? '#E6F4F1':'white'}`}`,
                         cursor:`${el < new Date() ? 'default' : 'pointer'}`}}
-                        key={el} onClick={()=>{clickDay(el)
-                            console.log(`${(el < new Date()) ? false : true}`)}} onMouseOver={()=>{hoverDay(el)}}
-                            disabled={(el < new Date()) ? true : false}>{`${el.getDate()}`}</button>
+                        key={el} onClick={()=>{clickDay(el)}} 
+                        onMouseOver={()=>{hoverDay(el)}}
+                        disabled={(el < new Date()) ? true : false}>{`${el.getDate()}`}</button>
                 )
                 })}
              </div>            

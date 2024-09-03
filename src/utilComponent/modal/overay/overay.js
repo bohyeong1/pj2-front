@@ -1,4 +1,4 @@
-import './overay.css'
+import './overay.scss'
 import { useRef } from 'react'
 import { useSelector } from 'react-redux'
 import useModalOverayStyle from '../hook-store/style-hooks/modal-overay-style'
