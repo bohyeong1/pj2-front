@@ -259,7 +259,40 @@ export function make_query_obj(obj){
   return {final_key}
 }
 
+// =================================================
+// prove accomodation adress field //
+export function prove_accomodation(acc_data, field){
+  const case1 = field[0]
+  const case2 = field[1]
+  const case3 = field[2]
 
+  // main_adress field
+  if(!acc_data[case1] || !acc_data[case1].name || acc_data[case1].name.length === 0 || acc_data[case1].coor.length !== 2){
+      return null
+  }
+  // sub_adress field
+  if(!acc_data[case2] || !acc_data[case2].name || acc_data[case2].name.length === 0 || acc_data[case2].coor.length !== 2){
+      return null
+  }
+  // search_adress field
+  if(!acc_data[case3] || acc_data[case3].length === 0){
+      return null
+  }
+
+  return {
+      main_adress : acc_data[case1],
+      sub_adress : acc_data[case2],
+      search_adress : acc_data[case3]
+  }
+}
+
+// =================================================
+// get img's url //
+export function get_img_url(file){
+  if(file){
+    return URL.createObjectURL(file)
+  }
+}
 
 
 

@@ -34,7 +34,7 @@ export {default as AccRegistLv2} from './acc_regist/acc_regist_lv2_app/Acc_regis
 export {default as AccRegistLv3} from './acc_regist/acc_regist_lv3_app/Acc_regist_lv3'
 export {default as AccRegistLv4} from './acc_regist/acc_regist_lv4_app/Acc_regist_lv4'
 export {default as AccRegistLv5} from './acc_regist/acc_regist_lv5_app/Acc_regist_lv5'
-export {default as Acc_regist_lv6} from './acc_regist/acc_regist_lv6/Acc_regist_lv6'
+export {default as AccRegistLv6} from './acc_regist/acc_regist_lv6_app/Acc_regist_lv6'
 export {default as Acc_regist_lv7} from './acc_regist/acc_regist_lv7/Acc_regist_lv7'
 export {default as Acc_regist_lv8} from './acc_regist/acc_regist_lv8/Acc_regist_lv8'
 export {default as Acc_regist_lv9} from './acc_regist/acc_regist_lv9/Acc_regist_lv9'

@@ -7,7 +7,7 @@ import default_data from "../../utilData/defaultData"
 
 // =================================================
 // parameter의 값에 따른 fetch하는 라우터 //
-function Parameter_router({data_state, element : Element, redirection_url}){
+function Parameter_router({data_state, element : Element, redirection_url, provider : Provider}){
     // data_state = ture(유저 데이터까지 획득 db 조회함) false(db조회 안하고 토큰 있나없나 로그인 상태만 빠르게 체크)
 
     // =================================================
@@ -54,16 +54,31 @@ function Parameter_router({data_state, element : Element, redirection_url}){
 
     }, [])
 
+    // =================================================
+    // loading //
     if(user_data === null){
         return <Loading></Loading>
     }    
 
-    return(
-        user_data && user_data.log_state ? 
-        user_data.user.host_state ? <Element login_user = {user_data.user} this_step={this_step}/> : 
-        <Navigate to={`${redirection_url}?name=${user_data.user.userId}&host=${user_data.user.host_state ? user_data.user.host_state : 'none'}`}/>
-        : <Navigate to="/Login"/>
-    )
+    // =================================================
+    // render //
+    // provider로 감싼 리엑트 타입
+    if(Provider){
+        return (
+            user_data && user_data.log_state ? 
+            user_data.user.host_state ? <Provider><Element login_user = {user_data.user} this_step={this_step}/></Provider> : 
+            <Navigate to={`${redirection_url}?name=${user_data.user.userId}&host=${user_data.user.host_state ? user_data.user.host_state : 'none'}`}/>
+            : <Navigate to="/Login"/>
+        )
+    }
+    // 컴포넌트 타입
+    else{
+        return (
+            user_data && user_data.log_state ? 
+            user_data.user.host_state ? <Element login_user = {user_data.user} this_step={this_step}/> : 
+            <Navigate to={`${redirection_url}?name=${user_data.user.userId}&host=${user_data.user.host_state ? user_data.user.host_state : 'none'}`}/>
+            : <Navigate to="/Login"/>)
+    }
 }
 
 export default Parameter_router

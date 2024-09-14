@@ -1,19 +1,25 @@
-import default_data from "../../../../utilData/defaultData";
-import { useEffect } from "react";
-import { useForm } from "react-hook-form";
+import default_data from "../../../../utilData/defaultData"
+import { useForm } from "react-hook-form"
 import * as Yup from 'yup'
-import { yupResolver } from "@hookform/resolvers/yup";
+import { yupResolver } from "@hookform/resolvers/yup"
+import { connect_data_width_cookies } from "../../../../utilData/UtilFunction"
+import session_storage from "../../../../sessionStorage/session_storage"
+import _ from 'lodash'
 
 function useAccRegistLv5Business(data, states, refs, props){
     // =================================================
     // states //
-    const {current_data, setCurrent_data, prev_data, setPrev_data, fetch_state, setFetch_state, loading, setLoading, popup_state, set_popup_state,
-        initial_adress, setInitial_adress, sub_coorinate, setSub_coorinate, sub_adress, SetSub_adress, main_adress, setMain_adress, filter_adress, 
+    const {prev_data, setPrev_data, loading, setLoading, popup_state, set_popup_state,
+        initial_adress, setInitial_adress, sub_coorinate, setSub_coorinate, main_adress, setMain_adress, filter_adress, 
         setFilter_adress} = states
 
     // =================================================
     // refs //
-    const {adress_ref, sub_adress_ref} = refs
+    const {adress_ref} = refs
+
+    // =================================================
+    // data //
+    const {accomodation, field_name} = data
 
     // =================================================
     // const *db로 빼놓고 어드민페이지에서 관리해야하나? //
@@ -33,31 +39,13 @@ function useAccRegistLv5Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{errors, isValid}} = useForm({
+    const {register, formState:{isValid}, watch} = useForm({
         resolver:yupResolver(validation_schema),
-        mode:'all'
-    })
-
-    ////////////////////디바운싱
-    function debounce(func, delay) {
-        let timer
-        return function() {
-            const args = arguments
-            clearTimeout(timer)
-            timer = setTimeout(() => {
-                func.apply(this, args)
-            }, delay)
+        mode:'all',
+        defaultValues : {
+            'detail_adress' : accomodation[field_name] ? accomodation[field_name] : null
         }
-    }
-
-    // =================================================
-    // sub adress onchange //
-    function set_sub_adress(){
-        const structure = default_data.d_sub_adress
-        structure.name = sub_adress_ref.current.value
-        structure.coor = [main_adress.coor[0],main_adress.coor[1]]
-        SetSub_adress(structure)
-    }
+    })
 
     // =================================================
     // main adress data 저장  //
@@ -76,22 +64,6 @@ function useAccRegistLv5Business(data, states, refs, props){
         const coordina = [x,y]
         setSub_coorinate(coordina)
     }
-
-    // =================================================
-    // 카카오맵으로 부터 받아온 위도 경도로 부터 스테이트 값 최신화 시키기  //
-    useEffect(()=>{
-        if(sub_coorinate.length != 0 && sub_adress){
-            const sub_ad = sub_adress
-            sub_ad.coor = sub_coorinate
-            SetSub_adress(sub_ad)
-        }
-
-        setCurrent_data({
-            main:main_adress,
-            sub:sub_adress,
-            filter:filter_adress
-        })
-    },[sub_coorinate,sub_adress])
 
     // =================================================
     // daum post 주소 라이브러리 모달 띄우기  //
@@ -126,18 +98,48 @@ function useAccRegistLv5Business(data, states, refs, props){
     }
 
     // =================================================
-    // data fetch  //
-    async function fetch_acc(data, index){           
-        // const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
-        // {seller : userData._id,
-        //     _id : registData._id,
-        //     main_adress : data.main,
-        //     sub_adress : data.sub,
-        //     search_adress : data.filter
-        // }, localStorage.getItem('log'))    
-    } 
+    // match accomodation field //
+    function match_accomodation(prev_data, match1, match2, match3){
+        if(prev_data && _.isMatch(prev_data.main_adress, match1) && _.isMatch(prev_data.sub_adress, match2) && _.isMatch(prev_data.search_adress, match3)){
+            return true
+        }
+        return false
+    }
 
-    return {register, errors, isValid, fetch_acc, debounce, set_sub_adress, set_main_adress, set_sub_coordinate, click_main_adress, inputData}
+    // =================================================
+    // data fetch  //
+    async function fetch_acc(data, index){       
+        console.log(data)    
+        setLoading(false)
+        console.log(match_accomodation(prev_data, data.sub_adress, data.sub_adress, data.search_adress))
+        if(match_accomodation(prev_data, data.sub_adress, data.sub_adress, data.search_adress)){
+            setLoading(true)
+            return session_storage.load('house') && session_storage.load('house')._id ? {
+                accomodation : {
+                    _id : session_storage.load('house')._id
+                }
+            } : false
+        }
+        // prev_data와 current_data 다를 경우 패치 진행
+        else{            
+            const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/registLv5`, 'PUT', 
+                {
+                    acc_step : parseInt(index),
+                    main_adress : data.main_adress,
+                    sub_adress : data.sub_adress,
+                    search_adress : data.search_adress
+                })
+        
+                if(acc_data && acc_data.acc_state){
+                    session_storage.save('house',acc_data.accomodation)
+                }        
+                console.log(acc_data)
+                setLoading(true)
+                return acc_data.acc_state ? acc_data : false
+        }
+    }
+
+    return {register, isValid, fetch_acc, set_main_adress, set_sub_coordinate, click_main_adress, inputData, watch}
 }
 
 export default useAccRegistLv5Business

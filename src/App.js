@@ -1,11 +1,14 @@
 import './App.scss';
 import { Route,Routes } from 'react-router-dom';
 import React from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Provider } from 'react-redux';
 import { store } from './redux/config/configStore';
 import Overay from './utilComponent/modal/overay/overay';
+// =================================================
+// gsap plugin //
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import ScrollToPlugin from 'gsap/ScrollToPlugin';
 // =================================================
 // routing pages //
 import { 
@@ -24,7 +27,7 @@ import {
         // =================================================
         // accomodations host page //
         Acc_regist, Acc_initial ,AccRegistLv1, Acc_manage,Acc_regist_lv0, 
-        AccRegistLv2, AccRegistLv3,AccRegistLv4, AccRegistLv5,Acc_regist_lv6,
+        AccRegistLv2, AccRegistLv3,AccRegistLv4, AccRegistLv5,AccRegistLv6,
         Acc_regist_lv7,Acc_regist_lv8,Acc_regist_lv9, Acc_regist_lv10,
         Acc_regist_lv11,Acc_regist_lv12, Acc_regist_start, Acc_regist_intro,
         Acc_initial_regist,
@@ -46,10 +49,13 @@ import {
 import Private_router from './router/private_router/private_router';
 import Conditional_router from './router/conditional_router/conditional_router';
 import Parameter_router from './router/parameter_router/parameter_router';
+// =================================================
+// context provider //
+import ImgProvider from './context/img_context/img_provider/img_provider';
 
 function App(){
   // gsap plugin 등록
-  gsap.registerPlugin(ScrollTrigger)
+  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
   return(
     <Provider store = {store}>
@@ -100,8 +106,8 @@ function App(){
           <Route path="/Acc_regist/AccRegistLv3/:house" element={<Parameter_router element={AccRegistLv3} data_state={true}/>}/>                        {/* 숙소 등록 페이지 lv3*/}
           <Route path="/Acc_regist/AccRegistLv4/:house" element={<Parameter_router element={AccRegistLv4} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv4*/}      
           <Route path="/Acc_regist/AccRegistLv5/:house" element={<Parameter_router element={AccRegistLv5} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv5*/}
-                                                                               
-          <Route exact path='/Acc_regist/Acc_regist_lv6' element={<Acc_regist_lv6></Acc_regist_lv6>}></Route>                                           {/*숙소 등록 페이지 lv6*/}
+          <Route path="/Acc_regist/AccRegistLv6/:house" element={<Parameter_router element={AccRegistLv6} provider={ImgProvider} data_state={true}/>}/> {/*숙소 등록 페이지 lv6*/}                                               
+                                      
           <Route exact path='/Acc_regist/Acc_regist_lv7' element={<Acc_regist_lv7></Acc_regist_lv7>}></Route>                                           {/*숙소 등록 페이지 lv7*/}
           <Route exact path='/Acc_regist/Acc_regist_lv8' element={<Acc_regist_lv8></Acc_regist_lv8>}></Route>                                           {/*숙소 등록 페이지 lv8*/}
           <Route exact path='/Acc_regist/Acc_regist_lv9' element={<Acc_regist_lv9></Acc_regist_lv9>}></Route>                                           {/*숙소 등록 페이지 lv9*/}

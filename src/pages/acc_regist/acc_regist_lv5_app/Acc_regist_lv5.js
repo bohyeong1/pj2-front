@@ -10,13 +10,13 @@ import session_storage from "../../../sessionStorage/session_storage";
 import Loading from "../../../utilComponent/material/loading/loading";
 import useAccRegistLv5Business from "../hook_store/business_hooks/acc_regist_lv5_business";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import { prove_accomodation } from "../../../utilData/UtilFunction";
 
 function AccRegistLv5({login_user, this_step}){
 
     // =================================================
     // refs //
     const adress_ref = useRef()
-    const sub_adress_ref = useRef()
 
     // =================================================
     // accomodation information //
@@ -28,32 +28,29 @@ function AccRegistLv5({login_user, this_step}){
 
     // =================================================
     // states //
-    const [current_data, setCurrent_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
-    const [prev_data, setPrev_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
-    const [fetch_state, setFetch_state] = useState(null)
+    const [prev_data, setPrev_data] = useState(prove_accomodation(accomodation, field_name))
     const [loading, setLoading] = useState(null)
-
     const [popup_state, set_popup_state] = useState(false)
     const [initial_adress, setInitial_adress] = useState(null)
     const [sub_coorinate, setSub_coorinate] = useState([]) //상세주소 위도 경도
-    const [sub_adress, SetSub_adress] = useState() //상세 주소
-    const [main_adress, setMain_adress] = useState(default_data.d_main_adress) //기본주소
-    const [filter_adress, setFilter_adress] = useState() //검색창에 주소 검색어 넣는곳 
+    const [main_adress, setMain_adress] = useState(default_data.d_main_adress) //도로명 주소
+    const [filter_adress, setFilter_adress] = useState(null) //검색어 주소
 
     // =================================================
     // hooks //
     // business
-    const {register, errors, isValid, fetch_acc, debounce, set_sub_adress, 
-           set_main_adress, set_sub_coordinate, click_main_adress, inputData} =  useAccRegistLv5Business(undefined,
+    const {register, isValid, fetch_acc, set_main_adress, set_sub_coordinate, click_main_adress, inputData, watch} =  useAccRegistLv5Business({
+            'accomodation' : accomodation,
+            'field_name' : field_name
+        },
         state_store([
-            {'current_data' : current_data, 'setCurrent_data' : setCurrent_data}, {'prev_data' : prev_data, 'setPrev_data' : setPrev_data},
-            {'fetch_state' : fetch_state, 'setFetch_state' : setFetch_state}, {'loading' : loading, 'setLoading' : setLoading},
+            {'filter_adress' : filter_adress, 'setFilter_adress' : setFilter_adress}, {'prev_data' : prev_data, 'setPrev_data' : setPrev_data},
+            {'main_adress' : main_adress, 'setMain_adress' : setMain_adress}, {'loading' : loading, 'setLoading' : setLoading},
             {'popup_state' : popup_state, 'set_popup_state' : set_popup_state}, {'initial_adress' : initial_adress, 'setInitial_adress' : setInitial_adress},
-            {'sub_coorinate' : sub_coorinate, 'setSub_coorinate' : setSub_coorinate}, {'sub_adress' : sub_adress, 'SetSub_adress' : SetSub_adress},
-            {'main_adress' : main_adress, 'setMain_adress' : setMain_adress}, {'filter_adress' : filter_adress, 'setFilter_adress' : setFilter_adress}
+            {'sub_coorinate' : sub_coorinate, 'setSub_coorinate' : setSub_coorinate}
         ]),
         reference_store([
-            {'adress_ref' : adress_ref},{'sub_adress_ref' : sub_adress_ref}
+            {'adress_ref' : adress_ref}
         ])
     ) 
 
@@ -63,7 +60,7 @@ function AccRegistLv5({login_user, this_step}){
             if(!e.target.classList.contains('popup')){
                 set_popup_state(false)
             }
-        }}>
+        }}> 
             <Main_menu login_user={login_user}></Main_menu>
             <div className="Acc-regist-lv5__content">
                 <div className="Acc-regist-lv5__content-title">
@@ -92,8 +89,7 @@ function AccRegistLv5({login_user, this_step}){
                                         <div></div>
                                     </div>
                                 </div>
-                                <input className="ac_reg_lv5-content-section1-box2-input input-default" type="text" placeholder="상세주소" ref={sub_adress_ref} 
-                                onChange={debounce(set_sub_adress,1000)}
+                                <input className="ac_reg_lv5-content-section1-box2-input input-default" type="text" placeholder="상세주소"
                                 {...register('detail_adress')}
                                 autoComplete="off">                                
                                 </input>
@@ -113,7 +109,7 @@ function AccRegistLv5({login_user, this_step}){
                         </div>
                         <div className="Acc-regist-lv5__content-section1-box3-map">
                             <Kakaomap adress_data={initial_adress} set_main_adress={set_main_adress}
-                            set_sub_coordinate={set_sub_coordinate} sub_ad_date={sub_adress} event={true} scroll={false}></Kakaomap>
+                            set_sub_coordinate={set_sub_coordinate} event={true} scroll={false}></Kakaomap>
                         </div>
                     </div>
                 </div>
@@ -135,7 +131,8 @@ function AccRegistLv5({login_user, this_step}){
             </div>
 
             <div className="Acc-regist-lv5__footer">
-                <Host_footer fetch_handler={fetch_acc} drop_data={current_data} 
+                <Host_footer fetch_handler={fetch_acc}  drop_data = {{main_adress : main_adress, sub_adress : {name : watch('detail_adress'), 
+                coor : sub_coorinate.length === 2 ? sub_coorinate : [main_adress.coor[0], main_adress.coor[1]]}, search_adress : filter_adress}}
                 button_state={isValid && main_adress.name.length !== 0 && main_adress.coor.length === 2} fetch_state={true}></Host_footer>
             </div>
         </div>

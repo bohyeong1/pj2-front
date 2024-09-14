@@ -26,12 +26,10 @@ body{
 }
 input::placeholder {
   color: $grey-lv6; 
-
 }
 input:-ms-input-placeholder {
   color: $grey-lv6;
 }
-
 input::-ms-input-placeholder {
   color: $grey-lv6;
 }

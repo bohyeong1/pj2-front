@@ -155,14 +155,14 @@ const default_data = {
     // =================================================
     // 숙소 등록 절차 //
     regist_step:[
-        'Acc_regist_lv0','AccRegistLv1','AccRegistLv2','AccRegistLv3','AccRegistLv4','AccRegistLv5','AccRegistLv6','Acc_regist_lv7','Acc_regist_lv8','Acc_regist_lv9'
-        ,'Acc_regist_lv10','Acc_regist_lv11','Acc_regist_lv12'
+        'Acc_regist_lv0','AccRegistLv1','AccRegistLv2','AccRegistLv3','AccRegistLv4','AccRegistLv5','AccRegistLv6','AccRegistLv7','AccRegistLv8','AccRegistLv9'
+        ,'AccRegistLv10','AccRegistLv11','AccRegistLv12'
     ],
 
     // =================================================
     // 숙소 등록 절차 data field name //
     regist_field:[
-        null, 'category', 'space_category', 'base_facility', 'service_facility'
+        null, 'category', 'space_category', 'base_facility', 'service_facility', ['main_adress', 'sub_adress', 'search_adress']
     ],
 
     // =================================================
@@ -265,6 +265,7 @@ const default_data = {
         ,map:'https://img.freepik.com/premium-vector/city-map-vector-illustration_185351-31.jpg?w=996'
         ,check:'https://img.icons8.com/ios-filled/50/checkmark--v1.png'
         ,no_check:'https://img.icons8.com/color/48/delete-sign--v1.png'
+        ,transh_can:'https://img.icons8.com/material-rounded/24/delete.png'
     },
 
     // =================================================

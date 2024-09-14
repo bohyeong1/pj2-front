@@ -4,7 +4,6 @@
     width:800px;
     position: fixed;
     bottom: 0;
-    z-index: 17;
 }
 .Acc-regist-lv5__container{
     width:1920px; 
@@ -26,7 +25,7 @@
     width:100%;
 }
 .Acc-regist-lv5__content-section1-box1{
-    display: flex;  align-items: center;
+    color: red;    display: flex;  align-items: center;
     font-size: 0.925rem;
 }
 .Acc-regist-lv5__content-section1-box2{
@@ -77,36 +76,21 @@
 
 //modal
 .Acc-regist-lv5__popup{
-    overflow-y: scroll;
-    border-left: solid 1px rgb(235,235,235);
-    scrollbar-width: thin;
-    scrollbar-color: rgb(235, 235, 235) transparent;
-}
-.Acc-regist-lv5__popup::-webkit-scrollbar{
-    width: 12px;
-}
-.Acc-regist-lv5__popup::-webkit-scrollbar-track{
-background-color: transparent;
-}
-.Acc-regist-lv5__popup::-webkit-scrollbar-thumb{
-border-radius: 8px; background-color: rgb(235, 235, 235);   border: 2px solid #ffffff;
-}
-.Acc-regist-lv5__popup::-webkit-scrollbar-thumb:hover{
-background-color: rgb(200, 200, 200);
-}
 
+}
 .Acc-regist-lv5__popup-header{
     height: 60px;   width: 100%;    display: flex;  align-items: center;    justify-content: space-between;
     padding: 0 20px;    font-size: 1rem;
 }
 .Acc-regist-lv5__popup-wrapper{
     background-color: white;
-    width: 400px;
-    height: 470px;
+    width: 561px;
+    height: 468px;
     position:fixed;
     left:50%; transform:translate(-50%,-50%);
     top:45%; z-index: 16;
     box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; border-radius: 10px;
+    display: flex;  flex-direction: column; align-items: center;    justify-content: space-between;
 }
 
 

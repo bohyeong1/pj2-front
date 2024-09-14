@@ -11,16 +11,17 @@ import { useSelector } from "react-redux"
 
 function Img_dis_modal({data, imgs, img_modal_toggle}){
 
-    // refs
+    // =================================================
+    // refs //
     const target = useRef(null)
     const target_text = useRef(null)
 
-    // redux state
+    // =================================================
+    // redux state //
     const modal_state = useSelector(state => state.overay.open_target_id)
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // style
     const { RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change} = useModalImgdismodalStyle(undefined, undefined,reference_store([
         {
@@ -94,8 +95,8 @@ function Img_dis_modal({data, imgs, img_modal_toggle}){
                 <div className="img-dis-modal__target" ref={target}></div>
             </div>
         </div>  
-    </div> :
-    null
+    </div>
+    : null
     )
 
 }

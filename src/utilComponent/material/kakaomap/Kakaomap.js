@@ -1,5 +1,7 @@
 import './Kakaomap.scss'
+import { useState } from 'react';
 import useMaterialKakaomapBusiness from "../hook-store/business-hooks/material-kakaomap-business";
+import { state_store } from '../../../utilData/UtilFunction';
 
 function Kakaomap({adress_data, set_main_adress, set_sub_coordinate, event, scroll,
                    city = false, data}){

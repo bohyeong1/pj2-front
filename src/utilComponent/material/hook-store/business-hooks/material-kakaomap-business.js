@@ -13,9 +13,9 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
     const dispatch = useDispatch()
 
     // =================================================
-    // dispatch // 
+    // props // 
     const {adress_data, set_main_adress, set_sub_coordinate, event, scroll, city, data} = props
-    
+
     // =================================================
     // 지도 외부 찍었을 때 오버레이 상태 초기화 //     
     function close_overlay(e){
@@ -110,7 +110,6 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
                         if(set_main_adress){
                             set_main_adress(adress_data, result[0].x, result[0].y)
                         }
-    
                         const coordinate = new kakao.maps.LatLng(result[0].y, result[0].x)
             
                         // 지도 좌표 결과값으로 이동
@@ -125,10 +124,9 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
     
                 // 지도 클릭 시 좌표 재 설정
                 if(event){
-                    kakao.maps.event.addListener(map, 'click', function(mouseEvent){   
+                    kakao.maps.event.addListener(map, 'click', function(e){   
                         // 클릭한 위치 coordinate
-                        const latlng = mouseEvent.latLng 
-            
+                        const latlng = e.latLng 
                         set_sub_coordinate(latlng.La, latlng.Ma)
                         
                         // 지도 좌표 결과값으로 이동
