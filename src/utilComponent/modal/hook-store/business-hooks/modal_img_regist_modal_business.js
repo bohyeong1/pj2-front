@@ -1,28 +1,21 @@
-import { useDispatch } from "react-redux"
-import { set_img_regist_target } from "../../../../redux/modules/imgRegistSlice"
-
 function useModalImgRegistModalBusiness(data, states, refs, props){
 
     // =================================================
     // refs //
-    const {main_img_form, main_img_input} = refs
+    const {img_input} = refs
 
     // =================================================
-    // context states //
-    const {main_img_state, setMain_img_state} = data
+    // states //
+    const {img_state, setImg_state} = states
 
     // =================================================
     // props //
-    const {img_modal_toggle} = props
-
-    // =================================================
-    // dispatch //
-    const dispatch = useDispatch()
+    const {img_modal_toggle, drop_img_state, setDrop_img_state, target_id} = props
 
     // =================================================
     // 등록 버튼 //
     function regist_button(){
-        main_img_input.current.click()
+        img_input.current.click()
     }
 
     // =================================================
@@ -30,9 +23,10 @@ function useModalImgRegistModalBusiness(data, states, refs, props){
     function set_img_file(e){
         // 메인이미지 파일 넘기기
         e.preventDefault()
-            const image = main_img_form.current.mainImg.files[0]   
-            setMain_img_state(image)              
-            img_modal_toggle()
+        if(img_state){
+            setDrop_img_state(img_state)
+        }              
+        img_modal_toggle(target_id)
     }
 
     return {set_img_file, regist_button}

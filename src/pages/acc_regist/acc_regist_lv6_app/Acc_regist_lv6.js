@@ -8,90 +8,66 @@ import useAccRegistLv6Business from "../hook_store/business_hooks/acc_regist_lv6
 import useAccRegistLv6Style from "../hook_store/style_hooks/acc_regist_lv6_style";
 import { reference_store, state_store } from "../../../utilData/UtilFunction";
 import default_data from "../../../utilData/defaultData";
+import Loading from "../../../utilComponent/material/loading/loading";
+import session_storage from "../../../sessionStorage/session_storage";
+import _ from 'lodash'
 
 function AccRegistLv6({login_user, this_step}){
+    // =================================================
+    // accomodation information //
+    const accomodation = session_storage.load('house')
+
+    // =================================================
+    // this level's accomodation field name //
+    const field_name = default_data.regist_field[this_step]
 
     // =================================================
     // states //
-    const [subImgFile, setSubImgFile] = useState([])             ///////////서브 이미지 파일  
-    const [sellectData, setSellectData] = useState({main:'', sub:''})         // 선택된 카테고리의 data값 state
-    
-    // =================================================
-    // context states //
-    const { main_img_state, setMain_img_state } = useContext(ImgContext)
+    const [prev_main_img, setPrev_main_img] = useState(accomodation && accomodation[field_name[0]] ? accomodation[field_name[0]] : null)
+    const [prev_sub_img, setPrev_sub_img] = useState(accomodation && accomodation[field_name[1]] ? accomodation[field_name[1]] : null)
+    const [loading, setLoading] = useState(null)
 
     // =================================================
-    // refs //
-    const lv6_main_img = useRef()
-    const lv6_sub_img = useRef([])
+    // context states //
+    const {main_img_state, setMain_img_state, 
+            sub_img1_state, setSub_img1_state,
+            sub_img2_state, setSub_img2_state,
+            sub_img3_state, setSub_img3_state,
+            sub_img4_state, setSub_img4_state} = useContext(ImgContext)
 
     // =================================================
     // hooks //
     // business
-    const {} = useAccRegistLv6Business()
+    const {fetch_acc} = useAccRegistLv6Business(undefined,
+        state_store([
+            {
+                'loading' : loading,
+                'setLoading' : setLoading
+            },
+            {
+                'prev_main_img' : prev_main_img,
+                'setPrev_main_img' : setPrev_main_img
+            },
+            {
+                'prev_sub_img' : prev_sub_img,
+                'setPrev_sub_img' : setPrev_sub_img
+            }
+        ]), 
+        undefined,
+        {
+            'login_user' : login_user
+        }
+    )
 
     // style
     const {img_modal_toggle, img_delete} = useAccRegistLv6Style({
         'main_img_state' : main_img_state,
         'setMain_img_state' : setMain_img_state
-        },
-        undefined,
-        reference_store([
-            {
-                'lv6_main_img' : lv6_main_img
-            }
-        ])
+        }
     )
 
-    //이미지 한방에 여러개 등록
-    async function multiImgfetch(imgdata){
-        // const file = imgdata.main
-        // const files = Array.from(imgdata.sub)        ///////유사배열 -> 배열로 변환
-
-        // console.log(file, files)
-
-        // if(files.length === 4 && file){
-        //     let imgDatas = new FormData()   ///sub, main 이미지 통합으로 관리 // 이름은 다르게 ㅇㅇ
-        //     imgDatas.append('mainImg',file,'mainImg') //메인 이미지 어펜드
-
-
-        //     // 서브이미지 어펜드 ㅇ
-        //     for(const file of files){
-        //         imgDatas.append('subImg', file, 'subImg')
-        //     }
-
-        //     //////////////숙소의 ref 유저 데이터값
-        //     const userInfo = new Blob([JSON.stringify(userData._id)],{type:'application/json'})
-        //     ////////////////숙소 _id값
-        //     const home_id = new Blob([JSON.stringify(registData._id)],{type:'application/json'})
-
-        //     imgDatas.append('userData',userInfo)
-        //     imgDatas.append('homeid', home_id)
-
-        //     ///////////////////////이미지 폼데이터 console확인
-
-        //     for (const pair of imgDatas) {                             
-        //         console.log(pair); 
-        //     }
-
-        //     try{
-        //         const token = localStorage.getItem('log')
-        //         const result = await fetch((`${default_data.d_base_url}/api/accomodation/imgs`),{
-        //             headers:{
-        //                 'Authorization': `${token? 'Bearer' + token : ''}`
-        //             },
-        //             method: 'POST',
-        //             body: imgDatas
-        //           })
-
-        //     }
-        //     catch(e){
-        //         console.log(e)
-        //     }
-        // }        
-    }
-
     return(
+        loading === false ? <Loading></Loading> :
         <div className="Acc-regist-lv6__container">
             <Main_menu login_user={login_user}></Main_menu>
 
@@ -105,45 +81,89 @@ function AccRegistLv6({login_user, this_step}){
 
                 <div className="Acc-regist-lv6__content-section2">
                     <div className="Acc-regist-lv6__content-section2-box1">
-                        {main_img_state ? <img className="Acc-regist-lv6__content-section2-box1-part1" ref={lv6_main_img}>
+                        {main_img_state ? <img className="Acc-regist-lv6__content-section2-box1-part1" src={URL.createObjectURL(main_img_state)}>
                         </img> : null}
                         {/* add btn */}
-                        {!main_img_state ? <button className="Acc-regist-lv6__content-section2-box1-btn"  onClick={img_modal_toggle}>
+                        {!main_img_state ? <button className="Acc-regist-lv6__content-section2-box1-btn"  onClick={()=>{img_modal_toggle('img-regist-modal')}}>
                             <img src={default_data.d_imgs.plus}></img>
                         </button> : null}
                         {/* delete btn */}
-                        {main_img_state ? <button className="Acc-regist-lv6__content-section2-box1-delete-btn"  onClick={img_delete}>
+                        {main_img_state ? <button className="Acc-regist-lv6__content-section2-box1-delete-btn"  onClick={()=>{img_delete(setMain_img_state)}}>
                             <img src={default_data.d_imgs.transh_can}></img>
                         </button> : null}
-
                     </div>
                     {/* 서브이미지 디스플레이 */}
-                    {main_img_state ? <div className="Acc-regist-lv6__content-section2-box2" >
+                    {main_img_state || sub_img1_state || sub_img2_state || sub_img3_state || sub_img4_state
+                        ? 
+                    <div className="Acc-regist-lv6__content-section2-box2" >
                         <div className="Acc-regist-lv6__content-section2-box2-part1">
-                            <img className="Acc-regist-lv6__subimg" ref={(ele)=>{lv6_sub_img.current[0] = ele}}></img>
+                            {/* add btn */}
+                            {!sub_img1_state ? <button className="Acc-regist-lv6__content-section2-box2-btn"   onClick={()=>{img_modal_toggle('sub-img-regist-modal1')}}>
+                                <img src={default_data.d_imgs.plus}></img>
+                            </button> : null}
+                            {/* delete btn */}
+                            {sub_img1_state ? <button className="Acc-regist-lv6__content-section2-box2-delete-btn"  onClick={()=>{img_delete(setSub_img1_state)}}>
+                                <img src={default_data.d_imgs.transh_can}></img>
+                            </button> : null}
+                            {sub_img1_state ? <img className="Acc-regist-lv6__subimg" src={URL.createObjectURL(sub_img1_state)}>
+                            </img> : null}
                         </div>
                         <div className="Acc-regist-lv6__content-section2-box2-part1">
-                            <img className="Acc-regist-lv6__subimg" ref={(ele)=>{lv6_sub_img.current[1] = ele}}></img>
+                            {/* add btn */}
+                            {!sub_img2_state ? <button className="Acc-regist-lv6__content-section2-box2-btn"   onClick={()=>{img_modal_toggle('sub-img-regist-modal2')}}>
+                                <img src={default_data.d_imgs.plus}></img>
+                            </button> : null}
+                            {/* delete btn */}
+                            {sub_img2_state ? <button className="Acc-regist-lv6__content-section2-box2-delete-btn"  onClick={()=>{img_delete(setSub_img2_state)}}>
+                                <img src={default_data.d_imgs.transh_can}></img>
+                            </button> : null}
+                            {sub_img2_state ? <img className="Acc-regist-lv6__subimg" src={URL.createObjectURL(sub_img2_state)}>
+                            </img> : null}
                         </div>
                         <div className="Acc-regist-lv6__content-section2-box2-part1">
-                            <img className="Acc-regist-lv6__subimg" ref={(ele)=>{lv6_sub_img.current[2] = ele}}></img>
+                            {/* add btn */}
+                            {!sub_img3_state ? <button className="Acc-regist-lv6__content-section2-box2-btn"   onClick={()=>{img_modal_toggle('sub-img-regist-modal3')}}>
+                                <img src={default_data.d_imgs.plus}></img>
+                            </button> : null}
+                            {/* delete btn */}
+                            {sub_img3_state ? <button className="Acc-regist-lv6__content-section2-box2-delete-btn"  onClick={()=>{img_delete(setSub_img3_state)}}>
+                                <img src={default_data.d_imgs.transh_can}></img>
+                            </button> : null}
+                            {sub_img3_state ? <img className="Acc-regist-lv6__subimg" src={URL.createObjectURL(sub_img3_state)}>
+                            </img> : null}
                         </div>
                         <div className="Acc-regist-lv6__content-section2-box2-part1">
-                            <img className="Acc-regist-lv6__subimg" ref={(ele)=>{lv6_sub_img.current[3] = ele}}></img>
+                            {/* add btn */}
+                            {!sub_img4_state ? <button className="Acc-regist-lv6__content-section2-box2-btn"   onClick={()=>{img_modal_toggle('sub-img-regist-modal4')}}>
+                                <img src={default_data.d_imgs.plus}></img>
+                            </button> : null}
+                            {/* delete btn */}
+                            {sub_img4_state ? <button className="Acc-regist-lv6__content-section2-box2-delete-btn"  onClick={()=>{img_delete(setSub_img4_state)}}>
+                                <img src={default_data.d_imgs.transh_can}></img>
+                            </button> : null}
+                            {sub_img4_state ? <img className="Acc-regist-lv6__subimg" src={URL.createObjectURL(sub_img4_state)}>
+                            </img> : null}
                         </div>
-                        {main_img_state ? <button className="Acc-regist-lv6__content-section2-box2-btn"   onClick={img_modal_toggle}>
-                            <img src={default_data.d_imgs.plus}></img>
-                        </button> : null}
                     </div> : null}
                 </div>
-
             </div>
-
+            {/* main img modal */}
+            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={main_img_state} 
+                setDrop_img_state={setMain_img_state} target_id={'img-regist-modal'}></ImgRegistModal>
+            {/* sub img modal */}
+            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img1_state} 
+                setDrop_img_state={setSub_img1_state} target_id={'sub-img-regist-modal1'}></ImgRegistModal>
+            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img2_state} 
+                setDrop_img_state={setSub_img2_state} target_id={'sub-img-regist-modal2'}></ImgRegistModal>
+            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img3_state} 
+                setDrop_img_state={setSub_img3_state} target_id={'sub-img-regist-modal3'}></ImgRegistModal>
+            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img4_state} 
+                setDrop_img_state={setSub_img4_state} target_id={'sub-img-regist-modal4'}></ImgRegistModal>
+            {/* footer */}
             <div className="Acc-regist-lv6__footer">
-                <Host_footer fetchHandlerFun = {multiImgfetch} dropData = {sellectData}></Host_footer>
+                <Host_footer fetch_handler={fetch_acc}  drop_data = {{main_img : main_img_state, sub_img : [sub_img1_state, sub_img2_state, sub_img3_state, sub_img4_state]}}
+                button_state={main_img_state && sub_img1_state && sub_img2_state && sub_img3_state && sub_img4_state} fetch_state={true}></Host_footer>
             </div>
-
-            <ImgRegistModal img_modal_toggle={img_modal_toggle}></ImgRegistModal>
         </div>
     )
 }

@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useNavigate } from "react-router-dom";
 import connectData from "../../../../utilData/UtilFunction";
-import { fileData } from "../../../../utilData/UtilFunction";
+import { file_data } from "../../../../utilData/UtilFunction";
 import default_data from "../../../../utilData/defaultData";
 import { useEffect } from "react";
 
@@ -100,7 +100,7 @@ function useMembershipProfileBusiness(data, states, refs, props){
             form_data.append('userId', login_user.userId)
 
             try{
-                const result = await fileData(`${default_data.d_base_url}/api/users/profile`,'POST',form_data) 
+                const result = await file_data(`${default_data.d_base_url}/api/users/profile`,'POST',form_data) 
             }catch(e){
                 console.log(e)
             }

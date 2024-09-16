@@ -109,9 +109,8 @@ function useAccRegistLv5Business(data, states, refs, props){
     // =================================================
     // data fetch  //
     async function fetch_acc(data, index){       
-        console.log(data)    
         setLoading(false)
-        console.log(match_accomodation(prev_data, data.sub_adress, data.sub_adress, data.search_adress))
+
         if(match_accomodation(prev_data, data.sub_adress, data.sub_adress, data.search_adress)){
             setLoading(true)
             return session_storage.load('house') && session_storage.load('house')._id ? {

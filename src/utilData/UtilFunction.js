@@ -1,6 +1,7 @@
 import default_data from "./defaultData"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "../firebase/firebase"
+import { array } from "yup"
 
 // =================================================
 // 데이터 fetch utill function //
@@ -21,7 +22,7 @@ export default connectData
 
 // =================================================
 // file data fetch utill function //
-export async function fileData(url, method, data){
+export async function file_data(url, method, data){
   if(!url || !method || !data){
     alert('파라미터를 제대로 넣어주세요')
     return
@@ -292,6 +293,32 @@ export function get_img_url(file){
   if(file){
     return URL.createObjectURL(file)
   }
+}
+
+// =================================================
+// file data 비교 함수 //
+export function is_equal_file(prev, current){
+  if(!Array.isArray(prev) || !Array.isArray(current)){
+    alert('array 형태로 넣을 것')
+  }
+  // prev의 element가 null값 찍힐 때
+  if(prev.every((el)=>{
+    return !el
+  })){
+    return false
+  }
+
+  // currnet의 element가 null값 찍힐 때
+  if(current.every((el)=>{
+    return !el
+  })){
+    return false
+  }
+
+  return prev.length === current.length && prev.every((el, index) => {
+    const current_el = current[index]
+    return el.name === current_el.name && el.size === current_el.size && el.lastModified === current_el.lastModified
+  })
 }
 
 

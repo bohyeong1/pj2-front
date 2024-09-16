@@ -7,7 +7,6 @@ import search_reducer from "../modules/searchSlice";
 import map_reducer from "../modules/mapSlice"
 import listhover_reducer from "../modules/listhoverSlice";
 import modaldata_reducer from "../modules/modaldataSlice";
-import regist_img_reducer from '../modules/imgRegistSlice'
 const store = configureStore({
     reducer:{
         // 오버레이 state
@@ -23,10 +22,7 @@ const store = configureStore({
         listhover : listhover_reducer,
 
         // modal data state
-        modaldata : modaldata_reducer,
-
-        // regist img state
-        regist_img : regist_img_reducer
+        modaldata : modaldata_reducer
     }
 })
 

@@ -1,0 +1,93 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+.Acc-regist-lv8__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.Acc-regist-lv8__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc-regist-lv8__content{
+    margin-top: 50px;
+    width:800px;
+}
+.Acc-regist-lv8__content-title{
+    margin-bottom: 50px;
+    font-size: 1.725rem;    font-weight: bold;
+}
+.Acc-regist-lv8__section-box{
+    width: 8px; position: relative;
+}
+.Acc-regist-lv8__section-box > div{
+    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    background-color: red;
+}
+
+// sec1
+.Acc-regist-lv8__content-section1{
+    width:100%;
+    display: flex; gap:20px;    flex-direction: column;
+}
+.Acc-regist-lv8__content-section1-wrapper{
+    width: 100%;    height: fit-content;    display: flex;  flex-direction: column;
+    gap:10px;
+}
+.Acc-regist-lv8__content-section1-box1-title, .Acc-regist-lv8__content-section2-title{
+    font-size: 1.125rem;    font-weight: bold;
+    display: flex;  gap: 5px;
+}
+.Acc-regist-lv8__content-section1-box1-text1{
+    height: 50px;  width: 100%;  overflow: hidden;
+}
+.Acc-regist-lv8__content-section1-box1-text1::placeholder{
+    font-size: 0.875rem;    line-height: 20px;
+}
+.Acc-regist-lv8__content-section1-box1, .Acc-regist-lv8__content-section1-box2{
+    width: 100%;
+}
+
+.Acc-regist-lv8__content-section1-box2{
+    display: flex; flex-direction: column; gap: 10px;
+}
+
+
+
+// sec2
+.Acc-regist-lv8__content-section2{
+    margin-top: 50px; 
+    width:100%;
+    display: flex; gap:30px;    flex-direction: column;
+}
+
+.Acc-regist-lv8__content-section2-box1-part1{
+    display: flex; align-items: center; justify-content: space-between;   width:  150px;
+}
+
+#Ac_re_lv8_btn{
+    border-radius: 20px; border: none; width: 40px; height: 40px; font-size: 1.5rem;
+}
+.Acc-regist-lv8__content-section2-box1-part1-text1{
+    font-size: 1.6rem;
+}
+.Acc-regist-lv8__content-section2-box1{
+    display: flex; width: 100%; gap:30px;   align-items: center;
+}
+.Acc-regist-lv8__content-section2-box1-part1-t1{
+    width:54px; display: flex; justify-content: space-between;
+}
+
+// sec3 
+.Acc-regist-lv8__content-sec3{
+    margin-top: 40px;
+    color: red;
+}
+
+#Ac_re_lv8_btn{
+    cursor: pointer;
+}

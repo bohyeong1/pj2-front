@@ -1,23 +1,17 @@
 import React ,{useRef, useState, useContext} from "react";
-import { ImgContext } from "../../../context/img_context/config/img_context";
 import './img_regist_modal.scss'
-import default_data from "../../../utilData/defaultData";
 import useModalImgRegistModalBusiness from "../hook-store/business-hooks/modal_img_regist_modal_business";
 import useModalImgRegistModalStyle from "../hook-store/style-hooks/modal_img_regist_modal_style";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import { useSelector } from "react-redux";
+import default_data from "../../../utilData/defaultData";
 import { get_img_url } from "../../../utilData/UtilFunction";
 import '../../../manage_scss_style/commonness/commonness.scss'
 
-function ImgRegistModal({img_modal_toggle}){
+const ImgRegistModal = React.memo(({img_modal_toggle, drop_img_state, setDrop_img_state, target_id}) => {
     // =================================================
     // refs //
-    const main_img_input = useRef(null)               
-    const main_img_form = useRef(null)                 
-
-    // =================================================
-    // context states //
-    const { main_img_state, setMain_img_state } = useContext(ImgContext)
+    const img_input = useRef(null)                               
 
     // =================================================
     // redux state //
@@ -26,34 +20,33 @@ function ImgRegistModal({img_modal_toggle}){
     // =================================================
     // states //
     const [img_state, setImg_state] = useState(null)
-    const [img_url_state, setImg_url_state] = useState(main_img_state ? get_img_url(main_img_state) : null)
+    const [img_url_state, setImg_url_state] = useState(drop_img_state ? get_img_url(drop_img_state) : null)
 
     // =================================================
     // hooks //
     // business
-    const {set_img_file, regist_button} = useModalImgRegistModalBusiness({
-            'main_img_state' : main_img_state,
-            'setMain_img_state' : setMain_img_state
-        },
-        undefined,
+    const {set_img_file, regist_button} = useModalImgRegistModalBusiness(undefined,
+        state_store([
+            {
+                'img_state' : img_state,
+                'setImg_state' : setImg_state
+            }
+        ]),
         reference_store([
             {
-                'main_img_input' : main_img_input
-            },
-            {
-                'main_img_form' : main_img_form
+                'img_input' : img_input
             }
         ]),
         {
-            'img_modal_toggle' : img_modal_toggle
+            'img_modal_toggle' : img_modal_toggle,    
+            'drop_img_state' : drop_img_state,
+            'setDrop_img_state' : setDrop_img_state,
+            'target_id' : target_id        
         }
     )
 
     // style
-    const {display_img, modal_close, delete_button} = useModalImgRegistModalStyle({
-        'main_img_state' : main_img_state,
-        'setMain_img_state' : setMain_img_state
-        },
+    const {display_img, modal_close, delete_button, errors, register} = useModalImgRegistModalStyle(undefined,
         state_store([
             {
                 'img_url_state' : img_url_state,
@@ -66,21 +59,29 @@ function ImgRegistModal({img_modal_toggle}){
         ]),
         reference_store([
             {
-                'main_img_input' : main_img_input
+                'img_input' : img_input
             }
         ]),
         {
-            'img_modal_toggle' : img_modal_toggle
+            'img_modal_toggle' : img_modal_toggle,    
+            'drop_img_state' : drop_img_state,
+            'setDrop_img_state' : setDrop_img_state,
+            'target_id' : target_id       
         }
     )
 
+    // =================================================
+    // hook form api에서 ref 설정 필요한 필드 //
+    const {ref, onChange, ...rest} = register('image')
+
     return(
-        modal_state === 'img-regist-modal' ? 
+        modal_state === target_id ? 
         <div className={'img-regist-modal__container'}>
             {/* 이미지 인풋값 관리하는 form */}
             <div className="img-regist-modal__container-input">
-                <form id="mainForm" ref={main_img_form}>
-                    <input type='file' id="mainImg" ref={main_img_input} onChange={display_img}></input>
+                <form id="mainForm">
+                    <input type='file' ref={img_input} onChange={display_img}
+                    {...rest}></input>
                 </form>
             </div>  
 
@@ -98,9 +99,10 @@ function ImgRegistModal({img_modal_toggle}){
                 </div>                
             </div>
 
-            {/* 메인이미지 */}
+            {/* 이미지 */}
             <div className="img-regist-modal__container-section2">
                 <div className="img-regist-modal__container-section2-box1">
+                    {/* img */}
                     {img_state ? <img className="img-regist-modal__container-section2-box1-part1" src={img_url_state ? img_url_state : null}>
                     </img> : null}
                     {/* 추가 버튼 */}
@@ -111,6 +113,8 @@ function ImgRegistModal({img_modal_toggle}){
                     {img_state ? <div className="img-regist-modal__container-section2-box1-part3">
                         <img className="img-regist-modal__img" src={default_data.d_imgs.transh_can} onClick={delete_button}></img>
                     </div> : null}
+                    {/* error */}
+                    {errors.image && <span className="input-alert-text">{errors.image.message}</span>}
                 </div>                 
             </div>
 
@@ -122,6 +126,6 @@ function ImgRegistModal({img_modal_toggle}){
         </div>
         : null
     )
-}
+})
 
 export default ImgRegistModal

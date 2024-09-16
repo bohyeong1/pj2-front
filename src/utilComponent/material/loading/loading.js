@@ -40,12 +40,6 @@ function Loading(){
                 <div className="loading__item-10">
                     <div className="loading__bar"></div>
                 </div>
-                <div className="loading__item-11">
-                    <div className="loading__bar"></div>
-                </div>
-                <div className="loading__item-12">
-                    <div className="loading__bar"></div>
-                </div>
             </div>
         </div>
     )

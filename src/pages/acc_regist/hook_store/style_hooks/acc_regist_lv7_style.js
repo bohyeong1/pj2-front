@@ -1,6 +1,6 @@
 import default_data from "../../../../utilData/defaultData"
 
-function useAccRegistLv4Style(data, states, refs, props){    
+function useAccRegistLv7Style(data, states, refs, props){
     // =================================================
     // states //
     const {current_data, setCurrent_data} = states
@@ -12,17 +12,17 @@ function useAccRegistLv4Style(data, states, refs, props){
     // =================================================
     // style 및 state 변경 //
     function click_box(id){
-        const sellect_service_facility = default_data.d_service_facility_icon[id] 
+        const sellect_keywords = default_data.d_keyword[id] 
 
         if(categories.current[id].dataset.state === 'true'){
             categories.current[id].dataset.state = false
             categories.current[id].classList.remove('acc-regist-sellect-box-active')
 
             const prev_data = [...current_data]
-            const index = current_data.indexOf(sellect_service_facility)
+            const index = current_data.indexOf(sellect_keywords)
             if(index !== -1){
                 const new_data = prev_data.filter((el) => {
-                    return el !== sellect_service_facility
+                    return el !== sellect_keywords
                 })
                 setCurrent_data(new_data)
             }
@@ -32,8 +32,8 @@ function useAccRegistLv4Style(data, states, refs, props){
             }
             categories.current[id].dataset.state = true
 
-            if(!current_data.includes(sellect_service_facility)){
-                const prev_data = [...current_data, sellect_service_facility]
+            if(!current_data.includes(sellect_keywords)){
+                const prev_data = [...current_data, sellect_keywords]
                 setCurrent_data(prev_data)
             }
         }
@@ -42,4 +42,4 @@ function useAccRegistLv4Style(data, states, refs, props){
     return {click_box}
 }
 
-export default useAccRegistLv4Style
+export default useAccRegistLv7Style

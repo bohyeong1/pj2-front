@@ -162,7 +162,7 @@ const default_data = {
     // =================================================
     // 숙소 등록 절차 data field name //
     regist_field:[
-        null, 'category', 'space_category', 'base_facility', 'service_facility', ['main_adress', 'sub_adress', 'search_adress']
+        null, 'category', 'space_category', 'base_facility', 'service_facility', ['main_adress', 'sub_adress', 'search_adress'], ['main_img', 'sub_img']
     ],
 
     // =================================================
@@ -336,9 +336,6 @@ const default_data = {
         72, 183, 30, 165, 109, 173, 65, 69, 38, 126, 46, 138, 50, 172, 22, 93, 51, 166, 96, 143, 43, 29, 33, 6, 48, 37, 135, 
         19, 91, 47, 187, 61, 12, 58, 151, 82, 194, 198, 67, 101, 3, 179, 156, 104, 52, 97, 131, 128, 150, 98, 133, 153, 142, 103, 
         7, 155, 86, 64, 62, 141, 182, 146, 119, 53, 100, 79, 154, 159, 20, 118, 1, 4, 181, 71, 169, 76],
-
-
-
 
 
 
