@@ -18,11 +18,11 @@ function Acc_regist_lv10(){
     const [sellectData, setSellectData] = useState(default_data.home_rules)
         
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
-    //현재 등록중인 숙소 데이터
+    // 현재 등록중인 숙소 데이터
     const registData = JSON.parse(sessionStorage.getItem('registData'))
 
 
-    ////////////////////디바운싱
+    // 디바운싱
     function debounce(func, delay) {
         let timer;
         return function() {
@@ -34,7 +34,7 @@ function Acc_regist_lv10(){
         }
     }
 
-    //////////////////타이틀 스테이트값 1초 디바운스 한후에 스테이트에 담기 ㅇㅇ
+   //타이틀 스테이트값 1초 디바운스 한후에 스테이트에 담기 ㅇㅇ
     function handleFn(){
         let copiedData = sellectData
         copiedData[copiedData.length-1].summary = addRulesRef.current.value
@@ -44,7 +44,7 @@ function Acc_regist_lv10(){
     const debounceSetRule = debounce(handleFn,1000)   
 
         
-    ///숙소 데이터 업데이트 패치
+    //숙소 데이터 업데이트 패치
     async function fetchCategory(data){
         const homeData = await connectData(`${default_data.d_base_url}/api/accomodation/register/update`, 'PUT', 
         {seller : userData._id,
@@ -110,7 +110,6 @@ function Acc_regist_lv10(){
             setSellectData(copiedData)
     }
 
-    console.log(sellectData)
     return(
         <div className="Acc_regist_lv10-container">
             <Main_menu></Main_menu>

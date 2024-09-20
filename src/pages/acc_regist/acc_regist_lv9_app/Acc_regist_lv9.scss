@@ -1,0 +1,51 @@
+@import '../../../manage_scss_style/commonness/colors';
+    
+.Acc-regist-lv9__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.Acc-regist-lv9__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc-regist-lv9__content{
+    margin-top: 50px;   width: 800px;
+}
+.Acc-regist-lv9__content-title{
+    margin-bottom: 50px;
+    font-size: 1.725rem;    font-weight: bold;
+}
+.Acc-regist-lv9__content-sub-title{
+    margin-top: 10px;   font-size: 1rem;
+}
+
+// 데이터 인풋 
+.Acc-regist-lv9__content-section1{
+    width:100%;
+    display: flex; gap:30px;    flex-direction: column;
+    position: relative;
+}
+.Acc-regist-lv9__content-section1-box1, .Acc-regist-lv9__content-section1-box2{
+    width: 100%;   box-sizing: border-box;
+}
+.Acc-regist-lv9__content-section1-box1-text1{
+    width: 100%;    height: 500px;
+    font-size: 1.166rem;    line-height: 1.1; 
+}
+
+.Acc-regist-lv9__gurabox{
+    width: 100%;    padding: 0 15px;
+    position: absolute; top:250px;  left: 0;
+    font-size: 1.166rem;    line-height: 1.1; 
+    background-color: beige;
+
+}
+
+.Acc-regist-lv9__content-section1-box2{
+    display: flex; flex-direction: column; gap: 10px;
+}

@@ -21,28 +21,52 @@ function AccRegistLv8({login_user, this_step}){
 
     // =================================================
     // refs //
-    const regist_lv8_alarm = useRef()
-    const regist_lv8_capacity_value = useRef()
+    const regist_lv8_alarm = useRef(null)
+    const regist_lv8_capacity_value = useRef(null)
 
     // =================================================
     // states //
-    const [sellectData, setSellectData] = useState()
-    const [title, setTitle] = useState()
-    const [capacity, setCapacity] = useState()
-
-    const [current_data, setCurrent_data] = useState()
-    const [prev_data, setPrev_data] = useState()
+    const [title, setTitle] = useState(accomodation[field_name[0]] ? accomodation[field_name[0]] : null)
+    const [capacity, setCapacity] = useState(accomodation[field_name[1]] && accomodation[field_name[1]] > 0 ? accomodation[field_name[1]] : 1)
+    const [prev_data, setPrev_data] = useState(accomodation[field_name[0]] && accomodation[field_name[1]] && accomodation[field_name[1]] > 0 ? 
+        {
+            [field_name[0]] : accomodation[field_name[0]],
+            [field_name[1]] : accomodation[field_name[1]]
+        } : null)
     const [loading, setLoading] = useState(null)
 
     // =================================================
     // hooks //
     // business
-    const {fetch_acc, register, errors, isValid, watch} = useAccRegistLv8Business()     
+    const {fetch_acc, register, errors, watch, isValid} = useAccRegistLv8Business(undefined, 
+        state_store([
+            {
+                'title' : title,
+                'setTitle' : setTitle
+            },
+            {
+                'prev_data' : prev_data,
+                'setPrev_data' : setPrev_data
+            },
+            {
+                'loading' : loading,
+                'setLoading' : setLoading
+            },
+        ]))     
     // style
-    const {lv8_text_input_change} = useAccRegistLv8Style(undefined, undefined,
+    const {lv8_text_input_change, plus_click, minus_click} = useAccRegistLv8Style(undefined,
+        state_store([
+            {
+                'capacity' : capacity,
+                'setCapacity' : setCapacity
+            }
+        ]),
         reference_store([
             {
                 'regist_lv8_alarm' : regist_lv8_alarm
+            },
+            {
+                'regist_lv8_capacity_value' : regist_lv8_capacity_value
             }
         ])
     )
@@ -67,9 +91,14 @@ function AccRegistLv8({login_user, this_step}){
                     <div className="Acc-regist-lv8__content-section1-wrapper">
                         <form className="Acc-regist-lv8__content-section1-box1">                        
                             <textarea  className="Acc-regist-lv8__content-section1-box1-text1 border-textarea" maxLength={19}
-                            type='text' spellCheck={false} placeholder='숙소를 설명하는 이름을 지어주세요!'  onChange={lv8_text_input_change}></textarea>
+                            type='text' spellCheck={false} placeholder='숙소를 설명하는 이름을 지어주세요!'
+                            {...register('title', {
+                                onChange : (e)=>{lv8_text_input_change(e.target.value)}
+                            })}></textarea>
                         </form>
-
+                        {/* error */}
+                        {errors.title && <span className="input-alert-text">{errors.title.message}</span>}                            
+                        {/* text length */}
                         <div className="Acc-regist-lv8__content-section1-box2">
                             <div ref={regist_lv8_alarm} className="Acc-regist-lv8__content-section1-box2-text1">0/20</div>
                         </div> 
@@ -84,49 +113,35 @@ function AccRegistLv8({login_user, this_step}){
                         </div>
                     </div>
                     <div className="Acc-regist-lv8__content-section2-box1">
-                        <button id="Ac_re_lv8_btn" className={`Acc-regist-lv8__content-section2-box1-part1-lb`} onClick={(e)=>{
-                            e.stopPropagation()
-
-                            regist_lv8_capacity_value.current.innerText = Number(regist_lv8_capacity_value.current.innerText)-1
-
-                            if(regist_lv8_capacity_value.current.innerText==='0'){
-                                e.target.disabled = true
-                            }else{
-                                const rb_btn = document.querySelector(`.Acc-regist-lv8__content-section2-box1-part1-rb`)
-                                rb_btn.disabled=false
-                                }
-                                setCapacity(Number(regist_lv8_capacity_value.current.innerText))        /////capacity값 스테이트에 담기
-                                } 
-                        }>-</button>
-
+                        {/* minus button */}
+                        <button id="Acc-regist-lv8__button" className={`Acc-regist-lv8__content-section2-box1-part1-lb ${capacity === 1 ? 'small-button-disabled' : 'small-button'}`} 
+                        onClick={minus_click}
+                        disabled={capacity === 1 ? true : false}>
+                            <i className="material-icons minus-button">remove</i>
+                        </button>
+                        {/* value */}
                         <div className="Acc-regist-lv8__content-section2-box1-part1-text1">
-                            <span ref={regist_lv8_capacity_value} className="Acc-regist-lv8__content-section2-box1-part1_val">1</span>
+                            <span ref={regist_lv8_capacity_value} className="Acc-regist-lv8__content-section2-box1-part1_value">
+                                {capacity}
+                            </span>
                             <span>명</span>
                         </div>
-
-                        <button id="Ac_re_lv8_btn" className={`Acc-regist-lv8__content-section2-box1-part1-rb`} onClick={(e)=>{
-                            e.stopPropagation()
-                            console.log('확인')
-                            regist_lv8_capacity_value.current.innerText = Number(regist_lv8_capacity_value.current.innerText)+1
-
-                                if(regist_lv8_capacity_value.current.innerText==='20'){
-                                    e.target.disabled = true
-                                }else{
-                                    const lb_btn = document.querySelector(`.Acc-regist-lv8__content-section2-box1-part1-lb`)
-                                    lb_btn.disabled=false     
-                                }
-                                setCapacity(Number(regist_lv8_capacity_value.current.innerText))        /////capacity값 스테이트에 담기
-                            }        
-                        }>+</button>
+                        {/* plus button */}
+                        <button id="Acc-regist-lv8__button" className={`Acc-regist-lv8__content-section2-box1-part1-rb ${capacity >= 30 ? 'small-button-disabled' : 'small-button'}`} 
+                        onClick={plus_click}
+                        disabled={capacity >= 30 ? true : false}>
+                            <i className="material-icons plus-button">add</i>
+                        </button>
                     </div>                   
                 </div>
             </div>
 
             <div className="Acc-regist-lv8__footer">
-                <Host_footer fetchHandlerFun = {fetch_acc} dropData = {sellectData}></Host_footer>
+                <Host_footer fetch_handler={fetch_acc} drop_data={{title : watch('title'), capacity : capacity}} 
+                button_state={isValid && watch('title') && capacity > 0 ? true : false} fetch_state={true}></Host_footer>
             </div>
         </div>
     )
 }
-// fetch_handler={fetch_acc} drop_data={current_data} button_state={current_data.length > 0 ? true : false} fetch_state={true}
+
 export default AccRegistLv8

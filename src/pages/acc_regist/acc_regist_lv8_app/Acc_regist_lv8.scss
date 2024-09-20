@@ -69,11 +69,16 @@
     display: flex; align-items: center; justify-content: space-between;   width:  150px;
 }
 
-#Ac_re_lv8_btn{
-    border-radius: 20px; border: none; width: 40px; height: 40px; font-size: 1.5rem;
+#Acc-regist-lv8__button{
+    border: none; width: 40px; height: 40px; font-size: 1.5rem;
+    display: flex;  justify-content: center;    align-items: center;
 }
 .Acc-regist-lv8__content-section2-box1-part1-text1{
     font-size: 1.6rem;
+    display: flex;  gap:1px;
+}
+.Acc-regist-lv8__content-section2-box1-part1_value{
+    width: 31px;    display: block;
 }
 .Acc-regist-lv8__content-section2-box1{
     display: flex; width: 100%; gap:30px;   align-items: center;
@@ -86,8 +91,4 @@
 .Acc-regist-lv8__content-sec3{
     margin-top: 40px;
     color: red;
-}
-
-#Ac_re_lv8_btn{
-    cursor: pointer;
 }
