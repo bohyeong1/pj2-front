@@ -1,0 +1,87 @@
+.Acc-regist-lv10__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.Acc-regist-lv10__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.Acc-regist-lv10__content{
+    margin-top: 50px;   margin-bottom: 10vh;
+    width:800px;    display: flex;  flex-direction: column; gap:50px;
+}
+.Acc-regist-lv10__content-title{
+    font-size: 1.725rem;    font-weight: bold;
+}
+
+
+
+// 컨텐츠
+.Acc-regist-lv10__content-section1{
+    width:100%;
+    display: flex; box-sizing: border-box;  flex-direction: column; gap:30px;
+}
+#Acc-regist-lv10__content-section1-box{
+    display: flex;  box-sizing: border-box; flex-direction: column; gap:20px;
+    padding-bottom: 30px;
+}
+.Acc-regist-lv10__content-section1-box{
+    border-radius: 10px; border: solid 2px rgb(180,180,180); width: 30%; 
+    box-sizing: border-box; padding: 20px;  cursor: pointer;
+}
+
+.Acc-regist-lv10__content-section1-box:hover{
+    border: solid 2px black;
+}
+.Acc-regist-lv10__content-section1-box0-part1, .Acc-regist-lv10__content-section1-box1-part1, 
+.Acc-regist-lv10__content-section1-box2-part1, .Acc-regist-lv10__content-section1-box3-part1, .Acc-regist-lv10__content-section1-box4-part1{
+    font-size: 1.125rem;    font-weight: 600;
+}
+
+
+// 반려동물
+.Acc-regist-lv10__content-section1-box0-part2{
+    display: flex;  flex-direction: column; gap:20px;
+}
+#Acc-regist-lv10__button{
+    padding: 8px 12px;  font-size: 1.5rem;    height: 32.25px;
+    display: flex;  justify-content: center;    align-items: center; 
+}
+#Acc-regist-lv10__button > img{
+    width: 20px;    height: 20px;
+}
+.Acc-regist-lv10__content-section1-box0-part2-text1{
+    font-size: 0.975rem;
+}
+.Acc-regist-lv10__content-section1-box0-part2-text2{
+    display: flex;  gap:20px;   align-items: center;
+}
+.Acc-regist-lv10__content-section2-box1-part2-text1{
+    font-size: 0.9725rem;   font-weight: 600;
+    display: flex;  gap:5px;
+}
+.Acc-regist-lv10__content-section2-box1-part2_val{
+    border: none;   font-size: 1rem;    outline: none;  width: fit-content;
+    width: 15px;    
+}
+// 이벤트허용 등등
+.Acc-regist-lv10__content-section1-button{
+    font-size: 0.9225rem;
+    display: flex;  align-items: center;    justify-content: center;
+}
+.Acc-regist-lv10__content-section1-button-wrapper{
+    display: flex;  gap:30px;
+}
+
+// 추가규칙
+.Acc-regist-lv10__content-section1-box4-part2{
+    width: 100%;    display: flex;  flex-direction: column; gap:20px;  
+}
+.Acc-regist-lv10__content-section1-box4-part2-text1{
+    height: 200px;  font-family: inherit;   font-size: 1.2rem;  resize: none;
+}
+

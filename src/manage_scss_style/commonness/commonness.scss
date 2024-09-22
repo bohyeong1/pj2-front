@@ -40,18 +40,22 @@
 // =================================================
 // small button enable//
 .small-button{
-  border-radius: 10px;
-  border: solid 1.5px rgb(235,235,235);  transition: 0.2s;
-  font-weight: 600;  cursor: pointer;  background-color: $blue-default; color: white;
+  border-radius: 100px;
+  transition: 0.2s;
+  font-weight: 600;  cursor: pointer;
+  border: solid 1.5px $grey-lv9;
+  background-color: white;
 
   &:hover{
-    background: rgb(18, 110, 220);
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px $blue-lv4;
   }
 }
 // small button disabled //
 .small-button-disabled{
-  border-radius: 10px;
-  border: solid 1.5px rgb(235,235,235);  transition: 0.2s;
+  border-radius: 100px;
+  border: solid 1.5px $grey-lv9;  transition: 0.2s;
   font-weight: 600;  background-color: $blue-default; color: white;
   background-color: $grey-end-end;
   color: $grey-lv6;
@@ -114,6 +118,28 @@
 .acc-regist-sellect-box-active{
   background-color: $blue-lv2;   box-shadow: 0 0 10px 1px rgb(207, 207, 207);
   border: none;   scale: 1.02;
+}
+
+// =================================================
+// sellect-button //
+.sellect-button{
+  border-radius: 100px;
+  border: solid 1.5px rgb(235,235,235);  transition: 0.2s;
+  font-weight: 600;
+  cursor: pointer; padding: 8px 16px;
+  background-color: white;
+
+  &:hover{
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px $blue-lv4;
+  }
+
+  &.sellect-active{
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px rgb(171, 210, 255);
+  }
 }
 
 // =================================================

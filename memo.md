@@ -279,5 +279,8 @@ DB - User(사용자), Accomodation(숙소),
 
 9.16
 - lv6, lv7완료, lv8 개발중
+
+9.22
+- lv10까지 완료
   <code>
 </pre>

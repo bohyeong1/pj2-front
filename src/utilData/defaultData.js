@@ -155,15 +155,35 @@ const default_data = {
     // =================================================
     // 숙소 등록 절차 //
     regist_step:[
-        'Acc_regist_lv0','AccRegistLv1','AccRegistLv2','AccRegistLv3','AccRegistLv4','AccRegistLv5','AccRegistLv6','AccRegistLv7','AccRegistLv8','AccRegistLv9'
-        ,'AccRegistLv10','AccRegistLv11','AccRegistLv12'
+        'Acc_regist_lv0',
+        'AccRegistLv1',
+        'AccRegistLv2',
+        'AccRegistLv3',
+        'AccRegistLv4',
+        'AccRegistLv5',
+        'AccRegistLv6',
+        'AccRegistLv7',
+        'AccRegistLv8',
+        'AccRegistLv9',
+        'AccRegistLv10',
+        'AccRegistLv11',
+        'AccRegistLv12'
     ],
 
     // =================================================
     // 숙소 등록 절차 data field name //
     regist_field:[
-        null, 'category', 'space_category', 'base_facility', 'service_facility', ['main_adress', 'sub_adress', 'search_adress'], ['main_img', 'sub_img'], 'keywords',
-        ['title', 'capacity']
+        null, 
+        'category', 
+        'space_category', 
+        'base_facility', 
+        'service_facility', 
+        ['main_adress', 'sub_adress', 'search_adress'], 
+        ['main_img', 'sub_img'], 
+        'keywords',
+        ['title', 'capacity'], 
+        'summary', 
+        'rules'
     ],
 
     // =================================================
@@ -171,25 +191,25 @@ const default_data = {
     home_rules:[
         {text:'반려동물 동반 가능',
         name:'aniaml',
-        state:false,
+        state:null,
         count:0},
         
         {text:'이벤트 허용',
         name:'event',
-        state:false},
+        state:null},
 
         {text:'흡연, 베이핑, 전자담배 허용',
         name:'vaping',
-        state:false},
+        state:null},
 
         {text:'상업적 사진 및 동영상 촬영 허용',
         name:'recoding',
-        state:false,
+        state:null,
         },
 
         {text:'추가 규칙',
         name:'addrule',
-        state:false,
+        state:null,
         summary:''},
     ],
 
@@ -390,65 +410,62 @@ const default_data = {
     // =================================================
     // main menus //
     Logo : 
-    {
-        name:'보형짱 닷컴',
-        url:'/',
-        img:''
-    },
+        {
+            name:'보형짱 닷컴',
+            url:'/',
+            img:''
+        },
     Main_menus :
-    [    
-        {
-            name:'회원가입/로그인',
-            url:'/Login'
-        }
-    ],    
+        [    
+            {
+                name:'회원가입/로그인',
+                url:'/Login'
+            }
+        ],    
     host_menus :
-    [
-        {
-            name:'투데이',
-            url:'/Acc_regist'
-        },
-        {
-            name:'달력'
-        },
-        {
-            name:'숙소',
-            url:'/Acc_regist/Acc_manage'
-        },
-        {
-            name:'호스트 소개',
-            url:'/Acc_regist/Acc_regist_intro'
-        }
-    ],
+        [
+            {
+                name:'투데이',
+                url:'/Acc_regist'
+            },
+            {
+                name:'달력'
+            },
+            {
+                name:'숙소',
+                url:'/Acc_regist/Acc_manage'
+            },
+            {
+                name:'호스트 소개',
+                url:'/Acc_regist/Acc_regist_intro'
+            }
+        ],
 
     // =================================================
     // subapp dropdown menus //
-    dropdown_menus : [
-        {
-            name:'createAt',
-            title:'최신등록순'
-        },
-        {
-            name:'price/max',
-            title:'높은가격순'
-        },
-        {
-            name:'price/min',
-            title:'낮은가격순'
-        },
-        {
-            name:'replay/max',
-            title:'리뷰많은순'
-        },
-        {
-            name:'evaluation/max',
-            title:'평점높은순'
-        }
-    ]
+    dropdown_menus : 
+        [
+            {
+                name:'createAt',
+                title:'최신등록순'
+            },
+            {
+                name:'price/max',
+                title:'높은가격순'
+            },
+            {
+                name:'price/min',
+                title:'낮은가격순'
+            },
+            {
+                name:'replay/max',
+                title:'리뷰많은순'
+            },
+            {
+                name:'evaluation/max',
+                title:'평점높은순'
+            }
+        ]
 }
 
 export default default_data
-
-export const default_imgs_collection = {
-    
-}

@@ -13,7 +13,7 @@ function useAccRegistLv3Style(data, states, refs, props){
     // style 및 state 변경 //
     function click_box(id){
         // button 클릭 제어
-        if(!button_state && Number(lv3_value.current[id].value) > 0){
+        if(!button_state && parseInt(lv3_value.current[id].value) > 0){
             setButton_state(true)
         }        
         if(button_state && lv3_value.current.every((el)=>{return el.value === '0'})){
@@ -32,7 +32,7 @@ function useAccRegistLv3Style(data, states, refs, props){
             }
         }
         const new_current_data = current_data.map((el, index) => {
-            return index === id ? {...el, counts : Number(lv3_value.current[id].value)} : el
+            return index === id ? {...el, counts : parseInt(lv3_value.current[id].value)} : el
         }) 
         setCurrent_data(new_current_data)
     }
@@ -48,7 +48,7 @@ function useAccRegistLv3Style(data, states, refs, props){
         if(button_state && categories.current.every((el)=>{return el.value === 0})){
             setButton_state(false)
         }
-        lv3_value.current[id].value = Number(lv3_value.current[id].value) + 1
+        lv3_value.current[id].value = parseInt(lv3_value.current[id].value) + 1
         if(lv3_value.current[id].value === '15'){
             if(e.currentTarget.classList.contains('small-button')){
                 e.currentTarget.classList.remove('small-button')
@@ -68,7 +68,7 @@ function useAccRegistLv3Style(data, states, refs, props){
     // minus button //
     function minus_click(e, id){
         e.stopPropagation()
-        lv3_value.current[id].value = Number(lv3_value.current[id].value) - 1
+        lv3_value.current[id].value = parseInt(lv3_value.current[id].value) - 1
         if(lv3_value.current[id].value === '0'){
             if(e.currentTarget.classList.contains('small-button')){
                 e.currentTarget.classList.remove('small-button')
