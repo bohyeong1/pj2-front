@@ -9,6 +9,7 @@ function Loading(){
 
     return(
         <div className="loading__container">
+            {/* <div className="loading__overay"></div> */}
             <div className="loading__circle">
                 <div className="loading__item-1">
                     <div className="loading__bar"></div>

@@ -8,21 +8,22 @@ import session_storage from "../../../sessionStorage/session_storage";
 import Loading from "../../../utilComponent/material/loading/loading";
 import useAccRegistLv10Business from "../hook_store/business_hooks/acc_regist_lv10_business";
 import useAccRegistLv10Style from "../hook_store/style_hooks/acc_regist_lv10_style";
-import { state_store } from "../../../utilData/UtilFunction";
+import { reference_store, state_store } from "../../../utilData/UtilFunction";
 
 function AccRegistLv10({login_user, this_step}){
 
     // =================================================
     // accomodation information //
     const accomodation = session_storage.load('house')
-
+ 
     // =================================================
     // this level's accomodation field name //
     const field_name = default_data.regist_field[this_step]
 
     // =================================================
     // states //
-    const [rules_structure, setRules_structure] = useState(default_data.home_rules)
+    const [data_ready, setData_ready] = useState(false)
+    const [current_data, setCurrent_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
     const [prev_data, setPrev_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
     const [sellect_state, setSellect_state] = useState({
         case1 : null,
@@ -30,13 +31,42 @@ function AccRegistLv10({login_user, this_step}){
         case3 : null       
     })
     const [loading, setLoading] = useState(null)
-  
+
+    // =================================================
+    // refs //
+    const regist_lv10_gurabox = useRef(null)
+    const regist_lv10_row_alram = useRef(null) 
+    const regist_lv10_alert = useRef(null) 
+
     // =================================================
     // hooks //
     // business
-    const {register, setValue, watch, fetch_acc, changeAddRule} = useAccRegistLv10Business()
+    const {register, setValue, watch, fetch_acc, errors} = useAccRegistLv10Business(undefined,
+        state_store([
+            {
+                'sellect_state' : sellect_state,
+                'setSellect_state' : setSellect_state
+            },
+            {
+                'current_data' : current_data,
+                'setCurrent_data' : setCurrent_data
+            },
+            {
+                'prev_data' : prev_data,
+                'setPrev_data' : setPrev_data
+            },
+            {
+                'data_ready' : data_ready,
+                'setData_ready' : setData_ready
+            },
+            {
+                'loading' : loading,
+                'setLoading' : setLoading
+            }
+        ])
+    )
     // style
-    const {check_active, click_allow, click_not_allow, plus_click, minus_click} = useAccRegistLv10Style({
+    const {check_active, click_allow, click_not_allow, plus_click, minus_click, text_change} = useAccRegistLv10Style({
             'watch' : watch,
             'setValue' : setValue
         },
@@ -44,6 +74,17 @@ function AccRegistLv10({login_user, this_step}){
             {
                 'sellect_state' : sellect_state,
                 'setSellect_state' : setSellect_state
+            }
+        ]),
+        reference_store([
+            {
+                'regist_lv10_gurabox' : regist_lv10_gurabox
+            },
+            {
+                'regist_lv10_row_alram' : regist_lv10_row_alram
+            },
+            {
+                'regist_lv10_alert' : regist_lv10_alert
             }
         ])
     )
@@ -102,9 +143,24 @@ function AccRegistLv10({login_user, this_step}){
                                         <span>{ele.text}</span>
                                     </div>
                                    <div className={`Acc-regist-lv10__content-section1-box${id}-part2`}>
-                                       <textarea className={`Acc-regist-lv10__content-section1-box${id}-part2-text1 border-textarea`} 
-                                       placeholder='추가 규칙을 작성해 주세요!' 
-                                       onChange={changeAddRule} spellCheck={false}></textarea>
+                                        <textarea className={`Acc-regist-lv10__content-section1-box${id}-part2-text1 border-textarea`} 
+                                        placeholder='추가 규칙을 작성해 주세요!' 
+                                        spellCheck={false}
+                                        {...register('rule', {
+                                            onChange : (e)=>{text_change(e.target.value)}
+                                        })}>                                        
+                                        </textarea>
+
+                                        <pre className="Acc-regist-lv10__gurabox" ref={regist_lv10_gurabox}></pre>
+                                        <div className="Acc-regist-lv10__alert-box">
+                                            <div ref={regist_lv10_row_alram} className="Acc-regist-lv10__content-section1-box2-text1">0/20</div>
+                                            {/* alram */}
+                                            <div ref={regist_lv10_alert} className="Acc-regist-lv10__content-section1-box2-text2" style={{color:'red', display:'none'}}>
+                                                20줄 이내로 작성해 주세요!
+                                            </div>
+                                            {/* error */}
+                                            {errors.rule && <span className="input-alert-text">{errors.rule.message}</span>}  
+                                        </div>
                                    </div>
                                </div>
                             )
@@ -132,8 +188,7 @@ function AccRegistLv10({login_user, this_step}){
                 </div>
             </div>
             <div className="Acc-regist-lv10__footer">
-                <Host_footer fetch_handler={fetch_acc} drop_data={{summary : watch('count')}}
-                button_state={watch('count') ? true : false} fetch_state={true}></Host_footer>
+                <Host_footer fetch_handler={fetch_acc} drop_data={data_ready ? current_data : null} button_state={data_ready} fetch_state={true}></Host_footer>
             </div>
         </div>
     )

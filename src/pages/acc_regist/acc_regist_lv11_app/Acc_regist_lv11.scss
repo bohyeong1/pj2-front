@@ -1,0 +1,81 @@
+.Acc-regist-lv11__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.Acc-regist-lv11__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.Acc-regist-lv11__content{
+    margin-top: 50px;
+    width:800px;
+}
+.Acc-regist-lv11__content-title{
+    margin-bottom: 50px;
+    font-size: 1.725rem;    font-weight: bold;
+}
+
+
+// 가격 설정창
+.Acc-regist-lv11__content-section1{
+    width:100%;
+    display: flex; flex-direction: column; gap:30px;
+    margin-bottom: 100px;
+}
+.Acc-regist-lv11__section-box{
+    width: 8px; position: relative;
+}
+.Acc-regist-lv11__content-title-wrapper{
+    display: flex;  gap:20px;
+}
+.Acc-regist-lv11__title{
+    font-size: 1.125rem;    font-weight: 600;
+    display: flex;  gap: 5px;
+    width: 150px;
+}
+.Acc-regist-lv11__content-average-wrapper{
+    display: flex;  gap:10px;    align-items: flex-end;
+}
+.Acc-regist-lv11__content-part2{
+    display: flex;  align-items: flex-end;
+}
+.Acc-regist-lv11__content-average-wrapper > span:nth-child(1){
+    font-size: 0.8725rem;
+}
+.Acc-regist-lv11__content-average-wrapper > span:nth-child(2){
+    font-weight: 600;
+}
+.Acc-regist-lv11__no-average{
+    display: flex;  align-items: flex-end;
+}
+.Acc-regist-lv11__no-average > span{
+    font-size: 0.8725rem;
+}
+.Acc-regist-lv11__section-box > div{
+    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    background-color: red;
+}
+.Acc-regist-lv11__content-section1-box1, .Acc-regist-lv11__content-section1-box2{
+    display: flex;  flex-direction: column; gap:20px;   
+    box-sizing: border-box;
+}
+.Acc-regist-lv11__content-input-wrapper{
+    display: flex;  flex-direction: column; gap:8px;
+}
+.Acc-regist-lv11__content-box1-input{
+    display: flex;  gap:10px;   font-size: 1.1rem;  align-items: center;
+}
+.Acc-regist-lv11__content-box1-input > input{
+    border-radius: 5px; border: solid 1px rgb(210,210,210); box-sizing: border-box; padding: 5px;   font-size: 1.1rem;
+    width: 120px;
+}
+
+// chart
+.Acc-regist-lv11__content-section1-chart-wrapper{
+    width : 100%;   height: 400px;
+}

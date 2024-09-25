@@ -26,7 +26,7 @@ function useAccRegistLv9Business(data, states, refs, props){
             'not_only_spaces',
             '공백으로만 구성된 글을 작성할 수 없습니다!',
             (text) => text && text.trim().length > 0
-          )
+        )
     })
 
     // =================================================
@@ -40,7 +40,6 @@ function useAccRegistLv9Business(data, states, refs, props){
     // data fetch  //
     async function fetch_acc(data, index){
         setLoading(false)
-        watch('title')
         // prev_data와 current_data 같을 경우 api 요청 x
         if(prev_data && prev_data === data.summary){
             setLoading(true)

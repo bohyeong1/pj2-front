@@ -41,7 +41,6 @@ function Acc_regist_start(){
                 </div>
                 <button className="Acc_regist_start-btn" onClick={registStart}>숙소 등록하기</button>
             </div>
-
         </div>
     )
 }

@@ -29,7 +29,7 @@ import {
         Acc_regist, Acc_initial ,AccRegistLv1, Acc_manage,Acc_regist_lv0, 
         AccRegistLv2, AccRegistLv3,AccRegistLv4, AccRegistLv5,AccRegistLv6,
         AccRegistLv7,AccRegistLv8,AccRegistLv9, AccRegistLv10,
-        Acc_regist_lv11,Acc_regist_lv12, Acc_regist_start, Acc_regist_intro,
+        AccRegistLv11,AccRegistLv12, Acc_regist_start, Acc_regist_intro,
         Acc_initial_regist,
         // =================================================
         // evaluation page //
@@ -111,10 +111,9 @@ function App(){
           <Route path="/Acc_regist/AccRegistLv8/:house" element={<Parameter_router element={AccRegistLv8} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv8*/}
           <Route path="/Acc_regist/AccRegistLv9/:house" element={<Parameter_router element={AccRegistLv9} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv9*/}
           <Route path="/Acc_regist/AccRegistLv10/:house" element={<Parameter_router element={AccRegistLv10} data_state={true}/>}/>                      {/*숙소 등록 페이지 lv10*/}
-                                        
-          <Route exact path='/Acc_regist/Acc_regist_lv11' element={<Acc_regist_lv11></Acc_regist_lv11>}></Route>                                        {/*숙소 등록 페이지 lv11*/}
-          <Route exact path='/Acc_regist/Acc_regist_lv12' element={<Acc_regist_lv12></Acc_regist_lv12>}></Route>                                        {/*숙소 등록 페이지 lv12*/}
-          
+          <Route path="/Acc_regist/AccRegistLv11/:house" element={<Parameter_router element={AccRegistLv11} data_state={true}/>}/>                      {/*숙소 등록 페이지 lv11*/}     
+          <Route path="/Acc_regist/AccRegistLv12/:house" element={<Parameter_router element={AccRegistLv12} data_state={true}/>}/>                      {/*숙소 등록 페이지 lv12*/}                                                     
+           
           {/* // =================================================
               // 마이 페이지 // */}
           <Route exact path='/Private_history' element={<Private_history></Private_history>}></Route>                                                   {/*마이페이지 - 예약내역 리스트*/}

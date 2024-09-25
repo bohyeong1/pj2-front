@@ -1,9 +1,9 @@
-.Acc_regist_lv12-footer{
-    width:100%;
+.Acc-regist-lv12__footer{
+    width:800px;
     position: fixed;
     bottom: 0;
 }
-.Acc_regist_lv12-container{
+.Acc-regist-lv12__container{
     width:1920px;
     box-sizing: border-box;
     display: flex;
@@ -11,31 +11,31 @@
     align-items: center;
 }
 
-.Acc_regist_lv12_content{
+.Acc-regist-lv12__content{
     display: flex;  flex-direction: column; gap:50px;   box-sizing: border-box; padding-top: 50px;
-    width:600px;
+    width: 800px;
 }
-.Acc_regist_lv12-con-title{
-    font-size: 2rem;    font-weight: bold;
+.Acc-regist-lv12__content-title{
+    font-size: 1.725rem;    font-weight: bold;
 }
 
 
-/* 움짤 */
-.Acc_regist_lv12-conbox{
+// 움짤 
+.Acc-regist-lv12__content-section1{
     display: flex;  justify-content: center;
 }
-.Acc_regist_lv12-con-sec1{
+.Acc-regist-lv12__content-video{
     width:400px; height: 400px;
     display: flex; justify-content: center; align-items: center;    overflow: hidden;   border-radius: 15px;
     pointer-events: none;
 }
 
-/* 버튼 */
-.Acc_regist_lv12-btn{
+// 버튼 
+.Acc-regist-lv12__btn{
     cursor: pointer;    
     display: block; height:50px; border:none;   background: #b8e0e9; border-radius: 10px;    width: 100%;    box-sizing: border-box;
     padding-left: 10px; font-size: 1.2rem;  font-weight: bold;
 }
-.Acc_regist_lv12-btn:hover{
+.Acc-regist-lv12__btn:hover{
     background: #80CEE1;
 }

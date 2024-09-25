@@ -183,7 +183,8 @@ const default_data = {
         'keywords',
         ['title', 'capacity'], 
         'summary', 
-        'rules'
+        'rules',
+        ['price', 'addPrice']
     ],
 
     // =================================================
