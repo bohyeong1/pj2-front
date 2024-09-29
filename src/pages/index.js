@@ -26,7 +26,7 @@ export {default as Acc_initial} from './acc_regist/acc_initial_app/acc_initial'
 export {default as Acc_initial_regist} from './acc_regist/acc_initial_regist_app/acc_initial_regist'
 export {default as Acc_regist_start} from './acc_regist/acc_regist_start/Acc_regist_start'
 export {default as Acc_regist_intro} from './acc_regist/acc_regist_intro/Acc_regist_intro'
-export {default as Acc_manage} from './acc_regist/acc_manage/Acc_manage'
+export {default as AccManage} from './acc_regist/acc_manage_app/Acc_manage'
 
 export {default as Acc_regist_lv0} from './acc_regist/acc_regist_lv0_app/Acc_regist_lv0'
 export {default as AccRegistLv1} from './acc_regist/acc_regist_lv1_app/Acc_regist_lv1'
@@ -42,6 +42,7 @@ export {default as AccRegistLv10} from './acc_regist/acc_regist_lv10_app/Acc_reg
 export {default as AccRegistLv11} from './acc_regist/acc_regist_lv11_app/Acc_regist_lv11'
 export {default as AccRegistLv12} from './acc_regist/acc_regist_lv12_app/Acc_regist_lv12'
 
+export {default as AccUpdate} from './acc_regist/acc_update_app/acc_update'
 
 // =================================================
 // 회원정보 관리 //

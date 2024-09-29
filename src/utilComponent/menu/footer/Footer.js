@@ -13,7 +13,7 @@ function Footer(){
                 <div className="footer-con-s1-b1">
                     <div className="footer-con-s1-b1-header">
                         <div className="footer-con-s1-b1-h-t1">고객센터</div>
-                        <div className="footer-con-s1-b1-h-t2">오전 9시 ~ 오후 6시(학원에 있는 시간)</div>
+                        <div className="footer-con-s1-b1-h-t2">오전 9시 ~ 오후 6시</div>
                     </div>
                     <div className="footer-con-s1-b1-sub">
                         <div className="footer-con-s1-b1-sub-t1">

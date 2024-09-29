@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import './SubApp.css'
+import './SubApp.scss'
 import Side_menu from "../../../utilComponent/menu/side-menu/side-menu";
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import SubList from "../subList/SubList";
@@ -17,8 +17,9 @@ function SubApp (){
 
     // console.log('렌더회수 체크')
     
-    // state
-    const [list, setList] = useState([])   //////////지역 필터 데이터
+    // =================================================
+    // state //
+    const [list, setList] = useState([]) 
     const [def_list, setDef_list] = useState([])
     const [current_page , setCurrent_page] = useState(1)
     const [total_count, setTotal_count] = useState(null)
@@ -26,12 +27,12 @@ function SubApp (){
     const [count_number, setCount_number] = useState(10)
     const [search_keyword, setSearch_keyword] = useState(null)
 
-    // imperativehandle ref
+    // =================================================
+    // refs //
     const modal = useRef(null)
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // business
     const {city} = useSubSubAppBusiness(undefined, state_store([
         {
@@ -66,8 +67,6 @@ function SubApp (){
 
     // style
     const {} = useSubSubAppStyle()  
-
-    // console.log(list)
 
     return(
         <div className="subApp">

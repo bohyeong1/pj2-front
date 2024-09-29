@@ -172,3 +172,23 @@
   font-size: 0.925rem;
   font-weight: 500;
 }
+
+// =================================================
+// scroll-bar //
+// ie 지원 x
+.common-scroll-bar{
+  scrollbar-width: thin;
+  scrollbar-color: rgb(235, 235, 235) transparent;
+  &::-webkit-scrollbar{
+    width: 12px;
+  }
+  &::-webkit-scrollbar-track{
+    background-color: transparent;
+  }
+  &::-webkit-scrollbar-thumb{
+    border-radius: 8px; background-color: rgb(235, 235, 235);   border: 2px solid #ffffff;
+  }
+  &::-webkit-scrollbar-thumb:hover{
+    background-color: rgb(200, 200, 200);
+  }
+}

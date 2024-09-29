@@ -1,3 +1,5 @@
+@import '../../../manage_scss_style/commonness/colors';
+
 .Acc-regist-lv12__footer{
     width:800px;
     position: fixed;
@@ -12,30 +14,50 @@
 }
 
 .Acc-regist-lv12__content{
-    display: flex;  flex-direction: column; gap:50px;   box-sizing: border-box; padding-top: 50px;
-    width: 800px;
+    display: flex;  flex-direction: column; gap:20px;   box-sizing: border-box; padding-top: 50px;
+    width: 800px;    padding-bottom: 65px;
 }
 .Acc-regist-lv12__content-title{
     font-size: 1.725rem;    font-weight: bold;
 }
 
 
-// 움짤 
+// sec1
 .Acc-regist-lv12__content-section1{
-    display: flex;  justify-content: center;
+    display: flex;  flex-direction: column; align-items: center;
+    gap:20px;
 }
-.Acc-regist-lv12__content-video{
-    width:400px; height: 400px;
-    display: flex; justify-content: center; align-items: center;    overflow: hidden;   border-radius: 15px;
-    pointer-events: none;
+.Acc-regist-lv12__content-section1-part1{
+    width: 100%;    display: flex;  gap:30px;
+}
+// sec2
+.Acc-regist-lv12__content-section1-part2{
+    width: 100%;
+    display: flex;  flex-direction: column; gap:10px;
+    font-size: 1.425rem;    font-weight: 600;
+    color: $grey-lv3;
+}
+.Acc-regist-lv12__content-section1-part2 > div:nth-child(1){
+    display: flex;  gap:8px;
+}
+.Acc-regist-lv12__content-section1-part2 > div:nth-child(1) > span:nth-child(2){
+    color: $blue-default;
 }
 
 // 버튼 
 .Acc-regist-lv12__btn{
     cursor: pointer;    
-    display: block; height:50px; border:none;   background: #b8e0e9; border-radius: 10px;    width: 100%;    box-sizing: border-box;
-    padding-left: 10px; font-size: 1.2rem;  font-weight: bold;
+    display: block; height:50px;    border:none;    border-radius: 10px;
+    padding: 10px 20px; font-size: 0.8725rem;  font-weight: 600;
+    width: 188px;
 }
-.Acc-regist-lv12__btn:hover{
-    background: #80CEE1;
+.Acc-regist-lv12__btn:nth-child(1){
+    background-color: $blue-default;
+    color: white;
+}
+
+// img
+.Acc-regist-lv12__img{
+    width: 100%;    padding-top: 155px;
+    height: fit-content;
 }

@@ -1,0 +1,50 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+// container
+.host-side-aditor__container{
+    height: calc(calc(var(--vh) * 100) - 264.23px);
+    overflow-y: auto;
+    overflow-x: visible;
+    width: calc(100% + 15px);    transform: translateX(-15px);
+}
+// wrapper
+.host-side-aditor__wrapper{
+    width: 100%;    padding-bottom: 50px;
+    display: flex;  flex-direction: column;
+    gap:15px;   padding-right: 15px; padding-left: 10px;    padding-top: 15px;
+}
+
+// sellect box
+.host-side-aditor__sellect-box{
+    padding: 10px;  border-radius: 10px;
+    display: flex;  flex-direction: column; 
+    gap:10px;   cursor: pointer;
+    transition: 0.2s background-color;
+}
+.host-side-aditor__sellect-box:hover{
+    background-color: $grey-lv9;
+}
+.host-side-aditor__sellect-box > div{
+    color: $grey-lv3;   font-size: 0.9775rem;
+}
+.host-side-aditor__sellect-box-title{
+    font-size: 1.2125rem;
+}
+
+// sellect box 세부 css
+.host-side-aditor__sellect-box-service-facility{
+    display: flex;  flex-direction: column; gap:10px;
+}
+.host-side-aditor__sellect-box-service-facility > div{
+    display: flex;  gap:20px;   align-items: center;
+}
+.host-side-aditor__sellect-box-service-facility > div > img{
+    width: 30px;
+}
+.host-side-aditor__sellect-box-price{
+    display: flex;  flex-direction: column; gap:10px;
+}
+.host-side-aditor__sellect-box-service-facility-alram{
+    text-decoration: underline;
+}
+// active style

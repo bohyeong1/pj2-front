@@ -51,7 +51,7 @@ function useAccRegistLv11Business(data, states, refs, props){
     // date array //
     async function get_accomodation_average(){
         setLoading(false)
-        const acc_data = await connectData(`${default_data.d_base_url}/api/accomodation/regist/localAverage/${param.house}`, 'PUT', 
+        const acc_data = await connectData(`${default_data.d_base_url}/api/accomodation/regist/localAverage/${param.house}`, 'POST', 
             {
                 search_adress : accomodation.search_adress
             })

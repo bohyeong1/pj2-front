@@ -4,6 +4,8 @@ import { get_user } from "../../utilData/UtilFunction"
 import Loading from "../../utilComponent/material/loading/loading"
 import session_storage from "../../sessionStorage/session_storage"
 import default_data from "../../utilData/defaultData"
+import { connect_data_width_cookies } from "../../utilData/UtilFunction"
+import { result } from "lodash"
 
 // =================================================
 // parameter의 값에 따른 fetch하는 라우터 //
@@ -35,14 +37,28 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
         
         // 해당 숙소데이터값 없으면 가져오기
         if(house_id && (!current_home || house_id !== current_home._id)){
-            // fetch logic
+            connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/get/secret-one/${house_id}`, 'POST')
+            .then((result) => {
+                try{
+                    if(result.user && result && result.server_state === true){
+                        setAcc_data(result.accomodation)
+                        setUser_data(result.user)
+                        session_storage.save('house', result.accomodation)
+                    }else{
+                        throw new Error('api 요청 중 에러 발생')
+                    }
+                }catch(e){
+                    console.log(e)
+                }
+            })
             console.log('session 없음')
         }else{
             get_user(data_state)
-            .then(result => {
+            .then((result) => {
                 try{
-                    if(result.code === 200){
+                    if(result && result.code === 200){
                         setUser_data(result)
+                        setAcc_data(current_home)
                     }else{
                         console.log(result)
                     }
@@ -66,7 +82,7 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
     if(Provider){
         return (
             user_data && user_data.log_state ? 
-            user_data.user.host_state ? <Provider><Element login_user = {user_data.user} this_step={this_step}/></Provider> : 
+            user_data.user.host_state ? <Provider><Element login_user = {user_data.user} this_step={this_step} acc_data = {acc_data ? acc_data : null}/></Provider> : 
             <Navigate to={`${redirection_url}?name=${user_data.user.userId}&host=${user_data.user.host_state ? user_data.user.host_state : 'none'}`}/>
             : <Navigate to="/Login"/>
         )
@@ -75,7 +91,7 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
     else{
         return (
             user_data && user_data.log_state ? 
-            user_data.user.host_state ? <Element login_user = {user_data.user} this_step={this_step}/> : 
+            user_data.user.host_state ? <Element login_user = {user_data.user} this_step={this_step} acc_data = {acc_data ? acc_data : null}/> : 
             <Navigate to={`${redirection_url}?name=${user_data.user.userId}&host=${user_data.user.host_state ? user_data.user.host_state : 'none'}`}/>
             : <Navigate to="/Login"/>)
     }

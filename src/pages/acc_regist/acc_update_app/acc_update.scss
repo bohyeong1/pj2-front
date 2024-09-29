@@ -1,0 +1,60 @@
+@import '../../../manage_scss_style/commonness/colors';
+
+.acc-update__container{
+    width:1920px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.acc-update__content{
+    width: 1200px;
+    display: flex;    gap:32px;
+
+}
+.acc-update__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: rgb(243, 243, 243);
+}
+// side menu
+.acc-update__aditor-container{
+    width: 300px;   
+    display: flex;  flex-direction: column;
+    padding-top: 50px;    padding-bottom: 50px;
+    border-right: solid 1px $grey-lv9;
+
+}
+.acc-update__aditor-header{
+    width: 100%;    height: fit-content;    padding-bottom: 30px;    
+}
+.acc-update__aditor-title{
+    font-size: 1.725rem;   
+    padding-bottom: 40px;   display: flex;  gap:30px;
+    align-items: center;
+}
+.acc-update__aditor-title > button{
+    width: 32px;    height: 32px;   background-color: $grey-lv9;
+    border: none;   border-radius: 100%;
+    display: flex;  align-items: center;    justify-content: center;
+    cursor: pointer;
+}
+.acc-update__aditor-title > button:hover{
+    background-color: $grey-lv8;
+}
+.acc-update__aditor-title > button > img{
+    width: 20px;    height: 20px;
+}
+.acc-update__aditor-button-container{
+    display: flex;  gap:15px;   width: 100%;    height: 36px;
+}
+.acc-update__aditor-button-container > div > button{
+    padding: 0 12px;  height: 36px; transition: 0.2s;
+}
+.acc-update__aditor-button-container > div{
+    display: flex;  gap:15px;
+}
+

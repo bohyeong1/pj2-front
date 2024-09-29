@@ -215,6 +215,9 @@ const default_data = {
     ],
 
     // =================================================
+    // accomodation check-in data structure //
+
+    // =================================================
     // adress default data structure //
     d_main_adress : {
         name:'',
@@ -434,7 +437,7 @@ const default_data = {
             },
             {
                 name:'숙소',
-                url:'/Acc_regist/Acc_manage'
+                url:'/Acc_regist/AccManage'
             },
             {
                 name:'호스트 소개',
@@ -466,7 +469,36 @@ const default_data = {
                 name:'evaluation/max',
                 title:'평점높은순'
             }
-        ]
+        ],
+
+    // =================================================
+    // host side aditor menus //
+    host_side_aditor_menus : [
+        {
+            name : '이름'
+        },
+        {
+            name : '숙소 유형'
+        },
+        {
+            name : '편의 시설'
+        },
+        {
+            name : '포토'
+        },
+        {
+            name : '요금 책정'
+        },
+        {
+            name : '게스트 수'
+        },
+        {
+            name : '설명'
+        },
+        {
+            name : '숙소 이용규칙'
+        }
+    ],
 }
 
 export default default_data
