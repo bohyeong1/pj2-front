@@ -56,7 +56,7 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
         else if(mapping_data === '요금 책정'){
             return(
                 <div className="host-side-aditor__sellect-box-price">
-                    <span>1박당 {acc_data.price}원</span>
+                    <span>1박당 - {acc_data.price}원</span>
                     <span>할인 설정</span>
                 </div>
             )

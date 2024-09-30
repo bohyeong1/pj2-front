@@ -11,24 +11,21 @@
 .host-side-aditor__wrapper{
     width: 100%;    padding-bottom: 50px;
     display: flex;  flex-direction: column;
-    gap:15px;   padding-right: 15px; padding-left: 10px;    padding-top: 15px;
+    gap:10px;   padding-right: 15px; padding-left: 10px;    padding-top: 15px;
 }
 
 // sellect box
 .host-side-aditor__sellect-box{
-    padding: 10px;  border-radius: 10px;
+    padding: 15px;  border-radius: 10px;
     display: flex;  flex-direction: column; 
     gap:10px;   cursor: pointer;
     transition: 0.2s background-color;
 }
-.host-side-aditor__sellect-box:hover{
-    background-color: $grey-lv9;
-}
 .host-side-aditor__sellect-box > div{
-    color: $grey-lv3;   font-size: 0.9775rem;
+    color: $grey-lv3;   font-size: 0.8575rem;
 }
 .host-side-aditor__sellect-box-title{
-    font-size: 1.2125rem;
+    font-size: 1.1125rem;
 }
 
 // sellect box 세부 css
@@ -46,5 +43,6 @@
 }
 .host-side-aditor__sellect-box-service-facility-alram{
     text-decoration: underline;
+    display: flex;  justify-content: right;
 }
 // active style

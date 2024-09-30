@@ -499,6 +499,43 @@ const default_data = {
             name : '숙소 이용규칙'
         }
     ],
+
+    // =================================================
+    // host side check in menus //
+    host_side_check_in_menus : [
+        {
+            name : '체크인',
+            default : '세부정보 추가'
+        },
+        {
+            name : '체크인 방법',
+            default : '세부정보 추가'
+        },
+        {
+            name : '찾아오는 방법',
+            default : '세부정보 추가'
+        },
+        {
+            name : '와이파이 세부 정보',
+            default : '세부정보 추가'
+        },
+        {
+            name : '숙소 메뉴얼',
+            default : '세부정보 추가'
+        },
+        {
+            name : '체크아웃',
+            default : '세부정보 추가'
+        },
+        {
+            name : '체크아웃 방법',
+            default : '세부정보 추가'
+        },
+        {
+            name : '커뮤니케이션',
+            default : '세부정보 추가'
+        }
+    ]
 }
 
 export default default_data

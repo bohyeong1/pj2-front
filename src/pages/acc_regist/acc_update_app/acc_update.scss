@@ -32,12 +32,12 @@
     width: 100%;    height: fit-content;    padding-bottom: 30px;    
 }
 .acc-update__aditor-title{
-    font-size: 1.725rem;   
+    font-size: 1.525rem;   font-weight: 600;
     padding-bottom: 40px;   display: flex;  gap:30px;
     align-items: center;
 }
 .acc-update__aditor-title > button{
-    width: 32px;    height: 32px;   background-color: $grey-lv9;
+    width: 30px;    height: 30px;   background-color: $grey-lv9;
     border: none;   border-radius: 100%;
     display: flex;  align-items: center;    justify-content: center;
     cursor: pointer;

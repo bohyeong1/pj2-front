@@ -34,15 +34,16 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
     useEffect(()=>{
         const house_id = param.house
         const current_home = session_storage.load('house')
-        
+
         // 해당 숙소데이터값 없으면 가져오기
         if(house_id && (!current_home || house_id !== current_home._id)){
+            console.log('확인')
             connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/get/secret-one/${house_id}`, 'POST')
             .then((result) => {
                 try{
-                    if(result.user && result && result.server_state === true){
+                    if(result.user_data && result && result.server_state === true){
                         setAcc_data(result.accomodation)
-                        setUser_data(result.user)
+                        setUser_data(result.user_data)
                         session_storage.save('house', result.accomodation)
                     }else{
                         throw new Error('api 요청 중 에러 발생')
@@ -51,7 +52,6 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
                     console.log(e)
                 }
             })
-            console.log('session 없음')
         }else{
             get_user(data_state)
             .then((result) => {

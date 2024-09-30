@@ -18,15 +18,15 @@ function HostSideAditor({acc_data = null}){
             <div className="host-side-aditor__wrapper">
                 {default_data.host_side_aditor_menus.map((el, id) => {
                     return (
-                        <div className="host-side-aditor__sellect-box box-shadow-lv1 not-user-sellect" key={id}>
+                        <div className="host-side-aditor__sellect-box small-button not-user-sellect" key={id}>
                             <span className="host-side-aditor__sellect-box-title">{el.name}</span>
                             {render_box_output(el.name)}
                         </div>
                     )
                 })}
             </div>
-
         </div>
     )
 }
+
 export default HostSideAditor

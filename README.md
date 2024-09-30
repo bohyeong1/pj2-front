@@ -16,19 +16,19 @@
   DB : mongoDB atlas
   FILE(이미지) : naver object storage
 
-- Lib(core project skill stack)
-  프론트엔드 : gsap, sass, redux-toolkit, react-router, swiper
-  백엔드 : aws-sdk, jsonwebtoken, mongoose, multer
+- Lib(core project library)
+  공통 : lodash
+  프론트엔드 : gsap, sass, redux-toolkit, react-router, swiper, react-hook-form, firebase, chart.js
+  백엔드 : aws-sdk, mongoose, multer
 
 3. 페이지 구조
 
 4. 반응형 여부
-  scss로 할꺼임
+  mobile X, web 전용 1200px 기본 레이아웃
 
-5. 홈페이지 디자인 참고사이트
-  - 에어비앤비: host page, accommodations update uage
-  - 여기어때: rending page, sub page
-  - 로그인 페이지: kakao login template
+5. 홈페이지 기능, 디자인 참고사이트
+  - 에어비앤비: 호스트 기능
+  - 여기어때: rending page, sub page (디자인)
 
 6. 개발 다이어리
    memo.md 파일에 기록

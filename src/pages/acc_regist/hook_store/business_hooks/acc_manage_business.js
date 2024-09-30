@@ -44,7 +44,7 @@ function useAccManageBusiness(data, states, refs, props){
     // =================================================
     // click accomodation button //
     function click_accomodaton_button(_id){
-        navigate(`/Acc_regist/update/${_id}`)
+        navigate(`/Acc_regist/update/${_id}?side=accomodation&main=accomodation-section1`)
     }
 
     return {click_add_button, click_accomodaton_button}

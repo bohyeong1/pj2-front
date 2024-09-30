@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate} from "react-router-dom"
 
 function useAccUpdateBusiness(data, states, refs, props){
 
@@ -11,6 +11,7 @@ function useAccUpdateBusiness(data, states, refs, props){
     function click_prev_page_button(){
         navigate('/Acc_regist/AccManage')
     }   
+
     return {click_prev_page_button}
 }
 
