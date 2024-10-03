@@ -1,3 +1,3 @@
 import React,{createContext} from "react";
 
-export const ImgContext = createContext()
+export const ImgContext = createContext(null)

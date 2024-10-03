@@ -1,12 +1,9 @@
 
 function useMenuHostSideAditorStyle(data, states, refs, props){
-    // =================================================
-    // props //
-    const {acc_data} = props
 
     // =================================================
     // render sellect box output //
-    function render_box_output(mapping_data){
+    function render_box_output(mapping_data, acc_data){
         if(!acc_data){
             console.log('check front logic')
             return  null
@@ -50,6 +47,23 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
                     {/* <span>{acc_data.base_facility[0].name} {acc_data.base_facility[0].counts} · {acc_data.base_facility[1].name} {acc_data.base_facility[1].counts} · 
                         {acc_data.base_facility[2].name} {acc_data.base_facility[2].counts} · {acc_data.base_facility[3].name} {acc_data.base_facility[3].counts}</span> */}
                     regist logic 체크 해야 할 곳
+                </div>
+            )
+        }
+        else if(mapping_data === '키워드'){
+            return(
+                <div className="host-side-aditor__sellect-box-keyword">
+                    {acc_data.keywords.slice(0,3).map((el,id) => {
+                        return (
+                            <div key={id}>
+                                <img src={el.url}></img>
+                                <span>{el.name}</span>
+                            </div>
+                        )
+                    })}
+                    {acc_data.service_facility.length > 3 ? 
+                    <span className="host-side-aditor__sellect-box-keyword-alram">외 {acc_data.keywords.length - 3}개</span>
+                    : null}
                 </div>
             )
         }

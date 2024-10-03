@@ -16,6 +16,7 @@ function Acc_initial_regist({login_user}){
 
     // =================================================
     // hooks //  
+    // business
     const {register, handleSubmit, errors, isValid, submit} = useAccInitialRegistBusiness(undefined,
         state_store([
             {

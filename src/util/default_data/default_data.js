@@ -475,10 +475,12 @@ const default_data = {
     // host side aditor menus //
     host_side_aditor_menus : [
         {
-            name : '이름'
+            name : '이름',
+            url : 'title'
         },
         {
-            name : '숙소 유형'
+            name : '숙소 유형',
+            url : 'category'
         },
         {
             name : '편의 시설'
@@ -508,11 +510,13 @@ const default_data = {
     host_side_check_in_menus : [
         {
             name : '체크인',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'checkin'
         },
         {
             name : '체크인 방법',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'checkin-method'
         },
         {
             name : '찾아오는 방법',

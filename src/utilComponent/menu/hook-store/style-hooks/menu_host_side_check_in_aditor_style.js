@@ -7,11 +7,7 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
 
     // =================================================
     // render sellect box output //
-    function render_box_output(mapping_data){
-        if(!acc_data){
-            console.log('check front logic')
-            return  null
-        }
+    function render_box_output(mapping_data, acc_data){
 
         // render
         if(mapping_data.name === '체크인'){

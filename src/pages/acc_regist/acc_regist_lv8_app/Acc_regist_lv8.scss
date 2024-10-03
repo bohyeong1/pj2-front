@@ -1,4 +1,4 @@
-@import '../../../manage_scss_style/commonness/colors';
+@import '@/manage_scss_style/commonness/colors';
 
 .Acc-regist-lv8__footer{
     width:800px;
@@ -26,7 +26,7 @@
 }
 .Acc-regist-lv8__section-box > div{
     position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
-    background-color: red;
+    background-color: $red-lv3;
 }
 
 // sec1
@@ -90,5 +90,5 @@
 // sec3 
 .Acc-regist-lv8__content-sec3{
     margin-top: 40px;
-    color: red;
+    color: $red-lv3;
 }

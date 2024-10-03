@@ -42,7 +42,7 @@ export {default as AccRegistLv10} from './acc_regist/acc_regist_lv10_app/Acc_reg
 export {default as AccRegistLv11} from './acc_regist/acc_regist_lv11_app/Acc_regist_lv11'
 export {default as AccRegistLv12} from './acc_regist/acc_regist_lv12_app/Acc_regist_lv12'
 
-export {default as AccUpdate} from './acc_regist/acc_update_app/acc_update'
+export {default as AccUpdate} from './acc_regist/update/app/update_app'
 
 // =================================================
 // 회원정보 관리 //
