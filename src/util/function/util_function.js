@@ -322,14 +322,7 @@ export function is_equal_file(prev, current){
 
 // =================================================
 // control button state //
-export function button_state(style, call_back, fetch_state){
-    const button_state = call_back()
-
-    if(style){
-        return button_state && fetch_state ? 'button-enable' : 'button-disable'
-    }
-    else{
-        return button_state && fetch_state ? false : true     
-    } 
+export function button_state(button_state, fetch_state){
+    return button_state && fetch_state ? false : true     
 }
 

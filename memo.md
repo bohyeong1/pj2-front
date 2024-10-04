@@ -306,5 +306,9 @@ DB - User(사용자), Accomodation(숙소),
   뷰단위 컨텐츠는 lazy로딩으로 초기 로딩시 app.js에서는 레이아웃 단위 컴포넌트만 임포트
   기존에 세션으로 데이터 관리하던 부분 -> context api로 옮겨야 할듯
   중첩라우팅 안에 또 중첩 라우팅하는 상황이 있을 수 있으니 route모듈안에 라우트정의는 array.map이 아닌 하드코딩 갈겨놓음
+
+10.4
+- lodash isMatch 쓸 때 주의사항 *************** isMatch(a,b)를 비교할 때
+  b가 null이면 무조건 true 반환함, 조건처리 필히 해놓을것
   <code>
 </pre>

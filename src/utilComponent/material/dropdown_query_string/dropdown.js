@@ -1,25 +1,25 @@
-import './dropdown.css'
+import './dropdown.scss'
 import React, {useRef, useState} from 'react'
-import default_data from '../../../utilData/defaultData'
+import default_data from "@/util/default_data/default_data";
 import { state_store, reference_store } from '../../../utilData/UtilFunction'
 import useMaterialDropdownBusiness from '../hook-store/business-hooks/material-dropdown-business'
 import useMaterialDropdownStyle from '../hook-store/style-hooks/material-dropdown-style'
 
-
 function Dropdown(){
 
-    //ref
+    // =================================================
+    // refs //
     const drop_list = useRef(null)
     const drop_arrow = useRef(null)
     const drop_logo = useRef(null)
     const drop_options = useRef([])
 
-    // state
+    // =================================================
+    // states //
     const [select_option , setSelect_option] = useState(null)
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // business
     const {click_option} = useMaterialDropdownBusiness(undefined,
         state_store([

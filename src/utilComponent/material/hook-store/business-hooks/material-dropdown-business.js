@@ -2,9 +2,7 @@ import { useEffect } from "react"
 import { useSearchParams } from "react-router-dom"
 function useMaterialDropdownBusiness(data, states, refs, props){
 
-    const [SearchParams, setSearchParams] = useSearchParams()
-    
-
+    const [SearchParams, setSearchParams] = useSearchParams()  
 
     // 새로고침 시 드랍다운 상태 유지
     useEffect(()=>{

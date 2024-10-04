@@ -3,7 +3,7 @@ import { AccDataContext } from "@/context/acc_data_context/config/acc_data_conte
 import { useContext } from "react"
 
 function AccUpdate({option = null}){    
-    
+
     // =================================================
     // context states //
     const {acc_data, setAcc_data} = useContext(AccDataContext)

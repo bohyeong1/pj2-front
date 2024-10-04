@@ -1,21 +1,25 @@
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useParams } from "react-router-dom";
 import session_storage from "@/sessionStorage/session_storage";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
-import _ from 'lodash'
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import { button_state } from '@/util/function/util_function'
 
 function useHostUpdateAccomodationView1Business(data, states, refs, props){
     // =================================================
     // states //
-    const {title, setTitle, prev_data, setPrev_data, loading, setLoading} = states
+    const {title, setTitle, loading, setLoading, is_button, setIs_button} = states
+
+    // =================================================
+    // context states //
+    const {acc_data, setAcc_data} = data
 
     // =================================================
     // params //
-    const param = useParams()
+    const param = useParams() 
 
     // =================================================
     // validation schema //
@@ -29,63 +33,38 @@ function useHostUpdateAccomodationView1Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{errors, isValid}, watch, reset, getValues} = useForm({
+    const {register, reset, getValues, control} = useForm({
         resolver:yupResolver(validation_schema),
         mode:'all'
     })
-
+    const {errors, isValid} = useFormState({control})
+    
     // =================================================
     // title 초기값 설정 //
     useEffect(()=>{
-        if (title) {
-            reset({ title })
+        if(title){
+            reset({title})
         }
     },[title, reset])
-    
+
     // =================================================
     // data fetch  //
-    async function fetch_acc(data, index){
+    async function fetch_acc(data){
         setLoading(false)
-        watch('title')
-        // prev_data와 current_data 같을 경우 api 요청 x
-        if(prev_data && _.isEqual(data, prev_data)){
-            setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
-                accomodation : {
-                    _id : session_storage.load('house')._id
-                }
-            } : false
-        }
-        // prev_data와 current_data 다를 경우 패치 진행
-        else{
-            const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/registLv8/${param.house}`, 'PUT', 
-                {
-                    acc_step : parseInt(index),
-                    title : data['title'],
-                    capacity : data['capacity']
-                })
-        
-                if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
-                }        
-                console.log(acc_data)
-                setLoading(true)
-                return acc_data.acc_state ? acc_data : false
-        }
+        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/title/${param.house}`, 'PUT', 
+            {
+                title : data
+            })
+    
+            if(acc_data && acc_data.acc_state && acc_data.server_state){
+                setAcc_data(acc_data.accomodation)
+                session_storage.save('house',acc_data.accomodation)
+                setIs_button(false)
+            }        
+        setLoading(true)
     }
 
-    // =================================================
-    // get valid button state  //
-    function get_valid(){
-        if(watch('title')){
-            return watch('title') !== title ? true : false
-        }
-        else{
-            return getValues('title') !== title ? true : false
-        }
-    }
-
-    return {fetch_acc, register, errors, isValid, get_valid}
+    return {fetch_acc, register, errors, getValues, isValid}
 
 }
 

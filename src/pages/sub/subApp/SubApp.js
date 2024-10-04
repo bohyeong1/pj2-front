@@ -5,7 +5,7 @@ import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import SubList from "../subList/SubList";
 import Footer from "../../../utilComponent/menu/footer/Footer";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
-import Dropdown from "../../../utilComponent/material/dropdown/dropdown";
+import Dropdown from "../../../utilComponent/material/dropdown_query_string/dropdown";
 import Sub_modal from "../../../utilComponent/modal/mapModal/map-modal";
 
 import useSubSubAppBusiness from "../hook-store/business-hooks/sub-subApp-business";
