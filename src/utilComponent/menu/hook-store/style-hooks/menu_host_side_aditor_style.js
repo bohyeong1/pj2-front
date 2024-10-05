@@ -44,9 +44,15 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
         else if(mapping_data === '포토'){
             return(
                 <div className="host-side-aditor__sellect-box-photo">
-                    {/* <span>{acc_data.base_facility[0].name} {acc_data.base_facility[0].counts} · {acc_data.base_facility[1].name} {acc_data.base_facility[1].counts} · 
-                        {acc_data.base_facility[2].name} {acc_data.base_facility[2].counts} · {acc_data.base_facility[3].name} {acc_data.base_facility[3].counts}</span> */}
-                    regist logic 체크 해야 할 곳
+                    <div className="host-side-aditor__img-main">
+                        <img src={acc_data.main_img}></img>
+                    </div>
+                    <div className="host-side-aditor__img-sub1">
+                        <img src={acc_data.sub_img[0]}></img>
+                    </div>
+                    <div className="host-side-aditor__img-sub2">
+                        <img src={acc_data.sub_img[1]}></img>
+                    </div>                    
                 </div>
             )
         }

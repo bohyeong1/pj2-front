@@ -80,7 +80,7 @@ const default_data = {
 
     // =================================================
     // accomodation - service facility default data structure //
-    d_service_facility_icon:[
+    d_service_facility_icon : [
         {
             name:'수영장',
             url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAABG0lEQVR4nO2YQWrCQBSGP8wBurWHqCfpQs8htJuCuvcieg9dmCNUaHuMqgt3TwKvUMVxdDB1Yv8PQkj88x6TMd/igbgvnoEZsAEMKDOve5SxN/l9LMi3bvCNVQ22wBvwSN51g8y9YdWsCXWDrL1hm2bUDfLz321K3bMaWg3Hn3GXC7kmpoUkoh2JYPrYE5G1IpislYisFcFkrURkrQgmayUia0UwWSsRWSuCyVr/3VplTfPYso66BTDy6d/Ir09lB8Dqguw3MLxido8HoAO8AsuDWdO73+94LpZ9AZ5qzga39XBQ9gH0gc8zhmq3yJahhWz8gQnQBVr+W3XuAVPgy3M5ZBfH90TkTSFrIWuZrCUaRCFrIWuZrCXIix26Wjzpu3X55wAAAABJRU5ErkJggg=='
@@ -483,25 +483,32 @@ const default_data = {
             url : 'category'
         },
         {
-            name : '편의 시설'
+            name : '편의 시설',
+            url : 'service-facility'
         },
         {
-            name : '포토'
+            name : '포토',
+            url : 'photo'
         },
         {
-            name : '키워드'
+            name : '키워드',
+            url : 'keyword'
         },
         {
-            name : '요금 책정'
+            name : '요금 책정',
+            url : 'price'
         },
         {
-            name : '게스트 수'
+            name : '게스트 수',
+            url : 'capacity'
         },
         {
-            name : '설명'
+            name : '설명',
+            url : 'summary'
         },
         {
-            name : '숙소 이용규칙'
+            name : '이용 규칙',
+            url : 'rule'
         }
     ],
 

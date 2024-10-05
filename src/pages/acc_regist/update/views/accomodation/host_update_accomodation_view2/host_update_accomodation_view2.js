@@ -57,7 +57,7 @@ function HostUpdateAccomodationView2(){
     )
 
     return (
-        loading === false ? <Loading></Loading> :
+        loading === false ? <Loading part = {true}></Loading> :
         <div className='host-update-accomodation-view2__container'>
             <div className="host-update-accomodation-view2__title">
                 <span>숙소 유형</span>

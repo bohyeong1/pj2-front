@@ -22,7 +22,7 @@ function useHostUpdateAccomodationView2Business(data, states, refs, props){
     // =================================================
     // data //
     const {acc_data, setAcc_data} = data
-
+    
     // =================================================
     // controll button //
     useEffect(()=>{

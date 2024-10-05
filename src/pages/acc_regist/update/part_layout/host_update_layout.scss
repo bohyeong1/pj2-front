@@ -3,7 +3,7 @@
 .host-update-layout{
     width: 1200px;
     display: flex;
-
+    height: calc((calc(var(--vh) * 100) - 26.23px));
 }
 // content
 .host-update-layout__content{

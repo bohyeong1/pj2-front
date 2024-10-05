@@ -66,7 +66,7 @@ function HostUpdateAccomodationView1(){
     )
 
     return (
-        loading === false ? <Loading></Loading> :
+        loading === false ? <Loading part = {true}></Loading> :
         <div className='host-update-accomodation-view1__container'>
             <div className='host-update-accomodation-view__content-section1'>
                 <div className="host-update-accomodation-view1__content-section1-box1-title">

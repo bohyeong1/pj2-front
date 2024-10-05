@@ -50,7 +50,7 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
                         setUser_data1(result.user_data)
                         session_storage.save('house', result.accomodation)
                         // context
-                        setAcc_data(result.user_data)
+                        setAcc_data(result.accomodation)
                     }else{
                         throw new Error('api 요청 중 에러 발생')
                     }

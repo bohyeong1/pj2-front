@@ -45,4 +45,30 @@
     text-decoration: underline;
     display: flex;  justify-content: right;
 }
+.host-side-aditor__sellect-box-photo{
+    position: relative; display: flex;  justify-content: center;
+}
+.host-side-aditor__sellect-box-photo > div > img{
+    width: 100%;    height: 100%;   object-fit: cover;
+}
+.host-side-aditor__img-main,.host-side-aditor__img-sub1,.host-side-aditor__img-sub2{
+    overflow: hidden;
+    border-radius: 10px;
+}
+.host-side-aditor__img-main{
+    width: 120px;   height: 120px;
+    z-index: 2;
+}
+.host-side-aditor__img-sub1,.host-side-aditor__img-sub2{
+    position: absolute; width: 90px;    height: 90px;
+    z-index: 1;
+}
+.host-side-aditor__img-sub1{
+    left: 6px; bottom: 10px;
+    transform: rotateZ(-5deg);
+}
+.host-side-aditor__img-sub2{
+    right: 6px;    bottom: 10px;
+    transform: rotateZ(5deg);
+}
 // active style

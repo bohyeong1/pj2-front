@@ -3,13 +3,13 @@ import './loading.scss'
 import useMaterialLoadingStyle from "../hook-store/style-hooks/material_loading_style";
 
 
-function Loading(){
+function Loading({part = null}){
 
     const {} = useMaterialLoadingStyle()
 
     return(
-        <div className="loading__container">
-            {/* <div className="loading__overay"></div> */}
+        <div className={`loading__container ${part ? 'loading-part-style' : 'loading-default-style'}`}>
+            {/* {part ? <div className="loading__overay"></div> : null} */}
             <div className="loading__circle">
                 <div className="loading__item-1">
                     <div className="loading__bar"></div>
