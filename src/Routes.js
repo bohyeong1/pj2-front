@@ -1,7 +1,7 @@
 import { Route,Routes } from 'react-router-dom';
 // =================================================
 // default layout //
-import DefaultLayout from './util/layout/default_layout';
+import DefaultLayout from './layout/default_layout/default_layout';
 // =================================================
 // routing pages //
 import { 

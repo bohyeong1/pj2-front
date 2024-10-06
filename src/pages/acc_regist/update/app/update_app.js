@@ -1,4 +1,4 @@
-import HostUpdateLayout from "../part_layout/host_update_layout"
+import HostUpdateLayout from "@/layout/host_update_layout/host_update_layout"
 import { AccDataContext } from "@/context/acc_data_context/config/acc_data_context"
 import { useContext } from "react"
 

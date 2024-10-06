@@ -9,7 +9,14 @@ function useHostUpdateAccomodationView2Business(data, states, refs, props){
 
     // =================================================
     // states //
-    const {loading, setLoading, category, setCategory, space_category, setSpace_category, is_button, setIs_button} = states
+    const {loading, 
+           setLoading, 
+           category, 
+           setCategory, 
+           space_category, 
+           setSpace_category,
+           is_button,
+           setIs_button} = states
     
     // =================================================
     // refs //
@@ -21,7 +28,8 @@ function useHostUpdateAccomodationView2Business(data, states, refs, props){
 
     // =================================================
     // data //
-    const {acc_data, setAcc_data} = data
+    const {acc_data, 
+           setAcc_data} = data
     
     // =================================================
     // controll button //

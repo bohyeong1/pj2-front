@@ -6,7 +6,10 @@ function useModalImgRegistModalBusiness(data, states, refs, props){
 
     // =================================================
     // states //
-    const {img_state, setImg_state} = states
+    const {img_state, 
+           setImg_state, 
+           loading,
+           setLoading} = states
 
     // =================================================
     // props //
@@ -19,14 +22,15 @@ function useModalImgRegistModalBusiness(data, states, refs, props){
     }
 
     // =================================================
-    // context state 변경 //
+    // 이미지 파일 넘기기 //
     function set_img_file(e){
-        // 메인이미지 파일 넘기기
-        e.preventDefault()
+        setLoading(false)
         if(img_state){
             setDrop_img_state(img_state)
+            setImg_state(null)
         }              
         img_modal_toggle(target_id)
+        setLoading(true)
     }
 
     return {set_img_file, regist_button}

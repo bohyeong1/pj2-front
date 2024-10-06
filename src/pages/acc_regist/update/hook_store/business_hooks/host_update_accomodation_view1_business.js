@@ -11,11 +11,17 @@ import { button_state } from '@/util/function/util_function'
 function useHostUpdateAccomodationView1Business(data, states, refs, props){
     // =================================================
     // states //
-    const {title, setTitle, loading, setLoading, is_button, setIs_button} = states
+    const {title, 
+           setTitle, 
+           loading, 
+           setLoading, 
+           is_button, 
+           setIs_button} = states
 
     // =================================================
     // context states //
-    const {acc_data, setAcc_data} = data
+    const {acc_data, 
+           setAcc_data} = data
 
     // =================================================
     // params //

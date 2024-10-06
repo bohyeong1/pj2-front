@@ -5,7 +5,10 @@ function useModalImgRegistModalStyle(data, states, refs, props){
 
     // =================================================
     // states //
-    const {img_url_state, setImg_url_state, img_state, setImg_state} = states
+    const {img_url_state, 
+           setImg_url_state,
+           img_state, 
+           setImg_state} = states
 
     // =================================================
     // refs //
@@ -13,11 +16,18 @@ function useModalImgRegistModalStyle(data, states, refs, props){
 
     // =================================================
     // props //
-    const {img_modal_toggle, drop_img_state, setDrop_img_state, target_id} = props
+    const {img_modal_toggle, 
+           drop_img_state, 
+           setDrop_img_state, 
+           target_id} = props
 
     // =================================================
     // state form //
-    const {register, formState:{errors}, setValue, clearErrors, setError} = useForm()
+    const {register, 
+           formState:{errors}, 
+           setValue, 
+           clearErrors, 
+           setError} = useForm()
 
     // =================================================
     // display img //
@@ -26,12 +36,22 @@ function useModalImgRegistModalStyle(data, states, refs, props){
         const file = img_input.current.files[0]
         if(file){
             const img_foramts = ['image/jpeg', 'image/png', 'image/webp']
-            if(img_foramts.includes(file.type)) {
-                setValue('image', file)
-                clearErrors('image')
-                setImg_state(file)
-                const img_url  = URL.createObjectURL(file)
-                setImg_url_state(img_url)
+            if(img_foramts.includes(file.type)){
+                if(file.size > 1048576 * 1.5){
+                    setValue('image', null)
+                    setError('image', {
+                        type: 'file_type',
+                        message: '현재는 1.5Mb이상 이미지는 업로드를 지원하지 않습니다.',
+                    })
+                    setImg_state(null)
+                    setImg_url_state(null)
+                }else{
+                    setValue('image', file)
+                    clearErrors('image')
+                    setImg_state(file)
+                    const img_url  = URL.createObjectURL(file)
+                    setImg_url_state(img_url)
+                }
             }else{
                 setValue('image', null)
                 setError('image', {

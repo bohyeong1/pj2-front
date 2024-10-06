@@ -148,17 +148,37 @@ function AccRegistLv6({login_user, this_step}){
                 </div>
             </div>
             {/* main img modal */}
-            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={main_img_state} 
-                setDrop_img_state={setMain_img_state} target_id={'img-regist-modal'}></ImgRegistModal>
+            <ImgRegistModal 
+                img_modal_toggle={img_modal_toggle} 
+                drop_img_state={main_img_state} 
+                setDrop_img_state={setMain_img_state} 
+                target_id={'img-regist-modal'}>
+            </ImgRegistModal>
             {/* sub img modal */}
-            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img1_state} 
-                setDrop_img_state={setSub_img1_state} target_id={'sub-img-regist-modal1'}></ImgRegistModal>
-            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img2_state} 
-                setDrop_img_state={setSub_img2_state} target_id={'sub-img-regist-modal2'}></ImgRegistModal>
-            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img3_state} 
-                setDrop_img_state={setSub_img3_state} target_id={'sub-img-regist-modal3'}></ImgRegistModal>
-            <ImgRegistModal img_modal_toggle={img_modal_toggle} drop_img_state={sub_img4_state} 
-                setDrop_img_state={setSub_img4_state} target_id={'sub-img-regist-modal4'}></ImgRegistModal>
+            <ImgRegistModal 
+                img_modal_toggle={img_modal_toggle} 
+                drop_img_state={sub_img1_state} 
+                setDrop_img_state={setSub_img1_state} 
+                target_id={'sub-img-regist-modal1'}>                    
+            </ImgRegistModal>
+            <ImgRegistModal 
+                img_modal_toggle={img_modal_toggle} 
+                drop_img_state={sub_img2_state} 
+                setDrop_img_state={setSub_img2_state} 
+                target_id={'sub-img-regist-modal2'}>
+            </ImgRegistModal>
+            <ImgRegistModal 
+                img_modal_toggle={img_modal_toggle} 
+                drop_img_state={sub_img3_state} 
+                setDrop_img_state={setSub_img3_state} 
+                target_id={'sub-img-regist-modal3'}>                    
+            </ImgRegistModal>
+            <ImgRegistModal 
+                img_modal_toggle={img_modal_toggle} 
+                drop_img_state={sub_img4_state} 
+                setDrop_img_state={setSub_img4_state} 
+                target_id={'sub-img-regist-modal4'}>                    
+            </ImgRegistModal>
             {/* footer */}
             <div className="Acc-regist-lv6__footer">
                 <Host_footer fetch_handler={fetch_acc}  drop_data = {{main_img : main_img_state, sub_img : [sub_img1_state, sub_img2_state, sub_img3_state, sub_img4_state]}}

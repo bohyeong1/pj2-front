@@ -26,7 +26,8 @@ export async function file_data(url, method, data){
         alert('파라미터를 제대로 넣어주세요')
         return
     }
-    const data_file = await fetch(url,{
+    const data_file = await fetch(url, {
+        credentials: 'include',
         method : method,
         body : data
     })
@@ -324,5 +325,16 @@ export function is_equal_file(prev, current){
 // control button state //
 export function button_state(button_state, fetch_state){
     return button_state && fetch_state ? false : true     
+}
+
+// =================================================
+// compare unit8array //
+export function compare_unit8_arrays(unit1, unit2){
+    if(unit1.length !== unit2.length){
+        return false
+    }
+    return unit1.every((el, index)=>{
+        return el === unit2[index]
+    })
 }
 

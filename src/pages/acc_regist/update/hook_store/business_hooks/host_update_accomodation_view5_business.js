@@ -17,11 +17,17 @@ function useHostUpdateAccomodationView5Business(data, states, refs, props){
 
     // =================================================
     // data //
-    const {acc_data, setAcc_data} = data
+    const {acc_data, 
+           setAcc_data} = data
 
     // =================================================
     // states//
-    const {current_data, setCurrent_data, loading, setLoading, is_button, setIs_button} = states
+    const {current_data, 
+           setCurrent_data, 
+           loading, 
+           setLoading, 
+           is_button, 
+           setIs_button} = states
 
     // =================================================
     // acc_data 초기 sellect 박스에 표시 //

@@ -25,7 +25,7 @@ function useAccRegistLv6Style(data, states, refs, props){
     }
 
     // =================================================
-    // 모달로 부터 받아온 이미지 display //
+    // 모달로 부터 받아온 이미지에 따라 스크롤 생성 //
     useEffect(()=>{
         // main
         if(main_img_state){         

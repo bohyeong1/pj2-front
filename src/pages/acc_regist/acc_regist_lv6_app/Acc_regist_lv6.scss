@@ -86,32 +86,49 @@
 .Acc-regist-lv6__content-section2-box2-btn{ 
     border-radius: 100%;
     border: none;
-    width: 40px;    height: 40px;
+    width: 40px;    
+    height: 40px;
     font-size: 1.625rem;
-    font-weight: 600;  cursor: pointer;  background-color: black;
+    font-weight: 600;  
+    cursor: pointer;  
+    background-color: black;
     z-index: 2;
-    display: flex;  justify-content: center;    align-items: center;
-    position: absolute; top:50%; left: 50%; transform: translate(-50%, -50%);
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    position: absolute; 
+    top:50%; 
+    left: 50%; 
+    transform: translate(-50%, -50%);
     &:hover img{
-      transform: rotateZ(30deg);
+        transform: rotateZ(30deg);
     }
     img{
-        width: 30px;    height: 30px;   transition: transform 0.2s ease-out;
+        width: 30px;    
+        height: 30px;   
+        transition: transform 0.2s ease-out;
         filter: invert(1);
     }
 }
 .Acc-regist-lv6__content-section2-box2-delete-btn{
     border-radius: 100%;
-    position: absolute; right: 15px; top:15px;
+    position: absolute; 
+    right: 15px; 
+    top:15px;
     border: solid 2px $yellow-lv4;
-    width: 40px;    height: 40px;
-    font-size: 1.625rem;
-    font-weight: 600;  cursor: pointer;  background-color: black;
+    width: 40px;    
+    height: 40px;
+    cursor: pointer;  
+    background-color: black;
     z-index: 2;
-    display: flex;  justify-content: center;    align-items: center;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
 
     img{
-        width: 30px;    height: 30px;   transition: transform 0.2s ease-out;
+        width: 30px;    
+        height: 30px;   
+        transition: transform 0.2s ease-out;
         filter: invert(1);
     }
 
