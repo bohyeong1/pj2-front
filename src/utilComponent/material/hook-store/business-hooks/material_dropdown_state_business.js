@@ -13,9 +13,13 @@ function useMaterialDropdownStateBusiness(data, states, refs, props){
     // 드롭다운 옵션 선택 // 
     function click_option(id){
         const value = menus[id]
-        call_back({
-            ...value
-        })
+        if(!value){
+            call_back(value)
+        }else{
+            call_back({
+                ...value
+            })
+        }
         drop_list.current.classList.toggle('dr-active')
     }
 

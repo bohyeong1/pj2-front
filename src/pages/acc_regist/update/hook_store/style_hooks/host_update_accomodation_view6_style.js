@@ -1,6 +1,5 @@
 import { pop_three_texts } from '@/util/function/util_function'
-
-function useAccRegistLv11Style(data, states, refs, props){
+function useHostUpdateAccomodationView6Style(data, states, refs, props){
 
     // =================================================
     // input control //
@@ -16,4 +15,4 @@ function useAccRegistLv11Style(data, states, refs, props){
     return {input_control}
 }
 
-export default useAccRegistLv11Style
+export default useHostUpdateAccomodationView6Style

@@ -31,7 +31,7 @@ function useButtonPricebtnBusiness(data, states, refs, props){
     }
 
     // 마우스 업
-    function mouse_up(e){
+    function mouse_up(){
         if(price_target.current.dataset.drag === 'true'){
 
             // 인덱스 변경 & text값 변경 / 중복자리 위치 시 렌더링 x
@@ -54,7 +54,6 @@ function useButtonPricebtnBusiness(data, states, refs, props){
             }
             // drag상태 유지하는 dataset 초기화 & 파라미터 변경
             price_target.current.dataset.drag = 'false'
-            price_target.current.dataset.target = null
         }
     }
 
@@ -213,7 +212,6 @@ function useButtonPricebtnBusiness(data, states, refs, props){
         // thumb 위치 새로고침 대응
         move_thumb(index_min_state , price_thumb.current[0])
         move_thumb(index_max_state , price_thumb.current[1])
-
     },[])
 
     return {mouse_down, mouse_click}

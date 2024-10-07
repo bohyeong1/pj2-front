@@ -171,6 +171,32 @@ const default_data = {
     ],
 
     // =================================================
+    // discount date structure //
+    discount_date : [
+        {
+            name : '3박 이상',
+            date : 3
+        },
+        {
+            name : '5박 이상',
+            date : 5
+        },
+        {
+            name : '7박 이상',
+            date : 7
+        },
+        {
+            name : '14박 이상',
+            date : 14
+        },
+        {
+            name : '전체 적용',
+            date : -1
+        },
+        null
+    ],
+
+    // =================================================
     // 숙소 등록 절차 data field name //
     regist_field:[
         null, 

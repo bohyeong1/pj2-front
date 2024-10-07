@@ -23,10 +23,12 @@ function useAccRegistLv11Business(data, states, refs, props){
         // price
         price:Yup.string()
         .required('가격을 입력해 주세요!')
+        .min(4, '가격은 최소 만원 이상 입력해 주세요!')
         ,
         // add price
         add_price:Yup.string()
         .required('추가 인원 가격을 입력해 주세요!')
+        .min(1, '가격은 최소 천원 이상 입력해 주세요!')
     })
 
     // =================================================

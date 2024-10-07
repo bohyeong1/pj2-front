@@ -312,5 +312,7 @@ DB - User(사용자), Accomodation(숙소),
 - update page, keyword까지 서버/프론트 구현완료
   이미지 사이즈 1.5mb로 제한 / 더줄일 지?
   이미지 한방에 최대 10개 등록하는게 맞나?
+10.7
+- price modify 서버/프론트 완료
   <code>
 </pre>

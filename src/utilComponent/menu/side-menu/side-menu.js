@@ -64,8 +64,7 @@ const Side_menu = forwardRef((props, ref) => {
                 <div className="side-content-price">
                     <div className="price-title">가격</div>
                     <div className="price-content">
-                       <PriceBtn keyValue1='price-min' keyValue2='price-over' modal={modal}></PriceBtn>
- 
+                       <PriceBtn keyValue1='price-min' keyValue2='price-over' modal={modal}></PriceBtn> 
                     </div>
                 </div>
 

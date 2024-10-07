@@ -3,7 +3,6 @@ import './PriceBtn.css'
 import { useSearchParams } from "react-router-dom";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useButtonPricebtnBusiness from "../hook-store/business-hooks/button-pricebtn-business";
-import useButtonPricebtnStyle from "../hook-store/style-hooks/button-pricebtn-style";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
 import '../../../manage_scss_style/commonness/commonness.scss'
 
@@ -73,18 +72,21 @@ function PriceBtn({keyValue1, keyValue2, modal}){
             'keyValue2':keyValue2
         })
 
-    // style
-    const {} = useButtonPricebtnStyle()
-
-    // console.log(index_min_state, index_max_state)
-
     return(
         <div className="pricebtn-wrapper">
-            <div className="pricebtn-container not-user-sellect" data-drag={false} data-target={null} data-min_index={0} data-max_index={7} ref={price_target}
-            onMouseDown={mouse_down} onClick={mouse_click}>
-                <div className="pricebtn-track" ref={price_track}></div> 
-                <div className="pricebtn-thumb pricebtn-min" ref={(el)=>{price_thumb.current[0] = el}}></div>      
-                <div className="pricebtn-thumb pricebtn-max" ref={(el)=>{price_thumb.current[1] = el}}></div> 
+            <div className="pricebtn-container not-user-sellect" 
+                    data-drag={false} 
+                    data-min_index={0} 
+                    data-max_index={7} 
+                    ref={price_target}
+                    onMouseDown={mouse_down} 
+                    onClick={mouse_click}>
+                <div className="pricebtn-track" 
+                        ref={price_track}></div> 
+                <div className="pricebtn-thumb pricebtn-min" 
+                        ref={(el)=>{price_thumb.current[0] = el}}></div>      
+                <div className="pricebtn-thumb pricebtn-max" 
+                        ref={(el)=>{price_thumb.current[1] = el}}></div> 
             </div>
             <div className={`pricebtn__text ${index_min_state !== 0 || index_max_state !== 7 ? 'priece-text__active' : ''}`}>
                 {`${value_collections[index_min_state]}원 이상 ~ ${pop_three_texts(value_collections[index_max_state])}원 ${index_max_state < 7 ? '이하' : '이상'}`}

@@ -5,7 +5,7 @@ import { state_store, reference_store } from '@/util/function/util_function'
 import useMaterialDropdownStateBusiness from '../hook-store/business-hooks/material_dropdown_state_business';
 import useMaterialDropdownStateStyle from '../hook-store/style-hooks/material_dropdown_state_style';
 
-function DropdownState({menus = null, call_back, sellect}){
+function DropdownState({menus = null, call_back, sellect, default_message}){
 
     // =================================================
     // refs //
@@ -59,14 +59,28 @@ function DropdownState({menus = null, call_back, sellect}){
     return(
         <div className="dropdown-state__custom-dr">
             <div className="dropdown-state__custom-logo" onClick={dropdown_toggle}>
-                <span ref={drop_logo}>{sellect && sellect.name ? sellect.name : ''}</span>
+                <span ref={drop_logo}>{sellect && sellect.name ? sellect.name : default_message}</span>
                 <img className='dropdown-state__arrow-img' ref={drop_arrow} src={default_data.d_imgs.drop_arrow}></img>
             </div>
             <div className="dropdown-state__custom-options" ref={drop_list}>
                 {menus && menus.map((el, id)=>{
+                    if(!el){
+                        return(
+                            <div className={`dropdown-state__list ${!sellect ? 'dropdown-state__list-active' : ''}`} 
+                                 ref={(el)=>{drop_options.current[id] = el}} 
+                                 key={id} 
+                                 onClick={()=>{click_option(id)}}>
+                                선택 안함
+                            </div>
+                        )
+                    }
                     return(
-                        <div className={`dropdown-state__list ${sellect && sellect.name === el.name ? 'dropdown-state__list-active' : ''}`} ref={(el)=>{drop_options.current[id] = el}} 
-                        key={id} data-value={el.name} onClick={()=>{click_option(id)}}>{el.name}</div>
+                        <div className={`dropdown-state__list ${sellect && sellect.name === el.name ? 'dropdown-state__list-active' : ''}`} 
+                             ref={(el)=>{drop_options.current[id] = el}} 
+                             key={id}
+                             onClick={()=>{click_option(id)}}>
+                            {el.name}
+                        </div>
                     )
                 })}
             </div>
