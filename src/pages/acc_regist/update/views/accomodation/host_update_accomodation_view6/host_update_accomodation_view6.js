@@ -110,8 +110,8 @@ function HostUpdateAccomodationView6(){
                             {errors.add_price && <span className="input-alert-text">{errors.add_price.message}</span>} 
                         </div>                     
                     </div>
-
-                    {/* discount price */}
+ 
+                   {/* discount price */}
                     <div className="host-update-accomodation-view6__section3">
                         <div className='host-update-accomodation-view6__section3-title'>
                             <span>할인 설정</span>
@@ -126,7 +126,7 @@ function HostUpdateAccomodationView6(){
                             </div>
                             <div className='host-update-accomodation-view6__section3-range-wrapper'>
                                 {discount_date ? <RangeButton
-                                    price={parseInt(watch('price').split(',').join(''))}
+                                    price={parseInt(watch('price')?.split(',').join(''))}
                                     discount_date={discount_date}
                                     rate={discount_rate}
                                     set_rate={setDiscount_rate}>                                    
@@ -140,7 +140,7 @@ function HostUpdateAccomodationView6(){
             <div className="host-update-accomodation-view6__footer">
                 <button className={`host-update-accomodation-view6__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
                         disabled={is_button ? false : true}
-                        onClick={fetch_acc}>저장</button>
+                        onClick={()=>{fetch_acc(watch('price'), watch('add_price'))}}>저장</button>
             </div>
 
         </div>

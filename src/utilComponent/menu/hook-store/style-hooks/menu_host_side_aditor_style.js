@@ -1,5 +1,18 @@
+import { useEffect } from "react"
+import { split_text } from "@/util/function/util_function"
 
 function useMenuHostSideAditorStyle(data, states, refs, props){
+
+    // =================================================
+    // refs //
+    const {text_area_ref} = refs
+
+    const {filtered_text,
+           setFiltered_text} = states
+
+    // =================================================
+    // props //
+    const {acc_data} = props
 
     // =================================================
     // render sellect box output //
@@ -91,15 +104,16 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
         else if(mapping_data === '설명'){
             return(
                 <div className="host-side-aditor__sellect-box-summary"> 
-                    <span>{acc_data.summary}</span>
+                    <textarea ref={text_area_ref} 
+                              readOnly 
+                              className="host-side-aditor__sellect-box-summary-text"
+                              value={!filtered_text ? acc_data.summary : filtered_text}></textarea>
                 </div>
             )
         }
-        else if(mapping_data === '숙소 이용규칙'){
+        else if(mapping_data === '이용 규칙'){
             return(
                 <div className="host-side-aditor__sellect-box-rules">
-                    {/* <span>체크인 : {acc_data.check_time.check_in}</span>
-                    <span>체크아웃 : {acc_data.check_time.check_out}</span> */}
                     db logic check 해야할 곳
                 </div>
             )
@@ -109,6 +123,14 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
             return null
         }        
     }
+
+    // =================================================
+    // text split //
+    useEffect(()=>{
+        if(text_area_ref && acc_data){
+            split_text(3, text_area_ref.current, setFiltered_text)
+        }
+    },[acc_data])
 
     return {render_box_output}
 }

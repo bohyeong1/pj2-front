@@ -1,4 +1,4 @@
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 function useMenuHostSideAditorBusiness(data, states, refs, props){
 
@@ -7,13 +7,9 @@ function useMenuHostSideAditorBusiness(data, states, refs, props){
     const navigate = useNavigate()
 
     // =================================================
-    // param //    
-    const param = useParams()
-
-    // =================================================
     // click box //    
     function click_box(url){
-        navigate(`/host/update/${param.house}/accomodation/${url}`)
+        navigate(`./${url}`)
     }
 
     return {click_box}

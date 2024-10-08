@@ -1,56 +1,72 @@
 @import '@/manage_scss_style/commonness/colors';
 
 .host-update-accomodation-view2__container{
-    width: 900px;    height: 100%;
-    padding-left: 100px;    position: relative;
+    width: 900px;    
+    height: 100%;
+    padding-left: 100px;    
+    position: relative;
 }
 
 // title
 .host-update-accomodation-view2__title{
-    font-size: 1.525rem;    font-weight: 600;
+    font-size: 1.525rem;    
+    font-weight: 600;
     padding-bottom: 40px;
 }
 
 // content
 .host-update-accomodation-view2__content{
     width: 100%;
-    display: flex;  flex-direction: column; 
+    display: flex;  
+    flex-direction: column; 
     gap:40px;
 }
 // section1
 .host-update-accomodation-view2__section1{
     width: 100%;    
-    display: flex;  flex-direction: column;
+    display: flex;  
+    flex-direction: column;
     gap:20px;
 }
 .host-update-accomodation-view2__section1-title{
-    font-size: 1.125rem;    font-weight: 600;
+    font-size: 1.125rem;    
+    font-weight: 600;
 }
 // section2
 .host-update-accomodation-view2__section2{
     width: 100%;    
-    display: flex;  flex-direction: column;
+    display: flex;  
+    flex-direction: column;
     gap:20px;
 }
 .host-update-accomodation-view2__section2-box{
-    display: flex;  flex-direction: column; gap:10px;
+    display: flex;  
+    flex-direction: column; gap:10px;
 }
 .host-update-accomodation-view2__section2-sellect{
     width: 100%;
-    display: grid;  grid-template-columns: repeat(3, 1fr);
+    display: grid;  
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
 }
 .host-update-accomodation-view2__section2-title{
-    font-size: 1.125rem;    font-weight: 600;
+    font-size: 1.125rem;    
+    font-weight: 600;
 }
 // footer
 .host-update-accomodation-view2__footer{
-    width: 100%;    position: absolute;
-    bottom: 0;  left: 0;    height: 125px;
+    width: 100%;    
+    position: absolute;
+    bottom: 0;  left: 0;    
+    height: 125px;
     border-top: solid 1px $grey-end;
     z-index: 2;
-    display: flex;  padding: 20px;  justify-content: right;
+    display: flex;  
+    padding: 20px;  
+    justify-content: right;
 }
 .host-update-accomodation-view2__fetch-button{
-    font-size: 1.225rem;    height: 45px;   padding: 0 20px; 
+    font-size: 1.225rem;   
+    height: 45px;   
+    padding: 0 20px; 
 }

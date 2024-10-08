@@ -341,3 +341,67 @@ export function compare_unit8_arrays(unit1, unit2){
     })
 }
 
+// =================================================
+// text 줄 수 이상 됬을 때 자르기 //
+// textarea 전용
+export function split_text(line, element, call_back = null){
+    if(element.tagName !== 'TEXTAREA'){
+        console.log('textarea 태그를 넣어주세요')
+        return 
+    }
+    let line_height = window.getComputedStyle(element).lineHeight
+    const font_size = parseFloat(window.getComputedStyle(element).fontSize)
+
+    if(line_height === 'normal'){
+        line_height = Math.round(font_size * 1.2)
+    }
+    else if(line_height.includes('%')){
+        line_height = Math.round(font_size * parseFloat(line_height) / 100)
+    }
+    else{
+        line_height = Math.round(parseFloat(line_height)) 
+    }
+
+    const max_height = line * line_height
+    const original_text = element.value
+
+    function get_scroll_height(text){
+        element.value = text
+        return element.scrollHeight
+    }
+
+    let current_height = element.scrollHeight
+
+    if(current_height > max_height){
+        let left = 0
+        let right = original_text.length
+        let result_text = original_text
+
+        while(left <= right){
+            const mid = Math.floor((left + right) / 2)
+            let split_text = original_text.substring(0, mid + 1)
+
+            split_text = split_text + '...'
+
+            const split_height = get_scroll_height(split_text)
+
+            if(split_height <= max_height){
+                left = mid + 1
+                result_text = split_text
+            }else{
+                right = mid - 1
+                result_text = split_text
+            }
+        }
+        if(call_back){
+            call_back(result_text)
+        }
+        element.value = result_text
+    }else{
+        element.value = original_text
+        if(call_back){
+            call_back(original_text)
+        }
+    }
+}
+

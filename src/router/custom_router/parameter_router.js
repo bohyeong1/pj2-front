@@ -6,6 +6,7 @@ import session_storage from "../../sessionStorage/session_storage"
 import default_data from "../../utilData/defaultData"
 import { connect_data_width_cookies } from "../../utilData/UtilFunction"
 import { AccDataContext } from "@/context/acc_data_context/config/acc_data_context"
+import _ from 'lodash'
 
 // =================================================
 // parameter의 값에 따른 fetch하는 라우터 //
@@ -41,16 +42,20 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
 
         // 해당 숙소데이터값 없으면 가져오기
         if(house_id && (!current_home || house_id !== current_home._id)){
-            console.log('확인')
             connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/get/secret-one/${house_id}`, 'POST')
             .then((result) => {
                 try{
                     if(result.user_data && result && result.server_state === true){
-                        setAcc_data1(result.accomodation)
-                        setUser_data1(result.user_data)
+                        if(!_.isEqual(result.user_data, user_data1)){
+                            setUser_data1(result.user_data)
+                        }
+                        if(!_.isEqual(result.accomodation, acc_data1)){
+                            setAcc_data1(result.accomodation)
+                        }
+                        if(!_.isEqual(result.accomodation, acc_data)){
+                            setAcc_data(result.accomodation)
+                        }
                         session_storage.save('house', result.accomodation)
-                        // context
-                        setAcc_data(result.accomodation)
                     }else{
                         throw new Error('api 요청 중 에러 발생')
                     }
@@ -63,10 +68,16 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
             .then((result) => {
                 try{
                     if(result && result.code === 200){
-                        setUser_data1(result)
-                        setAcc_data1(current_home)
-                        // context
-                        setAcc_data(current_home)
+
+                        if(!_.isEqual(result, user_data1)){
+                            setUser_data1(result)
+                        }
+                        if(!_.isEqual(current_home, acc_data1)){
+                            setAcc_data1(current_home)
+                        }
+                        if(!_.isEqual(current_home, acc_data)){
+                            setAcc_data(current_home)
+                        }
                     }else{
                         console.log(result)
                     }

@@ -26,10 +26,10 @@ function AccRegistLv10({login_user, this_step}){
     const [current_data, setCurrent_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
     const [prev_data, setPrev_data] = useState(accomodation[field_name] ? accomodation[field_name] : null)
     const [sellect_state, setSellect_state] = useState({
-        case1 : null,
-        case2 : null,
-        case3 : null       
-    })
+                                                  case1 : null,
+                                                  case2 : null,
+                                                  case3 : null       
+                                              })
     const [loading, setLoading] = useState(null)
 
     // =================================================

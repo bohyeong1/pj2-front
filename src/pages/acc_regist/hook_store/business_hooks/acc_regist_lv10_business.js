@@ -18,7 +18,7 @@ function useAccRegistLv10Business(data, states, refs, props){
     const validation_schema = Yup.object().shape({
         // rule
         rule:Yup.string()
-        .required('숙소를 소개하는 글을 작성해 주세요!')
+        .required('추가 규칙을 작성해 주세요!')
         .test(
             'not_only_spaces',
             '공백으로만 구성된 글을 작성할 수 없습니다!',

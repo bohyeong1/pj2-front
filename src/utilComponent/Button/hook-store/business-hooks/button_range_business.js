@@ -37,7 +37,8 @@ function useButtonRangeBusiness(data, states, refs, props){
     // =================================================
     // 마우스 드래그 //
     function mouse_drag(e){
-        if(range_target.current.dataset.drag === 'true'){
+
+        if(range_target.current && range_target.current.dataset.drag === 'true'){
             const target = button_target.current
             const current_position = e.pageX - range_target.current.getBoundingClientRect().left
             const width = range_target.current.offsetWidth

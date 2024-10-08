@@ -1,19 +1,91 @@
 @import '@/manage_scss_style/commonness/colors';
 
 .host-update-accomodation-view7__container{
-    width: 900px;    height: 100%;
-    padding-left: 100px;    position: relative;
+    width: 900px;    
+    height: 100%;
+    position: relative;
+    display: flex;  
+    flex-direction: column;
+    gap: 40px;
 }
-
+// wrapper
+.host-update-accomodation-view7__wrapper{
+    padding-left: 100px;
+    padding-top: 10px;      
+    padding-right: 10px;
+    overflow-y: scroll; 
+    flex-grow: 1;
+}
 // title
 .host-update-accomodation-view7__title{
-    font-size: 1.525rem;    font-weight: 600;
-    padding-bottom: 40px;
+    font-size: 1.525rem;    
+    font-weight: 600;
+    padding-bottom: 40px; 
+    display: flex;
+    flex-direction: column; 
+    gap: 10px;
 }
-
+.host-update-accomodation-view7__title > span:nth-child(2){
+    font-size: 0.8275rem;
+    color: $red-lv2;
+}
 // content
 .host-update-accomodation-view7__content{
     width: 100%;
-    display: flex;  flex-direction: column; 
+    display: flex;  
+    flex-direction: column; 
     gap:40px;
+}
+
+.host-update-accomodation-view7__content-box1-part1{
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;  
+    width:  150px;
+}
+
+#host-update-accomodation-view7__button{
+    width: 40px; 
+    height: 40px; 
+    font-size: 1.5rem;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+}
+.host-update-accomodation-view7__content-box1-part1-text1{
+    font-size: 1.6rem;
+    display: flex;  
+    gap:1px;
+}
+.host-update-accomodation-view7__content-box1-part1_value{
+    width: 31px;    
+    display: block;
+}
+.host-update-accomodation-view7__content-box1{
+    display: flex; 
+    width: 100%; 
+    gap:30px;   
+    align-items: center;
+}
+.host-update-accomodation-view7__content-box1-part1-t1{
+    width:54px; 
+    display: flex; 
+    justify-content: space-between;
+}
+
+// footer
+.host-update-accomodation-view7__footer{
+    width: 100%;  
+    height: 125px;
+    border-top: solid 1px $grey-end;
+    z-index: 2;     
+    background-color: white;
+    display: flex;  
+    padding: 20px;  
+    justify-content: right;
+}
+.host-update-accomodation-view7__fetch-button{
+    font-size: 1.225rem;    
+    height: 45px;   
+    padding: 0 20px; 
 }

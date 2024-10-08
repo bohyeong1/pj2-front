@@ -10,9 +10,6 @@ import { useParams } from "react-router-dom";
 import { pop_three_texts } from '@/util/function/util_function'
 
 function useHostUpdateAccomodationView6Business(data, states, refs, props){
-
-    // =================================================
-    // refs //
     
     // =================================================
     // params //
@@ -80,16 +77,19 @@ function useHostUpdateAccomodationView6Business(data, states, refs, props){
     useEffect(()=>{
         if(is_button){
             if(acc_data.discount){
-                if(watch('price').split(',').join('') === String(acc_data.price) && 
+                if(!isValid ||
+                   watch('price').split(',').join('') === String(acc_data.price) && 
                    watch('add_price').split(',').join('') === String(acc_data.addPrice) && 
                    discount_rate === acc_data.discount.rate && 
-                   _.isEqual(discount_date, acc_data.discount.date)){
+                   _.isEqual(discount_date, acc_data.discount.date) || 
+                   (discount_date && !discount_rate)){
                         setIs_button(false)
                         return
                 }
             }
             else{
-                if(watch('price').split(',').join('') === String(acc_data.price) && 
+                if(!isValid ||
+                   watch('price').split(',').join('') === String(acc_data.price) && 
                    watch('add_price').split(',').join('') === String(acc_data.addPrice) &&
                    (!discount_date ||
                    !discount_rate)){
@@ -103,8 +103,8 @@ function useHostUpdateAccomodationView6Business(data, states, refs, props){
             if(acc_data.discount){
                 if(watch('price').split(',').join('') !== String(acc_data.price) || 
                    watch('add_price').split(',').join('') !== String(acc_data.addPrice) || 
-                   (discount_rate !== acc_data.discount.rate && 
-                   !_.isEqual(discount_date, acc_data.discount.date))){
+                   (discount_rate !== acc_data.discount.rate && discount_rate > 0) ||
+                   !_.isEqual(discount_date, acc_data.discount.date)){
                         setIs_button(true)
                         return
                 }
@@ -119,17 +119,17 @@ function useHostUpdateAccomodationView6Business(data, states, refs, props){
                 }
             }
         }
-    },[watch('price'), watch('add_price'), discount_rate, discount_date])
+    },[watch('price'), watch('add_price'), discount_rate, discount_date, isValid])
 
     // =================================================
     // data fetch //
-    async function fetch_acc(){
+    async function fetch_acc(price, add_price){
         setLoading(false)
         const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/price/${param.house}`, 'PUT', 
             {
-                price : parseInt(watch('price').split(',').join('')),
-                addPrice : parseInt(watch('add_price').split(',').join('')),
-                discount : discount_date && discount_rate ? {date : discount_date, rate : parseInt(discount_rate)} : null
+                price : parseInt(price.split(',').join('')),
+                addPrice : parseInt(add_price.split(',').join('')),
+                discount : discount_date && discount_rate ? {date : discount_date, rate :  parseInt(discount_rate)} : null
             })
     
             if(acc_data && acc_data.acc_state && acc_data.server_state){

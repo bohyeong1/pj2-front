@@ -76,27 +76,39 @@ function AccRegistLv9({login_user, this_step}){
 
                 <div className="Acc-regist-lv9__content-section1">
                     <div className="Acc-regist-lv9__content-section1-box1">
-                        <textarea  className="Acc-regist-lv9__content-section1-box1-text1 border-textarea" type='text' spellCheck={false}
-                        {...register('summary', {
-                            onChange : (e)=>{text_change(e.target.value)}
-                        })}
-                        placeholder='숙소를 설명하는 글을 작성해주세요!'>                            
-                        </textarea >
+                        <textarea  className="Acc-regist-lv9__content-section1-box1-text1 border-textarea" 
+                                   type='text' 
+                                   spellCheck={false}
+                                   {...register('summary', {
+                                   onChange : (e)=>{text_change(e.target.value)}})}
+                                   placeholder='숙소를 설명하는 글을 작성해주세요!'>                            
+                        </textarea>
                     </div>
 
-                    <pre className="Acc-regist-lv9__gurabox" ref={regist_lv9_gurabox}></pre>
+                    <pre className="Acc-regist-lv9__gurabox" 
+                         ref={regist_lv9_gurabox}></pre>
 
                     <div className="Acc-regist-lv9__content-section1-box2">
-                        <div ref={regist_lv9_row_alram} className="Acc-regist-lv9__content-section1-box2-text1">0/50</div>
+                        <div className="Acc-regist-lv9__content-section1-box2-text1">
+                            <span>라인 - </span>
+                            <span> ref={regist_lv9_row_alram}0/50</span>
+                        </div>
                         {/* alram */}
-                        <div ref={regist_lv9_alert} className="Acc-regist-lv9__content-section1-box2-text2" style={{color:'red', display:'none'}}>50줄 이내로 작성해 주세요!</div>
+                        <div ref={regist_lv9_alert} 
+                             className="Acc-regist-lv9__content-section1-box2-text2" 
+                             style={{display:'none'}}>50줄 이내로 작성해 주세요!</div>
                         {/* error */}
-                        {errors.summary && <span className="input-alert-text">{errors.summary.message}</span>}  
+                        {errors.summary && <span className="input-alert-text">
+                            {errors.summary.message}
+                        </span>}  
                     </div>                    
                 </div>
             </div>
             <div className="Acc-regist-lv9__footer">
-                <Host_footer fetch_handler={fetch_acc} drop_data={{summary : watch('summary')}} button_state={isValid ? true : false} fetch_state={true}></Host_footer>
+                <Host_footer fetch_handler={fetch_acc} 
+                             drop_data={{summary : watch('summary')}} 
+                             button_state={isValid ? true : false} 
+                             fetch_state={true}></Host_footer>
             </div>
         </div>
     ) 
