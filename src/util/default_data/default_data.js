@@ -241,7 +241,112 @@ const default_data = {
     ],
 
     // =================================================
-    // accomodation check-in data structure //
+    // accomodation check-in, out data structure //
+    d_check_time : [
+        {
+            name : '오전 8시',
+            time : 8 
+        },
+        {
+            name : '오전 9시',
+            time : 9 
+        },
+        {
+            name : '오전 10시',
+            time : 10 
+        },
+        {
+            name : '오전 11시',
+            time : 11 
+        },
+        {
+            name : '오후 12시',
+            time : 12 
+        },
+        {
+            name : '오후 1시',
+            time : 13
+        },
+        {
+            name : '오후 2시',
+            time : 14 
+        },
+        {
+            name : '오후 3시',
+            time : 15 
+        },
+        {
+            name : '오후 4시',
+            time : 16 
+        },
+        {
+            name : '오후 5시',
+            time : 17 
+        },
+        {
+            name : '오후 6시',
+            time : 18
+        },
+        {
+            name : '오후 7시',
+            time : 19 
+        },
+        {
+            name : '오후 8시',
+            time : 20 
+        },
+        {
+            name : '오후 9시',
+            time : 21 
+        },
+        {
+            name : '오후 10시',
+            time : 22 
+        },
+        {
+            name : '오후 11시',
+            time : 23 
+        },
+        {
+            name : '오전 12시',
+            time : 24 
+        }
+    ],
+
+    // =================================================
+    // check in method data structure //
+    d_checkin_method : [
+        {
+            name : '스마트 도어락',
+            url : "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAE80lEQVR4nO2ae4hUVRzHP7s+Jgyr1TCz1Njd0CgrsFprSXtoYUaJmViRtQZiGBkVZRSKFWFQEoX0JHptkhXlI4UW/5AKgihLpPJRPiKXysxqc9NNN37wPXA4nLlzZ+TO3o1+cJi533vu43vO7z0D/1E5HbgNuD+DcQdwYTVI3Al0Ad0Zj1agNsud6AI+BM4B6jMYo4AnRGZWVkRa9AAjkaXUAL8Cr2b1gLtE5LQAvxFY4o0m4eMC/AbhpwCPeLjZRt/gnjuA96pNpCPQ7zXC1wS4zTO5N2IT5+WBSCfwrL5/A6zT93U6RudtnskC3WcoMFPfx+WFyAZgDtAeEGkXviFCxHbmxTwR2RWoiTPS1wLc5pnMDvDDQEOZRIbKqy0ClgFPaYEmA8dUSuS4wIX2E94vwG2ek5EePiTyrGJErgQ+Fnm3ELbT/3jHf2kx68slYvFlojcGCz8xwBuFF4BLPPz8FESGKH7Z89vl7S4Gjtd5C54nA9crmB4CDgIPxwJrMSI/B6qyQviKALd5JvMiXuvMBCJnATv1Yg8Cxwq3hblF7tvebRpQp3Omqu/r3qu8axKJ2Nau1uruDox9t/DVEWOfATyawtiXAj8B43V8FfB5kdTGMo83RdIC60NSw4lpibRKJ7cHRLYLb40QaVLuVopIH2CAbM4M2+bv0UteIMMfIUN/STvXITVzKk4aIvuDVbEtxdtaN/YH9/HHuQlEnNykuS+IWI3SJcsYpgLDPJv9SjvhO5iSRMYrVrjR6N3Qx51qnKC8zeEz9FKliJieX6Tv9rkpWIwjwFvaASPaHCORRCQLSYojI4G/pV5m6JdqR5bJRj4tdfNiRL4MVsaCE/r08Y3Crwv8/p/A8DKIFIB7ZBvmWscAp+pcs5eclk2kUy9pvn1vYOx7hW+MGPszwMqjSFEKSn1cdmD37ZVJ46269nFgvXZ50NEQOSCd3aebrRW+Vsf7dN7mIb12XsyVAE0VEJmna29WStLtea6KiNynKO7GFOFXB7jNQ+XsGx7+XCTRS0NkcJCwWpKaSvLitXypU3yZHHHhvYpIRVIukRoFx7HAGUD/3kZkghK3PyIJXZv8fG2eidQB73pBbjkwX12W22XUe3T+C2B0HokMA7Zp1R/zCp5QLIOdK9f7e0J7tEeIFBS5D6gUTSO2Gz8oxlgKngsii4WbCoWq1hI04/yxStd9FjlnO7a1yHVLUoy7VVmmJjJQKuKiuRMrO39L2bDOahxRu6l/GiKu2JnkYc0q/rcoyhezl6ykL3C2146y5LQkkefVfvFZr5fuW4+3p+Vt5XsjShH5APjaO+4jz5VZJ71MucxLLBOJtKmw8j2YzXmafMhYvY+V1IlErDvyS5Cwfas6xHUce1IWxsqEGJH5kQbbXGGvhI2xKst0FXOfhJlxjEi9ykxXp6OLXJfdXPNHUsFqjh16/jY1K1IFxHdUAVqG68s1yr02A99Fxo+6X0fkXFcRPM3Yqlr+AcU50hIZrpW3uHFSym0vKIha0LoiT0njJLUqv/eaaMWkQT8NdKt+z10aP0HN5sNqWs/US9ep72RR/mWpYaecQm4Lq0HAk4rssfznoOoUa0CQZyK+DVwu97xAKnRtGXlXpkRaqvSHgVrtaGZpTqOy2jb9DJDVXziWZv0XDvTvnUNVqCVeL6dPVak06CfmrP7mZL9C/S8kyL+tloNvVOOMLAAAAABJRU5ErkJggg==",
+            text : '게스트가 비밀번호나 앱을 이용해 와이파이에 연결된 도어록을 엽니다.'
+        },
+        {
+            name : '키패드',
+            url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADXklEQVR4nO2aSWgUQRSGP6MJLriBqAejmIsS3C45uAYFQYniISCuqMnB9eQGIpqDkET0IG6IIgZRXFFUEBRBSRR1ThoFgxoRIYsHNSpG3DJS8A8UTU9mkqlJd0N+KIZ+73W9+qu76tV7PdCL8CIP2A80A/EkrQWoVmtxYNcEVMm3M1R34jDbrdIlkSZ1Or0TmxmWc5d2xrczJByH1S5t9BIRRgHbtNbWRvWJrAB+JFnIrvymje46ngb8ATqA68BuoNayG+bIb9aJnNb1YUuWA9yVfKsjv2kjEbjMlpgMMy3HCbs6Xc/22C6WvDaN/kwQdoZMA+IyT38DgZ9BBMTqDInU+PR5O817zTHFGVq6GbELdd2qtWFji3TnU/Tn9NWKZ7BdvpWsyCMfL/knoF+GfnuEyFHJKnzsX0k3K0O/PUJkoWRPfewPplgHoSLSX5H9n44qNubKvj5Ff7nASuAUcEbHHPt1nKI1twbIzxYRg5uSmwHYMANsk24ssAi4B7zTb6K/+z67WUwTc0Enh4TcnCT2ZovIBskv+eguS1fnGZC3NaofMxnPJfuu32/AOeCGnnxcts4iewL5kn/RU7Bhn4ZNkCwDxgBLgc+S/wUKrHuGWzrz2k6wdOWSm6ea1VS32NP3aGsW93l0myV/4zOmGulueeQmXl1LEoSdEjFFDC9i0q32yEdoxv02g2JNgN+27jyy25gn3Usf3SYtUu/h0mCiXjU/DKGLyHSxo7XxVfpxPnqzTWcdcQdEDK5Kv5GAEHdEZF2SBRo5IiO1QNuBAUSYiL1DLSDiRCpkc4QA0JRhZLexSjbvCQBVDgOi3Sb1NJE8kUk8Gb/WLJuqFJ8fPloJ1U4ijlIReUDI0RcoAU4Cj3Xoa1SrV7YY17EkVbUxMJQAr7uwTkxZNVTIAQ5YA2wAdiheFCqfMG2qUtxS5fOhwzER+KWabrIST6hRLhLtOq5HEkOttNObGEUKZSLxhIijUkSSlmCigvUictHavYp0OIwpVpjt+AqwB1iium8fQoYCEWlTFbA1zfhh0t6HwHFNhsnzBwdNpsEzyA/ACX2ZMpvBZJU8TQXlTid/3ehQ9f4QMCgIIsv1XXCXAl46MNnifGA7cBZ4Bvy2SJnXMrLIBeYAL4BHQQ+mF2QJ/wExcyBbE9BiJAAAAABJRU5ErkJggg==',
+            text : '게스트가 호스트에게서 제공받은 비밀번호로 전자 도어락을 엽니다.'
+        },
+        {
+            name : '열쇠 보관함',
+            url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEDUlEQVR4nNWY3YtVVRjGfxLqiM1oOufDyiQqPaBEXVhhQhLzLyQK3qiDl92LaaKIXng/lTdCN5HWddEnSticStEzzuSMkiMafkBlM4KGnhNLngUvm72P+5yz9jl7HlgX+91rvWs9a71fa0H30Q9sBT4BqsBt4D+128Co/m1R39xhBTAC3AMaKds94BjwMjnAIuAAMKvF1YFfgb3AJmANsFitItk+4DdDyJ3WEWBhr0i4nTxvCHwGrG5h/Grgc411On4CSnQZrwI3tYApYH0Hut4ErkjXNWAdXUJZE7qJvwOWRf4/AwwDXwKTMjvXJiXbqT4Wy4HvpXO6GyfTB5wxJOZH/OUD4J8Ujv43sEf6PJyuH4yZZeozB4w52ZN4DvjFLPQC8D6w1jj7KzqNr02/qsbak/FmdjjLEDsr57Q+4SLTDU3+F7ANmPcEXW8DlzTmeoTMW5rjAfBSFkRGNLGLThYlnYD7VwMKKfUtNX5RjZjZCcld8gyKfiWwekKILRgyF1ogswSY0DjnMx4VzeUs4GkCYqsmc8kuCe2S2WgCgI1mZyXfTEAck1KXscmAzDcas8PIPpTsYwKiKqWuxCADMrvU/6SRvSvZzwTEHSlNW4K0SuZ19f09Eg2d7BYB8UBKWym9WyFTVL9/jaxfsvsExIyUuuxNm2QmVN7E4QX1uWtkA1kQmZLSlW2MTXMy73TLtE5JqZuQDMjs1T+XCKPO7mq7YDgqpbs70FFIIPOUqa+2m/77JfuIgBiS0tMd6inEkBk2dZorWzzOSf4eAfG8Soa6yodQZGrK6NHTrkg2o8o5COzErh3PQOdopGj8InRWL2jXfPh0+eQR8EZAMjciZfwGnbwLuy8GmOdxkqpF7PmguVhZe24XJYVZj0HgD81xKDQJe8foMybxVcQcOsUC4EcTVNx3UBLu22IV8Kf+fxvoxXDQkLgaM2fLcArGmpDweM2QuawnnXaxwZjTtO75mZAY0B07rj7yD3QPgU9bfP6sKDrVjTkVQzidJzFmFJbNVTTuLrJQLyu+On6kULpH5Yx/MnXX1YrKjv0m2TU09lAIn2hGYtyEXncycSgasq20GeWJICHWkbhoSJQSSJRTbEJN1fGQarNTevKZ1a7f0m1vRGVHsIxto9OE3q28fMyU1c82IVEz/fz4rqKYsIg0JKIm0jMSJWNOF405WXkzc7Ikxpv0yxQlY/vtkCgbEj1D2ZAYb5PEhBnfExQjtr8iwVfS+kRSAOjqSZRjyOXeJ8odksiFT5CQ1KL5I9c+4eF3sxMSzfp1DQ1jFvaeHOewjTw5dhR+QWmeLht5cew4+EWleX/NhVMnwe7wnIhOSWjMteiUhCfdKXIXnZJgE1+zlpvoRBPY7B7XchWd4vA/2m3hT8EB1ZQAAAAASUVORK5CYII=',
+            text : '게스트가 호스트에게서 제공받은 비밀번호를 이용해 안에 열쇠가 든 작은 금고를 엽니다.'
+        },
+        {
+            name : '건물 상주 직원',
+            url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAADA0lEQVR4nO2aS0hUURiAP9SisAeFWJs2LSqMhJ5EJBWUYCFBVBREQW16QlSaUK1dVWgPkBbVInvQYxaVpEkvMntBmzY9sHIjhVG0iKbSOPAP/Bzuvc71HudeaT74FzPzP4cz//nPuQN58uTJBeOAA8Aj4EWWYnRrgLEkiEagf5DSQEKYAKQjFJIWH7FToZLqBZZnKb3KzviInR0qoQch7B4qu+0kgJMqoVMh7E4ruxMkgPsqoZ0h7HYpu3skgM8qoSUh7JYquy/ETKnVgeqBg1lKvWVrfMXG2ght15ZlcRZyxGEhC+MsZL9K5D3QNEjZSszsU4VcYxizQRXymmHMFKBPFVMewnYMsBuoIiE8VYXcAQqysCkEWpXdAhLAKqv7NA5QTKGMMtrGbI6J4KqVWDsw30OvQgZLrXuOBFEMPPPYGz4At4G7wCePz58Ao0gYxcDlEBvgmSQWoamUs8Zfj+TNezdFZ9hQClTLoWmbzFKT407qv2E6UAukgE6gG/jqI92y96TExtjGThXw0sHk+1iaRc4xa73N4QjfH8eoMkeWh06iT/aRw8B6YDEw10fMZ+vkLPNcOtk7YGIui5gJfLeKuAXMiuDTLKki9boSOA5MY4gw39hbVcBvYI/jGJOAX+L/IzCeIeC8KuKPDIs2W4CzQFmAnzLRMbo2JcBPFcfEdEq5tVObI67NDHU26Qjw1aF+V8bGpsZaurMd1sEl5fiVz5iu76m6Anx1DTC+F0gTyOhccFWEGex+KMerA06LmVv5lgB/LaKTFhsv1qh4ZqmNdlAHK5XTb8DIAN1FwF5Z636UiI7R9aNIYmXirsABtcrhdXJHSsU95MJhg3J4jNxx1Do+R6ZZOawbQDdq+9XUqbgXccAV5dC0Rj9ctV+vNmxyiEyT9RvJPDqbGtB+ewIeufVY+5Gf3g2lZ3KIzGafadWMEvOUXrXjabhfySYXhRTKEyWvAPryeeMQFdGe5aVfVoyQPwS0qQf+zXLtqemUzfNNiD8O+EmrxDSx8+TJQzT+AW8uzk9QaYGdAAAAAElFTkSuQmCC',
+            text : '게스트의 출입을 도와줄 사람이 24시간 상주합니다.'
+        },
+        {
+            name : '호스트가 직접 맞이함',
+            url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEMElEQVR4nO2aa4hVVRiGn2nUxMFLjKJOWDmpjT+c8U4hpuGkFoGXIVEQvIWiiP7I2x81SpCSIqYogqB+RKEgRgVK3lJkYEhKxVt5rdDxhto43nVGPng3LDfnbPeeNWc8O3phMWfvs87a613ru7zf2gP/g45AJTALmAtMBPqlaV3GAD8Bd4GmDO0osBhoT57iKeA7TfYy8CkwCSjXTrwMLAV+V59TwHDyDN2BA8B9YB3Q6RH9zczqgNvAG+QJ2gK1wB3tQFz0BA4CN4Ch5AFWy1RmN+O3TwMXtJu2II8NxUA9sCV0/zmgD/BEjDGmZwkKSVodMNKHyEINZI5sGAzscx5wQiE4CkZ2JfCFR/sbuOZDxsLseaAAeBb4V9c2sWUiYmF4GLlFb+AvHzLHgR/1+WvgJtDX+b6rfGAHuUdvHzL1IoBMqiZDH8stV2gdlAINwNWkweOsJmrYDvwDtAn1qdXO+eapOaHJvQiMc67NvKvlm18mfYBNcq8+T3MG6QIUAe/p3goPEiWSNTbORpF5HbilBPxWiMRXMaPlQ1inwXro+hMN1gjc0+dNGXYpjG4yi3CrEAmb9Lcab5euj8qU7fnbfEggrWQDvOPcGw18pBWaEGOMfsru2XKETfo19X3XEZ4lUth7fEkE2CGntxVMCjOJzZrsIsn9cBsY+s1YRcMARdJrXiQMZVrR3+QbSbBGq7mKPMFU+YRpphdi9Lda5DPHh7xXsyUxRSZ2Sz6SiVAXRZmTjl0/VrGYDc8D3ytqNSnPmA9tBQ5J6tv9Y8CbpAD9lTtMi+0H/lB0qVYSK8zBM4cAG4A/gZ3AfAWTVGGyTNp01s8Sq7bzH5AizHYCzTO6Zwn4GyVLq4vyHkvkjzU6/HAxWLsygzxGAbBWE92ipBjGeH1vZueFARKSdoa13KPNVOkcoFBVoU1yPdAuw7MtpP8KXJKMSQyzzXlOnmipdk+HHO00+SaRyRb93lcfk/7NqhkCAWeO9zbwknJLqUezuuMHjXtEf9dGhNZKObmF4sTopZBnB24LciA5ntQuN+q0MqocsCR8Oq7u66UYbfXIKJEw4fgquYMVVecivi9wzpxHxBnQip2L2r6geLoR49jHBx1URu+J6LMoiZIOSFxUnDYJf0bHQOYPSVGoemNIRLOi6heZ1fiIedkJzu448qfcIWE/DNDXg8ySmFGrQdEw224d1hsAM/lIlDokjFAYzSVTLIkxN6JNlhNnQ5BTquI8cJTOrTKR8CXjgyonp7QoWpNMhQ7+Dsu8SCOZVxSKz+f6vWQuyFiCG6vzrUaF40G0AsJkBiip1SnCJGn1TgS7DnwOdG4NEmEy9QqhDarpm/MOxA4Bp8V4P5lzMk0yjVSjTBroY1KOQdJmH5JiVDiqIDgcSB3KReCyBGAqUf5fIIHeYWQTmalCZdr+rYk04AHmCXlYdS3gaQAAAABJRU5ErkJggg==',
+            text : '게스트가 호스트나 공동 호스트를 만나 열쇠를 받습니다.'
+        },
+        {
+            name : '기타',
+            url : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAACXBIWXMAAAsTAAALEwEAmpwYAAADL0lEQVR4nO2YW28NURTHf3Ee2krU5UGEEkSVImjRiqYPiBalVVKXRiVuiQgPNK14US+Cb+DS+AJUfAK3T+D26laXBC+tkmpR2cmaZGUyM2fv0/Mk65dMTrJn7f/svWfd5oBhGIZhGIZhGIZhGIZhGIZhGDFyQD2wH+gCtgLlFE4p0Ah0ytUoY4VSLmvqkjXWy5onzSzgOvANmIhdo8AAsCJAbwHQD4wk6H0HbgEVAXqrgPvArwQ9t+ZrwEwKpA74nCAcv34DvR56O4EhDz13EHs89E4C4x56n2QvQdQCP5TIQ3HVamAJ0CRvckzZnM/Qawf+iN1f4C7QBlTJ5TZ8T+5NiG1rhl6Peu6YeE6TrK1a1vpI2bi9rPXd/FTgnRI/mmHrRAeVJ7jYS3L7yOWdB2zL0GtWXjIMzEuw2aQO8z2wOkPvhPKSN0AZHvSqkzvtGYc/xd6depx+9ebdW8rHduUJNxPuP5V7I/K283FW7afbw55XYvwMmOIzQZJN9JCFarxUYnpC3N6XAeUFJWp8sXrOFU8tt4fnMsf9ZjJHPcDFmS8r1bxjarxRjbuY96VdzWtQ48fVuM/bj7ig5s3OMlyvDHcEPCCnYq1PjXcqPZegfFmq5h1U45dlbDywzrcoPZfgU1mnDF3Z8iUnSdDNu6TGDym9ygC9ZWreATXepxJuyAHsVno1viHQW+QQ8KntEfs8QiCkAbvoGwLFSIKLUpKgq/O+PPBIglc9tZynvJQ5L3wm9KiHuBIy2TJ4W5VBV+JC4jWpDD5RzY3zvHycCy2DZcBblWxcM5FGbawRSmo55ysvGMpzCC3y1iPbuQk2G1W+GczT4Z1Syfl1yAdXTawVfgwcltJTKR3bnVgv7k46jbZYKzwgOaFKEt5e5fZRK+wSVxrdynZcmq1mqTQuNxxRDVPUNK0hkDrgo8fHxrhnx9iqPCHrch6wy0PvjOfH0Acp7wUxQ5LN15TPYdfdLQ/Qq5C4Hk7Z+I0Ut0+jWtYwmqD3RbrF6RSBHLAB6JBQ2AxMm4ReiZS36A+Rhli2D8WtZYusrUPWWpQ/RAzDMAzDMAzDMAzDMAzDMAyD/4d/89RNzEVZpy4AAAAASUVORK5CYII=',
+            text : '게스트가 여기에 나열되지 않은 다른 방법을 사용합니다.'
+        }
+    ],
 
     // =================================================
     // adress default data structure //
@@ -317,8 +422,9 @@ const default_data = {
         ,check:'https://img.icons8.com/ios-filled/50/checkmark--v1.png'
         ,no_check:'https://img.icons8.com/color/48/delete-sign--v1.png'
         ,transh_can:'https://img.icons8.com/material-rounded/24/delete.png'
+        ,pencil :"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAAsTAAALEwEAmpwYAAABcUlEQVR4nL3Vv0sXcRzH8QcNTekX2iK1aIiWoE0HpybbxErUQCh0ynBpqMbcGvoDXNSxiOgfaAvSwP/AapEicmho8Wt5cfAWjsvz+/3cXb3gBXcfuPfz3vf+cbSny9jAS4z7R7qKPWThA9xqG3IaQ9gpgFqHzeAjLlXAfmGuKeQMdiPgZ1zEcIDLmdWu2XV0cAVfS7CRY2Av6kAmsY/NHrBPBdBqKmQK3UKAk2AX4vp73PetmyVIFn6PwQpY7mspkNtR1KzC7yoy67QJycLbOBsbIu/GhymQ2T4hWalmAymQOzFwWaLnUyc+JZMs/OR/QB6nQO7idw3Io9TuSoUcYlmi3hYe7hfyIBXSian/iRt4hjV8OQFyXw1NR4A3pfPXFZAlNbURQRYrzhtnkusUvkWQ8/5epEeQvFEWNNBY4U84gXO4h1f4UcgkP2ukp4W3Pih1XTe6MV9HjbVVqkP+GddjrpLWfC89xwesYDRq1rr+ADU56RJDk6BOAAAAAElFTkSuQmCC"
+        ,save :"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAh0lEQVR4nO3UwQmAMAyF4beHdRO9Ky7l0YHEgdQ9Ij0I0oNNQopI80MOhZYPcijg1dgE4ARAj3krvXOfZyl8JKgWFuNkCMdZvoLZOBWAqQTMeU/ahx0T7a1hMphsDlN1q14BNOAXAGwWcIC81gLW5nA2X7U28eaOAp/HzoFHYzyig3pv3m+7AKg9J4Kk0mDnAAAAAElFTkSuQmCC"
     },
-
     // =================================================
     // 약관 //
     service_terms:[
@@ -547,33 +653,29 @@ const default_data = {
             url : 'checkin'
         },
         {
-            name : '체크인 방법',
-            default : '세부정보 추가',
-            url : 'checkin-method'
-        },
-        {
             name : '찾아오는 방법',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'custom-path'
         },
         {
             name : '와이파이 세부 정보',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'wifi'
         },
         {
             name : '숙소 메뉴얼',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'manual'
         },
         {
             name : '체크아웃',
-            default : '세부정보 추가'
-        },
-        {
-            name : '체크아웃 방법',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'checkout'
         },
         {
             name : '커뮤니케이션',
-            default : '세부정보 추가'
+            default : '세부정보 추가',
+            url : 'comunication'
         }
     ]
 }

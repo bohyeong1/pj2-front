@@ -11,8 +11,7 @@
 
 // wrapper
 .host-update-accomodation-view9__wrapper{
-    padding-left: 100px;
-    padding-top: 10px;      
+    padding-left: 100px;     
     padding-right: 10px;
     overflow-y: scroll; 
     flex-grow: 1;
@@ -42,9 +41,7 @@
     gap:30px;
     position: relative;
 }
-.host-update-accomodation-view9__content-section2-text2{
-    color: $red-lv2;
-}
+
 #host-update-accomodation-view9__content-section{
     display: flex;  
     flex-direction: column; 
@@ -154,6 +151,9 @@
     display: flex;  
     flex-direction: column; 
     gap:5px;
+}
+.host-update-accomodation-view9__content-alert-text2{
+    color: $red-lv2;
 }
 
 

@@ -4,6 +4,7 @@ import default_data from "@/util/default_data/default_data";
 import { state_store, reference_store } from '@/util/function/util_function'
 import useMaterialDropdownStateBusiness from '../hook-store/business-hooks/material_dropdown_state_business';
 import useMaterialDropdownStateStyle from '../hook-store/style-hooks/material_dropdown_state_style';
+import '@/manage_scss_style/commonness/commonness.scss'
 
 function DropdownState({menus = null, call_back, sellect, default_message}){
 
@@ -62,7 +63,7 @@ function DropdownState({menus = null, call_back, sellect, default_message}){
                 <span ref={drop_logo}>{sellect && sellect.name ? sellect.name : default_message}</span>
                 <img className='dropdown-state__arrow-img' ref={drop_arrow} src={default_data.d_imgs.drop_arrow}></img>
             </div>
-            <div className="dropdown-state__custom-options" ref={drop_list}>
+            <div className="dropdown-state__custom-options common-scroll-bar" ref={drop_list}>
                 {menus && menus.map((el, id)=>{
                     if(!el){
                         return(

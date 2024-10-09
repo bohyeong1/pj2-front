@@ -3,7 +3,7 @@ import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
 import session_storage from "@/sessionStorage/session_storage";
-import { connect_data_width_cookies } from "@/util/function/util_function";
+import { connect_data_width_cookies, text_change } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import { useParams } from "react-router-dom";
 
@@ -17,6 +17,12 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
            setLoading,
            summary,
            setSummary} = states
+
+    // =================================================
+    // refs //
+    const {row_alram_ref,
+           summary_alert,
+           summary_gurabox} = refs
 
     // =================================================
     // params //
@@ -55,6 +61,7 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
             reset({
                 summary : summary
             })
+            text_change(summary, summary_gurabox, row_alram_ref, summary_alert)
         }
     },[summary])  
 

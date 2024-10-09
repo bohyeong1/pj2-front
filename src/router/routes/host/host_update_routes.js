@@ -20,7 +20,11 @@ const host_update_accomodation_routes = {
 // check in out update component //
 const host_update_check_routes = {
     route1 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view1/host_update_check_view1')),
-    route2 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view2/host_update_check_view2'))
+    route2 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view2/host_update_check_view2')),
+    route3 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view3/host_update_check_view3')),
+    route4 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view4/host_update_check_view4')),
+    route5 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view5/host_update_check_view5')),
+    route6 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view6/host_update_check_view6'))
 }
 
 function host_update_routes(keyword){
@@ -64,8 +68,20 @@ function host_update_routes(keyword){
                 <Route exact path="checkin" 
                 element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route1/></Suspense>}></Route>
 
-                <Route exact path="checkin-method" 
+                <Route exact path="custom-path" 
                 element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route2/></Suspense>}></Route>
+
+                <Route exact path="wifi" 
+                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route3/></Suspense>}></Route>
+
+                <Route exact path="manual" 
+                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route4/></Suspense>}></Route>
+
+                <Route exact path="checkout" 
+                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route5/></Suspense>}></Route>
+
+                <Route exact path="comunication" 
+                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route6/></Suspense>}></Route>
             </>
         )
 

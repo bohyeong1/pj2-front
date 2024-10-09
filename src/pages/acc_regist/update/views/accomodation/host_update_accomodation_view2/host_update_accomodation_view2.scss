@@ -3,8 +3,10 @@
 .host-update-accomodation-view2__container{
     width: 900px;    
     height: 100%;
-    padding-left: 100px;    
     position: relative;
+    display: flex;  
+    flex-direction: column;
+    gap: 40px;
 }
 
 // title
@@ -13,7 +15,13 @@
     font-weight: 600;
     padding-bottom: 40px;
 }
-
+// wrapper
+.host-update-accomodation-view2__wrapper{
+    padding-left: 100px;    
+    padding-right: 10px;
+    overflow-y: scroll; 
+    flex-grow: 1;
+}
 // content
 .host-update-accomodation-view2__content{
     width: 100%;

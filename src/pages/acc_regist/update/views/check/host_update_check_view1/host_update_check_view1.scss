@@ -1,0 +1,277 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-update-check-view1__container{
+    width: 900px;    
+    height: 100%;
+    position: relative;
+    display: flex;  
+    flex-direction: column;
+    gap: 40px;
+}
+// wrapper
+.host-update-check-view1__wrapper{
+    padding-left: 100px;    
+    padding-right: 10px;
+    overflow-y: scroll; 
+    flex-grow: 1;
+}
+// title
+.host-update-check-view1__title{
+    font-size: 1.525rem;   
+    font-weight: 600;
+    padding-bottom: 40px; 
+}
+
+// content
+.host-update-check-view1__content{
+    width: 100%;
+    display: flex;  
+    flex-direction: column; 
+    gap:40px;
+}
+
+// section1
+.host-update-check-view1__content-section1{
+    width: 100%; 
+    display: flex;  
+    flex-direction: column;
+    gap:20px;
+}
+.host-update-check-view1__content-section1-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-update-check-view1__content-section1-dropdown-wrapper{
+    width: 100%;    
+}
+
+// section2
+.host-update-check-view1__content-section2-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-update-check-view1__content-section2{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.host-update-check-view1__content-section2-sellect{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.host-update-check-view1__content-section2-sellect-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 20px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    cursor: pointer;
+
+    &:hover{
+        background-color: rgb(240, 247, 255);
+        color: rgb(18 115 228);    
+        border: solid 1.5px $blue-lv4;
+
+        &.host-update-check-view1__content-section2-sellect-box > div:nth-child(1){
+            border-bottom: solid 1.5px $blue-lv4;
+        }
+    }
+
+}
+.host-update-check-view1__content-section2-sellect-box > div:nth-child(1){
+    padding-bottom: 20px;
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+
+.host-update-check-view1__content-section2-sellect-box > div:nth-child(1) > div > div > img{
+    width: 40px;
+    height: 40px;
+}
+.host-update-check-view1__content-section2-sellect-box > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+.host-update-check-view1__content-section2-sellect-box > div:nth-child(2) > textarea{
+    border: none;
+    outline: none;
+    width: 80%;
+    resize: none;
+    pointer-events: none;
+    font-size: 0.925rem;
+    height: fit-content;
+    background: none;
+}
+.host-update-check-view1__content-section2-sellect-box > div:nth-child(2) > button{
+    border-radius: 100%;
+    border: solid 2px $blue-default;
+    width: 30px;    
+    height: 30px;
+    cursor: pointer;  
+    background-color: black;
+    z-index: 2;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    
+    img{
+        width: 20px;    
+        height: 20px;   
+        transition: transform 0.2s ease-out;
+        filter: invert(1);
+    }
+    
+    &:hover img{
+      transform: rotateZ(30deg);
+    }
+}
+
+// on active
+.host-update-check-view1__content-section2-sellect-box-active{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding: 20px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+}
+.host-update-check-view1__content-section2-sellect-box-active > div:nth-child(1){
+    padding-bottom: 20px;
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-update-check-view1__content-section2-sellect-box-active > div:nth-child(1) > div > div > img{
+    width: 40px;
+    height: 40px;
+}
+.host-update-check-view1__content-section2-sellect-box-active > div:nth-child(1) > div{
+    display: flex;
+    justify-content: space-between;
+}
+.host-update-check-view1__content-section2-sellect-box-active > div:nth-child(1) > div > button{
+    border-radius: 100%;
+    border: solid 2px $blue-default;
+    width: 30px;    
+    height: 30px;
+    cursor: pointer;  
+    background-color: black;
+    z-index: 2;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    
+    img{
+        width: 20px;    
+        height: 20px;   
+        transition: transform 0.2s ease-out;
+        filter: invert(1);
+    }
+    
+    &:hover img{
+      transform: rotateZ(30deg);
+    }
+}
+.host-update-check-view1__content-section2-sellect-box-active > div:nth-child(2){
+    display: flex;
+    justify-content: space-between;
+}
+.host-update-check-view1__content-section2-textarea-input-wrapper{
+    width: 80%;
+    position: relative;
+}
+.host-update-check-view1__content-section2-textarea-input-wrapper > textarea{
+    border: none;
+    outline: none;
+    width: 100%;
+    height: 170px;
+    resize: none;
+    pointer-events: none;
+    font-size: 0.925rem;
+    background: none;
+}
+.host-update-check-view1__content-section2-button-wrapper{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform-style: preserve-3d;
+    transition: 0.4s transform;
+    transform-origin: 50% 50%;
+}
+.host-update-check-view1__content-section2-button-wrapper > button{
+    border-radius: 100%;
+    border: solid 2px $blue-default;
+    position: absolute;
+    backface-visibility: hidden;
+    top:0;
+    left:0;
+    width: 100%;    
+    height: 100%;
+    cursor: pointer;  
+    background-color: black;
+    z-index: 2;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    
+    img{
+        width: 20px;    
+        height: 20px;   
+        transition: transform 0.2s ease-out;
+        filter: invert(1);
+    }
+    
+    &:hover img{
+      transform: rotateZ(30deg);
+    }
+}
+.host-update-check-view1_content-section2-back-button{
+    transform: rotateY(180deg);
+    transform-origin: 50% 50%;
+}
+.host-update-check-view1__content-section2-box1-text1{
+    font-size: 0.825rem;
+}
+.host-update-check-view1__content-section2-box1-text2{
+    font-size: 0.825rem;
+    color: $red-lv2;
+}
+.host-update-check-view1__content-section2-gurabox{
+    width: 100%;    
+    position: absolute; 
+    top:0;  
+    left: 0;
+    font-size:  0.925rem;    
+    white-space: pre-wrap;
+    z-index: -1;    
+    visibility: hidden;
+}
+.host-update-check-view1__content-section2-box1{
+    display: flex;  
+    flex-direction: column; 
+    gap:5px;
+}
+
+// footer
+.host-update-check-view1__footer{
+    width: 100%;  
+    height: 125px;
+    border-top: solid 1px $grey-end;
+    z-index: 2;     
+    background-color: white;
+    display: flex;  
+    padding: 20px;  
+    justify-content: right;
+}
+.host-update-check-view1__fetch-button{
+    font-size: 1.225rem;    
+    height: 45px;   
+    padding: 0 20px; 
+}

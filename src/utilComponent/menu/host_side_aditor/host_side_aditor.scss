@@ -58,6 +58,9 @@
     flex-direction: column; 
     gap:10px;
 }
+.host-side-aditor__sellect-box-price > span:nth-child(2){
+    color: $blue-default;
+}
 .host-side-aditor__sellect-box-service-facility-alram, .host-side-aditor__sellect-box-keyword-alram{
     text-decoration: underline;
     display: flex;  
@@ -105,9 +108,22 @@
     outline: none;
     resize: none; 
     background: none;
+    color: $grey-lv3;   
+    font-size: 0.8575rem;
+    font-weight: 600;
 }
 .host-side-aditor__sellect-box-summary-text:focus{
     border: none;   
     outline: none;
 }
-// active style
+.host-side-aditor__sellect-box-rules{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.host-side-aditor__sellect-box-rules > div{
+    display: flex; 
+    gap:10px;
+}
+
+

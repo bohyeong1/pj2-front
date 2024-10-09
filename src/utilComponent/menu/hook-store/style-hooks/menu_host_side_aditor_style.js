@@ -90,7 +90,9 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
             return(
                 <div className="host-side-aditor__sellect-box-price">
                     <span>1박당 - {acc_data.price}원</span>
-                    <span>할인 설정</span>
+                    <span>
+                        {acc_data.discount ? `${acc_data.discount.date.date}일 이상 예약 시 ${acc_data.discount.rate}% 할인` : '할인 설정'}
+                    </span>
                 </div>
             )
         }
@@ -114,7 +116,14 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
         else if(mapping_data === '이용 규칙'){
             return(
                 <div className="host-side-aditor__sellect-box-rules">
-                    db logic check 해야할 곳
+                    {acc_data.rules.slice(0,4).map((el, id) => {
+                        return (
+                            <div key={id}>
+                                <span>{el.text}</span>
+                                <span style={{color : el.state ? '#1273E4' : '#C13515'}}>{el.state ? '허용' : '비허용'}</span>
+                            </div>
+                        )
+                    })}
                 </div>
             )
         }

@@ -1,6 +1,6 @@
 @import '@/manage_scss_style/commonness/colors';
 
-.host-update-check-view2__container{
+.host-update-check-view4__container{
     width: 900px;    
     height: 100%;
     position: relative;
@@ -9,21 +9,21 @@
     gap: 40px;
 }
 // wrapper
-.host-update-check-view2__wrapper{
-    padding-left: 100px;       
+.host-update-check-view4__wrapper{
+    padding-left: 100px;   
     padding-right: 10px;
     overflow-y: scroll; 
     flex-grow: 1;
 }
 // title
-.host-update-check-view2__title{
+.host-update-check-view4__title{
     font-size: 1.525rem;   
     font-weight: 600;
     padding-bottom: 40px; 
 }
 
 // content
-.host-update-check-view2__content{
+.host-update-check-view4__content{
     width: 100%;
     display: flex;  
     flex-direction: column; 
@@ -31,7 +31,7 @@
 }
 
 // footer
-.host-update-check-view2__footer{
+.host-update-check-view4__footer{
     width: 100%;  
     height: 125px;
     border-top: solid 1px $grey-end;
@@ -41,7 +41,7 @@
     padding: 20px;  
     justify-content: right;
 }
-.host-update-check-view2__fetch-button{
+.host-update-check-view4__fetch-button{
     font-size: 1.225rem;    
     height: 45px;   
     padding: 0 20px; 

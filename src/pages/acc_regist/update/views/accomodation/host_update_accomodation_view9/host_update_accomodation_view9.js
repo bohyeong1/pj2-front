@@ -3,7 +3,7 @@ import default_data from "@/util/default_data/default_data";
 import Loading from '@/utilComponent/material/loading/loading'
 import { useContext, useState, useRef } from 'react'
 import { AccDataContext } from '@/context/acc_data_context/config/acc_data_context'
-import { state_store, reference_store } from '@/util/function/util_function'
+import { state_store, reference_store, text_change } from '@/util/function/util_function'
 import '@/manage_scss_style/commonness/commonness.scss'
 import useHostUpdateAccomodationView9Business from '../../../hook_store/business_hooks/host_update_accomodation_view9_business';
 import useHostUpdateAccomodationView9Style from '../../../hook_store/style_hooks/host_update_accomodation_view9_style';
@@ -18,21 +18,18 @@ function HostUpdateAccomodationView9(){
     const gurabox_ref = useRef(null)
     const row_alram_ref = useRef(null) 
     const rule_alert_ref = useRef(null) 
-
+ 
     // =================================================
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
+    const [summary, setSummary] = useState(acc_data.rules ? acc_data.rules[4].summary : null)
+    const [sellect_button, setSellect_button] = useState({
+                                                    case1 : acc_data.rules ? acc_data.rules[1].state : null,
+                                                    case2 : acc_data.rules ? acc_data.rules[2].state : null,
+                                                    case3 : acc_data.rules ? acc_data.rules[3].state : null       
+                                                })
 
-    const [data_ready, setData_ready] = useState(false)
-    const [current_data, setCurrent_data] = useState(null)
-    const [prev_data, setPrev_data] = useState(null)
-    const [sellect_state, setSellect_state] = useState({
-                                                  case1 : null,
-                                                  case2 : null,
-                                                  case3 : null       
-                                              })
-    
     // =================================================
     // hooks //
     // business
@@ -41,29 +38,36 @@ function HostUpdateAccomodationView9(){
            watch, 
            fetch_acc, 
            errors} = useHostUpdateAccomodationView9Business({
-                        'acc_data' : acc_data,
-                        'setAcc_data' : setAcc_data
-                     },
+                            'acc_data' : acc_data,
+                            'setAcc_data' : setAcc_data
+                        },
                         state_store([
                             {
-                                'sellect_state' : sellect_state,
-                                'setSellect_state' : setSellect_state
+                                'sellect_button' : sellect_button,
+                                'setSellect_button' : setSellect_button
                             },
                             {
-                                'current_data' : current_data,
-                                'setCurrent_data' : setCurrent_data
-                            },
-                            {
-                                'prev_data' : prev_data,
-                                'setPrev_data' : setPrev_data
-                            },
-                            {
-                                'data_ready' : data_ready,
-                                'setData_ready' : setData_ready
+                                'summary' : summary,
+                                'setSummary' : setSummary
                             },
                             {
                                 'loading' : loading,
                                 'setLoading' : setLoading
+                            },
+                            {
+                                'is_button' : is_button,
+                                'setIs_button' : setIs_button
+                            }
+                        ]),
+                        reference_store([
+                            {
+                                'gurabox_ref' : gurabox_ref
+                            },
+                            {
+                                'row_alram_ref' : row_alram_ref
+                            },
+                            {
+                                'rule_alert_ref' : rule_alert_ref
                             }
                         ])
                      )
@@ -72,15 +76,14 @@ function HostUpdateAccomodationView9(){
            click_allow, 
            click_not_allow, 
            plus_click, 
-           minus_click, 
-           text_change} = useHostUpdateAccomodationView9Style({
+           minus_click} = useHostUpdateAccomodationView9Style({
                                 'watch' : watch,
                                 'setValue' : setValue
                             },
                             state_store([
                                 {
-                                    'sellect_state' : sellect_state,
-                                    'setSellect_state' : setSellect_state
+                                    'sellect_button' : sellect_button,
+                                    'setSellect_button' : setSellect_button
                                 }
                             ]),
                             reference_store([
@@ -160,8 +163,8 @@ function HostUpdateAccomodationView9(){
                                         <textarea className={`host-update-accomodation-view9__content-section${id}-part2-text1 border-textarea`} 
                                                   placeholder='추가 규칙을 작성해 주세요!' 
                                                   spellCheck={false}
-                                                  {...register('rule', {
-                                                  onChange : (e)=>{text_change(e.target.value)}
+                                                  {...register('summary', {
+                                                  onChange : (e)=>{text_change(e.target.value, gurabox_ref, row_alram_ref, rule_alert_ref, 20, 20.52)}
                                                   })}
                                         >                                        
                                         </textarea>
@@ -175,7 +178,7 @@ function HostUpdateAccomodationView9(){
                                             {/* alram */}
                                             <div ref={rule_alert_ref} 
                                                  className="host-update-accomodation-view9__content-alert-text2" 
-                                                 style={{color:'red', display:'none'}}>
+                                                 style={{display:'none'}}>
                                                     20줄 이내로 작성해 주세요!
                                             </div>
                                             {/* error */}
@@ -197,13 +200,13 @@ function HostUpdateAccomodationView9(){
                                     </div>
                                     <div className="host-update-accomodation-view9__content-button-wrapper">
                                         <button className={`host-update-accomodation-view9__content-button sellect-button 
-                                                ${check_active(sellect_state[`case${id}`]) === 'active' ? 'sellect-active' : ''}`} 
+                                                ${check_active(sellect_button[`case${id}`]) === 'active' ? 'sellect-active' : ''}`} 
                                                 onClick={()=>{click_allow(`case${id}`)}}
                                         >
                                                     허용
                                         </button>
                                         <button className={`host-update-accomodation-view9__content-button sellect-button 
-                                                ${check_active(sellect_state[`case${id}`]) === 'no-active' ? 'sellect-active' : ''}`} 
+                                                ${check_active(sellect_button[`case${id}`]) === 'no-active' ? 'sellect-active' : ''}`} 
                                                 onClick={()=>{click_not_allow(`case${id}`)}}
                                         >
                                                     비허용
@@ -220,7 +223,7 @@ function HostUpdateAccomodationView9(){
             <div className="host-update-accomodation-view9__footer">
                 <button className={`host-update-accomodation-view9__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
                         disabled={is_button ? false : true}
-                >
+                        onClick={fetch_acc}>
                             저장
                 </button>
             </div>

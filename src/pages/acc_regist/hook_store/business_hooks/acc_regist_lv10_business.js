@@ -44,8 +44,12 @@ function useAccRegistLv10Business(data, states, refs, props){
     // button state 및 drop data 업데이트 //
     useEffect(()=>{
         function isvalid_input(){
-            return watch('count') >= 0 && watch('count') < 6 && sellect_state.case1 !== null && 
-            sellect_state.case2 !== null && sellect_state.case3 !== null && isValid && watch('rule')
+            return watch('count') >= 0 && 
+                   watch('count') < 6 && 
+                   sellect_state.case1 !== null && 
+                   sellect_state.case2 !== null && 
+                   sellect_state.case3 !== null && 
+                   isValid && watch('rule')
         }
         if(isvalid_input()){
             const data_structure = default_data.home_rules

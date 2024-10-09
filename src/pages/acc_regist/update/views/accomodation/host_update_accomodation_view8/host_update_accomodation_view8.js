@@ -2,9 +2,8 @@ import './host_update_accomodation_view8.scss'
 import Loading from '@/utilComponent/material/loading/loading'
 import { useContext, useState, useRef } from 'react'
 import { AccDataContext } from '@/context/acc_data_context/config/acc_data_context'
-import { state_store, reference_store } from '@/util/function/util_function'
+import { state_store, reference_store, text_change } from '@/util/function/util_function'
 import '@/manage_scss_style/commonness/commonness.scss'
-import useHostUpdateAccomodationView8Style from '../../../hook_store/style_hooks/host_update_accomodation_view8_style';
 import useHostUpdateAccomodationView8Business from '../../../hook_store/business_hooks/host_update_accomodation_view8_business';
 
 function HostUpdateAccomodationView8(){
@@ -28,38 +27,35 @@ function HostUpdateAccomodationView8(){
     // hooks //
     // business
     const {fetch_acc, watch, register, errors} = useHostUpdateAccomodationView8Business({
-            'acc_data' : acc_data,
-            'setAcc_data' : setAcc_data
-        },
-        state_store([
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            },
-            {
-                'is_button' : is_button,
-                'setIs_button' : setIs_button
-            },
-            {
-                'summary' : summary,
-                'setSummary' : setSummary
-            }
-        ])
-    )
-    // style
-    const {text_change} = useHostUpdateAccomodationView8Style(undefined, undefined,
-        reference_store([
-            {
-                'row_alram_ref' : row_alram_ref
-            },
-            {
-                'summary_alert' : summary_alert
-            },
-            {
-                'summary_gurabox' : summary_gurabox
-            }
-        ])
-    )
+                                                        'acc_data' : acc_data,
+                                                        'setAcc_data' : setAcc_data
+                                                    },
+                                                    state_store([
+                                                        {
+                                                            'loading' : loading,
+                                                            'setLoading' : setLoading
+                                                        },
+                                                        {
+                                                            'is_button' : is_button,
+                                                            'setIs_button' : setIs_button
+                                                        },
+                                                        {
+                                                            'summary' : summary,
+                                                            'setSummary' : setSummary
+                                                        }
+                                                    ]),
+                                                    reference_store([
+                                                        {
+                                                            'row_alram_ref' : row_alram_ref
+                                                        },
+                                                        {
+                                                            'summary_alert' : summary_alert
+                                                        },
+                                                        {
+                                                            'summary_gurabox' : summary_gurabox
+                                                        }
+                                                    ])
+                                                 ) 
 
     return (
         loading === false ? <Loading part = {true}></Loading> :
@@ -75,7 +71,7 @@ function HostUpdateAccomodationView8(){
                                    type='text' 
                                    spellCheck={false}
                                    {...register('summary', {
-                                   onChange : (e)=>{text_change(e.target.value)}
+                                   onChange : (e)=>{text_change(e.target.value, summary_gurabox, row_alram_ref, summary_alert, 50, 20.52)}
                                    })}
                                    placeholder='숙소를 설명하는 글을 작성해주세요!'>                            
                         </textarea >

@@ -59,32 +59,35 @@ function HostUpdateAccomodationView2(){
     return (
         loading === false ? <Loading part = {true}></Loading> :
         <div className='host-update-accomodation-view2__container'>
-            <div className="host-update-accomodation-view2__title">
-                <span>숙소 유형</span>
-            </div>
-            <div className='host-update-accomodation-view2__content'>
-                <div className='host-update-accomodation-view2__section1'>
-                    <span className='host-update-accomodation-view2__section1-title'>숙소</span>
-                    <DropdownState menus={default_data.d_category_icon} sellect = {category} call_back = {setCategory}></DropdownState>
+            <div className='host-update-accomodation-view2__wrapper common-scroll-bar'>
+                <div className="host-update-accomodation-view2__title">
+                    <span>숙소 유형</span>
                 </div>
-                <div className="host-update-accomodation-view2__section2">
-                    <span className='host-update-accomodation-view2__section2-title'>공간</span>
-                    <div className='host-update-accomodation-view2__section2-sellect'>
-                        {default_data.d_house_space.map((ele,id)=>{
-                            return(
-                                <div className={`host-update-accomodation-view2__section2-box not-user-sellect acc-regist-sellect-box 
-                                    ${ele.name === acc_data.space_category.name ? 'acc-regist-sellect-box-active' : ''}`}
-                                ref={(el)=>{space_categories.current[id]=el}} key={id}
-                                onClick={()=>{click_box(id)}}>
-                                    <img src={ele.url}/>
-                                    <div className="host-update-accomodation-view2__section2-box-text1">{ele.name}</div>
-                                    <div className="host-update-accomodation-view2__section2-box-text2">{ele.text}</div>
-                                </div>
-                            )
-                        })}  
-                    </div>                  
+                <div className='host-update-accomodation-view2__content'>
+                    <div className='host-update-accomodation-view2__section1'>
+                        <span className='host-update-accomodation-view2__section1-title'>숙소</span>
+                        <DropdownState menus={default_data.d_category_icon} sellect = {category} call_back = {setCategory}></DropdownState>
+                    </div>
+                    <div className="host-update-accomodation-view2__section2">
+                        <span className='host-update-accomodation-view2__section2-title'>공간</span>
+                        <div className='host-update-accomodation-view2__section2-sellect'>
+                            {default_data.d_house_space.map((ele,id)=>{
+                                return(
+                                    <div className={`host-update-accomodation-view2__section2-box not-user-sellect acc-regist-sellect-box 
+                                        ${ele.name === acc_data.space_category.name ? 'acc-regist-sellect-box-active' : ''}`}
+                                    ref={(el)=>{space_categories.current[id]=el}} key={id}
+                                    onClick={()=>{click_box(id)}}>
+                                        <img src={ele.url}/>
+                                        <div className="host-update-accomodation-view2__section2-box-text1">{ele.name}</div>
+                                        <div className="host-update-accomodation-view2__section2-box-text2">{ele.text}</div>
+                                    </div>
+                                )
+                            })}  
+                        </div>                  
+                    </div>
                 </div>
             </div>
+
             {/* footer */}
             <div className="host-update-accomodation-view2__footer">
                 <button className={`host-update-accomodation-view2__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
