@@ -13,20 +13,22 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
         if(mapping_data.name === '체크인'){
             return(
                 <div className="host-side-aditor__sellect-box-check-in">
-                    <span>
-                        {acc_data.check_time && acc_data.check_time.check_in ? 
-                            `${acc_data.check_time.check_in}:00 시` : mapping_data.default}
-                    </span>
-                </div>
-            )
-        }
-        else if(mapping_data.name === '체크인 방법'){
-            return(
-                <div className="host-side-aditor__sellect-box-check-in-method">
-                    <span>
-                        {acc_data.check_method && acc_data.check_method.check_in ? 
-                            acc_data.check_method.check_in : mapping_data.default}
-                    </span>
+                    <div>
+                        <span>시간 </span>
+                        <span>·</span>
+                        <span>
+                            {acc_data.check_time && acc_data.check_time.check_in ? 
+                                `${acc_data.check_time.check_in.time}:00 시` : mapping_data.default}
+                        </span>
+                    </div>
+                    <div>
+                        <span>체크인 방법</span>
+                        <span>
+                            {acc_data.check_method && acc_data.check_method.check_in ? 
+                                `${acc_data.check_method.check_in.name}` : mapping_data.default}
+                        </span>
+                    </div>
+
                 </div>
             )
         }
@@ -65,20 +67,25 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
         else if(mapping_data.name === '체크아웃'){
             return(
                 <div className="host-side-aditor__sellect-box-check-out">
-                    <span>
-                        {acc_data.check_time && acc_data.check_time.check_out ? 
-                            `${acc_data.check_time.check_out}:00 시` : mapping_data.default}
-                    </span>
-                </div>
-            )
-        }
-        else if(mapping_data.name === '체크아웃 방법'){
-            return(
-                <div className="host-side-aditor__sellect-box-check-out-method"> 
-                    <span>
-                        {acc_data.check_method && acc_data.check_method.check_out ? 
-                            acc_data.check_method.check_out : mapping_data.default}
-                    </span>
+                    <div>
+                        <span>시간 </span>
+                        <span>·</span>
+                        <span>
+                            {acc_data.check_time && acc_data.check_time.check_out ? 
+                                `${acc_data.check_time.check_out.time}:00 시` : mapping_data.default}
+                        </span>
+                    </div>
+                    <div>
+                        <span>체크아웃 방법</span>
+                        <div>
+                            {acc_data.check_method && acc_data.check_method.check_out && acc_data.check_method.check_out.length ? 
+                                acc_data.check_method.check_out.map((el,id)=>{
+                                    return (
+                                        <span>{el.name}</span> 
+                                    )
+                                }) : mapping_data.default}
+                        </div>
+                    </div>
                 </div>
             )
         }

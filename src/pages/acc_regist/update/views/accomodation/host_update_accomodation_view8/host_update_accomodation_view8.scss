@@ -52,7 +52,7 @@
 // text area
 .host-update-accomodation-view8__content-box1-text1{
     width: 100%;    
-    height: 500px;
+    height:522.48px;
     font-size: 1.166rem;    
     line-height: 1.1; 
 }
@@ -60,6 +60,9 @@
 .host-update-accomodation-view8__gurabox{
     width: 100%;    
     padding: 0 15px;
+    border: solid 1px black;
+    max-height: 492.48px;
+    overflow-y: auto;
     position: absolute; 
     top:0;  
     left: 0;

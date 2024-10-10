@@ -14,14 +14,15 @@ function useHostUpdateStyleView1Style(data, states, refs, props){
 
     // =================================================
     // data //   
-
+    const {watch} = data
 
     // =================================================
     // click sellect box //
     function click_sellect_box(data){
         setSellect_state(false)
         setCheck_in_method({
-            ...data
+            ...data,
+            text : null
         })
     }
 
@@ -44,8 +45,13 @@ function useHostUpdateStyleView1Style(data, states, refs, props){
     // =================================================
     // save text
     function save_text(handle_element){
+        setCheck_in_method({
+            ...check_in_method,
+            text : watch('text')
+        })
         handle_element.current.style.pointerEvents = 'none'
         sellect_active_button_wrapper.current.style.transform = 'rotateY(0)'
+
     }
 
     return {click_sellect_box, delete_sellect_box, click_modify_text, save_text}

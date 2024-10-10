@@ -6,7 +6,7 @@ import useMaterialDropdownStateBusiness from '../hook-store/business-hooks/mater
 import useMaterialDropdownStateStyle from '../hook-store/style-hooks/material_dropdown_state_style';
 import '@/manage_scss_style/commonness/commonness.scss'
 
-function DropdownState({menus = null, call_back, sellect, default_message}){
+function DropdownState({menus = null, call_back, sellect, default_message = ''}){
 
     // =================================================
     // refs //

@@ -407,17 +407,19 @@ export function split_text(line, element, call_back = null){
 
 // =================================================
 // textarea onchange //
-export function text_change(text, fake_box, row_text, alert_text, line, height){
-    fake_box.current.textContent = text
+export function text_change(text, fake_box, row_text, alert_text, setError, clearErrors, keyword, line, height){
+    fake_box.textContent = text
     const one_line_height = height
-    const line_calculate = fake_box.current.getBoundingClientRect().height / one_line_height
+    const line_calculate = fake_box.scrollHeight / one_line_height
     let row = Math.round(line_calculate)
 
-    row_text.current.textContent = `${row}/${line}`
+    row_text.textContent = `${row}/${line}`
     if(row > line){
-        alert_text.current.style.display = 'block'
+        alert_text.style.display = 'block'
+        setError(keyword, `${row}줄 이상 입력이 불가능 합니다.`)
     }else{
-        alert_text.current.style.display = 'none'
+        alert_text.style.display = 'none'
+        clearErrors(keyword)
     }
 }
 

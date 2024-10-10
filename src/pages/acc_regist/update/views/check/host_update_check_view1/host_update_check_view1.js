@@ -26,25 +26,69 @@ function HostUpdateCheckView1(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
-    const [sellect_state, setSellect_state] = useState(acc_data.checkin_method ? false : true)
+    const [sellect_state, setSellect_state] = useState(acc_data.check_method && acc_data.check_method.check_in ? 
+                                                false : 
+                                                true
+                                              )
     const [check_in, setCheck_in] = useState(acc_data.check_time && acc_data.check_time.check_in ? 
                                              acc_data.check_time.check_in :
                                              default_data.d_check_time[7])
-    const [check_in_method, setCheck_in_method] = useState(null)
-    
+    const [check_in_method, setCheck_in_method] = useState(acc_data.check_method && acc_data.check_method.check_in ? 
+                                                    acc_data.check_method.check_in :
+                                                    null
+                                                  )
+                                                  console.log(check_in_method)
     // =================================================
     // hooks //
     // business
     const {register, 
            watch,
-           errors} = useHostUpdateCheckView1Business()
+           fetch_acc,
+           errors,
+           setError,
+           clearErrors,
+           isValid} = useHostUpdateCheckView1Business({
+                            'acc_data' : acc_data,
+                            'setAcc_data' : setAcc_data
+                        },
+                        state_store([
+                            {
+                                'check_in' : check_in,
+                                'setCheck_in' : setCheck_in
+                            },
+                            {
+                                'check_in_method' : check_in_method,
+                                'setCheck_in_method' : setCheck_in_method
+                            },
+                            {
+                                'is_button' : is_button,
+                                'setIs_button' : setIs_button
+                            },
+                            {
+                                'loading' : loading,
+                                'setLoading' : setLoading
+                            }
+                        ]),
+                        reference_store([
+                            {
+                                'text_gurabox' : text_gurabox
+                            },
+                            {
+                                'row_alram_ref' : row_alram_ref
+                            },
+                            {
+                                'text_alert' : text_alert
+                            }
+                        ])                        
+                      )
     // style
     const {click_sellect_box, 
            delete_sellect_box,
            save_text,
            click_modify_text} = useHostUpdateStyleView1Style({
                                         'acc_data' : acc_data,
-                                        'setAcc_data' : setAcc_data
+                                        'setAcc_data' : setAcc_data,
+                                        'watch' : watch
                                     },
                                     state_store([
                                         {
@@ -130,9 +174,22 @@ function HostUpdateCheckView1(){
                                 <div>
                                     <div className='host-update-check-view1__content-section2-textarea-input-wrapper'>
                                         <textarea placeholder = '세부적인 사항을 작성해 주세요!'
-                                                  ref = {sellect_active_box_input}
+                                                  ref = {(el)=>{
+                                                    ref(el)
+                                                    sellect_active_box_input.current = el
+                                                  }}
                                                   spellCheck = {false}
-                                                  onChange={(el)=>{text_change(el.target.value, text_gurabox, row_alram_ref, text_alert, 10, 17)}}
+                                                  onChange={(el)=>{
+                                                    onChange(el)
+                                                    text_change(el.target.value, 
+                                                                text_gurabox.current, 
+                                                                row_alram_ref.current, 
+                                                                text_alert.current, 
+                                                                setError,
+                                                                clearErrors,
+                                                                'text',
+                                                                10, 
+                                                                17)}}
                                                   {...rest}
                                         >
                                         </textarea>
@@ -160,13 +217,16 @@ function HostUpdateCheckView1(){
                                     <div className='host-update-check-view1__content-section2-button-wrapper'
                                          ref={sellect_active_button_wrapper}
                                     >
+                                        {/* modify btn */}
                                         <button className='host-update-check-view1__content-section2-front-button' 
                                                 onClick={()=>{click_modify_text(sellect_active_box_input)}}
                                         >
                                             <img src={default_data.d_imgs.pencil}></img>
                                         </button>
-                                        <button className='host-update-check-view1_content-section2-back-button' 
+                                        {/* save btn */}
+                                        <button className={`host-update-check-view1_content-section2-back-button ${isValid ? '' : 'save-disalbe'}`}
                                                 onClick={()=>{save_text(sellect_active_box_input)}}
+                                                disabled={isValid ? false : true}
                                         >
                                             <img src={default_data.d_imgs.save}></img>
                                         </button>
@@ -181,7 +241,10 @@ function HostUpdateCheckView1(){
             <div className="host-update-check-view1__footer">
                 <button className={`host-update-check-view1__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
                         disabled={is_button ? false : true}
-                        >저장</button>
+                        onClick={()=>{fetch_acc(check_in, check_in_method)}}                            
+                >
+                    저장
+                </button>
             </div>
         </div>
     )

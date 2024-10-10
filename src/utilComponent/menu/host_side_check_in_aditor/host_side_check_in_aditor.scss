@@ -37,3 +37,44 @@
 .host-side-check-in-aditor__sellect-box-title{
     font-size: 1.1125rem;
 }
+.host-side-aditor__sellect-box-check-in{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-in > div{
+    display: flex; 
+    gap:5px;
+}
+.host-side-aditor__sellect-box-check-in > div:nth-child(2){
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.host-side-aditor__sellect-box-check-in > div:nth-child(2) > span:nth-child(1){
+    font-weight: 600;
+    color: black;
+}
+.host-side-aditor__sellect-box-check-out{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(1){
+    display: flex; 
+    gap:5px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2){
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2) > div{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2) > span:nth-child(1){
+    font-weight: 600;
+    color: black;
+}

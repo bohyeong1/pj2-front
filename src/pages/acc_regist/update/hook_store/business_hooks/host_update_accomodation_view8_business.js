@@ -61,7 +61,7 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
             reset({
                 summary : summary
             })
-            text_change(summary, summary_gurabox, row_alram_ref, summary_alert)
+            text_change(summary, summary_gurabox, row_alram_ref, summary_alert, 50, 20.52)
         }
     },[summary])  
 
