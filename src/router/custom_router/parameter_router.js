@@ -86,7 +86,6 @@ function Parameter_router({data_state, element : Element, redirection_url, provi
                 }            
             })
         }
-
     }, [])
 
     // =================================================

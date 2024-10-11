@@ -4,40 +4,31 @@ import './host_side_aditor.scss'
 import '../../../manage_scss_style/commonness/commonness.scss'
 import useMenuHostSideAditorBusiness from "../hook-store/business-hooks/menu_host_side_aditor_business"
 import { useRef, useState } from "react"
-import { reference_store } from '@/util/function/util_function'
-import { state_store } from "../../../utilData/UtilFunction"
+import { reference_store, state_store } from '@/util/function/util_function'
+import { AccDataContext } from "@/context/acc_data_context/config/acc_data_context"
+import { useContext } from "react"
 
-function HostSideAditor({acc_data = null}){
+function HostSideAditor(){
+    // =================================================
+    // context states //
+    const {acc_data, setAcc_data} = useContext(AccDataContext)
 
     // =================================================
     // refs //
     const text_area_ref = useRef(null)
 
     // =================================================
-    // states //
-    const [filtered_text, setFiltered_text] = useState(null)
-
-    // =================================================
     // hooks //
     // business
     const {click_box} = useMenuHostSideAditorBusiness()
     // style
-    const {render_box_output} = useMenuHostSideAditorStyle(undefined, 
-        state_store([
-            {
-                'filtered_text' : filtered_text,
-                'setFiltered_text' : setFiltered_text
-            }
-        ]), 
-        reference_store([
-            {
-                'text_area_ref' : text_area_ref
-            }
-        ]), 
-            {
-                'acc_data' : acc_data
-            }
-    )
+    const {render_box_output} = useMenuHostSideAditorStyle(undefined, undefined, 
+                                    reference_store([
+                                        {
+                                            'text_area_ref' : text_area_ref
+                                        }
+                                    ])
+                                )
 
     return(
         <div className="host-side-aditor__container common-scroll-bar">

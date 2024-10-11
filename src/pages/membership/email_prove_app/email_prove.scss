@@ -9,7 +9,9 @@
 // =================================================
 // container //
 .email-prove-app__container{
-    width:384px;  height:650px;  margin-top: 64px;
+    width:384px;  
+    height:650px;  
+    margin-top: 64px;
     display: flex;
     flex-direction: column;
     gap:20px; 
@@ -29,34 +31,53 @@
 }
 .email-prove-app__container-section1-part1 > span:nth-child(2){
     font-size: 0.975rem;
-    font-weight: 500;   color:$blue-default;
+    font-weight: 500;   
+    color:$blue-default;
 }
 .email-prove-app__container-section1-part2{
-    width:60px; background: rgb(243, 243, 243);     margin-bottom: 15px;
-    border-radius: 8px; overflow: hidden;
+    width:60px; 
+    background: rgb(243, 243, 243);     
+    margin-bottom: 15px;
+    border-radius: 8px; 
+    overflow: hidden;
 }
 .email-prove-app__container-section1-part3{
-    font-size: 0.875rem;  margin-bottom: 25px;   color: $grey-lv1;
+    font-size: 0.875rem;  
+    margin-bottom: 25px;   
+    color: $grey-lv1;
     font-weight: 600;
 }
 .email-prove-app__container-section1-part3 > span{
     line-height: 1.3;
 }
 .level-bar-lv3{
-    width:75%; height: 5px; background: black;
+    width:75%; 
+    height: 5px; 
+    background: black;
 }
 .email-prove-app__container-section1-part4{
-    margin-bottom: 20px;     display: flex;  gap: 10px;  font-size: 1.075rem;   font-weight: 600;
+    margin-bottom: 20px;     
+    display: flex;  
+    gap: 10px;  
+    font-size: 1.075rem;   
+    font-weight: 600;
     align-items: center;    
 }
 .email-prove-app__section-box-container{
-    display: flex;  gap:3px;
+    display: flex;  
+    gap:3px;
 }
 .email-prove__section-box{
-    width: 8px; position: relative;
+    width: 8px; 
+    position: relative;
 }
 .email-prove__section-box > div{
-    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    position: absolute; 
+    top:0; 
+    left:0; 
+    width: 4px;  
+    height: 4px;    
+    border-radius: 100%;
     background-color: red;
 }
 
@@ -64,17 +85,28 @@
 // =================================================
 // contents //
 .email-prove-app__container-section2{
-    width:100%; height:fit-content;
+    width:100%; 
+    height:fit-content;
     display: flex;
-    flex-direction: column;     gap:25px;
+    flex-direction: column;     
+    gap:25px;
 }
 
 .email-prove-app__container-section2-input-wrapper{
-    display: flex;  gap:5px;
+    display: flex;  
+    gap:5px;
 }
 .email-prove-app__container-section2-part1, .email-prove-app__container-section2-part2{
-    display: block; height:50px; border:none;   background: rgb(243, 243, 243); border-radius: 10px;    width: 100%;    box-sizing: border-box;
-    padding-left: 10px; font-size: 0.925rem;    font-weight: 500;
+    display: block; 
+    height:50px; 
+    border:none;   
+    background: rgb(243, 243, 243); 
+    border-radius: 10px;    
+    width: 100%;    
+    box-sizing: border-box;
+    padding-left: 10px; 
+    font-size: 0.925rem;    
+    font-weight: 500;
 }
 .email-prove-app__container-section2-part1{
     width: 70%;
@@ -83,22 +115,37 @@
     padding-right: 70px;
 }
 .email-prove-app__container-section2-input-button{
-    flex-grow: 1;    font-size: 1.125rem;  font-weight: bold; 
+    flex-grow: 1;    
+    font-size: 1.125rem;  
+    font-weight: bold; 
 }
 .email-prove-app__container-section2-code-wrapper{
     position: relative;
 }
 .email-prove-app__timer-container{
-    position: absolute; right: 0;   top: 0; z-index: 2;
-    height: 50px;   padding: 0 10px;    display: flex;  align-items: center;
+    position: absolute; 
+    right: 0;   
+    top: 0; 
+    z-index: 2;
+    height: 50px;   
+    padding: 0 10px;    
+    display: flex;  
+    align-items: center;
 }
 .email-prove-app__timer{
-    font-size: 0.825rem;    color: red;     font-weight: 100;
-    display: block; width: 100%;    text-align: center;
+    font-size: 0.825rem;   
+    color: red;     
+    font-weight: 100;
+    display: block; 
+    width: 100%;    
+    text-align: center;
 }
 // =================================================
 // button //
 .email-prove-app__container-section2-btn {
-    height:50px;  width: 100%;  margin-top: 15px;
-    font-size: 1.125rem;  font-weight: bold;
+    height:50px;  
+    width: 100%;  
+    margin-top: 15px;
+    font-size: 1.125rem;  
+    font-weight: bold;
 }

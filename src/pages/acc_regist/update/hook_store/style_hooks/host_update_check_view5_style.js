@@ -15,6 +15,8 @@ function useHostUpdateStyleView5Style(data, states, refs, props){
     // states //
     const {sellect_state,
            setSellect_state,
+           line_error,
+           setLine_error,
            check_out_method,
            setCheck_out_method} = states
 
@@ -53,6 +55,7 @@ function useHostUpdateStyleView5Style(data, states, refs, props){
     // =================================================
     // delete sellect box //
     function delete_sellect_box(data){
+        setLine_error(false)
         const filterd_data = check_out_method.filter((el)=>{
                                 return !_.isMatch(el, {name : data.name, url : data.url})
                              })

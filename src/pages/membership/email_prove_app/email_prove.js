@@ -21,6 +21,7 @@ function Email_prove({login_user}){
 
     // =================================================
     // hooks //
+    // business
     const {register, handleSubmit, errors, isValid, submit, input_email, verification_click, clear_verification, clear_auth} = useMembershipEmailBusiness(undefined,
         state_store([
             {
@@ -80,20 +81,28 @@ function Email_prove({login_user}){
                     {/* e-mail */}
                     <div className='email-prove-app__container-section2-input-container'>
                         <div className="email-prove-app__container-section2-input-wrapper">
-                            <input type="text" placeholder="이메일" className={`email-prove-app__container-section2-part1 ${errors.email ? 'input-invalid' : ''}`} 
-                            {...register('email', {
-                                onChange : clear_verification
-                            })} autoComplete="off">
+                            <input type="text" 
+                                   placeholder="이메일" 
+                                   className={`email-prove-app__container-section2-part1 ${errors.email ? 'input-invalid' : ''}`} 
+                                   {...register('email', {
+                                        onChange : clear_verification
+                                   })} 
+                                   autoComplete="off"
+                            >
                             </input>
-                            <button className={`email-prove-app__container-section2-input-button 
-                            ${input_email && input_email.length !== 0 && !errors.email ? 'button-enable' : 'button-disable'}`}                    
-                            type="button" disabled={input_email && input_email.length !== 0 && !errors.email ? false : true}
-                            onClick={(e)=>{verification_click(e,input_email)}}>
+                            <button className={`email-prove-app__container-section2-input-button ${input_email && input_email.length !== 0 && !errors.email ? 'button-enable' : 'button-disable'}`}                    
+                                    type="button" 
+                                    disabled={input_email && input_email.length !== 0 && !errors.email ? false : true}
+                                    onClick={(e)=>{verification_click(e,input_email)}}
+                            >
                                 인증요청
                             </button>
                         </div>
-                        {verification_state && !errors.email && <span className="input-alert-text" 
-                        style={{color : verification_state.code_state ? '#1273E4' : 'red'}}>
+                        {verification_state && 
+                        !errors.email && 
+                        <span className="input-alert-text" 
+                              style={{color : verification_state.code_state ? '#1273E4' : 'red'}}
+                        >
                             {verification_state.message}
                         </span>}
                         {errors.email && <span className="input-alert-text">{errors.email.message}</span>}
@@ -109,14 +118,23 @@ function Email_prove({login_user}){
                            <span ref={timer} className="email-prove-app__timer"></span>
                         </div>
                         {/* auth_state */}
-                        {errors.code && <span className="input-alert-text">{errors.code.message}</span>}
-                        {!errors.code && auth_state && <span className="input-alert-text"
-                         style={{color : auth_state.code_state ? '#1273E4' : 'red'}}>{auth_state.message}</span>}
+                        {errors.code && <span className="input-alert-text">
+                            {errors.code.message}
+                        </span>}
+                        {!errors.code && 
+                        auth_state && 
+                        <span className="input-alert-text"
+                              style={{color : auth_state.code_state ? '#1273E4' : 'red'}}
+                        >
+                                {auth_state.message}
+                        </span>}
                     </div>
 
                     {/* submit */}
-                    <input type='submit' value='인증 확인' className={`email-prove-app__container-section2-btn 
-                    ${isValid && verification_state.code_state ? 'button-enable' : 'button-disable'}`}  disabled={isValid ? false : true}
+                    <input type='submit' 
+                           value='인증 확인' 
+                           className={`email-prove-app__container-section2-btn ${isValid && verification_state.code_state ? 'button-enable' : 'button-disable'}`}  
+                           disabled={isValid ? false : true}
                     ></input>   
                 </form>
             </div>

@@ -7,7 +7,7 @@ import { connect_data_width_cookies, text_change } from "@/util/function/util_fu
 import default_data from "@/util/default_data/default_data";
 import { useParams } from "react-router-dom";
 
-function useHostUpdateAccomodationView8Business(data, states, refs, props){
+function useHostUpdateCheckView4Business(data, states, refs, props){
 
     // =================================================
     // states //
@@ -38,7 +38,7 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
     const validation_schema = Yup.object().shape({
         // summary
         summary:Yup.string()
-        .required('숙소를 소개하는 글을 작성해 주세요!')
+        .required('숙소의 메뉴얼을 작성해 주세요!')
         .test(
             'not_only_spaces',
             '공백으로만 구성된 글을 작성할 수 없습니다!',
@@ -65,7 +65,7 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
                         summary_gurabox.current, 
                         row_alram_ref.current, 
                         summary_alert.current, 
-                        50, 
+                        20, 
                         20.52)
         }
     },[summary])  
@@ -74,14 +74,14 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
     // controll button //
     useEffect(()=>{
         if(is_button){
-            if(!isValid || acc_data.summary === watch('summary')){
+            if(!isValid || acc_data.manual === watch('summary')){
                 setIs_button(false)
                 return
             }
         }
 
         if(!is_button){
-            if(isValid && acc_data.summary !== watch('summary')){
+            if(isValid && acc_data.manual !== watch('summary')){
                 setIs_button(true)
                 return
             }
@@ -92,9 +92,9 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
     // data fetch  //
     async function fetch_acc(summary){
         setLoading(false)
-        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/summary/${param.house}`, 'PUT', 
+        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/manual/${param.house}`, 'PUT', 
             {
-                summary : summary
+                manual : summary
             })
     
             if(acc_data && acc_data.acc_state && acc_data.server_state){
@@ -111,4 +111,4 @@ function useHostUpdateAccomodationView8Business(data, states, refs, props){
             isValid}
 }
 
-export default useHostUpdateAccomodationView8Business
+export default useHostUpdateCheckView4Business

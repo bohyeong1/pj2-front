@@ -9,6 +9,8 @@ function useHostUpdateStyleView1Style(data, states, refs, props){
     // states //
     const {sellect_state,
            setSellect_state,
+           line_error,
+           setLine_error,
            check_in_method,
            setCheck_in_method} = states
 
@@ -29,9 +31,9 @@ function useHostUpdateStyleView1Style(data, states, refs, props){
     // =================================================
     // delete sellect box //
     function delete_sellect_box(){
+        setLine_error(false)
         setSellect_state(true)
-        setCheck_in_method(null)
-        
+        setCheck_in_method(null)        
     }
 
     // =================================================

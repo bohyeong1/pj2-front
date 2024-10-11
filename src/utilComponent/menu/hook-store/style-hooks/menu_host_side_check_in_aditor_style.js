@@ -1,9 +1,11 @@
+import { useEffect } from "react"
+import { split_text } from "@/util/function/util_function"
 
 function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
-
     // =================================================
-    // props //
-    const {acc_data} = props
+    // refs //
+    const {text_area1_ref,
+           text_area2_ref} = refs
 
     // =================================================
     // render sellect box output //
@@ -34,11 +36,12 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
         }
         else if(mapping_data.name === '찾아오는 방법'){
             return(
-                <div className="host-side-aditor__sellect-box-custom-path">
-                    <span>
-                        {acc_data.custom_navigation ? 
-                            acc_data.custom_navigation : mapping_data.default}
-                    </span>
+                <div className="host-side-aditor__sellect-box-custom-navigation">
+                    <pre ref={text_area1_ref}
+                              className="host-side-aditor__sellect-box-custom-navigation-text"
+                    >    
+                        {acc_data.custom_navigation ? acc_data.custom_navigation : mapping_data.default}                            
+                    </pre>
                 </div>
             )
         }
@@ -47,8 +50,8 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
                 <div className="host-side-aditor__sellect-box-wifi-information">
                     {acc_data.wifi_information ? 
                         <>
-                            <span>네트워크 : {acc_data.custom_navigation.name}</span>
-                            <span>비밀번호 : {acc_data.custom_navigation.password}</span>
+                            <span>아 이 디 · {acc_data.wifi_information.id}</span>
+                            <span>비밀번호 · {acc_data.wifi_information.password}</span>
                         </>
                         : mapping_data.default}
                 </div>
@@ -57,10 +60,11 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
         else if(mapping_data.name === '숙소 메뉴얼'){
             return(
                 <div className="host-side-aditor__sellect-box-manual">
-                     <span>
-                        {acc_data.manual ? 
-                            acc_data.manual : mapping_data.default}
-                    </span>
+                    <pre ref={text_area2_ref}
+                              className="host-side-aditor__sellect-box-manual-text"
+                    >        
+                        {acc_data.manual ? acc_data.manual : mapping_data.default}                        
+                    </pre>
                 </div>
             )
         }
@@ -81,7 +85,7 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
                             {acc_data.check_method && acc_data.check_method.check_out && acc_data.check_method.check_out.length ? 
                                 acc_data.check_method.check_out.map((el,id)=>{
                                     return (
-                                        <span>{el.name}</span> 
+                                        <span key={id}>{el.name}</span> 
                                     )
                                 }) : mapping_data.default}
                         </div>
@@ -104,6 +108,7 @@ function UseMenuHostSideCheckInAditorStyle(data, states, refs, props){
             return null
         }        
     }
+
     return {render_box_output}
 }
 

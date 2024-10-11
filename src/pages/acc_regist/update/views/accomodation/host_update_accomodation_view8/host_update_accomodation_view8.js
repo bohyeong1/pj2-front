@@ -22,40 +22,44 @@ function HostUpdateAccomodationView8(){
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
     const [summary, setSummary] = useState(acc_data.summary ? acc_data.summary : null)
+    const [line_error, setLine_error] = useState(false)
     
     // =================================================
     // hooks //
     // business
-    const {fetch_acc, watch, register, errors} = useHostUpdateAccomodationView8Business({
-                                                        'acc_data' : acc_data,
-                                                        'setAcc_data' : setAcc_data
-                                                    },
-                                                    state_store([
-                                                        {
-                                                            'loading' : loading,
-                                                            'setLoading' : setLoading
-                                                        },
-                                                        {
-                                                            'is_button' : is_button,
-                                                            'setIs_button' : setIs_button
-                                                        },
-                                                        {
-                                                            'summary' : summary,
-                                                            'setSummary' : setSummary
-                                                        }
-                                                    ]),
-                                                    reference_store([
-                                                        {
-                                                            'row_alram_ref' : row_alram_ref
-                                                        },
-                                                        {
-                                                            'summary_alert' : summary_alert
-                                                        },
-                                                        {
-                                                            'summary_gurabox' : summary_gurabox
-                                                        }
-                                                    ])
-                                                 ) 
+    const {fetch_acc, 
+           watch, 
+           register, 
+           errors,} = useHostUpdateAccomodationView8Business({
+                            'acc_data' : acc_data,
+                            'setAcc_data' : setAcc_data
+                        },
+                        state_store([
+                            {
+                                'loading' : loading,
+                                'setLoading' : setLoading
+                            },
+                            {
+                                'is_button' : is_button,
+                                'setIs_button' : setIs_button
+                            },
+                            {
+                                'summary' : summary,
+                                'setSummary' : setSummary
+                            }
+                        ]),
+                        reference_store([
+                            {
+                                'row_alram_ref' : row_alram_ref
+                            },
+                            {
+                                'summary_alert' : summary_alert
+                            },
+                            {
+                                'summary_gurabox' : summary_gurabox
+                            }
+                        ])
+                     ) 
 
     return (
         loading === false ? <Loading part = {true}></Loading> :
@@ -71,7 +75,14 @@ function HostUpdateAccomodationView8(){
                                    type='text' 
                                    spellCheck={false}
                                    {...register('summary', {
-                                   onChange : (e)=>{text_change(e.target.value, summary_gurabox, row_alram_ref, summary_alert, 50, 20.52)}
+                                   onChange : (e)=>{text_change(e.target.value, 
+                                                                summary_gurabox.current, 
+                                                                row_alram_ref.current, 
+                                                                summary_alert.current, 
+                                                                50, 
+                                                                20.52,
+                                                                setLine_error,
+                                                                line_error)}
                                    })}
                                    placeholder='숙소를 설명하는 글을 작성해주세요!'>                            
                         </textarea >
@@ -101,8 +112,8 @@ function HostUpdateAccomodationView8(){
             </div>
             {/* footer */}
             <div className="host-update-accomodation-view8__footer">
-                <button className={`host-update-accomodation-view8__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
-                        disabled={is_button ? false : true}
+                <button className={`host-update-accomodation-view8__fetch-button ${is_button && !line_error ? 'button-enable' : 'button-disable'}`}
+                        disabled={is_button && !line_error ? false : true}
                         onClick={()=>{fetch_acc(watch('summary'))}}>
                             저장
                 </button>

@@ -16,7 +16,9 @@ function useHostUpdateCheckView1Business(data, states, refs, props){
            check_in_method,
            setCheck_in_method,
            loading, 
-           setLoading, 
+           setLoading,
+           line_error,
+           setLine_error,  
            is_button, 
            setIs_button} = states
 
@@ -111,12 +113,11 @@ function useHostUpdateCheckView1Business(data, states, refs, props){
             text_change(check_in_method.text, 
                         text_gurabox.current, 
                         row_alram_ref.current, 
-                        text_alert.current, 
-                        setError,
-                        clearErrors,
-                        'text',
+                        text_alert.current,
                         10, 
-                        17)
+                        17,
+                        setLine_error,
+                        line_error)
         }
         if(check_in_method && !check_in_method.text){
             reset({

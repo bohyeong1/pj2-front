@@ -344,9 +344,14 @@ export function compare_unit8_arrays(unit1, unit2){
 // =================================================
 // text 줄 수 이상 됬을 때 자르기 //
 // textarea 전용
-export function split_text(line, element, call_back = null){
-    if(element.tagName !== 'TEXTAREA'){
-        console.log('textarea 태그를 넣어주세요')
+export function split_text(line, element, text, call_back = null){
+    if(!text){
+        console.log('text를 넣어 주세요!')
+        call_back(null)
+        return
+    }
+    if(element.tagName !== 'PRE'){
+        console.log('pre 태그를 넣어주세요')
         return 
     }
     let line_height = window.getComputedStyle(element).lineHeight
@@ -363,7 +368,7 @@ export function split_text(line, element, call_back = null){
     }
 
     const max_height = line * line_height
-    const original_text = element.value
+    const original_text = text
 
     function get_scroll_height(text){
         element.value = text
@@ -379,7 +384,7 @@ export function split_text(line, element, call_back = null){
 
         while(left <= right){
             const mid = Math.floor((left + right) / 2)
-            let split_text = original_text.substring(0, mid + 1)
+            let split_text = original_text.substring(0, mid)
 
             split_text = split_text + '...'
 
@@ -394,6 +399,7 @@ export function split_text(line, element, call_back = null){
             }
         }
         if(call_back){
+            console.log(result_text)
             call_back(result_text)
         }
         element.value = result_text
@@ -407,7 +413,7 @@ export function split_text(line, element, call_back = null){
 
 // =================================================
 // textarea onchange //
-export function text_change(text, fake_box, row_text, alert_text, setError, clearErrors, keyword, line, height){
+export function text_change(text, fake_box, row_text, alert_text, line, height, error_handler, error_state){
     fake_box.textContent = text
     const one_line_height = height
     const line_calculate = fake_box.scrollHeight / one_line_height
@@ -416,10 +422,14 @@ export function text_change(text, fake_box, row_text, alert_text, setError, clea
     row_text.textContent = `${row}/${line}`
     if(row > line){
         alert_text.style.display = 'block'
-        setError(keyword, `${row}줄 이상 입력이 불가능 합니다.`)
+        if(!error_state){
+            error_handler(true)
+        }
     }else{
         alert_text.style.display = 'none'
-        clearErrors(keyword)
+        if(error_state){
+            error_handler(false)
+        }
     }
 }
 

@@ -30,6 +30,7 @@ function HostUpdateCheckView5(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
+    const [line_error, setLine_error] = useState(false)
     const [sellect_state, setSellect_state] = useState(false)
     const [check_out, setCheck_out] = useState(acc_data.check_time && acc_data.check_time.check_out ? 
                                                acc_data.check_time.check_out :
@@ -68,6 +69,10 @@ function HostUpdateCheckView5(){
                             {
                                 'loading' : loading,
                                 'setLoading' : setLoading
+                            },
+                            {
+                                'line_error' : line_error,
+                                'setLine_error' : setLine_error
                             }
                         ]),
                         reference_store([
@@ -101,6 +106,10 @@ function HostUpdateCheckView5(){
                                         {
                                             'check_out_method' : check_out_method,
                                             'setCheck_out_method' : setCheck_out_method
+                                        },
+                                        {
+                                            'line_error' : line_error,
+                                            'setLine_error' : setLine_error
                                         }
                                     ]),
                                     reference_store([
@@ -118,7 +127,7 @@ function HostUpdateCheckView5(){
                                         }
                                     ])
                                 )
-       
+
     return (
         loading === false ? <Loading part = {true}></Loading> :
         <div className='host-update-check-view5__container'>
@@ -198,12 +207,11 @@ function HostUpdateCheckView5(){
                                                                         text_change(el.target.value, 
                                                                                     text_gurabox.current[id], 
                                                                                     row_alram_ref.current[id], 
-                                                                                    text_alert.current[id], 
-                                                                                    setError,
-                                                                                    clearErrors,
-                                                                                    `text[${id}]`,
+                                                                                    text_alert.current[id],
                                                                                     10, 
-                                                                                    17)}}
+                                                                                    17,
+                                                                                    setLine_error,
+                                                                                    line_error)}}
                                                     >
                                                     </textarea>
                                                     <pre className="host-update-check-view5__content-section2-gurabox" 
@@ -240,11 +248,11 @@ function HostUpdateCheckView5(){
                                                     </button>
                                                     {/* save btn */}
                                                     <button className={`host-update-check-view5_content-section2-back-button 
-                                                                        ${!errors?.text?.[id] && watch(`text[${id}]`)?.length ? '' : 'save-disalbe'}`}
+                                                                        ${!errors?.text?.[id] && watch(`text[${id}]`)?.length && !line_error ? '' : 'save-disalbe'}`}
                                                             onClick={()=>{save_text(sellect_active_box_input.current[id],
                                                                                     sellect_active_button_wrapper.current[id],
                                                                                     id)}}
-                                                            disabled={!errors?.text?.[id] && watch(`text[${id}]`)?.length ? false : true}
+                                                            disabled={!errors?.text?.[id] && watch(`text[${id}]`)?.length && !line_error ? false : true}
                                                     >
                                                         <img src={default_data.d_imgs.save}></img>
                                                     </button>

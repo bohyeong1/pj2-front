@@ -6,12 +6,12 @@
     position: relative;
     display: flex;  
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
 // wrapper
 .host-update-check-view6__wrapper{
-    padding-left: 100px;    
-    padding-right: 10px;
+    padding-left: 50px;    
+    padding-right: 50px;
     overflow-y: scroll; 
     flex-grow: 1;
 }
@@ -28,6 +28,27 @@
     display: flex;  
     flex-direction: column; 
     gap:40px;
+}
+
+.host-update-check-view6__box{
+    border-radius: 10px; 
+    background-color: $grey-end-end; 
+    width: 100%; 
+    padding: 20px;  
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    display: flex;  
+    align-items: center;    
+}
+.host-update-check-view6__sellect{
+    width: 100%;
+    display: flex;  
+    flex-direction: column;
+    gap: 20px;
+}
+.host-update-check-view6__title{
+    font-size: 1.125rem;    
+    font-weight: 600;
 }
 
 // footer

@@ -7,17 +7,14 @@ import useHostUpdateLayoutBusiness from "../../pages/acc_regist/update/hook_stor
 import useHostUpdateLayoutStyle from "../../pages/acc_regist/update/hook_store/style_hooks/host_update_layout_style"
 import { Outlet } from "react-router-dom"
 
-function HostUpdateLayout({option, acc_data = null}){
+function HostUpdateLayout({option}){
 
     // =================================================
     // hooks //
     // business
     const {click_prev_page_button, click_side_accomodation, click_side_check_in} = useHostUpdateLayoutBusiness()    
     // style
-    const {optional_side_menu_render} = useHostUpdateLayoutStyle(undefined, undefined, undefined,
-        {
-            'acc_data' : acc_data
-        })
+    const {optional_side_menu_render} = useHostUpdateLayoutStyle()
 
     return (
         <div className="host-update-layout">

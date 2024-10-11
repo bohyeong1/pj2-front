@@ -3,18 +3,36 @@ import './host_side_check_in_aditor.scss'
 import UseMenuHostSideCheckInAditorStyle from "../hook-store/style-hooks/menu_host_side_check_in_aditor_style"
 import '../../../manage_scss_style/commonness/commonness.scss'
 import useMenuHostSideCheckInAditorBusiness from "../hook-store/business-hooks/menu_host_side_check_in_aditor_business"
+import { useRef, useState } from "react"
+import { reference_store, state_store } from '@/util/function/util_function'
+import { AccDataContext } from "@/context/acc_data_context/config/acc_data_context"
+import { useContext } from "react"
 
-function HostSideCheckInAditor({acc_data = null}){
+function HostSideCheckInAditor(){
+    
+    // =================================================
+    // context states //
+    const {acc_data, setAcc_data} = useContext(AccDataContext)
+
+    // =================================================
+    // refs //
+    const text_area1_ref = useRef(null)
+    const text_area2_ref = useRef(null)
 
     // =================================================
     // hooks //
     const {click_box} = useMenuHostSideCheckInAditorBusiness()
     // style
-    const {render_box_output} = UseMenuHostSideCheckInAditorStyle(undefined, undefined, undefined, 
-        {
-            'acc_data' : acc_data
-        }
-    )
+    const {render_box_output} = UseMenuHostSideCheckInAditorStyle(undefined, undefined, 
+                                    reference_store([
+                                        {
+                                            'text_area1_ref' : text_area1_ref
+                                        },
+                                        {
+                                            'text_area2_ref' : text_area2_ref
+                                        }
+                                    ])
+                                )
 
     return (
         <div className="host-side-check-in-aditor__container common-scroll-bar">

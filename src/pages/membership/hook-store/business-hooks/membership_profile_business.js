@@ -118,7 +118,6 @@ function useMembershipProfileBusiness(data, states, refs, props){
                 console.log(e)
             }
         }
-
         // navigate('/')
     }
 

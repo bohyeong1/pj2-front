@@ -6,13 +6,13 @@
     position: relative;
     display: flex;  
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
 
 // wrapper
 .host-update-accomodation-view8__wrapper{
-    padding-left: 100px;    
-    padding-right: 10px;
+    padding-left: 50px;    
+    padding-right: 50px;
     overflow-y: scroll; 
     flex-grow: 1;
     position: relative;
@@ -40,6 +40,9 @@
     flex-direction: column; 
     gap:20px;
     position: relative;
+}
+.host-update-accomodation-view8__content-box2-text1{
+    font-size: 0.925rem;
 }
 .host-update-accomodation-view8__content-box2-text2{
     color: $red-lv2;

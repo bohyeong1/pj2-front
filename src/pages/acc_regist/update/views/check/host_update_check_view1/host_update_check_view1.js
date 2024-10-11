@@ -26,6 +26,7 @@ function HostUpdateCheckView1(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
+    const [line_error, setLine_error] = useState(false)
     const [sellect_state, setSellect_state] = useState(acc_data.check_method && acc_data.check_method.check_in ? 
                                                 false : 
                                                 true
@@ -37,7 +38,7 @@ function HostUpdateCheckView1(){
                                                     acc_data.check_method.check_in :
                                                     null
                                                   )
-                                                  console.log(check_in_method)
+                                     
     // =================================================
     // hooks //
     // business
@@ -67,6 +68,10 @@ function HostUpdateCheckView1(){
                             {
                                 'loading' : loading,
                                 'setLoading' : setLoading
+                            },
+                            {
+                                'line_error' : line_error,
+                                'setLine_error' : setLine_error
                             }
                         ]),
                         reference_store([
@@ -98,6 +103,10 @@ function HostUpdateCheckView1(){
                                         {
                                             'check_in_method' : check_in_method,
                                             'setCheck_in_method' : setCheck_in_method
+                                        },
+                                        {
+                                            'line_error' : line_error,
+                                            'setLine_error' : setLine_error
                                         }
                                     ]),
                                     reference_store([
@@ -185,11 +194,10 @@ function HostUpdateCheckView1(){
                                                                 text_gurabox.current, 
                                                                 row_alram_ref.current, 
                                                                 text_alert.current, 
-                                                                setError,
-                                                                clearErrors,
-                                                                'text',
                                                                 10, 
-                                                                17)}}
+                                                                17,
+                                                                setLine_error,
+                                                                line_error)}}
                                                   {...rest}
                                         >
                                         </textarea>
@@ -224,9 +232,9 @@ function HostUpdateCheckView1(){
                                             <img src={default_data.d_imgs.pencil}></img>
                                         </button>
                                         {/* save btn */}
-                                        <button className={`host-update-check-view1_content-section2-back-button ${isValid ? '' : 'save-disalbe'}`}
+                                        <button className={`host-update-check-view1_content-section2-back-button ${isValid && !line_error ? '' : 'save-disalbe'}`}
                                                 onClick={()=>{save_text(sellect_active_box_input)}}
-                                                disabled={isValid ? false : true}
+                                                disabled={isValid && !line_error ? false : true}
                                         >
                                             <img src={default_data.d_imgs.save}></img>
                                         </button>

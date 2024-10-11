@@ -75,8 +75,9 @@ function HostUpdateAccomodationView2(){
                                 return(
                                     <div className={`host-update-accomodation-view2__section2-box not-user-sellect acc-regist-sellect-box 
                                         ${ele.name === acc_data.space_category.name ? 'acc-regist-sellect-box-active' : ''}`}
-                                    ref={(el)=>{space_categories.current[id]=el}} key={id}
-                                    onClick={()=>{click_box(id)}}>
+                                        ref={(el)=>{space_categories.current[id]=el}} 
+                                        key={id}
+                                        onClick={()=>{click_box(id)}}>
                                         <img src={ele.url}/>
                                         <div className="host-update-accomodation-view2__section2-box-text1">{ele.name}</div>
                                         <div className="host-update-accomodation-view2__section2-box-text2">{ele.text}</div>

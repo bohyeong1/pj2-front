@@ -103,10 +103,13 @@
 }
 .host-side-aditor__sellect-box-summary-text{
     width: 100%;    
-    height: 48px;
-    border: none;   
-    outline: none;
-    resize: none; 
+    max-height: 48px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
     background: none;
     color: $grey-lv3;   
     font-size: 0.8575rem;

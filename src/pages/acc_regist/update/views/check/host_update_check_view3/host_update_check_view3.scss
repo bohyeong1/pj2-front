@@ -6,12 +6,12 @@
     position: relative;
     display: flex;  
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
 // wrapper
 .host-update-check-view3__wrapper{
-    padding-left: 100px;     
-    padding-right: 10px;
+    padding-left: 50px;    
+    padding-right: 50px;
     overflow-y: scroll; 
     flex-grow: 1;
 }
@@ -28,6 +28,47 @@
     display: flex;  
     flex-direction: column; 
     gap:40px;
+}
+.host-udpate-check-view3__id-wrapper, .host-udpate-check-view3__password-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.host-update-check-view3__input-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.host-update-check-view3__sub-title{
+    display: flex;  
+    gap:3px;
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-update-check-view3__sub-title-box{
+    width: 8px; 
+    position: relative;
+}
+.host-update-check-view3__sub-title-box > div{
+    position: absolute; 
+    top:0; 
+    left:0; 
+    width: 4px;  
+    height: 4px;    
+    border-radius: 100%;
+    background-color: red;
+}
+.host-update-check-view3__input{
+    display: block; 
+    height:50px; 
+    border:none;   
+    background: rgb(243, 243, 243); 
+    border-radius: 10px;    
+    width: 100%;    
+    box-sizing: border-box;
+    padding-left: 10px; 
+    font-size: 0.925rem;    
+    font-weight: 500;
 }
 
 // footer

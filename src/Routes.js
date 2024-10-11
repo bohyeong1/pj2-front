@@ -112,12 +112,16 @@ function FinalRoutes(){
                     // host // */}
 
                 {/* host - update */}            
-                <Route path='/host' element = {<AccDataProvider><Parameter_router element={DefaultLayout} data_state={true}/></AccDataProvider>}>
+                <Route path='/host' 
+                       element = {<AccDataProvider>
+                                    <Parameter_router element={DefaultLayout} data_state={true}/>
+                                  </AccDataProvider>}
+                >
                     <Route path='update/:house/accomodation' element = {<AccUpdate option={'accomodation'}/>}>
-                    {host_update_routes('accomodation')}
+                        {host_update_routes('accomodation')}
                     </Route>
                     <Route path='update/:house/check' element = {<AccUpdate option={'check'}/>}>
-                    {host_update_routes('check')}
+                        {host_update_routes('check')}
                     </Route>
                 </Route>
                 

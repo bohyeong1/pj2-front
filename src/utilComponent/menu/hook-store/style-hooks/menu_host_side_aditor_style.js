@@ -7,13 +7,6 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
     // refs //
     const {text_area_ref} = refs
 
-    const {filtered_text,
-           setFiltered_text} = states
-
-    // =================================================
-    // props //
-    const {acc_data} = props
-
     // =================================================
     // render sellect box output //
     function render_box_output(mapping_data, acc_data){
@@ -106,10 +99,11 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
         else if(mapping_data === '설명'){
             return(
                 <div className="host-side-aditor__sellect-box-summary"> 
-                    <textarea ref={text_area_ref} 
-                              readOnly 
+                    <pre ref={text_area_ref}
                               className="host-side-aditor__sellect-box-summary-text"
-                              value={!filtered_text ? acc_data.summary : filtered_text}></textarea>
+                    >
+                        {acc_data.summary ? acc_data.summary : ''}                                
+                    </pre>
                 </div>
             )
         }
@@ -132,14 +126,6 @@ function useMenuHostSideAditorStyle(data, states, refs, props){
             return null
         }        
     }
-
-    // =================================================
-    // text split //
-    useEffect(()=>{
-        if(text_area_ref && acc_data){
-            split_text(3, text_area_ref.current, setFiltered_text)
-        }
-    },[acc_data])
 
     return {render_box_output}
 }

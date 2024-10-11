@@ -6,12 +6,12 @@
     position: relative;
     display: flex;  
     flex-direction: column;
-    gap: 40px;
+    gap: 10px;
 }
 // wrapper
 .host-update-check-view1__wrapper{
-    padding-left: 100px;    
-    padding-right: 10px;
+    padding-left: 50px;    
+    padding-right: 50px;
     overflow-y: scroll; 
     flex-grow: 1;
 }

@@ -16,7 +16,9 @@ function useHostUpdateCheckView5Business(data, states, refs, props){
            check_out_method,
            setCheck_out_method,
            loading, 
-           setLoading, 
+           setLoading,
+           line_error,
+           setLine_error, 
            is_button, 
            setIs_button} = states
 
@@ -128,12 +130,11 @@ function useHostUpdateCheckView5Business(data, states, refs, props){
                 text_change(el.text, 
                             text_gurabox.current[index], 
                             row_alram_ref.current[index], 
-                            text_alert.current[index], 
-                            setError,
-                            clearErrors,
-                            `text[${index}]`,
+                            text_alert.current[index],
                             10, 
-                            17)
+                            17,
+                            setLine_error,
+                            line_error)
             })
         }
     },[check_out_method, reset])
