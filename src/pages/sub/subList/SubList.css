@@ -1,39 +1,62 @@
 /* 숙소 지역 대분류 */
 .sublist__city-title{
-    width: 100%;    padding-left: 20px;
-    font-size: 0.875rem;    font-weight: 600;   color: rgb(112,112,112);
+    width: 100%;    
+    padding-left: 20px;
+    font-size: 0.875rem;    
+    font-weight: 600;   
+    color: rgb(112,112,112);
 }
 /* text */
 .list-text-t5-b1{
-    font-size: 1rem;  font-weight: bold;
+    font-size: 1rem;  
+    font-weight: bold;
 }
 .list-text-t5-b2{
-    display: flex;  column-gap:7px;    width: 80%; flex-wrap: wrap;
+    display: flex;  
+    column-gap:7px;    
+    width: 80%; 
+    flex-wrap: wrap;
 }
 .list-text-t5-b2 > span{
-    color: rgb(110,110,110);    font-size: 0.8125rem;
+    color: rgb(110,110,110);    
+    font-size: 0.8125rem;
 }
 .list-text-tex5{
-    display: flex;  flex-direction: column; gap:5px;
+    display: flex;  
+    flex-direction: column; 
+    gap:5px;
 }
 .list-text-evaluation{
-    display: flex;  align-items: center;    gap:10px;
-    font-size: 0.75rem; height: 21px;
+    display: flex;  
+    align-items: center;    
+    gap:10px;
+    font-size: 0.75rem; 
+    height: 21px;
 }
 .list-text-evaluation > span:nth-child(2){
-    font-size: 0.8125rem;   color: #707070;
+    font-size: 0.8125rem;   
+    color: #707070;
 }
 .list-evaluation__star-box{
-    height: 100%;   width: fit-content;
-    display: flex;  align-items: center;    padding: 4px 5px 3px 3px;   gap:3px;
-    border-radius: 6px;    background-color: #FFAD0A;
+    height: 100%;   
+    width: fit-content;
+    display: flex;  
+    align-items: center;    
+    padding: 4px 5px 3px 3px;   
+    gap:3px;
+    border-radius: 6px;    
+    background-color: #FFAD0A;
 }
 .list-evaluation__star-box > img{
-    width: 11px;    position: relative; top:-1px;
+    width: 11px;    
+    position: relative; 
+    top:-1px;
 }
 /* 데이터 없을 때 */
 .sublist-list_no-data{
     font-size: 1.25rem;
-    display: block; width: 100%;    text-align: center;
+    display: block; 
+    width: 100%;    
+    text-align: center;
     margin-top: 50px;
 }

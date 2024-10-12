@@ -71,23 +71,33 @@ function SubApp (){
     return(
         <div className="subApp">
             {/* sub modal => data 개수 페이지 네이션으로 잘라온 30개 기준 정렬 지도에 표시 */}
-            <Sub_modal ref = {modal} city={city} data={list}></Sub_modal>
+            <Sub_modal ref = {modal} 
+                       city={city} 
+                       data={list}/>
             <div className="subApp__menu-container">
-                <Main_menu  data={search_keyword ? search_keyword : null} preview={true} scroll={false}></Main_menu>
+                <Main_menu  data={search_keyword ? search_keyword : null} 
+                            preview={true} 
+                            scroll={false}/>
             </div>
             <div className="sub-content">
                 <div className="sub-content__filter-container">
-                    <Side_menu modal={false} ref= {modal}></Side_menu>
+                    <Side_menu modal={false} 
+                               ref= {modal}/>
                 </div>
                 <div className="sub-main-content">
                     <div className="sub-board">
                         <span className="sub-board__list-count">
                             {`'${city}' 숙소 ${total_count ? (String(total_count).length > 3 ? pop_three_texts(total_count) : total_count):'0'}개`}
                         </span>
-                        <Dropdown></Dropdown>
+                        <Dropdown/>
                     </div>
-                    <SubList data={list} total_count={total_count} count_number={count_number} current_page={current_page} setCurrent_page={setCurrent_page}
-                    total_page = {total_page} modal={false}></SubList>
+                    <SubList data={list} 
+                             total_count={total_count} 
+                             count_number={count_number} 
+                             current_page={current_page} 
+                             setCurrent_page={setCurrent_page}
+                             total_page = {total_page} 
+                             modal={false}/>
                 </div>
             </div>
             <div className="sub-footer">

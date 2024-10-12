@@ -3,8 +3,8 @@ import HostSideCheckInAditor from "@/utilComponent/menu/host_side_check_in_adito
 import './host_update_layout.scss'
 import default_data from "@/util/default_data/default_data"
 import '@/manage_scss_style/commonness/commonness.scss'
-import useHostUpdateLayoutBusiness from "../../pages/acc_regist/update/hook_store/business_hooks/host_update_layout_business"
-import useHostUpdateLayoutStyle from "../../pages/acc_regist/update/hook_store/style_hooks/host_update_layout_style"
+import useHostUpdateLayoutBusiness from "../hook_store/business_hooks/host_update_layout_business"
+import useHostUpdateLayoutStyle from "../hook_store/style_hooks/host_update_layout_style"
 import { Outlet } from "react-router-dom"
 
 function HostUpdateLayout({option}){
@@ -18,7 +18,7 @@ function HostUpdateLayout({option}){
 
     return (
         <div className="host-update-layout">
-            <div className="host-update-layout__aditor-container">
+            <aside className="host-update-layout__aditor-container">
                 <div className="host-update-layout__aditor-header">
                     <div className="host-update-layout__aditor-title">
                         <button onClick={click_prev_page_button}>
@@ -41,10 +41,10 @@ function HostUpdateLayout({option}){
                     </div>
                 </div>
                 {optional_side_menu_render(option,{render1 : HostSideAditor, render2 : HostSideCheckInAditor})}
-            </div>
-            <div className="host-update-layout__content">
+            </aside>
+            <main className="host-update-layout__content">
                 <Outlet></Outlet>
-            </div>
+            </main>
         </div>
     )
 }

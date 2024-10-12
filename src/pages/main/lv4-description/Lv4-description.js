@@ -40,7 +40,7 @@ function Lv4_description({title, data, imgurl}){
 
                                 return(
                                     <SwiperSlide key={id}>
-                                        <NavLink to={`SubApp/Detail_info/${ele._id}`} key={id} className="lv4-img-wrapper">
+                                        <NavLink to={`/detail/${ele._id}`} key={id} className="lv4-img-wrapper">
                                             <div className="lv4-img-container">
                                                 <Pastel_img url={ele.main_img}></Pastel_img>
                                             </div>

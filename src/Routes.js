@@ -5,19 +5,14 @@ import DefaultLayout from './layout/default_layout/default_layout';
 // =================================================
 // routing pages //
 import { 
-    // =================================================
     // main page //
     MainApp, 
-    // =================================================
     // membership page //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
-    // =================================================
     // sub accomodation page //
     SubApp,
-    // =================================================
     // accomodations detail page //
-    Detail_info,
-    // =================================================
+    Detail,
     // accomodations host page //
     Acc_regist, Acc_initial, AccManage,
     Acc_regist_lv0,AccRegistLv1, AccRegistLv2, AccRegistLv3,
@@ -26,16 +21,12 @@ import {
     AccUpdate,
     Acc_regist_start, Acc_regist_intro,
     Acc_initial_regist,
-    // =================================================
     // evaluation page //
     Evaluation,
-    // =================================================
     // private page //
     Private_history,Private_management, Private_point, Private_wish,
-    // =================================================
     // reservation page //
     ReservationApp,
-    // =================================================
     // terms page //
     Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,
 } from './pages';
@@ -47,6 +38,7 @@ import host_update_routes from './router/routes/host/host_update_routes';
 import Private_router from './router/custom_router/private_router';
 import Conditional_router from './router/custom_router/conditional_router';
 import Parameter_router from './router/custom_router/parameter_router';
+import LogCheckRouter from './router/custom_router/log_check_router';
 // =================================================
 // context provider //
 import ImgProvider from '@/context/img_context/provider/img_provider';
@@ -76,11 +68,13 @@ function FinalRoutes(){
                 </Route>
 
                 {/* // =================================================
-                    // 숙소 상세 페이지 // */}
-                <Route path='/SubApp/Detail_info' element={<Detail_info></Detail_info>}>                                                                {/*숙소 상세페이지*/}
-                    <Route path=':house' element={<Detail_info></Detail_info>}></Route>
+                    // detail // */}
+                    
+                {/* detail - 숙소 상세 페이지 */}
+                <Route path = '/detail' element = {<LogCheckRouter element={DefaultLayout}/>}>                                                                
+                    <Route path=':house' element={<Detail/>}></Route>
                 </Route>
-
+               
                 {/* // =================================================
                     // 호스트 페이지 // */}
                 <Route path='/Acc_regist' element={<Conditional_router data_state={true}                                              
@@ -111,7 +105,7 @@ function FinalRoutes(){
                 {/* // =================================================
                     // host // */}
 
-                {/* host - update */}            
+                {/* host - 숙소 업데이트 페이지 */}            
                 <Route path='/host' 
                        element = {<AccDataProvider>
                                     <Parameter_router element={DefaultLayout} data_state={true}/>

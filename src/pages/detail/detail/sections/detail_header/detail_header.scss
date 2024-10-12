@@ -1,0 +1,99 @@
+@import '@/manage_scss_style/commonness/colors';
+
+
+.detail-header__container{
+    width:100%;
+    height:100%;
+    font-size: 1.1rem;
+}
+
+/* title */
+.detail-header__section1-part1{
+    display: flex;  
+    flex-direction: column; 
+    gap: 32px; 
+}
+.detail-header__section1-part1-title{
+    font-size: 28px;  
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    gap:2px;
+}
+.detail-header__section1-part1-title > span:nth-child(1){
+    display: flex;
+    font-weight: 400;
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+.detail-header__section1-part1-text2 > span{
+    color: rgb(150,150,150);    
+    width: 81px;    
+    display: inline-block;
+}
+
+// category
+.detail-header__section1-part1-category{
+    width: 100%;
+    display: flex;
+    gap: 8px;
+    justify-content: space-between;
+}
+.detail-header__section1-part1-category-item{
+    flex-basis: 33.3%;
+    height: 135px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    padding-left: 22px;
+    padding-right: 22px;
+    padding-top: 24px;
+}
+.detail-header__section1-part1-category-item:hover{
+    background-color: $grey-end-end;
+}
+
+.detail-header__section1-part1-category-item > span{
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    color: $black-lv1;
+    padding-bottom: 15px;
+}
+.detail-header__item-content-box2,
+.detail-header__item-content-box1{
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0,1fr));
+    column-gap: 12px;
+    row-gap: 6px;
+}
+.detail-header__item-content-box2 > div{
+    display: flex;
+    align-items: flex-end;
+    gap:8px;
+}
+.detail-header__item-content-box2 > div > img{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+}
+.detail-header__item-content-box2 > div > span{
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+.detail-header__item-content-box3{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    font-weight: 100;
+    gap:6px;
+    color: $black-lv1;
+}
+.detail-header__item-content-box3 > span{
+    display: flex;
+    align-items: center;
+    height: 20px;
+}
+

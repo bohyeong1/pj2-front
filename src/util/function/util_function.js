@@ -85,7 +85,19 @@ export async function update_user_token(user_token){
 }
 
 // =================================================
-// login 상태 체크 유저 정보 얻는 함수 //
+// only login check //
+export async function check_login(){    
+    const data = await fetch(`${default_data.d_base_url}/api/users/login-check`,{
+        method : 'GET',
+        credentials : 'include'
+    })
+
+    const result = await data.json()
+    return result
+}
+
+// =================================================
+// login 체크 && 유저 정보 얻는 함수 //
 export async function get_user(boolean_value){
     // boolean_value = true(사용자 정보 획득) false(db안거치고 http cookie에서 토큰 존재 유무만 체크)
 

@@ -1,0 +1,78 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.detail-detail-layout__container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap : 32px;
+    padding-bottom: 100px;
+    padding-top: 40px;
+}
+.detail-detail-layout__section1,
+.detail-detail-layout__section2,
+.detail-detail-layout__section3,
+.detail-detail-layout__section4,
+.detail-detail-layout__section5,
+.detail-detail-layout__section6{
+    width:100%;
+}
+// img display
+.detail-detail-layout__img{
+    width:100%;
+    height:320px;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+// header
+.detail-detail-layout__header{
+    width: 100%;
+}
+
+/* 섹션1 */
+.detail-detail-layout__section1{
+    display: flex;
+    justify-content: space-between; 
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 32px;
+    min-height: 760px;
+}
+.detail-detail-layout__section1-part1{
+    width:55%;
+}
+.detail-detail-layout__section1-part2{
+    width:33%;
+    height: 760px;
+}
+
+/* 섹션2 */
+.detail-detail-layout__section2{
+    min-height: 50px;      
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 60px;
+}
+
+/* 섹션3 */
+.detail-detail-layout__section3{
+    min-height: 10px;    
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 60px;
+}
+
+/* 섹션4 */
+.detail-detail-layout__section4{
+    min-height: 50px;    
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 60px;
+}
+/* 섹션5 */
+.detail-detail-layout__section5{
+    min-height: 50px;    
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 60px;
+}
+/* 섹션6 */
+.detail-detail-layout__section6{
+    min-height: 50px;    
+}

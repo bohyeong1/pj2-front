@@ -5,19 +5,14 @@ import Pagination from "react-js-pagination";
 import default_data from "../../../utilData/defaultData";
 import Static_img from "../../../picture/static-img/static-img";
 import { pop_three_texts } from "../../../utilData/UtilFunction";
-
-// import { state_store, reference_store } from "../../../utilData/UtilFunction";
 import useSubSubListBusiness from "../hook-store/business-hooks/sub-subList-business";
 import useSubSubListStyle from "../hook-store/style-hooks/sub-subList-style";
-
 import '../../../manage_scss_style/responsible/subApp/subList.scss'
-
 
 function SubList({data, current_page, setCurrent_page, total_count, count_number, total_page, modal, city}){
 
-    ////////////////////////////////////
-    ////////////// hooks ///////////////
-    ////////////////////////////////////
+    // =================================================
+    // hooks //
     // business
 
     const {sellectPageData} = useSubSubListBusiness(data,undefined, undefined,
@@ -48,12 +43,13 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
 
                 return(
                     !modal ? 
-                    ///////////////////////////////////////////////
-                    //////////////// 일반 창 레이아웃 //////////////
-                    ///////////////////////////////////////////////
-                    <NavLink to={`Detail_info/${ele._id}`} className="sublist-list" key={id}>
+                    // =================================================
+                    // default //
+                    <NavLink to={`/detail/${ele._id}`} 
+                             className="sublist-list" 
+                             key={id}>
                         <div className="list-img">
-                            <Static_img url={ele.main_img}></Static_img>
+                            <Static_img url={ele.main_img}/>
                         </div>
                         <div className="list-text">
                             {/* 숙소분류 */}
@@ -99,13 +95,16 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
                         </div>
                     </NavLink> :
 
-                    ///////////////////////////////////////////////
-                    //////////////// 모달 창 레이아웃 //////////////
-                    ///////////////////////////////////////////////
-                    <div className={`sublist-list ${map_state[ele._id] === ele._id ? 'sublist-list__active': ''}`} key={id} data-key = {ele._id} 
-                    onClick={modal_list_click} onMouseEnter={modal_list_hover} onMouseLeave={modal_list_out}> 
+                    // =================================================
+                    // modal //
+                    <div className={`sublist-list ${map_state[ele._id] === ele._id ? 'sublist-list__active': ''}`} 
+                         key={id} 
+                         data-key = {ele._id} 
+                         onClick={modal_list_click} 
+                         onMouseEnter={modal_list_hover} 
+                         onMouseLeave={modal_list_out}> 
                         <div className="list-img">
-                            <Static_img url={ele.main_img}></Static_img>
+                            <Static_img url={ele.main_img}/>
                         </div>
                         <div className="list-text">
                             {/* 숙소분류 */}
@@ -155,8 +154,15 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
             :<span className="sublist-list_no-data">등록된 숙소가 존재하지 않아요!</span> :null}
 
             {!modal ?
-            <Pagination pageCount={total_page} activePage={current_page}  itemsCountPerPage={count_number}  pageRangeDisplayed={5} totalItemsCount={total_count ? total_count : 0} 
-                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}></Pagination> : null}
+            <Pagination pageCount={total_page} 
+                        activePage={current_page}  
+                        itemsCountPerPage={count_number}  
+                        pageRangeDisplayed={5} 
+                        totalItemsCount={total_count ? total_count : 0} 
+                        onChange={sellectPageData}  
+                        prevPageText ={'<'} 
+                        nextPageText={'>'} 
+                        hideFirstLastPages={true}/> : null}
         </div>
     )
 }

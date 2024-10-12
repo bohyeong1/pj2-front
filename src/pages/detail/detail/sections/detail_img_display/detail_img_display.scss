@@ -1,0 +1,24 @@
+
+.detail-img-display__img{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+.detail-img-display__img-box1 ,.detail-img-display__img-box2{
+    flex-basis: 50%;
+    height: 100%;
+}
+.detail-img-display__img-box1{
+    background: black;
+}
+.detail-img-display__img-box2{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, minmax(150px, 1fr));
+    gap:10px; 
+}
+.detail-img-display__img-item{
+    background: black;
+}

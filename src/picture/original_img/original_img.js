@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 import './original_img.scss'
-import default_data from '../../utilData/defaultData';
 import '../../manage_scss_style/commonness/commonness.scss'
 
 // 기본 이미지

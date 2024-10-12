@@ -7,9 +7,9 @@ function DefaultLayout({login_user = null}){
 
     return (
         <div className="default-layout__container">
-            <header className="default-layout__header">
+            <nav className="default-layout__header">
                 <Main_menu login_user = {login_user}></Main_menu>
-            </header>
+            </nav>
             <main className="default-layout__main">
                 <Outlet></Outlet>
             </main>

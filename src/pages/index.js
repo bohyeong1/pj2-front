@@ -17,7 +17,7 @@ export {default as Join_complete} from './membership/join_complete_app/join_comp
 
 // =================================================
 // 숙소 상세 //
-export {default as Detail_info} from './detail_info/detail_info_app/app/detail_info'
+export {default as Detail} from './detail/detail/app/detail'
 
 // =================================================
 // host //
@@ -42,7 +42,7 @@ export {default as AccRegistLv10} from './acc_regist/acc_regist_lv10_app/Acc_reg
 export {default as AccRegistLv11} from './acc_regist/acc_regist_lv11_app/Acc_regist_lv11'
 export {default as AccRegistLv12} from './acc_regist/acc_regist_lv12_app/Acc_regist_lv12'
 
-export {default as AccUpdate} from './acc_regist/update/app/update_app'
+export {default as AccUpdate} from './acc_regist/update/app/update'
 
 // =================================================
 // 회원정보 관리 //

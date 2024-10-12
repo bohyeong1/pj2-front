@@ -314,5 +314,12 @@ DB - User(사용자), Accomodation(숙소),
   이미지 한방에 최대 10개 등록하는게 맞나?
 10.7
 - price modify 서버/프론트 완료
+10.11
+- host update 페이지 서버/프론트 완료
+  다음번에 만약 express 만든다면 dto 안에 validate 구현할 때 파라미터로 받는 방식을 써야겠음
+  비슷한 유형의 data request시 계속 새로운 발리데이터를 만들어야 하는 문제가 있었음
+10.11
+- IntersectionObserver로 나중에 이미지 처리해보기
+
   <code>
 </pre>
