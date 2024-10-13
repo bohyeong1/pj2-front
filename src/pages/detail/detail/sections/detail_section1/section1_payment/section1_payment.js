@@ -1,22 +1,33 @@
 import React,{useState, useRef, useEffect} from "react";
 import { useNavigate} from "react-router-dom";
 import './section1_payment.scss'
-import DateCalendar from "../../../../../../utilData/dateCalendar/DateCalendar";
+import { pop_three_texts, transform_date } from "@/util/function/util_function";
+import { addDays } from 'date-fns';
+import { useClickAway } from 'use-click-away';
+import Calendar from "@/utilComponent/material/calendar/calendar";
 
 function Section1Payment({data, params, role}){
-    //state
+    // =================================================
+    // states //
     const [pay_checkIn, setPay_checkIn] = useState()
     const [pay_checkOut, setPay_checkOut] = useState()
     const [pay_day, setPay_day] = useState()
     const [capacity, setCapacity] = useState(2)
 
-    //ref
-    const Sec1_payment_value = useRef()
+    const [calendar_modal, setCalendar_modal] = useState(false)
+
+    // =================================================
+    // refs //
+    const detail_capacity = useRef(null)
+    const calendar_modal_ref = useRef(null)
 
     //체크아웃 데이트값 받아오기    
     function pullCheckOutData(date){
         setPay_checkOut(date)
     }
+
+    // 날짜 변환
+
 
     //체크인 데이트값 받아오기
     function pullCheckInData(date){
@@ -25,9 +36,7 @@ function Section1Payment({data, params, role}){
 
     useEffect(()=>{
         if(pay_checkIn && pay_checkOut){
-            console.log(pay_checkIn.getTime(), pay_checkOut.getTime())
             const payDay = pay_checkOut.getTime() - pay_checkIn.getTime()
-            console.log(payDay, new Date(payDay).getDate())
             setPay_day(new Date(payDay).getDate())
         }
     },[pay_checkOut])
@@ -56,97 +65,92 @@ function Section1Payment({data, params, role}){
     // 플러스버튼
     function clickPlus(e){
         e.stopPropagation()
-        console.log(e.target.parentNode)
-        Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)-1
-        if(Sec1_payment_value.current.innerText==='1'){
+        detail_capacity.current.innerText = Number(detail_capacity.current.innerText)-1
+        if(detail_capacity.current.innerText==='1'){
             e.target.parentNode.disabled = true
         }else{
-            const rb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-rb`)
+            const rb_btn = document.querySelector(`.section1-payment__con-part1-b2-rb`)
             rb_btn.disabled=false
             }
-            setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
+            setCapacity(Number(detail_capacity.current.innerText))        /////capacity값 스테이트에 담기
     }
-
+    console.log(data)
     // 마이너스버튼
     function clickMinus(e){
         e.stopPropagation()
         console.log('확인')
-        Sec1_payment_value.current.innerText = Number(Sec1_payment_value.current.innerText)+1
-            if(Sec1_payment_value.current.innerText===`${data.capacity}`){
+        detail_capacity.current.innerText = Number(detail_capacity.current.innerText)+1
+            if(detail_capacity.current.innerText===`${data.capacity}`){
                 e.target.parentNode.disabled = true
 
             }else{
-                const lb_btn = document.querySelector(`.Sec1_payment-con-s1-b2-lb`)
+                const lb_btn = document.querySelector(`.section1-payment__con-part1-b2-lb`)
                 lb_btn.disabled=false     
             }
-            setCapacity(Number(Sec1_payment_value.current.innerText))        /////capacity값 스테이트에 담기
+            setCapacity(Number(detail_capacity.current.innerText))        /////capacity값 스테이트에 담기
     }
 
+    function open_calendar(e){
+        e.preventDefault()
+        e.stopPropagation()
+        if(!calendar_modal){
+            setCalendar_modal(true)
+        }
+    }
 
+    useClickAway(calendar_modal_ref, (e)=>{
+        if(e.target.closest('.section1-payment__section1-check')){
+            return
+        }
+        if(calendar_modal){
+            setCalendar_modal(false)
+        }
+    })
 
     if(data){
         return(
-            <div className="Sec1_payment-container">
-                <div className="Sec1_payment-sec1">
-                    <div className="Sec1_payment-sec1-s1">
-                        <div className="Sec1_payment-sec1-s1-tite">
-                            <span style={{fontSize:'1.5rem', fontWeight:'bold'}}>{`${data.price + data.addPrice * (capacity - 1)}원`}</span>
-                            <span> /박</span>
-                        </div>
-                        <div className="Sec1_payment-sec1-s1-content">
-                            <div className="Sec1_payment-con-sec1">
-                                <div className="Sec1_payment-con-sec1-s1">
-                                    <span className="Sec1_pay_check">체크인</span>
-                                    <div className="Sec1_payment-con-sec1-s1-b1">
-                                        {`${pay_checkIn ? `${pay_checkIn.getMonth()}월 ${pay_checkIn.getDate()}일` : `${new Date().getMonth()}월 ${new Date().getDate()}일`}`}
-                                    </div>
-                                </div>
-                                <div className="Sec1_payment-con-sec1-s2">
-                                    <span className="Sec1_pay_check">체크아웃</span>
-                                    <div className="Sec1_payment-con-sec1-s2-b1">
-                                        {`${pay_checkOut ? `${pay_checkOut.getMonth()}월 ${pay_checkOut.getDate()}일` :  `${new Date().getMonth()}월 ${new Date().getDate()}일`}`}
-                                    </div>    
-                                </div>                                
-                            </div>
-                            <div className="Sec1_payment-con-sec1-s2">
-                            <DateCalendar pullCheckOutData={pullCheckOutData}  pullCheckInData={pullCheckInData}></DateCalendar>
-                            </div>
-
-                            <div className="Sec1_payment-con-sec3">
-                                <div className="Sec1_payment-con-s1-b1">
-                                    인원
-                                </div>
-                                <div className="Sec1_payment-con-s1-b2">
-                                <button id="Sec1_payment-btn"  className={`Sec1_payment-con-s1-b2-lb`} onClick={clickPlus}>
-                                    <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIUlEQVR4nGNgGAWjYBSMApLBfyrhgbNgFIyCUTAKGDABAOkcI91xODUvAAAAAElFTkSuQmCC"></img>
-                                </button>
-
-                                <div className="Sec1_payment-con-s1-b2-t1">
-                                    <span ref={Sec1_payment_value} className="Sec1_payment-con-s1-b2_val">2</span>
-                                    <span>명</span>
-                                </div>
-
-                                <button id="Sec1_payment-btn" className={`Sec1_payment-con-s1-b2-rb`} onClick={clickMinus}>
-                                    <img id="btnImg" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANElEQVR4nGNgGAVUBv+hmGbg/6gFhMD/0SCieRD9pxIeOAsIgf+jqYgQ+D8aRMM/iEYgAACwS0O9h1hB4QAAAABJRU5ErkJggg=="></img>
-                                </button>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div className="Sec1_payment-sec1-s1-btn" onClick={clickReservation}>예약하기</div>
+            <div className="section1-payment__container">
+                {/* header */}
+                <div className="section1-payment__header">                    
+                    <span>₩{pop_three_texts(data.price)}</span>
+                    <span>/박</span>
+                </div>
+                {/* section1 */}
+                <div className="section1-payment__section1">
+                    <div onClick={open_calendar}
+                         className="section1-payment__section1-check not-user-sellect">
+                        <span>체크인</span>
+                        <span>{transform_date(new Date())}</span>
                     </div>
-                    <div className="Sec1_payment-sec1-s2"></div>
-                    <div className="Sec1_payment-sec1-s3"></div>
+                    <div onClick={open_calendar}
+                         className="section1-payment__section1-check not-user-sellect">
+                        <span>체크아웃</span>
+                        <span>{transform_date(addDays(new Date(), 1))}</span>
+                    </div>
+
+                    {calendar_modal && <div className="section1-payment__calendar-modal"
+                                            ref={calendar_modal_ref}>
+                        달력
+                    </div>}
                 </div>
-                <div className="Sec1_payment-sec2">예약 확정 전에는 요금이 청구되지 않습니다.</div>
-                <div className="Sec1_payment-sec3">
-                    <span style={{fontWeight:'bold'}}>총합계</span>
-                    <span>
-                        {data.price && data.addPrice && pay_day ? `${data.price + data.addPrice * (capacity - 1)} x ${pay_day} = 
-                        ${(data.price + data.addPrice * (capacity - 1)) * pay_day }원` : '가격 합계'}
-                    </span>
+                {/* section2 */}
+                <div className="section1-payment__section2">
+                    <div>
+                        <span>인원</span>
+                        <div>
+                            <span>게스트 1명</span>
+                            <button>플러스</button>
+                        </div>
+                    </div>
+                    <div>
+                        <span>애완동물</span>
+                        <div>
+                            <span>애완동물 0마리</span>
+                            <button>플러스</button>
+                        </div>
+                    </div>
                 </div>
+
             </div>
         )
     }

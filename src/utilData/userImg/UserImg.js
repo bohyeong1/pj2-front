@@ -11,7 +11,7 @@ function UserImg({data, adress}){
         <div className="UserImg-container">
             <div className="UserImg-con-sec1">
                 <div className="UserImg-con-s1-b1">
-                    <img className="UserImg-img" src={data?.profileImg ? data.profileImg : default_data.d_userImg.man}></img>
+                    <img className="UserImg-img" src={data?.profileImg ? data.profileImg : ''}></img>
                 </div>
                 <div className="UserImg-con-s1-b2">
                     {data?.name}

@@ -1,5 +1,4 @@
 import './detail_header.scss';
-import default_data from "@/util/default_data/default_data";
 
 function DetailHeader({data, role}){
 

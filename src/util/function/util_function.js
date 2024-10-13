@@ -1,6 +1,7 @@
 import default_data from "@/util/default_data/default_data"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase/firebase"
+import {differenceInMonths, differenceInDays, differenceInYears, format} from 'date-fns'
 
 // =================================================
 // 데이터 fetch 비로그인 페이지에서 사용 //
@@ -443,5 +444,24 @@ export function text_change(text, fake_box, row_text, alert_text, line, height, 
             error_handler(false)
         }
     }
+}
+
+// =================================================
+// get date difference //
+export function get_date_difference(date){
+    const year_difference = differenceInYears(new Date(), new Date(date))
+    const month_difference = differenceInMonths(new Date(), new Date(date))
+    const day_difference = differenceInDays(new Date(), new Date(date))
+    
+    return year_difference ? year_difference + '년' :
+           month_difference ? month_difference + '개월' : 
+           day_difference ? day_difference + '일' :
+           '0일'
+}
+
+// =================================================
+// get format date //
+export function transform_date(date){
+    return format(date, 'yyyy.MM.dd')
 }
 

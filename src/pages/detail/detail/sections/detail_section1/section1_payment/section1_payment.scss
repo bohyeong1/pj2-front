@@ -1,90 +1,80 @@
-.Sec1_payment-container{
-    padding: 15px;
-    width:100%; height: 100%;
+@import '@/manage_scss_style/commonness/colors';
+
+.section1-payment__container{
+    padding: 24px;
+    width:100%; 
+    height: fit-content;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:30px;
-    box-sizing: border-box;
-    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;
-}
-/* 섹션1 */
-.Sec1_payment-sec1{
-    width:100%;
-    /* height: 80%; */
-    display: flex;
-    flex-direction: column; 
-}
-.Sec1_payment-sec1-s1-tite{
-    font-size: 1.1rem; width: 100%;
-}
-.Sec1_payment-con-sec1{
-    display: flex;  width: 100%;    border: solid 1px rgb(210,210,210); border-radius: 5px;
-}
-.Sec1_payment-sec1-s1{
-    display: flex;
-    flex-direction: column;
-    align-items: center;    gap:15px;
-}
-.Sec1_payment-con-sec1-s1, .Sec1_payment-con-sec1-s2{
-    width: 100%;    box-sizing: border-box; padding-top: 7px; padding-bottom: 7px;  display: flex; flex-direction: column;  gap: 3px; 
-}   
-.Sec1_payment-con-sec1-s1{
-    border-right:  solid 1px rgb(210,210,210);    
-}
-.Sec1_payment-con-sec1-s1-b1,.Sec1_payment-con-sec1-s2-b1{
-    border-top:  solid 1px rgb(210,210,210);
-    box-sizing: border-box; padding-top: 3px;   padding-left: 7px;
-}
-.Sec1_pay_check{
-    box-sizing: border-box;  padding-left: 7px;
-}
-.Sec1_payment-sec1-s1-content{
-    width:100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;    gap:15px;
+    gap:20px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    color: $grey-lv1;
+    font-size: 0.9375rem;
 }
 
-
-/* 섹션1-1 */
-.Sec1_payment-sec1-s1-btn{
-    box-sizing: border-box; padding-top: 15px;  padding-bottom: 15px;    background: #80CEE1;   cursor: pointer;    font-size: 1.1rem;  color: white;   transition: 0.3s;
-    text-align: center; width:100%; border-radius: 15px;
-}
-.Sec1_payment-sec1-s1-btn:hover{
-    color: black;   font-weight: bold;  background:  #00A8D5;
-}
-/* 섹션 1-3 */
-.Sec1_payment-con-sec3{
-    display: flex;  flex-direction: column; gap:15px;    width: 100%;    font-size: 1.2rem; box-sizing: border-box; padding-bottom: 10px ;
-}
-.Sec1_payment-con-s1-b1{
-    font-weight: bold;
-}
-.Sec1_payment-con-s1-b2{
-    display: flex;  gap:20px;
-}
-#Sec1_payment-btn{
-   background: white;   border-radius: 15px;  width: 30px;    cursor: pointer;   display: flex;  justify-content: center;   border: solid 1px rgb(140,140,140);
-}
-#Sec1_payment-btn:hover{
-    background: #E6F4F1;    border: none;
-}
-.Sec1_payment-con-s1-b2-t1{
-    line-height: 30px;
-}
-#btnImg{
-    height: 100%;
-}
-/* 섹션 2 */
-.Sec1_payment-sec2{
+// header
+.section1-payment__header{
+    display: flex;
     width: 100%;
+    gap:5px;
+    align-items: flex-end;
 }
-/* 섹션 3 */
-.Sec1_payment-sec3{
-    width:100%;
-    display: flex;  justify-content: space-between;
-    font-size: 1.2rem;
+.section1-payment__header > span:nth-child(1){
+    font-size: 1.225rem;
+    font-weight: 600;
+    color: $black-default;
+}
+.section1-payment__header > span:nth-child(2){
+    font-size: 0.9775rem;
 }
 
+// section1
+.section1-payment__section1{
+    width: 100%;
+    display: flex;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+}
+.section1-payment__section1 > div:nth-child(1){
+    border-right: solid 1px $grey-lv10;
+}
+.section1-payment__section1 > div{
+    cursor: pointer;
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+    padding: 10px 16px;
+}
+.section1-payment__section1 > div:hover{
+    background-color: $grey-end-end;
+}
+.section1-payment__section1 > div > span:nth-child(1){
+    font-size: 0.8225rem;
+}
+.section1-payment__section1 > div > span:nth-child(2){
+    color: $black-default;
+}
+
+// section2
+.section1-payment__section2{
+    width: 100%;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+.section1-payment__section2 > div{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 10px 16px;
+}
+.section1-payment__section2 > div > span:nth-child(1){
+    font-size: 0.8225rem;
+}
+.section1-payment__section2 > div > div{
+    color: $black-default;
+}

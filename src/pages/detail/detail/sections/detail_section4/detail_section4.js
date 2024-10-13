@@ -53,30 +53,38 @@ function DetailSection4({data, replyModalState, role}){
             {/* 댓글목록 */}
             <div className="Det_sec4-con-sec2">
                 <div className="Det_sec4-con-s2-b1">
-                    {pageData?.map((el)=>{
+                    {pageData?.map((el, id)=>{
                         return(
-                            <div className="Det_sec4-con-s2-b1-content">
+                            <div className="Det_sec4-con-s2-b1-content"
+                                 key={id}>
                                 <div className="Det_sec4-con-s2-b1-logimg">
-                                    <img className="Det_sec4-imgBox" src={el.writerid.profileImg ? el.writerid.profileImg : default_data.d_userImg.man}></img>
+                                    <img className="Det_sec4-imgBox" 
+                                         ></img>
                                     <div className="Det_sec4-evaluation">
                                         <div>
-                                            <span>{el.writerid.nickname}</span>
+                                            <span>
+                                                {/* {el.writerid.nickname} */}
+                                            </span>
                                         </div>
                                         <div style={{height:'fit-content'}}>
-                                            {default_data.stars.slice(0,el.evaluation[4].grade).map((el)=>{
+                                            {/* {default_data.stars.slice(0,el.evaluation[4].grade).map((el)=>{
                                                 return(
-                                                    <img  style={{width:'20px', height:'20px'}} src={el}></img>
+                                                    <img style={{width:'20px', height:'20px'}} 
+                                                         src={el}></img>
                                                 )
-                                            })}
+                                            })} */}
                                         </div>
 
                                     </div>
                                 </div>
-                                <textarea readOnly className="Det_sec4-con-s2-b1-reply" value={`${el.text}`}>
-                                    
-                                </textarea>    
+                                <textarea readOnly 
+                                          className="Det_sec4-con-s2-b1-reply"
+                                          defaultValue={`${el.text}`}/>
                                 <div>
-                                    <button className="Det_sec4-con-s2-b1-btn" onClick={()=>{clickDisplayReply(el)}}>자세히 보기</button>
+                                    <button className="Det_sec4-con-s2-b1-btn" 
+                                            onClick={()=>{clickDisplayReply(el)}}>
+                                                자세히 보기
+                                    </button>
                                 </div>
 
                             </div>
@@ -86,14 +94,22 @@ function DetailSection4({data, replyModalState, role}){
 
 
                 <div className="Det_sec4-con-s2-b2">
-                    <Pagination pageCount={pageCount} activePage={currentPage}  itemsCountPerPage={6}  pageRangeDisplayed={5} totalItemsCount={data?.length} 
-                    onChange={sellectPageData}  prevPageText ={'<'} nextPageText={'>'} hideFirstLastPages={true}
-                    ></Pagination>
+                    {/* <Pagination pageCount={pageCount} 
+                                activePage={currentPage}  
+                                itemsCountPerPage={6}  
+                                pageRangeDisplayed={5} 
+                                totalItemsCount={data?.length} 
+                                onChange={sellectPageData}  
+                                prevPageText ={'<'} 
+                                nextPageText={'>'} 
+                                hideFirstLastPages={true}/> */}
                 </div>
 
             </div>
                     {/* 모달 */}
-            <ReplyModal replyModal={replyModal} replyModalState={replyModalState} data={sellectUser}></ReplyModal>
+            <ReplyModal replyModal={replyModal} 
+                        replyModalState={replyModalState} 
+                        data={sellectUser}/>
         </div>
     )
 }

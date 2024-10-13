@@ -50,19 +50,19 @@ function Detail(){
         loading ? <Loading></Loading> : 
         <>
         <DetailDetailLayout>
-            <DetailHeader data = {sellect_data?.accomodations}
+            <DetailHeader data = {sellect_data?.accomodation}
                           role = {'header'}/>
-            <DetailImgDisplay data = {sellect_data?.accomodations}
+            <DetailImgDisplay data = {sellect_data?.accomodation}
                               click_handler = {img_modal_toggle}
                               role = {'img_display'}/>
-            <DetailSection1 data = {sellect_data?.accomodations} 
+            <DetailSection1 data = {sellect_data?.accomodation} 
                             user = {sellect_data?.seller} 
-                            evaluations = {sellect_data?.evaluations}
+                            evaluations = {sellect_data?.evaluations[0]}
                             role = {'summary'}/>
-            <Section1Payment data = {sellect_data?.accomodations} 
+            <Section1Payment data = {sellect_data?.accomodation} 
                              params = {house_param}
                              role = {'payment'}/>                                    
-            <DetailSection2 data = {sellect_data?.accomodations}
+            <DetailSection2 data = {sellect_data?.accomodation}
                             role = {'map'}/>  
             <DetailSection3 data = {sellect_data?.evaluations} 
                             avgdata = {sellect_data?.aggreEvalu}
@@ -70,13 +70,13 @@ function Detail(){
             <DetailSection4 data = {sellect_data?.evaluations}
                             role = {'reply'}/>                    
             <DetailSection5 data = {sellect_data?.seller} 
-                            homeData = {sellect_data?.accomodations}
+                            homeData = {sellect_data?.accomodation}
                             role = {'host_information'}/>
-            <DetailSection6 data = {sellect_data?.accomodations}
+            <DetailSection6 data = {sellect_data?.accomodation}
                             role = {'rule'}/>                   
         </DetailDetailLayout>
-        <Img_dis_modal data = {sellect_data?.accomodations} 
-                       imgs = {sellect_data ? [sellect_data.accomodations.main_img, ...sellect_data.accomodations.sub_img] : null} 
+        <Img_dis_modal data = {sellect_data?.accomodation} 
+                       imgs = {sellect_data ? [sellect_data.accomodation.main_img, ...sellect_data.accomodation.sub_img] : null} 
                        img_modal_toggle = {img_modal_toggle}/>
 
         </>

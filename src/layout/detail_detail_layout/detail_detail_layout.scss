@@ -37,13 +37,16 @@
     border-bottom: solid 1px $grey-lv10;
     padding-bottom: 32px;
     min-height: 760px;
+    position: relative;
 }
 .detail-detail-layout__section1-part1{
-    width:55%;
+    width:65%;
 }
 .detail-detail-layout__section1-part2{
-    width:33%;
-    height: 760px;
+    width:394.67px;
+    height: fit-content;
+    position: sticky;
+    top:20px;
 }
 
 /* 섹션2 */
