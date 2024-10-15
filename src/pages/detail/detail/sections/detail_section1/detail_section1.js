@@ -91,7 +91,8 @@ function DetailSection1({data, user, evaluations, role}){
                         <div className="detail-section1__section4-wrapper">
                             {data.navigation_data.navigation_data.map((el, id)=>{
                                 return (
-                                    <div className="detail-section1__section4-item">
+                                    <div className="detail-section1__section4-item"
+                                         key={id}>
                                         <div>
                                             <img src={el.name.includes('터미널') ? default_data.d_imgs.bus : default_data.d_imgs.subway}/>
                                             <span>{el.name}</span>

@@ -190,7 +190,7 @@ const default_data = {
             date : 14
         },
         {
-            name : '전체 적용',
+            name : '항시 적용',
             date : -1
         },
         null

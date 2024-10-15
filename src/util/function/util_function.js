@@ -2,6 +2,7 @@ import default_data from "@/util/default_data/default_data"
 import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase/firebase"
 import {differenceInMonths, differenceInDays, differenceInYears, format} from 'date-fns'
+import { isInteger } from "lodash"
 
 // =================================================
 // 데이터 fetch 비로그인 페이지에서 사용 //
@@ -464,4 +465,15 @@ export function get_date_difference(date){
 export function transform_date(date){
     return format(date, 'yyyy.MM.dd')
 }
+
+// =================================================
+// get discount price //
+export function get_discount_price(price, rate){
+    if(!isInteger(price) || !isInteger(price)){
+        console.log('정수 타입으로 넣어주세요.')
+        return
+    }
+    return (100 - rate) / 100 * price
+}
+
 

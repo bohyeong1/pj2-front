@@ -7,40 +7,96 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap:20px;
+    gap:16px;
     border: solid 1px $grey-lv10;
     border-radius: 10px;
     color: $grey-lv1;
     font-size: 0.9375rem;
+    position: relative;
 }
 
 // header
 .section1-payment__header{
     display: flex;
     width: 100%;
-    gap:5px;
+    flex-direction: column;
+    margin-bottom: 8px;
+    gap: 3px;
+}
+.section1-payment__header > div{
+    display: flex;
+    width: 100%;
+    gap:2px;
     align-items: flex-end;
 }
-.section1-payment__header > span:nth-child(1){
+.section1-payment__header-discount{
+    font-size: 0.8225rem;
+    font-weight: 300;
+}
+.section1-payment__header-price{
     font-size: 1.225rem;
     font-weight: 600;
     color: $black-default;
 }
-.section1-payment__header > span:nth-child(2){
-    font-size: 0.9775rem;
+.section1-payment__header-text2{
+    font-size: 1.0225rem;
 }
-
+.section1-payment__header-original-price{
+    font-size: 1.0225rem;
+    font-weight: 300;
+    text-decoration: line-through;
+    margin-left: 8px;
+}
 // section1
 .section1-payment__section1{
+    position: relative;
     width: 100%;
     display: flex;
+    flex-direction: column;
     border: solid 1px $grey-lv10;
     border-radius: 10px;
+    align-items: flex-end;
 }
-.section1-payment__section1 > div:nth-child(1){
+.section1-payment__section1-box-wrapper{
+    display: flex;
+    transform-origin: right;
+    width: 100%;
+}
+.section1-payment__section1-box-wrapper-active{
+    width: 320px;
+}
+.section1-payment__calendar-modal-content{
+    display: flex;
+    gap:5px;
+    align-items: flex-end;
+}
+.section1-payment__calendar-modal-content > span:nth-child(3){
+    font-weight: 600;
+    color: black;
+}
+.section1-payment__section1-check{
+    z-index: 7;
+}
+.section1-payment__checkin-active{
+    border-top: solid 1px $grey-lv10;
+    border-bottom: solid 1px $grey-lv10;
+    border-left: solid 1px $grey-lv10;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.section1-payment__checkout-active{
+    border-top: solid 1px $grey-lv10;
+    border-bottom: solid 1px $grey-lv10;
+    border-right: solid 1px $grey-lv10;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.section1-payment__section1-check:nth-child(1){
     border-right: solid 1px $grey-lv10;
 }
-.section1-payment__section1 > div{
+.section1-payment__section1-check,
+.section1-payment__section1-capacity,
+.section1-payment__section1-animal{
     cursor: pointer;
     flex-basis: 50%;
     display: flex;
@@ -48,33 +104,247 @@
     gap:5px;
     padding: 10px 16px;
 }
-.section1-payment__section1 > div:hover{
-    background-color: $grey-end-end;
+.section1-payment__section1-capacity,
+.section1-payment__section1-animal{
+    border-top: solid 1px $grey-lv10;
+    width: 100%;
+    position: relative;
 }
-.section1-payment__section1 > div > span:nth-child(1){
+.section1-payment__section1-check > span:nth-child(1),
+.section1-payment__section1-capacity > span:nth-child(1),
+.section1-payment__section1-animal > span:nth-child(1){
     font-size: 0.8225rem;
 }
-.section1-payment__section1 > div > span:nth-child(2){
+.section1-payment__section1-check > span:nth-child(2),
+.section1-payment__section1-capacity > span:nth-child(2),
+.section1-payment__section1-animal > span:nth-child(2){
     color: $black-default;
 }
 
 // section2
 .section1-payment__section2{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
     width: 100%;
+    align-items: center;
+}
+.section1-payment__section2-button{
+    width: 100%;
+    height: 48px;
+    font-size: 1.225rem;
+    font-weight: 400;
+}
+.section1-payment__section2 > span{
+    font-size: 0.9375rem;
+    color: $black-default;
+    font-weight: 400;
+}
+
+// section 3
+.section1-payment__section3{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 24px;
+    padding-top: 8px;
+    padding-bottom: 24px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.section1-payment__section3 > div{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+.section1-payment__section3 > div > span:nth-child(2){
+    color: $black-default;
+    font-weight: 600;
+}
+
+// result
+.section1-payment__result{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding-top: 8px;
+}
+.section1-payment__result > span{
+    font-size: 1.125rem;
+}
+.section1-payment__result > span:nth-child(2){
+    color: $black-default;
+    font-weight: 600;
+}
+
+// calendar modal
+.section1-payment__calendar-modal{
+    right: -15px;
+    top: -15px;
+    width: 200%;
+    position: absolute;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap:15px;
+    background-color: white;
+    padding: 15px;
+    z-index: 6;
+}
+.section1-payment__calendar-modal-header{
+    width: 320px;
+    height: 60px;
+}
+.section1-payment__calendar-modal-price-box{
+    display: flex;
+    width: 100%;
+    height: 100%;
     border: solid 1px $grey-lv10;
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
 }
-.section1-payment__section2 > div{
+.section1-payment__calendar-modal-price-box > div{
+    height: 100%;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    flex-basis: 50%;
+    gap:5px;
     padding: 10px 16px;
 }
-.section1-payment__section2 > div > span:nth-child(1){
+.section1-payment__calendar-modal-price-box > div > span:nth-child(1){
     font-size: 0.8225rem;
 }
-.section1-payment__section2 > div > div{
+.section1-payment__calendar-modal-price-box > div > span:nth-child(2){
+    font-size: 0.9375rem;
     color: $black-default;
+}
+.section1-payment__calendar-modal-price-box > div:nth-child(1){
+    border-right: solid 1px $grey-lv10;
+}
+.section1-payment__calendar-modal-footer{
+    display: flex;
+    justify-content: flex-end;
+    gap:15px;
+}
+.section1-payment__calendar-modal-footer > button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    font-size: 0.935rem;
+    padding: 5px 15px;
+}
+
+// capacity modal
+.section1-payment__capacity-modal{
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top : 118px;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.section1-payment__capacity-modal > div:nth-child(2){
+    color: $black-default;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.section1-payment__capacity-modal-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section1-payment__capacity-modal-container > div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.section1-payment__capacity-modal-container > div > button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section1-payment__capacity-modal-container > div > button > img{
+    width: 20px;
+    height: 20px;
+}
+.section1-payment__capacity-modal-container > div > span{
+    font-size: 1.125rem;
+    color: $black-default;
+    width: 20px;
+}
+.section1-payment__capacity-modal-footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.section1-payment__capacity-modal-footer > button{
+    padding: 5px 15px;
+    font-size: 0.935rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+// animal modal
+.section1-payment__animal-modal{
+    background-color: white;
+    position: absolute;
+    left: 0;
+    top : 177px;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.section1-payment__animal-modal > div:nth-child(2){
+    color: $black-default;
+}
+.section1-payment__animal-modal-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section1-payment__animal-modal-container > div{
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.section1-payment__animal-modal-container > div > button{
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section1-payment__animal-modal-container > div > button > img{
+    width: 20px;
+    height: 20px;
+}
+.section1-payment__animal-modal-container > div > span{
+    font-size: 1.125rem;
+    color: $black-default;
+    width: 20px;
+}
+.section1-payment__animal-modal-footer{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+.section1-payment__animal-modal-footer > button{
+    padding: 5px 15px;
+    font-size: 0.935rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

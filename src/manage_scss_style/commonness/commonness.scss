@@ -75,14 +75,17 @@
 // small button disabled //
 .small-button-disabled{
   border-radius: 100px;
-  border: solid 1.5px $grey-lv9;  
+  border: solid 1.5px $grey-lv10;  
   transition: 0.2s;
   font-weight: 600;  
-  background-color: $blue-default; 
   color: white;
   background-color: $grey-end-end;
   color: $grey-lv6;
   cursor:not-allowed;
+
+  & > img{
+    filter: invert(0.7);
+  }
 }
 
 // =================================================
