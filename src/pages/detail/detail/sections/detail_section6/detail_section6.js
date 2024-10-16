@@ -25,5 +25,4 @@ function DetailSection6({data, role}){
     )
 }
 
-
 export default DetailSection6

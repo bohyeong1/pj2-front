@@ -64,10 +64,9 @@ function Detail(){
                              role = {'payment'}/>                                    
             <DetailSection2 data = {sellect_data?.accomodation}
                             role = {'map'}/>  
-            <DetailSection3 data = {sellect_data?.evaluations} 
-                            avgdata = {sellect_data?.aggreEvalu}
+            <DetailSection3 evaluations = {sellect_data?.evaluations[0]} 
                             role = {'evaluation'}/>                            
-            <DetailSection4 data = {sellect_data?.evaluations}
+            <DetailSection4 evaluations = {sellect_data?.evaluations[0]}
                             role = {'reply'}/>                    
             <DetailSection5 data = {sellect_data?.seller} 
                             homeData = {sellect_data?.accomodation}

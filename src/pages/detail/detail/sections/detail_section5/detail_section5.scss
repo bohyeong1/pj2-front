@@ -1,25 +1,29 @@
-.Det_sec5-container{
+@import '@/manage_scss_style/commonness/colors';
+
+.detail-section5__container{
     width:100%;
     height:100%;
     font-size: 1.1rem;
     display: flex;  
     flex-direction: column; 
     gap:30px;
+    color: $black-lv1;
 }
-.Det_sec5-con-title{
-    font-size: 1.5rem;  
-    font-weight: bold;
+// title
+.detail-section5__container-title{
+    font-size: 1.125rem;  
+    font-weight: 600;
+    color: $black-default;
 }
-.Det_sec5-con-wrapper{
+.detail-section5__container-contents{
     display: flex;  
     gap:50px;   
     justify-content: space-between
 }
-.Det_sec5-con-sec1{
-     width:40%;
+.detail-section5__container-contents-part1{
+    width:31%;
 }
-
-.Det_sec5-con-sec2{
+.detail-section5__container-contents-part2{
     font-family: inherit;   
     font-size: 1.3rem;  
     line-height: 25px;  
@@ -31,6 +35,6 @@
     box-sizing: border-box; 
     padding: 20px;
 }
-.Det_sec5-con-sec2:focus{
+.detail-section5__container-sec2:focus{
     outline: none;
 }

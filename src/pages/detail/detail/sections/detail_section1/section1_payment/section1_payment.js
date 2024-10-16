@@ -93,7 +93,7 @@ function Section1Payment({data, params, role}){
                                                         'params' : params
                                                     }
                                                 )
-    console.log(data)
+
     if(data){
         return(
             <div className="section1-payment__container">

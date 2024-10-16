@@ -7,13 +7,15 @@ function DetailSection5({data, homeData, role}){
     // console.log()
     
     return(
-        <div className="Det_sec5-container">
-            <div className="Det_sec5-con-title">호스트소개</div>
-            <div className="Det_sec5-con-wrapper">
-                <div className="Det_sec5-con-sec1">
+        <div className="detail-section5__container">
+            <div className="detail-section5__container-title">
+                <span>호스트소개</span>
+            </div>
+            <div className="detail-section5__container-contents">
+                <div className="detail-section5__container-contents-part1">
                     <UserImg data={data} adress={homeData?.search_adress}></UserImg>
                 </div>
-                <textarea readOnly spellCheck={false}  value={data?.hostText} className="Det_sec5-con-sec2">
+                <textarea readOnly spellCheck={false}  value={data?.hostText} className="detail-section5__container-contents-part2">
 
                 </textarea>
             </div>

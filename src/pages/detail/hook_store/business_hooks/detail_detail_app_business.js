@@ -21,7 +21,6 @@ function useDetailDetailAppBusiness(data, states, refs, props){
     // =================================================
     // get data //
     useEffect(()=>{
-
         connect_data(`${default_data.d_base_url}/api/common/detail/${house_param}`, 'POST', {_id : house_param})
         .then((result)=>{
             setSellect_data(result)
