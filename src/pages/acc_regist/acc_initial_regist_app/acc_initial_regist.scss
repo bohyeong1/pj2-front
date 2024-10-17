@@ -10,7 +10,9 @@
 // =================================================
 // contents //   
 .acc-initial-regist-app__container{
-    width:1200px;   display: flex;  gap:30px;
+    width:1200px;   
+    display: flex;  
+    gap:30px;
     flex-direction: column;
     position: relative;
     padding: 60px 0;
@@ -21,55 +23,87 @@
     width: 100%; 
 }
 .acc-initial-regist-app__container-section1 > span {
-    width: 100%;    font-size: 1.5rem;    font-weight: 600;
+    width: 100%;    
+    font-size: 1.5rem;    
+    font-weight: 600;
 }
 
 // section2 
 .acc-initial-regist-app__container-section2{
-    display: flex;  gap : 50px; width: 100%;
+    display: flex; 
+    gap : 50px; 
+    width: 100%;
     flex-grow: 1;   
 }
 // s2 - part1
 .acc-initial-regist-app__sticky-container{
-    width: 342px;   position: relative;
+    width: 342px;   
+    position: relative;
     padding-bottom: 70px;
 }
 .acc-initial-regist-app__container-section2-part1{
-    position : sticky;  top:20px;
-    width: 342px;   display: flex;  flex-direction: column; align-items: center;
+    position : sticky;  
+    top:20px;
+    width: 342px;   
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;
     gap:30px;
 }
 .acc-initial-regist-app__container-section2-part1-box1{
-    width: 342px;   height: 230px;  border-radius: 15px;
-    display: flex;  gap:20px;
+    width: 342px;   
+    height: 230px;  
+    border-radius: 15px;
+    display: flex;  
+    gap:20px;
     padding: 20px 0;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item1{
-    display: flex;  align-items: center;    justify-content: center;
-    width: 177px;   flex-direction: column; gap: 20px;
+    display: flex;  
+    align-items: center;    
+    justify-content: center;
+    width: 177px;   
+    flex-direction: column; 
+    gap: 20px;
 }
 .acc-initial-regist-app__container-section2-part1-box1-profile{
-    width: 104px;   height: 104px;  overflow: hidden;   border-radius: 100%;
+    width: 104px;   
+    height: 104px;  
+    overflow: hidden;   
+    border-radius: 100%;
 }
 .acc-initial-regist-app__container-section2-part1-box1-profile > img{
-    width: 100%;    height: 100%;   object-fit: cover;
+    width: 100%;    
+    height: 100%;   
+    object-fit: cover;
 }
 .acc-initial-regist-app__container-section2-part1-box1-name{
-    font-size: 1.125rem;    font-weight: 400;
+    font-size: 1.125rem;    
+    font-weight: 400;
 }
 .acc-initial-regist-app__container-section2-part1-box1-name > span{
-    width: 80px;    display: block; text-align: center;
+    width: 80px;    
+    display: block; 
+    text-align: center;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2{
-    flex-grow: 1;   display: flex;  flex-direction: column; justify-content: space-between; gap:10px;
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column; 
+    justify-content: space-between; 
+    gap:10px;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div:nth-child(1){
     padding-top: 10px;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div{
-    flex-grow: 1;   padding-bottom: 10px;
+    flex-grow: 1;   
+    padding-bottom: 10px;
     border-bottom: 1px solid $grey-lv8;
-    display: flex;  flex-direction: column; gap:2px;   justify-content: space-between;
+    display: flex;  
+    flex-direction: column; 
+    gap:2px;   
+    justify-content: space-between;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div:nth-child(3){
     border: none;
@@ -78,54 +112,81 @@
     font-size: 0.825rem;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div > div{
-    display: flex;  gap:5px;    align-items: center;
+    display: flex;  
+    gap:5px;    
+    align-items: center;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div > div > span:nth-child(2){
     font-size: 0.875rem;
 }
 .acc-initial-regist-app__container-section2-part1-box1-item2 > div > div > span:nth-child(1){
-    font-size: 1.125rem;    font-weight: 600;
+    font-size: 1.125rem;    
+    font-weight: 600;
 }
 
 .acc-initial-regist-app__container-section2-part1-box2{
-    width: 342px;   height: 180px;  border-radius: 15px;
-    border: solid 1px $grey-lv8;    padding: 30px 20px;
-    display: flex;  flex-direction: column; gap:10px;
+    width: 342px;   
+    height: 180px;  
+    border-radius: 15px;
+    border: solid 1px $grey-lv8;    
+    padding: 30px 20px;
+    display: flex;  
+    flex-direction: column; 
+    gap:10px;
 }
 .acc-initial-regist-app__container-section2-part1-box2 > div:nth-child(1) > span:nth-child(1){
-    font-size: 1.525rem;  font-weight: 600;
+    font-size: 1.525rem;  
+    font-weight: 600;
 }
 .acc-initial-regist-app__container-section2-part1-box2 > div:nth-child(2){
-    flex-grow: 1;   display: flex;  flex-direction: column; gap: 10px;  justify-content: center;
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column; 
+    gap: 10px;  
+    justify-content: center;
 }
 .acc-initial-regist-app__container-section2-part1-box2 > div:nth-child(2) > div{
-    display: flex;  gap:10px;   align-items: center;
+    display: flex;  
+    gap:10px;   
+    align-items: center;
 }
 .acc-initial-regist-app__container-section2-part1-box2 > div:nth-child(2) > div > img{
     height: 20px;
 }
 // s2 - part2
 .acc-initial-regist-app__container-section2-part2{
-    flex-grow: 1;   display: flex;  flex-direction: column; gap:20px;
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column; 
+    gap:20px;
     height: 760px;   
 
 }
 .acc-initial-regist-app__container-section2-part2-title{
-    font-size: 2rem;    font-weight: 600;
+    font-size: 2rem;    
+    font-weight: 600;
 }
 .acc-initial-regist-app__container-section2-part2-form{
-    flex-grow: 1;   display: flex;  flex-direction: column; gap:20px;
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column; 
+    gap:20px;
 }
 .acc-initial-regist-app__container-section2-part2-input{
     flex-grow: 1;
 }
 
 .acc-initial-regist-app__container-section2-part2-button-wrapper{
-    height: 50px;   display: flex;  justify-content: end;
+    height: 50px;   
+    display: flex;  
+    justify-content: end;
 }
 .acc-initial-regist-app__container-section2-part2-input::placeholder {
-    color: black;    font-size: 1.425rem;   font-weight: 600;
-    text-align: center; padding-top: 60px;
+    color: black;    
+    font-size: 1.425rem;   
+    font-weight: 600;
+    text-align: center; 
+    padding-top: 60px;
 }
 .acc-initial-regist-app__container-section2-part2-button{
     

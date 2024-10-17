@@ -7,6 +7,7 @@ import UserImg from "../../../utilData/userImg/UserImg";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 import History_main from "../../../picture/history-main/History-main";
+import host_background from '@/assets/woman-8587090_1280.png'
 
 function Acc_regist({login_user}){
 
@@ -56,11 +57,11 @@ function Acc_regist({login_user}){
                 </div>
 
                 <div className="Acc-regist__sec2">
-                    <div className="Acc-regist__s2-b1">
-                    </div>
+                    <img className="Acc-regist__s2-b1"
+                         src={host_background}/>
                     <div className="Acc-regist__s2-b2">
                         <div className="Acc-regist__s2-b2-d1">
-                            <UserImg data={login_user}></UserImg>
+                            <span className='acc-regist-title'>다음 단계</span>
                         </div>
                         <div className="Acc-regist__s2-b2-d2">
                             <div className="Acc-regist__nodata"  style={{display:`${login_user.hostText ? 'none' : 'block'}`}}>

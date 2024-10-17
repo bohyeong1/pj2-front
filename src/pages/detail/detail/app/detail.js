@@ -68,8 +68,7 @@ function Detail(){
                             role = {'evaluation'}/>                            
             <DetailSection4 evaluations = {sellect_data?.evaluations[0]}
                             role = {'reply'}/>                    
-            <DetailSection5 data = {sellect_data?.seller} 
-                            homeData = {sellect_data?.accomodation}
+            <DetailSection5 seller = {sellect_data?.seller} 
                             role = {'host_information'}/>
             <DetailSection6 data = {sellect_data?.accomodation}
                             role = {'rule'}/>                   

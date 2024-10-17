@@ -16,25 +16,160 @@
     color: $black-default;
 }
 .detail-section5__container-contents{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr)); 
+    gap:28px;   
+}
+
+// user profile
+.detail-section5__container-contents-user-profile{
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 230px; 
+    display: flex;
+    gap:20px;
+    padding: 20px 0;
+}
+
+.detail-section5__container-contents-box1-item1{
     display: flex;  
-    gap:50px;   
-    justify-content: space-between
+    align-items: center;    
+    justify-content: center;
+    width: 177px;   
+    flex-direction: column; 
+    gap: 20px;
 }
-.detail-section5__container-contents-part1{
-    width:31%;
+.detail-section5__container-contents-box1-profile{
+    width: 104px;   
+    height: 104px;  
+    overflow: hidden;   
+    border-radius: 100%;
 }
-.detail-section5__container-contents-part2{
-    font-family: inherit;   
-    font-size: 1.3rem;  
-    line-height: 25px;  
-    border: none;   
-    resize: none;
-    box-shadow: 0 0 10px 1px rgb(207, 207, 207);   
-    width: 60%;     
-    border-radius: 15px;    
-    box-sizing: border-box; 
+.detail-section5__container-contents-box1-profile > img{
+    width: 100%;    
+    height: 100%;   
+    object-fit: cover;
+}
+.detail-section5__container-contents-box1-name{
+    font-size: 1.125rem;    
+    font-weight: 400;
+}
+.detail-section5__container-contents-box1-name > span{
+    width: 80px;    
+    display: block; 
+    text-align: center;
+}
+.detail-section5__container-contents-box1-item2{
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column; 
+    justify-content: space-between; 
+    gap:10px;
+}
+.detail-section5__container-contents-box1-item2 > div:nth-child(1){
+    padding-top: 10px;
+}
+.detail-section5__container-contents-box1-item2 > div{
+    flex-grow: 1;   
+    padding-bottom: 10px;
+    border-bottom: 1px solid $grey-lv8;
+    display: flex;  
+    flex-direction: column; 
+    gap:2px;   
+    justify-content: space-between;
+}
+.detail-section5__container-contents-box1-item2 > div:nth-child(3){
+    border: none;
+}
+.detail-section5__container-contents-box1-item2 > div > span:nth-child(1){
+    font-size: 0.825rem;
+}
+.detail-section5__container-contents-box1-item2 > div > div{
+    display: flex;  
+    gap:5px;    
+    align-items: flex-end;
+}
+.detail-section5__container-contents-box1-item2 > div > div > span:nth-child(2){
+    font-size: 0.875rem;
+}
+.detail-section5__container-contents-box1-item2 > div > div > span:nth-child(1){
+    font-size: 1.125rem;    
+    font-weight: 600;
+}
+
+
+// user summary
+// auth information
+.detail-section5__container-contents-box2{
+    width: 100%;   
+    height: 100%;  
+    border-radius: 15px;
+    border: solid 1px $grey-lv10;    
     padding: 20px;
+    display: flex;  
+    flex-direction: column; 
+    gap:32px;
+    font-size: 1.075rem;
 }
-.detail-section5__container-sec2:focus{
-    outline: none;
+.detail-section5__container-contents-box2 > div:nth-child(1) > span:nth-child(1){
+    font-size: 1.225rem;  
+    font-weight: 600;
+}
+.detail-section5__container-contents-box2-text{
+    flex-grow: 1;   
+    display: flex;  
+    flex-direction: column;  
+    justify-content: space-between;
+}
+.detail-section5__container-contents-box2-text > div{
+    display: flex;  
+    gap:10px;   
+    align-items: flex-end;
+}
+.detail-section5__container-contents-box2-text > div > img{
+    height: 20px;
+}
+.detail-section5__container-contents-box2-text > div:nth-child(3){
+    color: $grey-lv1;
+    font-size: 0.9375rem;
+}
+.detail-section5__container-contents-box2-text > div:nth-child(2) > span:nth-child(3){
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+// host introduce
+.detail-section5__container-contents-box3{
+    width: 100%;
+    height: 100%;  
+    border-radius: 15px;
+    border: solid 1px $grey-lv10;    
+    padding: 20px;
+    font-size: 1.075rem;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+.detail-section5__container-contents-box3 > div:nth-child(1){
+    font-weight: 600;
+    font-size: 1.225rem;
+}
+.detail-section5__container-contents-box3-introduce{
+    flex-grow: 1;
+    height: 100%;
+    position: relative;
+}
+.detail-section5__container-contents-box3-introduce > pre{
+    font-size: 0.9375rem; 
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    background: none;
+    line-height: 1.3;
+    width: 100%;
+    height: 100%;
 }

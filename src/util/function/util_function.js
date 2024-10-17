@@ -454,7 +454,8 @@ export function get_date_difference(date){
     const month_difference = differenceInMonths(new Date(), new Date(date))
     const day_difference = differenceInDays(new Date(), new Date(date))
     
-    return year_difference ? year_difference + '년' :
+    return month_difference % 12 === 0 && year_difference ? year_difference + '년' :
+           month_difference % 12 !== 0 && year_difference ? year_difference + '년' + (month_difference - year_difference * 12) + '월' :
            month_difference ? month_difference + '개월' : 
            day_difference ? day_difference + '일' :
            '0일'

@@ -21,7 +21,7 @@ function DetailSection1({data, user, evaluations, role}){
                             {/* 호스트 소개 */}
                             <div>
                                 <span>호스트 · {data.seller.nickname ? data.seller.nickname : data.seller.name}님</span>
-                                {/* <span>호스팅 경력 · {get_date_difference(user.host_text.createAt)}</span> */}
+                                <span>호스팅 경력 · {get_date_difference(user.host_text.createAt)}</span>
                                 {/* 숙소 평점 */}
                                 <div className="detail-section1__section1-part1-evaluation">
                                     <div className="detail-section1__star-box">
@@ -87,7 +87,7 @@ function DetailSection1({data, user, evaluations, role}){
                     {/* 섹션 4 */}
                     <div className="detail-section1__section4">
                         <span>교통 수단</span>
-                        {/* {data.navigation_data.navigation_data.length ? 
+                        {data.navigation_data.navigation_data.length ? 
                         <div className="detail-section1__section4-wrapper">
                             {data.navigation_data.navigation_data.map((el, id)=>{
                                 return (
@@ -106,11 +106,11 @@ function DetailSection1({data, user, evaluations, role}){
                                 )
                             })}
                         </div> : 
-                        <span className="detail-section1__section4-default">주변에 이용 가능한 대중교통이 없습니다. 택시나, 도보를 이용해 주세요!</span>} */}
+                        <span className="detail-section1__section4-default">주변에 이용 가능한 대중교통이 없습니다. 택시나, 도보를 이용해 주세요!</span>}
                     </div>   
 
                     {/* 섹션 5 */}
-                    {/* <div className="detail-section1__section3-part5">
+                    <div className="detail-section1__section3-part5">
                         <span>체크인 · 아웃</span>
                         <div>
                             <div className="detail-section1__section3-part5-checkin-box">
@@ -174,7 +174,7 @@ function DetailSection1({data, user, evaluations, role}){
                                 </div>
                             </div>
                         </div>
-                    </div>  */}
+                    </div> 
                     {/* 섹션 6 */}
                     <div className="detail-section1__section3-part6">
                         <span>숙소 설명</span>

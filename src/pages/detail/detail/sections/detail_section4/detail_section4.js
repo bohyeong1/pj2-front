@@ -58,7 +58,7 @@ function DetailSection4({evaluations, role}){
             <div className="detail-section4__container-section2">
                 {/* 댓글목록 */}
                 <div className="detail-section4__container-section2-part1">
-                    {page_data ?
+                    {page_data.length ?
                     page_data?.map((el, id)=>{
                         return(
                             <div className="detail-section4__container-section2-part1-content"
@@ -97,11 +97,11 @@ function DetailSection4({evaluations, role}){
                             </div>
                         )
                     }) : 
-                    <span>숙소를 평가한 인원이 없습니다.</span>}
+                    <span className="detail-section4__no-data">숙소를 평가한 인원이 없습니다.</span>}
                 </div>
                 {/* pagenation */}
-                <div className="detail-section4__container-section2-part2">
-                    {page_data.length &&
+                {page_data.length ?
+                <div className="detail-section4__container-section2-part2">                    
                     <Pagination page_count={page_count} 
                                 activePage={current_page}  
                                 itemsCountPerPage={6}  
@@ -110,8 +110,9 @@ function DetailSection4({evaluations, role}){
                                 onChange={sellect_page_data}  
                                 prevPageText ={'<'} 
                                 nextPageText={'>'} 
-                                hideFirstLastPages={true}/>}
+                                hideFirstLastPages={true}/>                    
                 </div>
+                : null}
             </div>
             {/* 모달 */}
             <ReplyModal replyModal={reply_modal_state} 

@@ -97,13 +97,19 @@
 // =================================================
 // box-shadow //
 .box-shadow-lv1{
-  box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
 }
 .box-shadow-lv2{
-  box-shadow: 0 0 10px 1px rgba(207, 207, 207, 0.5);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
 }
 .box-shadow-lv3{
-  box-shadow: 0 0 10px 1px rgba(207, 207, 207, 0.2);
+  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+.box-shadow-lv4{
+  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+}
+.box-shadow-lv5{
+  box-shadow: 0 8px 28px rgba(0,0,0,0.05);
 }
 
 // =================================================

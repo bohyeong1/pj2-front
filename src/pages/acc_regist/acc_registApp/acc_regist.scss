@@ -20,8 +20,12 @@
 
 /* sec1 */
 .Acc-regist__sec1{
-    width:100%;  margin-top: 50px;   margin-bottom: 50px;   border-bottom: solid 1px rgb(210,210,210);
-    display: flex;  flex-direction: column; gap:30px;   box-sizing: border-box; padding-bottom: 50px ;
+    width:100%;  
+    margin-top: 50px;   
+    display: flex;  
+    flex-direction: column; 
+    gap:30px;
+    padding-bottom: 50px ;
 }
 .Acc-regist__s1-b1{
     font-size: 2rem;
@@ -32,7 +36,9 @@
 }
 .Acc-regist__s1-b2-b1,.Acc-regist__s1-b2-b2{
     width:380px;
-    box-sizing: border-box;   border-radius: 10px;    padding: 10px;   border: solid 1px rgb(210,210,210);
+    border-radius: 10px;    
+    padding: 10px;   
+    border: solid 1px rgb(210,210,210);
 }
 /* 섹션1- 박스 */
 .Acc-regist__s1-b2-b1-t1, .Acc-regist__s1-b2-b2-t1{
@@ -43,62 +49,125 @@
     margin-bottom: 15px;
 }
 .Acc-regist__s1-b2-b1-t3, .Acc-regist__s1-b2-b2-t3{
-    text-decoration: underline; color: #1273e4; cursor: pointer;
+    text-decoration: underline; 
+    color: #1273e4; cursor: pointer;
 }
 
 
 /* sec2 */
 .Acc-regist__sec2{
-    width: 100%;    margin-bottom: 50px;    border-bottom: solid 1px rgb(210,210,210);
-    display: flex;  flex-direction: column; gap:30px;   height: fit-content;
-    box-sizing: border-box; padding-bottom: 50px;
+    width: 100%;    
+    position: relative;
+    margin-bottom: 50px;    
+    border-bottom: solid 1px rgb(210,210,210);
+    display: flex;  
+    flex-direction: column; 
+    gap:30px;   
+    height: fit-content;
+    padding-bottom: 50px;
+    height: 70vh;
 }
 .Acc-regist__s2-b2{
-    display: flex;  gap:50px;   justify-content: space-between;
+    display: flex;  
+    gap:50px;   
+    justify-content: space-between;
 }
 .Acc-regist__s2-b2-d2{
-    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   width: 60%;     border-radius: 15px;
-    box-sizing: border-box; padding:    30px;   font-size: 1.2rem;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   
+    width: 60%;     
+    border-radius: 15px;
+    padding: 30px;   
+    font-size: 1.2rem;
+    background-color: white;
 }
 .Acc-regist__nodata{
-    width: 100%;    text-align: left;   font-size: 1.5rem;  line-height: 38px;  position: relative;
+    width: 100%;    
+    text-align: left;   
+    font-size: 1.5rem;  
+    line-height: 38px;  
+    position: relative;
 }
 .Acc-regist__nodata-img{
-    position: absolute; top:50%; transform: translateY(-50%); width: 38px;
+    position: absolute; 
+    top:50%; 
+    transform: translateY(-50%); 
+    width: 38px;
+    object-fit: cover;
+}
+.acc-regist-title{
+    font-size: 1.825rem;
+}
+.Acc-regist__s2-b2-d1{
+    padding-top: 64px;
 }
 .Acc-regist__s2-b2-d2-text{
-    width: 100%;    border: none;   resize: none;   font-size: 1.3rem;  font-family: inherit;
+    width: 100%;    
+    border: none;   
+    resize: none;   
+    font-size: 1.3rem;  
+    font-family: inherit;
 }
 .Acc-regist__s2-b2-d2-text:focus{
     outline: none;
+}
+.Acc-regist__s2-b1{
+    position: absolute;
+    top:0;
+    left:50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+    opacity: 0.8;
 }
 /* sec3 */
 .Acc-regist__s3-b1{
     font-size: 2rem;
 }
 .Acc-regist__sec3{
-    width:100%; margin-bottom: 50px;
-    display: flex;  flex-direction: column; gap:30px;
+    width:100%; 
+    margin-bottom: 50px;
+    display: flex;  
+    flex-direction: column; 
+    gap:30px;
 }
 .Acc-regist__s3-b2-t2{
-    padding-left: 15px; padding-right: 15px;    padding-top: 40px;  padding-bottom: 40px;   box-sizing: border-box; width: 100%;    border-radius: 10px;
+    padding-left: 15px; 
+    padding-right: 15px;    
+    padding-top: 40px;  
+    padding-bottom: 40px;   
+    width: 100%;    
+    border-radius: 10px;
     background: rgb(243, 243, 243); 
 }
 .reserve_active{
     text-align: center;
 }
 .Acc-regist__s3-b2-t2-d1{
-    width: 100%; display: flex; flex-direction: column; gap:30px;
+    width: 100%; 
+    display: flex; 
+    flex-direction: column; 
+    gap:30px;
 }
 .Acc-regist__s3-b2-t2-d1-a1{
-    display: flex;  justify-content: space-between; box-sizing: border-box; padding-bottom: 30px;   border-bottom: solid 1px rgb(180, 180, 180);
+    display: flex;  
+    justify-content: space-between; 
+    padding-bottom: 30px;   
+    border-bottom: solid 1px rgb(180, 180, 180);
 }
 .Acc-regist__s3-b2-t2-d1-a1-b1{
-    display: flex;  flex-direction: column; justify-content: space-between; text-align: left;   width: 250px;
+    display: flex;  
+    flex-direction: column; 
+    justify-content: space-between; 
+    text-align: left;   
+    width: 250px;
 }
 .Acc-regist__s3-b2-t2-d1-a1-b1 > div{
     width: 100%;
 }
 .Acc-regist__s3-b2-t2-d1-a1-b1 > div > span:nth-child(1) {
-    width : 40%;    display: inline-block;  color: rgb(150,150,150);    font-weight: bold;
+    width : 40%;    
+    display: inline-block;  
+    color: rgb(150,150,150);    
+    font-weight: bold;
 }
