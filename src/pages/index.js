@@ -1,6 +1,6 @@
 // =================================================
 // 메인 //
-export {default as MainApp} from './main/mainApp/MainApp'
+export {default as Main} from './main/main/app/main'
 
 // =================================================
 // 숙소 리스트 //

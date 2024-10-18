@@ -30,8 +30,8 @@ function useMenuMainBusiness(data, states, refs, props){
   
     // =================================================
     // click menu //
-    function click_btn(url,id){
-        if(log_state && id === 0){
+    function click_btn(url){
+        if(log_state){
             setLog_modal_state(!log_modal_state)
         }else{
             navigate(url)

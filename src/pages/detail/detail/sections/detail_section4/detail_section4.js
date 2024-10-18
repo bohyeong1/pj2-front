@@ -4,7 +4,7 @@ import Pagination from "react-js-pagination";
 import default_data from "@/util/default_data/default_data";
 import ReplyModal from "@/utilComponent/modal/replyModal/ReplyModal";
 import { get_date_difference, transform_date, state_store } from "@/util/function/util_function";
-import useDetailSection4Style from "../../../hook_store/style_hooks/detail_section4_style";
+import useDetailSection4Style from "../../hook_store/style_hooks/detail_section4_style";
 
 function DetailSection4({evaluations, role}){
 

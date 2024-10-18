@@ -1,6 +1,6 @@
 import React from "react";
 import './detail_section6.scss'
-
+import default_data from "@/util/default_data/default_data";
 
 function DetailSection6({data, role}){   
     console.log(data)
@@ -10,6 +10,7 @@ function DetailSection6({data, role}){
                 <span>확인 사항</span>
             </div>
             <div className="detail-section6__container-contents">
+                {/* check in out rules */}
                 <div className="detail-section6__container-item">
                     <div className="detail-section6__container-item-title">
                         <span>입 · 퇴실 규칙</span>
@@ -23,7 +24,12 @@ function DetailSection6({data, role}){
                             <span>{data.comunication.name}</span>
                         </div>}
                     </div>
+                    <div className="detail-section6__item-footer">
+                        <button>자세히 보기</button>
+                        <img src={default_data.d_imgs.drop_arrow}/>
+                    </div>
                 </div>
+                {/* accomodation rules */}
                 <div className="detail-section6__container-item">
                     <div className="detail-section6__container-item-title">
                         <span>숙소 규칙</span>
@@ -46,6 +52,10 @@ function DetailSection6({data, role}){
                                 </div>
                             )
                         })}
+                    </div>
+                    <div className="detail-section6__item-footer">
+                        <button>자세히 보기</button>
+                        <img src={default_data.d_imgs.drop_arrow}/>
                     </div>
                 </div>
                 <div className="detail-section6__container-item">

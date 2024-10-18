@@ -1,0 +1,123 @@
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.main-creator-description__container{
+    width: 1200px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    position: relative;  
+    border-radius: 15px;    
+    background: #e1f2f7;
+
+}
+/* 박스1 */
+.main-creator-description__box1{
+    padding-top: 40px; 
+    padding-bottom: 40px;    
+    padding-left: 20px;
+    display: flex;  
+    flex-direction: column; 
+    gap:10px;
+}
+.main-creator-description__box1-part1{
+    font-size: 1.6rem;  
+    font-weight: bold;
+}
+.main-creator-description__box1-part1{
+    font-size: 1rem;
+}
+.main-creator-description__box1-part3{
+    height: 100%;   
+    display: flex;  
+    gap:30px;   
+    align-items: flex-end;
+}
+/* 버튼 */
+.main-creator-description__box1-part3-button1{
+    border: none;   
+    border-radius: 15px;    
+    background:  #1273e4;   
+    padding-left: 20px; 
+    padding-right: 20px;    
+    padding-top: 10px;  
+    padding-bottom: 10px;
+    height: fit-content;    
+    color: white;   
+    font-family: inherit;   
+    font-size: 1rem;    
+    cursor: pointer;
+}
+.main-creator-description__box1-part3-button2{
+    color :  #1273e4; 
+    border: none; 
+    background: none;   
+    font-size: 1rem;    
+    font-family: inherit;     
+    font-weight: bold;
+    cursor: pointer;    
+    display: flex;  
+    align-items: center;    
+    height: 39px;
+}
+.main-creator-description__box1-part3-btn1:hover{
+    opacity: 0.97;
+}
+.main-creator-description__box1-part3-btn2:hover{
+    text-decoration: underline;
+}
+
+/* 박스2 */
+.main-creator-description__box2{
+    width: 300px;   
+    height: 200px;  
+    position: relative;
+}
+.main-creator-description__box2-part1{
+    position: absolute; 
+    bottom: 30px;   
+    transform: rotateZ(-3deg); 
+    width: 100px;  
+    border-radius: 20px;
+    z-index: 1; 
+    left: 60px;
+}
+.main-creator-description__box2-part2{
+    font-size: 1.4rem;      
+    font-family: 'ClimateCrisisKR-1979';    
+    color: white;   
+    background: #00A8D5;    
+    width: fit-content;
+    padding-top: 8px;   
+    padding-bottom: 8px;    
+    padding-left: 25px; 
+    padding-right: 20px;    
+    border-radius: 20px;
+    position: absolute; 
+    z-index: 2; 
+    box-shadow: 5px 5px 10px 1px rgb(104, 104, 104) ;
+    bottom: 130px;     
+    left:-80px;     
+    transform: rotateZ(-5deg);
+}
+.main-creator-description__box2-part3{
+    position: absolute; 
+    bottom: 40px;   
+    transform: rotateZ(5deg); 
+    width: 80px;   
+    border-radius: 20px;
+    z-index: 1; 
+    left:130px;
+}
+.main-creator-description__box2-part4{
+    position: absolute; 
+    bottom: 40px;   
+    width: 100px;   
+    border-radius: 20px;
+    z-index: 0; 
+    left:180px;
+}

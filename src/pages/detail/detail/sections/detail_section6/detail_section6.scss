@@ -21,16 +21,15 @@
     grid-template-columns: repeat(3, minmax(0, 1fr));
     column-gap: 28px;
 }
-.detail-section6__container-item{
-    border: solid 1px $grey-lv10;
-    border-radius: 10px;
-}
+
 // item box
 .detail-section6__container-item{
     display: flex;
     flex-direction: column;
     gap:15px;
     padding: 20px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
 }
 .detail-section6__container-item-title{
     font-size: 0.9825rem;
@@ -50,4 +49,22 @@
 .detail-section6__rule-box{
     display: flex;
     gap:5px;
+}
+.detail-section6__item-footer{
+    display: flex;
+    align-items: center;
+    gap:3px;
+}
+.detail-section6__item-footer > button{
+    border: none;
+    outline: none;
+    background: none;
+    text-decoration: underline;
+    font-size: 0.9375rem;
+    cursor: pointer;
+}
+.detail-section6__item-footer > img{
+    width: 14px;
+    height: 14px;
+    transform: rotateZ(180deg);
 }

@@ -16,3 +16,19 @@ export default function useSetVh(){
     },[])
 }
 
+// =================================================
+// set vw //
+export function useSetVw(){
+    function set_vw(){
+        const vw = window.innerWidth * 0.01
+        document.documentElement.style.setProperty('--vw', `${vw}px`)
+    }
+    useEffect(()=>{
+        set_vw()        
+        window.addEventListener('resize', set_vw)
+    
+        return () => {
+          window.removeEventListener('resize', set_vw)
+        }
+    },[])
+}

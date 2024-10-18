@@ -1,4 +1,4 @@
-import HostUpdateLayout from "@/layout/host_update_layout/host_update_layout"
+import HostUpdateLayout from "@/layout/host/host_update_layout/host_update_layout"
 
 function AccUpdate({option = null}){    
 

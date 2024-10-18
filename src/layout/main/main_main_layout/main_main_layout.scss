@@ -1,0 +1,45 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.main-main-layout__container{
+    width:1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+}
+// header
+.main-main-layout__header{
+    width:100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 77px;
+    height: fit-content;
+}
+.main-main-layout__header-menu-container{
+    width: 1920px;    
+    height: fit-content;
+    position:fixed; 
+    top:0;  
+    left:50%; 
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: white;
+}
+// main
+.main-main-layout__main{
+    min-height: calc((calc(var(--vh) * 100) - 27px));
+    width:1200px;  
+    display: flex;  
+    flex-direction: column; 
+    gap: 50px;
+}
+// footer
+.main-main-layout__footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:100%;
+    background: $grey-end;
+}

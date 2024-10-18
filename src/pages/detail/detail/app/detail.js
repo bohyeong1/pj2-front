@@ -1,5 +1,4 @@
-import React, {useState} from "react";
-import './detail.scss'
+import {useState} from "react";
 import Section1Payment from "../sections/detail_section1/section1_payment/section1_payment";
 import DetailSection1 from "../sections/detail_section1/detail_section1";
 import DetailSection2 from "../sections/detail_section2/detail_section2";
@@ -10,10 +9,10 @@ import DetailSection6 from "../sections/detail_section6/detail_section6";
 import Img_dis_modal from "@/utilComponent/modal/img_dis_modal/img_dis_modal";
 import DetailHeader from "../sections/detail_header/detail_header";
 import Loading from '@/utilComponent/material/loading/loading'
-import useDetailDetailAppStyle from "../../hook_store/style_hooks/detail_detail_app_style";
-import useDetailDetailAppBusiness from "../../hook_store/business_hooks/detail_detail_app_business";
+import useDetailDetailAppStyle from "../hook_store/style_hooks/detail_detail_app_style";
+import useDetailDetailAppBusiness from "../hook_store/business_hooks/detail_detail_app_business";
 import { state_store } from "@/util/function/util_function";
-import DetailDetailLayout from "../../../../layout/detail_detail_layout/detail_detail_layout";
+import DetailDetailLayout from "../../../../layout/detail/detail_detail_layout/detail_detail_layout";
 import DetailImgDisplay from "../sections/detail_img_display/detail_img_display";
 
 function Detail(){

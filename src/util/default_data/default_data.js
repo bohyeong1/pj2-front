@@ -609,16 +609,9 @@ const default_data = {
     Logo : 
         {
             name:'보형짱 닷컴',
-            url:'/',
-            img:''
+            url:'/'
         },
-    Main_menus :
-        [    
-            {
-                name:'회원가입/로그인',
-                url:'/Login'
-            }
-        ],    
+           
     host_menus :
         [
             {

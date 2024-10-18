@@ -6,7 +6,7 @@ import DefaultLayout from './layout/default_layout/default_layout';
 // routing pages //
 import { 
     // main page //
-    MainApp, 
+    Main, 
     // membership page //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
     // sub accomodation page //
@@ -50,7 +50,7 @@ function FinalRoutes(){
             <Routes>            
                 {/* // =================================================
                     // 메인 페이지 // */}
-                <Route path='/' element={<MainApp></MainApp>}></Route>                                                                                  {/*메인*/}
+                <Route path='/' element={<Main/>}></Route>                                                                                  {/*메인*/}
                 
                 {/* // =================================================
                     // 로그인, 회원가입 페이지 // */}

@@ -1,0 +1,133 @@
+.main-section4__img-container{
+    display: flex;
+    background-color: black;
+    gap : 20px;
+    width:280px;
+    height:170px;
+    border-radius: 15px;    
+    overflow: hidden;
+    position:relative;
+}
+.main-section4__title{
+    font-size: 2rem;    
+    text-shadow: 0px 0px 20px rgb(15, 15, 15);
+    font-weight: 500;
+}
+.main-section4__container{
+    width: 1200px;
+    height: 550px;
+    position: relative;
+}
+.main-section4__img-wrapper{
+    width: 280px;
+    display: inline-block;
+    text-decoration: none;
+    color: white;    
+    user-select: none;
+}
+.main-section4__content{
+    overflow: hidden;    
+    position: relative;
+    width: 1200px;
+    height: 350px;
+}
+.main-section4__slider-wrapper{
+    width: 1200px;
+    height: 350px;
+    position: relative;
+}
+
+
+/* 콘텐츠 레퍼 */
+.main-section4__content-gurabox{
+    position:absolute;  
+    top:0; 
+    left:0;  
+    width: 1140px;    
+    height: 170px; 
+}
+.main-section4__contents-wrapper{
+    width: 100%; 
+    height: 80%; 
+    z-index: 2; 
+    position: absolute; 
+    bottom: 0;  
+    background: linear-gradient(to bottom, rgba(252, 252, 252, 0), rgba(17, 74, 18, 1));
+    opacity: 0.95;  
+    color: white;
+    padding-left: 30px; 
+    display: flex;
+    flex-direction: column;
+    gap:20px;   
+    overflow: hidden;   
+    border-radius: 15px;
+}
+/* 배경이미지 */
+.main-section4__back-img{
+    position: absolute; 
+    top:0; 
+    left:0;  
+    width: 100%;    
+    height: 100%;   
+    border-radius: 20px;    
+    z-index: 1;
+}
+
+/* 카테고리 내용 */
+.main-section4__img-text{
+    margin-top: 15px;   
+    display: flex;  
+    flex-direction: column; 
+    gap:5px; 
+    color:white;
+}
+.main-section4__img-text1{
+    font-size: 0.75rem;
+}
+.main-section4__img-text2{
+    font-size: 1rem;  
+    font-weight: bold;
+}
+.main-section4__img-text3{
+    font-size: 0.82rem;   
+    font-weight: 600;
+}
+.main-section4__img-text4{
+    font-size: 0.82rem;   
+    font-weight: 500;    
+    display: flex; 
+    align-items: center;    
+    gap:10px;
+    color: black;
+}
+.main-section4__img-text5{
+    font-size: 1.125rem;  
+    font-weight: 700;
+}
+.main-section4__img-text5 > span:nth-child(2){
+    font-weight: 400;   
+    font-size: 0.9375rem;
+}
+
+
+
+/* 평점 */
+.main-section4__img-text4 > span:nth-child(2){
+    font-size: 0.8125rem;   
+    color: white;
+}
+.main-section4__img-text4__star-box{
+    height: 100%;   
+    width: fit-content;
+    display: flex;  
+    align-items: center;   
+    padding: 4px 5px 3px 3px;   
+    gap:3px;
+    border-radius: 6px;    
+    background-color: #FFAD0A;
+}
+.main-section4__img-text4__star-box > img{
+    width: 11px;    
+    position: relative; 
+    top:-1px;
+}

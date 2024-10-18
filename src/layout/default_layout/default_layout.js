@@ -1,5 +1,5 @@
 import Main_menu from "@/utilComponent/menu/main-menu/main-menu"
-import Footer from "../../utilComponent/menu/footer/Footer"
+import Footer from "@/utilComponent/menu/footer/Footer"
 import { Outlet } from "react-router-dom"
 import './default_layout.scss'
 

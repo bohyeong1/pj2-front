@@ -320,6 +320,7 @@ DB - User(사용자), Accomodation(숙소),
   비슷한 유형의 data request시 계속 새로운 발리데이터를 만들어야 하는 문제가 있었음
 10.11
 - IntersectionObserver로 나중에 이미지 처리해보기
-
+10.18
+- 숙소 detail page 레이아웃 및 코드 구조 및 레이아웃 수정 완료
   <code>
 </pre>

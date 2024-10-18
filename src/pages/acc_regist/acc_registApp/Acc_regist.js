@@ -3,7 +3,6 @@ import './acc_regist.scss'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Footer from '../../../utilComponent/menu/footer/Footer'
 import { useNavigate } from "react-router-dom";
-import UserImg from "../../../utilData/userImg/UserImg";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 import History_main from "../../../picture/history-main/History-main";

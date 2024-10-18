@@ -3,9 +3,7 @@ import './Acc_regist_intro.css'
 import Main_menu from "../../../utilComponent/menu/main-menu/main-menu";
 import Footer from "../../../utilComponent/menu/footer/Footer";
 import default_data from "../../../utilData/defaultData";
-import UserImg from "../../../utilData/userImg/UserImg";
 import HostTextModal from "../../../utilComponent/modal/hostTextModal/HostTextModal";
-
 
 function Acc_regist_intro(){
 
@@ -34,7 +32,7 @@ function Acc_regist_intro(){
                     </div>
                     <div className="Acc_regist_intro-s2-b2">
                         <div className="Acc_regist_intro-s2-b2-d1">
-                            <UserImg data={logDataParse}></UserImg>
+                            {/* <UserImg data={logDataParse}></UserImg> */}
                         </div>
                         <div className="Acc_regist_intro-s2-b2-d2">
                             <div className="Acc_regist_intro-nodata"  style={{display:`${logDataParse.hostText ? 'none' : 'block'}`}}>

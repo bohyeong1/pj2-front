@@ -6,7 +6,7 @@ function useMenuSearchStyle(data,states,refs){
     // redux
     const dispatch = useDispatch()
     const open_target_id = useSelector(state => state.overay.open_target_id)
-
+    console.log(states.selectedDropdown)
     // 드롭다운 토글 함수 
     function open_dropdown(e){
         e.stopPropagation()

@@ -2,7 +2,7 @@ import React,{useState, useRef} from "react";
 import './section1_payment.scss'
 import { pop_three_texts, transform_date, get_discount_price, state_store, reference_store } from "@/util/function/util_function";
 import Calendar from "@/utilComponent/material/calendar/calendar";
-import useDetailSection1PaymentStyle from "../../../../hook_store/style_hooks/detail_section1_payment_style";
+import useDetailSection1PaymentStyle from "../../../hook_store/style_hooks/detail_section1_payment_style";
 import default_data from "@/util/default_data/default_data";
 
 function Section1Payment({data, params, role}){
@@ -146,7 +146,7 @@ function Section1Payment({data, params, role}){
                     {animal_modal &&
                     <div className="section1-payment__animal-modal box-shadow-lv1">
                         <div className="section1-payment__animal-modal-container">
-                            <span>인원</span>
+                            <span>반려동물</span>
                             <div>
                                 <button className = {`${animal ? 'small-button' : 'small-button-disabled'}`}
                                         disabled = {animal ? false : true}

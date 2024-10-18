@@ -11,6 +11,7 @@ import ScrollToPlugin from 'gsap/ScrollToPlugin';
 // =================================================
 // common style custom hooks //
 import useSetVh from './manage_scss_style/commonness/commonness_hooks';
+import { useSetVw } from './manage_scss_style/commonness/commonness_hooks';
 // =================================================
 // final routes //
 import FinalRoutes from './Routes';
@@ -24,6 +25,7 @@ function App(){
   // =================================================
   // set style custom hooks //
   useSetVh()
+  useSetVw()
 
   return(
     <Provider store = {store}>

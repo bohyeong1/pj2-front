@@ -1,6 +1,6 @@
 import './detail_section3.scss'
 import default_data from "@/util/default_data/default_data";
-import useDetailSection3Style from '../../../hook_store/style_hooks/detail_section3_style';
+import useDetailSection3Style from '../../hook_store/style_hooks/detail_section3_style';
 
 function DetailSection3({evaluations, role}){
 
