@@ -3,6 +3,8 @@ import { useNavigate, useLocation } from "react-router-dom"
 import default_data from "../../../../utilData/defaultData"
 
 function useMenuMainBusiness(data, states, refs, props){
+    // =================================================
+    // url //
     const navigate = useNavigate()
     const location = useLocation()
 
@@ -12,7 +14,16 @@ function useMenuMainBusiness(data, states, refs, props){
 
     // =================================================
     // states //
-    const {host_location, setHost_location, log_state, setLog_state, log_modal_state, setLog_modal_state, host_index, setHost_index} = states
+    const {
+        host_location, 
+        setHost_location, 
+        log_state, 
+        setLog_state, 
+        log_modal_state, 
+        setLog_modal_state, 
+        host_index, 
+        setHost_index
+    } = states
 
     // =================================================
     // login 상태 //

@@ -10,7 +10,7 @@
     height: fit-content;
     display: flex;  
     justify-content: center;   
-     border-bottom: solid 1px rgb(235,235,235);
+    border-bottom: solid 1px rgb(235,235,235);
     background-color: white;
     height: 8vh;    
     transition:0.1s;
@@ -25,7 +25,7 @@
     left:50%; 
     transform: translateX(-50%);
     width:1200px;
-    height: 8vh;
+    height: 76px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,7 +39,6 @@
     color: rgb(3, 3, 58);
     font-weight: bold;    
     position: relative;
-
 }
 
 .main-menu__logo{
@@ -96,32 +95,18 @@
 
 // 검색 메뉴 search
 .main-menu__search-container{
-    width: 900px;
-    height: 8vh;   
-    position: absolute;
-    top:0; 
-    left:50%; 
-    transform: translateX(-50%);
+    width: fit-content;
+    height: 47px;   
     z-index: 13;
     display: flex;  
-    flex-direction: column; 
-    align-items: center;
+    align-items: center;    
+    justify-content: center;
 }
-.main-menu__search-search{
-    height: 40px;   
+.main-menu__search{
+    height: 100%;   
     width: 100%;
-    position:absolute; 
-    top:18px;
 }
 .main-menu__search-active{
     opacity:0; 
     pointer-events: none;
-}
-.main-menu__search-search-wrapper{
-    height: 76px;   
-    width: 900px;
-    display: flex;  
-    align-items: center;    
-    justify-content: center;
-    position:relative;
 }

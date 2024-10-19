@@ -8,7 +8,7 @@ import MainSection3 from "../sections/main_section3/main_section3";
 import MainSection4 from "../sections/main_section4/main_section4";
 import MainSection5 from "../sections/main_section5/main_section5";
 import Main_menu from "@/utilComponent/menu/main-menu/main-menu";
-import Search_menu from "@/utilComponent/menu/search-menu/search-menu";
+import MainSearchBoard from "../sections/main_search_board/main_search_board";
 import MainMainLayout from "@/layout/main/main_main_layout/main_main_layout";
 import useMainBusiness from "../hook_store/business_hooks/main_business";
 import useMainStyle from "../hook_store/style_hooks/main_style";
@@ -64,13 +64,9 @@ function Main(){
                 scroll = {true} 
                 login_user = {user_state.userId ? user_state : null}
                 role = {'main_menu'}/>
-            <Search_menu 
-                ref = {search_component} 
-                shadow = {true} 
-                subtitle = {true} 
+            <MainSearchBoard 
                 data = {main_data?.sec1.search} 
-                search = {false}
-                role = {'search_menu'}/>
+                role = {'search_board'}/>
             <MainEventSection 
                 role = {'event'}/>
             <MainSection1 

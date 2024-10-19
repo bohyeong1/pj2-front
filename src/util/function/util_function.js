@@ -463,8 +463,13 @@ export function get_date_difference(date){
 
 // =================================================
 // get format date //
-export function transform_date(date){
-    return format(date, 'yyyy.MM.dd')
+export function transform_date(date, not_year = false){
+    if(!not_year){
+        return format(date, 'yyyy.MM.dd')
+    }
+    else{
+        return format(date, 'MM.dd')
+    }    
 }
 
 // =================================================

@@ -24,9 +24,12 @@ function MainMainLayout({login_user = null, children}){
                 <div className="main-main-layout__header-menu-container">
                     {children_object.main_menu}
                 </div>
-                {children_object.search_menu}
             </nav>
             <main className="main-main-layout__main">
+                {/* 검색 보드 */}
+                <section className="main-main-layout__section-search">
+                    {children_object.search_board}
+                </section>
                 {/* 이벤트 */}
                 <section>
                     {children_object.event}

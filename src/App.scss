@@ -27,12 +27,25 @@ body{
 textarea, pre, input{
   font-family: 'Pretendard-Regular';
 }
-input::placeholder {
-  color: $grey-lv6; 
+input::placeholder{
+  color: $grey-lv4;
 }
-input:-ms-input-placeholder {
-  color: $grey-lv6;
+input::placeholder{
+  color: $grey-lv4; 
 }
-input::-ms-input-placeholder {
-  color: $grey-lv6;
+input:-ms-input-placeholder{ 
+  color: $grey-lv4; 
 }
+input::-ms-input-placeholder{ 
+  color: $grey-lv4; 
+}
+input:-moz-placeholder{
+  color: $grey-lv4;
+}
+input::-moz-placeholder{ 
+  color: $grey-lv4; 
+}
+input::-webkit-input-placeholder{
+  color: $grey-lv4; 
+}
+

@@ -48,44 +48,30 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
     // =================================================
     // hooks //
     // style
-    const {click_prev_month,
-           click_next_month,
-           date_range_style,
-           click_date} = useMaterialCalendarStyle(undefined,
-                            state_store([
-                                {
-                                    'is_left_button' : is_left_button,
-                                    'setIs_left_button' : setIs_left_button
-                                },
-                                {
-                                    'is_right_button' : is_right_button,
-                                    'setIs_right_button' : setIs_right_button
-                                }
-                            ]),
-                            reference_store([
-                                {
-                                    'header_slider_ref' : header_slider_ref
-                                },
-                                {
-                                    'main_slider_ref' : main_slider_ref
-                                },
-                                {
-                                    'calendar_container_ref' : calendar_container_ref
-                                },
-                                {
-                                    'left_button_ref' : left_button_ref
-                                },
-                                {
-                                    'right_button_ref' : right_button_ref
-                                }
-                            ]),
-                            {
-                                'set_checkout_handler' : set_checkout_handler,
-                                'set_checkin_handler' : set_checkin_handler,
-                                'checkin_date' : checkin_date,
-                                'checkout_date' : checkout_date
-                            }
-                         )
+    const {
+        click_prev_month,
+        click_next_month,
+        date_range_style,
+        click_date
+    } = useMaterialCalendarStyle(undefined,
+        state_store([
+            {is_left_button, setIs_left_button},
+            {is_right_button, setIs_right_button}
+        ]),
+        reference_store([
+            {header_slider_ref},
+            {main_slider_ref},
+            {calendar_container_ref},
+            {left_button_ref},
+            {right_button_ref}
+        ]),
+        {
+            set_checkout_handler,
+            set_checkin_handler,
+            checkin_date,
+            checkout_date
+        }
+    )
 
     return(
         <div className = "calendar__container"
