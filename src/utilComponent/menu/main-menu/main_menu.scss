@@ -10,14 +10,14 @@
     height: fit-content;
     display: flex;  
     justify-content: center;   
-    border-bottom: solid 1px rgb(235,235,235);
     background-color: white;
     height: 8vh;    
     transition:0.1s;
+    z-index: 3;
+    position: relative;
 }
-// 검색항목 클릭 시 엑티브 
-.main-menu__active{
-    height: 18vh;
+.main-menu__border-on{
+    border-bottom: solid 1px rgb(235,235,235);
 }
 .main-menu__container{
     position: absolute; 
@@ -30,6 +30,7 @@
     justify-content: space-between;
     align-items: center;
     z-index: 12;
+    // background-color: white;
 }
 .main-menu__list{
     cursor: pointer;

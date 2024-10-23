@@ -2,7 +2,7 @@ import background_img from '@/assets/background/rending.webp'
 import './main_search_board.scss'
 import SearchMenu from '@/utilComponent/menu/search-menu/search_menu'
 
-function MainSearchBoard(){
+function MainSearchBoard({data}){
     return (
         <div className="main-search-board__container">
             <div className="main-search-board__img-box">
@@ -25,8 +25,8 @@ function MainSearchBoard(){
                             </div>
                         </div>
                         <div className="main-search-board__bottom-line">
-                            {/* <Search data={data}/> */}
                             <SearchMenu
+                                data = {data}
                                 preview_form = {false}
                                 related_preview = {false}/>
                         </div>

@@ -4,14 +4,15 @@ import { pop_three_texts, transform_date, get_discount_price, state_store, refer
 import Calendar from "@/utilComponent/material/calendar/calendar";
 import useDetailSection1PaymentStyle from "../../../hook_store/style_hooks/detail_section1_payment_style";
 import default_data from "@/util/default_data/default_data";
+import useDetailSection1PaymentBusiness from "../../../hook_store/business_hooks/detail_section1_payment_business";
 
 function Section1Payment({data, params, role}){
 
     // =================================================
     // const //
-    const [final_price] = useState(data && data.discount ? 
-                            get_discount_price(data.price, data.discount.rate) : data.price
-                          )
+    const [final_price] = useState(
+        data && data.discount ?  get_discount_price(data.price, data.discount.rate) : data.price
+    )
 
     // =================================================
     // states //
@@ -34,65 +35,53 @@ function Section1Payment({data, params, role}){
 
     // =================================================
     // hooks //
+    const {click_reservation} = useDetailSection1PaymentBusiness(
+        undefined,
+        state_store([
+            {checkin_date, setCheckin_date},
+            {checkout_date, setCheckout_date},
+            {pay_day, setPay_day},
+            {capacity, setCapacity},
+            {animal, setAnimal},
+            {calendar_modal, setCalendar_modal},
+            {capacity_modal, setCapacity_modal},
+            {animal_modal,setAnimal_modal}
+        ]),
+        undefined,
+        {params}
+    )
     // style
-    const {click_reservation, click_plus, click_minus, open_calendar,
-           open_capacity, close_capacity, open_animal, close_animal,
-           delete_calendar, confirm_calendar} = useDetailSection1PaymentStyle(undefined, 
-                                                    state_store([
-                                                        {
-                                                            'checkin_date' : checkin_date,
-                                                            'setCheckin_date' : setCheckin_date
-                                                        },
-                                                        {
-                                                            'checkout_date' : checkout_date,
-                                                            'setCheckout_date' : setCheckout_date
-                                                        },
-                                                        {
-                                                            'pay_day' : pay_day,
-                                                            'setPay_day' : setPay_day
-                                                        },
-                                                        {
-                                                            'capacity' : capacity,
-                                                            'setCapacity' : setCapacity
-                                                        },
-                                                        {
-                                                            'animal' : animal,
-                                                            'setAnimal' : setAnimal
-                                                        },
-                                                        {
-                                                            'calendar_modal' : calendar_modal,
-                                                            'setCalendar_modal' : setCalendar_modal
-                                                        },
-                                                        {
-                                                            'capacity_modal' : capacity_modal,
-                                                            'setCapacity_modal' : setCapacity_modal
-                                                        },
-                                                        {
-                                                            'animal_modal' : animal_modal,
-                                                            'setAnimal_modal' : setAnimal_modal
-                                                        }
-                                                    ]),
-                                                    reference_store([
-                                                        {
-                                                            'detail_capacity' : detail_capacity
-                                                        },
-                                                        {
-                                                            'detail_animal' : detail_animal
-                                                        },
-                                                        {
-                                                            'calendar_modal_ref' : calendar_modal_ref
-                                                        },
-                                                        {
-                                                            'capacity_modal_ref' : capacity_modal_ref
-                                                        },
-                                                        {
-                                                            'animal_modal_ref' : animal_modal_ref
-                                                        }
-                                                    ]),
-                                                    {
-                                                        'params' : params
-                                                    }
-                                                )
+    const { 
+        click_plus, 
+        click_minus, 
+        open_calendar,
+        open_capacity, 
+        close_capacity, 
+        open_animal, 
+        close_animal,
+        delete_calendar, 
+        confirm_calendar
+    } = useDetailSection1PaymentStyle(
+            undefined, 
+            state_store([
+                {checkin_date, setCheckin_date},
+                {checkout_date, setCheckout_date},
+                {pay_day, setPay_day},
+                {capacity, setCapacity},
+                {animal, setAnimal},
+                {calendar_modal, setCalendar_modal},
+                {capacity_modal, setCapacity_modal},
+                {animal_modal,setAnimal_modal}
+            ]),
+            reference_store([
+                {detail_capacity},
+                {detail_animal},
+                {calendar_modal_ref},
+                {capacity_modal_ref},
+                {animal_modal_ref}
+            ]),
+            {params}
+        )
 
     if(data){
         return(
@@ -238,7 +227,8 @@ function Section1Payment({data, params, role}){
                 {/* section2 */}
                 <div className="section1-payment__section2">
                     <button className={`section1-payment__section2-button ${checkin_date && checkout_date && capacity ? 'button-enable' : 'button-disable'}`}
-                            disabled={checkin_date && checkout_date && capacity ? false : true}>
+                            disabled={checkin_date && checkout_date && capacity ? false : true}
+                            onClick={click_reservation}>
                                 예약하기
                     </button>
                     <span>예약 확정 전에는 요금이 청구되지 않습니다</span>

@@ -14,13 +14,13 @@ function Overay(){
     ////////////// hooks ///////////////
     ////////////////////////////////////
     // style
-    const {overlay_click} = useModalOverayStyle({
-        'overay_state':overay_state
-    },undefined,reference_store([
-        {
-            'overay_container':overay_container
-        }
-    ]))
+    const {overlay_click} = useModalOverayStyle(
+        {overay_state},
+        undefined,
+        reference_store([
+            {overay_container}
+        ])
+    )
 
     return(
         <div className={`overay ${overay_state ? 'overay-toggle':null}`} ref={overay_container}

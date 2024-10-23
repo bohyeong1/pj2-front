@@ -322,5 +322,21 @@ DB - User(사용자), Accomodation(숙소),
 - IntersectionObserver로 나중에 이미지 처리해보기
 10.18
 - 숙소 detail page 레이아웃 및 코드 구조 및 레이아웃 수정 완료
+
+10.23
+- 검색어 로직 백엔드쪽 완료
+  저장소 - redis stack, mongo db
+  mongo db에 숙소 등록 완료 시 검색어 저장(초성, 원본, 키워드, 분리된 단어로 분리하여 저장)
+  ex.  {
+    original_word: '서울시 강남구',
+    choseong: 'ㅅㅇㅅ ㄱㄴㄱ',
+    dissembled: 'ㅅㅓㅇㅜㄹㅅㅣ ㄱㅏㅇㄴㅏㅁㄱㅜ',
+    original_address: '서울시 강남구',
+    [Symbol(entityId)]: '01JAVHRGC1AY825YMA7KC1KCN5',
+    [Symbol(entityKeyName)]: 'Suggestion:01JAVHRGC1AY825YMA7KC1KCN5'
+  }
+  redis stack server 로컬 연동 완료
+  새로운 숙소 등록 했을 때, 몽고 db데이터를 redis데이터로 옮기는 동기화 작업필요.
+
   <code>
 </pre>

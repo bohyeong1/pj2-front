@@ -1,0 +1,26 @@
+.main-search-modal-section__container{
+    position: absolute;
+    width: 100%;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    top:0;
+    z-index: 2;
+}
+.main-search-modal-section__wrapper{
+    width: 900px;
+    height: 48px;
+
+}
+.main-search-modal-section__overlay{
+    background-color: black;
+    opacity: 0.4;
+    width: 100vw;
+    height: calc(var(--vh) * 100 - 152px);
+    position: absolute;
+    top: 152px;
+    z-index: 1;
+    overflow-y: hidden;
+}

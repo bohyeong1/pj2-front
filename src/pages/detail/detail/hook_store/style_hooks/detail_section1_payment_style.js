@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import { useClickAway } from 'use-click-away';
 import { useEffect } from "react";
 
@@ -6,38 +5,32 @@ function useDetailSection1PaymentStyle(data, states, refs, props){
 
     // =================================================
     // states //
-    const {checkin_date,
-           setCheckin_date,
-           checkout_date,
-           setCheckout_date,
-           pay_day,
-           setPay_day,
-           capacity,
-           setCapacity,
-           animal,
-           setAnimal,
-           calendar_modal,
-           setCalendar_modal,
-           capacity_modal,
-           setCapacity_modal,
-           animal_modal,
-           setAnimal_modal} = states
+    const {
+        checkin_date,
+        setCheckin_date,
+        checkout_date,
+        setCheckout_date,
+        pay_day,
+        setPay_day,
+        capacity,
+        setCapacity,
+        animal,
+        setAnimal,
+        calendar_modal,
+        setCalendar_modal,
+        capacity_modal,
+        setCapacity_modal,
+        animal_modal,
+        setAnimal_modal} = states
 
     // =================================================
     // refs //
-    const {detail_capacity,
-           detail_animal,
-           calendar_modal_ref,
-           capacity_modal_ref,
-           animal_modal_ref} = refs
-
-    // =================================================
-    // props //
-    const {params} = props
-
-    // =================================================
-    // navigate //
-    const navigate = useNavigate()
+    const {
+        detail_capacity,
+        detail_animal,
+        calendar_modal_ref,
+        capacity_modal_ref,
+        animal_modal_ref} = refs
 
     // =================================================
     // 모달 전역 이벤트 제어 //
@@ -70,26 +63,6 @@ function useDetailSection1PaymentStyle(data, states, refs, props){
             setPay_day(new Date(pay_day).getDate())
         }
     },[checkout_date])
-
-    // =================================================
-    // 예약 화면 가기 //
-    function click_reservation(){
-        //예약화면에서 쓸 데이터 세션에 저장하기 
-        const paymentData = {
-            checkIn : checkin_date,
-            checkOut : checkout_date,
-            payday : pay_day,
-            capacity : capacity,
-            totalPrice : (data.price + data.addPrice * (capacity - 1)) * pay_day,
-            homeName : data.title,
-            homeCategory : data.category.name,
-            main_img : data.main_img,
-            price : data.price
-        }
-
-        sessionStorage.setItem('res_data',JSON.stringify(paymentData))
-        navigate(`/ReservationApp/${params}`)
-    }
 
     // =================================================
     // 플러스 버튼 //
@@ -157,15 +130,16 @@ function useDetailSection1PaymentStyle(data, states, refs, props){
     function close_animal(){
         setAnimal_modal(false)
     }
-    return {click_reservation,
-            open_capacity,
-            close_capacity,
-            close_animal,
-            open_animal,
-            click_plus,
-            click_minus,
-            open_calendar,
-            delete_calendar,
-            confirm_calendar}
+    return {
+        open_capacity,
+        close_capacity,
+        close_animal,
+        open_animal,
+        click_plus,
+        click_minus,
+        open_calendar,
+        delete_calendar,
+        confirm_calendar
+    }
 }
 export default useDetailSection1PaymentStyle

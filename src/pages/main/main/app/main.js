@@ -15,6 +15,7 @@ import useMainStyle from "../hook_store/style_hooks/main_style";
 import { reference_store, state_store } from "@/util/function/util_function";
 import session_storage from "@/sessionStorage/session_storage";
 import background from '@/assets/background/background.jpg'
+import MainSearchModalSection from "../sections/main_search_modal_section/main_search_modal_section";
 
 function Main(){
     // console.log('렌더링 회수 체크')
@@ -32,38 +33,36 @@ function Main(){
 
     // =================================================
     // ref //
-    const search_component = useRef(null)
-    const main_app_ref = useRef(null)
     const search_menu = useRef(null)
 
     // =================================================
     // hooks //
     // business
     const {} = useMainBusiness(undefined,
-                    state_store([
-                        {
-                            'main_data' : main_data,
-                            'setMain_data' : setMain_data
-                        }
-                ]))
+        state_store([
+            {main_data, setMain_data}
+        ])
+    )
     // style
     const {} = useMainStyle(undefined, undefined,
-                    reference_store([
-                        {'search_component' : search_component},
-                        {'main_app_ref' : main_app_ref},
-                        {'search_menu' : search_menu}
-                    ])
-                )
+        reference_store([
+            {search_menu}
+        ])
+    )
     
     return(
         <MainMainLayout>
             <Main_menu 
                 data = {main_data?.sec1.search} 
                 search = {true} 
+                border = {false}
                 ref = {search_menu} 
                 scroll = {true} 
                 login_user = {user_state.userId ? user_state : null}
                 role = {'main_menu'}/>
+            <MainSearchModalSection
+                data = {main_data?.sec1.search} 
+                role = {'search_modal'}/>
             <MainSearchBoard 
                 data = {main_data?.sec1.search} 
                 role = {'search_board'}/>

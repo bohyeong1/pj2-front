@@ -11,7 +11,6 @@ import _ from 'lodash'
 // =================================================
 // parameter의 값에 따른 fetch하는 라우터 //
 function Parameter_router({data_state, element : Element, redirection_url, provider : Provider}){
-    // data_state = ture(유저 데이터까지 획득 db 조회함) false(db조회 안하고 토큰 있나없나 로그인 상태만 빠르게 체크)
 
     // =================================================
     // context states //

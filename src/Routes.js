@@ -39,6 +39,7 @@ import Private_router from './router/custom_router/private_router';
 import Conditional_router from './router/custom_router/conditional_router';
 import Parameter_router from './router/custom_router/parameter_router';
 import LogCheckRouter from './router/custom_router/log_check_router';
+import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 // =================================================
 // context provider //
 import ImgProvider from '@/context/img_context/provider/img_provider';
@@ -68,12 +69,18 @@ function FinalRoutes(){
                 </Route>
 
                 {/* // =================================================
-                    // detail // */}
-                    
+                    // detail // */}                    
                 {/* detail - 숙소 상세 페이지 */}
                 <Route path = '/detail' element = {<LogCheckRouter element={DefaultLayout}/>}>                                                                
                     <Route path=':house' element={<Detail/>}></Route>
                 </Route>
+
+                {/* // =================================================
+                    // reseration // */}
+                {/* reservation - 숙소 예약 페이지 */}
+                <Route path='/reservation' element={<GetAccUserRouter element={DefaultLayout}/>}>                                                             
+                    <Route path=':house' element={<></>}></Route>
+                </Route>    
                
                 {/* // =================================================
                     // 호스트 페이지 // */}
@@ -104,17 +111,24 @@ function FinalRoutes(){
                 
                 {/* // =================================================
                     // host // */}
-
                 {/* host - 숙소 업데이트 페이지 */}            
                 <Route path='/host' 
-                       element = {<AccDataProvider>
-                                    <Parameter_router element={DefaultLayout} data_state={true}/>
-                                  </AccDataProvider>}
+                       element = {
+                            <AccDataProvider>
+                                <Parameter_router 
+                                    element={DefaultLayout} 
+                                    data_state={true}/>
+                            </AccDataProvider>
+                        }
                 >
-                    <Route path='update/:house/accomodation' element = {<AccUpdate option={'accomodation'}/>}>
+                    <Route 
+                        path='update/:house/accomodation' 
+                        element = {<AccUpdate option={'accomodation'}/>}>
                         {host_update_routes('accomodation')}
                     </Route>
-                    <Route path='update/:house/check' element = {<AccUpdate option={'check'}/>}>
+                    <Route 
+                        path='update/:house/check' 
+                        element = {<AccUpdate option={'check'}/>}>
                         {host_update_routes('check')}
                     </Route>
                 </Route>
@@ -126,11 +140,7 @@ function FinalRoutes(){
                 <Route path='/Private_point' element={<Private_point></Private_point>}></Route>                                                         {/*마이페이지 - 포인트확인*/}
                 <Route path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                                                            {/*위시리스트*/}
 
-                {/* // =================================================
-                    // 예약 페이지 // */}
-                <Route path='/ReservationApp' element={<ReservationApp></ReservationApp>}>                                                              {/*예약하기*/}    
-                    <Route path=':reservation' element={<ReservationApp></ReservationApp>}></Route>
-                </Route>             
+         
 
                 {/* // =================================================
                     // 평가 페이지 // */}

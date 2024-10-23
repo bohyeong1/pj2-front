@@ -1,4 +1,11 @@
-import { open_search_modal, close_search_modal } from "@/redux/modules/searchModalSlice"
+import { 
+    open_search_modal, 
+    close_search_modal, 
+    set_location_data, 
+    set_checkin_data, 
+    set_checkout_data, 
+    set_capacity_data 
+} from "@/redux/modules/searchModalSlice"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 
@@ -65,13 +72,13 @@ function useMenuSearchStyle(data, states, refs, props){
     // =================================================
     // click plus //
     function click_plus(){
-
+        dispatch(set_capacity_data({capacity_data : capacity_data + 1}))
     }
     
     // =================================================
     // click minus // 
     function click_minus(){
-
+        dispatch(set_capacity_data({capacity_data : capacity_data - 1}))
     }
 
     // =================================================
@@ -81,12 +88,36 @@ function useMenuSearchStyle(data, states, refs, props){
     } 
 
     // =================================================
+    // click check in //
+    function click_check_in(date){
+        dispatch(set_checkin_data({checkin_data : date ? date.toISOString() : null}))
+    }
+
+    // =================================================
+    // click check out //
+    function click_check_out(date){
+        dispatch(set_checkout_data({checkout_data : date ? date.toISOString() : null}))
+    }
+
+    // =================================================
+    // close modal //
+    function close_modal(){
+        setModal_state(null)
+    }
+
+    // =================================================
     // open modal //
-    function open_modal(){
+    function open_modal(keyword){
+
+        if(modal_state === keyword){
+            setModal_state(null)
+        }else{
+            setModal_state(keyword)
+        }
 
     }
 
-    return {click_preview, click_plus, click_minus, click_location, open_modal}
+    return {click_preview, click_plus, click_minus, click_location, open_modal, click_check_in, click_check_out, close_modal}
 }
 
 export default useMenuSearchStyle

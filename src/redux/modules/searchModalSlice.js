@@ -73,16 +73,18 @@ const search_modal_slice = createSlice({
 })
 
 // export action
-export const{open_search_modal, 
-            close_search_modal, 
-            initialized_search_data,
-            set_location_data,
-            delete_location_data,
-            set_checkin_data,
-            delete_checkin_data,
-            set_checkout_data,
-            delete_checkout_data,
-            set_capacity_data,
-            delete_capacity_data} = search_modal_slice.actions
+export const{
+    open_search_modal, 
+    close_search_modal, 
+    initialized_search_data,
+    set_location_data,
+    delete_location_data,
+    set_checkin_data,
+    delete_checkin_data,
+    set_checkout_data,
+    delete_checkout_data,
+    set_capacity_data,
+    delete_capacity_data
+} = search_modal_slice.actions
 
 export default search_modal_slice.reducer

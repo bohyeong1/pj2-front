@@ -25,7 +25,7 @@ const Main_menu = forwardRef((props, ref) => {
 
     // =================================================
     // props //
-    const {data, search, scroll, login_user} = props
+    const {data, search, scroll, login_user, border = true} = props
 
     // =================================================
     // hooks //
@@ -47,7 +47,7 @@ const Main_menu = forwardRef((props, ref) => {
     const {} =  useMenuMainStyle()
 
     return(
-        <div className={`main-menu__wrapper ${overay_state ==='search-toggle' ? 'main-menu__active' : ''}`}>
+        <div className={`main-menu__wrapper ${border ? 'main-menu__border-on' : ''}`}>
             <div className="main-menu__container">
                 {/* logo */}
                 <Link 
