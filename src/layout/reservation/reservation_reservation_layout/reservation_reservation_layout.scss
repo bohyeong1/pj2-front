@@ -1,0 +1,21 @@
+// 메인콘텐츠
+.reservation-layout__content{
+    width:100%; 
+    height: fit-content;
+    display: flex;
+    justify-content: space-between; 
+    padding-top: 40px;  
+    padding-bottom: 100px;
+    position: relative;
+}
+.reservation-layout__content-section1{
+    width:65%;   
+    display: flex; 
+    flex-direction: column;
+}
+.reservation-layout__content-section2{
+    position: sticky;
+    top:40px;
+    width:33%; 
+    height: fit-content;
+}

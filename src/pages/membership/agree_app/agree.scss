@@ -33,59 +33,88 @@
     font-size: 1.5rem;
     font-weight: 700;
     margin-bottom: 30px;
-    
 }
 .agree-app__container-section1-part2{
-    width:60px; background: rgb(243, 243, 243);     margin-bottom: 15px;
-    border-radius: 8px; overflow: hidden;
+    width:60px; 
+    background: rgb(243, 243, 243);     
+    margin-bottom: 15px;
+    border-radius: 8px; 
+    overflow: hidden;
 }
 .level-bar-lv1{
-    width:25%; height: 5px; background: black;
+    width:25%; 
+    height: 5px; 
+    background: black;
 }
 .agree-app__container-section1-part3{
-    font-size: 0.875rem;  margin-bottom: 35px;   color: $grey-lv1;
+    font-size: 0.875rem;  
+    margin-bottom: 35px;   
+    color: $grey-lv1;
     font-weight: 600;
 }
 .agree-app__container-section1-part4{
-    margin-bottom: 10px;     display: flex;  gap: 10px;  font-size: 1.075rem;   font-weight: 600;
+    margin-bottom: 10px;     
+    display: flex;  
+    gap: 10px;  
+    font-size: 1.075rem;   
+    font-weight: 600;
     align-items: center;    
 }
 .agree-app_section-box-container{
-    display: flex;  gap:3px;
+    display: flex;  
+    gap:3px;
 }
 .agree_section-box{
-    width: 8px; position: relative;
+    width: 8px; 
+    position: relative;
 }
 .agree_section-box > div{
-    position: absolute; top:0; left:0; width: 4px;  height: 4px;    border-radius: 100%;
+    position: absolute; 
+    top:0; 
+    left:0; 
+    width: 4px;  
+    height: 4px;    
+    border-radius: 100%;
     background-color: red;
 }
 // =================================================
 // contents //
 .agree-app__container-section2{
-    width:100%; display: flex;  flex-direction: column; gap:20px;   
+    width:100%; 
+    display: flex;  
+    flex-direction: column; 
+    gap:20px;   
     color: $grey-lv1;
 }
 .agree-app__container-section2-part1{
-    display: flex;  flex-direction: column; gap:30px;   height: 100%;
+    display: flex;  
+    flex-direction: column; 
+    gap:30px;   
+    height: 100%;
 }
 .agree-app__container-section1-s4 > label{
-    display: flex;  align-items: center; 
+    display: flex;  
+    align-items: center; 
 }
 .agree-app__container-section2-part1-box{
-    display: flex;  gap:10px;     font-size: 0.925rem;  
+    display: flex;  
+    gap:10px;     
+    font-size: 0.925rem;  
 }
 .agree-app__container-section2-part1-box > label{
     line-height: 1; 
 }
 .agree-app__container-section2-part1-box > label > span{
-    color:  #1273e4; margin-left: 5px;
+    color:  #1273e4; 
+    margin-left: 5px;
 }
 .terms-checkbox{
-    cursor: pointer;    height: max-content;  cursor: pointer;
+    cursor: pointer;    
+    height: max-content;  
 }
 .terms-checkbox__daepyo{
-    cursor: pointer;    height: max-content;  cursor: pointer;
+    cursor: pointer;    
+    height: max-content;  
 }
 .terms-checkbox__daepyo[type=checkbox]{
     zoom:1.4;
@@ -96,6 +125,9 @@
 // =================================================
 // button //
 .agree-app__container-section2-btn{
-    height:50px;  width: 100%;
-    padding-left: 10px; font-size: 1.125rem;  font-weight: bold;
+    height:50px;  
+    width: 100%;
+    padding-left: 10px; 
+    font-size: 1.125rem;  
+    font-weight: bold;
 }

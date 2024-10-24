@@ -1,0 +1,307 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.reservation-section2__container{
+    width:100%; 
+    height: fit-content;
+    display: flex;  
+    flex-direction: column; 
+    gap:24px;
+}
+// title
+.reservation-section2__title{
+    font-size: 1.325rem;  
+    font-weight: 600;  
+    border-bottom: solid 1px $grey-lv10;
+    padding-bottom: 24px;
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+.reservation-section2__title-button{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    & >img{
+        width: 20px;
+        height: 20px;
+        object-fit: cover;
+    }
+}
+
+// 섹션1
+.reservation-section2__section1{
+    padding-bottom: 24px;   
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $black-lv1;
+}
+.reservation-section2__section1-title{
+    font-size: 1.125rem;  
+    font-weight: 600;  
+    color: $black-default;
+}
+.reservation-section2__section1-content{
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+}
+.reservation-section2__section1-content-checkin, 
+.reservation-section2__section1-content-checkout,
+.reservation-section2__section1-content-guest{
+    display: flex;  
+    flex-direction: column; 
+    gap: 10px;
+}
+.reservation-section2__section1-content-title{
+    font-size: 0.8725rem;
+    color: $grey-lv1;
+    display: flex;
+    gap: 5px;
+}
+.reservation-section2__section1-content-box{
+    width: 8px; 
+    position: relative;
+
+    & > div{
+        position: absolute; 
+        top:0; 
+        left:0; 
+        width: 4px;  
+        height: 4px;    
+        border-radius: 100%;
+        background-color: red;
+    }
+}
+.reservation-section2__section1-content-text{
+    width: 340px;
+    height: 48px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: $grey-end;
+}
+
+// 섹션2
+.reservation-section2__section2{
+    padding-bottom: 24px;   
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $black-lv1;
+}
+.reservation-section2__section2-title{
+    font-size: 1.125rem;  
+    font-weight: 600;  
+    color: $black-default;
+}
+.reservation-section2__section2-content{
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+}
+.reservation-section2__section2-content > div{
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+}
+.reservation-section2__section2-content-title{
+    font-size: 0.8725rem;
+    color: $grey-lv1;
+    display: flex;
+    gap: 5px;
+}
+.reservation-section2__section2-content-text{
+    width: 340px;
+    height: 48px;
+    padding: 0 14px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    background-color: $grey-end;
+}
+.reservation-section2__section2-content-alert{
+    color: $red-lv2;
+    font-size: 0.8225rem;
+}
+.reservation-section2__section2-content-box{
+    width: 8px; 
+    position: relative;
+
+    & > div{
+        position: absolute; 
+        top:0; 
+        left:0; 
+        width: 4px;  
+        height: 4px;    
+        border-radius: 100%;
+        background-color: red;
+    }
+}
+
+// 섹션3
+.reservation-section2__section3{
+    padding-bottom: 24px;   
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $black-lv1;
+}
+.reservation-section2__section3-title{
+    font-size: 1.125rem;  
+    font-weight: 600;  
+    color: $black-default;
+}
+.reservation-section2__section3-content{
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+}
+.reservation-section2__section3-content-alert{
+    color: $red-lv2;
+    font-size: 0.8225rem;
+}
+.reservation-section2__section3-content-title{
+    font-size: 0.8725rem;
+    color: $grey-lv1;
+    display: flex;
+    gap: 5px;
+}
+.reservation-section2__section3-content-box{
+    width: 8px; 
+    position: relative;
+
+    & > div{
+        position: absolute; 
+        top:0; 
+        left:0; 
+        width: 4px;  
+        height: 4px;    
+        border-radius: 100%;
+        background-color: red;
+    }
+}
+.reservation-section2__section3-content-onprice{
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+}
+.reservation-section2__section3-content-text{
+    display: flex;
+    align-items: flex-end;
+    gap:10px;
+}
+.reservation-section2__section3-content-text > span:nth-child(1){
+    font-size: 1.075rem;
+    font-weight: 600;
+}
+.reservation-section2__section3-content-text > span:nth-child(2){
+    font-size: 0.875rem;
+    text-decoration:line-through;
+    color: $grey-lv1;
+}
+
+// 섹션4
+.reservation-section2__section4{
+    padding-bottom: 24px;   
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $black-lv1;
+}
+.reservation-section2__section4-title{
+    font-size: 1.125rem;  
+    font-weight: 600;  
+    color: $black-default;
+}
+.reservation-section2__section4-content{
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+}
+.reservation-section2__section4-content-method{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    row-gap: 8px;
+    column-gap: 10px;
+}
+.reservation-section2__section4-content-button{
+    border-radius: 10px;
+    transition: 0.2s;
+    font-weight: 600;
+    border: solid 1.5px $grey-lv10;
+    background-color: white;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 2px;
+    cursor: pointer;
+  
+    &:hover{
+        color: rgb(18 115 228);    
+        border: solid 1.5px $blue-lv4;
+      }
+
+    & >img{
+        width: 25px;
+        height: 25px;
+        object-fit: cover;
+    }
+}
+.reservation-section2__button-active{
+    color: rgb(18 115 228);    
+    border: solid 1.5px $blue-lv4;
+}
+.reservation-section2__section4-content-host-method{
+    border-radius: 10px;
+    background-color: $blue-end;
+    width: 100%;
+    padding: 18px 14px;
+    display: flex;
+    flex-direction: column;
+    gap:5px;
+}
+.reservation-section2__section4-content-host-method > span{
+    font-size: 0.8725rem;
+    font-weight: 600;
+}
+.reservation-section2__section4-content-host-method > p{
+    font-size: 0.8425rem;
+}
+// 섹션5
+.reservation-section2__section5{
+    padding-bottom: 24px;   
+    border-bottom: solid 1px $grey-lv10;
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+    font-size: 0.9375rem;
+    color: $black-lv1;
+}
+.reservation-section2__section5-title{
+    font-size: 1.125rem;  
+    font-weight: 600;  
+    color: $black-default;
+}
+.reservation-section2__section5-content{
+    display: flex;  
+    flex-direction: column; 
+    gap: 24px;
+}

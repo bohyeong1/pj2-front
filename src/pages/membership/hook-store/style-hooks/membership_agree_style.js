@@ -4,15 +4,22 @@ function useMembershipAgreeStyle(data, states, refs, props){
 
     // =================================================
     // state //
-    const {setAll_check, checkbox_state, setCheckbox_state} = states
+    const {
+        setAll_check, 
+        checkbox_state, 
+        setCheckbox_state
+    } = states
 
+    // =================================================
+    // check box style //
     useEffect(()=>{
         for(const key in checkbox_state){
             if(checkbox_state[key] === true){
                 continue
             }else{
                 setAll_check(false)
-                return}            
+                return
+            }            
         }
         setAll_check(true)
     },[checkbox_state])
@@ -21,12 +28,12 @@ function useMembershipAgreeStyle(data, states, refs, props){
     // 전체동의 //
     function all_check_box(e){
         const check = e.target.checked
-        // console.log(check)
         const copied_state = {...checkbox_state}
+        
         for(const key in checkbox_state){
             copied_state[key] = check
         }
-        // console.log(copied_state)
+
         setCheckbox_state(copied_state)
     }
 

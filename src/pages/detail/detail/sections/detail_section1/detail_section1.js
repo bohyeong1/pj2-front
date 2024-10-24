@@ -3,7 +3,7 @@ import './detail_section1.scss';
 import default_data from "@/util/default_data/default_data";
 import { get_date_difference } from "@/util/function/util_function";
 
-function DetailSection1({data, user, evaluations, role}){
+function DetailSection1({data, user, evaluations}){
 
     if(data){
         return(

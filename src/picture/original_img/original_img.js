@@ -3,7 +3,7 @@ import './original_img.scss'
 import '../../manage_scss_style/commonness/commonness.scss'
 
 // 기본 이미지
-function OriginalImg({url, hover, handler}){
+function OriginalImg({url, hover = false, handler = false}){
 
     // =================================================
     // states //

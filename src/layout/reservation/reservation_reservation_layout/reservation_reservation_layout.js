@@ -12,6 +12,16 @@ function ReservationReservationLayout({children}){
         }
     })
 
+    return (
+        <div className="reservation-layout__content">
+            <div className="reservation-layout__content-section1">
+                {children_object.section2}
+            </div>
+            <div className="reservation-layout__content-section2">
+                {children_object.section1}
+            </div>
+        </div>
+    )
     
 }
 

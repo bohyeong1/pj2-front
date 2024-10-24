@@ -32,7 +32,6 @@ function ReservationApp(){
             <div className="ReservationApp-footer">
                 <Footer></Footer>
             </div>
-
         </div>
     )
 }

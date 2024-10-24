@@ -1,7 +1,4 @@
-import React from "react";
 import './Res-con-sec1.css'
-import connectData from "../../../../utilData/UtilFunction";
-import default_data from "../../../../utilData/defaultData";
 import { useNavigate } from "react-router-dom";
 
 function Res_con_sec1 ({data, param}){    
@@ -21,16 +18,15 @@ function Res_con_sec1 ({data, param}){
     const userData = JSON.parse(sessionStorage.getItem('userData')) 
     
     async function payment(data){
-        await connectData(`${default_data.d_base_url}/api/reserv/reserv`, 'POST',{
-            homeid : param,
-            buyerid : userData._id,
-            totalPrice : data.totalPrice,       /////최종가격
-            capacity : data.capacity,           ///////인원수
-            price : data.price,                ///1박당 가격
-            restDay : data.payday            /////숙박일수
+        // await connectData(`${default_data.d_base_url}/api/reserv/reserv`, 'POST',{
+        //     homeid : param,
+        //     buyerid : userData._id,
+        //     totalPrice : data.totalPrice,       /////최종가격
+        //     capacity : data.capacity,           ///////인원수
+        //     price : data.price,                ///1박당 가격
+        //     restDay : data.payday            /////숙박일수
 
-        })
-
+        // })
     }
 
     return(

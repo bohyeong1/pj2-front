@@ -6,7 +6,7 @@ import useDetailSection1PaymentStyle from "../../../hook_store/style_hooks/detai
 import default_data from "@/util/default_data/default_data";
 import useDetailSection1PaymentBusiness from "../../../hook_store/business_hooks/detail_section1_payment_business";
 
-function Section1Payment({data, params, role}){
+function Section1Payment({data, params}){
 
     // =================================================
     // const //

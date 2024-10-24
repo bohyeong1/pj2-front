@@ -26,7 +26,7 @@ import {
     // private page //
     Private_history,Private_management, Private_point, Private_wish,
     // reservation page //
-    ReservationApp,
+    Reservation,
     // terms page //
     Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,
 } from './pages';
@@ -44,6 +44,8 @@ import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 // context provider //
 import ImgProvider from '@/context/img_context/provider/img_provider';
 import AccDataProvider from "@/context/acc_data_context/provider/acc_data_provider"
+import CommonAccProvider from '@/context/common_acc_context/provider/common_acc_provider';
+import UserProvider from '@/context/user_context/provider/user_provider';
 
 function FinalRoutes(){
     return(
@@ -78,8 +80,15 @@ function FinalRoutes(){
                 {/* // =================================================
                     // reseration // */}
                 {/* reservation - 숙소 예약 페이지 */}
-                <Route path='/reservation' element={<GetAccUserRouter element={DefaultLayout}/>}>                                                             
-                    <Route path=':house' element={<></>}></Route>
+                <Route 
+                    path='/reservation' 
+                    element={
+                        <UserProvider>
+                            <CommonAccProvider>
+                                <GetAccUserRouter element={DefaultLayout}/>
+                            </CommonAccProvider>
+                        </UserProvider>}>                                                             
+                    <Route path=':house' element={<Reservation/>}></Route>
                 </Route>    
                
                 {/* // =================================================
@@ -118,9 +127,7 @@ function FinalRoutes(){
                                 <Parameter_router 
                                     element={DefaultLayout} 
                                     data_state={true}/>
-                            </AccDataProvider>
-                        }
-                >
+                            </AccDataProvider>}>
                     <Route 
                         path='update/:house/accomodation' 
                         element = {<AccUpdate option={'accomodation'}/>}>

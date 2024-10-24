@@ -57,7 +57,7 @@ export {default as Evaluation} from './evaluation/EvaluationApp'
 
 // =================================================
 // 예약 //
-export {default as ReservationApp}  from './reservation/reservationApp/ReservationApp'
+export {default as Reservation}  from './reservation/reservation/app/reservation'
 
 
 // =================================================
