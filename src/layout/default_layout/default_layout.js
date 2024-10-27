@@ -3,19 +3,21 @@ import Footer from "@/utilComponent/menu/footer/Footer"
 import { Outlet } from "react-router-dom"
 import './default_layout.scss'
 
-function DefaultLayout({login_user = null}){
+function DefaultLayout({login_user = null, host = false, footer = true}){
 
     return (
         <div className="default-layout__container">
             <nav className="default-layout__header">
-                <Main_menu login_user = {login_user}></Main_menu>
+                <Main_menu 
+                    login_user = {login_user}
+                    host = {host}/>
             </nav>
             <main className="default-layout__main">
-                <Outlet></Outlet>
+                <Outlet/>
             </main>
-            <footer className="default-layout__footer">
-                <Footer></Footer>
-            </footer>
+            {footer && <footer className="default-layout__footer">
+                <Footer/>
+            </footer>}
         </div>
     )
 }

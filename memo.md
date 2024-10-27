@@ -338,5 +338,8 @@ DB - User(사용자), Accomodation(숙소),
   redis stack server 로컬 연동 완료
   새로운 숙소 등록 했을 때, 몽고 db데이터를 redis데이터로 옮기는 동기화 작업필요.
 
+10.24
+- 예약 페이지 구조 및 레이아웃 디자인 변경 완료
+
   <code>
 </pre>

@@ -1,13 +1,13 @@
 import './host_update_accomodation_view1.scss'
-import useHostUpdateAccomodationView1Business from '../../../hook_store/business_hooks/host_update_accomodation_view1_business'
+import useHostRegistView0Business from '../../../hook_store/business_hooks/host_update_accomodation_view1_business'
 import Loading from '@/utilComponent/material/loading/loading'
 import { useContext, useState, useRef } from 'react'
 import { AccDataContext } from '@/context/acc_data_context/config/acc_data_context'
-import useHostUpdateAccomodationView1Style from '../../../hook_store/style_hooks/host_update_accomodation_view1_style'
+import useHostRegistView0Style from '../../../hook_store/style_hooks/host_update_accomodation_view1_style'
 import { state_store, reference_store } from '@/util/function/util_function'
 import '@/manage_scss_style/commonness/commonness.scss'
 
-function HostUpdateAccomodationView1(){
+function HostRegistView0(){
     // =================================================
     // context //
     const {acc_data, setAcc_data} = useContext(AccDataContext)
@@ -25,7 +25,7 @@ function HostUpdateAccomodationView1(){
     // =================================================
     // hooks //
     // business
-    const {fetch_acc, register, errors, getValues, isValid} = useHostUpdateAccomodationView1Business(
+    const {fetch_acc, register, errors, getValues, isValid} = useHostRegistView0Business(
         {
             'acc_data' : acc_data,
             'setAcc_data' : setAcc_data
@@ -45,7 +45,7 @@ function HostUpdateAccomodationView1(){
             },
         ]))
     // style
-    const {text_input_change} = useHostUpdateAccomodationView1Style({
+    const {text_input_change} = useHostRegistView0Style({
             'getValues' : getValues
         }, 
         state_store([
@@ -98,4 +98,4 @@ function HostUpdateAccomodationView1(){
     )
 }
 
-export default HostUpdateAccomodationView1
+export default HostRegistView0

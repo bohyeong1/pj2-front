@@ -1,5 +1,6 @@
 import { useState, useRef } from "react"
-import { useSearchParams } from "react-router-dom"
+import { useSearchParams, useLocation } from "react-router-dom"
+import default_data from "@/util/default_data/default_data"
 
 // =================================================
 // 스와이퍼 버튼 로직 모음 //
@@ -111,4 +112,21 @@ export function useExploreQueryString(){
         }       
     }
     return {final_key, sort_key}
+}
+
+// =================================================
+// regist page 현재 단계 get //
+export function useGetThisStep(){
+
+    // =================================================
+    // location //
+    const location = useLocation()
+
+    // =================================================
+    // const //
+    const regist_step = default_data.regist_step
+    const this_url = location.pathname.split('/')
+    const this_step = regist_step.indexOf(this_url[this_url.length-1])
+
+    return this_step
 }

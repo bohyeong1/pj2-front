@@ -38,14 +38,24 @@ function useAccManageBusiness(data, states, refs, props){
     // =================================================
     // click add button //
     function click_add_button(){
-        navigate('/Acc_regist/Acc_regist_lv0')
+        navigate('/host/regist/step0')
     }
 
     // =================================================
     // click accomodation button //
-    function click_accomodaton_button(_id){
-        // navigate(`/Acc_regist/update/${_id}?side=accomodation&main=accomodation-section1`)
-        navigate(`/host/update/${_id}/accomodation/title`)
+    function click_accomodaton_button(_id, data){
+        if(!data){
+            // error page redirection
+        }
+
+        if(data.acc_step >= 0 && data.acc_step < 11){
+            const step = data.acc_step
+            console.log(step)
+            navigate(`/host/regist/${_id}/step${step + 1}`)
+        }
+        else if(data.acc_step === 11){
+            navigate(`/host/update/${_id}/accomodation/title`)
+        }
     }
 
     return {click_add_button, click_accomodaton_button}

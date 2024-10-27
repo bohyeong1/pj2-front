@@ -2,9 +2,9 @@ import React, {useEffect, useState} from "react"
 import Card from "../../card/card"
 import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
-import { store } from "../../../../redux/config/configStore";
+import { store } from "@/redux/config/configStore";
 import { useDispatch } from "react-redux";
-import { initailized_map_target } from "../../../../redux/modules/mapSlice";
+import { initailized_map_target } from "@/redux/modules/mapSlice";
 
 function useMaterialKakaomapBusiness(hook_data, states, refs, props){
 
@@ -14,7 +14,15 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
 
     // =================================================
     // props // 
-    const {adress_data, set_main_adress, set_sub_coordinate, event, scroll, city, data} = props
+    const {
+        adress_data, 
+        set_main_adress, 
+        set_sub_coordinate, 
+        event, 
+        scroll, 
+        city, 
+        data
+    } = props
 
     // =================================================
     // 지도 외부 찍었을 때 오버레이 상태 초기화 //     

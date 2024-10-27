@@ -17,12 +17,15 @@ function Acc_initial_regist({login_user}){
     // =================================================
     // hooks //  
     // business
-    const {register, handleSubmit, errors, isValid, submit} = useAccInitialRegistBusiness(undefined,
+    const {
+        register, 
+        handleSubmit, 
+        errors, 
+        isValid, 
+        submit
+    } = useAccInitialRegistBusiness(undefined,
         state_store([
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            }
+            {loading, setLoading}
         ])
     )
 
@@ -94,7 +97,9 @@ function Acc_initial_regist({login_user}){
                     
                     <div className='acc-initial-regist-app__container-section2-part2'>
                         <span className='acc-initial-regist-app__container-section2-part2-title'>{login_user.name} 님 소개</span>
-                        <form className='acc-initial-regist-app__container-section2-part2-form' onSubmit={handleSubmit(submit)}>
+                        <form 
+                            className='acc-initial-regist-app__container-section2-part2-form' 
+                            onSubmit={handleSubmit(submit)}>
                             <textarea className={`acc-initial-regist-app__container-section2-part2-input border-textarea`}
                             spellCheck={false} placeholder={`${errors.text ? errors.text.message : '...!!'}`}
                             {...register('text')}></textarea>

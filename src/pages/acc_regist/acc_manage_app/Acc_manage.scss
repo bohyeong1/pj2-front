@@ -1,13 +1,19 @@
-@import '../../../manage_scss_style/commonness/colors';
+@import '@/manage_scss_style/commonness/colors';
 
 .Acc-manage__section1{
-    display: flex;  justify-content: space-between; align-items: center;
+    display: flex;  
+    justify-content: space-between; 
+    align-items: center;
     padding-bottom: 20px;
 }
 .Acc-manage__content{
-    width: 1200px;  min-height: 500px;
-    display: flex;  flex-direction: column;
-    gap:15px; padding-top: 50px;  padding-bottom: 50px;
+    width: 1200px;  
+    min-height: 500px;
+    display: flex;  
+    flex-direction: column;
+    gap:15px; 
+    padding-top: 50px;  
+    padding-bottom: 50px;
 }
 .Acc-manage__container{
     width:1920px;

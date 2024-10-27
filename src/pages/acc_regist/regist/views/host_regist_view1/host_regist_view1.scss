@@ -1,0 +1,57 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-regist-view1__container{
+    width:1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.host-regist-view1__content{
+    margin-top: 50px;   
+    margin-bottom: 20vh;
+    width:800px;
+}
+
+.host-regist-view1__content-title{
+    margin-bottom: 50px; 
+    font-weight: bold;
+    font-size: 1.725rem;
+}
+.host-regist-view1__content-section1-box{
+    border-radius: 10px; 
+    background-color: $grey-end-end; 
+    width: 100%;  
+    padding: 20px;  
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    display: flex;  
+    align-items: center;    
+    justify-content: center;    
+    flex-direction: column;
+}
+.host-regist-view1__content-section1{
+    width:100%;
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr); 
+    gap:30px;
+}
+.host-regist-view1__content-section1-box-text{
+    margin-top: 10px;   
+    font-weight: 600;
+}
+.host-regist-view1__active{
+    background-color: $blue-lv2;   
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    border: none;   
+    scale: 1.02;
+}
+
+// 푸터 
+.host-regist-view1__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;  
+    left: 50%;
+    transform: translateX(-50%);
+}

@@ -1,6 +1,6 @@
 import React, {Suspense} from "react";
 import { Route } from "react-router-dom";
-import Loading from "../../../utilComponent/material/loading/loading";
+import Loading from "@/utilComponent/material/loading/loading";
 
 // =================================================
 // accomodation update component //
@@ -32,32 +32,77 @@ function host_update_routes(keyword){
     if(keyword === 'accomodation'){
         return (
             <>
-                <Route exact path="title" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route1/></Suspense>}></Route>
+                <Route 
+                    exact path="title" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
-                <Route exact path="category" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route2/></Suspense>}></Route>
+                <Route 
+                    exact path="category" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="service-facility" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route3/></Suspense>}></Route>
+                <Route 
+                    exact path="service-facility" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="photo" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route4/></Suspense>}></Route>
+                <Route 
+                    exact path="photo" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="keyword" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route5/></Suspense>}></Route>
+                <Route 
+                    exact path="keyword" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="price" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route6/></Suspense>}></Route>
+                <Route 
+                    exact path="price" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="capacity" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route7/></Suspense>}></Route>
+                <Route 
+                    exact path="capacity" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="summary" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route8/></Suspense>}></Route>
+                <Route 
+                    exact path="summary" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
                 
-                <Route exact path="rule" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_accomodation_routes.route9/></Suspense>}></Route>
+                <Route 
+                    exact path="rule" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_accomodation_routes.route1/>
+                        </Suspense>}>
+                </Route>
             </>
         )
     }
@@ -65,23 +110,48 @@ function host_update_routes(keyword){
     else if(keyword === 'check'){
         return (
             <>
-                <Route exact path="checkin" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route1/></Suspense>}></Route>
+                <Route 
+                    exact path="checkin" 
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
                 <Route exact path="custom-path" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route2/></Suspense>}></Route>
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
                 <Route exact path="wifi" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route3/></Suspense>}></Route>
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
                 <Route exact path="manual" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route4/></Suspense>}></Route>
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
                 <Route exact path="checkout" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route5/></Suspense>}></Route>
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
 
                 <Route exact path="comunication" 
-                element={<Suspense fallback={<Loading part = {true}></Loading>}><host_update_check_routes.route6/></Suspense>}></Route>
+                    element={
+                        <Suspense fallback={<Loading part = {true}/>}>
+                            <host_update_check_routes.route1/>
+                        </Suspense>}>
+                </Route>
             </>
         )
 

@@ -32,7 +32,8 @@
 }
 
 .Acc-regist__s1-b2{
-    display: flex;  gap: 30px;
+    display: flex;  
+    gap: 30px;
 }
 .Acc-regist__s1-b2-b1,.Acc-regist__s1-b2-b2{
     width:380px;
@@ -59,7 +60,6 @@
     width: 100%;    
     position: relative;
     margin-bottom: 50px;    
-    border-bottom: solid 1px rgb(210,210,210);
     display: flex;  
     flex-direction: column; 
     gap:30px;   
@@ -112,11 +112,11 @@
 }
 .Acc-regist__s2-b1{
     position: absolute;
-    top:0;
+    top:110px;
     left:50%;
     transform: translateX(-50%);
     width: 100vw;
-    height: 100vh;
+    height: 550px;
     z-index: -1;
     opacity: 0.8;
 }

@@ -1,0 +1,91 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-regist-view3__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;
+}
+.host-regist-view3__container{
+    width:1920px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.host-regist-view3__content{
+    margin-top: 50px;   
+    margin-bottom: 20vh;
+    width:800px;
+}
+.host-regist-view3__content-title{
+    margin-bottom: 50px;
+    font-size: 1.725rem;    
+    font-weight: bold;
+}
+.host-regist-view3__content-section1{
+    width:100%;
+    display: grid; 
+    grid-template-columns: repeat(4, 1fr); 
+    gap:30px;
+}
+.host-regist-view3__content-section1-box{
+    width: 100%;
+}
+.host-regist-view3__content-section1-box-tex1{
+    margin-top: 10px;   
+    margin-bottom: 10px;    
+    font-weight: bold; 
+    font-size: 1.2rem;
+}
+.host-regist-view3__content-section1-box-tex2{
+    color: rgb(80,80,80);
+}
+.host-regist-view3__content-section1-box-part1{
+    display: flex;  
+    flex-direction: column; 
+    gap:5px;    
+    align-items: center;
+}
+.host-regist-view3__content-section1-box-part2{
+    display: flex; 
+    align-items: center; 
+    justify-content: space-between;   
+    width:  150px;
+}
+
+#Acc-regist-lv3-btn{
+    font-size: 1.725rem;    
+    padding: 0 10px;    
+    width: 35px;  
+    height: 35px;
+    display: flex;  
+    align-items: center;    
+    justify-content: center;
+}
+#Acc-regist-lv3-btn > img{
+    width: 15px;
+}
+
+
+.host-regist-view3__content-section1-box-part2-t1{
+    font-size: 1.2rem;
+    display: flex; 
+    align-items: center; 
+    gap: 5px;
+}
+.host-regist-view3__content-section1-box-part2-t1 > input, 
+.host-regist-view3__content-section1-box-part2-t1 > span{
+    display: flex;  
+    align-items: center;    
+    width: fit-content;
+}
+.host-regist-view3__content-section1-box-part2-t1 > input{
+    border: none;   
+    background:none;    
+    font-size: 1.2rem;  
+    height: 100%;   
+    width: 23px;
+}
+.host-regist-view3__content-section1-box-part2-t1 > input:focus{
+    outline: none;
+}

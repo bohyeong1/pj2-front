@@ -14,12 +14,11 @@ import {
     // accomodations detail page //
     Detail,
     // accomodations host page //
-    Acc_regist, Acc_initial, AccManage,
-    Acc_regist_lv0,AccRegistLv1, AccRegistLv2, AccRegistLv3,
-    AccRegistLv4, AccRegistLv5,AccRegistLv6, AccRegistLv7,
-    AccRegistLv8,AccRegistLv9, AccRegistLv10, AccRegistLv11,AccRegistLv12,
-    AccUpdate,
-    Acc_regist_start, Acc_regist_intro,
+    Acc_regist, 
+    AccUpdate, 
+    HostRegistView0,
+    Acc_initial, AccManage, 
+    Acc_regist_intro, AccRegist,
     Acc_initial_regist,
     // evaluation page //
     Evaluation,
@@ -33,19 +32,22 @@ import {
 // =================================================
 // routes //
 import host_update_routes from './router/routes/host/host_update_routes';
+import host_regist_routes from './router/routes/host/host_regist_routes';
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
 import Conditional_router from './router/custom_router/conditional_router';
-import Parameter_router from './router/custom_router/parameter_router';
+import HostRegistCheckRouter from './router/custom_router/host_regist_check_router';
 import LogCheckRouter from './router/custom_router/log_check_router';
 import GetAccUserRouter from './router/custom_router/get_acc_user_router';
+import HostLogCheckRouter from './router/custom_router/host_log_check_router';
 // =================================================
 // context provider //
 import ImgProvider from '@/context/img_context/provider/img_provider';
 import AccDataProvider from "@/context/acc_data_context/provider/acc_data_provider"
 import CommonAccProvider from '@/context/common_acc_context/provider/common_acc_provider';
 import UserProvider from '@/context/user_context/provider/user_provider';
+import HostAccProvider from './context/host_acc_context/provider/host_acc_provider';
 
 function FinalRoutes(){
     return(
@@ -97,37 +99,65 @@ function FinalRoutes(){
                 element={Acc_regist} redirection_url={'/Acc_initial'}></Conditional_router>}></Route>                                                         {/*숙소 호스팅 페이지*/}
                 <Route path='/Acc_initial' element={<Acc_initial></Acc_initial>}></Route>                                                                     {/*호스트 등록 페이지*/}   
                 <Route path='/Acc_initial_regist' element={<Private_router data_state={true} element={Acc_initial_regist}/>}></Route>                         {/*초기 호스트 정보 기입 페이지*/}    
-                <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccManage}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
-                <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/}
-                <Route path='/Acc_regist/Acc_regist_start' element={<Acc_regist_start></Acc_regist_start>}></Route>                                           {/*숙소 등록 시작 페이지*/} 
-                    
-                <Route path="/Acc_regist/Acc_regist_lv0" element={<Parameter_router element={Acc_regist_lv0} data_state={true}/>} />
-                <Route path="/Acc_regist/Acc_regist_lv0/:house" element={<Parameter_router element={Acc_regist_lv0} data_state={true}/>}/>                        {/*숙소 등록 페이지 lv0*/}
-                <Route path="/Acc_regist/AccRegistLv1/:house" element={<Parameter_router element={AccRegistLv1} data_state={true}/>}/>                            {/*숙소 등록 페이지lv1*/} 
-                <Route path="/Acc_regist/AccRegistLv2/:house" element={<Parameter_router element={AccRegistLv2} data_state={true}/>}/>                            {/*숙소 등록 페이지lv2*/}   
-                <Route path="/Acc_regist/AccRegistLv3/:house" element={<Parameter_router element={AccRegistLv3} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv3*/}
-                <Route path="/Acc_regist/AccRegistLv4/:house" element={<Parameter_router element={AccRegistLv4} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv4*/}      
-                <Route path="/Acc_regist/AccRegistLv5/:house" element={<Parameter_router element={AccRegistLv5} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv5*/}
-                <Route path="/Acc_regist/AccRegistLv6/:house" element={<ImgProvider><Parameter_router element={AccRegistLv6} data_state={true}/></ImgProvider>}/> {/*숙소 등록 페이지 lv6*/}                                               
-                <Route path="/Acc_regist/AccRegistLv7/:house" element={<Parameter_router element={AccRegistLv7} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv7*/}
-                <Route path="/Acc_regist/AccRegistLv8/:house" element={<Parameter_router element={AccRegistLv8} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv8*/}
-                <Route path="/Acc_regist/AccRegistLv9/:house" element={<Parameter_router element={AccRegistLv9} data_state={true}/>}/>                            {/*숙소 등록 페이지 lv9*/}
-                <Route path="/Acc_regist/AccRegistLv10/:house" element={<Parameter_router element={AccRegistLv10} data_state={true}/>}/>                          {/*숙소 등록 페이지 lv10*/}
-                <Route path="/Acc_regist/AccRegistLv11/:house" element={<Parameter_router element={AccRegistLv11} data_state={true}/>}/>                          {/*숙소 등록 페이지 lv11*/}     
-                <Route path="/Acc_regist/AccRegistLv12/:house" element={<Parameter_router element={AccRegistLv12} data_state={true}/>}/>                          {/*숙소 등록 페이지 lv12*/}     
-
-                <Route path="/Acc_regist/update/:house" element={<Parameter_router element={AccUpdate} data_state={true}/>}/>                                     {/*숙소 업데이트 페이지*/}  
                 
+                <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccManage}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
+                
+                <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/} 
+               
                 {/* // =================================================
                     // host // */}
-                {/* host - 숙소 업데이트 페이지 */}            
-                <Route path='/host' 
-                       element = {
-                            <AccDataProvider>
-                                <Parameter_router 
+
+                {/* host - 숙소 등록 페이지 */}
+                <Route 
+                    path='/host' 
+                    element = {
+                        <UserProvider>
+                            <HostAccProvider>
+                                <ImgProvider>
+                                    <HostRegistCheckRouter 
+                                        element={DefaultLayout} 
+                                        redirection_url = {'/Acc_initial'}
+                                        footer = {false}
+                                        host={true}/>
+                                </ImgProvider>
+                            </HostAccProvider>
+                        </UserProvider>}>
+                    <Route 
+                        path='regist/:house' 
+                        element = {<AccRegist/>}>
+                        {host_regist_routes()}
+                    </Route>
+                </Route>
+
+                <Route
+                    path='/host'
+                    element={
+                        <HostAccProvider>
+                            <UserProvider>
+                                <HostLogCheckRouter
                                     element={DefaultLayout} 
-                                    data_state={true}/>
-                            </AccDataProvider>}>
+                                    redirection_url = {'/Acc_initial'}
+                                    footer = {false}
+                                    host={true}/>
+                            </UserProvider>
+                        </HostAccProvider>
+                    }>
+                    <Route 
+                        path='regist/step0' 
+                        element = {<HostRegistView0/>}>
+                    </Route>
+                </Route>
+
+                {/* host - 숙소 업데이트 페이지 */}            
+                <Route 
+                    path='/host' 
+                    element = {
+                        <AccDataProvider>
+                            <HostRegistCheckRouter 
+                                element={DefaultLayout} 
+                                redirection_url = {'/Acc_initial'}
+                                host={true}/>
+                        </AccDataProvider>}>
                     <Route 
                         path='update/:house/accomodation' 
                         element = {<AccUpdate option={'accomodation'}/>}>

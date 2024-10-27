@@ -155,19 +155,36 @@ const default_data = {
     // =================================================
     // 숙소 등록 절차 //
     regist_step:[
-        'Acc_regist_lv0',
-        'AccRegistLv1',
-        'AccRegistLv2',
-        'AccRegistLv3',
-        'AccRegistLv4',
-        'AccRegistLv5',
-        'AccRegistLv6',
-        'AccRegistLv7',
-        'AccRegistLv8',
-        'AccRegistLv9',
-        'AccRegistLv10',
-        'AccRegistLv11',
-        'AccRegistLv12'
+        'step0',
+        'step1',
+        'step2',
+        'step3',
+        'step4',
+        'step5',
+        'step6',
+        'step7',
+        'step8',
+        'step9',
+        'step10',
+        'step11',
+        'step12'
+    ],
+
+    // =================================================
+    // 숙소 등록 절차 data field name //
+    regist_field:[
+        null, 
+        'category', 
+        'space_category', 
+        'base_facility', 
+        'service_facility', 
+        ['main_adress', 'sub_adress', 'search_adress'], 
+        ['main_img', 'sub_img'], 
+        'keywords',
+        ['title', 'capacity'], 
+        'summary', 
+        'rules',
+        ['price', 'addPrice']
     ],
 
     // =================================================
@@ -194,23 +211,6 @@ const default_data = {
             date : -1
         },
         null
-    ],
-
-    // =================================================
-    // 숙소 등록 절차 data field name //
-    regist_field:[
-        null, 
-        'category', 
-        'space_category', 
-        'base_facility', 
-        'service_facility', 
-        ['main_adress', 'sub_adress', 'search_adress'], 
-        ['main_img', 'sub_img'], 
-        'keywords',
-        ['title', 'capacity'], 
-        'summary', 
-        'rules',
-        ['price', 'addPrice']
     ],
 
     // =================================================
@@ -453,9 +453,6 @@ const default_data = {
         ,plus :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAANElEQVR4nGNgGAVUBv+hmGbg/6gFhMD/0SCieRD9pxIeOAsIgf+jqYgQ+D8aRMM/iEYgAACwS0O9h1hB4QAAAABJRU5ErkJggg=='
         ,minus :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIUlEQVR4nGNgGAWjYBSMApLBfyrhgbNgFIyCUTAKGDABAOkcI91xODUvAAAAAElFTkSuQmCC'
         ,home :'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAFvklEQVR4nO2ZC5BWYxjHf1srWbeUWYpUIkZGhGYNBuMWE4Nk3MYlE4pc0mRyKZdqjEyEEJWRYqbkmsqlC5PNdSbsyHXEtmqVyA5dlDUP/zPzeOc97fm+/XZj5vvPnJnvO+e857zP+z7P//k/z4EiiiiiiIzoCIwA9s94f2vgEKAfcDFQxn8AxwE/ANOBVcAc4DSgRcr9LwBbgHp3/Aw8ALRkG+FaGXGiW+lLgQ+BL4HrgV2DMVWavBnzKjAFGAv8Cuzd3Aa01gTqNQn7H+Io7dJPwCPAQTr/mcb9Hty/AtiLZkQH4D1gBlABvAhUA4OAVpH79wRGAjXAm8BqGfJbcF+Nnt0s6KFJ3wWUuPOHA7OB5cAVQGlk7HbA+cA7MmQD0G5bGNIHqAXeBj4Gjk5xp0XAMuDcwFiPnnLNtcAksZ7FWvsmtuHvoDUf7qX/NsnvgSeB8sj9vYGPgA+Ak1KeaUY+pt35BVgPdGkqA4wOJwB/OmZKsBNwr3ZpYIQ6baLnAV8oNo501yyWpgUUbMfrQOdCG7Ej8LIePgT4URMO3aU7sFCUm+yYh8XLAO3gczLoDTf5PwJj6oDBW8lDOaFczDRFQWo4QOfmRWjSjLtIATsRaBt5plH0uGDSc/Suq5UU/bXFemfe2A/4SitzXWR1b5c7XRgZa8lvPLBS7OV37wgFdJIMRwarboE+MzDG4uYWt5iZUaGX9Qf2VbDOAtpEWKdKuWT3yHMOBSp1HAb0Vd6wya0TGaThTLmhN+jTFJZMxXfAqCAoTQN9oxUNXWWs3MmoOUSJdmW901Y1MrIh7Kz3bnbGbJHb7pZ1R2qVuDz6Kthtp0IcK0Of0AQSmKJ91k3EpEknckNPeUXyjM3ymAuyDO6unGG5w6Ob3GliRIqUKTa+BU4QGbzvJrAkxQWzoAVwpVzSFuMYudrCLGTQTXJjeHB+F+B5+X5M4J0uKe8ZaFaKqMwVfYC39NuCf5h024ENDdxHyWxswD4lMnCF3MrDhONGZ8RDhcoH/FOEGbl4tM1aw3TUhCZFBpwimh0cyPp6KQFbsUJiIPBwvoNt9Tdpcsbx2wfXO0tArnJGbFRyLDRGKIfljdpAC5l0SWD5YI27vi6iyQqF8dqVvLEsSE6VYqA7gtq7RvVKGkqVHK8CRm9F4nv4jD49khZyQmVEpdZFzo0JxnWRjLlfxVSd6DspdVtFAvdU4FY1KFbo/gSv6XremB2ZdOywrfe6aYPU7jBRdhL8IwNDzgC+llsuUGnQT2TyuXvmkhR1nRlTMxpizJagg1wtwWiJP8NtgSF3iuJDmu4BLHX/q3Lom0UxPqMhJke8m1j3JMHdSoyjIq51D3BzilxaEujAfNXBv1yhocOKMC9ZNsmllksjLRNBTAsMsRrlhsh7j5cMSbA2Qv85YXBGQ+a7MS2VFM3XuwJDgft0bWhgyAQpghC9gbnuf9gHyxk9A9mRdrwbjNvk2kK2GA/q942BIZMk9700WgqcrR017CD91mhclsEQU6QedWpQoNxhHRNUdXpDnlYjO0EJsIek+jM6Vy46LgjGNGCISXiP1a4BN0T1/nTXaUyS3Qy5YIj+wGT97hpQcaPQQnkhzRArvDyqFTfJxOulyYzdLnH3vaTyNsQgxQ+qKq1PVjCUBQWTP8Je7lJRpk38GtfEDjE3JWMPAR4HLpe6sMRcULSPNAeSmtojax2yQFWlX6y+ThpZi/aclAZ5o9EjRW/FmtcNwXTYyepKWrysk8oeoLxTrfK2ydAn6HLU5/gJrZPYbJU6LfNEw+0i+WSlaLvJkOSE5Aj7Xx6tJQTHSaasUfxMFXWndeK7Ak/p+U26M486Q8qDrmNvfUuZr09rlar0egUxNFwtpUQUlonZFmnHzPiDaWKUyqfrtUP2me0TsdhiyfKzUvrBYd4wxTxZgvMVZfec26WNQRut+kwZU5Eny5jr3dQcH3yKKKII/r/4C/uk62fVAF4WAAAAAElFTkSuQmCC'
-        ,bedroom :'https://www.southernliving.com/thmb/Ese8RqlXapIv06Dyadkahils2IY=/750x0/filters:no_upscale():max_bytes(150000):strip_icc():format(webp)/27566_IdeaHouse15660F-1905e09febe248c4ab47eff5cdbf468d-62d993a843b24796aab125080d8482cf.jpg'
-        ,decoroom :'https://www.jfsgagu.co.kr/shopimages/jfsgagu/030008000112.jpg?1629943955'
-        ,door :'https://w0.peakpx.com/wallpaper/257/683/HD-wallpaper-beautiful-house-gate-windows-house-flowers-white.jpg'
         ,myprofile :'https://kr.object.ncloudstorage.com/sbh-repository/4d2fa9b3-a00f-4dcc-87fa-4935003f15c1.PNG'
         ,airbnb : 'https://www.infostockdaily.co.kr/news/photo/202311/195482_185184_309.jpg'
         ,hotelsdotcom : 'https://newsfield.net/wp-content/uploads/2023/10/img-3.png'

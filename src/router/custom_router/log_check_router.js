@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react"
+import {useEffect, useState} from "react"
 import { Navigate } from "react-router-dom"
 import { check_login } from "@/util/function/util_function"
 import Loading from "../../utilComponent/material/loading/loading"

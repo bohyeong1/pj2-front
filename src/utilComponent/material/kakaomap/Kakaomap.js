@@ -13,13 +13,13 @@ function Kakaomap({adress_data, set_main_adress, set_sub_coordinate, event, scro
     // business
     const {close_overlay} = useMaterialKakaomapBusiness(undefined, undefined, undefined, 
         {
-            'adress_data' : adress_data,
-            'set_main_adress' : set_main_adress,
-            'set_sub_coordinate' : set_sub_coordinate,
-            'event' : event,
-            'scroll' : scroll,
-            'city' : city,
-            'data' : data
+            adress_data,
+            set_main_adress,
+            set_sub_coordinate,
+            event,
+            scroll,
+            city,
+            data 
         }
     )  
 

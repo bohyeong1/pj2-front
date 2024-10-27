@@ -33,7 +33,9 @@ function AccManage({login_user}){
             <div className="Acc-manage__content">
                 <div className="Acc-manage__section1">
                     <div className="Acc-manage__section1-title">숙소</div>
-                    <div className="Acc-manage__section1-add-button small-button" onClick={click_add_button}>
+                    <div 
+                        className="Acc-manage__section1-add-button small-button" 
+                        onClick={click_add_button}>
                         <span>숙소 추가</span>
                     </div>
                 </div>
@@ -47,13 +49,20 @@ function AccManage({login_user}){
                 <div className="Acc-manage__section2-box">
                     {acc_data ? acc_data.map((el, id)=>{
                         return(
-                            <div className="Acc-manage__section2-box-container" key={id} onClick={()=>{click_accomodaton_button(el._id)}}>
+                            <div 
+                                className="Acc-manage__section2-box-container" 
+                                key={id} 
+                                onClick={()=>{click_accomodaton_button(el._id, el)}}>
                                 <div className="Acc-manage__section2-box-container-part1">
-                                    <img className="Acc-manage__section2-box-container-part1-img" src={el.main_img}></img>
+                                    <img 
+                                        className="Acc-manage__section2-box-container-part1-img" 
+                                        src={el.main_img}/>
                                     <span style={{fontWeight:'bold'}}>{el.title}</span>
                                 </div>
                                 <div className="Acc-manage__section2-box-container-part2">{el.search_adress}</div>
-                                <div className="Acc-manage__section2-box-container-part3" style={{color:`${el.regist_state ? 'black' : 'red'}`}}>
+                                <div 
+                                    className="Acc-manage__section2-box-container-part3" 
+                                    style={{color:`${el.regist_state ? 'black' : 'red'}`}}>
                                     <span>{el.regist_state ? '등록 완료' : '등록중'}</span>
                                 </div>
                             </div>

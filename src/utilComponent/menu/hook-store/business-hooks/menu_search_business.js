@@ -48,7 +48,7 @@ function useMenuSearchBusiness(data, states, refs, props){
             const search_result = await connect_data(`${default_data.d_base_url}/api/common/search`,'POST',{
                 input : input
             })
-            console.log(search_result)
+
             if(search_result.server_state){
                 setOnchange_search_data(search_result)
             }

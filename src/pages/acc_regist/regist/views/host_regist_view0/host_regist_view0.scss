@@ -1,0 +1,88 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-regist-view0__container{
+    width:1920px; 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+// =================================================
+// contents // 
+.host-regist-view0__content{
+    padding-top: 50px;
+    display: flex;  
+    width: 800px;  
+    align-items: center; 
+    flex-direction: column; 
+    gap:30px;
+}
+.host-regist-view0__content-section2-part1-text1, 
+.host-regist-view0__content-section2-part2-text1, 
+.host-regist-view0__content-section2-part3-text1{
+    font-size: 1.525rem;    
+    display: flex;  
+    gap:10px;   
+    align-items: center;    
+}
+.host-regist-view0__content-section2-part1-text2,
+.host-regist-view0__content-section2-part2-text2,
+.host-regist-view0__content-section2-part3-text2{
+    font-size: 1.125rem;
+}
+.host-regist-view0__content-section2-part1, 
+.host-regist-view0__content-section2-part2{
+    border-bottom: solid 1px $grey-lv10;
+}
+
+// sec1
+.host-regist-view0__content-section1{
+    font-size: 1.725rem;    
+    font-weight: 600;
+    width: 100%;    
+    border-bottom: solid 1px $grey-lv10; 
+    padding-bottom: 30px;
+}
+
+// sec2
+.host-regist-view0__content-section2{
+    display: flex;  
+    flex-direction: column; 
+    gap:20px;    
+    width: 100%;
+}
+.host-regist-view0__content-section2-part1, 
+.host-regist-view0__content-section2-part2, 
+.host-regist-view0__content-section2-part3{
+    display: flex;  
+    flex-direction: column; 
+    gap:20px;   
+    padding-bottom: 20px;
+}
+.host-regist-view0__content-section2-logo{
+    font-size: 1.425rem;    
+    font-weight: 600;
+}
+.host-regist-view0__content-section2-part1-text2, 
+.host-regist-view0__content-section2-part2-text2, 
+.host-regist-view0__content-section2-part3-text2{
+    display: flex;  
+    gap:20px;   
+    justify-content: space-between;
+}
+.host-regist-view0__img{
+    border-radius: 15px;    
+    width: 170px;   
+    height: 120px;    
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ;   
+}
+
+
+// =================================================
+// footer // 
+.Acc-resist-lv0__footer{
+    width:800px;
+    position: fixed;
+    bottom: 0;  left: 50%;
+    transform: translateX(-50%);
+}

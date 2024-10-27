@@ -3,7 +3,6 @@ import './main_menu.scss'
 import { Link } from "react-router-dom";
 import LogModal from "../../modal/logModal/LogModal";
 import SearchMenu from "../search-menu/search_menu";
-import { useSelector } from "react-redux";
 import default_data from "@/util/default_data/default_data";
 import { state_store } from "@/util/function/util_function";
 import useMenuMainBusiness from "../hook-store/business-hooks/menu_main_business";
@@ -11,10 +10,6 @@ import useMenuMainStyle from "../hook-store/style-hooks/menu_main_style";
 import menu_icon from '@/assets/icon/menu-icon.png'
 
 const Main_menu = forwardRef((props, ref) => {    
-
-    // =================================================
-    // redux states //
-    const overay_state = useSelector(state => state.overay.open_target_id)
 
     // =================================================
     // states //
@@ -25,7 +20,7 @@ const Main_menu = forwardRef((props, ref) => {
 
     // =================================================
     // props //
-    const {data, search, scroll, login_user, border = true} = props
+    const {data, search, host = false, login_user, border = true} = props
 
     // =================================================
     // hooks //
@@ -57,7 +52,7 @@ const Main_menu = forwardRef((props, ref) => {
                 </Link>
 
                 {/* host menu */}
-                {host_location &&
+                {host &&
                 <div className={`main-menu__host`}>
                     {default_data.host_menus.map((el,id)=>{
                         return(

@@ -3,11 +3,19 @@ import { useEffect } from "react"
 function useMenuHostfooterBusiness(data, states, refs, props){
     // =================================================
     // data //
-    const {regist_step, this_step} = data
+    const {
+        regist_step, 
+        this_step
+    } = data
 
     // =================================================
     // states //
-    const {prev_url, setPrev_url, next_url, setNext_url} = states
+    const {
+        prev_url, 
+        setPrev_url, 
+        next_url, 
+        setNext_url
+    } = states
     
     // =================================================
     // prev page url return //

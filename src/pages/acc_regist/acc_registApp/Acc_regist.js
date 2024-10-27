@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import default_data from "../../../utilData/defaultData";
 import connectData from "../../../utilData/UtilFunction";
 import History_main from "../../../picture/history-main/History-main";
-import host_background from '@/assets/woman-8587090_1280.png'
+import host_background from '@/assets/background/host-main-back.png'
 
 function Acc_regist({login_user}){
 
@@ -35,7 +35,7 @@ function Acc_regist({login_user}){
 
     return(
         <div className="Acc-regist__pp">
-            <Main_menu login_user={login_user}></Main_menu>
+            <Main_menu login_user={login_user} host = {true}></Main_menu>
             
             <div className="Acc-regist__container">
                 <div className="Acc-regist__sec1">
@@ -51,28 +51,18 @@ function Acc_regist({login_user}){
                             <div className="Acc-regist__s1-b2-b2-t2">게스트들에게 자신을 소개하는 글을 작성해 보세요!</div>
                             <div className="Acc-regist__s1-b2-b2-t3" onClick={()=>{navigator('/Acc_regist/Acc_regist_intro')}}>이동하기</div>
                         </div>
-
                     </div>
                 </div>
 
                 <div className="Acc-regist__sec2">
-                    <img className="Acc-regist__s2-b1"
-                         src={host_background}/>
+                    <img 
+                        className="Acc-regist__s2-b1"
+                        src={host_background}/>
                     <div className="Acc-regist__s2-b2">
                         <div className="Acc-regist__s2-b2-d1">
                             <span className='acc-regist-title'>다음 단계</span>
                         </div>
-                        <div className="Acc-regist__s2-b2-d2">
-                            <div className="Acc-regist__nodata"  style={{display:`${login_user.hostText ? 'none' : 'block'}`}}>
-                                <span style={{marginRight : '15px'}}>게스트에게 보여줄 내용을 작성해 주세요!</span>
-                                <img className="Acc-regist__nodata-img" src={default_data.d_imgs.smile}></img>
-                            </div>
-                            <textarea style={{display:`${!login_user.hostText ? 'none' : 'block'}`}} readOnly className="Acc-regist__s2-b2-d2-text" spellCheck={false}
-                            value={login_user.hostText ? login_user.hostText : ''}></textarea>
-                            
-                        </div>
                     </div>
-
                 </div>
 
                 <div className="Acc-regist__sec3">
