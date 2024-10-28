@@ -19,7 +19,6 @@ function useHostRegistView7Style(data, states, refs, props){
 
         if(categories.current[id].dataset.state === 'true'){
             categories.current[id].dataset.state = false
-            categories.current[id].classList.remove('acc-regist-sellect-box-active')
 
             const prev_data = [...current_data]
             const index = current_data.indexOf(sellect_keywords)
@@ -30,9 +29,6 @@ function useHostRegistView7Style(data, states, refs, props){
                 setCurrent_data(new_data)
             }
         }else{
-            if(!categories.current[id].classList.contains('acc-regist-sellect-box-active')){
-                categories.current[id].classList.add('acc-regist-sellect-box-active')
-            }
             categories.current[id].dataset.state = true
 
             if(!current_data.includes(sellect_keywords)){

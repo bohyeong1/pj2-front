@@ -1,31 +1,31 @@
 @import '@/manage_scss_style/commonness/colors';
 
-.Acc-regist-lv8__footer{
+.host-regist-view8__footer{
     width:800px;
     position: fixed;
     bottom: 0;
 }
-.Acc-regist-lv8__container{
+.host-regist-view8__container{
     width:1920px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Acc-regist-lv8__content{
+.host-regist-view8__content{
     margin-top: 50px;
     width:800px;
 }
-.Acc-regist-lv8__content-title{
+.host-regist-view8__content-title{
     margin-bottom: 50px;
     font-size: 1.725rem;    
     font-weight: bold;
 }
-.Acc-regist-lv8__section-box{
+.host-regist-view8__section-box{
     width: 8px; 
     position: relative;
 }
-.Acc-regist-lv8__section-box > div{
+.host-regist-view8__section-box > div{
     position: absolute; 
     top:0; 
     left:0; 
@@ -36,50 +36,52 @@
 }
 
 // sec1
-.Acc-regist-lv8__content-section1{
+.host-regist-view8__content-section1{
     width:100%;
     display: flex; 
     gap:20px;    
     flex-direction: column;
 }
-.Acc-regist-lv8__content-section1-wrapper{
+.host-regist-view8__content-section1-wrapper{
     width: 100%;    
     height: fit-content;    
     display: flex;  
     flex-direction: column;
     gap:10px;
 }
-.Acc-regist-lv8__content-section1-box1-title, 
-.Acc-regist-lv8__content-section2-title{
+.host-regist-view8__content-section1-box1-title, 
+.host-regist-view8__content-section2-title{
     font-size: 1.125rem;    
     font-weight: bold;
     display: flex;  
     gap: 5px;
 }
-.Acc-regist-lv8__content-section1-box1-text1{
+.host-regist-view8__content-section1-box1-text1{
     height: 50px;  
     width: 100%;  
     overflow: hidden;
 }
-.Acc-regist-lv8__content-section1-box1-text1::placeholder{
+.host-regist-view8__content-section1-box1-text1::placeholder{
     font-size: 0.875rem;    
     line-height: 20px;
 }
-.Acc-regist-lv8__content-section1-box1, 
-.Acc-regist-lv8__content-section1-box2{
+.host-regist-view8__content-section1-box1, 
+.host-regist-view8__content-section1-box2{
     width: 100%;
 }
 
-.Acc-regist-lv8__content-section1-box2{
+.host-regist-view8__content-section1-box2{
     display: flex; 
     flex-direction: column; 
     gap: 10px;
 }
-
+.host-regist-view8__content-section1-box2-text1{
+    font-size: 0.825rem;
+}
 
 
 // sec2
-.Acc-regist-lv8__content-section2{
+.host-regist-view8__content-section2{
     margin-top: 50px; 
     width:100%;
     display: flex; 
@@ -87,14 +89,14 @@
     flex-direction: column;
 }
 
-.Acc-regist-lv8__content-section2-box1-part1{
+.host-regist-view8__content-section2-box1-part1{
     display: flex; 
-    align-items: center; 
+    align-items: flex-end; 
     justify-content: space-between;   
     width:  150px;
 }
 
-#Acc-regist-lv8__button{
+#host-regist-view8__button{
     width: 40px; 
     height: 40px; 
     font-size: 1.5rem;
@@ -102,29 +104,29 @@
     justify-content: center;    
     align-items: center;
 }
-.Acc-regist-lv8__content-section2-box1-part1-text1{
-    font-size: 1.6rem;
+.host-regist-view8__content-section2-box1-part1-text1{
+    font-size: 1.125rem;
     display: flex;  
     gap:1px;
 }
-.Acc-regist-lv8__content-section2-box1-part1_value{
-    width: 31px;    
+.host-regist-view8__content-section2-box1-part1_value{
+    width: 20px;    
     display: block;
 }
-.Acc-regist-lv8__content-section2-box1{
+.host-regist-view8__content-section2-box1{
     display: flex;
     width: 100%; 
     gap:30px;   
     align-items: center;
 }
-.Acc-regist-lv8__content-section2-box1-part1-t1{
+.host-regist-view8__content-section2-box1-part1-t1{
     width:54px; 
     display: flex; 
     justify-content: space-between;
 }
 
 // sec3 
-.Acc-regist-lv8__content-sec3{
+.host-regist-view8__content-sec3{
     margin-top: 40px;
     color: $red-lv3;
 }

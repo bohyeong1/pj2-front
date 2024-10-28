@@ -113,13 +113,11 @@ function FinalRoutes(){
                     element = {
                         <UserProvider>
                             <HostAccProvider>
-                                <ImgProvider>
-                                    <HostRegistCheckRouter 
-                                        element={DefaultLayout} 
-                                        redirection_url = {'/Acc_initial'}
-                                        footer = {false}
-                                        host={true}/>
-                                </ImgProvider>
+                                <HostRegistCheckRouter 
+                                    element={DefaultLayout} 
+                                    redirection_url = {'/Acc_initial'}
+                                    footer = {false}
+                                    host={true}/>
                             </HostAccProvider>
                         </UserProvider>}>
                     <Route 

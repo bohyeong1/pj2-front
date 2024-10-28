@@ -1,5 +1,4 @@
 import default_data from "@/util/default_data/default_data";
-import session_storage from "@/sessionStorage/session_storage"
 import { useParams } from "react-router-dom"
 import { useEffect } from "react"
 import { connect_data_width_cookies } from "@/util/function/util_function";

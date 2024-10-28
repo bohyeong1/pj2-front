@@ -1,22 +1,18 @@
-import {useRef, useState} from "react";
+import {useRef, useState, useContext} from "react";
 import './host_regist_view8.scss'
 import Host_footer from "@/utilComponent/menu/host-footer/Host-footer";
 import '@/manage_scss_style/commonness/commonness.scss'
 import Loading from "@/utilComponent/material/loading/loading";
-import session_storage from "@/sessionStorage/session_storage";
 import useHostRegistView8Business from "../../hook_store/business_hooks/host_regist_view8_business";
 import useHostRegistView8Style from "../../hook_store/style_hooks/host_regist_view8_style";
-import default_data from "@/util/default_data/default_data";
 import { state_store, reference_store } from "@/util/function/util_function";
+import { HostAccContext } from "@/context/host_acc_context/config/host_acc_context";
 
-function HostRegistView8({login_user, this_step}){
-    // =================================================
-    // accomodation information //
-    const accomodation = session_storage.load('house')
+function HostRegistView8(){
 
     // =================================================
-    // this level's accomodation field name //
-    const field_name = default_data.regist_field[this_step]
+    // context states //
+    const {host_acc, setHost_acc} = useContext(HostAccContext)
 
     // =================================================
     // refs //
@@ -25,12 +21,12 @@ function HostRegistView8({login_user, this_step}){
 
     // =================================================
     // states //
-    const [title, setTitle] = useState(accomodation[field_name[0]] ? accomodation[field_name[0]] : null)
-    const [capacity, setCapacity] = useState(accomodation[field_name[1]] && accomodation[field_name[1]] > 0 ? accomodation[field_name[1]] : 1)
-    const [prev_data, setPrev_data] = useState(accomodation[field_name[0]] && accomodation[field_name[1]] && accomodation[field_name[1]] > 0 ? 
+    const [title, setTitle] = useState(host_acc.title ? host_acc.title : null)
+    const [capacity, setCapacity] = useState(host_acc.capacity && host_acc.capacity > 0 ? host_acc.capacity : 1)
+    const [prev_data, setPrev_data] = useState(host_acc.title && host_acc.capacity && host_acc.capacity > 0 ? 
         {
-            [field_name[0]] : accomodation[field_name[0]],
-            [field_name[1]] : accomodation[field_name[1]]
+            title : host_acc.title,
+            capacity : host_acc.capacity
         } : null)
     const [loading, setLoading] = useState(null)
 
@@ -43,7 +39,11 @@ function HostRegistView8({login_user, this_step}){
         errors, 
         watch, 
         isValid
-    } = useHostRegistView8Business(undefined, 
+    } = useHostRegistView8Business(
+        {
+            host_acc,
+            setHost_acc
+        }, 
         state_store([
             {title, setTitle},
             {prev_data, setPrev_data},
@@ -66,71 +66,88 @@ function HostRegistView8({login_user, this_step}){
 
     return(
         loading === false ? <Loading></Loading> :
-        <div className="Acc-regist-lv8__container">
-            <div className="Acc-regist-lv8__content">
-                <div className="Acc-regist-lv8__content-title">
+        <div className="host-regist-view8__container">
+            <div className="host-regist-view8__content">
+                <div className="host-regist-view8__content-title">
                     <span>숙소를 대표하는 이름과 인원을 선택해 주세요!</span>
                 </div>
 
-                <div className="Acc-regist-lv8__content-section1">                    
-                    <div className="Acc-regist-lv8__content-section1-box1-title">
+                <div className="host-regist-view8__content-section1">                    
+                    <div className="host-regist-view8__content-section1-box1-title">
                         <span>숙소 이름</span>
-                        <div className="Acc-regist-lv8__section-box">
+                        <div className="host-regist-view8__section-box">
                             <div></div>
                         </div>
                     </div>
 
-                    <div className="Acc-regist-lv8__content-section1-wrapper">
-                        <form className="Acc-regist-lv8__content-section1-box1">                        
-                            <textarea  className="Acc-regist-lv8__content-section1-box1-text1 border-textarea" maxLength={19}
-                            type='text' spellCheck={false} placeholder='숙소를 설명하는 이름을 지어주세요!'
-                            {...register('title', {
-                                onChange : (e)=>{lv8_text_input_change(e.target.value)}
-                            })}></textarea>
+                    <div className="host-regist-view8__content-section1-wrapper">
+                        <form className="host-regist-view8__content-section1-box1">                        
+                            <textarea  
+                                className="host-regist-view8__content-section1-box1-text1 border-textarea" 
+                                maxLength={19}
+                                type='text' 
+                                spellCheck={false} 
+                                placeholder='숙소를 설명하는 이름을 지어주세요!'
+                                {...register('title', {
+                                    onChange : (e)=>{lv8_text_input_change(e.target.value)}
+                                })}/>
                         </form>
                         {/* error */}
                         {errors.title && <span className="input-alert-text">{errors.title.message}</span>}                            
                         {/* text length */}
-                        <div className="Acc-regist-lv8__content-section1-box2">
-                            <div ref={regist_lv8_alarm} className="Acc-regist-lv8__content-section1-box2-text1">0/20</div>
+                        <div className="host-regist-view8__content-section1-box2">
+                            <div 
+                                ref={regist_lv8_alarm} 
+                                className="host-regist-view8__content-section1-box2-text1">
+                                    <span>0/20</span> 
+                            </div>
                         </div> 
                     </div>                                       
                 </div>
 
-                <div className="Acc-regist-lv8__content-section2">
-                    <div className="Acc-regist-lv8__content-section2-title">
+                <div className="host-regist-view8__content-section2">
+                    <div className="host-regist-view8__content-section2-title">
                         <span>수용 인원</span>
-                        <div className="Acc-regist-lv8__section-box">
+                        <div className="host-regist-view8__section-box">
                             <div></div>
                         </div>
                     </div>
-                    <div className="Acc-regist-lv8__content-section2-box1">
+                    <div className="host-regist-view8__content-section2-box1">
                         {/* minus button */}
-                        <button id="Acc-regist-lv8__button" className={`Acc-regist-lv8__content-section2-box1-part1-lb ${capacity === 1 ? 'small-button-disabled' : 'small-button'}`} 
-                        onClick={minus_click}
-                        disabled={capacity === 1 ? true : false}>
+                        <button 
+                            id="host-regist-view8__button" 
+                            className={`host-regist-view8__content-section2-box1-part1-lb ${capacity === 1 ? 'small-button-disabled' : 'small-button'}`} 
+                            onClick={minus_click}
+                            disabled={capacity === 1 ? true : false}>
                             <i className="material-icons minus-button">remove</i>
                         </button>
                         {/* value */}
-                        <div className="Acc-regist-lv8__content-section2-box1-part1-text1">
-                            <span ref={regist_lv8_capacity_value} className="Acc-regist-lv8__content-section2-box1-part1_value">
+                        <div className="host-regist-view8__content-section2-box1-part1-text1">
+                            <span 
+                                ref={regist_lv8_capacity_value} 
+                                className="host-regist-view8__content-section2-box1-part1_value">
                                 {capacity}
                             </span>
                             <span>명</span>
                         </div>
                         {/* plus button */}
-                        <button id="Acc-regist-lv8__button" className={`Acc-regist-lv8__content-section2-box1-part1-rb ${capacity >= 30 ? 'small-button-disabled' : 'small-button'}`} 
-                        onClick={plus_click}
-                        disabled={capacity >= 30 ? true : false}>
+                        <button 
+                            id="host-regist-view8__button" 
+                            className={`host-regist-view8__content-section2-box1-part1-rb ${capacity >= 30 ? 'small-button-disabled' : 'small-button'}`} 
+                            onClick={plus_click}
+                            disabled={capacity >= 30 ? true : false}>
                             <i className="material-icons plus-button">add</i>
                         </button>
                     </div>                   
                 </div>
             </div>
 
-            <div className="Acc-regist-lv8__footer">
-                <Host_footer fetch_handler={fetch_acc} drop_data={{title : watch('title'), capacity : capacity}} 
-                button_state={isValid && watch('title') && capacity > 0 ? true : false} fetch_state={true}></Host_footer>
+            <div className="host-regist-view8__footer">
+                <Host_footer 
+                    fetch_handler={fetch_acc} 
+                    drop_data={{title : watch('title'), capacity : capacity}} 
+                    button_state={isValid && watch('title') && capacity > 0 ? true : false} 
+                    fetch_state={true}/>
             </div>
         </div>
     )

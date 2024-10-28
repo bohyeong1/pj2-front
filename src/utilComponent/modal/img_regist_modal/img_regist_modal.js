@@ -26,53 +26,46 @@ const ImgRegistModal = React.memo(({img_modal_toggle, drop_img_state, setDrop_im
     // =================================================
     // hooks //
     // business
-    const {set_img_file, regist_button} = useModalImgRegistModalBusiness(undefined,
+    const {
+        set_img_file, 
+        regist_button
+    } = useModalImgRegistModalBusiness(undefined,
         state_store([
-            {
-                'img_state' : img_state,
-                'setImg_state' : setImg_state
-            },
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            }
+            {img_state, setImg_state},
+            {loading, setLoading}
         ]),
         reference_store([
-            {
-                'img_input' : img_input
-            }
+            {img_input}
         ]),
-            {
-                'img_modal_toggle' : img_modal_toggle,    
-                'drop_img_state' : drop_img_state,
-                'setDrop_img_state' : setDrop_img_state,
-                'target_id' : target_id        
-            }
+        {
+            img_modal_toggle,    
+            drop_img_state,
+            setDrop_img_state,
+            target_id         
+        }
     )
 
     // style
-    const {display_img, modal_close, delete_button, errors, register} = useModalImgRegistModalStyle(undefined,
+    const {
+        display_img, 
+        modal_close, 
+        delete_button, 
+        errors, 
+        register
+    } = useModalImgRegistModalStyle(undefined,
         state_store([
-            {
-                'img_url_state' : img_url_state,
-                'setImg_url_state' : setImg_url_state
-            },
-            {
-                'img_state' : img_state,
-                'setImg_state' : setImg_state
-            }
+            {img_url_state, setImg_url_state},
+            {img_state, setImg_state}
         ]),
         reference_store([
-            {
-                'img_input' : img_input
-            }
+            {img_input}
         ]),
-            {
-                'img_modal_toggle' : img_modal_toggle,    
-                'drop_img_state' : drop_img_state,
-                'setDrop_img_state' : setDrop_img_state,
-                'target_id' : target_id       
-            }
+        {
+            img_modal_toggle,    
+            drop_img_state,
+            setDrop_img_state,
+            target_id        
+        }
     )
 
     // =================================================

@@ -1,5 +1,4 @@
 import _ from 'lodash'
-import session_storage from "@/sessionStorage/session_storage"
 import default_data from "@/util/default_data/default_data";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import { useParams } from "react-router-dom";

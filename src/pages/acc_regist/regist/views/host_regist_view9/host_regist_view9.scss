@@ -1,52 +1,52 @@
 @import '@/manage_scss_style/commonness/colors';
     
-.Acc-regist-lv9__footer{
+.host-regist-view__footer{
     width:800px;
     position: fixed;
     bottom: 0;
 }
-.Acc-regist-lv9__container{
+.host-regist-view__container{
     width:1920px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.Acc-regist-lv9__content{
+.host-regist-view__content{
     margin-top: 50px;   
     width: 800px;
 }
-.Acc-regist-lv9__content-title{
+.host-regist-view__content-title{
     margin-bottom: 50px;
     font-size: 1.725rem;    
     font-weight: bold;
 }
-.Acc-regist-lv9__content-sub-title{
+.host-regist-view__content-sub-title{
     margin-top: 10px;   
     font-size: 1rem;
 }
 
 // 데이터 인풋 
-.Acc-regist-lv9__content-section1{
+.host-regist-view__content-section1{
     width:100%;
     display: flex; 
     gap:20px;    
     flex-direction: column;
     position: relative;
 }
-.Acc-regist-lv9__content-section1-box1, 
-.Acc-regist-lv9__content-section1-box2{
+.host-regist-view__content-section1-box1, 
+.host-regist-view__content-section1-box2{
     width: 100%;   
 
 }
-.Acc-regist-lv9__content-section1-box1-text1{
+.host-regist-view__content-section1-box1-text1{
     width: 100%;    
     height: 500px;
     font-size: 1.166rem;    
     line-height: 1.1; 
 }
 
-.Acc-regist-lv9__gurabox{
+.host-regist-view__gurabox{
     width: 100%;    
     padding: 0 15px;
     position: absolute; 
@@ -58,11 +58,11 @@
     z-index: -1;    
     visibility: hidden;
 }
-.Acc-regist-lv9__content-section1-box2-text2{
+.host-regist-view__content-section1-box2-text2{
     color: $red-lv2;
     font-size: 0.825rem;
 }
-.Acc-regist-lv9__content-section1-box2{
+.host-regist-view__content-section1-box2{
     display: flex; 
     flex-direction: column; 
     gap: 5px;

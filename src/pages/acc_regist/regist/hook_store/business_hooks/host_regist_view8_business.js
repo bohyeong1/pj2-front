@@ -1,8 +1,8 @@
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useParams } from "react-router-dom";
-import session_storage from "@/sessionStorage/session_storage";
+import { useEffect } from "react";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import _ from 'lodash'
@@ -20,6 +20,13 @@ function useHostRegistView8Business(data, states, refs, props){
     } = states
 
     // =================================================
+    // data //
+    const {
+        host_acc,
+        setHost_acc
+    } = data
+
+    // =================================================
     // params //
     const param = useParams()
 
@@ -35,23 +42,33 @@ function useHostRegistView8Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{errors, isValid}, watch} = useForm({
+    const {register, control, reset, watch} = useForm({
         resolver:yupResolver(validation_schema),
         mode:'all',
         defaultValues : title ? title : null
     })
-    
+    const {errors, isValid} = useFormState({control})
+
+    // =================================================
+    // price 초기값 설정 //
+    useEffect(()=>{
+        if(prev_data && prev_data.title){
+            reset({
+                title : prev_data.title
+            })
+        }
+    },[prev_data, reset])
+
     // =================================================
     // data fetch  //
     async function fetch_acc(data, index){
         setLoading(false)
-        watch('title')
         // prev_data와 current_data 같을 경우 api 요청 x
         if(prev_data && _.isEqual(data, prev_data)){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
@@ -65,14 +82,19 @@ function useHostRegistView8Business(data, states, refs, props){
                 })
         
                 if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
+                    setHost_acc(acc_data.accomodation)
                 }        
-                console.log(acc_data)
                 setLoading(true)
                 return acc_data.acc_state ? acc_data : false
         }
     }
-    return {fetch_acc, register, errors, watch, isValid}
+    return {
+        fetch_acc, 
+        register, 
+        errors, 
+        watch, 
+        isValid
+    }
 }
 
 export default useHostRegistView8Business

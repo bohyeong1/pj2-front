@@ -1,5 +1,3 @@
-
-import session_storage from "@/sessionStorage/session_storage"
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import _ from 'lodash'
 import default_data from "@/util/default_data/default_data";
@@ -18,6 +16,13 @@ function useHostRegistView7Business(data, states, refs, props){
     } = states
 
     // =================================================
+    // context states //
+    const {
+        host_acc,
+        setHost_acc
+    } = data
+
+    // =================================================
     // params //
     const param = useParams()
 
@@ -26,11 +31,11 @@ function useHostRegistView7Business(data, states, refs, props){
     async function fetch_acc(data, index){
         setLoading(false)
         // prev_data와 current_data 같을 경우 api 요청 x
-        if(prev_data && Array.isArray(prev_data) && prev_data.length > 0 && current_data.length > 0 && _.isEqual(prev_data, current_data)){
+        if(prev_data && Array.isArray(prev_data) && prev_data.length > 0 && current_data.length > 0 && _.isMatch(prev_data, current_data)){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
@@ -43,9 +48,8 @@ function useHostRegistView7Business(data, states, refs, props){
                 })
         
                 if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
+                    setHost_acc(acc_data.accomodation)
                 }        
-                console.log(acc_data)
                 setLoading(true)
                 return acc_data.acc_state ? acc_data : false
         }

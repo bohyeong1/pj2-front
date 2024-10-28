@@ -9,6 +9,13 @@ import { useParams } from "react-router-dom";
 function useHostRegistView9Business(data, states, refs, props){
 
     // =================================================
+    // context states //
+    const {
+        host_acc,
+        setHost_acc
+    } = data
+
+    // =================================================
     // states //
     const {
         prev_data, 
@@ -48,9 +55,9 @@ function useHostRegistView9Business(data, states, refs, props){
         // prev_data와 current_data 같을 경우 api 요청 x
         if(prev_data && prev_data === data.summary){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
@@ -63,9 +70,9 @@ function useHostRegistView9Business(data, states, refs, props){
                 })
         
                 if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
+                    setHost_acc(acc_data.accomodation)
                 }        
-                console.log(acc_data)
+
                 setLoading(true)
                 return acc_data.acc_state ? acc_data : false
         }

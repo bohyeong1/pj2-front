@@ -1,4 +1,3 @@
-import session_storage from "@/sessionStorage/session_storage"
 import default_data from "@/util/default_data/default_data";
 import _ from 'lodash'
 import { is_equal_file, file_data } from "@/util/function/util_function";
@@ -14,38 +13,45 @@ function useHostRegistView6Business(data, states, refs, props){
     const {
         loading, 
         setLoading, 
-        prev_main_img, 
-        setPrev_main_img, 
-        prev_sub_img, 
-        setPrev_sub_img
+        current_data,
+        setCurrent_data
     } = states
 
     // =================================================
-    // props //
-    const {login_user} = props
+    // context states //
+    const {
+        host_acc,
+        setHost_acc
+    } = data
 
     // =================================================
     // img upload  //
-    function img_upload(main_img, sub_img){
-        // data check
-        const isValid_files = sub_img.every((el)=>{
-            return el.size > 0
-        })
+    function img_upload(img_data, index){
+        const img_files = new FormData()
 
-        if(isValid_files && main_img && login_user && login_user.userId){
-            const img_files = new FormData()
-            // 메인 이미지
-            img_files.append('mainImg',main_img,'mainImg') 
-            // 서브이미지
-            for(const file of sub_img){
-                img_files.append('subImg', file, 'subImg')
-            }
-            // user id
-            img_files.append('userId', login_user.userId)
-            return img_files
-        }else{
-            return null
+        if(img_data.main_file){
+            img_files.append('mainImg', img_data.main_file)
         }
+        if(img_data.sub_file.length && img_data.sub_file.every(
+            (el)=>{
+                return el.size > 0
+            })
+        ){
+            for(const file of img_data.sub_file){
+                img_files.append('subImg', file)
+            }
+        }
+        if(img_data.delete_prev_main){
+            img_files.append('delete_main_img', img_data.delete_prev_main)
+        }
+        if(img_data.delete_prev_sub.length){
+            img_files.append('delete_sub_img', JSON.stringify(img_data.delete_prev_sub))
+        }
+        if(index){
+            img_files.append('acc_step', index)
+        }
+
+        return img_files
     }
 
     // =================================================
@@ -53,18 +59,19 @@ function useHostRegistView6Business(data, states, refs, props){
     async function fetch_acc(data, index){
         setLoading(false)
 
-        if(is_equal_file([prev_main_img], [data.main_img]) && is_equal_file(prev_sub_img, data.sub_img)){
+        if(!(data.main_file || data.sub_file.length > 0)){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? 
+            {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
-        // prev_data와 current_data 다를 경우 패치 진행
+        // prev data와 current data 다를 경우 패치 진행
         else{     
             // form data
-            const imgs_form = img_upload(data.main_img, data.sub_img)
+            const imgs_form = img_upload(data, index)
             // error
             if(!imgs_form){
                 return false
@@ -73,10 +80,10 @@ function useHostRegistView6Business(data, states, refs, props){
             const acc_data = await file_data(`${default_data.d_base_url}/api/accomodation/registLv6/${param.house}`, 'PUT', imgs_form)
         
             if(acc_data && acc_data.acc_state){
-                session_storage.save('house',acc_data.accomodation)
-            }        
-            console.log(acc_data)
+                setHost_acc(acc_data.accomodation)
+            }      
             setLoading(true)
+
             return acc_data.acc_state ? acc_data : false
         }
     }

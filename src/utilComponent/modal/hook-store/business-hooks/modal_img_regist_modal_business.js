@@ -6,14 +6,21 @@ function useModalImgRegistModalBusiness(data, states, refs, props){
 
     // =================================================
     // states //
-    const {img_state, 
-           setImg_state, 
-           loading,
-           setLoading} = states
+    const {
+        img_state, 
+        setImg_state, 
+        loading,
+        setLoading
+    } = states
 
     // =================================================
     // props //
-    const {img_modal_toggle, drop_img_state, setDrop_img_state, target_id} = props
+    const {
+        img_modal_toggle, 
+        drop_img_state, 
+        setDrop_img_state, 
+        target_id
+    } = props
 
     // =================================================
     // 등록 버튼 //

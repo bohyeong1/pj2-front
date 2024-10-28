@@ -5,10 +5,12 @@ function useModalImgRegistModalStyle(data, states, refs, props){
 
     // =================================================
     // states //
-    const {img_url_state, 
-           setImg_url_state,
-           img_state, 
-           setImg_state} = states
+    const {
+        img_url_state, 
+        setImg_url_state,
+        img_state, 
+        setImg_state
+    } = states
 
     // =================================================
     // refs //
@@ -16,18 +18,22 @@ function useModalImgRegistModalStyle(data, states, refs, props){
 
     // =================================================
     // props //
-    const {img_modal_toggle, 
-           drop_img_state, 
-           setDrop_img_state, 
-           target_id} = props
+    const {
+        img_modal_toggle, 
+        drop_img_state, 
+        setDrop_img_state, 
+        target_id
+    } = props
 
     // =================================================
     // state form //
-    const {register, 
-           formState:{errors}, 
-           setValue, 
-           clearErrors, 
-           setError} = useForm()
+    const {
+        register, 
+        formState:{errors}, 
+        setValue, 
+        clearErrors, 
+        setError
+    } = useForm()
 
     // =================================================
     // display img //
@@ -86,7 +92,13 @@ function useModalImgRegistModalStyle(data, states, refs, props){
         }
     },[drop_img_state])
 
-    return {display_img, modal_close, delete_button, errors, register}
+    return {
+        display_img, 
+        modal_close, 
+        delete_button, 
+        errors, 
+        register
+    }
 }
 
 export default useModalImgRegistModalStyle

@@ -1,10 +1,10 @@
 import default_data from "@/util/default_data/default_data";
 import { useParams } from "react-router-dom";
-import { useForm } from "react-hook-form"
+import { useForm, useFormState } from "react-hook-form"
 import * as Yup from 'yup'
 import { yupResolver } from "@hookform/resolvers/yup"
 import { connect_data_width_cookies } from "@/util/function/util_function";
-import session_storage from "@/sessionStorage/session_storage"
+import { useEffect } from "react";
 import _ from 'lodash'
 
 function useHostRegistView5Business(data, states, refs, props){
@@ -28,10 +28,13 @@ function useHostRegistView5Business(data, states, refs, props){
     } = states
 
     // =================================================
-    // context states //
+    // data //
     const {
         host_acc,
-        setHost_acc
+        setHost_acc,
+        special_city,
+        island,
+        island2
     } = data
 
     // =================================================
@@ -41,12 +44,6 @@ function useHostRegistView5Business(data, states, refs, props){
     // =================================================
     // refs //
     const {adress_ref} = refs
-
-    // =================================================
-    // const //
-    const special_city = ['서울','부산','대구','대전','울산','인천','광주']
-    const island = ['제주']  
-    const island2 = ['울릉']
        
     // =================================================
     // validation schema //
@@ -60,13 +57,22 @@ function useHostRegistView5Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{isValid, errors}, watch} = useForm({
+    const {register, control, reset, watch} = useForm({
         resolver:yupResolver(validation_schema),
-        mode:'all',
-        defaultValues : {
-            'detail_adress' : prev_data && prev_data.sub_adress ? prev_data.sub_adress.name : null
-        }
+        mode:'all'
     })
+
+    const {errors, isValid} = useFormState({control})
+
+    // =================================================
+    // price 초기값 설정 //
+    useEffect(()=>{
+        if(prev_data && prev_data.sub_adress){
+            reset({
+                detail_adress : prev_data.sub_adress.name
+            })
+        }
+    },[prev_data, reset])
 
     // =================================================
     // main adress data 저장  //
@@ -121,7 +127,7 @@ function useHostRegistView5Business(data, states, refs, props){
     // =================================================
     // match accomodation field //
     function match_accomodation(prev_data, match1, match2, match3){
-        if(prev_data && _.isMatch(prev_data.main_adress, match1) && _.isMatch(prev_data.sub_adress, match2) && _.isMatch(prev_data.search_adress, match3)){
+        if(prev_data && _.isEqual(prev_data.main_adress, match1) && _.isEqual(prev_data.sub_adress, match2) && _.isEqual(prev_data.search_adress, match3)){
             return true
         }
         return false
@@ -132,8 +138,9 @@ function useHostRegistView5Business(data, states, refs, props){
     async function fetch_acc(data, index){       
         setLoading(false)
 
-        if(match_accomodation(prev_data, data.sub_adress, data.sub_adress, data.search_adress)){
+        if(match_accomodation(prev_data, data.main_adress, data.sub_adress, data.search_adress)){
             setLoading(true)
+
             return host_acc ? {
                 accomodation : {
                     _id : host_acc._id

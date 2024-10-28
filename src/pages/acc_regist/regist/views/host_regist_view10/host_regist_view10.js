@@ -175,7 +175,11 @@ function HostRegistView10({login_user, this_step}){
                 </div>
             </div>
             <div className="Acc-regist-lv10__footer">
-                <Host_footer fetch_handler={fetch_acc} drop_data={data_ready ? current_data : null} button_state={data_ready} fetch_state={true}></Host_footer>
+                <Host_footer 
+                    fetch_handler={fetch_acc} 
+                    drop_data={data_ready ? current_data : null} 
+                    button_state={data_ready} 
+                    fetch_state={true}/>
             </div>
         </div>
     )

@@ -6,10 +6,12 @@ function useHostUpdateAccomodationView4Style(data, states, refs, props){
 
     // =================================================
     // states //
-    const {current_data,
-           setCurrent_data,
-           sellect_target,
-           setSellect_target} = states
+    const {
+        current_data,
+        setCurrent_data,
+        sellect_target,
+        setSellect_target
+    } = states
 
     // =================================================
     // data //   
@@ -37,18 +39,16 @@ function useHostUpdateAccomodationView4Style(data, states, refs, props){
     // img delete //
     async function img_delete(target, type){
         if(type === 'main'){
-            const current_img = current_data.main_img
+            const prev_img = current_data.main_img
             setCurrent_data({
                 ...current_data,
                 main_display_url : null,
-                delete_prev_main : current_img === target ? 
-                    target : 
-                    current_data.delete_prev_main
+                delete_prev_main : prev_img === target ? 
+                    target : current_data.delete_prev_main
             })
         }
-        else if(type === 'sub'){
- 
-            const current_img = current_data.sub_img
+        else if(type === 'sub'){ 
+            const prev_img = current_data.sub_img
             const new_sub_file = []
             if(current_data.sub_file.length > 0 && target.buffer){
                 for(const file of current_data.sub_file){
@@ -66,7 +66,7 @@ function useHostUpdateAccomodationView4Style(data, states, refs, props){
                 sub_display_url : current_data.sub_display_url.filter((el)=>{
                     return el !== target
                 }),
-                delete_prev_sub : current_img.includes(target.url) ? 
+                delete_prev_sub : prev_img.includes(target.url) ? 
                     [...current_data.delete_prev_sub, target.url] : 
                     current_data.delete_prev_sub,
                 sub_file : target.buffer && new_sub_file.length !== current_data.sub_file.length ? [...new_sub_file] : current_data.sub_file
@@ -102,7 +102,11 @@ function useHostUpdateAccomodationView4Style(data, states, refs, props){
         }
     }
 
-    return {img_modal_toggle, img_delete, set_img}
+    return {
+        img_modal_toggle, 
+        img_delete, 
+        set_img
+    }
 }
 
 export default useHostUpdateAccomodationView4Style

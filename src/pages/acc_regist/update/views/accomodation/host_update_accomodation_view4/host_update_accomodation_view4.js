@@ -22,57 +22,50 @@ function HostUpdateAccomodationView4(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
-    const [current_data, setCurrent_data] = useState(acc_data.main_img && acc_data.sub_img.length > 3 ? {
-        main_img : acc_data.main_img,
-        delete_prev_main : null,
-        main_file : null,
-        main_display_url : acc_data.main_img,
+    const [current_data, setCurrent_data] = useState(
+        acc_data.main_img && acc_data.sub_img.length > 3 ? 
+        {
+            main_img : acc_data.main_img,
+            delete_prev_main : null,
+            main_file : null,
+            main_display_url : acc_data.main_img,
 
-        sub_img : acc_data.sub_img,
-        delete_prev_sub : [],
-        sub_file : [],
-        sub_display_url : acc_data.sub_img.map((el)=>{
-            return {
-                url : el,
-                buffer : null
-            }
-        })
-    } : null)
+            sub_img : acc_data.sub_img,
+            delete_prev_sub : [],
+            sub_file : [],
+            sub_display_url : acc_data.sub_img.map((el)=>{
+                return {
+                    url : el,
+                    buffer : null
+                }
+            })
+        } : null)
     const [sellect_target, setSellect_target] = useState(null)
 
     // =================================================
     // hooks //
     // business
-    const {fetch_acc} = useHostUpdateAccomodationView4Business({
-            'acc_data' : acc_data,
-            'setAcc_data' : setAcc_data
+    const {fetch_acc} = useHostUpdateAccomodationView4Business(
+        {
+            acc_data,
+            setAcc_data
         },
         state_store([
-            {
-                'current_data' : current_data,
-                'setCurrent_data' : setCurrent_data
-            },
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            },
-            {
-                'is_button' : is_button,
-                'setIs_button' : setIs_button
-            }
+            {current_data, setCurrent_data},
+            {loading, setLoading},
+            {is_button, setIs_button}
         ])
     )
     // style
-    const {img_modal_toggle, img_delete, set_img} = useHostUpdateAccomodationView4Style(undefined,
+    const {
+        img_modal_toggle, 
+        img_delete, 
+        set_img
+    } = useHostUpdateAccomodationView4Style(
+        undefined,
         state_store([
-            {
-                'current_data' : current_data,
-                'setCurrent_data' : setCurrent_data
-            },
-            {
-                'sellect_target' : sellect_target,
-                'setSellect_target' : setSellect_target
-            }
+            {current_data, setCurrent_data},
+            {sellect_target, setSellect_target}
         ])
     )
 
@@ -93,25 +86,23 @@ function HostUpdateAccomodationView4(){
                         <div className='host-update-accomodation-view4__section1-img-box'>
                             {current_data && current_data.main_display_url ? 
                             <div className='host-update-accomodation-view4__section1-img'>                                
-                                <OriginalImg 
-                                    url={current_data.main_display_url}>
-                                </OriginalImg>
+                                <OriginalImg url={current_data.main_display_url}/>
                                 {/* delete btn */}
-                                <button className="host-update-accomodation-view4__img-delete-btn"  
-                                        onClick={()=>{img_delete(current_data.main_display_url, 'main')}}>
+                                <button 
+                                    className="host-update-accomodation-view4__img-delete-btn"  
+                                    onClick={()=>{img_delete(current_data.main_display_url, 'main')}}>
                                     <img src={default_data.d_imgs.transh_can}></img>
                                 </button>
                             </div> : 
                             // add box
                             <div className='host-update-accomodation-view4__img-add-box'>
                                 {/* add btn */}
-                                <button className="host-update-accomodation-view4__img-add-btn"   
-                                        onClick={()=>{img_modal_toggle('host-update-accomodation-view4-img-modal', 'main')}}>
+                                <button 
+                                    className="host-update-accomodation-view4__img-add-btn"   
+                                    onClick={()=>{img_modal_toggle('host-update-accomodation-view4-img-modal', 'main')}}>
                                     <img src={default_data.d_imgs.plus}></img>
                                 </button>
-                            </div>}
-                            
-                            
+                            </div>}                           
                         </div>
                     </div>
                     <div className="host-update-accomodation-view4__section2">
@@ -129,7 +120,8 @@ function HostUpdateAccomodationView4(){
                                             url={el.url}>                                                
                                         </OriginalImg>
                                         {/* delete btn */}
-                                        <button className="host-update-accomodation-view4__img-delete-btn"  
+                                        <button 
+                                            className="host-update-accomodation-view4__img-delete-btn"  
                                             onClick={()=>{img_delete(el, 'sub')}}>
                                             <img src={default_data.d_imgs.transh_can}></img>
                                         </button>
@@ -140,8 +132,9 @@ function HostUpdateAccomodationView4(){
                             {current_data && current_data.sub_display_url.length < 9 ? 
                             <div className='host-update-accomodation-view4__img-add-box'>
                                 {/* add btn */}
-                                <button className="host-update-accomodation-view4__img-add-btn"   
-                                        onClick={()=>{img_modal_toggle('host-update-accomodation-view4-img-modal', 'sub')}}>
+                                <button 
+                                    className="host-update-accomodation-view4__img-add-btn"   
+                                    onClick={()=>{img_modal_toggle('host-update-accomodation-view4-img-modal', 'sub')}}>
                                     <img src={default_data.d_imgs.plus}></img>
                                 </button>
                             </div> : null}
@@ -151,9 +144,12 @@ function HostUpdateAccomodationView4(){
             </div>
             {/* footer */}
             <div className="host-update-accomodation-view4__footer">
-                <button className={`host-update-accomodation-view4__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
-                        disabled={is_button ? false : true}
-                        onClick={fetch_acc}>저장</button>
+                <button 
+                    className={`host-update-accomodation-view4__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
+                    disabled={is_button ? false : true}
+                    onClick={fetch_acc}>
+                        저장
+                </button>
             </div>
 
             {/* modal */}

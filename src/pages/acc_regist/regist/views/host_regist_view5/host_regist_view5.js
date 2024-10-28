@@ -13,6 +13,12 @@ import { HostAccContext } from "@/context/host_acc_context/config/host_acc_conte
 function HostRegistView5(){
 
     // =================================================
+    // const //
+    const [special_city] = useState(['서울','부산','대구','대전','울산','인천','광주'])
+    const [island] = useState(['제주'])  
+    const [island2] = useState(['울릉'])
+
+    // =================================================
     // context state //
     const {host_acc, setHost_acc} = useContext(HostAccContext)
 
@@ -27,7 +33,7 @@ function HostRegistView5(){
     const [popup_state, set_popup_state] = useState(false)
     const [initial_adress, setInitial_adress] = useState(null)
     const [sub_coorinate, setSub_coorinate] = useState(
-        host_acc.sub_adress && host_acc.sub_adress.name ? host_acc.sub_adress.coor : []
+        host_acc.sub_adress && host_acc.sub_adress.name ? host_acc.sub_adress.coor : null
     )
     const [main_adress, setMain_adress] = useState(
         host_acc.main_adress && host_acc.main_adress.name ? host_acc.main_adress : default_data.d_main_adress
@@ -51,7 +57,10 @@ function HostRegistView5(){
     } =  useHostRegistView5Business(
         {
             host_acc,
-            setHost_acc
+            setHost_acc,
+            special_city,
+            island,
+            island2
         },
         state_store([
             {filter_adress, setFilter_adress}, 
@@ -68,7 +77,7 @@ function HostRegistView5(){
     ) 
 
     return(
-        loading === false ? <Loading></Loading> :
+        loading === false ? <Loading part = {true}></Loading> :
         <div 
             className="host-regist-view5__container" 
             onClick={(e)=>{
@@ -135,6 +144,7 @@ function HostRegistView5(){
                                 adress_data={initial_adress} 
                                 set_main_adress={set_main_adress}
                                 set_sub_coordinate={set_sub_coordinate} 
+                                sub_adress_coordinate = {sub_coorinate}
                                 event={true} 
                                 scroll={false}/>
                         </div>
@@ -157,7 +167,6 @@ function HostRegistView5(){
                     <DaumPostcodeEmbed 
                         submitMode={false} 
                         onComplete={inputData} 
-                        set_sub_coorFn={set_sub_coordinate} 
                         className="host-regist-view5__popup" 
                         autoClose={true}/>
                 </div> : null}                
@@ -170,7 +179,7 @@ function HostRegistView5(){
                         {
                             main_adress : main_adress, 
                             sub_adress : {name : watch('detail_adress'), 
-                            coor : sub_coorinate.length === 2 ? sub_coorinate : [main_adress.coor[0], main_adress.coor[1]]}, 
+                            coor : sub_coorinate ? sub_coorinate : [main_adress.coor[0], main_adress.coor[1]]}, 
                             search_adress : filter_adress
                         }
                     }

@@ -81,14 +81,10 @@ function useHostUpdateAccomodationView4Business(data, states, refs, props){
     async function fetch_acc(){
         setLoading(false)
         const img_files_form = img_upload(current_data)
-        // for(let pair of img_files_form.entries()){
-        //     console.log(`${pair[0]}:`, pair[1])
-        // }
         const acc_data = await file_data(`${default_data.d_base_url}/api/accomodation/modify/photo/${param.house}`, 'PUT', img_files_form)
     
         if(acc_data && acc_data.acc_state && acc_data.server_state){
             setAcc_data(acc_data.accomodation)
-            session_storage.save('house',acc_data.accomodation)
             setIs_button(false)
         }        
         setLoading(true)
