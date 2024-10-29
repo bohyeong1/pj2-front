@@ -11,17 +11,21 @@ import { button_state } from '@/util/function/util_function'
 function useHostUpdateAccomodationView1Business(data, states, refs, props){
     // =================================================
     // states //
-    const {title, 
-           setTitle, 
-           loading, 
-           setLoading, 
-           is_button, 
-           setIs_button} = states
+    const {
+        title, 
+        setTitle, 
+        loading, 
+        setLoading, 
+        is_button, 
+        setIs_button
+        } = states
 
     // =================================================
     // context states //
-    const {acc_data, 
-           setAcc_data} = data
+    const {
+        host_acc,
+        setHost_acc
+        } = data
 
     // =================================================
     // params //
@@ -57,14 +61,14 @@ function useHostUpdateAccomodationView1Business(data, states, refs, props){
     // data fetch  //
     async function fetch_acc(data){
         setLoading(false)
-        const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/title/${param.house}`, 'PUT', 
+        const host_acc = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/title/${param.house}`, 'PUT', 
             {
                 title : data
             })
     
-            if(acc_data && acc_data.acc_state && acc_data.server_state){
-                setAcc_data(acc_data.accomodation)
-                session_storage.save('house',acc_data.accomodation)
+            if(host_acc && host_acc.acc_state && host_acc.server_state){
+                setHost_acc(host_acc.accomodation)
+                session_storage.save('house',host_acc.accomodation)
                 setIs_button(false)
             }        
         setLoading(true)

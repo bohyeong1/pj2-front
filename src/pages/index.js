@@ -25,11 +25,12 @@ export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'
 export {default as Acc_initial} from './acc_regist/acc_initial_app/acc_initial'
 export {default as Acc_initial_regist} from './acc_regist/acc_initial_regist_app/acc_initial_regist'
 export {default as Acc_regist_intro} from './acc_regist/acc_regist_intro/Acc_regist_intro'
-export {default as AccManage} from './acc_regist/acc_manage_app/Acc_manage'
+export {default as AccList} from './acc_regist/acc_manage_app/Acc_manage'
 
 export {default as HostRegistView0} from './acc_regist/regist/views/host_regist_view0/host_regist_view0'
 export {default as AccRegist} from './acc_regist/regist/app/regist'
 export {default as AccUpdate} from './acc_regist/update/app/update'
+export {default as AccManage} from './acc_regist/manage/app/manage'
 
 // =================================================
 // 회원정보 관리 //

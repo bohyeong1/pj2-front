@@ -1,6 +1,6 @@
 import { useEffect } from "react"
 import { useNavigate, useLocation } from "react-router-dom"
-import default_data from "../../../../utilData/defaultData"
+import default_data from "@/util/default_data/default_data"
 
 function useMenuMainBusiness(data, states, refs, props){
     // =================================================
@@ -53,7 +53,10 @@ function useMenuMainBusiness(data, states, refs, props){
         navigate(url)
     }
 
-    return {click_btn, link_to_url}
+    return {
+        click_btn, 
+        link_to_url
+    }
 }
 
 export default useMenuMainBusiness

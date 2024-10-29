@@ -27,7 +27,7 @@ const host_update_check_routes = {
     route6 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view6/host_update_check_view6'))
 }
 
-function host_update_routes(keyword){
+function set_host_update_routes(keyword){
     // accomodation update view
     if(keyword === 'accomodation'){
         return (
@@ -161,4 +161,4 @@ function host_update_routes(keyword){
     }
 }
 
-export default host_update_routes
+export default set_host_update_routes

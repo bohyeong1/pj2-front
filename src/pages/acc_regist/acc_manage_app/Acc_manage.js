@@ -14,22 +14,21 @@ function AccManage({login_user}){
     // =================================================
     // states //
     // business
-    const {click_add_button, click_accomodaton_button} = useAccManageBusiness(undefined,
+    const {
+        click_add_button, 
+        click_accomodaton_button
+    } = useAccManageBusiness(
+        undefined,
         state_store([
-            {
-                'acc_data' : acc_data,
-                'setAcc_data' : setAcc_data
-            }
+            {acc_data,setAcc_data}
         ]),
         undefined,
-        {
-            'login_user' : login_user
-        }
+        {login_user}
     )
 
     return(
         <div className="Acc-manage__container">
-            <Main_menu login_user={login_user}></Main_menu>
+            <Main_menu login_user={login_user} host={true}></Main_menu>
             <div className="Acc-manage__content">
                 <div className="Acc-manage__section1">
                     <div className="Acc-manage__section1-title">숙소</div>
@@ -57,14 +56,17 @@ function AccManage({login_user}){
                                     <img 
                                         className="Acc-manage__section2-box-container-part1-img" 
                                         src={el.main_img}/>
-                                    <span style={{fontWeight:'bold'}}>{el.title}</span>
+                                    <span>{el.title}</span>
                                 </div>
                                 <div className="Acc-manage__section2-box-container-part2">{el.search_adress}</div>
-                                <div 
-                                    className="Acc-manage__section2-box-container-part3" 
-                                    style={{color:`${el.regist_state ? 'black' : 'red'}`}}>
-                                    <span>{el.regist_state ? '등록 완료' : '등록중'}</span>
-                                </div>
+                                {el.regist_state ?
+                                <div className="Acc-manage__section2-box-container-part3">
+                                    <div className="Acc-manage__section2-box-container-part3-complete"></div>
+                                    <span>등록 완료</span>
+                                </div> : 
+                                <div className="Acc-manage__section2-box-container-part3">
+                                    <span>등록 중</span>
+                                </div>}
                             </div>
                         )
                     }) : '등록된 숙소가 없습니다'}

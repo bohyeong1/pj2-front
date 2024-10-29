@@ -53,7 +53,7 @@ function HostRegistView7(){
             {categories}
         ])
     )
-    console.log(current_data)
+
     return(
         loading === false ? <Loading></Loading> :
         <div className="host-regist-view7__container">
@@ -70,7 +70,7 @@ function HostRegistView7(){
                                     ${current_data.length && _.some(current_data, (ele)=>{return _.isMatch(ele, el)}) ? 'acc-regist-sellect-box-active' : undefined}`} 
                                 key={id} 
                                 ref={(el)=>{categories.current[id]=el}} 
-                                state={false} 
+                                state={'false'} 
                                 onClick={()=>{click_box(id)}}>
                                 <img src={el.url}/>
                                 <div className="host-regist-view7__content-section1-box1-text1">{el.name}</div>

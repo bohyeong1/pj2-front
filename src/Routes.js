@@ -3,7 +3,7 @@ import { Route,Routes } from 'react-router-dom';
 // default layout //
 import DefaultLayout from './layout/default_layout/default_layout';
 // =================================================
-// routing pages //
+// parent url routes //
 import { 
     // main page //
     Main, 
@@ -17,7 +17,8 @@ import {
     Acc_regist, 
     AccUpdate, 
     HostRegistView0,
-    Acc_initial, AccManage, 
+    AccManage,
+    Acc_initial, AccList, 
     Acc_regist_intro, AccRegist,
     Acc_initial_regist,
     // evaluation page //
@@ -30,9 +31,10 @@ import {
     Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,
 } from './pages';
 // =================================================
-// routes //
-import host_update_routes from './router/routes/host/host_update_routes';
-import host_regist_routes from './router/routes/host/host_regist_routes';
+// suspense routes //
+import set_host_update_routes from './router/routes/host/host_update_routes';
+import set_host_regist_routes from './router/routes/host/host_regist_routes';
+import set_host_manage_routes from './router/routes/host/host_manage_route';
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
@@ -43,8 +45,6 @@ import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 import HostLogCheckRouter from './router/custom_router/host_log_check_router';
 // =================================================
 // context provider //
-import ImgProvider from '@/context/img_context/provider/img_provider';
-import AccDataProvider from "@/context/acc_data_context/provider/acc_data_provider"
 import CommonAccProvider from '@/context/common_acc_context/provider/common_acc_provider';
 import UserProvider from '@/context/user_context/provider/user_provider';
 import HostAccProvider from './context/host_acc_context/provider/host_acc_provider';
@@ -95,13 +95,16 @@ function FinalRoutes(){
                
                 {/* // =================================================
                     // 호스트 페이지 // */}
-                <Route path='/Acc_regist' element={<Conditional_router data_state={true}                                              
-                element={Acc_regist} redirection_url={'/Acc_initial'}></Conditional_router>}></Route>                                                         {/*숙소 호스팅 페이지*/}
+                <Route 
+                    path='/Acc_regist' 
+                    element={<Conditional_router 
+                    data_state={true}                                              
+                    element={Acc_regist} 
+                    redirection_url={'/Acc_initial'}/>}>
+                </Route>                                                         {/*숙소 호스팅 페이지*/}
                 <Route path='/Acc_initial' element={<Acc_initial></Acc_initial>}></Route>                                                                     {/*호스트 등록 페이지*/}   
                 <Route path='/Acc_initial_regist' element={<Private_router data_state={true} element={Acc_initial_regist}/>}></Route>                         {/*초기 호스트 정보 기입 페이지*/}    
-                
-                <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccManage}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
-                
+                <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccList}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
                 <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/} 
                
                 {/* // =================================================
@@ -110,36 +113,39 @@ function FinalRoutes(){
                 {/* host - 숙소 등록 페이지 */}
                 <Route 
                     path='/host' 
-                    element = {
-                        <UserProvider>
-                            <HostAccProvider>
-                                <HostRegistCheckRouter 
-                                    element={DefaultLayout} 
-                                    redirection_url = {'/Acc_initial'}
-                                    footer = {false}
-                                    host={true}/>
-                            </HostAccProvider>
-                        </UserProvider>}>
+                    element = 
+                        {
+                            <UserProvider>
+                                <HostAccProvider>
+                                    <HostRegistCheckRouter 
+                                        element={DefaultLayout} 
+                                        redirection_url = {'/Acc_initial'}
+                                        footer = {false}
+                                        host={true}/>
+                                </HostAccProvider>
+                            </UserProvider>
+                        }>
                     <Route 
                         path='regist/:house' 
                         element = {<AccRegist/>}>
-                        {host_regist_routes()}
+                        {set_host_regist_routes()}
                     </Route>
                 </Route>
 
                 <Route
                     path='/host'
-                    element={
-                        <HostAccProvider>
-                            <UserProvider>
-                                <HostLogCheckRouter
-                                    element={DefaultLayout} 
-                                    redirection_url = {'/Acc_initial'}
-                                    footer = {false}
-                                    host={true}/>
-                            </UserProvider>
-                        </HostAccProvider>
-                    }>
+                    element=
+                        {
+                            <HostAccProvider>
+                                <UserProvider>
+                                    <HostLogCheckRouter
+                                        element={DefaultLayout} 
+                                        redirection_url = {'/Acc_initial'}
+                                        footer = {false}
+                                        host={true}/>
+                                </UserProvider>
+                            </HostAccProvider>
+                        }>
                     <Route 
                         path='regist/step0' 
                         element = {<HostRegistView0/>}>
@@ -149,33 +155,56 @@ function FinalRoutes(){
                 {/* host - 숙소 업데이트 페이지 */}            
                 <Route 
                     path='/host' 
-                    element = {
-                        <AccDataProvider>
-                            <HostRegistCheckRouter 
-                                element={DefaultLayout} 
-                                redirection_url = {'/Acc_initial'}
-                                host={true}/>
-                        </AccDataProvider>}>
+                    element = 
+                        {
+                            <HostAccProvider>
+                                <UserProvider>
+                                    <HostRegistCheckRouter 
+                                        element={DefaultLayout} 
+                                        redirection_url = {'/Acc_initial'}
+                                        host={true}/>
+                                </UserProvider>
+                            </HostAccProvider>
+                        }>
                     <Route 
                         path='update/:house/accomodation' 
                         element = {<AccUpdate option={'accomodation'}/>}>
-                        {host_update_routes('accomodation')}
+                        {set_host_update_routes('accomodation')}
                     </Route>
                     <Route 
                         path='update/:house/check' 
                         element = {<AccUpdate option={'check'}/>}>
-                        {host_update_routes('check')}
+                        {set_host_update_routes('check')}
                     </Route>
                 </Route>
                 
+                {/* host - host manage 페이지 */}
+                <Route
+                    path='/host'
+                    element = 
+                        {
+                            <UserProvider>
+                                <HostLogCheckRouter
+                                    element={DefaultLayout}
+                                    redirection_url={'Acc_initial'}
+                                    host={true}/>
+                            </UserProvider>
+                        }>
+                    <Route
+                        path='manage'
+                        element = {<AccManage/>}
+                        >
+                        {set_host_manage_routes()}
+                    </Route>
+                </Route>
+
+
                 {/* // =================================================
                     // 마이 페이지 // */}
                 <Route path='/Private_history' element={<Private_history></Private_history>}></Route>                                                   {/*마이페이지 - 예약내역 리스트*/}
                 <Route path='/Private_management' element={<Private_management></Private_management>}></Route>                                          {/*마이페이지 - 정보수정*/}
                 <Route path='/Private_point' element={<Private_point></Private_point>}></Route>                                                         {/*마이페이지 - 포인트확인*/}
-                <Route path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                                                            {/*위시리스트*/}
-
-         
+                <Route path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                                                            {/*위시리스트*/}        
 
                 {/* // =================================================
                     // 평가 페이지 // */}

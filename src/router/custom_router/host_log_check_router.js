@@ -18,6 +18,7 @@ function HostLogCheckRouter({element : Element, redirection_url, host, footer}){
         .then(result => {
             try{
                 if(result.server_state && result.log_state){
+                    console.log(result.user_data)
                     setUser_data(result.user_data)
                     setUser_state(result.user_data)
                 }else{

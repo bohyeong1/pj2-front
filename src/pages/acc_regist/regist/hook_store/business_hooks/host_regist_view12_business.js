@@ -1,6 +1,10 @@
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useParams } from "react-router-dom"
 
 function useHostRegistView12Business(data, states, refs, props){
+    // =================================================
+    // parameter // 
+    const param = useParams()
+
     // =================================================
     // data fetch // 
     const navigator = useNavigate()
@@ -8,13 +12,10 @@ function useHostRegistView12Business(data, states, refs, props){
     // =================================================
     // link button //
     function link_button1(){
-        navigator('/Acc_regist/AccManage')
+        navigator(`/host/update/${param.house}/accomodation/title`)
     }
 
-    function link_button2(){
-        navigator('/')
-    }
-    return {link_button1, link_button2}
+    return {link_button1}
 }
 
 export default useHostRegistView12Business

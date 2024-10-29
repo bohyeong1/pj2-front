@@ -1,4 +1,4 @@
-import { useForm } from "react-hook-form"
+import { useForm, useFormState } from "react-hook-form"
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect } from "react";
@@ -7,7 +7,7 @@ import default_data from "@/util/default_data/default_data";
 import connect_data from "@/util/function/util_function";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import { Chart, registerables } from 'chart.js';
-import session_storage from "@/sessionStorage/session_storage";
+import {pop_three_texts} from '@/util/function/util_function'
 Chart.register(...registerables)
 
 function useHostRegistView11Business(data, states, refs, props){
@@ -15,7 +15,8 @@ function useHostRegistView11Business(data, states, refs, props){
     // data //
     const {
         date_range, 
-        accomodation
+        host_acc,
+        setHost_acc
     } = data
 
     const {
@@ -35,12 +36,12 @@ function useHostRegistView11Business(data, states, refs, props){
         // price
         price:Yup.string()
         .required('가격을 입력해 주세요!')
-        .min(4, '가격은 최소 만원 이상 입력해 주세요!')
+        .min(5, '가격은 최소 만원 이상 입력해 주세요!')
         ,
         // add price
         add_price:Yup.string()
         .required('추가 인원 가격을 입력해 주세요!')
-        .min(1, '가격은 최소 천원 이상 입력해 주세요!')
+        .min(4, '가격은 최소 천원 이상 입력해 주세요!')
     })
 
     // =================================================
@@ -49,10 +50,22 @@ function useHostRegistView11Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{errors, isValid}, watch} = useForm({
+    const {register, control, reset, watch} = useForm({
         resolver:yupResolver(validation_schema),
         mode:'all'
     })
+    const {errors, isValid} = useFormState({control})
+
+    // =================================================
+    // price 초기값 설정 //
+    useEffect(()=>{
+        if(prev_data){
+            reset({
+                price : prev_data.price ? pop_three_texts(prev_data.price) : '',
+                add_price : prev_data.addPrice ? pop_three_texts(prev_data.addPrice) : ''
+            })
+        }
+    },[prev_data, reset])
 
     // =================================================
     // date array //
@@ -67,7 +80,7 @@ function useHostRegistView11Business(data, states, refs, props){
         setLoading(false)
         const acc_data = await connect_data(`${default_data.d_base_url}/api/accomodation/regist/localAverage/${param.house}`, 'POST', 
             {
-                search_adress : accomodation.search_adress
+                search_adress : host_acc.search_adress
             })
 
             setLoading(true)
@@ -165,9 +178,9 @@ function useHostRegistView11Business(data, states, refs, props){
         // prev_data와 current_data 같을 경우 api 요청 x
         if(prev_data && prev_data.price === change_string_to_number(data.price) && prev_data.addPrice === change_string_to_number(data.addPrice)){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
@@ -181,15 +194,23 @@ function useHostRegistView11Business(data, states, refs, props){
                 })
         
                 if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
+                    setHost_acc(acc_data.accomodation)
                 }        
-                console.log(acc_data)
+
                 setLoading(true)
                 return acc_data.acc_state ? acc_data : false
         }           
     }  
 
-    return {fetch_acc, register, errors, isValid, watch, get_average, change_string_to_number}
+    return {
+        fetch_acc,
+        register, 
+        errors, 
+        isValid, 
+        watch, 
+        get_average, 
+        change_string_to_number
+    }
 }
 
 export default useHostRegistView11Business

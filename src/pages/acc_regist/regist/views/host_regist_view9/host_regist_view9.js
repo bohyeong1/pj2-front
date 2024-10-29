@@ -63,12 +63,12 @@ function HostRegistView9(){
             <div className="host-regist-view__content">
                 <div className="host-regist-view__content-title">
                 숙소를 설명하는 글을 작성해 주세요! 
-                    <div className="host-regist-view__content-sub-title">최대 400자 까지 작성 가능합니다</div> 
+                    <div className="host-regist-view__content-sub-title">최대 50줄 까지 작성 가능합니다</div> 
                 </div>
 
                 <div className="host-regist-view__content-section1">
                     <div className="host-regist-view__content-section1-box1">
-                        <textarea  className="host-regist-view__content-section1-box1-text1 border-textarea" 
+                        <textarea  className="host-regist-view__content-section1-box1-text1 border-textarea common-scroll-bar" 
                                    type='text' 
                                    spellCheck={false}
                                    {...register('summary', {

@@ -23,13 +23,6 @@ function useHostRegistView10Style(data, states, refs, props){
     const {watch, setValue} = data
 
     // =================================================
-    // minus button 초기 상태 //
-    useEffect(()=>{
-        const lb_button = document.querySelector('.Acc-regist-lv10__content-section2-box1-part2-lb')
-        lb_button.disabled = true
-    },[])
-
-    // =================================================
     // active 효과 //
     function check_active(state){
         if(state){
@@ -82,21 +75,6 @@ function useHostRegistView10Style(data, states, refs, props){
     function plus_click(e){
         e.stopPropagation()
         setValue('count', watch('count') + 1)
-
-        if(watch('count') === 5){
-            if(e.currentTarget.classList.contains('small-button')){
-                e.currentTarget.classList.remove('small-button')
-                e.currentTarget.classList.add('small-button-disabled')
-            }
-            e.currentTarget.disabled = true
-        }else{
-            const lb_button = document.querySelector(`.Acc-regist-lv10__content-section2-box1-part2-lb`)
-            if(lb_button.classList.contains('small-button-disabled')){                
-                lb_button.classList.remove('small-button-disabled')
-                lb_button.classList.add('small-button')
-            }                   
-            lb_button.disabled = false
-        }
     }
 
     // =================================================
@@ -104,21 +82,6 @@ function useHostRegistView10Style(data, states, refs, props){
     function minus_click(e){
         e.stopPropagation()
         setValue('count', watch('count') - 1)
-
-        if(watch('count') === 0){
-            if(e.currentTarget.classList.contains('small-button')){
-                e.currentTarget.classList.remove('small-button')
-                e.currentTarget.classList.add('small-button-disabled')
-            }
-            e.currentTarget.disabled = true
-        }else{
-            const rb_button = document.querySelector(`.Acc-regist-lv10__content-section2-box1-part2-rb`)
-            if(rb_button.classList.contains('small-button-disabled')){
-                rb_button.classList.remove('small-button-disabled')
-                rb_button.classList.add('small-button')
-            }
-            rb_button.disabled = false
-        }
     }
 
     // =================================================
@@ -137,7 +100,14 @@ function useHostRegistView10Style(data, states, refs, props){
         }
     }
 
-    return {check_active, click_allow, click_not_allow, plus_click, minus_click, text_change}
+    return {
+        check_active, 
+        click_allow, 
+        click_not_allow, 
+        plus_click, 
+        minus_click, 
+        text_change
+    }
 }
 
 export default useHostRegistView10Style

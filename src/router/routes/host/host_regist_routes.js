@@ -20,7 +20,7 @@ const accomodation_regist_routes = {
     route13 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view12/host_regist_view12'))
 }
 
-function host_regist_routes(){
+function set_host_regist_routes(){
     // accomodation regist view
     return (
         <>
@@ -120,4 +120,4 @@ function host_regist_routes(){
 
 }
 
-export default host_regist_routes
+export default set_host_regist_routes

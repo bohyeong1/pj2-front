@@ -1,23 +1,19 @@
-import {useState} from "react";
+import {useState, useContext} from "react";
 import './host_regist_view11.scss'
 import Host_footer from "@/utilComponent/menu/host-footer/Host-footer";
-import session_storage from "@/sessionStorage/session_storage";
 import Loading from "@/utilComponent/material/loading/loading";
 import useHostRegistView11Business from "../../hook_store/business_hooks/host_regist_view11_business";
 import useHostRegistView11Style from "../../hook_store/style_hooks/host_regist_view11_style";
-import default_data from "@/util/default_data/default_data";
 import { state_store } from "@/util/function/util_function";
 import { Line } from 'react-chartjs-2';
+import { HostAccContext } from "@/context/host_acc_context/config/host_acc_context";
+import {pop_three_texts} from '@/util/function/util_function'
 
-function HostRegistView11({login_user, this_step}){
-
-    // =================================================
-    // accomodation information //
-    const accomodation = session_storage.load('house')
+function HostRegistView11(){
 
     // =================================================
-    // this level's accomodation field name //
-    const field_name = default_data.regist_field[this_step]
+    // context states //
+    const {host_acc, setHost_acc} = useContext(HostAccContext)
 
     // =================================================
     // dates //
@@ -27,10 +23,10 @@ function HostRegistView11({login_user, this_step}){
 
     // =================================================
     // states //
-    const [prev_data, setPrev_data] = useState(accomodation[field_name[0]] && accomodation[field_name[1]] ? 
+    const [prev_data, setPrev_data] = useState(host_acc.price && host_acc.addPrice ? 
         {
-            [field_name[0]] : accomodation[field_name[0]],
-            [field_name[1]] : accomodation[field_name[1]]
+            price : host_acc.price,
+            addPrice : host_acc.addPrice
         } : null)
     const [loading, setLoading] = useState(null)
     const [chart_data, setChart_data] = useState(null)
@@ -39,10 +35,19 @@ function HostRegistView11({login_user, this_step}){
     // =================================================
     // hooks //
     // business
-    const {fetch_acc, register, errors, isValid, watch, get_average} = useHostRegistView11Business({
-        'date_range' : date_range,
-        'accomodation' : accomodation
-    },
+    const {
+        fetch_acc, 
+        register,
+        errors, 
+        isValid, 
+        watch, 
+        get_average
+    } = useHostRegistView11Business(
+        {
+            date_range,
+            host_acc,
+            setHost_acc
+        },
         state_store([
             {loading, setLoading},
             {prev_data, setPrev_data},
@@ -54,44 +59,45 @@ function HostRegistView11({login_user, this_step}){
 
     return(
         loading === false ? <Loading></Loading> :
-        <div className="Acc-regist-lv11__container">
+        <div className="host-regist-view11__container">
 
-            <div className="Acc-regist-lv11__content">
-                <div className="Acc-regist-lv11__content-title">
+            <div className="host-regist-view11__content">
+                <div className="host-regist-view11__content-title">
                     <span>숙소의 가격을 설정해 주세요!</span>                    
                 </div>
-                <div className="Acc-regist-lv11__content-section1">
-                    <div className="Acc-regist-lv11__content-section1-box1">
-                        <div className="Acc-regist-lv11__content-title-wrapper">
-                            <div className="Acc-regist-lv11__content-part1">
-                                <div className="Acc-regist-lv11__title">
+                <div className="host-regist-view11__content-section1">
+                    <div className="host-regist-view11__content-section1-box1">
+                        <div className="host-regist-view11__content-title-wrapper">
+                            <div className="host-regist-view11__content-part1">
+                                <div className="host-regist-view11__title">
                                     <span>예약 가격</span>
-                                    <div className="Acc-regist-lv11__section-box">
+                                    <div className="host-regist-view11__section-box">
                                         <div></div>
                                     </div>    
                                 </div>  
                             </div>   
-                            <div className="Acc-regist-lv11__content-part2">
-                                {average_data ? <div className="Acc-regist-lv11__content-average-wrapper">
+                            <div className="host-regist-view11__content-part2">
+                                {average_data ? <div className="host-regist-view11__content-average-wrapper">
                                     <span>
-                                        {`'${accomodation.search_adress}' 1년 평균 가격`}
+                                        {`'${host_acc?.search_adress}' 지역 1년 평균 가격`}
                                     </span>
                                     <span>
-                                        {`${get_average(average_data.valid_price_values)}원`}
+                                        {`${pop_three_texts(get_average(average_data.valid_price_values))}원`}
                                     </span>
                                 </div> :
-                                <div className="Acc-regist-lv11__no-average">
-                                    <span>{`'${accomodation.search_adress}' 지역의 1년간 데이터 등록 표본이 없습니다!`}</span>
+                                <div className="host-regist-view11__no-average">
+                                    <span>{`'${host_acc?.search_adress}' 지역의 1년간 데이터 등록 표본이 없습니다!`}</span>
                                 </div>}
                             </div>
                         </div>
-                        <div className="Acc-regist-lv11__content-input-wrapper">
-                            <div className="Acc-regist-lv11__content-box1-input">
-                                <input type="text"
-                                {...register('price', {
-                                    onChange : (e)=>{input_control(e)}
-                                })}>
-                                </input>
+                        <div className="host-regist-view11__content-input-wrapper">
+                            <div className="host-regist-view11__content-box1-input">
+                                <input 
+                                    type="text"
+                                    autoComplete="off"
+                                    {...register('price', {
+                                        onChange : (e)=>{input_control(e)}
+                                    })}/>
                                 <label>원</label>
                             </div>   
                             {/* error */}
@@ -99,37 +105,38 @@ function HostRegistView11({login_user, this_step}){
                         </div>       
                     </div>  
 
-                    <div className="Acc-regist-lv11__content-section1-box2">
-                        <div className="Acc-regist-lv11__content-title-wrapper">
-                            <div className="Acc-regist-lv11__content-part1">
-                                <div className="Acc-regist-lv11__title">
+                    <div className="host-regist-view11__content-section1-box2">
+                        <div className="host-regist-view11__content-title-wrapper">
+                            <div className="host-regist-view11__content-part1">
+                                <div className="host-regist-view11__title">
                                     <span>추가 인원 가격</span>
-                                    <div className="Acc-regist-lv11__section-box">
+                                    <div className="host-regist-view11__section-box">
                                         <div></div>
                                     </div>    
                                 </div>  
                             </div>   
-                            <div className="Acc-regist-lv11__content-part2">
-                                {average_data ? <div className="Acc-regist-lv11__content-average-wrapper">
+                            <div className="host-regist-view11__content-part2">
+                                {average_data ? <div className="host-regist-view11__content-average-wrapper">
                                     <span>
-                                        {`'${accomodation.search_adress}' 1년 평균 추가 인원 가격`}
+                                        {`'${host_acc?.search_adress}' 지역 1년 평균 추가 인원 가격`}
                                     </span>
                                     <span>
-                                        {`${get_average(average_data.valid_add_price_values)}원`}
+                                        {`${pop_three_texts(get_average(average_data.valid_add_price_values))}원`}
                                     </span>
                                 </div> : 
-                                <div className="Acc-regist-lv11__no-average">
-                                    <span>{`'${accomodation.search_adress}' 지역의 1년간 데이터 등록 표본이 없습니다!`}</span>
+                                <div className="host-regist-view11__no-average">
+                                    <span>{`'${host_acc?.search_adress}' 지역의 1년간 데이터 등록 표본이 없습니다!`}</span>
                                 </div>}
                             </div>
                         </div>
-                        <div className="Acc-regist-lv11__content-input-wrapper">
-                            <div className="Acc-regist-lv11__content-box1-input">
-                                <input type="text"
-                                {...register('add_price', {
-                                    onChange : (e)=>{input_control(e)}
-                                })}>                                    
-                                </input>
+                        <div className="host-regist-view11__content-input-wrapper">
+                            <div className="host-regist-view11__content-box1-input">
+                                <input 
+                                    type="text"
+                                    autoComplete="off"
+                                    {...register('add_price', {
+                                        onChange : (e)=>{input_control(e)}
+                                    })}/>                                    
                                 <label>원</label>
                             </div>
                             {/* error */}
@@ -137,8 +144,10 @@ function HostRegistView11({login_user, this_step}){
                         </div>
                     </div>
                     {/* chart */}
-                    <div className="Acc-regist-lv11__content-section1-chart-wrapper">
-                        {chart_data ? <Line data={chart_data}
+                    <div className="host-regist-view11__content-section1-chart-wrapper">
+                        {chart_data ? 
+                        <Line 
+                            data={chart_data}
                             options={{
                             responsive: true,
                             scales: {
@@ -149,23 +158,26 @@ function HostRegistView11({login_user, this_step}){
                                     beginAtZero: true,
                                     ticks: {
                                         callback: (value) => {
-                                          return value + ' 원'
+                                          return pop_three_texts(value) + ' 원'
                                         },
                                     }
                                 },
                             },
-                            }}>                            
-                        </Line> : null}
+                            }}/> : null}
                     </div>
                 </div>
             </div>
-            <div className="Acc-regist-lv11__footer">
-                <Host_footer fetch_handler={fetch_acc} 
-                drop_data={{
-                    price : watch('price'),
-                    addPrice : watch('add_price')
-                }} 
-                button_state={isValid} fetch_state={true}></Host_footer>
+            <div className="host-regist-view11__footer">
+                <Host_footer 
+                    fetch_handler={fetch_acc} 
+                    drop_data={
+                        {
+                            price : watch('price'),
+                            addPrice : watch('add_price')
+                        }
+                    } 
+                    button_state={isValid} 
+                    fetch_state={true}/>
             </div>
         </div>
     )

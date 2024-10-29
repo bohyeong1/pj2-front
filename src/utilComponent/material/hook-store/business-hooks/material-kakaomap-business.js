@@ -119,7 +119,7 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
             if(event){
                 kakao.maps.event.removeListener(map_ref.current, 'click')
             } 
-            marker_ref.current.setMap(null)
+            marker_ref.current?.setMap(null)
             map_ref.current = null
         }
     },[adress_data])

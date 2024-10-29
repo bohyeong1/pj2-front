@@ -1,14 +1,21 @@
-import { useForm } from "react-hook-form"
+import { useForm, useFormState } from "react-hook-form"
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
 import _ from 'lodash'
 import { useEffect } from "react";
 import default_data from "@/util/default_data/default_data";
 import { useParams } from "react-router-dom";
-import session_storage from "@/sessionStorage/session_storage";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 
 function useHostRegistView10Business(data, states, refs, props){
+
+    // =================================================
+    // context states //
+    const {
+        host_acc,
+        setHost_acc
+    } = data
+
     // =================================================
     // state //
     const {
@@ -43,13 +50,25 @@ function useHostRegistView10Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const { register, setValue, watch, formState:{errors, isValid} } = useForm({
+    const { register, setValue, watch, reset, control } = useForm({
         resolver:yupResolver(validation_schema),
         mode:'all',
         defaultValues: {
             count: 0,
         }
     })
+    const {errors, isValid} = useFormState({control})
+
+    // =================================================
+    // price 초기값 설정 //
+    useEffect(()=>{
+        if(prev_data){
+            reset({
+                rule : prev_data[4]?.summary || "",
+                count : prev_data[0]?.count || 0
+            })
+        }
+    },[prev_data, reset])
 
     // =================================================
     // button state 및 drop data 업데이트 //
@@ -60,7 +79,7 @@ function useHostRegistView10Business(data, states, refs, props){
                    sellect_state.case1 !== null && 
                    sellect_state.case2 !== null && 
                    sellect_state.case3 !== null && 
-                   isValid && watch('rule')
+                   isValid
         }
         if(isvalid_input()){
             const data_structure = default_data.home_rules
@@ -98,11 +117,12 @@ function useHostRegistView10Business(data, states, refs, props){
     async function fetch_acc(data, index){
         setLoading(false)
         // prev_data와 current_data 같을 경우 api 요청 x
+
         if(_.isEqual(prev_data, data)){
             setLoading(true)
-            return session_storage.load('house') && session_storage.load('house')._id ? {
+            return host_acc ? {
                 accomodation : {
-                    _id : session_storage.load('house')._id
+                    _id : host_acc._id
                 }
             } : false
         }
@@ -115,15 +135,21 @@ function useHostRegistView10Business(data, states, refs, props){
                 })
         
                 if(acc_data && acc_data.acc_state){
-                    session_storage.save('house',acc_data.accomodation)
+                    setHost_acc(acc_data.accomodation)
                 }        
-                console.log(acc_data)
+
                 setLoading(true)
                 return acc_data.acc_state ? acc_data : false
         }       
     } 
 
-    return {register, setValue, watch, fetch_acc, errors}
+    return {
+        register, 
+        setValue, 
+        watch, 
+        fetch_acc, 
+        errors
+    }
 }
 
 export default useHostRegistView10Business

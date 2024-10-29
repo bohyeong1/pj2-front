@@ -1,7 +1,7 @@
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
+import { useEffect } from "react";
 import * as Yup from 'yup';
 import { yupResolver } from "@hookform/resolvers/yup";
-import session_storage from "@/sessionStorage/session_storage";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import { useParams } from "react-router-dom";
@@ -43,10 +43,22 @@ function useHostRegistView9Business(data, states, refs, props){
 
     // =================================================
     // state form //
-    const {register, formState:{errors, isValid}, watch} = useForm({
+    const {register, reset, control, watch} = useForm({
         resolver:yupResolver(validation_schema),
         mode:'all'
     })
+
+    const {errors, isValid} = useFormState({control})
+
+    // =================================================
+    // price 초기값 설정 //
+    useEffect(()=>{
+        if(prev_data && prev_data.length){
+            reset({
+                summary : prev_data
+            })
+        }
+    },[prev_data, reset])
 
     // =================================================
     // data fetch  //
@@ -77,7 +89,13 @@ function useHostRegistView9Business(data, states, refs, props){
                 return acc_data.acc_state ? acc_data : false
         }
     }
-    return {fetch_acc, watch, register, errors, isValid}
+    return {
+        fetch_acc,
+        watch, 
+        register, 
+        errors, 
+        isValid
+    }
 }
 
 export default useHostRegistView9Business
