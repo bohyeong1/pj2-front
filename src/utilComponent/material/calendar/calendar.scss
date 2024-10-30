@@ -23,16 +23,15 @@
     width: 100%;
     display: flex;
     gap:20px;
+    height: 35px;
 }
 .calendar__header-year-month{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.025rem;
     color: $black-lv1;
     font-weight: 600;
-    height: 35px;
 }
 .calendar-right{
     transform: rotateZ(180deg);
@@ -65,7 +64,6 @@
     }
 }
 .calendar-right-button{
-    right: 0;
     top:50%;
     transform: translateY(-50%);
 }

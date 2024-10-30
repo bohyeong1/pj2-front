@@ -6,7 +6,7 @@ import { startOfMonth, startOfWeek, endOfMonth, endOfWeek, eachDayOfInterval, ad
 import useMaterialCalendarStyle from "../hook-store/style-hooks/material_calendar_style";
 import { state_store, reference_store } from "@/util/function/util_function";
 
-function Calendar({set_checkout_handler, set_checkin_handler, container_width = null, checkin_date, checkout_date}){
+function Calendar({set_checkout_handler, set_checkin_handler, container_width = null, checkin_date, checkout_date, double = true, header_font}){
     // =================================================
     // states //                                 
     const [is_left_button, setIs_left_button] = useState(false)
@@ -76,8 +76,8 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
     return(
         <div className = "calendar__container"
              style={{width : container_width ? container_width : '100%'}}>
-            {/* header */}
-            <div className = "calendar__header"
+            {/* button header */}
+            <div className = "calendar__header"                 
                  ref={calendar_container_ref}>
                 <button className = {`calendar__header-button calendar-left-button 
                             ${!is_left_button ? 'calendar-button-disable' : 'calendar-button-enable'}`} 
@@ -89,6 +89,7 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
                 </button>                
                 <button className = {`calendar__header-button calendar-right-button
                             ${!is_right_button ? 'calendar-button-disable' : 'calendar-button-enable'}`} 
+                        style={{right : double ? '0' : '50%'}}
                         disabled = {!is_right_button ? true : false} 
                         ref={right_button_ref}
                         onClick = {click_next_month}>
@@ -101,6 +102,7 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
                     {calendar_array.slice(0, calendar_array.length - 1).map((el, id)=>{
                         return(
                             <div className="calendar_header-slider-container"
+                                 style={{fontSize : header_font ? header_font : '1.025rem'}}
                                  key={id}>
                                 <div className = "calendar__header-year-month">
                                     {`${calendar_array[id].year}년 ${calendar_array[id].month}월`}

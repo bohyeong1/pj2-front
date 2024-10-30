@@ -421,6 +421,121 @@ const default_data = {
         url:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAChUlEQVR4nO2ZTYhOURjHf0MThqF3ehuNogwLRA0Ln6kxaykLspiVBQsKS8LOQiiKwmIUC6uxoCzMjJSFpKZMYaYxChn5DEO+BtOp/1untzv3feuee95zdX91Nvec/s/z3HvPOc95DuTk5NSCGcBp4D0wCpwHCmSMqcAt4F9ZGwaayBDH5PgroA1YCjzUs5NkhA7gD/AbWGs936BARsgARX0F4/Chsr5Zev6dwKkDbsjZPmBKWX+b+oYInH1y9C0wL6L/lPrPEjArgR/AX2BzRH8D8EGBrCJQZgJP5KTZN6LYpf67BMwlOTkATJ9kTGnp3U6gbJODX4Elk4xpt/aUegKkFfgsJ3fGjOvWmMMESD1wXw5ejRm3EBjX3tFMgBxXEM8rJIJnNO4iAdJupSDrYsbN1q9nluRlBEYz8Fpv+WCVG2RUM4vDx5g2CtxTmmNSG+cpyE050huRgpTTCfyKCaba9hiY6zKQPVYK0pJwAy1UaPOBLcAj2bziKghzGPok0a34Y7FsmrnmhAMS7MEvBWtOOaFHgmYn98kK2R10JfhGglHpeZpstL7IbheC4xI0RQWfTAPOWfYTJ52lpbBW7JX9B1kPpMnVpK91IGtk/2WWAykC/bJvktDMBjIg289clFxrGch12f5ZIdsOPpA64ITs3876ZC/+L6vWctl/kVToi4Qa8c8Ca8J3JRUblJCp3/qkE/hmrVqJc70LEjuCX7pkt99VFabDOh2aooIvVsuuKck6o0+i3VWc113RkMadyiJdbBrha8Ac/JVkn7oWXm8F8w44qmsC1yWbFh2kSiXZ/aRU8+11UOaptl1O+1fepLtzU3cac+z8GHAH2JFmADk5OWSTCQIHBIvH/7mJAAAAAElFTkSuQmCC'}        
     ],
 
+    possible_date_structure : [
+        {
+            name : '6개월 전',
+            data : 6
+        },
+        {
+            name : '5개월 전',
+            data : 5
+        },
+        {
+            name : '4개월 전',
+            data : 4
+        },
+        {
+            name : '3개월 전',
+            data : 3
+        },
+        {
+            name : '2개월 전',
+            data : 2
+        }
+    ],
+    possible_reservation : [
+        {
+            name : '일요일',
+            data : 0
+        },
+        {
+            name : '월요일',
+            data : 1
+        },
+        {
+            name : '화요일',
+            data : 2
+        },
+        {
+            name : '수요일',
+            data : 3
+        },
+        {
+            name : '목요일',
+            data : 4
+        },
+        {
+            name : '금요일',
+            data : 5
+        },
+        {
+            name : '토요일',
+            data : 6
+        }
+    ],
+
+    reservatio_deadline : [
+        {
+            name : '오전 8시',
+            data : 8
+        },
+        {
+            name : '오전 9시',
+            data : 9
+        },
+        {
+            name : '오전 10시',
+            data : 10
+        },
+        {
+            name : '오전 11시',
+            data : 11
+        },
+        {
+            name : '오후 12시',
+            data : 12
+        },
+        {
+            name : '오후 1시',
+            data : 13
+        },
+        {
+            name : '오후 2시',
+            data : 14
+        },
+        {
+            name : '오후 3시',
+            data : 15
+        },
+        {
+            name : '오후 4시',
+            data : 16
+        },
+        {
+            name : '오후 5시',
+            data : 17
+        },
+        {
+            name : '오후 6시',
+            data : 18
+        }
+    ],
+
+    before_date : [
+        {
+            name : '필요없음',
+            data : 0
+        },
+        {
+            name : '각 예약 전후로 1박',
+            data : 1
+        },
+        {
+            name : '각 예약 전후로 2박',
+            data : 2
+        }
+    ],
+
     // =================================================
     // 숙소 평가 별 모델 default data structure //
     star :  [

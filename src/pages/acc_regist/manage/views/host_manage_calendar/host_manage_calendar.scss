@@ -1,0 +1,234 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-manage-calendar__container{
+    display: flex;
+    width: 100%;
+    height: calc((calc(var(--vh) * 100) - 76px));
+    font-size: 0.9375rem;
+    padding-bottom: 50px;
+}
+
+//// calendar
+.host-manage-calendar__calendar-wrapper{
+    width: 100%;
+    overflow-y: auto;
+    padding-top: 50px;
+}
+.host-manage-calendar__calendar{
+    width: 100%;
+    height: fit-content;
+    overflow-x: hidden;    
+}
+
+//// input
+.host-manage-calendar__input-wrapper{
+    width: 360px;
+    flex-shrink: 0;
+    padding-top: 50px;
+    padding-left: 30px;
+    padding-right: 30px;
+    overflow-y: auto;
+}
+.host-manage-calendar__input{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:32px
+}
+.host-manage-calendar__input-title{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.host-manage-calendar__input-main-title{
+    width: 100%;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    font-size: 1.325rem;
+    font-weight: 600;
+}
+.host-manage-calendar__input-main-text{
+    color: $grey-lv1;
+    padding-bottom: 32px;
+}
+
+// contents
+.host-manage-calendar__input-contents{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+.host-manage-calendar__input-reservation-date{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+}
+.host-manage-calendar__navigate-to-mypage{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    padding-top: 16px;
+    padding-bottom: 100px;
+    position: relative;
+}
+.host-manage-calendar__navigate-to-mypage-text{
+    color: $grey-lv1;
+}
+.host-manage-calendar__navigate-to-mypage > span{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-manage-calendar__input-possible-date{
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    padding-top: 16px;
+}
+.host-manage-calendar__input-reservation-date > span{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-manage-calendar__input-possible-date > span{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-manage-calendar__input-min-reservation > span:nth-child(2){
+    color: $black-default;
+    font-size: 1.125rem;
+}
+.host-manage-calendar__box-wrapper{
+    position: relative;
+    width: 100%;
+    height: fit-content;
+}
+.host-manage-calendar__box-wrapper:nth-child(1){
+    border-bottom: solid 1px $grey-lv10;
+}
+.host-manage-calendar__box{
+    cursor: pointer;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 10px;
+    border: solid 1px $grey-lv10;
+    color: $grey-lv1;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    background-color: white;
+    z-index: 1;
+    position: relative;
+}
+.host-manage-calendar__modal-box{
+    position: absolute;
+    top: 0;
+    left: 0;
+    cursor: pointer;
+    width: 100%;
+    padding: 16px 24px;
+    border-radius: 10px;
+    border: solid 1px $grey-lv10;
+    color: $grey-lv1;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    z-index: 0;
+    pointer-events: none;
+    display: none;
+}
+.host-manage-calendar__modal-hearder > span:nth-child(2){
+    font-size: 0.825rem;
+    color: $grey-lv1;
+}
+.host-manage-calendar__modal-hearder{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    padding-bottom: 16px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.host-manage-calendar__modal-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:16px;
+    padding-top: 16px;
+}
+.host-manage-calendar__modal-active{
+    display: block;
+    z-index: 2;
+    background-color: white;
+    pointer-events: auto;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+}
+.host-manage-calendar__input-max-reservation > span:nth-child(2){
+    color: $black-default;
+    font-size: 1.125rem;
+}
+.host-manage-calendar__arrow{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top:50%;
+    transform: translateY(-50%) rotateZ(-90deg);
+    transition : 0.2s transform;
+    right: 16px;
+    z-index: 1;
+    cursor: pointer;
+}
+.arrow-active{
+    transform: translateY(-50%) rotateZ(90deg);
+    z-index: 3;
+}
+.host-manage-calendar__modal-button{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 0.9375rem;
+}
+.host-manage-calendar__modal-input{
+    display: block; 
+    height:40px; 
+    border:none;   
+    background: rgb(243, 243, 243); 
+    border-radius: 10px;    
+    width: 100%;    
+    padding-left: 10px; 
+    font-size: 0.9375rem;    
+    font-weight: 500;
+}
+.host-manage-calendar__navigate-to-mypage-button{
+    background: none;
+    border: none;
+    font-weight: 600;
+    text-align: right;
+    text-decoration: underline;
+    cursor: pointer;
+    position: absolute;
+    bottom: 30px;
+    right: 0;
+}
+.host-manage-calendar__box > span:nth-child(2){
+    color: $black-default;
+}
+.host-manage-calendar__input-possible-reservation > span:nth-child(2){
+    font-size: 0.825rem;
+    color: $black-default;
+}
+.host-manage-calendar__modal-select-input{
+    overflow-y: auto;
+    width: 100%;
+    max-height: 120px;
+}
+.host-manage-calendar__select{
+    height: 30px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+.host-manage-calendar__select:hover{
+    background-color: $grey-end;
+}
