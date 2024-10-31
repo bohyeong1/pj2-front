@@ -443,7 +443,7 @@ const default_data = {
             data : 2
         }
     ],
-    possible_reservation : [
+    impossible_reservation : [
         {
             name : '일요일',
             data : 0
@@ -474,7 +474,7 @@ const default_data = {
         }
     ],
 
-    reservatio_deadline : [
+    reservation_deadline : [
         {
             name : '오전 8시',
             data : 8
@@ -523,7 +523,7 @@ const default_data = {
 
     before_date : [
         {
-            name : '필요없음',
+            name : '필요 없음',
             data : 0
         },
         {

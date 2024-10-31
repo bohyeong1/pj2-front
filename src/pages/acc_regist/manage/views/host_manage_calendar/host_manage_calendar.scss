@@ -95,10 +95,6 @@
     font-size: 1.125rem;
     font-weight: 600;
 }
-.host-manage-calendar__input-min-reservation > span:nth-child(2){
-    color: $black-default;
-    font-size: 1.125rem;
-}
 .host-manage-calendar__box-wrapper{
     position: relative;
     width: 100%;
@@ -125,7 +121,6 @@
     position: absolute;
     top: 0;
     left: 0;
-    cursor: pointer;
     width: 100%;
     padding: 16px 24px;
     border-radius: 10px;
@@ -146,6 +141,7 @@
     width: 100%;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
     gap:16px;
     padding-bottom: 16px;
     border-bottom: solid 1px $grey-lv10;
@@ -163,10 +159,6 @@
     background-color: white;
     pointer-events: auto;
     box-shadow: 0 8px 28px rgba(0,0,0,0.12);
-}
-.host-manage-calendar__input-max-reservation > span:nth-child(2){
-    color: $black-default;
-    font-size: 1.125rem;
 }
 .host-manage-calendar__arrow{
     position: absolute;
@@ -212,23 +204,39 @@
 }
 .host-manage-calendar__box > span:nth-child(2){
     color: $black-default;
+    font-size: 0.875rem;
 }
-.host-manage-calendar__input-possible-reservation > span:nth-child(2){
-    font-size: 0.825rem;
-    color: $black-default;
-}
+
 .host-manage-calendar__modal-select-input{
     overflow-y: auto;
     width: 100%;
-    max-height: 120px;
+    max-height: 150px;
 }
 .host-manage-calendar__select{
     height: 30px;
     width: 100%;
     display: flex;
     align-items: center;
+    cursor: pointer;
     padding-left: 10px;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
 }
 .host-manage-calendar__select:hover{
     background-color: $grey-end;
+}
+.host-manage-calendar__select-active{
+    background-color: $grey-end;
+    pointer-events: none;
+    cursor: default;
+}
+.host-manage-calendar__select-active2{
+    background-color: $grey-end;
+}
+.host-manage-calendar__input-error{
+    font-size: 0.825rem;    
+    color: $red-lv2;      
+    font-weight: 100;
 }

@@ -1,4 +1,5 @@
 @import './manage_scss_style/commonness/colors';
+
 /* 기본 style */
 @font-face {
   font-family: 'Pretendard-Regular';
@@ -7,7 +8,15 @@
   font-style: normal;
 }
 *{
-  margin:0; padding: 0;   box-sizing: border-box;
+  margin:0; 
+  padding: 0;   
+  box-sizing: border-box;
+}
+img{
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none; 
+  -ms-user-select: none;
 }
 html{
   overflow-x: hidden;
@@ -47,5 +56,13 @@ input::-moz-placeholder{
 }
 input::-webkit-input-placeholder{
   color: $grey-lv4; 
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button{
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
 }
 
