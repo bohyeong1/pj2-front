@@ -18,9 +18,9 @@ import {
     AccUpdate, 
     HostRegistView0,
     AccManage,
-    Acc_initial, AccList, 
+    AccList, 
     Acc_regist_intro, AccRegist,
-    Acc_initial_regist,
+
     // evaluation page //
     Evaluation,
     // private page //
@@ -102,8 +102,7 @@ function FinalRoutes(){
                     element={Acc_regist} 
                     redirection_url={'/Acc_initial'}/>}>
                 </Route>                                                         {/*숙소 호스팅 페이지*/}
-                <Route path='/Acc_initial' element={<Acc_initial></Acc_initial>}></Route>                                                                     {/*호스트 등록 페이지*/}   
-                <Route path='/Acc_initial_regist' element={<Private_router data_state={true} element={Acc_initial_regist}/>}></Route>                         {/*초기 호스트 정보 기입 페이지*/}    
+               
                 <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccList}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
                 <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/} 
                

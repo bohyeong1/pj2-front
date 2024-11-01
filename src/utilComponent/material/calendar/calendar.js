@@ -2,11 +2,38 @@ import React, {useState, useRef, useMemo} from "react";
 import './calendar.scss'
 import '@/manage_scss_style/commonness/commonness.scss'
 import default_data from "@/util/default_data/default_data";
-import { startOfMonth, startOfWeek, endOfMonth, endOfWeek, eachDayOfInterval, addMonths, getMonth, getYear, isSameDay, isBefore, startOfDay } from "date-fns";
+import { 
+    startOfMonth, 
+    startOfWeek, 
+    endOfMonth, 
+    endOfWeek, 
+    eachDayOfInterval, 
+    addMonths, 
+    getMonth, 
+    getYear, 
+    getDay,
+    isSameDay, 
+    isBefore, 
+    isEqual,
+    startOfDay,
+    set
+} from "date-fns";
 import useMaterialCalendarStyle from "../hook-store/style-hooks/material_calendar_style";
 import { state_store, reference_store } from "@/util/function/util_function";
 
-function Calendar({set_checkout_handler, set_checkin_handler, container_width = null, checkin_date, checkout_date, double = true, header_font}){
+function Calendar({
+    set_checkout_handler, 
+    set_checkin_handler, 
+    container_width = null, 
+    checkin_date, 
+    checkout_date, 
+    double = true, 
+    header_font,
+    possible_date,
+    impossible_reservation,
+    reservation_deadline
+}){
+
     // =================================================
     // states //                                 
     const [is_left_button, setIs_left_button] = useState(false)
@@ -161,6 +188,9 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
                                                        range_state = {date_range_style(ele, checkin_date, checkout_date)}
                                                        checkin_state = {isSameDay(ele, checkin_date)}
                                                        checkout_state = {isSameDay(ele, checkout_date)}
+                                                       possible_date = {addMonths(new Date(), possible_date)}
+                                                       impossible_reservation = {impossible_reservation}
+                                                       reservation_deadline = {reservation_deadline}
                                                        key= {id2}/>                                    
                                             )
                                         })}
@@ -175,6 +205,9 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
                                                        range_state = {date_range_style(ele, checkin_date, checkout_date)}
                                                        checkin_state = {isSameDay(ele, checkin_date)}
                                                        checkout_state = {isSameDay(ele, checkout_date)}
+                                                       possible_date = {addMonths(ele, possible_date)}
+                                                       impossible_reservation = {impossible_reservation}
+                                                       reservation_deadline = {reservation_deadline}
                                                        key= {id2}/>
                                             )
                                         })}
@@ -191,17 +224,48 @@ function Calendar({set_checkout_handler, set_checkin_handler, container_width = 
 
 // =================================================
 // dates // 
-const Dates = React.memo(({date, checkin_state, checkout_state, month, range_state, is_saturday, is_sunday}) => {
+const Dates = React.memo((
+    {
+        date, 
+        checkin_state, 
+        checkout_state, 
+        month, 
+        range_state, 
+        is_saturday, 
+        is_sunday,
+        possible_date,
+        impossible_reservation,
+        reservation_deadline
+    }) => {
+
     const is_valid_date = (date.getMonth() + 1) === month
-    const is_before_state = isBefore(date, startOfDay(new Date()))
+    const is_before_today = isBefore(date, startOfDay(new Date()))
+
+    // =================================================
+    // 비활성화 날짜 검사 //
+    function check_activate_date(){
+        const is_before_possible_date = isBefore(date, possible_date)
+        const today_deadline = isEqual(date, startOfDay(new Date())) ?
+            isBefore(new Date(), set(new Date(), {hours : reservation_deadline, minutes : 0, seconds : 0, milliseconds : 0})) : true
+        const is_impossible_date = impossible_reservation.some((el)=>{
+            return el.data === getDay(date)
+        })
+
+        if(!is_before_today && is_before_possible_date && today_deadline && !is_impossible_date){
+            return true
+        }
+        else {
+            return false
+        }
+    }
 
     return(
-        <div className = "calendar__main-dates-box">                                  
+        <div className = "calendar__main-dates-box not-user-sellect">                                  
             <button className = {`calendar__main-dates-value 
-                                ${!is_before_state && is_saturday ? 'calendar-saturday' : ''}
-                                ${!is_before_state && is_sunday ? 'calendar-sunday' : ''}
-                                ${is_before_state ? 'calendar-isbefor' : '' }
-                                ${is_valid_date && !is_before_state ? 'calendar-valid-button' : 'calendar-not-valid-button'} 
+                                ${check_activate_date() && is_saturday ? 'calendar-saturday' : ''}
+                                ${check_activate_date() && is_sunday ? 'calendar-sunday' : ''}
+                                ${!check_activate_date() ? 'calendar-deactivate' : '' }
+                                ${is_valid_date && check_activate_date() ? 'calendar-valid-button' : 'calendar-not-valid-button'} 
                                 ${is_valid_date && (checkin_state || checkout_state) ? 'calendar-active-button-style' : ''}`}  
                     data-date = {date}>
                         {is_valid_date ? date.getDate() : ''}

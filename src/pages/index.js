@@ -22,8 +22,6 @@ export {default as Detail} from './detail/detail/app/detail'
 // =================================================
 // host //
 export {default as Acc_regist} from './acc_regist/acc_registApp/Acc_regist'
-export {default as Acc_initial} from './acc_regist/acc_initial_app/acc_initial'
-export {default as Acc_initial_regist} from './acc_regist/acc_initial_regist_app/acc_initial_regist'
 export {default as Acc_regist_intro} from './acc_regist/acc_regist_intro/Acc_regist_intro'
 export {default as AccList} from './acc_regist/acc_manage_app/Acc_manage'
 

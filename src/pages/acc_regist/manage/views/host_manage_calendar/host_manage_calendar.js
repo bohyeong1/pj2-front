@@ -70,7 +70,7 @@ function HostManageCalendar(){
             {error_state, setError_state}
         ])
     )
-
+    console.log(host_data)
     return (
         loading === false ? <Loading part={true}></Loading> :
         <div className="host-manage-calendar__container">
@@ -81,6 +81,9 @@ function HostManageCalendar(){
                         // set_checkout_handler = {setCheckout_date}
                         // checkin_date = {checkin_date}
                         // checkout_date = {checkout_date}
+                        possible_date = {host_data.possible_date.data}
+                        impossible_reservation = {host_data.impossible_reservation}
+                        reservation_deadline = {host_data.reservation_deadline.data}
                         header_font = {'1.325rem'}
                         double = {false}
                         container_width = {'200%'}/>
