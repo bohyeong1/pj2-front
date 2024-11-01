@@ -24,46 +24,40 @@ function DropdownState({menus = null, call_back, sellect, default_message = ''})
     // business
     const {click_option} = useMaterialDropdownStateBusiness(undefined,
         state_store([
-            {
-                'select_option' : select_option,
-                'setSelect_option' : setSelect_option
-            }
+            {select_option, setSelect_option}
         ]),
         reference_store([
-            {
-                'drop_list' : drop_list
-            },
-            {
-                'drop_logo' : drop_logo
-            },
-            {
-                'drop_options' : drop_options
-            }
+            {drop_list},
+            {drop_logo},
+            {drop_options}
         ]),
         {
-            'sellect' : sellect,
-            'call_back' : call_back,
-            'menus' : menus
+            sellect,
+            call_back,
+            menus 
         })
 
     // style
     const {dropdown_toggle} = useMaterialDropdownStateStyle(undefined,undefined,
         reference_store([
-            {
-                'drop_list' : drop_list
-            },
-            {
-                'drop_arrow'  :drop_arrow
-            }
+            {drop_list},
+            {drop_arrow}
         ]))
 
     return(
         <div className="dropdown-state__custom-dr">
-            <div className="dropdown-state__custom-logo" onClick={dropdown_toggle}>
+            <div 
+                className="dropdown-state__custom-logo" 
+                onClick={dropdown_toggle}>
                 <span ref={drop_logo}>{sellect && sellect.name ? sellect.name : default_message}</span>
-                <img className='dropdown-state__arrow-img' ref={drop_arrow} src={default_data.d_imgs.drop_arrow}></img>
+                <img 
+                    className='dropdown-state__arrow-img' 
+                    ref={drop_arrow} 
+                    src={default_data.d_imgs.drop_arrow}/>
             </div>
-            <div className="dropdown-state__custom-options common-scroll-bar" ref={drop_list}>
+            <div 
+                className="dropdown-state__custom-options common-scroll-bar" 
+                ref={drop_list}>
                 {menus && menus.map((el, id)=>{
                     if(!el){
                         return(

@@ -5,20 +5,16 @@ import DefaultLayout from './layout/default_layout/default_layout';
 // =================================================
 // parent url routes //
 import { 
-    // main page //
     Main, 
     // membership page //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
-    // sub accomodation page //
     SubApp,
-    // accomodations detail page //
     Detail,
-    // accomodations host page //
     AccUpdate, 
     HostRegistView0,
     AccManage,
-    Acc_regist_intro, AccRegist,
-
+    AccMyPage,
+    AccRegist,
     // evaluation page //
     Evaluation,
     // private page //
@@ -33,6 +29,7 @@ import {
 import set_host_update_routes from './router/routes/host/host_update_routes';
 import set_host_regist_routes from './router/routes/host/host_regist_routes';
 import set_host_manage_routes from './router/routes/host/host_manage_route';
+import set_host_mypage_routes from './router/routes/host/host_mypage_route';
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
@@ -86,33 +83,28 @@ function FinalRoutes(){
                             <CommonAccProvider>
                                 <GetAccUserRouter element={DefaultLayout}/>
                             </CommonAccProvider>
-                        </UserProvider>}>                                                             
+                        </UserProvider>
+                    }>                                                             
                     <Route path=':house' element={<Reservation/>}></Route>
                 </Route>    
-               
-                {/* // =================================================
-                    // 호스트 페이지 // */}
-               
-                <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/} 
-               
+              
                 {/* // =================================================
                     // host // */}
 
                 {/* host - 숙소 등록 페이지 */}
                 <Route 
                     path='/host' 
-                    element = 
-                        {
-                            <UserProvider>
-                                <HostAccProvider>
-                                    <HostRegistCheckRouter 
-                                        element={DefaultLayout} 
-                                        redirection_url = {'manage/regist-1'}
-                                        footer = {false}
-                                        host={true}/>
-                                </HostAccProvider>
-                            </UserProvider>
-                        }>
+                    element = {
+                        <UserProvider>
+                            <HostAccProvider>
+                                <HostRegistCheckRouter 
+                                    element={DefaultLayout} 
+                                    redirection_url = {'manage/regist-1'}
+                                    footer = {false}
+                                    host={true}/>
+                            </HostAccProvider>
+                        </UserProvider>
+                    }>
                     <Route 
                         path='regist/:house' 
                         element = {<AccRegist/>}>
@@ -122,18 +114,17 @@ function FinalRoutes(){
 
                 <Route
                     path='/host'
-                    element=
-                        {
-                            <HostAccProvider>
-                                <UserProvider>
-                                    <HostLogCheckRouter
-                                        element={DefaultLayout} 
-                                        redirection_url = {'manage/regist-1'}
-                                        footer = {false}
-                                        host={true}/>
-                                </UserProvider>
-                            </HostAccProvider>
-                        }>
+                    element= {
+                        <HostAccProvider>
+                            <UserProvider>
+                                <HostLogCheckRouter
+                                    element={DefaultLayout} 
+                                    redirection_url = {'manage/regist-1'}
+                                    footer = {false}
+                                    host={true}/>
+                            </UserProvider>
+                        </HostAccProvider>
+                    }>
                     <Route 
                         path='regist/step0' 
                         element = {<HostRegistView0/>}>
@@ -169,6 +160,24 @@ function FinalRoutes(){
                 {/* host - host manage 페이지 */}
                 <Route
                     path='/host'
+                    element = {
+                        <UserProvider>
+                            <HostLogCheckRouter
+                                element={DefaultLayout}
+                                redirection_url={'manage/regist-1'}
+                                host={true}/>
+                        </UserProvider>
+                    }>
+                    <Route
+                        path='manage'
+                        element = {<AccManage/>}>
+                        {set_host_manage_routes()}
+                    </Route>
+                </Route>
+
+                {/* host - host mypage 페이지 */}
+                <Route
+                    path='/host'
                     element = 
                         {
                             <UserProvider>
@@ -178,14 +187,13 @@ function FinalRoutes(){
                                     host={true}/>
                             </UserProvider>
                         }>
-                    <Route
-                        path='manage'
-                        element = {<AccManage/>}
-                        >
-                        {set_host_manage_routes()}
-                    </Route>
-                </Route>
+                        <Route
+                            path='mypage'
+                            element = {<AccMyPage/>}>
+                            {set_host_mypage_routes()}
+                        </Route>
 
+                </Route>
 
                 {/* // =================================================
                     // 마이 페이지 // */}

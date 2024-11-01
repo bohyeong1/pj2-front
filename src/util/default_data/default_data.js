@@ -737,25 +737,39 @@ const default_data = {
             url:'/'
         },
            
-    host_menus :
-        [
-            {
-                name:'투데이',
-                url:'/host/manage/main'
-            },
-            {
-                name:'달력',
-                url : '/host/manage/calendar'
-            },
-            {
-                name:'숙소',
-                url:'/host/manage/list'
-            },
-            {
-                name:'호스트 소개',
-                url:'/Acc_regist/Acc_regist_intro'
-            }
-        ],
+    host_menus : [
+        {
+            name:'투데이',
+            url:'/host/manage/main'
+        },
+        {
+            name:'달력',
+            url : '/host/manage/calendar'
+        },
+        {
+            name:'숙소',
+            url:'/host/manage/list'
+        }
+    ],
+    
+    host_modal_menus : [
+        {
+            name : '호스팅 정보',
+            url : '/host/mypage/information'
+        },
+        {
+            name : '예약 관리',
+            url : ''
+        },
+        {
+            name : '환불 정책',
+            url : ''
+        },
+        {
+            name : '예약 정책',
+            url : ''
+        }
+    ],
 
     // =================================================
     // subapp dropdown menus //

@@ -1,3 +1,37 @@
-.host-mypage-layout__content{
+@import '@/manage_scss_style/commonness/colors';
+
+.host-mypage-layout{
     width: 100%;
+    display: flex;
+    gap:30px;
+    height: calc((calc(var(--vh) * 100) - 26.23px));
+    padding-top: 50px;    
+    padding-bottom: 50px;
+}
+// content
+.host-mypage-layout__content{
+    flex-grow: 1;   
+    position: relative;
+}
+
+// side menu
+.host-mypage-layout__side{
+    width: 230px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    height: fit-content;
+    display: flex;
+    flex-direction: column;
+}
+.host-mypage-layout__side-select{
+    padding: 20px;
+    font-size: 1.125rem;
+    cursor: pointer;
+    // font-weight: 600;
+}
+.host-mypage-layout__side-select-onborder{
+    border-bottom: solid 1px $grey-lv10;
+}
+.host-mypage-layout__side-select-onpage{
+    color: $blue-default;
 }

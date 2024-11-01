@@ -1,0 +1,62 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.host-mypage-user-text__container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:40px;
+}
+
+// title
+.host-mypage-user-text__title{
+    width: 100%;
+    font-size: 1.525rem;
+    font-weight: 600;
+}
+
+// content
+.host-mypage-user-text__content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+.host-mypage-user-text__content-section1,
+.host-mypage-user-text__content-section2,
+.host-mypage-user-text__content-section3{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.host-mypage-user-text__content-section1,
+.host-mypage-user-text__content-section2{
+    padding-bottom: 40px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.host-mypage-user-text__content-sub-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+// section1
+.host-mypage-user-text__content-section1 > span:nth-child(2){
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+.host-mypage-user-text__content-section1-profile-img{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.host-mypage-user-text__content-section1-profile{
+    padding-top: 20px;
+    display: flex;
+    gap:70px;
+}
+.host-mypage-user-text__content-section1-profile-text{
+    flex-grow: 1;
+    border-radius: 10px;
+    border: dotted 2px $grey-lv10;
+}

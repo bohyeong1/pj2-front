@@ -14,7 +14,7 @@ function AuthModal({AuthModalState, modalState, userData, modifyUser}){
         e.preventDefault()
         const password = e.target.password.value
         const password_confirm = e.target.password_confirm.value
-        console.log(userData.userId)
+
         if(password === password_confirm){
             const authData = await connectData(`${default_data.d_base_url}/api/users/login`, 'POST', {
                 userId : userData.userId,
@@ -33,8 +33,6 @@ function AuthModal({AuthModalState, modalState, userData, modifyUser}){
             setAuthState(true)
             
         }
-
-
     }
 
     return (

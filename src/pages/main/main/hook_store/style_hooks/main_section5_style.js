@@ -4,7 +4,16 @@ function useMainSection5Style(){
 
     // =================================================
     // 스와이퍼 훅 //
-    const {RbtnState,setRbtnState, LbtnState, setLbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change} = useSwiperButtonContoll(4)
+    const {
+        RbtnState,
+        setRbtnState, 
+        LbtnState, 
+        setLbtnState, 
+        swiper_ref, 
+        moveRSlide,
+        moveLslide, 
+        swiper_change
+    } = useSwiperButtonContoll(4)
 
     // =================================================
     // 분류 버튼 //
@@ -20,7 +29,15 @@ function useMainSection5Style(){
         }
     }
 
-    return {RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change, toggle_btn}
+    return {
+        RbtnState, 
+        LbtnState, 
+        swiper_ref, 
+        moveRSlide, 
+        moveLslide, 
+        swiper_change, 
+        toggle_btn
+    }
 }
 
 export default useMainSection5Style

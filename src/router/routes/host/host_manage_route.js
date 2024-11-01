@@ -3,7 +3,7 @@ import { Route } from "react-router-dom";
 import Loading from "@/utilComponent/material/loading/loading";
 
 // =================================================
-// accomodation regist component //
+// host manage component //
 const host_manage_routes = {
     route1 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_calendar/host_manage_calendar')),
     route2 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_initial_regist_step1/host_manage_initial_regist_step1')),
@@ -13,7 +13,6 @@ const host_manage_routes = {
 }
 
 function set_host_manage_routes(){
-    // accomodation regist view
     return (
         <>
             <Route 

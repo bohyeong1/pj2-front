@@ -1,10 +1,11 @@
-// 메인메뉴 기본 레이아웃 
 @font-face {
     font-family: 'ClimateCrisisKR-1979';
     src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
     font-weight: 900;
     font-style: normal;
 }
+@import '@/manage_scss_style/commonness/colors';
+
 .main-menu__wrapper{
     width: 1920px;  
     height: fit-content;
@@ -62,9 +63,10 @@
 .main-menu__host{
     display: flex;   
     align-items: center;    
+    position: relative;
     gap:19px;       
+    height: 47px;
     color: rgb(3, 3, 58);
-    cursor: pointer;
 }
 .current-host{
     text-decoration: underline; 
@@ -72,7 +74,34 @@
     text-underline-position : under;    
     font-weight: bold;
 }
-
+.main-menu__host-menu{
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.main-menu__host-modal{
+    position: absolute;
+    width: 200px;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    z-index: 4;
+    background: white;
+    right: -173px;
+    top: 60px;
+    border-radius: 10px;
+}
+.main-menu__host-modal-select:nth-child(1),
+.main-menu__host-modal-select:nth-child(2){
+    border-bottom: solid 1px $grey-lv10 ;
+}
+.main-menu__host-modal-select{
+    padding: 15px;
+}
+.main-menu__host-modal-select:hover{
+    background-color: $grey-end;
+}
 // 로그인상태메뉴 
 .main-menu__list{
     border: solid 1px rgb(210,210,210);  

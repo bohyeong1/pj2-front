@@ -5,7 +5,6 @@ import './LogModal.css'
 function LogModal({log_m_state}){
     const navigate = useNavigate()
     const location = useLocation()
-    // console.log(location.pathname)
 
     function logout(){
         localStorage.removeItem('userData')
@@ -26,13 +25,12 @@ function LogModal({log_m_state}){
             <div className="logmodal-con-box2">
                 <div className="logmodal-con-b2-t1" id="log_btn" onClick={()=>{navigate('/Private_history')}}>예약 내역</div>
                 <div className="logmodal-con-b2-t2" id="log_btn">위시리스트</div>
-                <div className="logmodal-con-b2-t3" id="log_btn" onClick={()=>{navigate('/Acc_regist')}}>호스팅</div>
+                <div className="logmodal-con-b2-t3" id="log_btn" onClick={()=>{navigate('/host/manage/main')}}>호스팅</div>
             </div>
             <div className="logmodal-con-box3">
                 <div className="logmodal-con-b3-t1" id="log_btn" onClick={()=>{navigate('/Terms_host')}}>호스팅 약관</div>
                 <div className="logmodal-con-b3-t2" id="log_btn" onClick={logout}>로그아웃</div>
             </div>
-
         </div>
     )
 }

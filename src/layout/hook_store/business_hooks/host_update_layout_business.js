@@ -13,7 +13,7 @@ function useHostUpdateLayoutBusiness(data, states, refs, props){
     // =================================================
     // click preview page //
     function click_prev_page_button(){
-        navigate('/Acc_regist/AccManage')
+        navigate('/host/manage/list')
     }   
 
     // =================================================

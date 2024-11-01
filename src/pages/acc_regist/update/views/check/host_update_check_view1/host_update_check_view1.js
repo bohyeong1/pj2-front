@@ -3,7 +3,7 @@ import useHostUpdateCheckView1Business from '../../../hook_store/business_hooks/
 import default_data from "@/util/default_data/default_data";
 import Loading from '@/utilComponent/material/loading/loading'
 import { useContext, useState, useRef } from 'react'
-import { AccDataContext } from '@/context/acc_data_context/config/acc_data_context'
+import { HostAccContext } from "@/context/host_acc_context/config/host_acc_context";
 import { state_store, reference_store, text_change } from '@/util/function/util_function'
 import DropdownState from '@/utilComponent/material/dropdown_state/dropdown_state';
 import '@/manage_scss_style/commonness/commonness.scss'
@@ -12,7 +12,7 @@ import useHostUpdateStyleView1Style from '../../../hook_store/style_hooks/host_u
 function HostUpdateCheckView1(){
     // =================================================
     // context //
-    const {acc_data, setAcc_data} = useContext(AccDataContext)
+    const {host_acc, setHost_acc} = useContext(HostAccContext)
 
     // =================================================
     // refs //
@@ -27,94 +27,65 @@ function HostUpdateCheckView1(){
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
     const [line_error, setLine_error] = useState(false)
-    const [sellect_state, setSellect_state] = useState(acc_data.check_method && acc_data.check_method.check_in ? 
-                                                false : 
-                                                true
-                                              )
-    const [check_in, setCheck_in] = useState(acc_data.check_time && acc_data.check_time.check_in ? 
-                                             acc_data.check_time.check_in :
-                                             default_data.d_check_time[7])
-    const [check_in_method, setCheck_in_method] = useState(acc_data.check_method && acc_data.check_method.check_in ? 
-                                                    acc_data.check_method.check_in :
-                                                    null
-                                                  )
+    const [sellect_state, setSellect_state] = useState(
+        host_acc.check_method && host_acc.check_method.check_in ? false : true
+    )
+    const [check_in, setCheck_in] = useState(
+        host_acc.check_time && host_acc.check_time.check_in ? host_acc.check_time.check_in : default_data.d_check_time[7]
+    )
+    const [check_in_method, setCheck_in_method] = useState(
+        host_acc.check_method && host_acc.check_method.check_in ? host_acc.check_method.check_in : null
+    )
                                      
     // =================================================
     // hooks //
     // business
-    const {register, 
-           watch,
-           fetch_acc,
-           errors,
-           setError,
-           clearErrors,
-           isValid} = useHostUpdateCheckView1Business({
-                            'acc_data' : acc_data,
-                            'setAcc_data' : setAcc_data
-                        },
-                        state_store([
-                            {
-                                'check_in' : check_in,
-                                'setCheck_in' : setCheck_in
-                            },
-                            {
-                                'check_in_method' : check_in_method,
-                                'setCheck_in_method' : setCheck_in_method
-                            },
-                            {
-                                'is_button' : is_button,
-                                'setIs_button' : setIs_button
-                            },
-                            {
-                                'loading' : loading,
-                                'setLoading' : setLoading
-                            },
-                            {
-                                'line_error' : line_error,
-                                'setLine_error' : setLine_error
-                            }
-                        ]),
-                        reference_store([
-                            {
-                                'text_gurabox' : text_gurabox
-                            },
-                            {
-                                'row_alram_ref' : row_alram_ref
-                            },
-                            {
-                                'text_alert' : text_alert
-                            }
-                        ])                        
-                      )
+    const {
+        register, 
+        watch,
+        fetch_acc,
+        errors,
+        setError,
+        clearErrors,
+        isValid
+    } = useHostUpdateCheckView1Business(
+        {
+            host_acc, 
+            setHost_acc
+        },
+        state_store([
+            {check_in, setCheck_in},
+            {check_in_method, setCheck_in_method},
+            {is_button, setIs_button},
+            {loading, setLoading},
+            {line_error, setLine_error}
+        ]),
+        reference_store([
+            {text_gurabox},
+            {row_alram_ref},
+            {text_alert}
+        ])                        
+    )
     // style
-    const {click_sellect_box, 
-           delete_sellect_box,
-           save_text,
-           click_modify_text} = useHostUpdateStyleView1Style({
-                                        'acc_data' : acc_data,
-                                        'setAcc_data' : setAcc_data,
-                                        'watch' : watch
-                                    },
-                                    state_store([
-                                        {
-                                            'sellect_state' : sellect_state,
-                                            'setSellect_state' : setSellect_state
-                                        },
-                                        {
-                                            'check_in_method' : check_in_method,
-                                            'setCheck_in_method' : setCheck_in_method
-                                        },
-                                        {
-                                            'line_error' : line_error,
-                                            'setLine_error' : setLine_error
-                                        }
-                                    ]),
-                                    reference_store([
-                                        {
-                                            'sellect_active_button_wrapper' : sellect_active_button_wrapper
-                                        }
-                                    ])
-                                )
+    const {
+        click_sellect_box, 
+        delete_sellect_box,
+        save_text,
+        click_modify_text
+    } = useHostUpdateStyleView1Style({
+            host_acc,
+            setHost_acc,
+            watch
+        },
+        state_store([
+            {sellect_state, setSellect_state},
+            {check_in_method, setCheck_in_method},,
+            {line_error, setLine_error}
+        ]),
+        reference_store([
+            {sellect_active_button_wrapper}
+        ])
+    )
 
     // =================================================
     // hook form api에서 ref 설정 필요한 필드 //

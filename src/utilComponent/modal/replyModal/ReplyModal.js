@@ -21,11 +21,7 @@ function ReplyModal({data, replyModalState,replyModal}){
                 <div style={{width:'40px'}}></div>
             </div>
             <textarea readOnly className="ReplyModal-con-sec2" value={data?.text}>
-                
-
-
             </textarea>
-
         </div>  
     </div>
 

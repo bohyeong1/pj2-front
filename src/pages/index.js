@@ -21,12 +21,11 @@ export {default as Detail} from './detail/detail/app/detail'
 
 // =================================================
 // host //
-export {default as Acc_regist_intro} from './acc_regist/acc_regist_intro/Acc_regist_intro'
-
 export {default as HostRegistView0} from './acc_regist/regist/views/host_regist_view0/host_regist_view0'
 export {default as AccRegist} from './acc_regist/regist/app/regist'
 export {default as AccUpdate} from './acc_regist/update/app/update'
 export {default as AccManage} from './acc_regist/manage/app/manage'
+export {default as AccMyPage} from './acc_regist/mypage/app/mypage'
 
 // =================================================
 // 회원정보 관리 //

@@ -11,27 +11,33 @@ import _ from 'lodash'
 function useHostUpdateCheckView1Business(data, states, refs, props){
     // =================================================
     // states //
-    const {check_in,
-           setCheck_in,
-           check_in_method,
-           setCheck_in_method,
-           loading, 
-           setLoading,
-           line_error,
-           setLine_error,  
-           is_button, 
-           setIs_button} = states
+    const {
+        check_in,
+        setCheck_in,
+        check_in_method,
+        setCheck_in_method,
+        loading, 
+        setLoading,
+        line_error,
+        setLine_error,  
+        is_button, 
+        setIs_button
+    } = states
 
     // =================================================
     // refs //
-    const {text_gurabox,
-           row_alram_ref,
-           text_alert} = refs
+    const {
+        text_gurabox,
+        row_alram_ref,
+        text_alert
+    } = refs
 
     // =================================================
     // context states //
-    const {acc_data, 
-           setAcc_data} = data
+    const {
+        host_acc, 
+        setHost_acc
+    } = data
 
     // =================================================
     // params //
@@ -66,11 +72,11 @@ function useHostUpdateCheckView1Business(data, states, refs, props){
                 // =====
                 !isValid ||
                 // =====
-               (acc_data.check_method &&
-                acc_data.check_method.check_in &&
-                check_in_method.name === acc_data.check_method.check_in.name &&
-                check_in_method.text === acc_data.check_method.check_in.text &&
-                check_in.time === acc_data.check_time.check_in.time
+               (host_acc.check_method &&
+                host_acc.check_method.check_in &&
+                check_in_method.name === host_acc.check_method.check_in.name &&
+                check_in_method.text === host_acc.check_method.check_in.text &&
+                check_in.time === host_acc.check_time.check_in.time
                )
             ){
                 setIs_button(false)
@@ -82,19 +88,19 @@ function useHostUpdateCheckView1Business(data, states, refs, props){
             if((check_in_method &&
                 isValid &&
                 check_in_method.text &&
-               !acc_data.check_method) ||
+               !host_acc.check_method) ||
                 // =====
-               (acc_data.check_method &&
-                acc_data.check_method.check_in &&
+               (host_acc.check_method &&
+                host_acc.check_method.check_in &&
                 isValid &&
                 check_in_method &&
                 check_in_method.text &&
-                (check_in_method.name !== acc_data.check_method.check_in.name ||
-                check_in_method.text !== acc_data.check_method.check_in.text)) ||
+                (check_in_method.name !== host_acc.check_method.check_in.name ||
+                check_in_method.text !== host_acc.check_method.check_in.text)) ||
                 // =====
-                (acc_data.check_method &&
-                acc_data.check_method.check_in &&
-                check_in.time !== acc_data.check_time.check_in.time
+                (host_acc.check_method &&
+                host_acc.check_method.check_in &&
+                check_in.time !== host_acc.check_time.check_in.time
                 )
             ){
                 setIs_button(true)
@@ -132,14 +138,14 @@ function useHostUpdateCheckView1Business(data, states, refs, props){
         setLoading(false)
         const response_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/modify/check-in/${param.house}`, 'PUT', 
             {
-                check_in : !_.isEqual(acc_data.check_time.check_in, time) ? time : null,
-                check_in_method : !acc_data.check_time ||
-                                  (acc_data.check_time && !acc_data.check_time.check_in) ||
-                                  !_.isEqual(acc_data.check_method.check_in, method) ? method : null 
+                check_in : !_.isEqual(host_acc.check_time.check_in, time) ? time : null,
+                check_in_method : !host_acc.check_time ||
+                                  (host_acc.check_time && !host_acc.check_time.check_in) ||
+                                  !_.isEqual(host_acc.check_method.check_in, method) ? method : null 
             })
     
             if(response_data && response_data.acc_state && response_data.server_state){
-                setAcc_data(response_data.accomodation)
+                setHost_acc(response_data.accomodation)
                 session_storage.save('house',response_data.accomodation)
                 setIs_button(false)
             }        
