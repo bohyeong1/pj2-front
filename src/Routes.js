@@ -14,11 +14,9 @@ import {
     // accomodations detail page //
     Detail,
     // accomodations host page //
-    Acc_regist, 
     AccUpdate, 
     HostRegistView0,
     AccManage,
-    AccList, 
     Acc_regist_intro, AccRegist,
 
     // evaluation page //
@@ -38,7 +36,6 @@ import set_host_manage_routes from './router/routes/host/host_manage_route';
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
-import Conditional_router from './router/custom_router/conditional_router';
 import HostRegistCheckRouter from './router/custom_router/host_regist_check_router';
 import LogCheckRouter from './router/custom_router/log_check_router';
 import GetAccUserRouter from './router/custom_router/get_acc_user_router';
@@ -95,15 +92,7 @@ function FinalRoutes(){
                
                 {/* // =================================================
                     // 호스트 페이지 // */}
-                <Route 
-                    path='/Acc_regist' 
-                    element={<Conditional_router 
-                    data_state={true}                                              
-                    element={Acc_regist} 
-                    redirection_url={'/Acc_initial'}/>}>
-                </Route>                                                         {/*숙소 호스팅 페이지*/}
                
-                <Route path='/Acc_regist/AccManage' element={<Private_router data_state={true} element={AccList}/>}></Route>                                {/*호스트 숙소 확인 페이지*/}
                 <Route path='/Acc_regist/Acc_regist_intro' element={<Acc_regist_intro></Acc_regist_intro>}></Route>                                           {/*호스트 텍스트 메시지 입력 페이지*/} 
                
                 {/* // =================================================
@@ -118,7 +107,7 @@ function FinalRoutes(){
                                 <HostAccProvider>
                                     <HostRegistCheckRouter 
                                         element={DefaultLayout} 
-                                        redirection_url = {'/Acc_initial'}
+                                        redirection_url = {'manage/regist-1'}
                                         footer = {false}
                                         host={true}/>
                                 </HostAccProvider>
@@ -139,7 +128,7 @@ function FinalRoutes(){
                                 <UserProvider>
                                     <HostLogCheckRouter
                                         element={DefaultLayout} 
-                                        redirection_url = {'/Acc_initial'}
+                                        redirection_url = {'manage/regist-1'}
                                         footer = {false}
                                         host={true}/>
                                 </UserProvider>
@@ -160,7 +149,7 @@ function FinalRoutes(){
                                 <UserProvider>
                                     <HostRegistCheckRouter 
                                         element={DefaultLayout} 
-                                        redirection_url = {'/Acc_initial'}
+                                        redirection_url = {'manage/regist-1'}
                                         host={true}/>
                                 </UserProvider>
                             </HostAccProvider>
@@ -185,7 +174,7 @@ function FinalRoutes(){
                             <UserProvider>
                                 <HostLogCheckRouter
                                     element={DefaultLayout}
-                                    redirection_url={'Acc_initial'}
+                                    redirection_url={'manage/regist-1'}
                                     host={true}/>
                             </UserProvider>
                         }>

@@ -741,7 +741,7 @@ const default_data = {
         [
             {
                 name:'투데이',
-                url:'/Acc_regist'
+                url:'/host/manage/main'
             },
             {
                 name:'달력',
@@ -749,7 +749,7 @@ const default_data = {
             },
             {
                 name:'숙소',
-                url:'/Acc_regist/AccManage'
+                url:'/host/manage/list'
             },
             {
                 name:'호스트 소개',

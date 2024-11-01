@@ -1,12 +1,17 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import './host_manage_initial_regist_step2.scss'
-import useHostManageInitialRegistStep2Business from '../../hook_store/business_hooks/host_manage_initial_regist_step2_business';
+import useHostManageInitialRegistStep2Business from '../../hook_store/business_hooks/host_manage_initial_regist_step2_business.js';
 import '@/manage_scss_style/commonness/commonness.scss'
 import default_data from "@/util/default_data/default_data";
 import { state_store } from "@/util/function/util_function";
 import Loading from '@/utilComponent/material/loading/loading'
+import { UserContext } from '@/context/user_context/config/user_context';
 
-function HostManageInitialRegistStep2({login_user}){
+function HostManageInitialRegistStep2(){
+
+    // =================================================
+    // context states //
+    const {user_data, setUser_data} = useContext(UserContext)
 
     // =================================================
     // state //
@@ -38,14 +43,14 @@ function HostManageInitialRegistStep2({login_user}){
                 <div className="host-manage-initial-regist-step2__container-section2">
                     <div className='host-manage-initial-regist-step2__sticky-container'>
                         <div className='host-manage-initial-regist-step2__container-section2-part1'>
-                            <div className='host-manage-initial-regist-step2__container-section2-part1-box1 box-shadow-lv1'>
+                            <div className='host-manage-initial-regist-step2__container-section2-part1-box1 box-shadow-lv3'>
                                 <div className='host-manage-initial-regist-step2__container-section2-part1-box1-item1'>
                                     <div className='host-manage-initial-regist-step2__container-section2-part1-box1-profile'>
-                                        {login_user.profileImg ? null : <span>{login_user.defaultProfile}</span>}
-                                        <img src={login_user.profileImg ? login_user.profileImg : login_user.defaultProfile}></img>
+                                        {user_data.profileImg ? null : <span>{user_data.defaultProfile}</span>}
+                                        <img src={user_data.profileImg ? user_data.profileImg : user_data.defaultProfile}></img>
                                     </div>
                                     <div className='host-manage-initial-regist-step2__container-section2-part1-box1-name'>
-                                        <span>{login_user.name} 님</span>
+                                        <span>{user_data.name} 님</span>
                                     </div>
                                 </div>
 
@@ -75,12 +80,12 @@ function HostManageInitialRegistStep2({login_user}){
                             </div>
                             <div className='host-manage-initial-regist-step2__container-section2-part1-box2'>
                                 <div>
-                                    <span>{login_user.name} </span>
+                                    <span>{user_data.name} </span>
                                     <span>님의 인증 정보</span>
                                 </div>
                                 <div>
                                     <div>
-                                        <img src={login_user.email ? default_data.d_imgs.check : default_data.d_imgs.no_check}></img>
+                                        <img src={user_data.email ? default_data.d_imgs.check : default_data.d_imgs.no_check}></img>
                                         <span>이메일 주소</span>
                                     </div>
                                     <div>
@@ -93,7 +98,7 @@ function HostManageInitialRegistStep2({login_user}){
                     </div>
                     
                     <div className='host-manage-initial-regist-step2__container-section2-part2'>
-                        <span className='host-manage-initial-regist-step2__container-section2-part2-title'>{login_user.name} 님 소개</span>
+                        <span className='host-manage-initial-regist-step2__container-section2-part2-title'>{user_data.name} 님 소개</span>
                         <form 
                             className='host-manage-initial-regist-step2__container-section2-part2-form' 
                             onSubmit={handleSubmit(submit)}>

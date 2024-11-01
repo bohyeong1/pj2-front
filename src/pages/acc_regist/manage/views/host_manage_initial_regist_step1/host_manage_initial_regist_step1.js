@@ -32,7 +32,8 @@ function HostManageInitialRegistStep1(){
                         src="/imgs/regist_initial.png" 
                         className="host-manage-initial-regist-step1__deapyo-img"/>
                     <div className="host-manage-initial-regist-step1__container-section1-part1">
-                        <span>{`${user_state.userId} 님 반갑습니다!`}</span>
+                        {user_state &&
+                        <span>{`${user_state.userId} 님 반갑습니다!`}</span>}
                         <div className="host-manage-initial-regist-step1__container-section1-part1-box1">
                             <button onClick={host_regist_click}>호스트 등록하기</button>
                         </div>

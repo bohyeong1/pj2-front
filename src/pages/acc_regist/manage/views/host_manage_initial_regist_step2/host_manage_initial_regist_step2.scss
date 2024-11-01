@@ -1,7 +1,7 @@
 @import '@/manage_scss_style/commonness/colors';
 
 .host-manage-initial-regist-step2{
-    width:1920px;
+    width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,7 +10,7 @@
 // =================================================
 // contents //   
 .host-manage-initial-regist-step2__container{
-    width:1200px;   
+    width:100%;   
     display: flex;  
     gap:30px;
     flex-direction: column;
@@ -183,8 +183,7 @@
 }
 .host-manage-initial-regist-step2__container-section2-part2-input::placeholder {
     color: black;    
-    font-size: 1.425rem;   
-    font-weight: 600;
+    font-size: 1.125rem;
     text-align: center; 
     padding-top: 60px;
 }

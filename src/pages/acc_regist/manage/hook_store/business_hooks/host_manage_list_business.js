@@ -1,16 +1,20 @@
+
 import { useNavigate } from "react-router-dom"
 import { useEffect } from "react"
-import { connect_data_width_cookies } from "../../../../utilData/UtilFunction"
-import default_data from "../../../../utilData/defaultData"
+import { connect_data_width_cookies } from "@/util/function/util_function";
+import default_data from "@/util/default_data/default_data";
 
-function useAccManageBusiness(data, states, refs, props){
+function useHostManageListBusiness(data, states, refs, props){
     // =================================================
-    // props //
-    const {login_user} = props
+    // data //
+    const {user_data} = data
 
     // =================================================
     // states //
-    const {acc_data, setAcc_data} = states
+    const {
+        acc_data, 
+        setAcc_data
+    } = states
 
     // =================================================
     // navigate //
@@ -20,7 +24,7 @@ function useAccManageBusiness(data, states, refs, props){
     // api fetch //
     async function fetch_acc(){
         const acc_data = await connect_data_width_cookies(`${default_data.d_base_url}/api/accomodation/get/secret-all`, 'POST',{
-            _id : login_user._id
+            _id : user_data._id
         })
 
         if(acc_data && acc_data.server_state === true){
@@ -58,7 +62,10 @@ function useAccManageBusiness(data, states, refs, props){
         }
     }
 
-    return {click_add_button, click_accomodaton_button}
+    return {
+        click_add_button, 
+        click_accomodaton_button
+    }
 }
 
-export default useAccManageBusiness
+export default useHostManageListBusiness
