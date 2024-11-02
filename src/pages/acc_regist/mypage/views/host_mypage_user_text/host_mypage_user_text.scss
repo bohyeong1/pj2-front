@@ -1,11 +1,23 @@
 @import '@/manage_scss_style/commonness/colors';
 
 .host-mypage-user-text__container{
+    width: 100%;    
+    height: 100%;
+    position: relative;
+    display: flex;  
+    flex-direction: column;
+    gap: 10px;
+}
+.host-mypage-user-text__wrapper{
     width:100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     gap:40px;
+    overflow-y: auto; 
+    flex-grow: 1;
+    padding-right: 30px;
+    padding-bottom: 40px;
 }
 
 // title
@@ -24,13 +36,15 @@
 }
 .host-mypage-user-text__content-section1,
 .host-mypage-user-text__content-section2,
-.host-mypage-user-text__content-section3{
+.host-mypage-user-text__content-section3,
+.host-mypage-user-text__content-section4{
     display: flex;
     flex-direction: column;
     gap:20px;
 }
 .host-mypage-user-text__content-section1,
-.host-mypage-user-text__content-section2{
+.host-mypage-user-text__content-section2,
+.host-mypage-user-text__content-section3{
     padding-bottom: 40px;
     border-bottom: solid 1px $grey-lv10;
 }
@@ -45,6 +59,9 @@
     color: $grey-lv1;
 }
 .host-mypage-user-text__content-section1-profile-img{
+    position: relative;
+}
+.host-mypage-user-text__content-section1-profile-img-wrapper{
     width: 200px;
     height: 200px;
     border-radius: 100%;
@@ -55,8 +72,177 @@
     display: flex;
     gap:70px;
 }
+.host-mypage-user-text__content-section1-profile-img-button{
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translate(-50%,50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+
+    & > img{
+        width: 25px;
+        height: 25px;
+    }
+}
 .host-mypage-user-text__content-section1-profile-text{
     flex-grow: 1;
     border-radius: 10px;
     border: dotted 2px $grey-lv10;
+    padding: 15px;
+    display: flex;
+    gap:30px;
+}
+.host-mypage-user-text__content-section1-profile-text-input-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+.host-mypage-user-text__content-section1-profile-text-input-wrapper > textarea{
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    border: none;
+}
+.host-mypage-user-text__content-section1-profile-text-input-wrapper > span{
+    display: flex;
+    align-items: flex-end;
+}
+.host-mypage-user-text__content-section1-profile-text-button{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform-style: preserve-3d;
+    transition: 0.4s transform;
+    transform-origin: 50% 50%;
+}
+.host-mypage-user-text__content-section1-profile-text-button > button{
+    border-radius: 100%;
+    border: solid 2px $blue-default;
+    position: absolute;
+    backface-visibility: hidden;
+    top:0;
+    left:0;
+    width: 100%;    
+    height: 100%;
+    cursor: pointer;  
+    background-color: black;
+    z-index: 2;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    
+    img{
+        width: 20px;    
+        height: 20px;   
+        transition: transform 0.2s ease-out;
+        filter: invert(1);
+    }
+    
+    &:hover img{
+      transform: rotateZ(30deg);
+    }
+
+    &.save-disalbe{
+        cursor:not-allowed;  
+        background-color: $grey-lv9;
+
+        &:hover img{
+            transform: none;
+        }
+    }
+}
+.host-mypage-user-text__content-section1-profile-text-back-button{
+    transform: rotateY(180deg);
+    transform-origin: 50% 50%;
+}
+// section2
+.host-mypage-user-text__content-section2-alert{
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+
+    > button{
+        border: none;
+        background: none;
+        font-weight: 600;
+        text-decoration: underline;
+        cursor: pointer;
+    }
+}
+.host-mypage-user-text__content-section2-refund{
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap:16px;
+}
+.host-mypage-user-text__refund-box{
+    padding: 24px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-mypage-user-text__refund-box > span:nth-child(1){
+    font-size: 1.125rem;
+}
+.host-mypage-user-text__refund-box > span:nth-child(2){
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+
+// section 3
+.host-mypage-user-text__content-section3-reservation-rule-part1{
+    padding: 24px;
+    border: solid 1px $grey-lv10;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-mypage-user-text__content-section3-reservation-rule-part1 > span:nth-child(1){
+    font-size: 1.125rem;
+}
+.host-mypage-user-text__content-section3-reservation-rule-part1 > span:nth-child(2){
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+
+// section 4
+.host-mypage-user-text__content-section4 > span:nth-child(2){
+    font-size: 0.9375rem;
+    color: $grey-lv1;
+}
+.host-mypage-user-text__content-section4-massage{
+    border-radius: 10px;
+    border: dotted 2px $grey-lv10;
+    padding: 15px;
+    position: relative;
+}
+
+// footer
+.host-mypage-user-text__footer{
+    width: 100%;  
+    height: 125px;
+    border-top: solid 1px $grey-end;
+    z-index: 2;     
+    background-color: white;
+    display: flex;  
+    padding: 20px;  
+    justify-content: right;
+}
+.host-mypage-user-text__fetch-button{
+    font-size: 1.225rem;    
+    height: 45px;   
+    padding: 0 20px; 
 }

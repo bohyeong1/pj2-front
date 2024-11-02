@@ -7,6 +7,7 @@
     height: calc((calc(var(--vh) * 100) - 26.23px));
     padding-top: 50px;    
     padding-bottom: 50px;
+    position: relative;
 }
 // content
 .host-mypage-layout__content{

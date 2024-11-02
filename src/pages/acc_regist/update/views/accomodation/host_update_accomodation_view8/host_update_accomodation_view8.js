@@ -27,39 +27,24 @@ function HostUpdateAccomodationView8(){
     // =================================================
     // hooks //
     // business
-    const {fetch_acc, 
-           watch, 
-           register, 
-           errors,} = useHostUpdateAccomodationView8Business({
-                            'acc_data' : acc_data,
-                            'setAcc_data' : setAcc_data
-                        },
-                        state_store([
-                            {
-                                'loading' : loading,
-                                'setLoading' : setLoading
-                            },
-                            {
-                                'is_button' : is_button,
-                                'setIs_button' : setIs_button
-                            },
-                            {
-                                'summary' : summary,
-                                'setSummary' : setSummary
-                            }
-                        ]),
-                        reference_store([
-                            {
-                                'row_alram_ref' : row_alram_ref
-                            },
-                            {
-                                'summary_alert' : summary_alert
-                            },
-                            {
-                                'summary_gurabox' : summary_gurabox
-                            }
-                        ])
-                     ) 
+    const {
+        fetch_acc, 
+        watch, 
+        register, 
+        errors
+    } = useHostUpdateAccomodationView8Business(
+        {acc_data, setAcc_data},
+        state_store([
+            {loading, setLoading},
+            {is_button, setIs_button},
+            {summary, setSummary }
+        ]),
+        reference_store([
+            {row_alram_ref},
+            {summary_alert},
+            {summary_gurabox}
+        ])
+    ) 
 
     return (
         loading === false ? <Loading part = {true}></Loading> :
@@ -71,21 +56,22 @@ function HostUpdateAccomodationView8(){
                 {/* content */}
                 <div className='host-update-accomodation-view8__content'>
                     <div className="host-update-accomodation-view8__content-box1">
-                        <textarea  className="host-update-accomodation-view8__content-box1-text1 border-textarea" 
-                                   type='text' 
-                                   spellCheck={false}
-                                   {...register('summary', {
-                                   onChange : (e)=>{text_change(e.target.value, 
-                                                                summary_gurabox.current, 
-                                                                row_alram_ref.current, 
-                                                                summary_alert.current, 
-                                                                50, 
-                                                                20.52,
-                                                                setLine_error,
-                                                                line_error)}
-                                   })}
-                                   placeholder='숙소를 설명하는 글을 작성해주세요!'>                            
-                        </textarea >
+                        <textarea  
+                        className="host-update-accomodation-view8__content-box1-text1 border-textarea" 
+                        type='text' 
+                        spellCheck={false}
+                        {...register('summary', {
+                        onChange : (e)=>{text_change(
+                            e.target.value, 
+                            summary_gurabox.current, 
+                            row_alram_ref.current, 
+                            summary_alert.current, 
+                            50, 
+                            20.52,
+                            setLine_error,
+                            line_error
+                        )}})}
+                        placeholder='숙소를 설명하는 글을 작성해주세요!'/>                            
                     </div>
 
                     <pre className="host-update-accomodation-view8__gurabox" 

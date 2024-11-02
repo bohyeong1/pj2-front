@@ -193,9 +193,9 @@ function HostUpdateCheckView1(){
                                         </div> 
                                     </div>
 
-                                    <div className='host-update-check-view1__content-section2-button-wrapper'
-                                         ref={sellect_active_button_wrapper}
-                                    >
+                                    <div 
+                                        className='host-update-check-view1__content-section2-button-wrapper'
+                                        ref={sellect_active_button_wrapper}>
                                         {/* modify btn */}
                                         <button className='host-update-check-view1__content-section2-front-button' 
                                                 onClick={()=>{click_modify_text(sellect_active_box_input)}}

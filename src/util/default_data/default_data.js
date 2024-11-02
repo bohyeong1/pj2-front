@@ -580,7 +580,7 @@ const default_data = {
         ,subway : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAACDElEQVR4nO2ZvU5VQRSFv8bcQmu4EWhQ7KFG3gURom9izU+lYKXR3FCBLyANVvzExL+Y+ACQAAEECsZMXIeckHvCnJw9h9HMSnYxM7lrzdp7Tu5kNmRkJIEh4AWwCxwDzjiOxe017scyMQOcRth8VZwC09YmnpUE3gCTwF1rEf5yPgbelvTmrMgfAOfAJfCE9jAjzTNg1IJwUZl52WftHvDL4BhtVGgva33ewsgPkY1HNPKxQntC698tjJyJrEP76Ejb76ExiqzdFpyFfpGRFKIR7iRgwFmdiKZEt/37ZDbispHEMupyRRLLqMsVSSyjLlcksYy6XJHEMupyRUrI13j+w2t8U7hsJCAjw0APOFKsAmPURwiPi1URL77f5wzv6224jokQHhfLSE/jNQn6WNfc+xq8oTwulpEjjctZG9HcQQ3eUB4Xy8ihxsM3bOAmhPK4WEZWNV7XJnx80Jw/LqEI5XFWRi6uPZk+AvYqPtKHNXhDeDqa892AxvjZ5xF7SB/koaJX00Qoz4S0/UN6YyyJ7BXt47W0FyzIxvQa7psuT2kPs9L8rWaTCZ6XzvA7YCpi621KGoWeb/uZwlfjJMKttipO1H6LgpHSuY0ZK9f+X8wxCHyW2FfjXvhAiftbzD57TBOtmRlswUSBqGZ2RPwF6BIfXWl5zW1L4k/AVksmCnRlYvNqJoN/B38Ai18cXDhiG1UAAAAASUVORK5CYII='
         ,star_empty : 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAACXBIWXMAAAsTAAALEwEAmpwYAAAD5klEQVR4nO2ZaahNaxjHf8c5uAfXlEPGpMzDByGzW265fCDXUPcDMuSTWfKB4pshlCljXVxdRd2MR9dMXeEDkumQFNec46Acw3G2Hv1Xve32OXvtY6119opfrdq969nP87zvWut9hhd+4IsawFngjH7Hll+BhK6hxJg9zkT+JqY0BkqBMl2lGosds/QkCoGj+j2TGHJFzo8Bxur3NWJGbzn+AqgN1AKeaawXMWKznF7ljK3W2CZiQj7wSk53ccY7aawEqEMMmCSH/0tx77zuTSQGnJOzU1Lcm6p7Fu2zmg5AOfAW+DnF/XrAG03GXrWsZbmc3FaJzHbJLCNLyQMey8m+lcj1k8xToCZZyCg5eMuH7A3JjiQLOSjn5vmQnS/ZA1RDbCgA2gE9gcHAcGAcMB1YAHwCPkguHQWS/aT/Tpeu4dLdU7YKZNsXE4A/gX3AceACcB24DxQrc034vPZmsDh7M9BbJl/uy7cL8nWffLc58NyHolLlTfeAy4oVhXJmK7AGWAI0z2AiLfSfNdJhugql+7JsvZDtdP7ZHPhNaUNCe/x4oBvQFmgE5FL95MqXtvJtvBOPSjSHr7QHbjoZ6y9kL/2BJ/L1blI+95X6zs5jH+EMso9p2iTMx3/1lCp8hF50tmtLlgStvBR+2Vha/gDe6U/28TWl+mgMnJAv74HJmSqwvfyBFNzTRxY1HYHb8uFxmtQn7RZ5UYosox1NdIxwdlPbjtt8q0KruXdIYbne1TC7hjnAQuCzbO4JuqKc7UR5C151CZ6fgL+cRVuqiYX6uK3d0zpA3abLayGVyFaoWGVXJIOW5wSF9/oWRVk9rpdRy5WCwl4j07mOCPHSmQEB6hwonVZ0RUILJ8EMMupbpH4t3a2IsG91KATdh6Pse+2SsTkh6J4r3TuJgIcyFkbK0l26HxEynWXoic9A1UlnI0d9bqk5Tq1htkJjpoxY9E334S5MKlM/Kr2xI4bK2C35UOuh/TJSWSrdRwc6XpqxXVe5c9hjMhUxWXJmKxRyneOCVKlJvla8zEn97VTXY5CadwklhFvUC06mlZOm+CqeMsVrdVp9kMwQ4I5TJq+tIKnMVwT3ylVr7wxLIVfko/VaZRZL+QZnrKFW1nttrurYLR09gEtJ/bAmzv2NGl8Uwjw4LeVecTXOORd8p5XOJNLnqTR4Kx0v1XE0ftfYqaAnUUf1sr3/XYF/nNU8p5K0qlhr9Jij74ieWJlewUDrnmHOynuNsWKdSgVR+ORIV7GTx3nNj1TfUJVZmdSitDyrJcHTzEmBvGtFkAZOSun/OgcJm1GylZDtwBiiXasB0dFANs3298MXw0hXuTS4jKMAAAAASUVORK5CYII='
     },
-    
+
     // =================================================
     // 약관 //
     service_terms:[
@@ -628,8 +628,8 @@ const default_data = {
     reservation_terms : [
         {
             title : '공통 숙소 이용규칙 동의(필수)',
-            content : {
-                name : '이용규칙',
+            name : '이용규칙',
+            content : {                
                 text1 : '19세 미만 청소년의 혼숙은 법적으로 불가하며, 이에 대한 숙소의 입실 거부 시 취소/환불이 불가합니다.',
                 text2 : '19세 미만 청소년 예약에 대한 숙소의 입실 거부 시 취소/환불이 불가하오니, 예약 전 반드시 숙소에 확인하시기 바랍니다.',
                 text3 : '최대 인원 초과 시 입실 불가합니다.',
@@ -640,8 +640,8 @@ const default_data = {
         },
         {
             title : '숙소 취소/환불규정 동의(필수)',
-            content : {
-                name : '취소/환불규정',
+            name : '취소/환불규정',
+            content : {                
                 text1 : '숙소 사정에 의해 취소 발생 시 100% 환불이 가능합니다.',
                 text2 : '취소/환불 가능 모텔인지, 불가 모텔인지 여부는 숙소의 정책을 따릅니다.',
                 text3 : '취소/환불 규정에 따라 취소 수수료가 발생한 경우, 취소 수수료는 판매가(상품가격) 기준으로 계산됩니다.'
@@ -649,22 +649,62 @@ const default_data = {
         },
         {
             title : '개인정보 수집 및 이용 동의(필수)',
-            content : {
-                name : '개인정보 수집 및 이용',
+            name : '개인정보 수집 및 이용',
+            content : {                
                 text1 : '결제 시 개인정보는 PG사(결제대행업체)에서 수집 및 저장하고 있으며, 회사는 PG사에서 제공하는 거래 내역만 제공받음',
                 text2 : '관계 법령에 따라 보존할 필요가 있는 경우 해당 법령에서 요구하는 기한까지 보유'
             }
         },
         {
             title : '개인정보 제3자 제공 동의(필수)',
-            content : {
-                name : '개인정보 제3자 제공',
+            name : '개인정보 제3자 제공',
+            content : {                
                 text1 : '제공받는 자 - 호스트 판매자',
                 text2 : '제공 목적 - 숙박예약서비스 이용계약 이행(서비스 제공, 확인, 이용자 정보 확인',
                 text3 : '제공하는 항목 - 예약자 이름, 예약자 이메일, 예약번호, 예약 결제 금액'
             }
         }
     ],
+
+    // =================================================
+    // 환불 약관 //
+    refund_terms : [
+        {
+            title :'유연',
+            name : '게스트가 체크인 하루 전까지 예약을 취소하면 전액 환불됩니다.',
+            content : {
+                text1 : '게스트는 체크인 24시간 전까지 예약을 취소할 경우 전액 환불받을 수 있으며, 호스트에게는 대금이 지급되지 않습니다.',
+                text2 : '그 후에 취소하는 경우, 이미 숙박한 일수와 하루치의 숙박비 전액이 호스트에게 지급됩니다.'
+            }
+        },
+        {
+            title :'일반',
+            name : '게스트가 체크인 5일 전까지 예약을 취소하면 전액 환불됩니다.',
+            content : {
+                text1 : '게스트가 체크인 5일 전까지 예약을 취소한다면 전액 환불받을 수 있으며, 호스트에게는 대금이 지급되지 않습니다.',
+                text2 : '그 후에 취소하는 경우, 이미 숙박한 일수와 하루치의 숙박비 전액이 호스트에게 지급됩니다.'
+            }
+        },
+        {
+            title :'비교적 엄격',
+            name : '게스트가 체크인 14일 전까지 예약을 취소하면 전액 환불됩니다.',
+            content : {
+                text1 : '게스트는 체크인까지 14일 이상 남은 시점에 예약을 취소해야 전액 환불을 받을 수 있습니다.',
+                text2 : '체크인까지 7~14일이 남은 시점에 예약을 취소하면, 숙박비의 50%가 호스트에게 지급됩니다.',
+                text3 : '체크인까지 7일이 채 남지 않은 시점에 예약을 취소하면, 숙박비 전액이 호스트에게 지급됩니다.'
+            }
+        },
+        {
+            title :'엄격',
+            name : '게스트가 예약 후 48시간 이내에 취소하고 체크인까지 14일 이상 남은 경우 전액 환불됩니다.',
+            content : {
+                text1 : '게스트는 예약 후 48시간 이내에 취소하고 체크인까지 14일 이상이 남은 경우에만 전액 환불을 받을 수 있습니다.',
+                text2 : '체크인까지 7~14일이 남은 시점에 예약을 취소하면, 숙박비의 50%가 호스트에게 지급됩니다.',
+                text3 : '체크인까지 7일이 채 남지 않은 시점에 예약을 취소하면, 숙박비 전액이 호스트에게 지급됩니다.'
+            }
+        }
+    ],
+
 
     // =================================================
     // stars //
@@ -872,6 +912,9 @@ const default_data = {
             url : 'comunication'
         }
     ]
+
+    
+
 }
 
 export default default_data

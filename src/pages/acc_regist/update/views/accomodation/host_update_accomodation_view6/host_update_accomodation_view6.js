@@ -22,43 +22,34 @@ function HostUpdateAccomodationView6(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
-    const [price, setPrice] = useState(acc_data.price ? acc_data.price : null)
-    const [add_price, setAdd_price] = useState(acc_data.addPrice ? acc_data.addPrice : null)
-    const [discount_date, setDiscount_date] = useState(acc_data.discount && acc_data.discount.date ? acc_data.discount.date : null)
-    const [discount_rate, setDiscount_rate] = useState(acc_data.discount && acc_data.discount.rate ? acc_data.discount.rate : 0)
+    const [price, setPrice] = useState(
+        acc_data.price ? acc_data.price : null
+    )
+    const [add_price, setAdd_price] = useState(
+        acc_data.addPrice ? acc_data.addPrice : null
+    )
+    const [discount_date, setDiscount_date] = useState(
+        acc_data.discount && acc_data.discount.date ? acc_data.discount.date : null
+    )
+    const [discount_rate, setDiscount_rate] = useState(
+        acc_data.discount && acc_data.discount.rate ? acc_data.discount.rate : 0
+    )
     
     // =================================================
     // hooks //
     // business
-    const {register, watch, fetch_acc, errors} = useHostUpdateAccomodationView6Business({
-            'acc_data' : acc_data,
-            'setAcc_data' : setAcc_data
+    const {register, watch, fetch_acc, errors} = useHostUpdateAccomodationView6Business(
+        {
+            acc_data,
+            setAcc_data 
         },
         state_store([
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            },
-            {
-                'is_button' : is_button,
-                'setIs_button' : setIs_button
-            },
-            {
-                'price' : price,
-                'setPrice' : setPrice
-            },
-            {
-                'add_price' : add_price,
-                'setAdd_price' : setAdd_price
-            },
-            {
-                'discount_date' : discount_date,
-                'setDiscount_date' : setDiscount_date
-            },
-            {
-                'discount_rate' : discount_rate,
-                'setDiscount_rate' : setDiscount_rate
-            }
+            {loading, setLoading},
+            {is_button, setIs_button},
+            {price, setPrice},
+            {add_price, setAdd_price},
+            {discount_date, setDiscount_date},
+            {discount_rate, setDiscount_rate}
         ])
     )
     // style

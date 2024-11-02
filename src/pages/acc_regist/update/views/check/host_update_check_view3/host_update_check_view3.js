@@ -16,42 +16,33 @@ function HostUpdateCheckView3(){
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
-    const [wifi_id, setWifi_id] = useState(acc_data && acc_data.wifi_information && acc_data.wifi_information.id ?
-                                    acc_data.wifi_information.id : null
-                                  )
-    const [wifi_password, setWifi_password] = useState(acc_data && acc_data.wifi_information && acc_data.wifi_information.password ?
-                                                acc_data.wifi_information.password : null
-                                              )
+    const [wifi_id, setWifi_id] = useState(
+        acc_data && acc_data.wifi_information && acc_data.wifi_information.id ? acc_data.wifi_information.id : null
+    )
+    const [wifi_password, setWifi_password] = useState(
+        acc_data && acc_data.wifi_information && acc_data.wifi_information.password ? acc_data.wifi_information.password : null
+    )
     
     // =================================================
     // hooks //
     // business
-    const {register, 
-           errors, 
-           watch,
-           fetch_acc} = useHostUpdateCheckView3Business({
-                                'acc_data' : acc_data,
-                                'setAcc_data' : setAcc_data
-                            },
-                            state_store([
-                                {
-                                    'wifi_id' : wifi_id,
-                                    'setWifi_id' : setWifi_id
-                                },
-                                {
-                                    'wifi_password' : wifi_password,
-                                    'setWifi_password' : setWifi_password
-                                },
-                                {
-                                    'is_button' : is_button,
-                                    'setIs_button' : setIs_button
-                                },
-                                {
-                                    'loading' : loading,
-                                    'setLoading' : setLoading
-                                }
-                            ])
-                        )
+    const {
+        register, 
+        errors, 
+        watch,
+        fetch_acc
+    } = useHostUpdateCheckView3Business(
+        {
+            acc_data,
+            setAcc_data
+        },
+        state_store([
+            {wifi_id, setWifi_id},
+            {wifi_password, setWifi_password},
+            {is_button, setIs_button},
+            {loading,setLoading}
+        ])
+    )
 
     return (
         loading === false ? <Loading part = {true}></Loading> :

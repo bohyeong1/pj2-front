@@ -1,9 +1,11 @@
 import './alert_modal.scss'
 
-function AlertModal(){
+function AlertModal({children}){
     return (
         <div className='alert-modal__container'>
-            alert modal
+            {children}
         </div>
     )
 }
+
+export default AlertModal
