@@ -3,7 +3,7 @@ import './img_dis_modal.scss'
 import default_data from "../../../utilData/defaultData";
 import Lslide_btn from "../../Button/slideBtn/Lslide-btn/Lslide_btn";
 import Rslide_btn from "../../Button/slideBtn/Rslide-btn/Rslide_btn";
-import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import { reference_store } from "../../../utilData/UtilFunction";
 import useModalImgdismodalStyle from "../hook-store/style-hooks/modal_imgdismodal_style";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Original_img from "../../../picture/original_img/original_img";
@@ -35,7 +35,7 @@ function Img_dis_modal({data, imgs, img_modal_toggle}){
     })
 
     return(
-    modal_state === 'img-dis-modal'? 
+    modal_state === 'img-dis-modal' && 
     <div className="img-dis-modall">
         <div className="img-dis-modall__container">
             {/* header */}
@@ -96,7 +96,6 @@ function Img_dis_modal({data, imgs, img_modal_toggle}){
             </div>
         </div>  
     </div>
-    : null
     )
 
 }

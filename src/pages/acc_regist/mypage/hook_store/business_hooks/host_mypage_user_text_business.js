@@ -19,14 +19,6 @@ function useHostMypageUserTextBusiness(data, states, refs, props){
     } = states
 
     // =================================================
-    // refs //
-    const {
-        row_alram_ref,
-        summary_alert,
-        summary_button_wrapper
-    } = refs
-
-    // =================================================
     // data //
     const {
         user_data, 
@@ -44,7 +36,17 @@ function useHostMypageUserTextBusiness(data, states, refs, props){
             '공백으로만 구성된 글을 작성할 수 없습니다!',
             (text) => text && text.trim().length > 0
         )
-        .max(300, '최대 300자까지만 입력할 수 있습니다!')
+        .max(300, '최대 400자까지만 입력할 수 있습니다!'),
+
+        // message
+        message:Yup.string()
+        .required('게스트에게 자동으로 보내지는 메세지를 작성해 주세요!')
+        .test(
+            'not_only_spaces',
+            '공백으로만 구성된 글을 작성할 수 없습니다!',
+            (text) => text && text.trim().length > 0
+        )
+        .max(400, '최대 400자까지만 입력할 수 있습니다!')
     })
 
     // =================================================
@@ -58,16 +60,12 @@ function useHostMypageUserTextBusiness(data, states, refs, props){
     // =================================================
     // summary 초기값 설정 //
     useEffect(()=>{
-        if(host_data.host_text){
+        if(host_data.host_text && host_data.initial_message){
+
             reset({
-                summary : host_data.host_text
+                summary : host_data.host_text,
+                message : host_data.initial_message
             })
-            // text_change(summary, 
-            //             summary_gurabox.current, 
-            //             row_alram_ref.current, 
-            //             summary_alert.current, 
-            //             50, 
-            //             20.52)
         }
     },[host_data])
     

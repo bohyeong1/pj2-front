@@ -1,8 +1,8 @@
-import React ,{useRef, useState, useContext} from "react";
+import React ,{useRef, useState} from "react";
 import './img_regist_modal.scss'
 import useModalImgRegistModalBusiness from "../hook-store/business-hooks/modal_img_regist_modal_business";
 import useModalImgRegistModalStyle from "../hook-store/style-hooks/modal_img_regist_modal_style";
-import { state_store, reference_store, get_img_url } from "@/util/function/util_function";
+import { state_store, reference_store } from "@/util/function/util_function";
 import { useSelector } from "react-redux";
 import default_data from "@/util/default_data/default_data";
 import Loading from '@/utilComponent/material/loading/loading'

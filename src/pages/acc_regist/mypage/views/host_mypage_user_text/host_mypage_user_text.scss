@@ -112,6 +112,13 @@
     height: 80%;
     overflow-y: auto;
     border: none;
+    pointer-events: none;
+    font-size: 1rem;
+    resize: none; 
+
+    &:focus{
+        outline: solid 1px $black-default;
+    }
 }
 .host-mypage-user-text__content-section1-profile-text-input-wrapper > span{
     display: flex;
@@ -192,6 +199,7 @@
     display: flex;
     flex-direction: column;
     gap:10px;
+    cursor: pointer;
 }
 .host-mypage-user-text__refund-box > span:nth-child(1){
     font-size: 1.125rem;
@@ -199,6 +207,12 @@
 .host-mypage-user-text__refund-box > span:nth-child(2){
     font-size: 0.9375rem;
     color: $grey-lv1;
+}
+.host-mypage-user-text__refund-box-active{
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px $blue-lv4;
+    pointer-events: none;
 }
 
 // section 3
@@ -217,17 +231,141 @@
     font-size: 0.9375rem;
     color: $grey-lv1;
 }
+.host-mypage-user-text__content-section3-reservation-rule-button{
+    width: 60px;
+    border: none;
+    outline: none;
+    background-color: $grey-lv8;
+    height: 30px;
+    border-radius: 32px;
+    position: relative;
+    cursor: pointer;
+
+    & > div{
+        position: absolute;
+        top:2px;
+        left:2px;
+        width: 26px;
+        height: 26px;
+        background-color: white;
+        border-radius: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: 0.2s;
+        &.left{
+            transform: translateX(0);
+        }
+        &.right{
+            transform: translateX(30px);
+        }
+
+        & > img{
+            width: 16px;
+            height: 16px;
+            object-fit: cover;
+            &.left{
+                display: none;
+            }
+            &.right{
+                display: block;
+            }
+        }
+    }
+}
+.reservation-rule-active{
+    background-color: $black-default;
+}
+
+.host-mypage-user-text__content-section3-reservation-rule-button:hover{
+    background-color: $black-lv1;
+}
 
 // section 4
 .host-mypage-user-text__content-section4 > span:nth-child(2){
     font-size: 0.9375rem;
     color: $grey-lv1;
 }
-.host-mypage-user-text__content-section4-massage{
+.host-mypage-user-text__content-section4-message-input-wrapper{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.host-mypage-user-text__content-section4-message-input-wrapper > textarea{
+    width: 100%;
+    height: 80%;
+    overflow-y: auto;
+    border: none;
+    pointer-events: none;
+    font-size: 1rem;
+    resize: none; 
+
+    &:focus{
+        outline: solid 1px $black-default;
+    }
+}
+.host-mypage-user-text__content-section4-message-input-wrapper > span{
+    display: flex;
+    align-items: flex-end;
+}
+.host-mypage-user-text__content-section4-message-button{
+    position: relative;
+    width: 30px;
+    height: 30px;
+    transform-style: preserve-3d;
+    transition: 0.4s transform;
+    transform-origin: 50% 50%;
+}
+.host-mypage-user-text__content-section4-message-button > button{
+    border-radius: 100%;
+    border: solid 2px $blue-default;
+    position: absolute;
+    backface-visibility: hidden;
+    top:0;
+    left:0;
+    width: 100%;    
+    height: 100%;
+    cursor: pointer;  
+    background-color: black;
+    z-index: 2;
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    
+    img{
+        width: 20px;    
+        height: 20px;   
+        transition: transform 0.2s ease-out;
+        filter: invert(1);
+    }
+    
+    &:hover img{
+      transform: rotateZ(30deg);
+    }
+
+    &.save-disalbe{
+        cursor:not-allowed;  
+        background-color: $grey-lv9;
+
+        &:hover img{
+            transform: none;
+        }
+    }
+}
+.host-mypage-user-text__content-section4-message{
+    height: 200px;
+    width: 100%;
     border-radius: 10px;
     border: dotted 2px $grey-lv10;
     padding: 15px;
-    position: relative;
+    display: flex;
+    gap:30px;
+}
+.host-mypage-user-text__content-section4-message-back-button{
+    transform: rotateY(180deg);
+    transform-origin: 50% 50%;
 }
 
 // footer
@@ -245,4 +383,103 @@
     font-size: 1.225rem;    
     height: 45px;   
     padding: 0 20px; 
+}
+
+
+
+// 환불 modal
+.host-mypage-user-text__refund-modal-container{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.host-mypage-user-text__refund-modal-title{
+    font-size: 1.325rem;
+    font-weight: 600;
+}
+.host-mypage-user-text__refund-modal-container > p{
+    line-height: 1.4;
+    color: $black-lv1;
+}
+.host-mypage-user-text__refund-modal-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.host-mypage-user-text__modal-option-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-mypage-user-text__modal-option-title{
+    display: flex;
+    gap:10px;
+    align-items: center;
+}
+.host-mypage-user-text__modal-option-title > img{
+    width: 10px;
+    height: 10px;
+}
+.host-mypage-user-text__modal-option-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.host-mypage-user-text__modal-option-content{
+    display: flex;
+    gap:10px;
+    padding-left: 30px;
+
+    & > span:nth-child(1){
+        line-height: 1.4;
+    }
+    & > span:nth-child(2){
+        line-height: 1.4;
+    }
+}
+
+// 자동 예약 modal
+.host-mypage-user-text__auto-reservation-modal-container{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.host-mypage-user-text__auto-reservation-modal-title{
+    font-size: 1.325rem;
+    font-weight: 600;
+}
+.host-mypage-user-text__auto-reservation-modal-container > span:nth-child(2){
+    color: $grey-lv1;
+}
+.host-mypage-user-text__auto-reservation-modal-content{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.host-mypage-user-text__auto-reservation-modal-option{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap:20px;
+
+    & > img{
+        width: 40px;
+        height: 40px;
+    }
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+
+        & > span:nth-child(1){
+            font-size: 1.125rem;
+            color: $black-lv1;
+        }
+
+        & > span:nth-child(2){
+            color: $grey-lv1;
+        }
+    }
 }

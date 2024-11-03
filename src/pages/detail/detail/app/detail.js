@@ -28,18 +28,9 @@ function Detail(){
     // business
     const {house_param} = useDetailDetailAppBusiness(undefined,
         state_store([
-            {
-                'sellect_data' : sellect_data,
-                'setSellect_data' : setSellect_data
-            },
-            {
-                'sub_img' : sub_img,
-                'setSub_img' : setSub_img
-            },
-            {
-                'loading' : loading,
-                'setLoading' : setLoading
-            }
+            {sellect_data, setSellect_data},
+            {sub_img, setSub_img},
+            {loading, setLoading}
         ])
     )
     // style
