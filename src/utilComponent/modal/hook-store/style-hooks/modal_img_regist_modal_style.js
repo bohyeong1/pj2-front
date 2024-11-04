@@ -39,9 +39,11 @@ function useModalImgRegistModalStyle(data, states, refs, props){
     // display img //
     function display_img(){           
         // 형식에 맞지 않는 파일은 담기 x
-        const file = img_input.current.files[0]
-        if(file){
+
+        if(img_input.current.value){
+            const file = img_input.current.files[0]
             const img_foramts = ['image/jpeg', 'image/png', 'image/webp']
+
             if(img_foramts.includes(file.type)){
                 if(file.size > 1048576 * 1.5){
                     setValue('image', null)
@@ -73,6 +75,7 @@ function useModalImgRegistModalStyle(data, states, refs, props){
     // =================================================
     //  modal close //
     function modal_close(){
+        img_input.current.value = ''
         setImg_state(null)
         img_modal_toggle(target_id)
     }
@@ -80,6 +83,7 @@ function useModalImgRegistModalStyle(data, states, refs, props){
     // =================================================
     //  delete img //
     function delete_button(){
+        img_input.current.value = ''
         setImg_state(null)
         setImg_url_state(null)
     }

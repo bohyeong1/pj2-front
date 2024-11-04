@@ -16,9 +16,9 @@ async function connect_data(url, method, data = null, token = null){
         body: data? JSON.stringify(data) : undefined 
     })
 
-        const result = await data_json.json()
-        return result
-    }
+    const result = await data_json.json()
+    return result
+}
 export default connect_data
 
 // =================================================
@@ -37,7 +37,6 @@ export async function file_data(url, method, data){
     const result = await data_file.json()
     return result
 }
-
 
 // =================================================
 // 유저데이터 파이어베이스 연동 & db login 쿠키 저장 함수 //

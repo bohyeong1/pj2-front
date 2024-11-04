@@ -64,7 +64,7 @@ function DetailSection5({seller, role}){
                             <span>(추후 인증 서비스 도입)</span>
                         </div>
                         <div>
-                            <span>안전한 결제를 위해 보형짱닷컴 웹사이트의 '대화하기' 기능 이외에 대화를 자제해주세요.</span>
+                            <span>안전한 체크인을 위해 보형짱닷컴 웹사이트의 '대화하기' 기능 이외에 대화를 자제해주세요.</span>
                         </div>
                     </div>
                 </div>

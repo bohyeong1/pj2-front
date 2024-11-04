@@ -36,11 +36,15 @@ function useModalImgRegistModalBusiness(data, states, refs, props){
             setDrop_img_state(img_state)
             setImg_state(null)
         }              
+        img_input.current.value = ''
         img_modal_toggle(target_id)
         setLoading(true)
     }
 
-    return {set_img_file, regist_button}
+    return {
+        set_img_file, 
+        regist_button
+    }
 }
 
 export default useModalImgRegistModalBusiness

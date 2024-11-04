@@ -127,8 +127,7 @@ function DetailSection1({data, user, evaluations}){
                                         <img src={default_data.d_imgs.human}/>
                                         <div>
                                             <span>체크인 방법</span>
-                                            <span>·</span>
-                                            <span>{data.check_method.check_in.name}</span>
+                                            <span>{data.check_method.check_in ? '·' + data.check_method.check_in.name : ''}</span>
                                         </div>
                                     </div>
                                     <div>
@@ -136,7 +135,7 @@ function DetailSection1({data, user, evaluations}){
                                             <img src={default_data.d_imgs.quotes_left}
                                                  className="detail-section1__section3-part5-left-img"/>
                                             <pre>
-                                                {data.check_method.check_in.text}
+                                                {data.check_method.check_in ? data.check_method.check_in.text : '추후 메세지를 통해 전달'}
                                             </pre>
                                             <img  src={default_data.d_imgs.quotes_right}
                                                   className="detail-section1__section3-part5-right-img"/>
@@ -161,14 +160,15 @@ function DetailSection1({data, user, evaluations}){
                                         </div>
                                     </div>
                                     <div>
-                                        {data.check_method.check_out.slice(0,4).map((el,id)=>{
+                                        {data.check_method.check_out.length ? data.check_method.check_out.slice(0,4).map((el,id)=>{
                                             return (
                                                 <span className="detail-section1__section3-part5-checkout-content-item"
                                                       key={id}>
                                                     {el.name}
                                                 </span>
                                             )
-                                        })}
+                                        }) : 
+                                        <span className="detail-section1__section3-part5-checkout-content-item">추후 메세지를 통해 전달</span>}
 
                                     </div>
                                 </div>

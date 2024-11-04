@@ -16,9 +16,6 @@ function HostUpdateAccomodationView4(){
     const {acc_data, setAcc_data} = useContext(AccDataContext)
 
     // =================================================
-    // refs //
-
-    // =================================================
     // states //
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)

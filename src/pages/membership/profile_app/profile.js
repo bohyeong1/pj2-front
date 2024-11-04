@@ -24,39 +24,31 @@ function Profile({login_user}){
 
     // =================================================
     // hooks //
-    const {register, handleSubmit, errors, submit, input_nickname, add_profile_img, click_input_img, default_profile_click, boolean_submit} = 
+    const {
+        register, 
+        handleSubmit, 
+        errors, 
+        submit, 
+        input_nickname, 
+        add_profile_img, 
+        click_input_img, 
+        default_profile_click, 
+        boolean_submit
+    } = 
         useMembershipProfileBusiness(undefined, 
         state_store([
-            {
-                'img_file' : img_file,
-                'setImg_file' : setImg_file
-            },
-            {
-                'img_url' : img_url,
-                'setImg_url' : setImg_url
-            },
-            {
-                'random_index' : random_index,
-                'setRandom_index' : setRandom_index
-            },
-            {
-                'loading_state' : loading_state,
-                'setLoading_state' : setLoading_state
-            }
+            {img_file, setImg_file},
+            {img_url, setImg_url},
+            {random_index, setRandom_index},
+            {loading_state, setLoading_state}
         ]),
         reference_store([
-            {
-                'user_img_display' : user_img_display
-            },
-            {
-                'user_file_form' : user_file_form
-            },
-            {
-                'img_file_input' : img_file_input
-            }
+            {user_img_display},
+            {user_file_form},
+            {img_file_input}
         ]),
         {
-            'login_user' : login_user
+            login_user
         }
     )
 
@@ -83,30 +75,52 @@ function Profile({login_user}){
                     </div>
                 </div>
                 {/* form */}
-                <form className="profile__content-section2" ref={user_file_form} onSubmit={handleSubmit(submit)}>
+                <form 
+                    className="profile__content-section2" 
+                    ref={user_file_form} 
+                    onSubmit={handleSubmit(submit)}>
                     <div className="profile__content-section2-part1 box-shadow-lv1 profile-box-style-column">
                         {/* img */}
                         <div className="profile__content-section2-part1-img">
-                            <input className="profile__input" type="file" id='userImg' 
-                            ref={(el)=>{
-                                ref(el)
-                                img_file_input.current = el
-                            }} 
-                            onChange={(e) => {
-                                onChange(e)
-                                click_input_img(e)
-                            }}
-                            style={{display:'none'}}
-                            {...rest} autoComplete="off"></input>
+                            <input 
+                                className="profile__input" 
+                                type="file" 
+                                id='userImg' 
+                                ref={(el)=>{
+                                    ref(el)
+                                    img_file_input.current = el
+                                }} 
+                                onChange={(e) => {
+                                    onChange(e)
+                                    click_input_img(e)
+                                }}
+                                style={{display:'none'}}
+                                {...rest} 
+                                autoComplete="off"/>
                             {/* img-profile */}
                             <div className="profile__content-section2-part1-profile" 
-                            style={{backgroundColor : default_data.random_profile_color[random_index]}}>
-                                {img_file && <img className="proflie__img-profile" ref={user_img_display} src={img_url ? img_url : null}></img>}
-                                {!img_file && <span>{login_user.name.substring(0,3)}</span>}
+                                style={{backgroundColor : default_data.random_profile_color[random_index]}}>
+                                {img_file && 
+                                <img 
+                                    className="proflie__img-profile" 
+                                    ref={user_img_display} 
+                                    src={img_url ? img_url : null}/>}
+                                {!img_file && 
+                                <span>{login_user.name.substring(0,3)}</span>}
                             </div>
-                            <button type="button" className="profile__content-section2-part1-profile-btn" onClick={add_profile_img}>사진 등록</button>
+                            <button 
+                                type="button" 
+                                className="profile__content-section2-part1-profile-btn" 
+                                onClick={add_profile_img}>
+                                    사진 등록
+                            </button>
                             {errors.image && <span className="input-alert-text">{errors.image.message}</span>}
-                            <button className="profile__content-section2-part1-default-btn" type="button" onClick={default_profile_click}>기본 프로필 사용</button>
+                            <button 
+                                className="profile__content-section2-part1-default-btn" 
+                                type="button" 
+                                onClick={default_profile_click}>
+                                    기본 프로필 사용
+                            </button>
                         </div>
                         {/* text */}
                         <div className="profile__content-section2-part1-text-wrapper">
@@ -137,9 +151,9 @@ function Profile({login_user}){
                                 </div>
                                 <span>
                                     {new Date(login_user.createdAt).toLocaleDateString('ko-KR', {
-                                    year: 'numeric',
-                                    month: '2-digit',
-                                    day: '2-digit'
+                                        year: 'numeric',
+                                        month: '2-digit',
+                                        day: '2-digit'
                                     })}
                                 </span>
                             </div>
@@ -152,9 +166,12 @@ function Profile({login_user}){
                                         </div>
                                     </div>
                                     <div>
-                                        <input type="text" placeholder="닉네임을 설정해 주세요!" 
-                                        className={`profile__content-section2-part1-nameinput`}
-                                        {...register('nickname')} autoComplete="off"></input>
+                                        <input 
+                                            type="text" 
+                                            placeholder="닉네임을 설정해 주세요!" 
+                                            className={`profile__content-section2-part1-nameinput`}
+                                            {...register('nickname')} 
+                                            autoComplete="off"/>
                                         {errors.nickname && <span className="input-alert-text">{errors.nickname.message}</span>}
                                     </div>
                                 </div>
@@ -164,8 +181,10 @@ function Profile({login_user}){
                     </div>
 
                     {/* submit 버튼 */}
-                    <input type="submit" className={`profile__content-section2-btn 
-                        ${boolean_submit() ? 'button-enable' : 'button-disable'}`} value={'가입 완료'}></input>   
+                    <input 
+                        type="submit" 
+                        className={`profile__content-section2-btn ${boolean_submit() ? 'button-enable' : 'button-disable'}`} 
+                        value={'가입 완료'}/> 
                 </form>
             </div>
         </div>

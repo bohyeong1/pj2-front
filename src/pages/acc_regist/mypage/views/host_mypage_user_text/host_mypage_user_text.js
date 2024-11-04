@@ -2,7 +2,7 @@ import {useContext, useState, useRef} from "react";
 import './host_mypage_user_text.scss'
 import default_data from "@/util/default_data/default_data";
 import { UserContext } from '@/context/user_context/config/user_context';
-import OriginalImg from "@/picture/original_img/original_img"
+import UserProfileImg from "@/utilComponent/material/user_profile_img/user_profile_img";
 import Loading from '@/utilComponent/material/loading/loading'
 import useHostMypageUserTextBusiness from "../../hook_store/business_hooks/host_mypage_user_text_business";
 import useHostMypageUserTextStyle from "../../hook_store/style_hooks/host_mypage_user_text_style";
@@ -10,6 +10,7 @@ import { state_store, reference_store } from "@/util/function/util_function";
 import _ from 'lodash'
 import AlertModal from "@/utilComponent/modal/alert_modal/alert_modal";
 import ConfirmModal from "@/utilComponent/modal/confirm_modal/confirm_modal";
+import ImgRegistModal from "@/utilComponent/modal/img_regist_modal/img_regist_modal";
 import camera_icon from '@/assets/icon/camera-icon.png'
 import pencil_icon from '@/assets/icon/pencil-icon.png'
 import save_icon from '@/assets/icon/save-icon.png'
@@ -37,10 +38,16 @@ function HostMypageUserText(){
     const [loading, setLoading] = useState(null)
     const [is_button, setIs_button] = useState(false)
     const [host_summary, setHost_summary] = useState(host_data.host_text)
-    const [reservation_rule, setReservation_rule] = useState(host_data.reservation_rule.auto_reservation)
+    const [reservation_rule, setReservation_rule] = useState(host_data.reservation_rule)
     const [initial_message, setInitial_message] = useState(host_data.initial_message)
     const [refund_rule, setRefund_rule] = useState(host_data.refund_rule)
-
+    const [profile_img, setProfile_img] = useState({
+        img : user_data.profileImg ? user_data.profileImg : null,
+        delete_prev_img : null,
+        img_file : null,
+        img_display_url : user_data.profileImg ? user_data.profileImg : null
+    })
+    console.log(host_data)
     // =================================================
     // hooks //
     // business
@@ -48,7 +55,8 @@ function HostMypageUserText(){
         watch, 
         register, 
         errors,
-        isValid
+        isValid,
+        fetch_data
     } = useHostMypageUserTextBusiness(
         {
             user_data,
@@ -57,7 +65,12 @@ function HostMypageUserText(){
         state_store([
             {host_data, setHost_data},
             {loading, setLoading},
-            {is_button, setIs_button}
+            {is_button, setIs_button},
+            {initial_message, setInitial_message},
+            {host_summary, setHost_summary},
+            {reservation_rule, setReservation_rule},
+            {refund_rule, setRefund_rule},
+            {profile_img, setProfile_img}
         ])
     )
     // style
@@ -67,13 +80,15 @@ function HostMypageUserText(){
         modal_toggle,
         click_reservation_rule,
         set_reservation_rule_false,
-        click_refund_rule
+        click_refund_rule,
+        set_img
     } = useHostMypageUserTextStyle(
         undefined, 
         state_store([
             {host_summary, setHost_summary},
             {reservation_rule, setReservation_rule},
-            {refund_rule, setRefund_rule}
+            {refund_rule, setRefund_rule},
+            {profile_img, setProfile_img}
         ]),
         reference_store([
             {summary_button_wrapper}
@@ -101,9 +116,13 @@ function HostMypageUserText(){
                         <div className="host-mypage-user-text__content-section1-profile">
                             <div className="host-mypage-user-text__content-section1-profile-img">
                                 <div className="host-mypage-user-text__content-section1-profile-img-wrapper">
-                                    <OriginalImg url={user_data.profileImg}/>
+                                    <UserProfileImg 
+                                        url = {profile_img.img_display_url}
+                                        user_data = {user_data}/>
                                 </div>
-                                <button className="host-mypage-user-text__content-section1-profile-img-button box-shadow-lv2">
+                                <button 
+                                    className="host-mypage-user-text__content-section1-profile-img-button box-shadow-lv2"
+                                    onClick={()=>{modal_toggle('modify-profile-img')}}>
                                     <img src={camera_icon}/>
                                 </button>
                             </div>
@@ -229,7 +248,7 @@ function HostMypageUserText(){
                 <button 
                     className={`host-mypage-user-text__fetch-button ${is_button ? 'button-enable' : 'button-disable'}`}
                     disabled={is_button ? false : true}
-                    // onClick={()=>{fetch_acc(check_in, check_in_method)}}
+                    onClick={fetch_data}
                     >
                     저장
                 </button>
@@ -303,6 +322,13 @@ function HostMypageUserText(){
                     </div>
                 </div>
             </ConfirmModal>
+            
+            {/* 프로필 이미지 등록 모달 */}
+            <ImgRegistModal
+                img_modal_toggle={modal_toggle} 
+                drop_img_state={profile_img} 
+                setDrop_img_state={set_img} 
+                target_id={'modify-profile-img'}/>
         </div>
     )
 }

@@ -11,7 +11,9 @@ function useHostMypageUserTextStyle(data, states, refs, props){
         reservation_rule, 
         setReservation_rule,
         refund_rule, 
-        setRefund_rule
+        setRefund_rule,
+        profile_img, 
+        setProfile_img
     } = states
 
     // =================================================
@@ -68,13 +70,26 @@ function useHostMypageUserTextStyle(data, states, refs, props){
         modal_toggle(key_name)
     }
 
+    // =================================================
+    // img set //
+    async function set_img(img){     
+        const img_url = URL.createObjectURL(img)
+        setProfile_img({
+            ...profile_img,
+            delete_prev_img : profile_img.img === profile_img.img_display_url ? profile_img.img : profile_img.delete_prev_img,
+            img_file : img,
+            img_display_url : img_url
+        })
+    }
+
     return {
         save_text,
         click_modify_text,
         modal_toggle,
         click_reservation_rule,
         set_reservation_rule_false,
-        click_refund_rule
+        click_refund_rule,
+        set_img
     }
 }
 

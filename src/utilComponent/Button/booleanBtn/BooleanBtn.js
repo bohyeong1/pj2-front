@@ -1,6 +1,6 @@
 import React,{useState} from "react";
 import { useSearchParams } from "react-router-dom";
-import './BooleanBtn.css'
+import './BooleanBtn.scss'
 
 function BooleanBtn({keyValue, text}){
 
