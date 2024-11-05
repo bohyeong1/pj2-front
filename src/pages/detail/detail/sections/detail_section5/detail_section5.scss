@@ -139,6 +139,7 @@
     font-size: 0.9375rem;
     color: $grey-lv1;
 }
+
 // host introduce
 .detail-section5__container-contents-box3{
     width: 100%;
@@ -150,6 +151,7 @@
     gap: 32px;
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 .detail-section5__container-contents-box3 > div:nth-child(1){
     font-weight: 600;
@@ -159,6 +161,7 @@
     flex-grow: 1;
     height: 100%;
     position: relative;
+    padding-bottom: 30px;
 }
 .detail-section5__container-contents-box3-introduce > pre{
     font-size: 0.9375rem; 
@@ -172,4 +175,21 @@
     line-height: 1.3;
     width: 100%;
     height: 100%;
+}
+.detail-section5__contents-box3-button{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border: none;
+    outline: none;
+    background: none;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.925rem;
+}
+
+// modal
+.detail-section5__modal-container{
+    font-size: 1rem;
+    line-height: 1.3;
 }

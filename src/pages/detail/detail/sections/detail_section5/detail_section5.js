@@ -2,9 +2,16 @@ import React from "react";
 import './detail_section5.scss'
 import { get_date_difference } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
+import useDetailSection5Style from "../../hook_store/style_hooks/detail_section5_style";
+import AlertModal from "@/utilComponent/modal/alert_modal/alert_modal";
 
 function DetailSection5({seller, role}){    
-    
+
+    // =================================================
+    // hooks //
+    // style  
+    const {modal_toggle} = useDetailSection5Style()
+
     return(
         <div className="detail-section5__container">
             <div className="detail-section5__container-title">
@@ -78,12 +85,20 @@ function DetailSection5({seller, role}){
                         <pre>
                             {seller.host_text.host_text}
                         </pre>
-                        {/* <button>자세히 보기</button> */}
+                        <button className="detail-section5__contents-box3-button"
+                        onClick={()=>{modal_toggle('detail-section5-host-text')}}>자세히 보기</button>
                     </div>
                 </div>
 
             </div>
-
+            <AlertModal
+                key_name = {'detail-section5-host-text'}
+                title = {'호스트 소개'}
+                modal_toggle = {modal_toggle}>
+                <pre className="detail-section5__modal-container">
+                    {seller.host_text.host_text}
+                </pre>
+            </AlertModal>
         </div>
     )
 }

@@ -59,6 +59,7 @@ function Detail(){
                 role = {'summary'}/>
             <Section1Payment 
                 data = {sellect_data?.accomodation} 
+                host = {sellect_data?.seller.host_text}
                 params = {house_param}
                 role = {'payment'}/>                                    
             <DetailSection2 

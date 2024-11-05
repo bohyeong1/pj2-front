@@ -49,9 +49,10 @@ function DetailSection1({data, user, evaluations}){
                 <div className="detail-section1__section2">
                     <span>숙소 메뉴얼</span>
                     <div>
-                        <button>자세히 보기</button>
+                       { data.manual &&
+                        <button onClick={()=>{modal_toggle('detail-section1-manual')}}>자세히 보기</button>}
                         <pre>
-                            {data.manual}
+                            {data.manual ? data.manual : '호스트가 설정한 메뉴얼이 없습니다.'}
                         </pre>
                     </div>
                 </div>
@@ -224,6 +225,7 @@ function DetailSection1({data, user, evaluations}){
                         </div>
                     </div>
                 </AlertModal>
+
                 {/* checkout modal */}
                 <AlertModal
                     key_name = {'detail-section1-checkout'}
@@ -257,6 +259,18 @@ function DetailSection1({data, user, evaluations}){
                                 <span>호스트가 체크아웃 방법을 설정하지 않았습니다. 추후 메세지를 통해 정보를 요청하세요.</span>}
                             </div>
                         </div>
+                    </div>
+                </AlertModal>
+
+                {/* manual modal */}
+                <AlertModal
+                    key_name = {'detail-section1-manual'}
+                    title = {'숙소 메뉴얼'}
+                    modal_toggle = {modal_toggle}>
+                    <div className='detail-section1__manual-modal-container'>
+                        <p>
+                            {data.manual ? data.manual : ''}
+                        </p>
                     </div>
                 </AlertModal>
             </div>

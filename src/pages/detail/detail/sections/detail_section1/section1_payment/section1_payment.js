@@ -1,4 +1,4 @@
-import React,{useState, useRef} from "react";
+import {useState, useRef} from "react";
 import './section1_payment.scss'
 import { pop_three_texts, transform_date, get_discount_price, state_store, reference_store } from "@/util/function/util_function";
 import Calendar from "@/utilComponent/material/calendar/calendar";
@@ -6,14 +6,14 @@ import useDetailSection1PaymentStyle from "../../../hook_store/style_hooks/detai
 import default_data from "@/util/default_data/default_data";
 import useDetailSection1PaymentBusiness from "../../../hook_store/business_hooks/detail_section1_payment_business";
 
-function Section1Payment({data, params}){
+function Section1Payment({data, params, host}){
 
     // =================================================
     // const //
     const [final_price] = useState(
         data && data.discount ?  get_discount_price(data.price, data.discount.rate) : data.price
     )
-
+    console.log(host)
     // =================================================
     // states //
     const [checkin_date, setCheckin_date] = useState(null)
@@ -191,6 +191,7 @@ function Section1Payment({data, params}){
                             </button>
                         </div>
                     </div>}
+
                     {/* calendar modal */}
                     {calendar_modal && 
                     <div className="section1-payment__calendar-modal box-shadow-lv1"
@@ -207,11 +208,15 @@ function Section1Payment({data, params}){
                                 </div>
                             </div>
                         </div>
-                        <Calendar set_checkin_handler = {setCheckin_date} 
-                                  set_checkout_handler = {setCheckout_date}
-                                  checkin_date = {checkin_date}
-                                  checkout_date = {checkout_date}
-                                  container_width = {'100%'}/>
+                        <Calendar 
+                            set_checkin_handler = {setCheckin_date} 
+                            set_checkout_handler = {setCheckout_date}
+                            checkin_date = {checkin_date}
+                            checkout_date = {checkout_date}
+                            container_width = {'100%'}
+                            possible_date = {host.possible_date.data}
+                            impossible_reservation = {host.impossible_reservation}
+                            reservation_deadline = {host.reservation_deadline.data}/>
                         <div className="section1-payment__calendar-modal-footer">
                             <button className = 'small-button'
                                     onClick={delete_calendar}>

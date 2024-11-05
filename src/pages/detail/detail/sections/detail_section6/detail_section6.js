@@ -20,7 +20,7 @@ function DetailSection6({data}){
     // =================================================
     // const //
     const [refund_rule] = useState(data.seller.host_text.refund_rule)
-    console.log(data)
+
     // =================================================
     // hooks //
     // style
@@ -48,7 +48,7 @@ function DetailSection6({data}){
                     </div>
                     <div className="detail-section6__item-footer">
                         <button onClick={()=>{modal_toggle('detail-section6-check')}}>자세히 보기</button>
-                        <img src={default_data.d_imgs.drop_arrow}/>
+                        {/* <img src={default_data.d_imgs.drop_arrow}/> */}
                     </div>
                 </div>
                 {/* accomodation rules */}
@@ -77,7 +77,7 @@ function DetailSection6({data}){
                     </div>
                     <div className="detail-section6__item-footer">
                         <button onClick={()=>{modal_toggle('detail-section6-rule')}}>자세히 보기</button>
-                        <img src={default_data.d_imgs.drop_arrow}/>
+                        {/* <img src={default_data.d_imgs.drop_arrow}/> */}
                     </div>
                 </div>
                 {/* refund */}
@@ -93,7 +93,7 @@ function DetailSection6({data}){
                     </div>
                     <div className="detail-section6__item-footer">
                         <button onClick={()=>{modal_toggle('detail-section6-refund')}}>자세히 보기</button>
-                        <img src={default_data.d_imgs.drop_arrow}/>
+                        {/* <img src={default_data.d_imgs.drop_arrow}/> */}
                     </div>
                 </div>
             </div>
@@ -152,7 +152,7 @@ function DetailSection6({data}){
                                 </div>
                             )
                         }) : 
-                        <span>추후 메세지를 통해 정보를 요청하세요.</span>}                                         
+                        <span>기본 설정된 정보가 없습니다. 호스트와 직접 만난 후 정보를 제공받으세요.</span>}                                         
                     </div>
                 </div>
             </AlertModal>
