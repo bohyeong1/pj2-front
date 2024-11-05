@@ -1,6 +1,7 @@
 import './detail_detail_layout.scss'
 import '@/manage_scss_style/commonness/commonness.scss'
 import React from 'react'
+import useDetailDetailLayoutStyle from '../../hook_store/style_hooks/detail_detail_layout_style'
 
 function DetailDetailLayout({children}){
     // =================================================
@@ -12,8 +13,19 @@ function DetailDetailLayout({children}){
         }
     })
 
+    // =================================================
+    // hooks //
+    // style 
+    const {} = useDetailDetailLayoutStyle()
+
     return (
         <div className="detail-detail-layout__container">
+
+            {/* 고정 메뉴 */}
+            <section className='detail-detail-layout__fix-menu'>
+                {children_object.fix_menu}
+            </section>
+
             {/* 이미지 디스플레이 */}
             <section className="detail-detail-layout__img">
                 {children_object.img_display}

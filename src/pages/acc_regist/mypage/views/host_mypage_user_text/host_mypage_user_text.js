@@ -47,7 +47,7 @@ function HostMypageUserText(){
         img_file : null,
         img_display_url : user_data.profileImg ? user_data.profileImg : null
     })
-    console.log(host_data)
+
     // =================================================
     // hooks //
     // business
@@ -299,8 +299,7 @@ function HostMypageUserText(){
                 key_name = {'auto-reservation'}
                 confirm_text = {'즉시 예약 사용 중지'}
                 handle_function = {set_reservation_rule_false}
-                modal_toggle = {modal_toggle}
-                >
+                modal_toggle = {modal_toggle}>
                 <div className="host-mypage-user-text__auto-reservation-modal-container">
                     <span className="host-mypage-user-text__auto-reservation-modal-title">즉시 예약 기능을 끄시겠어요?</span>
                     <span>이 경우, 다음 사항을 유의해 주시기 바랍니다.</span>

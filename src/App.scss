@@ -116,4 +116,9 @@ input[type="number"] {
   background: $blue-default;
   pointer-events: none;
 }
+p{
+  word-wrap: break-word;  
+  overflow-wrap: break-word;
+  white-space: normal;
+}
 

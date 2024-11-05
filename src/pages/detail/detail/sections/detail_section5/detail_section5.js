@@ -1,6 +1,6 @@
 import React from "react";
 import './detail_section5.scss'
-import { get_date_difference, state_store } from "@/util/function/util_function";
+import { get_date_difference } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 
 function DetailSection5({seller, role}){    

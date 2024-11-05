@@ -433,3 +433,126 @@
     line-height: 1.3;
     font-size: 0.9375rem;
 }
+
+// modal
+.detail-section1__checkin-modal-container,
+.detail-section1__checkout-modal-container{
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+.detail-section1__checkin-modal-part1,
+.detail-section1__checkout-modal-part1{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > p{
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+
+        & > img{
+            width: 40px;
+            height: 40px;
+        }
+        
+        & > span{
+            color: $grey-lv1;
+        }
+    }
+
+    & > span{
+        padding-left: 60px;
+        font-size: 1rem;
+    }
+    
+}
+.detail-section1__modal-border{
+    padding-bottom: 40px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.detail-section1__checkin-modal-part2{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > p{
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+
+        & > img{
+            width: 40px;
+            height: 40px;
+        }
+
+        & > span{
+            color: $grey-lv1;
+        }
+    }
+
+    & > span{
+        padding-left: 60px;
+        font-size: 1rem;
+        line-height: 1.4;
+    }
+}
+.detail-section1__checkin-modal-part2-title{
+    font-weight: 600;
+}
+.detail-section1__checkout-modal-part2{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > p{
+        display: flex;
+        gap: 20px;
+        align-items: flex-end;
+
+        & > img{
+            width: 40px;
+            height: 40px;
+        }
+
+        & > span{
+            color: $grey-lv1;
+        }
+    }
+}
+.detail-section1__checkout-modal-part2-item-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    width: 100%;
+
+    & > span{
+        padding-left: 60px;
+        font-size: 1rem;
+    }
+
+    & > div{
+        padding-left: 60px;
+        font-size: 1rem;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        & > span{
+            padding-left: 45px;
+        }
+    }
+}
+.detail-section1__checkout-modal-box-wrapper{
+    display: flex;
+    gap:20px;
+    align-items: flex-end;
+    & > img{
+        width: 25px;
+        height: 25px;
+    }
+    & > span{
+        font-weight: 600;
+    }
+}

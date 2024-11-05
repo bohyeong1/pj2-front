@@ -346,5 +346,8 @@ DB - User(사용자), Accomodation(숙소),
 
 10.31
 - 달력 fetch 작업중
+
+11.4
+- host mypage(예약 빼고), manage페이지 프론트 백 완료 
   <code>
 </pre>
