@@ -5,7 +5,7 @@ import { Outlet } from "react-router-dom"
 function HostRegistLayout(){
 
     return (
-        <div className="host-regist-layout">
+        <div className="host-regist__layout">
             <main className="host-regist-layout__content">
                 <Outlet/>
             </main>

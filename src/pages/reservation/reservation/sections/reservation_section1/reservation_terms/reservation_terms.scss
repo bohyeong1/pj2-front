@@ -63,3 +63,20 @@
 .reservation-terms__sub-text{
     font-size: 0.875rem;
 }
+
+// modal
+.reservation-terms__modal-rule-container{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.reservation-terms__modal-rule-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.reservation-terms__modal-rule-contents{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    padding-left: 20px;
+}

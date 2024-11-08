@@ -1,4 +1,6 @@
 import { useEffect } from "react"
+import { useDispatch } from "react-redux"
+import { toggle_target } from "@/redux/modules/overaySlice"
 
 function useReservationTermsStyle(data, states, refs, props){
 
@@ -22,6 +24,10 @@ function useReservationTermsStyle(data, states, refs, props){
     const {setIs_button} = props
 
     // =================================================
+    // dispatch //
+    const dispatch = useDispatch()
+
+    // =================================================
     // check box style //
     useEffect(()=>{
         for(const key in checkbox_state){
@@ -37,7 +43,13 @@ function useReservationTermsStyle(data, states, refs, props){
         }
         setIs_button(true)
         setAll_checked(true)
-    },[checkbox_state])
+    },[checkbox_state])   
+    
+    // =================================================
+    // modal toggle
+    function modal_toggle(key_name){
+        dispatch(toggle_target({id:key_name}))
+    }
 
     // =================================================
     // 전체동의 //
@@ -69,7 +81,12 @@ function useReservationTermsStyle(data, states, refs, props){
         setIs_open(!is_open)
     }
 
-    return {all_check_box, sellect_check_box, open_terms}
+    return {
+        all_check_box, 
+        sellect_check_box, 
+        open_terms,
+        modal_toggle
+    }
 }
 
 export default useReservationTermsStyle

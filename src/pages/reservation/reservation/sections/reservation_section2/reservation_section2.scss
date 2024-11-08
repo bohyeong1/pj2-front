@@ -303,5 +303,9 @@
 .reservation-section2__section5-content{
     display: flex;  
     flex-direction: column; 
-    gap: 24px;
+    gap: 12px;
+}
+.reservation-section2__section5-number{
+    display: inline-block;
+    width: 17px;
 }

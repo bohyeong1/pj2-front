@@ -16,11 +16,12 @@ function ReservationSection2 ({data, user}){
 
     // =================================================
     // const //
-    const [pay_day] = useState(differenceInDays(new Date(search_params.get('checkout')), new Date(search_params.get('checkin'))))
+    const [stay_day] = useState(differenceInDays(new Date(search_params.get('checkout')), new Date(search_params.get('checkin'))))
     const [capacity] = useState(Number(search_params.get('capacity')))
     const [add_capacity] = useState(capacity > 1 ? capacity - 1 : 0)
     const [checkin] = useState(format(new Date(search_params.get('checkin')), 'yyyy년 MM월 dd일'))
     const [checkout] = useState(format(new Date(search_params.get('checkout')), 'yyyy년 MM월 dd일'))
+    const [host] = useState(data.seller.host_text)
 
     // =================================================
     // states //
@@ -116,7 +117,7 @@ function ReservationSection2 ({data, user}){
                         <span>할인 적용</span>
                     </div>
                 <div className="reservation-section2__section3-content">
-                    {data.discount && pay_day >= data.discount.date.date ?
+                    {data.discount && stay_day >= data.discount.date.date ?
                     // 할인 적용
                     <div className='reservation-section2__section3-content-onprice'>
                         <div className='reservation-section2__section3-content-title'>
@@ -126,8 +127,8 @@ function ReservationSection2 ({data, user}){
                             </div>
                         </div>
                         <div className='reservation-section2__section3-content-text'>
-                            <span>{pop_three_texts((data?.price + (capacity - 1) * data?.addPrice) * pay_day * (100 - data?.discount.rate) / 100)}원</span>
-                            <span>{pop_three_texts((data?.price + (capacity - 1) * data?.addPrice) * pay_day)}원</span>
+                            <span>{pop_three_texts((data?.price + (capacity - 1) * data?.addPrice) * stay_day * (100 - data?.discount.rate) / 100)}원</span>
+                            <span>{pop_three_texts((data?.price + (capacity - 1) * data?.addPrice) * stay_day)}원</span>
                         </div>
                     </div> : 
                     // 할인 미적용
@@ -155,7 +156,11 @@ function ReservationSection2 ({data, user}){
                     {/* 호스트 결제 수락 방법 */}
                     <div className='reservation-section2__section4-content-host-method'>
                         <span>예약 수락</span>
-                        <p>호스트가 24시간 이내 예약 요청을 수락하기 전까지는 예약이 아직 확정된 것이 아닙니다. 예약 확정 전까지는 요금이 청구되지 않습니다.</p>
+                        <p>
+                            {host.reservation_rule ? 
+                            '호스트가 자동예약 서비스를 등록한 상품입니다. 예약신청과 동시에 예약이 확정됩니다.' :
+                            '호스트가 48시간 이내 예약 요청을 수락하기 전까지는 예약이 아직 확정된 것이 아닙니다. 예약 확정 전까지는 요금이 청구되지 않습니다.'}                            
+                        </p>
                     </div>
                 </div>
             </div>
@@ -166,7 +171,14 @@ function ReservationSection2 ({data, user}){
                         <span>환불 정책</span>
                     </div>
                 <div className="reservation-section2__section5-content">
-
+                    {host.refund_rule.content.map((el, id) => {
+                        return (
+                            <p key={id}>
+                                <span className='reservation-section2__section5-number'>{id + 1}. </span>
+                                <span>{el}</span>
+                            </p>
+                        )
+                    })}
                 </div>
             </div>
 

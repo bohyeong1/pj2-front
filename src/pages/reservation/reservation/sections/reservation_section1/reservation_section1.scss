@@ -109,3 +109,28 @@
     font-size: 1.225rem;
     font-weight: 400;
 }
+
+// modal
+.reservation-section1__cash-false-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+    & > p{
+        display: flex;
+        gap:30px;
+
+        & > span:nth-child(1){
+            width: 110px;
+            font-size: 1rem;
+        }
+    }
+}
+.reservation-section1__cash-false-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+.reservation-section1__cash-false-value{
+    color: $red-lv2;
+}

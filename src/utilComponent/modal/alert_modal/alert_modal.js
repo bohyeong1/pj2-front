@@ -1,6 +1,7 @@
 import './alert_modal.scss'
 import { useSelector } from 'react-redux'
 import close_icon from '@/assets/icon/close-icon.png'
+import { createPortal } from 'react-dom'
 
 function AlertModal({key_name, title = null, modal_toggle, children}){
 
@@ -8,7 +9,7 @@ function AlertModal({key_name, title = null, modal_toggle, children}){
     // redux state //
     const modal_state = useSelector(state => state.overay.open_target_id)
 
-    return (
+    return createPortal (
         modal_state === key_name &&
         <div className='alert-modal__container'>
             {/* header */}
@@ -26,7 +27,8 @@ function AlertModal({key_name, title = null, modal_toggle, children}){
             <main className='alert-modal__main common-scroll-bar'>
                 {children}
             </main>
-        </div>
+        </div>,
+        document.getElementById('modal-root')
     )
 }
 

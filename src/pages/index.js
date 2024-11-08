@@ -16,6 +16,10 @@ export {default as Agree} from './membership/agree_app/agree'
 export {default as Join_complete} from './membership/join_complete_app/join_complete'
 
 // =================================================
+// 유저 //
+export {default as UserReservation} from './user/reservation/app/reservation'
+
+// =================================================
 // 숙소 상세 //
 export {default as Detail} from './detail/detail/app/detail'
 
@@ -41,7 +45,6 @@ export {default as Evaluation} from './evaluation/EvaluationApp'
 // =================================================
 // 예약 //
 export {default as Reservation}  from './reservation/reservation/app/reservation'
-
 
 // =================================================
 // 약관 및 홈페이지 정보 //

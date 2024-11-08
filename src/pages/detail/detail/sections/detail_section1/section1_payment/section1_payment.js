@@ -13,7 +13,7 @@ function Section1Payment({data, params, host}){
     const [final_price] = useState(
         data && data.discount ?  get_discount_price(data.price, data.discount.rate) : data.price
     )
-    console.log(host)
+
     // =================================================
     // states //
     const [checkin_date, setCheckin_date] = useState(null)

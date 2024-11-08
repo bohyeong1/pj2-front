@@ -1,13 +1,13 @@
 import React from "react";
 import './loading.scss'
 import useMaterialLoadingStyle from "../hook-store/style-hooks/material_loading_style";
-
+import { createPortal } from 'react-dom'
 
 function Loading({part = null}){
 
     const {} = useMaterialLoadingStyle()
 
-    return(
+    return createPortal (
         <div className={`loading__container ${part ? 'loading-part-style' : 'loading-default-style'}`}>
             {/* {part ? <div className="loading__overay"></div> : null} */}
             <div className="loading__circle">
@@ -42,7 +42,8 @@ function Loading({part = null}){
                     <div className="loading__bar"></div>
                 </div>
             </div>
-        </div>
+        </div>,
+        document.getElementById('modal-root')
     )
 }
 

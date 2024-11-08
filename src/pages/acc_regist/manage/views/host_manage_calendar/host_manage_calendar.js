@@ -70,7 +70,7 @@ function HostManageCalendar(){
             {error_state, setError_state}
         ])
     )
-    console.log(host_data)
+
     return (
         loading === false ? <Loading part={true}></Loading> :
         <div className="host-manage-calendar__container">
