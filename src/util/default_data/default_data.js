@@ -759,6 +759,10 @@ const default_data = {
     random_profile_color : ["#eecccc", "#eed4cc", "#eeddcc", "#eee5cc", "#eeeecc", "#e5eecc", "#ddeecc", "#d4eecc", "#cceecc", "#cceed4", "#cceedd", "#cceee5", "#cceeee", "#cce5ee", "#ccddee", "#ccd4ee", "#ccccee", "#d4ccee", "#ddccee", "#e5ccee", "#eeccee", "#eecce5", "#eeccdd", "#eeccd4"
     ],
 
+
+
+
+
     ////////////////////////////////////////////////////
     ////////////////// default menus ///////////////////
     ////////////////////////////////////////////////////
@@ -766,7 +770,8 @@ const default_data = {
     // =================================================
     // login modal menus //
     pri_sidemenu : [
-        {name:'내 정보관리',
+        {
+            name:'내 정보관리',
             url:'/Private_management'
         },
         {
@@ -775,7 +780,7 @@ const default_data = {
         },
         {
             name:'예약 내역',
-            url:'/Private_history'
+            url:'/user/reservation/pending-list'
         },
         {
             name:'위시리스트',
@@ -786,22 +791,28 @@ const default_data = {
     // =================================================
     // terms page side menus //
     terms_sidemenu :[
-        {name : '제작자 소개',
+        {
+            name : '제작자 소개',
             url:'/Terms_creator'
         },
-        {name : '사용 라이브러리',
+        {
+            name : '사용 라이브러리',
             url:'/Terms_library'
         },
-        {name : '홈페이지 약관',
+        {
+            name : '홈페이지 약관',
             url:'/Terms_homepage'
         },
-        {name : '호스트 약관',
+        {
+            name : '호스트 약관',
             url:'/Terms_host'
         },
-        {name : '개발현황',
+        {
+            name : '개발현황',
             url:'/Terms_develope'
         },
-        {name : '참고사이트',
+        {
+            name : '참고사이트',
             url:'/Terms_refertosite'
         },
     ],
@@ -948,9 +959,28 @@ const default_data = {
             default : '세부정보 추가',
             url : 'comunication'
         }
-    ]
+    ],
 
-    
+    // =================================================
+    // user reservation side menu //
+    user_reservation_side_menu : [
+        {
+            name : '예약 목록',
+            url : '/user/reservation/pending-list'
+        },
+        {
+            name : '메세지',
+            url : '/user/reservation/message'
+        },
+        {
+            name : '위시리스트',
+            url : '/user/reservation/wish-list'
+        },
+        {
+            name : '히스토리',
+            url : '/user/reservation/success-list'
+        }
+    ]
 
 }
 

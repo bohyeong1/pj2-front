@@ -45,4 +45,4 @@ function PartLoading({part = null}){
     )
 }
 
-export default Partpart-loading
+export default PartLoading

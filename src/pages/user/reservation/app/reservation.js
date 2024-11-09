@@ -1,10 +1,9 @@
+import UserReservationLayout from "@/layout/user/user_reservation_layout/user_reservation_layout"
 
 function UserReservation(){
 
     return (
-        <div className="user-reservation__container">
-            user reservation
-        </div>
+        <UserReservationLayout/>
     )
 }
 export default UserReservation

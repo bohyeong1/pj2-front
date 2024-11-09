@@ -15,26 +15,31 @@ import { useSetVw } from './manage_scss_style/commonness/commonness_hooks';
 // =================================================
 // final routes //
 import FinalRoutes from './Routes';
+// =================================================
+// react query //
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+const query_client = new QueryClient()
 
 function App(){
+    // =================================================
+    // gsap plugin regist //
+    gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
 
-  // =================================================
-  // gsap plugin regist //
-  gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
+    // =================================================
+    // set style custom hooks //
+    useSetVh()
+    useSetVw()
 
-  // =================================================
-  // set style custom hooks //
-  useSetVh()
-  useSetVw()
-
-  return(
-    <Provider store = {store}>
-      <div className="App">
-        <Overay></Overay>
-        <FinalRoutes></FinalRoutes>
-      </div>
-    </Provider>
-  )
+    return(
+        <QueryClientProvider client={query_client}>
+            <Provider store = {store}>
+                <div className="App">
+                    <Overay></Overay>
+                    <FinalRoutes></FinalRoutes>
+                </div>
+            </Provider>
+        </QueryClientProvider>
+    )
 }
 
 export default App;

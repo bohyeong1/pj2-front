@@ -1,0 +1,90 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-reseration-pending-list__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+// title
+.user-reservation-pending-list__title{
+    font-size: 1.525rem;
+    font-weight: 600;
+}
+
+// contents
+.user-reservation-pending-list__contents{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+// item
+.user-reservation-pending-list__item-wraper{
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $grey-end-end;
+    cursor: pointer;
+} 
+.user-reservation-pending-list__item-wraper:hover{
+    background-color: $grey-end;
+}
+.user-reservation-pending-list__item-contents-wrapper{
+    display: flex;
+    align-items: center;
+    gap:30px;
+}
+.user-reservation-pending-list__item-img-wrapper{
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100px;
+    height: 100%;
+}
+.user-reservation-pending-list__item-text{
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+    & > span:nth-child(1){
+        color: $grey-lv1;
+        font-size: 0.8275rem;
+    }
+    & > span:nth-child(2){
+        font-size: 1rem;
+    }
+    & > span:nth-child(3){
+        font-weight: 600;
+        font-size: 1.125rem;
+    }
+
+    & > p{
+        font-size: 0.9375rem;
+        display: flex;
+        align-items: flex-end;
+        gap : 10px;
+        & > span:nth-child(1){
+            color: $grey-lv1;
+            display: inline-block;
+            width: 60px;
+        }
+    }
+}
+.user-reservation-pending-list__item-state-wrapper{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.user-reservation-pending-list__item-state-box{
+    gap:10px;
+    display: flex;
+    align-items: center;
+}
+.user-reservation-pending-list__item-state-img{
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+}

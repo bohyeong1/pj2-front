@@ -1,9 +1,9 @@
 // =================================================
-// 메인 //
+// main //
 export {default as Main} from './main/main/app/main'
 
 // =================================================
-// 숙소 리스트 //
+// list //
 export {default as SubApp} from './sub/subApp/SubApp'
 
 // =================================================
@@ -14,9 +14,15 @@ export {default as Email_prove} from './membership/email_prove_app/email_prove'
 export {default as Profile} from './membership/profile_app/profile'
 export {default as Agree} from './membership/agree_app/agree'
 export {default as Join_complete} from './membership/join_complete_app/join_complete'
+// =================================================
+// 회원정보 관리 //
+export {default as Private_history} from './Privacy/private-history/Private-history'
+export {default as Private_management} from './Privacy/private-management/Private-management'
+export {default as Private_point} from './Privacy/private-point/Private-point'
+export {default as Private_wish} from './Privacy/private-wish/Private-wish'
 
 // =================================================
-// 유저 //
+// user //
 export {default as UserReservation} from './user/reservation/app/reservation'
 
 // =================================================
@@ -32,19 +38,13 @@ export {default as AccManage} from './acc_regist/manage/app/manage'
 export {default as AccMyPage} from './acc_regist/mypage/app/mypage'
 
 // =================================================
-// 회원정보 관리 //
-export {default as Private_history} from './Privacy/private-history/Private-history'
-export {default as Private_management} from './Privacy/private-management/Private-management'
-export {default as Private_point} from './Privacy/private-point/Private-point'
-export {default as Private_wish} from './Privacy/private-wish/Private-wish'
-
-// =================================================
 // 평점 //
 export {default as Evaluation} from './evaluation/EvaluationApp'
 
 // =================================================
-// 예약 //
-export {default as Reservation}  from './reservation/reservation/app/reservation'
+// reservation //
+export {default as Reservation} from './reservation/reservation/app/reservation'
+export {default as ReservationDetail} from './reservation/detail/app/detail'
 
 // =================================================
 // 약관 및 홈페이지 정보 //

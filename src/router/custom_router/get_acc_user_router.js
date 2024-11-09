@@ -34,7 +34,6 @@ function GetAccUserRouter({element : Element}){
         .catch((e) => {
             console.log(e)
         })
-
     }, [])
 
     // =================================================

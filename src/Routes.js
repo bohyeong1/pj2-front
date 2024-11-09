@@ -6,8 +6,10 @@ import DefaultLayout from './layout/default_layout/default_layout';
 // parent url routes //
 import { 
     Main, 
-    // membership page //
+    // user //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
+    UserReservation,
+
     SubApp,
     Detail,
     AccUpdate, 
@@ -21,6 +23,7 @@ import {
     Private_history,Private_management, Private_point, Private_wish,
     // reservation page //
     Reservation,
+    ReservationDetail,
     // terms page //
     Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,
 } from './pages';
@@ -30,6 +33,7 @@ import set_host_update_routes from './router/routes/host/host_update_routes';
 import set_host_regist_routes from './router/routes/host/host_regist_routes';
 import set_host_manage_routes from './router/routes/host/host_manage_route';
 import set_host_mypage_routes from './router/routes/host/host_mypage_route';
+import set_user_reservation_routes from './router/routes/user/user_reservation_routes'
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
@@ -37,6 +41,7 @@ import HostRegistCheckRouter from './router/custom_router/host_regist_check_rout
 import LogCheckRouter from './router/custom_router/log_check_router';
 import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 import HostLogCheckRouter from './router/custom_router/host_log_check_router';
+import UserAuthRouter from './router/custom_router/user_auth_router'
 // =================================================
 // context provider //
 import CommonAccProvider from '@/context/common_acc_context/provider/common_acc_provider';
@@ -47,10 +52,28 @@ function FinalRoutes(){
     return(
         <>
             <Routes>            
-                {/* // =================================================
-                    // 메인 페이지 // */}
-                <Route path='/' element={<Main/>}></Route>                                                                                  {/*메인*/}
+                {/* // ================================================================================================================================================================
+                    // main // */}
+                <Route path='/' element={<Main/>}></Route>                                                                                
                 
+                {/* // ================================================================================================================================================================
+                    // user // */}
+                <Route 
+                    path='/user'
+                    element={
+                        <UserProvider>
+                            <UserAuthRouter
+                                element={DefaultLayout} 
+                                redirection_url = {'/Login'}/>
+                        </UserProvider>
+                    }>
+                    <Route 
+                        path='reservation' 
+                        element = {<UserReservation/>}>
+                        {set_user_reservation_routes()}
+                    </Route>
+                </Route>
+
                 {/* // =================================================
                     // 로그인, 회원가입 페이지 // */}
                 <Route path='/Login' element={<Login></Login>}></Route>                                                                                 {/*로그인*/}
@@ -60,20 +83,20 @@ function FinalRoutes(){
                 <Route path='/Profile' element={<Private_router data_state={true} element={Profile} />}></Route>                                        {/*프로필 이미지 + 닉네임 등록*/}
                 <Route path='Join_complete' element = {<Private_router data_state={true} element={Join_complete}/>}></Route>                            {/*회원가입 완료*/}
 
-                {/* // =================================================
+                {/* // ================================================================================================================================================================
                     // 숙소 분류 페이지 // */}
-                <Route path='/SubApp' element={<SubApp></SubApp>}>                                                                                      {/*숙소 분류 페이지*/}
+                <Route path='/SubApp' element={<SubApp></SubApp>}>                                                                                     
                     <Route path=':city' element={<SubApp></SubApp>}></Route>
                 </Route>
 
-                {/* // =================================================
+                {/* // ================================================================================================================================================================
                     // detail // */}                    
                 {/* detail - 숙소 상세 페이지 */}
                 <Route path = '/detail' element = {<LogCheckRouter element={DefaultLayout}/>}>                                                                
                     <Route path=':house' element={<Detail/>}></Route>
                 </Route>
 
-                {/* // =================================================
+                {/* // ================================================================================================================================================================
                     // reseration // */}
                 {/* reservation - 숙소 예약 페이지 */}
                 <Route 
@@ -85,10 +108,25 @@ function FinalRoutes(){
                             </CommonAccProvider>
                         </UserProvider>
                     }>                                                             
-                    <Route path=':house' element={<Reservation/>}></Route>
-                </Route>    
+                    <Route 
+                        path=':house' 
+                        element={<Reservation/>}/>
+                </Route> 
+
+                {/* reservation - 예약된 숙소 detail page */}
+                <Route 
+                    path='/reservation/detail' 
+                    element={
+                        <UserProvider>
+                            <UserAuthRouter element={DefaultLayout}/>
+                        </UserProvider>
+                    }>                                                             
+                    <Route 
+                        path=':house' 
+                        element={<ReservationDetail/>}/>
+                </Route> 
               
-                {/* // =================================================
+                {/* // ================================================================================================================================================================
                     // host // */}
 
                 {/* host - 숙소 등록 페이지 */}
@@ -216,8 +254,6 @@ function FinalRoutes(){
                 <Route path='/Terms_homepage' element={<Terms_homepage></Terms_homepage>}></Route>                                                      {/*홈페이지 약관*/}
                 <Route path='/Terms_develope' element={<Terms_develope></Terms_develope>}></Route>                                                      {/*개발현황*/}
                 <Route path='/Terms_refertosite' element={<Terms_refertosite></Terms_refertosite>}></Route>                                             {/*참고사이트*/}
-
-                {/* <Route path='*'></Route>//개발중인 페이지 */}
             </Routes>
         </>
     )

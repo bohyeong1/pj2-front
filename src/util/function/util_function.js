@@ -3,14 +3,15 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 import { auth } from "@/firebase/firebase"
 import {differenceInMonths, differenceInDays, differenceInYears, format} from 'date-fns'
 import { isInteger } from "lodash"
+import { renew_fresh_token } from "@/firebase/firebase"
 
 // =================================================
 // 데이터 fetch 비로그인 페이지에서 사용 //
 async function connect_data(url, method, data = null, token = null){
     const data_json = await fetch(url,{
         headers:{
-        'Content-Type':'application/json',
-        'Authorization': `${token? 'Bearer ' + token : ''}`, 
+            'Content-Type':'application/json',
+            'Authorization': `${token? 'Bearer ' + token : ''}`, 
         },
         method: method,
         body: data? JSON.stringify(data) : undefined 
@@ -100,6 +101,7 @@ export async function check_login(){
 // =================================================
 // login 체크 && 유저 정보 얻는 함수 //
 export async function get_user(){
+    await renew_fresh_token()
 
     const data = await fetch(`${default_data.d_base_url}/api/users/getuser`,{
         method : 'GET',
@@ -114,19 +116,22 @@ export async function get_user(){
 // =================================================
 // cookie 보내서 유저 정보 post 요청하는 함수 //
 export async function connect_data_width_cookies(url, method, data = null){
-    const user_data = await fetch(url,{
-        method : method,
-        credentials : 'include',
-        headers : {
-        'Content-Type': 'application/json'
-        },
-        body: data? JSON.stringify(data) : undefined 
-    })
-
-    const result = await user_data.json()
-    return result
+    try{
+        const user_data = await fetch(url,{
+            method : method,
+            credentials : 'include',
+            headers : {
+                'Content-Type': 'application/json'
+            },
+            body: data? JSON.stringify(data) : undefined 
+        })
+    
+        const result = await user_data.json()
+        return result
+    }catch(e){
+        throw new Error(e)
+    }
 }
-
 
 // =================================================
 // state 전달 함수 //

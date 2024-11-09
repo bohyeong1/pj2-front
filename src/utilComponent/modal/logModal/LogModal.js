@@ -1,6 +1,5 @@
-import React ,{useState}from "react";
 import { useNavigate ,useLocation} from "react-router-dom";
-import './LogModal.css'
+import './log_modal.scss'
 
 function LogModal({log_m_state}){
     const navigate = useNavigate()
@@ -23,7 +22,7 @@ function LogModal({log_m_state}){
                 <div className="logmodal-con-b1-t1" id="log_btn" onClick={()=>{navigate('/Private_management')}}>계정관리</div>                
             </div>
             <div className="logmodal-con-box2">
-                <div className="logmodal-con-b2-t1" id="log_btn" onClick={()=>{navigate('/Private_history')}}>예약 내역</div>
+                <div className="logmodal-con-b2-t1" id="log_btn" onClick={()=>{navigate('/user/reservation/pending-list')}}>예약 내역</div>
                 <div className="logmodal-con-b2-t2" id="log_btn">위시리스트</div>
                 <div className="logmodal-con-b2-t3" id="log_btn" onClick={()=>{navigate('/host/manage/main')}}>호스팅</div>
             </div>
