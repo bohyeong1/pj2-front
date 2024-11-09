@@ -26,7 +26,7 @@ export async function renew_fresh_token(){
     auth.onAuthStateChanged(async function(user){
         if(user){
             try{
-                const token = await user.getIdToken(true)
+                const token = await user.getIdToken()
                 const log_data = await update_user_token(token)
                 if(log_data && log_data.log_state){
                     console.log('cookie값 업데이트')

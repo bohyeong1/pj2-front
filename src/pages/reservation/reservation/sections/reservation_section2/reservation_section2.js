@@ -86,8 +86,8 @@ function ReservationSection2 ({data, user}){
             {/* section2 */}
             <div className='reservation-section2__section2'>
                 <div className="reservation-section2__section2-title">
-                        <span>예약자 정보</span>
-                    </div>
+                    <span>예약자 정보</span>
+                </div>
                 <div className="reservation-section2__section2-content">
                     <div>
                         <div className='reservation-section2__section2-content-title'>
@@ -114,8 +114,8 @@ function ReservationSection2 ({data, user}){
             {/* section3 */}
             <div className='reservation-section2__section3'>
                 <div className="reservation-section2__section3-title">
-                        <span>할인 적용</span>
-                    </div>
+                    <span>할인 적용</span>
+                </div>
                 <div className="reservation-section2__section3-content">
                     {data.discount && stay_day >= data.discount.date.date ?
                     // 할인 적용
@@ -143,8 +143,8 @@ function ReservationSection2 ({data, user}){
             {/* section4 */}
             <div className='reservation-section2__section4'>
                 <div className="reservation-section2__section4-title">
-                        <span>결제 수단</span>
-                    </div>
+                    <span>결제 수단</span>
+                </div>
                 <div className="reservation-section2__section4-content">
                     {/* 게스트 결제 방법 */}
                     <div className='reservation-section2__section4-content-method'>
@@ -168,8 +168,8 @@ function ReservationSection2 ({data, user}){
             {/* section5 */}
             <div className='reservation-section2__section5'>
                 <div className="reservation-section2__section5-title">
-                        <span>환불 정책</span>
-                    </div>
+                    <span>환불 정책</span>
+                </div>
                 <div className="reservation-section2__section5-content">
                     {host.refund_rule.content.map((el, id) => {
                         return (
@@ -181,7 +181,6 @@ function ReservationSection2 ({data, user}){
                     })}
                 </div>
             </div>
-
         </div>
     )
 }
