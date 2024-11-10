@@ -17,16 +17,7 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     const query_client = useQueryClient()
     const {data, error, isLoading, refetch} = useQuery({
         queryKey : ['user_auth'], 
-        queryFn : get_user, 
-        onSuccess : (response) => {
-            if(response.server_state && response.log_state){
-                setUser_data(response.user_data)
-            }
-            else{
-                setUser_data(null)
-                query_client.removeQueries('user_auth')
-            }
-        },
+        queryFn : get_user,
         staleTime: 1000 * 60 * 15,
         cacheTime : 1000 * 60 * 30
     })
@@ -36,6 +27,23 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     useEffect(() => {
         refetch()
     }, [refetch])
+
+    // =================================================
+    // user data 전역 관리 //
+    useEffect(() => {
+        if(data){
+            if(data.server_state && data.log_state){
+                setUser_data(data.user_data)
+            }else{
+                setUser_data(null)
+                query_client.removeQueries('user_auth')
+            }
+        }
+        else{
+            setUser_data(null)
+            query_client.removeQueries('user_auth')
+        }
+    }, [data])
 
     if(isLoading){
         return <Loading></Loading>

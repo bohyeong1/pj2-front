@@ -24,7 +24,7 @@ function ReservationDetail(){
     if(error){
         // redirection url
     }
-    console.log(data)
+
     return (
         <ReservationDetailLayout>
             <ReservationDetailSection1
@@ -33,7 +33,7 @@ function ReservationDetail(){
                 data = {data.reservation}/>
             <ReservationDetailSection2
                 role = {'section2'}
-                data = {data}/>
+                user = {data.reservation.seller}/>
         </ReservationDetailLayout>
     )
 }

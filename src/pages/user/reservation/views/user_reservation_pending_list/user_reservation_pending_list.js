@@ -32,7 +32,7 @@ function UserReservationPendingList(){
     if(error){
         // redirection url
     }
-    console.log(data)
+
     return (
         <div className="user-reseration-pending-list__container">
             <span className="user-reservation-pending-list__title">예약 목록</span>     

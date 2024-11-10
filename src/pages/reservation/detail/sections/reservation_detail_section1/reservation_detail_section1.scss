@@ -1,5 +1,12 @@
 @import '@/manage_scss_style/commonness/colors';
 
+@font-face {
+    font-family: 'ClimateCrisisKR-1979';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/ClimateCrisisKR-1979.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
 .reservation-detail-section1__container{
     width:100%; 
     height: fit-content;
@@ -196,13 +203,36 @@
     }
 }
 .reservation-detail-section1__section3-content-text{
-    width: 340px;
-    min-height: 48px;
-    padding: 0 14px;
+    position: relative;
     display: flex;
-    align-items: center;
-    border-radius: 10px;
-    background-color: $grey-end;
+    flex-direction: column;
+    gap:14px;
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap:7px;
+    }
+}
+.reservation-detail-section1__section3-check-method-box{
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+    padding-left: 20px;
+    font-size: 0.8875rem;
+}
+.reservation-detail-section1__section3-check-method-box-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:14px;
+}
+.reservation-detail-section1__section3-content-padding-bottom{
+    padding-bottom: 44px;
+}
+.reservation-detail-section1__section3-content-detail-button{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 5px 10px;
 }
 
 // 섹션4
@@ -224,6 +254,7 @@
     display: flex;  
     flex-direction: column; 
     gap: 24px;
+    position: relative;
 }
 .reservation-detail-section1__section4-content-total-price, 
 .reservation-detail-section1__section4-content-day-price{
@@ -260,6 +291,10 @@
     border-radius: 10px;
     background-color: $grey-end;
 }
+.reservation-detail-section1__section4-content-detail-button{
+    padding: 5px 10px;
+    width: fit-content;
+}
 
 // 섹션5
 .reservation-detail-section1__section5{
@@ -284,4 +319,137 @@
 .reservation-detail-section1__section5-number{
     display: inline-block;
     width: 17px;
+}
+
+// modal
+// rule modal
+.reservation-detail-section1__add-rule-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:24px;
+}
+.reservation-detail-section1__add-rule-modal-item{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > span:nth-child(1){
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+}
+
+// bill modal
+.reservation-detail-section1__bill-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.reservation-detail-section1__bill-modal-title{
+    font-size: 1.325rem;
+    font-family: 'ClimateCrisisKR-1979';
+    color : #00A8D5;
+}
+.reservation-detail-section1__bill-modal-contents{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    border: solid 1px $grey-lv7;
+}
+.reservation-detail-section1__bill-modal-item{
+    display: flex;
+    flex-direction: column;
+
+    & > span{
+        padding: 5px 10px;
+        font-size: 0.825rem;
+    }
+    & > span:nth-child(1){
+        background-color: $grey-end;
+        color: $grey-lv1;
+    }
+}
+.reservation-detail-section1__bill-modal-footer{
+    font-size: 0.825rem;
+}
+
+// map modal
+.reservation-detail-section1__map-modal-container{
+    width: 100%;
+    display: flex;
+    gap:30px;
+}
+.reservation-detail-section1__map-modal-section1{
+    height: 620px;
+    width: 30%;
+    padding-right: 30px;
+    border-right: solid 1px $grey-lv10;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.reservation-detail-section1__map-modal-section2{
+    flex-grow: 1;
+}
+.reservation-detail-section1__map-modal-section1-item{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding-bottom: 20px;
+    & > p{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+
+        & > div{
+            display: flex;
+            flex-direction: column;
+            gap:10px;
+        }
+        
+        & > span:nth-child(1){
+            font-size: 0.875rem;
+            color: $grey-lv1;
+        }
+    }
+
+
+}
+.reservation-detail-section1__map-modal-section1-item-value{
+    font-weight: 600;
+    display: flex;
+    align-items: flex-end;
+    gap:10px;
+    width: 100%;
+
+
+    & > img{
+        width: 25px;
+        height: 25px;
+    }
+}
+.reservation-detail-section1__map-modal-section1-item-pre{
+    line-height: 1.3;
+    font-size: 0.925rem;
+}
+.reservation-detail-section1__map-modal-section1-item-bottom{
+    border-bottom: solid 1px $grey-lv10;
+}
+.reservation-detail-section1__map-modal-navigation-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    & > p:nth-child(2){
+        padding-left: 35px;
+        display: flex;
+        flex-direction: column;
+        gap:5px;
+        font-size: 0.875rem;
+    }
 }

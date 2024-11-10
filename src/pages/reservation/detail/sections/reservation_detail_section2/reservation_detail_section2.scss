@@ -1,0 +1,64 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.reservation-detail-section2__container{
+    width:100%;
+    height:fit-content;
+    border-radius: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    display: flex;  
+    flex-direction: column;
+    gap:80px;
+}
+
+// profile
+.reservation-detail-section2__section1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.reservation-detail-section2__section1-part1{
+    width: 200px;
+    height: 200px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.reservation-detail-section2__section1-part2-text1{
+    font-size: 1.125rem;
+}
+.reservation-detail-section2__section1-part2{
+    position: absolute;
+    background-color: white;
+    bottom: -10px;
+    padding: 10px 30px;
+    border-radius: 10px;
+}
+
+// section2
+.reservation-detail-section2__section2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:20px;
+    width: 100%;
+
+    & > span{
+        width: 85%;
+        line-height: 1.5;
+    }
+
+    & > button{
+        border: none;
+        background-color: $blue-default;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        width: 85%;
+        cursor: pointer;
+        font-size: 1.025rem;
+        font-weight: 600;
+    }
+}

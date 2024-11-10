@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import close_icon from '@/assets/icon/close-icon.png'
 import { createPortal } from 'react-dom'
 
-function AlertModal({key_name, title = null, modal_toggle, children}){
+function AlertModal({key_name, title = null, modal_toggle, children, width = null}){
 
     // =================================================
     // redux state //
@@ -11,7 +11,9 @@ function AlertModal({key_name, title = null, modal_toggle, children}){
 
     return createPortal (
         modal_state === key_name &&
-        <div className='alert-modal__container'>
+        <div 
+            className='alert-modal__container'
+            style={{width : width ? width : '568px'}}>
             {/* header */}
             <header className="alert-modal__container-header">
                 <div className="alert-modal__container-header-button">
