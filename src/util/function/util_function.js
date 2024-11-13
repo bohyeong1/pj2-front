@@ -101,16 +101,20 @@ export async function check_login(){
 // =================================================
 // login 체크 && 유저 정보 얻는 함수 //
 export async function get_user(){
-    await renew_fresh_token()
+    try{
+        await renew_fresh_token()
 
-    const data = await fetch(`${default_data.d_base_url}/api/users/getuser`,{
-        method : 'GET',
-        credentials : 'include'
-    })
-
-    const result = await data.json()
+        const data = await fetch(`${default_data.d_base_url}/api/users/getuser`,{
+            method : 'GET',
+            credentials : 'include'
+        })
     
-    return result
+        const result = await data.json()
+
+        return result
+    }catch(e){
+        throw new Error(e)
+    }
 }
 
 // =================================================

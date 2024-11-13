@@ -1,8 +1,19 @@
 import './Kakaomap.scss'
+import { memo } from 'react';
 import useMaterialKakaomapBusiness from "../hook-store/business-hooks/material-kakaomap-business";
 
-function Kakaomap({adress_data, set_main_adress, set_sub_coordinate, event, scroll, sub_adress_coordinate,
-                   city = false, data}){
+function Kakaomap({
+    adress_data, 
+    set_main_adress, 
+    set_sub_coordinate, 
+    event, 
+    scroll, 
+    sub_adress_coordinate,
+    city = false, 
+    data,
+    type = null,
+    path = null
+}){
     // adress_data, set_main_adress, set_sub_coordinate, event, scroll, sub_adress_coordinate  ===> regist, detail 페이지에서 쓰는 props
     // city, data  ===> subapp 페이지에서 쓰는 props
 
@@ -20,7 +31,9 @@ function Kakaomap({adress_data, set_main_adress, set_sub_coordinate, event, scro
             event,
             scroll,
             city,
-            data 
+            data,
+            type,
+            path
         }
     )  
 
@@ -29,4 +42,4 @@ function Kakaomap({adress_data, set_main_adress, set_sub_coordinate, event, scro
     )
 }
 
-export default Kakaomap
+export default memo(Kakaomap)

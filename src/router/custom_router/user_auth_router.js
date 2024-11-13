@@ -31,28 +31,19 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     // =================================================
     // user data 전역 관리 //
     useEffect(() => {
-        if(data){
-            if(data.server_state && data.log_state){
-                setUser_data(data.user_data)
-            }else{
-                setUser_data(null)
-                query_client.removeQueries('user_auth')
-            }
+        if(data && data.server_state && data.log_state){
+            setUser_data(data.user_data)
         }
-        else{
+        if(error){
             setUser_data(null)
             query_client.removeQueries('user_auth')
+            // redirection error page or login page
         }
-    }, [data])
+    }, [data, error])
 
     if(isLoading){
         return <Loading></Loading>
     }    
-
-    if(error){
-        setUser_data(null)
-        // error page redirection
-    }
 
     return(
         data && data.server_state && data.log_state ?

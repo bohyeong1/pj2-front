@@ -1,16 +1,22 @@
 import React, {useEffect, useState, useRef} from "react"
 import Card from "../../card/card"
 import ReactDOM from "react-dom/client";
-import { Provider } from "react-redux";
+import { Provider, useSelector } from "react-redux";
 import { store } from "@/redux/config/configStore";
 import { useDispatch } from "react-redux";
 import { initailized_map_target } from "@/redux/modules/mapSlice";
+import CustomMapOverlay from "../../custom_map_overlay/custom_map_overlay";
+import ReactDOMServer from 'react-dom/server'
 
 function useMaterialKakaomapBusiness(hook_data, states, refs, props){
 
     // =================================================
     // dispatch // 
     const dispatch = useDispatch()
+
+    // =================================================
+    // redux state // 
+    const target_class = useSelector(state => state.target_class.target_class)
 
     // =================================================
     // props // 
@@ -22,7 +28,9 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
         event, 
         scroll, 
         city, 
-        data
+        data,
+        type,
+        path
     } = props
 
     // =================================================
@@ -40,13 +48,107 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
     const [geocoder] = useState(new kakao.maps.services.Geocoder())
     const map_ref = useRef(null)
     const marker_ref = useRef(null)
+    const polyline_ref = useRef([])
+    const path_marker_ref = useRef([])
 
     // =================================================
-    // regist / host / detail page 일 때 그리는 지도 & 디폴트 좌표 = 카카오 본사 //  
-    useEffect(()=>{
-        
+    // kakao map render //  
+    useEffect(()=>{        
         try{
-            if(!city){
+            // 예약
+            if(type === 'reservation'){
+                // map
+                const map_option = { 
+                    center: new kakao.maps.LatLng(
+                        adress_data ? adress_data[1] : 37.402056, 
+                        adress_data ? adress_data[0] : 127.108212
+                    ),
+                    level: 7
+                }
+                map_ref.current = new kakao.maps.Map(document.querySelector('.kakaomap-container'), map_option)
+                const zoom_control = new kakao.maps.ZoomControl()
+                map_ref.current.addControl(zoom_control, kakao.maps.ControlPosition.RIGHT)
+
+                // marker
+                const image_src = '/imgs/map_marker_red.png',    
+                image_size = new kakao.maps.Size(40, 40)            
+                const marker_image = new kakao.maps.MarkerImage(image_src, image_size)
+    
+                const marker_position = new kakao.maps.LatLng(
+                    adress_data ? adress_data[1] : 37.402056, 
+                    adress_data ? adress_data[0] : 127.108212
+                )
+
+                marker_ref.current = new kakao.maps.Marker({
+                    position: marker_position, 
+                    image: marker_image
+                })
+
+                marker_ref.current.setMap(map_ref.current)
+                marker_ref.current.setPosition(marker_position)
+
+                //scroll 
+                map_ref.current.setZoomable(scroll)
+
+                const path_color = ['#1273E4', '#C13515', '#228B22']
+                
+                // polyline
+                if(path.length){
+                    path.forEach((el, index)=>{
+                        const custom_path = el.guides.map((point) => {return new kakao.maps.LatLng(point.y, point.x)})
+                        const polyline = new kakao.maps.Polyline({
+                            path: custom_path,
+                            strokeWeight: 5,
+                            strokeColor: path_color[index],
+                            strokeOpacity: 0.7,
+                            strokeStyle: 'solid'
+                        })
+
+                        polyline.is_visible = true
+                        polyline.target = `kakao-map__custom-overlay-${index}`
+                        polyline.setMap(map_ref.current)
+                        polyline_ref.current.push(polyline)
+
+                        el.guides.forEach((ele) => {
+                            if(ele.name){     
+                                if(ele.name !== '목적지'){
+                                    const marker_position = new kakao.maps.LatLng(ele.y, ele.x);
+                                    const marker = new kakao.maps.Marker({
+                                        position: marker_position
+                                    })
+                                    marker.target = `kakao-map__custom-overlay-${index}`
+                                    marker.is_visible = true
+                                    path_marker_ref.current.push(marker)
+                                    marker.setMap(map_ref.current)
+                                }       
+
+                                const virtual_overlay = document.createElement('div')
+                                virtual_overlay.style.position = 'absolute'
+                                virtual_overlay.style.transform = 'translate(-50%, -50%)'
+
+                                const root = ReactDOM.createRoot(virtual_overlay)
+                                root.render(
+                                    <Provider store={store}>
+                                        <CustomMapOverlay 
+                                            class_name = {`kakao-map__custom-overlay-${index}`}
+                                            background_color = {path_color[index]}
+                                            text = {ele.name}
+                                            initial = {el.name}/>
+                                    </Provider>)
+
+                                const custom_overlay = new kakao.maps.CustomOverlay({
+                                    content: virtual_overlay,
+                                    position : new kakao.maps.LatLng(ele.y, ele.x),
+                                    zIndex: 10
+                                })
+                                custom_overlay.setMap(map_ref.current)
+                            }
+                        })
+                    })
+                }
+            }
+            // 기본
+            else if(type === 'default'){
                 const map_option = { 
                     center: new kakao.maps.LatLng(
                         sub_adress_coordinate ? sub_adress_coordinate[1] : 37.402056, 
@@ -110,28 +212,8 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
                     })
                 }
             }
-
-        }catch(e){
-            console.log(e)
-        }     
-
-        return () => {
-            if(event){
-                kakao.maps.event.removeListener(map_ref.current, 'click')
-            } 
-            marker_ref.current?.setMap(null)
-            map_ref.current = null
-        }
-    },[adress_data])
-
-    // =================================================
-    // city 프롭스가 있을 시(list app에서 해당 지역 숙소 리스트 보여줄 때 지도) //  
-    useEffect(()=>{
-        try{
-            if(city){            
-                // const {kakao} = window
-                // const geocoder = new kakao.maps.services.Geocoder()
-
+            // list
+            else if(type === 'list'){
                 geocoder.addressSearch(city, function(result, status) {
                     // 지도 중심 설정(지역)
                     const map_container = document.querySelector('.kakaomap-container')
@@ -164,15 +246,71 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
                                     data={el} 
                                     custom_overlay={custom_overlay}/>
                             </Provider>
-                            )
+                        )
                     })
                 })
             }
+            else{
+                console.log('invalid props')
+            }            
         }catch(e){
             console.log(e)
+        }     
+
+        return () => {
+            if(event){
+                kakao.maps.event.removeListener(map_ref.current, 'click')
+            } 
+            marker_ref.current?.setMap(null)
+            map_ref.current = null
         }
-        
-    },[data])
+    },[adress_data, data, type])
+
+    // =================================================
+    // calculate target polyline index based on case reservation //  
+    useEffect(()=>{
+        if(target_class){
+            if(polyline_ref.current.length){
+                polyline_ref.current.forEach((el) => {
+                    if(el.is_visible === false){
+                        el.setMap(map_ref.current)
+                        el.is_visible = true
+                    } 
+                })
+                
+                polyline_ref.current.forEach((el) => {
+                    if(el.target !== target_class){
+                        el.setMap(null)
+                        el.is_visible = false
+                    } 
+                })
+
+                path_marker_ref.current.forEach((el) => {
+                    if(el.target !== target_class){
+                        el.setMap(null)
+                        el.is_visible = false
+                    }
+                })
+            }
+        }
+        else{
+            if(polyline_ref.current.length){
+                polyline_ref.current.forEach((el) => {
+                    if(el.is_visible === false){
+                        el.setMap(map_ref.current)
+                        el.is_visible = true
+                    } 
+                })
+
+                path_marker_ref.current.forEach((el) => {
+                    if(el.is_visible === false){
+                        el.setMap(map_ref.current)
+                        el.is_visible = true
+                    }
+                })
+            }
+        }
+    }, [target_class])
 
     return {close_overlay}
 }

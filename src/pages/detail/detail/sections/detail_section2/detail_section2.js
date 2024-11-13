@@ -19,6 +19,7 @@ function DetailSection2({data, role}){
                 <div className="detail-section2__container-section2">
                     <Kakaomap event={false} 
                               adress_data={data?.main_adress.name} 
+                              type = {'default'}
                               scroll={false}/>
                 </div>
                 {/* 주변 경치 summary 들어갈 곳 */}

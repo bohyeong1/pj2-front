@@ -211,7 +211,13 @@
         display: flex;
         flex-direction: column;
         gap:7px;
+
+        & > li{
+            font-weight: 600;
+        }
     }
+
+
 }
 .reservation-detail-section1__section3-check-method-box{
     display: flex;
@@ -219,6 +225,20 @@
     gap:7px;
     padding-left: 20px;
     font-size: 0.8875rem;
+}
+.reservation-detail-section1__section3-check-method-box-list{
+    display: flex;
+    flex-direction: column;
+    gap:7px;
+    padding-left: 20px;
+
+    &>span:nth-child(1){
+        font-size: 0.9125rem;
+        color: $black-lv1;
+    }
+    &>span:nth-child(2){
+        font-size: 0.8875rem;
+    }
 }
 .reservation-detail-section1__section3-check-method-box-wrapper{
     display: flex;
@@ -381,12 +401,12 @@
 .reservation-detail-section1__map-modal-container{
     width: 100%;
     display: flex;
-    gap:30px;
+    gap:20px;
 }
 .reservation-detail-section1__map-modal-section1{
-    height: 620px;
+    height: 619px;
     width: 30%;
-    padding-right: 30px;
+    padding-right: 20px;
     border-right: solid 1px $grey-lv10;
     overflow-y: auto;
     overflow-x: hidden;
@@ -396,6 +416,8 @@
 }
 .reservation-detail-section1__map-modal-section2{
     flex-grow: 1;
+    overflow: hidden;
+    position: relative;
 }
 .reservation-detail-section1__map-modal-section1-item{
     display: flex;
@@ -406,20 +428,36 @@
         display: flex;
         flex-direction: column;
         gap:10px;
-
-        & > div{
-            display: flex;
-            flex-direction: column;
-            gap:10px;
-        }
         
         & > span:nth-child(1){
             font-size: 0.875rem;
             color: $grey-lv1;
         }
     }
+}
+.reservation-detail-section1__add-rule-modal-item-text{
 
+}
+.reseration-detail-section1__map-modal-navigation-container{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
 
+    & > span:nth-child(1){
+        font-size: 0.875rem;
+        color: $grey-lv1;
+    }
+
+    & > span:nth-child(2){
+        font-size: 0.875rem;
+        color: $blue-default;
+    }
+
+    & > div{
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+    }
 }
 .reservation-detail-section1__map-modal-section1-item-value{
     font-weight: 600;
@@ -442,6 +480,7 @@
     border-bottom: solid 1px $grey-lv10;
 }
 .reservation-detail-section1__map-modal-navigation-wrapper{
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     gap:10px;
@@ -452,4 +491,7 @@
         gap:5px;
         font-size: 0.875rem;
     }
+}
+.reservation-detail-section1__map-modal-navigation-wrapper:hover{
+    background-color: $grey-end-end;
 }

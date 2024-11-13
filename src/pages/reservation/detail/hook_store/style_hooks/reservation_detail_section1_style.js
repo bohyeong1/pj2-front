@@ -1,5 +1,6 @@
 import { useDispatch } from "react-redux"
 import { toggle_target } from "@/redux/modules/overaySlice"
+import { set_target_class } from "@/redux/modules/targetClassSlice"
 import { useNavigate } from "react-router-dom"
 
 function useReservationDetailSection1Style(cons, states, refs, props){
@@ -67,10 +68,17 @@ function useReservationDetailSection1Style(cons, states, refs, props){
         navigate('/user/reservation/pending-list')
     }
 
+    // =================================================
+    // visiblity target path
+    function visiblity_target_path(data){
+        dispatch(set_target_class(data))
+    }
+
     return {
         get_rule_text,
         modal_toggle,
-        click_prev_url
+        click_prev_url,
+        visiblity_target_path
     }
 }
 

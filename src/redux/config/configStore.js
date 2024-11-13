@@ -8,6 +8,7 @@ import map_reducer from "../modules/mapSlice"
 import listhover_reducer from "../modules/listhoverSlice";
 import modaldata_reducer from "../modules/modaldataSlice";
 import search_modal_reducer from "../modules/searchModalSlice";
+import target_class_reducer from '../modules/targetClassSlice'
 
 const store = configureStore({
     reducer:{
@@ -27,7 +28,10 @@ const store = configureStore({
         modaldata : modaldata_reducer,
 
         // search modal state
-        search_modal : search_modal_reducer
+        search_modal : search_modal_reducer,
+
+        // target class state
+        target_class : target_class_reducer
     }
 })
 

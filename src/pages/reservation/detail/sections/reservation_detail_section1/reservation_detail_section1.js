@@ -6,12 +6,13 @@ import './reservation_detail_section1.scss'
 import { pop_three_texts } from '@/util/function/util_function'
 import useReservationDetailSection1Style from '../../hook_store/style_hooks/reservation_detail_section1_style'
 import AlertModal from "@/utilComponent/modal/alert_modal/alert_modal";
+import Kakaomap from '@/utilComponent/material/kakaomap/Kakaomap'
 import { UserContext } from "@/context/user_context/config/user_context"
 import bus_icon from '@/assets/icon/bus-icon.png'
 import subway_icon from '@/assets/icon/subway-icon.png'
 
 function ReservationDetailSection1({data, host}){
-    console.log(data)
+
     // =================================================
     // context state //
     const {user_data, setUser_data} = useContext(UserContext)
@@ -22,7 +23,8 @@ function ReservationDetailSection1({data, host}){
     const {
         get_rule_text,
         modal_toggle,
-        click_prev_url
+        click_prev_url,
+        visiblity_target_path
     } = useReservationDetailSection1Style()
 
     return (
@@ -147,7 +149,7 @@ function ReservationDetailSection1({data, host}){
                            <div>
                                 <li>체크인 방법</li>
                                 {data.accomodation.check_method.check_in ? 
-                                <p className='reservation-detail-section1__section3-check-method-box'>
+                                <p className='reservation-detail-section1__section3-check-method-box-list'>
                                     <span>{data.accomodation.check_method.check_in.name}</span>
                                     <span>{data.accomodation.check_method.check_in.text}</span>
                                 </p> : 
@@ -161,7 +163,7 @@ function ReservationDetailSection1({data, host}){
                                         return (
                                             <p 
                                                 key={id}
-                                                className='reservation-detail-section1__section3-check-method-box'>
+                                                className='reservation-detail-section1__section3-check-method-box-list'>
                                                 <span>{el.name}</span>
                                                 <span>{el.text}</span>
                                             </p>
@@ -244,19 +246,17 @@ function ReservationDetailSection1({data, host}){
                     {data.accomodation.comunication &&
                     <div className='reservation-detail-section1__add-rule-modal-item'>
                         <span>체크인 시 호스트와의 커뮤니케이션</span>
-                        <pre>{data.accomodation.comunication.name}</pre>
+                        <span>{data.accomodation.comunication.name}</span>
                     </div>}
                     {data.accomodation.wifi_information &&
                     <div className='reservation-detail-section1__add-rule-modal-item'>
                         <span>와이파이 정보</span>
                         <div>
                             <p>
-                                <span>ID</span>
-                                <span>{data.accomodation.wifi_information.id}</span>
+                                <span>ID : {data.accomodation.wifi_information.id}</span>
                             </p>
                             <p>
-                                <span>PASSWORD</span>
-                                <span>{data.accomodation.wifi_information.password}</span>
+                                <span>PASSWORD : {data.accomodation.wifi_information.password}</span>
                             </p>
                         </div>
                     </div>}
@@ -336,13 +336,18 @@ function ReservationDetailSection1({data, host}){
                             </p>
                         </div>
                         <div className='reservation-detail-section1__map-modal-section1-item reservation-detail-section1__map-modal-section1-item-bottom'>      
-                            <p>
+                            <div className='reseration-detail-section1__map-modal-navigation-container'>
                                 <span>이동 수단</span>
+                                <span>원하시는 경로의 리스트나, 지도의 특정 지점의 글씨에 마우스를 올려보세요!</span>
                                 {data.navigation_date.length ? 
                                 <div>
                                     {data.navigation_date.map((el, id) => {
                                         return (
-                                            <div className='reservation-detail-section1__map-modal-navigation-wrapper'>
+                                            <div 
+                                                className='reservation-detail-section1__map-modal-navigation-wrapper'
+                                                onMouseEnter={()=>{visiblity_target_path(`kakao-map__custom-overlay-${id}`)}}
+                                                onMouseLeave={()=>{visiblity_target_path(null)}}
+                                                key={id}>
                                                 <p className='reservation-detail-section1__map-modal-section1-item-value'>
                                                     <img src={el.name.includes('터미널') ? bus_icon : subway_icon}/>
                                                     <span>{el.name}</span>
@@ -360,7 +365,7 @@ function ReservationDetailSection1({data, host}){
                                 <span className='reservation-detail-section1__map-modal-section1-item-value'>
                                     1.5km내에 지하철이나 터미널이 존재하지 않는 곳에 숙소가 위치하고 있습니다. 호스트와의 메세지를 통해 정보를 제공받으세요.
                                 </span>}
-                            </p>                            
+                            </div>                            
                         </div>
                         <div className='reservation-detail-section1__map-modal-section1-item'>
                             <p>
@@ -372,10 +377,14 @@ function ReservationDetailSection1({data, host}){
                                 </span>
                             </p>
                         </div>
-
                     </div>
                     <div className='reservation-detail-section1__map-modal-section2'>
-
+                        <Kakaomap
+                            event={false} 
+                            adress_data={data.accomodation.sub_adress.coor} 
+                            type = {'reservation'}
+                            path = {data.navigation_date}
+                            scroll={false}/>
                     </div>
                 </div>
             </AlertModal>

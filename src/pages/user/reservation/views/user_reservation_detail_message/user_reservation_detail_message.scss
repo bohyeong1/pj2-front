@@ -1,0 +1,46 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-reservation-detail-message__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+// header
+.user-reservation-detail-message__header{
+    width: 100%;
+    height: 100px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.user-reservation-detail-message__header-prev-button{
+    position: absolute;
+    left:0;
+    top:0;
+    border: none;
+    background-color: $grey-end;
+    cursor: pointer;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover{
+        background-color: $grey-lv10;
+    }
+    &>img{
+        width: 25px;
+        height: 25px;
+    }
+}
+.user-reservation-detail-message__header-profile{
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 100%;
+}

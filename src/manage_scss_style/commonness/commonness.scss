@@ -65,6 +65,10 @@
     color: rgb(18 115 228);    
     border: solid 1.5px $blue-lv4;
   }
+
+  &:disabled{
+    cursor: default;
+  }
 }
 // active
 .small-button-active{

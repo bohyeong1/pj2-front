@@ -970,7 +970,7 @@ const default_data = {
         },
         {
             name : '메세지',
-            url : '/user/reservation/message'
+            url : '/user/reservation/message?role=guest'
         },
         {
             name : '위시리스트',

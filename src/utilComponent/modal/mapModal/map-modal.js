@@ -81,7 +81,10 @@ const Sub_modal = forwardRef((props, ref) => {
                     </div>
                     {/* map */}
                     <div className="sub-modal__map">
-                        <Kakaomap city = {city} data={filter_data ? filter_data : data}></Kakaomap>
+                        <Kakaomap 
+                        city = {city} 
+                        type = {'default'}
+                        data={filter_data ? filter_data : data}/>
                     </div>
                 </div>
             </div>

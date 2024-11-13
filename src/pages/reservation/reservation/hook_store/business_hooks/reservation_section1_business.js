@@ -2,7 +2,7 @@ import { connect_data_width_cookies } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import { useDispatch } from "react-redux"
 import { toggle_target } from "@/redux/modules/overaySlice"
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 function useReservationSection1Business(data, states, refs, props){
 
@@ -24,6 +24,10 @@ function useReservationSection1Business(data, states, refs, props){
         is_button, 
         setIs_button
     } = states
+
+    // =================================================
+    // navigate //  
+    const navigate = useNavigate()
 
     // =================================================
     // dispatch //
@@ -54,10 +58,11 @@ function useReservationSection1Business(data, states, refs, props){
 
         if(reservation_response && reservation_response.server_state){
             if(reservation_response.reservation_state && reservation_response.cash_state){
-                console.log(reservation_response, 'fetch sucess')
                 setLoading(true)
                 setIs_button(false)
+                navigate('/user/reservation/pending-list')
             }
+            // 돈없을 때
             else{
                 setLoading(true)
                 setIs_button(false)

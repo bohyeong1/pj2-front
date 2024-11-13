@@ -146,6 +146,7 @@ function HostRegistView5(){
                                 set_sub_coordinate={set_sub_coordinate} 
                                 sub_adress_coordinate = {sub_coorinate}
                                 event={true} 
+                                type = {'default'}
                                 scroll={false}/>
                         </div>
                     </div>

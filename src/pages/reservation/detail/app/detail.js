@@ -33,6 +33,7 @@ function ReservationDetail(){
                 data = {data.reservation}/>
             <ReservationDetailSection2
                 role = {'section2'}
+                data = {data.reservation}
                 user = {data.reservation.seller}/>
         </ReservationDetailLayout>
     )
