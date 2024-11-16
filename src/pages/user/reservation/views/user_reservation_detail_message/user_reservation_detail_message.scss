@@ -2,19 +2,21 @@
 
 .user-reservation-detail-message__container{
     width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     gap:40px;
+    position: relative;
 }
 
 // header
 .user-reservation-detail-message__header{
     width: 100%;
-    height: 100px;
+    height: 60px;
     position: relative;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-between;
+    border-bottom: solid 1px $grey-lv10;
 }
 .user-reservation-detail-message__header-prev-button{
     position: absolute;
@@ -39,8 +41,119 @@
     }
 }
 .user-reservation-detail-message__header-profile{
-    width: 80px;
-    height: 80px;
+    width: 35px;
+    height: 35px;
     overflow: hidden;
     border-radius: 100%;
+    display: flex;
+}
+.user-reservation-detail-message__header-part3{
+    display: flex;
+    gap:10px;
+}
+.user-reservation-detail-message__header-part2{
+    height: 100%;
+    font-size: 1.325rem;
+    font-weight: 600;
+}
+
+// contents
+.user-reservation-detail-message__contents{
+    width: 100%;
+    height: calc(100% - 220px);
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    position: relative;
+}
+.user-reseration-detail-message__contents-item-other{
+    display: flex;
+    width: 100%;
+    justify-content: end;
+    gap:10px;
+}
+.user-reseration-detail-message__contents-item-self{
+    display: flex;
+    width: 100%;
+    justify-content: baseline;
+    gap:10px;
+}
+.user-reseration-detail-message__contents-item-profile{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.user-reseration-detail-message__contents-item-text-other{
+    max-width: 60%;
+    background-color: $grey-end;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 30px;
+    line-height: 1.3;
+}
+.user-reseration-detail-message__contents-item-text-self{
+    max-width: 60%;
+    background-color: $yellow-lv3;
+    padding: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 30px;
+    line-height: 1.3;
+}
+
+
+// text message input
+.user-reservation-deatil-message__text-input-wrapper{
+    width: 100%;
+    height: 100px;
+    bottom: 10px;
+    left: 0px;
+    position: absolute;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap:20px;
+}
+.user-reservation-detail-message__text-input-button{
+    border: none;
+    background-color: $blue-default;
+    border-radius: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    width: 40px;
+    height: 40px;
+
+    & > img{
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-45%, -50%);
+        width: 25px;
+        height: 25px;
+        filter: invert(100);
+    }
+}
+.user-reservation-detail-message__text-input{
+    border: none;
+    background-color: $blue-lv6;
+    border-radius: 10px;
+    height: 100%;
+    width: 100%;
+    resize: none;
+    padding: 10px;
+    font-size: 1rem;
+
+    &:focus{
+        outline: solid 1px $grey-lv9;
+    }
 }

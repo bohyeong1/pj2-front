@@ -25,7 +25,6 @@ export async function get_reservation_massage_list(parameter){
 // =================================================
 // get user reservation massage detail//
 export async function get_reservation_massage_detail(parameter){
-
-    const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/get-message-detail/`, 'GET')
+    const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/get-message-detail/${parameter}`, 'GET')
     return response
 }

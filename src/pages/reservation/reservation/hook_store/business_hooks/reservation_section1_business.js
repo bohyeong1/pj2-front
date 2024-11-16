@@ -56,7 +56,7 @@ function useReservationSection1Business(data, states, refs, props){
                 stay_day : stay_day
             })
 
-        if(reservation_response && reservation_response.server_state){
+            if(reservation_response && reservation_response.server_state){
             if(reservation_response.reservation_state && reservation_response.cash_state){
                 setLoading(true)
                 setIs_button(false)
