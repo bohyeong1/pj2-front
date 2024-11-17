@@ -7,7 +7,8 @@ import Loading from "@/utilComponent/material/loading/loading";
 const user_reservation_routes = {
     route1 : React.lazy(() => import('@/pages/user/reservation/views/user_reservation_pending_list/user_reservation_pending_list')),
     route2 : React.lazy(() => import('@/pages/user/reservation/views/user_reservation_message/user_reservation_message')),
-    route3 : React.lazy(() => import('@/pages/user/reservation/views/user_reservation_detail_message/user_reservation_detail_message'))
+    route3 : React.lazy(() => import('@/pages/user/reservation/views/user_reservation_detail_message/user_reservation_detail_message')),
+    route5 : React.lazy(() => import('@/pages/user/reservation/views/user_reservation_success_list/user_reservation_success_list'))
 }
 
 function set_user_reservation_routes(){
@@ -32,6 +33,14 @@ function set_user_reservation_routes(){
                 element={
                     <Suspense fallback={<Loading part = {true}/>}>
                         <user_reservation_routes.route3/>
+                    </Suspense>}>
+            </Route>
+
+            <Route 
+                exact path="success-list" 
+                element={
+                    <Suspense fallback={<Loading part = {true}/>}>
+                        <user_reservation_routes.route5/>
                     </Suspense>}>
             </Route>
         </>

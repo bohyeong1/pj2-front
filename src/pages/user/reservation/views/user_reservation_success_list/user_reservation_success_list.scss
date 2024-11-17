@@ -1,0 +1,168 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-reservation-success-list__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+
+// title
+.user-reservation-success-list__title{
+    font-size: 1.525rem;
+    font-weight: 600;
+}
+
+// contents
+.user-reservation-success-list__contents{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+
+// item
+.user-reservation-success-list__item-wraper{
+    height: 120px;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: $grey-end-end;
+    cursor: pointer;
+} 
+.user-reservation-success-list__item-wraper:hover{
+    background-color: $grey-end;
+}
+.user-reservation-success-list__item-contents-wrapper{
+    display: flex;
+    align-items: center;
+    gap:30px;
+}
+.user-reservation-success-list__item-img-wrapper{
+    overflow: hidden;
+    border-radius: 10px;
+    width: 100px;
+    height: 100%;
+}
+.user-reservation-success-list__item-text{
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+    & > span:nth-child(1){
+        color: $grey-lv1;
+        font-size: 0.8275rem;
+    }
+    & > span:nth-child(2){
+        font-size: 1rem;
+    }
+    & > span:nth-child(3){
+        font-weight: 600;
+        font-size: 1.125rem;
+    }
+
+    & > p{
+        font-size: 0.9375rem;
+        display: flex;
+        align-items: flex-end;
+        gap : 10px;
+        & > span:nth-child(1){
+            color: $grey-lv1;
+            display: inline-block;
+            width: 60px;
+        }
+    }
+}
+.user-reservation-success-list__item-state-wrapper{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.user-reservation-success-list__item-state-box{
+    gap:10px;
+    display: flex;
+    align-items: center;
+}
+.user-reservation-success-list__item-state-img{
+    width: 12px;
+    height: 12px;
+    border-radius: 100%;
+    background-color: #228B22;
+}
+
+
+// modal
+.user-reservation-success-list__select-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.user-reservation-success-list__select-modal-img-box{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.user-reservation-success-list__select-modal-part1{
+    padding-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    border-bottom: solid 1px $grey-lv10;
+    width: 100%;
+    align-items: center;
+}
+.user-reservation-success-list__select-modal-part2{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    & > button{
+        border: none;
+        outline: none;
+        padding: 20px;
+        cursor: pointer;
+        background:none;
+        font-size: 1.025rem;
+        border-radius: 10px;
+        &:hover{
+            background-color: $grey-end !important;
+        }
+    }
+}
+
+// bill modal
+.reservation-success__bill-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.reservation-success__bill-modal-title{
+    font-size: 1.325rem;
+    font-family: 'ClimateCrisisKR-1979';
+    color : #00A8D5;
+}
+.reservation-success__bill-modal-contents{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
+    border: solid 1px $grey-lv7;
+}
+.reservation-success__bill-modal-item{
+    display: flex;
+    flex-direction: column;
+
+    & > span{
+        padding: 5px 10px;
+        font-size: 0.825rem;
+    }
+    & > span:nth-child(1){
+        background-color: $grey-end;
+        color: $grey-lv1;
+    }
+}
+.reservation-success__bill-modal-footer{
+    font-size: 0.825rem;
+}

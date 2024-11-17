@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux"
 import { toggle_target } from "@/redux/modules/overaySlice"
 import { set_target_class } from "@/redux/modules/targetClassSlice"
 import { useNavigate } from "react-router-dom"
+import { differenceInDays, differenceInHours } from "date-fns"
 
 function useReservationDetailSection1Style(cons, states, refs, props){
 
@@ -74,11 +75,86 @@ function useReservationDetailSection1Style(cons, states, refs, props){
         dispatch(set_target_class(data))
     }
 
+    // =================================================
+    // check reservation price result
+    function check_reservation_category(category, checkin, total_price, stay_day){
+
+        const today_date = new Date()
+    
+        if(category === '유연'){
+            if(differenceInHours(checkin, today_date) < 24){
+                const difference_in_days = differenceInDays(checkin, today_date) - 1
+                const result_price = difference_in_days * (total_price / stay_day)
+    
+                return {
+                    result : total_price + result_price
+                }
+            }
+    
+            return {
+                result : total_price
+            }
+        }
+        else if(category === '일반'){
+            if(differenceInDays(checkin, today_date) <= 5){
+                const difference_in_days = differenceInDays(checkin, today_date) > 0 ? 0 : differenceInDays(checkin, today_date)
+                const result_price = (difference_in_days - 1) * (total_price / stay_day)
+    
+                return {
+                    result : total_price + result_price
+                }
+            }
+    
+            return {
+                result : total_price
+            }
+        }
+        else if(category === '비교적 엄격'){
+            if(differenceInDays(checkin, today_date) <= 14 && differenceInDays(checkin, today_date) > 7){
+                return {
+                    result : total_price +  - (total_price / 2)
+                }
+            }
+    
+            if(differenceInDays(checkin, today_date) < 7){
+                return {
+                    result : 0
+                }
+            }
+    
+            return {
+                result : total_price
+            }
+        }
+        else if(category === '엄격'){
+            if(differenceInDays(checkin, today_date) > 14 && differenceInHours(checkin, today_date) > 48){
+                return {
+                    result : total_price
+                }
+    
+            }
+    
+            if(differenceInDays(checkin, today_date) < 7){
+                return {
+                    result : 0
+                }
+            }
+    
+            return {
+                result : total_price - (total_price / 2)
+            }
+        }
+        else{
+            return false
+        }
+    }
+
     return {
         get_rule_text,
         modal_toggle,
         click_prev_url,
-        visiblity_target_path
+        visiblity_target_path,
+        check_reservation_category
     }
 }
 

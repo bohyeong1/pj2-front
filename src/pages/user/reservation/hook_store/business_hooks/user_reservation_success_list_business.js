@@ -1,8 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query"
-import { get_reservation_pending_list } from "@/util/apis/user/user_reservation"
+import { get_reservation_success_list } from "@/util/apis/user/user_reservation"
 import { useNavigate } from "react-router-dom"
 
-function useUserReservationPendingList(cons, states, refs, props){
+function useUserReservationSuccessListBusiness(cons, states, refs, props){
     // =================================================
     // navigate //
     const navigate = useNavigate()
@@ -12,10 +12,10 @@ function useUserReservationPendingList(cons, states, refs, props){
     const query_client = useQueryClient()
 
     const {data, error, isLoading} = useQuery({
-        queryKey : ['reservation_pending_list'], 
-        queryFn : get_reservation_pending_list, 
+        queryKey : ['reservation_success_list'], 
+        queryFn : get_reservation_success_list, 
         onError : (e) => {
-            query_client.removeQueries('reservation_pending_list')
+            query_client.removeQueries('reservation_success_list')
         }
     })
 
@@ -33,4 +33,4 @@ function useUserReservationPendingList(cons, states, refs, props){
     }
 }
 
-export default useUserReservationPendingList
+export default useUserReservationSuccessListBusiness

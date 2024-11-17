@@ -68,25 +68,25 @@
     gap:10px;
     position: relative;
 }
-.user-reseration-detail-message__contents-item-other{
+.user-reservation-detail-message__contents-item-other{
     display: flex;
     width: 100%;
     justify-content: end;
     gap:10px;
 }
-.user-reseration-detail-message__contents-item-self{
+.user-reservation-detail-message__contents-item-self{
     display: flex;
     width: 100%;
     justify-content: baseline;
     gap:10px;
 }
-.user-reseration-detail-message__contents-item-profile{
+.user-reservation-detail-message__contents-item-profile{
     width: 50px;
     height: 50px;
     overflow: hidden;
     border-radius: 100%;
 }
-.user-reseration-detail-message__contents-item-text-other{
+.user-reservation-detail-message__contents-item-text-other{
     max-width: 60%;
     background-color: $grey-end;
     padding: 10px;
@@ -96,7 +96,7 @@
     margin-top: 30px;
     line-height: 1.3;
 }
-.user-reseration-detail-message__contents-item-text-self{
+.user-reservation-detail-message__contents-item-text-self{
     max-width: 60%;
     background-color: $yellow-lv3;
     padding: 10px;

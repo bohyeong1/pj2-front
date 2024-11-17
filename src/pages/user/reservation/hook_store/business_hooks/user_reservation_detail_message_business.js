@@ -27,6 +27,12 @@ function useUserReservationDetailMessage(cons, states, refs, props){
     } = states
 
     // =================================================
+    // refs //
+    const {
+        content_ref
+    } = refs
+
+    // =================================================
     // react query //
     const query_client = useQueryClient()
 
@@ -39,7 +45,9 @@ function useUserReservationDetailMessage(cons, states, refs, props){
         onError : (e) => {
             console.log(e)
             query_client.removeQueries('reservation_message_detail')
-        }
+        },
+        staleTime: 1000 * 60 * 30,
+        cacheTime : 1000 * 60 * 60
     })
 
     // =================================================
@@ -62,8 +70,8 @@ function useUserReservationDetailMessage(cons, states, refs, props){
         })
 
         new_socket.on('new_message', (cur) => {
-            console.log(cur)
             setMessages((prev) => [...prev, cur.message])
+            content_ref.current.value = ''
         })
 
         new_socket.on('error', (e) => {

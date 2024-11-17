@@ -1,7 +1,7 @@
 import '@/manage_scss_style/commonness/commonness.scss'
 import arrow_icon from '@/assets/icon/arrow-icon.png'
 import { format } from 'date-fns'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import './reservation_detail_section1.scss'
 import { pop_three_texts } from '@/util/function/util_function'
 import useReservationDetailSection1Style from '../../hook_store/style_hooks/reservation_detail_section1_style'
@@ -10,6 +10,10 @@ import Kakaomap from '@/utilComponent/material/kakaomap/Kakaomap'
 import { UserContext } from "@/context/user_context/config/user_context"
 import bus_icon from '@/assets/icon/bus-icon.png'
 import subway_icon from '@/assets/icon/subway-icon.png'
+import ConfirmModal from "@/utilComponent/modal/confirm_modal/confirm_modal";
+import useReservationDetailSection1Business from '../../hook_store/business_hooks/reservation_detail_section1_business'
+import { state_store } from "@/util/function/util_function";
+import Loading from "@/utilComponent/material/loading/loading";
 
 function ReservationDetailSection1({data, host}){
 
@@ -18,16 +22,30 @@ function ReservationDetailSection1({data, host}){
     const {user_data, setUser_data} = useContext(UserContext)
 
     // =================================================
+    // state //
+    const [loading, setLoading] = useState(null)
+
+    // =================================================
     // hooks //
+    // business
+    const {
+        fetch_refund
+    } = useReservationDetailSection1Business(undefined,
+        state_store([
+            {loading, setLoading}
+        ])
+    )
     // style
     const {
         get_rule_text,
         modal_toggle,
         click_prev_url,
-        visiblity_target_path
+        visiblity_target_path,
+        check_reservation_category
     } = useReservationDetailSection1Style()
 
     return (
+        loading === false ? <Loading/> :
         <div className="reservation-detail-section1__container">
             <div className="reservation-detail-section1__title">
                 <button 
@@ -222,8 +240,13 @@ function ReservationDetailSection1({data, host}){
                                 <span>{el}</span>
                             </p>
                         )
-                    })}
+                    })}                    
                 </div>
+                <button 
+                    className='reservation-detail-section1__section5-content-detail-button small-button'
+                    onClick={()=>{modal_toggle('reservation-detail-refund')}}>
+                    환불 하기
+                </button>
             </div>
 
             {/* modal */}
@@ -388,6 +411,28 @@ function ReservationDetailSection1({data, host}){
                     </div>
                 </div>
             </AlertModal>
+
+            {/* 환불 모달 */}
+            <ConfirmModal
+                key_name = {'reservation-detail-refund'}
+                confirm_text = {'환불하기'}
+                handle_function = {fetch_refund}
+                modal_toggle = {modal_toggle}>
+                <div className='reservation-detail-section1__refund-modal-container'>
+                    <span>이 숙소의 환불 정책에 따라서 환불을 진행하시겠습니까?</span>
+                    <div className='reservation-detail-section1__refund-modal-contents'>
+                        <li>숙소의 환불이 완료된 후 호스트와의 대화 내역은 모두 삭제됩니다.</li>
+                        <li>본 사이트는 프론트엔드 개발자 취업을 목표로 제작되었기 때문에 환불 시 수수료가 발생하지 않습니다.</li>
+                        <li>본 사이트는 프론트엔드 개발자 취업을 목표로 제작되었기 때문에 환불 시 어떠한 제약 사항도 적용되지 않습니다.</li>
+                    </div>
+                    <div className='reservation-detail-section1__refund-modal-result'>
+                        <span>현재 적용된 활불 금액은?</span>
+                        <span>
+                            {pop_three_texts(check_reservation_category(data.seller.host_text.refund_rule.title, new Date(data.checkin), data.total_price, data.stay_day).result)}원
+                        </span>
+                    </div>
+                </div>
+            </ConfirmModal>
         </div>
     )
 }

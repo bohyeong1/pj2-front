@@ -340,6 +340,10 @@
     display: inline-block;
     width: 17px;
 }
+.reservation-detail-section1__section5-content-detail-button{
+    padding: 5px 10px;
+    width: fit-content;
+}
 
 // modal
 // rule modal
@@ -435,9 +439,7 @@
         }
     }
 }
-.reservation-detail-section1__add-rule-modal-item-text{
 
-}
 .reseration-detail-section1__map-modal-navigation-container{
     display: flex;
     flex-direction: column;
@@ -494,4 +496,43 @@
 }
 .reservation-detail-section1__map-modal-navigation-wrapper:hover{
     background-color: $grey-end-end;
+}
+
+// refund modal
+.reservation-detail-section1__refund-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+
+    & > span{
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
+}
+.reservation-detail-section1__refund-modal-contents{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > li {
+        list-style-position: outside;
+        padding-left: 20px; 
+        text-indent: -20px;
+    }
+    
+    & > li::marker {
+        margin-right: 20px;
+    }
+}
+.reservation-detail-section1__refund-modal-result{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > span:nth-child(1){
+        font-size: 1.125rem;
+        font-weight: 600;
+    }
 }

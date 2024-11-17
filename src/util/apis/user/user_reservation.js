@@ -9,6 +9,13 @@ export async function get_reservation_pending_list(){
 }
 
 // =================================================
+// get user reservation success list //
+export async function get_reservation_success_list(parameter){
+    const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/get-success-list`, 'GET')
+    return response
+}
+
+// =================================================
 // get user reservation target //
 export async function get_reservation_target(parameter){
     const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/get-target/${parameter}`, 'GET')
@@ -28,3 +35,4 @@ export async function get_reservation_massage_detail(parameter){
     const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/get-message-detail/${parameter}`, 'GET')
     return response
 }
+
