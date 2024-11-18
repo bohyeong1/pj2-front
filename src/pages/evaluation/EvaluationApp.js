@@ -47,15 +47,12 @@ function Evaluation(){
             grade:totalAvg / data.evaluation.length
         }
 
-        // console.log([...data.evaluation, totalObj])
         setSellectData([...data.evaluation, totalObj])
         setTotalAvg(totalObj)
-        // console.log(totalObj)
     }
 
     const userData = JSON.parse(sessionStorage.getItem('userData')) ///유저데이터
 
-    // console.log(totalAvg)
     ////////////////////디바운싱
     function debounce(func, delay) {
         let timer;
@@ -97,12 +94,6 @@ function Evaluation(){
 
         navigator('/Private_history')
     }
-
-    // console.log(textData)
-    // console.log(sellectData)
-
-    // console.log(totalGrade)
-
 
     return(
         <div className="EvaluationApp-container">
@@ -149,3 +140,4 @@ function Evaluation(){
 }
 
 export default Evaluation
+

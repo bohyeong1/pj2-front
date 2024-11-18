@@ -7,9 +7,6 @@ function Evalu_star({index,evaluData,pullFunction}){
     //state
     const [radioState, setRadioState] = useState()
 
-    //ref
-    const radioRef = useRef([])
-
     // 평점 클릭
     function clickRadio(e){
         const target = e.target.id
