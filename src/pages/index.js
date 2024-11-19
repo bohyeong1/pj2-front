@@ -24,6 +24,7 @@ export {default as Private_wish} from './Privacy/private-wish/Private-wish'
 // =================================================
 // user //
 export {default as UserReservation} from './user/reservation/app/reservation'
+export {default as UserProfile} from './user/profile/app/profile'
 
 // =================================================
 // 숙소 상세 //
@@ -36,10 +37,6 @@ export {default as AccRegist} from './acc_regist/regist/app/regist'
 export {default as AccUpdate} from './acc_regist/update/app/update'
 export {default as AccManage} from './acc_regist/manage/app/manage'
 export {default as AccMyPage} from './acc_regist/mypage/app/mypage'
-
-// =================================================
-// 평점 //
-export {default as Evaluation} from './evaluation/EvaluationApp'
 
 // =================================================
 // reservation //

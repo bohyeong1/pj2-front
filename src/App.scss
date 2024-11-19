@@ -33,7 +33,7 @@ body{
     flex-direction: column;
     align-items: center;
 }
-textarea, pre, input{
+textarea, pre, input, button{
    font-family: 'Pretendard-Regular';
 }
 input::placeholder{
@@ -65,7 +65,11 @@ input[type="number"]::-webkit-inner-spin-button{
 input[type="number"] {
    -moz-appearance: textfield;
 }
-
+input[type="password"] {
+    -webkit-text-security: disc;
+    text-security: disc;
+}
+  
 .pagination{
     display: flex;  
     justify-content: center;    

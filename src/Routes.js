@@ -8,8 +8,9 @@ import {
     Main, 
     // user //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
-    UserReservation,
 
+    UserReservation,
+    UserProfile,
     SubApp,
     Detail,
     AccUpdate, 
@@ -17,8 +18,7 @@ import {
     AccManage,
     AccMyPage,
     AccRegist,
-    // evaluation page //
-    Evaluation,
+
     // private page //
     Private_history,Private_management, Private_point, Private_wish,
     // reservation page //
@@ -34,6 +34,7 @@ import set_host_regist_routes from './router/routes/host/host_regist_routes';
 import set_host_manage_routes from './router/routes/host/host_manage_route';
 import set_host_mypage_routes from './router/routes/host/host_mypage_route';
 import set_user_reservation_routes from './router/routes/user/user_reservation_routes'
+import set_user_profile_routes from './router/routes/user/user_profile_routes';
 // =================================================
 // custom router //
 import Private_router from './router/custom_router/private_router';
@@ -58,6 +59,7 @@ function FinalRoutes(){
                 
                 {/* // ================================================================================================================================================================
                     // user // */}
+                {/* user - 예약 관련 페이지 */}
                 <Route 
                     path='/user'
                     element={
@@ -73,6 +75,23 @@ function FinalRoutes(){
                         {set_user_reservation_routes()}
                     </Route>
                 </Route>
+                {/* user - profile 관련 페이지 */}
+                <Route 
+                    path='/user'
+                    element={
+                        <UserProvider>
+                            <UserAuthRouter
+                                element={DefaultLayout} 
+                                redirection_url = {'/Login'}/>
+                        </UserProvider>
+                    }>
+                    <Route 
+                        path='profile' 
+                        element = {<UserProfile/>}>
+                        {set_user_profile_routes()}
+                    </Route>
+                </Route>
+                
 
                 {/* // =================================================
                     // 로그인, 회원가입 페이지 // */}
@@ -239,12 +258,6 @@ function FinalRoutes(){
                 <Route path='/Private_management' element={<Private_management></Private_management>}></Route>                                          {/*마이페이지 - 정보수정*/}
                 <Route path='/Private_point' element={<Private_point></Private_point>}></Route>                                                         {/*마이페이지 - 포인트확인*/}
                 <Route path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                                                            {/*위시리스트*/}        
-
-                {/* // =================================================
-                    // 평가 페이지 // */}
-                <Route path='/evaluation' element={<Evaluation></Evaluation>}>                                                                          {/*숙소 평가*/}
-                    <Route path=':evaluation' element={<Evaluation></Evaluation>}></Route>
-                </Route>
 
                 {/* // =================================================
                     // 약관 페이지 // */}

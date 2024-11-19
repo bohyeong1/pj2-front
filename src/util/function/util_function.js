@@ -121,7 +121,7 @@ export async function get_user(){
 // cookie 보내서 유저 정보 post 요청하는 함수 //
 export async function connect_data_width_cookies(url, method, data = null){
     try{
-        const user_data = await fetch(url,{
+        const response = await fetch(url,{
             method : method,
             credentials : 'include',
             headers : {
@@ -130,10 +130,19 @@ export async function connect_data_width_cookies(url, method, data = null){
             body: data? JSON.stringify(data) : undefined 
         })
     
-        const result = await user_data.json()
+        if(!response.ok){
+            const error_result = await response.json()
+            throw error_result
+        }
+        const result = await response.json()
         return result
     }catch(e){
-        throw new Error(e)
+        if(typeof e === 'string'){
+            throw new Error(e)
+        }
+        else{
+            throw e
+        }
     }
 }
 

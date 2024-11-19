@@ -2,13 +2,13 @@ import React from "react";
 import './part_loading.scss'
 import useMaterialLoadingStyle from "../hook-store/style-hooks/material_loading_style";
 
-function PartLoading({part = null}){
+function PartLoading(){
 
     const {} = useMaterialLoadingStyle()
 
     return (
-        <div className={`part-loading__container ${part ? 'part-loading-part-style' : 'part-loading-default-style'}`}>
-            {/* {part ? <div className="part-loading__overay"></div> : null} */}
+        <div className={`part-loading__container part-loading-part-style`}>
+            <div className="part-loading__wrapper"></div>
             <div className="part-loading__circle">
                 <div className="part-loading__item-1">
                     <div className="part-loading__bar"></div>

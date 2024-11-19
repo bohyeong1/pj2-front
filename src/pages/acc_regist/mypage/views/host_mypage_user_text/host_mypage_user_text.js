@@ -115,7 +115,7 @@ function HostMypageUserText(){
                         <span>다른 게스트들이나, 숙소를 소개하는 페이지에서 보여지는 호스트의 모습입니다!</span>
                         <div className="host-mypage-user-text__content-section1-profile">
                             <div className="host-mypage-user-text__content-section1-profile-img">
-                                <div className="host-mypage-user-text__content-section1-profile-img-wrapper">
+                                <div className="host-mypage-user-text__content-section1-profile-img-wrapper box-shadow-lv2">
                                     <UserProfileImg 
                                         url = {profile_img.img_display_url}
                                         user_data = {user_data}/>

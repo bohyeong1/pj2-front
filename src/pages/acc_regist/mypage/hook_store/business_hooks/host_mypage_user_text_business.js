@@ -145,7 +145,7 @@ function useHostMypageUserTextBusiness(data, states, refs, props){
             // redirection error page
         }
     }
-    console.log(profile_img)
+
     return {
         watch, 
         register, 

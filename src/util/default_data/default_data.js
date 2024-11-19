@@ -980,6 +980,23 @@ const default_data = {
             name : '히스토리',
             url : '/user/reservation/success-list'
         }
+    ],
+
+    // =================================================
+    // user profile side menu //
+    user_profile_side_menu : [
+        {
+            name : '계정 관리',
+            url : '/user/profile/manage'
+        },
+        {
+            name : '프로필',
+            url : '/user/profile/main'
+        },
+        {
+            name : '잔액조회',
+            url : '/user/profile/cash'
+        }
     ]
 
 }

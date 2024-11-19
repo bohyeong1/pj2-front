@@ -16,258 +16,258 @@
 // =================================================
 // default button //
 .default-button{
-  height:50px;  
-  width: fit-content;
-  font-size: 1.125rem;  
-  font-weight: bold;
-  padding: 0 20px;
+    height:50px;  
+    width: fit-content;
+    font-size: 1.125rem;  
+    font-weight: bold;
+    padding: 0 20px;
 }
 
 // =================================================
 // submit button //
 // enable button 
 .button-enable{
-  background-color: $blue-default;    
-  color: white;   
-  cursor: pointer;
-  border:none; 
-  outline: none; 
-  border-radius: 10px; 
-  font-weight: bold;  
-  display: block; 
-  &:hover{
-    background: rgb(18, 110, 220);
-  }
+    background-color: $blue-default;    
+    color: white;   
+    cursor: pointer;
+    border:none; 
+    outline: none; 
+    border-radius: 10px; 
+    font-weight: bold;  
+    display: block; 
+    &:hover{
+        background: rgb(18, 110, 220);
+    }
 }
 // disable button 
 .button-disable{
-  display: block;  
-  border:none;   
-  background-color: $grey-end-end; 
-  border-radius: 10px;
-  font-weight: bold;  
-  color: $grey-lv6; 
-  outline: none;  
-  cursor:not-allowed;
+    display: block;  
+    border:none;   
+    background-color: $grey-end-end; 
+    border-radius: 10px;
+    font-weight: bold;  
+    color: $grey-lv6; 
+    outline: none;  
+    cursor:not-allowed;
 }
 
 // =================================================
 // small button enable//
 .small-button{
-  border-radius: 100px;
-  transition: 0.2s;
-  font-weight: 600;  cursor: pointer;
-  border: solid 1.5px $grey-lv10;
-  background-color: white;
+    border-radius: 100px;
+    transition: 0.2s;
+    font-weight: 600;  cursor: pointer;
+    border: solid 1.5px $grey-lv10;
+    background-color: white;
 
-  &:hover{
-    background-color: rgb(240, 247, 255);
-    color: rgb(18 115 228);    
-    border: solid 1.5px $blue-lv4;
-  }
+    &:hover{
+        background-color: rgb(240, 247, 255);
+        color: rgb(18 115 228);    
+        border: solid 1.5px $blue-lv4;
+    }
 
-  &:disabled{
-    cursor: default;
-  }
+    &:disabled{
+       cursor: default;
+    }
 }
 // active
 .small-button-active{
-  background-color: rgb(240, 247, 255);
-  color: rgb(18 115 228);    
-  border: solid 1.5px $blue-lv4;
+    background-color: rgb(240, 247, 255);
+    color: rgb(18 115 228);    
+    border: solid 1.5px $blue-lv4;
 }
 // small button disabled //
 .small-button-disabled{
-  border-radius: 100px;
-  border: solid 1.5px $grey-lv10;  
-  transition: 0.2s;
-  font-weight: 600;  
-  color: white;
-  background-color: $grey-end-end;
-  color: $grey-lv6;
-  cursor:not-allowed;
+    border-radius: 100px;
+    border: solid 1.5px $grey-lv10;  
+    transition: 0.2s;
+    font-weight: 600;  
+    color: white;
+    background-color: $grey-end-end;
+    color: $grey-lv6;
+    cursor:not-allowed;
 
-  & > img{
-    filter: invert(0.7);
-  }
+    & > img{
+        filter: invert(0.7);
+    }
 }
 
 // =================================================
 // fail validation //
 .input-invalid{
-  outline:solid 0.5px $red-lv2;
+    outline:solid 0.5px $red-lv2;
 }
 
 // =================================================
 // box-shadow //
 .box-shadow-lv1{
-  box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
 }
 .box-shadow-lv2{
-  box-shadow: 0 8px 28px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 28px rgba(0,0,0,0.2);
 }
 .box-shadow-lv3{
-  box-shadow: 0 8px 28px rgba(0,0,0,0.12);
+   box-shadow: 0 8px 28px rgba(0,0,0,0.12);
 }
 .box-shadow-lv4{
-  box-shadow: 0 8px 28px rgba(0,0,0,0.10);
+   box-shadow: 0 8px 28px rgba(0,0,0,0.10);
 }
 .box-shadow-lv5{
-  box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+   box-shadow: 0 8px 28px rgba(0,0,0,0.05);
 }
 
 // =================================================
 // profile box style //
 .profile-box-style{
-  display: flex;  
-  gap:10px; 
-  justify-content: center;  
-  border-radius: 15px;
-  padding: 40px 0;
+    display: flex;  
+    gap:10px; 
+    justify-content: center;  
+    border-radius: 15px;
+    padding: 40px 0;
 }
 .profile-box-style-column{
-  display: flex;  
-  gap:40px; 
-  align-items: center;  
-  border-radius: 15px;
-  padding-top: 35px;  
-  padding-left: 25px; 
-  padding-right: 25px;  
-  padding-bottom: 25px;  
-  flex-direction: column;
+    display: flex;  
+    gap:40px; 
+    align-items: center;  
+    border-radius: 15px;
+    padding-top: 35px;  
+    padding-left: 25px; 
+    padding-right: 25px;  
+    padding-bottom: 25px;  
+    flex-direction: column;
 }
 
 // =================================================
 // input alert text //
 .input-alert-text{
-  font-size: 0.825rem;    
-  color: $red-lv2;    
-  margin-top: 10px;    
-  font-weight: 100;
-  display: block;
+    font-size: 0.825rem;    
+    color: $red-lv2;    
+    margin-top: 10px;    
+    font-weight: 100;
+    display: block;
 }
 
 // =================================================
 // border on textarea //
 .border-textarea{
-  overflow: auto;
-  resize: none; 
-  border: 1px solid $grey-lv8;
-  outline: none;
-  padding: 15px;
-  font-size: 1rem;
+    overflow: auto;
+    resize: none; 
+    border: 1px solid $grey-lv8;
+    outline: none;
+    padding: 15px;
+    font-size: 1rem;
 
-  &:focus{
-    border: 1px solid black;
-  }
+    &:focus{
+        border: 1px solid black;
+    }
 }
 
 // =================================================
 // acc-regist //
 .acc-regist-sellect-box{
-  border-radius: 10px; 
-  background-color: $grey-end-end; 
-  width: 100%; 
-  box-sizing: border-box; 
-  padding: 20px;  
-  cursor: pointer;
-  box-shadow: 0 0 10px 1px rgb(207, 207, 207);
-  display: flex;  
-  align-items: center;    
-  justify-content: center;    
-  flex-direction: column;
+    border-radius: 10px; 
+    background-color: $grey-end-end; 
+    width: 100%; 
+    box-sizing: border-box; 
+    padding: 20px;  
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    display: flex;  
+    align-items: center;    
+    justify-content: center;    
+    flex-direction: column;
 }
 .acc-regist-sellect-box-active{
-  background-color: $blue-lv2 !important;   
-  box-shadow: 0 0 10px 1px rgb(207, 207, 207);
-  border: none;   
-  scale: 1.02;
+    background-color: $blue-lv2 !important;   
+    box-shadow: 0 0 10px 1px rgb(207, 207, 207);
+    border: none;   
+    scale: 1.02;
 }
 
 // =================================================
 // sellect-button //
 .sellect-button{
-  border-radius: 100px;
-  border: solid 1.5px rgb(235,235,235);  
-  transition: 0.2s;
-  font-weight: 600;
-  cursor: pointer; 
-  padding: 8px 16px;
-  background-color: white;
+    border-radius: 100px;
+    border: solid 1.5px rgb(235,235,235);  
+    transition: 0.2s;
+    font-weight: 600;
+    cursor: pointer; 
+    padding: 8px 16px;
+    background-color: white;
 
-  &:hover{
-    background-color: rgb(240, 247, 255);
-    color: rgb(18 115 228);    
-    border: solid 1.5px $blue-lv4;
-  }
+    &:hover{
+        background-color: rgb(240, 247, 255);
+        color: rgb(18 115 228);    
+        border: solid 1.5px $blue-lv4;
+    }
 
-  &.sellect-active{
-    background-color: rgb(240, 247, 255);
-    color: rgb(18 115 228);    
-    border: solid 1.5px rgb(171, 210, 255);
-  }
+    &.sellect-active{
+        background-color: rgb(240, 247, 255);
+        color: rgb(18 115 228);    
+        border: solid 1.5px rgb(171, 210, 255);
+    }
 }
 
 // =================================================
 // modal-header //
 .modal-header{
-  height: 60px; 
-  padding: 0, 20px; 
+    height: 60px; 
+    padding: 0, 20px; 
 
-  .close-button{
-    width: 20px;  
-    height: 20px;
-    background-color: white;    
-    border: none;   
-    outline: none;
-    display: flex;  
-    justify-content: center;    
-    align-items: center;    
-    cursor: pointer;
+    .close-button{
+        width: 20px;  
+        height: 20px;
+        background-color: white;    
+        border: none;   
+        outline: none;
+        display: flex;  
+        justify-content: center;    
+        align-items: center;    
+        cursor: pointer;
 
-    img{
-      width: 18px;  
-      height: 18px;
+      img{
+          width: 18px;  
+          height: 18px;
+      }
     }
-  }
 
-  .gura-box{
-    width: 20px;  
-    height: 20px;
-  }
+    .gura-box{
+        width: 20px;  
+        height: 20px;
+    }
 }
 
 // =================================================
 // input-default //
 .input-default{
-  display: block;
-  height: 50px;
-  border: none;
-  background: rgb(243, 243, 243);
-  border-radius: 10px;
-  padding-left: 10px;
-  font-size: 0.925rem;
-  font-weight: 500;
+    display: block;
+    height: 50px;
+    border: none;
+    background: rgb(243, 243, 243);
+    border-radius: 10px;
+    padding-left: 10px;
+    font-size: 0.925rem;
+    font-weight: 500;
 }
 
 // =================================================
 // scroll-bar //
 // ie 지원 x
 .common-scroll-bar{
-  scrollbar-width: thin;
-  scrollbar-color: rgb(235, 235, 235) transparent;
-  &::-webkit-scrollbar{
-    width: 12px;
-  }
-  &::-webkit-scrollbar-track{
-    background-color: transparent;
-  }
-  &::-webkit-scrollbar-thumb{
-    border-radius: 8px; 
-    background-color: rgb(235, 235, 235);   
-    border: 2px solid #ffffff;
-  }
-  &::-webkit-scrollbar-thumb:hover{
-    background-color: rgb(200, 200, 200);
-  }
+    scrollbar-width: thin;
+    scrollbar-color: rgb(235, 235, 235) transparent;
+    &::-webkit-scrollbar{
+        width: 12px;
+    }
+    &::-webkit-scrollbar-track{
+        background-color: transparent;
+    }
+    &::-webkit-scrollbar-thumb{
+        border-radius: 8px; 
+        background-color: rgb(235, 235, 235);   
+        border: 2px solid #ffffff;
+    }
+    &::-webkit-scrollbar-thumb:hover{
+       background-color: rgb(200, 200, 200);
+    }
 }

@@ -1,0 +1,177 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-profile-manage__container{
+    width: 100%;
+}
+
+// contents
+.user-profile-manage__content{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+// title 
+.user-profile-manage__title{
+    font-size: 1.525rem;  
+    font-weight: 600;
+}
+.user-profile-manage__sub-title{
+    font-size: 1.125rem;
+    font-weight: 600;
+}
+
+// section1
+.user-profile-manage__section1{
+    display: flex;  
+    justify-content: space-between;
+    align-items: center;
+}
+.user-profile-manage__section1-text{
+    color: $grey-lv1;
+    font-size: 0.9375rem;
+}
+.user-profile-manage__section1-button{
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    padding: 10px 15px;  
+    background: #1273e4;    
+    border-radius: 10px;    
+    color: white;   
+    cursor: pointer;
+}
+
+// section2
+.user-profile-manage__profile-img-wrapper{
+    position: relative;
+    width: fit-content;
+}
+.user-profile-manage__profile-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    overflow: hidden;
+}
+.user-profile-manage__profile-button{
+    width: 50px;
+    height: 30px;
+    background-color: white;
+    border: none;
+    outline: none;
+    position: absolute;
+    bottom: 0;
+    left:50%;
+    transform: translate(-50%,50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    cursor: pointer;
+
+    & > img{
+        width: 25px;
+        height: 25px;
+    }
+}
+.user-profile-manage__section2{
+    display: flex;  
+    flex-direction: column; 
+    gap: 30px;
+}
+.user-profile-manage__section2-input{
+    width: 50%;
+    display: flex;  
+    flex-direction: column; 
+    gap: 10px;
+
+    & > label{
+        font-size: 0.825rem;
+        color: $grey-lv1;
+    }
+}
+.user-profile-manage__text{
+    font-size: 0.825rem;
+    color:$grey-lv1;    
+    font-weight: 600;
+    display: flex;  
+    gap:1px;
+}
+.user-profile-manage__box{
+    width: 8px; 
+    position: relative;
+}
+.user-profile-manage__box > div{
+    position: absolute; 
+    top:0; 
+    left:0;
+    width: 4px;  
+    height: 4px;    
+    border-radius: 100%;
+    background-color: red;
+}
+
+.user-profile-manage__section2-input > input{
+    display: block; 
+    height:50px; 
+    border:none;   
+    background: rgb(243, 243, 243); 
+    border-radius: 10px;    
+    width: 100%;
+    padding-left: 10px; 
+    padding-right: 10px; 
+    font-size: 0.925rem;    
+    font-weight: 500;
+}
+.user-profile-manage__section2-input > input:focus{
+    border: solid 1px black;  
+    color: black;
+}
+.user-profile-manage__fetch-button{
+    width: 50%; 
+    height: 48px;
+    font-size: 1.2rem;
+}
+.user-profile-manage__input-invalid{
+    pointer-events: none;
+}
+
+// section3
+.user-profile-manage__section3{
+    padding-top: 20px;
+    display: flex;  
+    flex-direction: column; 
+    gap: 30px;
+    border-top: solid 1px $grey-lv10;
+}
+
+// section4
+.user-profile-manage__section4{
+    padding-top: 20px;
+    flex-direction: column;
+    display: flex;  
+    gap:10px;
+    border-top: solid 1px $grey-lv10;
+}
+.user-profile-manage__section4-text{
+    color: $grey-lv1;    
+    display: flex; 
+    align-items: center;
+    font-size: 0.825rem;
+}
+.user-profile-manage__section4-link{
+    color: $grey-lv1;    
+    font-weight: 600;  
+    cursor: pointer;
+}
+
+
+// modal
+// auth
+.user-profile-manage__auth-modal-container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}

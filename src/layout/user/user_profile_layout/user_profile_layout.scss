@@ -1,6 +1,6 @@
 @import '@/manage_scss_style/commonness/colors';
 
-.user-reservation__layout{
+.user-profile__layout{
     width: 100%;
     display: flex;
     gap:30px;
@@ -10,13 +10,13 @@
     position: relative;
 }
 // content
-.user-reservation__content{
+.user-profile__content{
     flex-grow: 1;   
     position: relative;
 }
 
 // side menu
-.user-reservation__side{
+.user-profile__side{
     width: 230px;
     flex-shrink: 0;
     border: solid 1px $grey-lv10;
@@ -25,22 +25,21 @@
     display: flex;
     flex-direction: column;
 }
-.user-reservation__side-select{
+.user-profile__side-select{
     padding: 20px;
     font-size: 1.125rem;
     cursor: pointer;
     // font-weight: 600;
 }
-.user-reservation__side-select-onborder{
+.user-profile__side-select-onborder{
     border-bottom: solid 1px $grey-lv10;
 }
-.user-reservation__side-select-onpage{
+.user-profile__side-select-onpage{
     color: $blue-default;
 }
 
 // main
-.user-reservation-layout__content{
-    // flex-grow: 1;
+.user-profile-layout__content{
     width: 100%;
     height: 100%;
 }
