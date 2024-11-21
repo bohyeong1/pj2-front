@@ -24,6 +24,8 @@
     height: fit-content;
     display: flex;
     flex-direction: column;
+    position: sticky;
+    top:40px;
 }
 .user-reservation__side-select{
     padding: 20px;

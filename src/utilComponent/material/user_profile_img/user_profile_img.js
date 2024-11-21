@@ -40,8 +40,8 @@ function UserProfileImg({url, user_data, hover, handler}){
             <div 
                 className={`user-profile-img__default-profile ${hover ? 'user-profile-img__hover' : ''} not-user-sellect`}
                 onClick={handler ? handler : undefined}
-                style={{backgroundColor : user_data.defaultProfile}}>
-                <span>{user_data.name.slice(0,1)}</span>
+                style={{backgroundColor : user_data?.defaultProfile}}>
+                <span>{user_data?.name.slice(0,1)}</span>
             </div>}
         </div> 
     )

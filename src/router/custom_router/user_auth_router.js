@@ -18,8 +18,8 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     const {data, error, isLoading, refetch} = useQuery({
         queryKey : ['user_auth'], 
         queryFn : get_user,
-        staleTime: 1000 * 60 * 15,
-        cacheTime : 1000 * 60 * 30
+        staleTime: 1000 * 60 * 30,
+        cacheTime : 1000 * 60 * 60
     })
 
     // =================================================
@@ -45,11 +45,14 @@ function UserAuthRouter({element : Element, redirection_url = null}){
         return <Loading></Loading>
     }    
 
-    return(
-        data && data.server_state && data.log_state ?
-        <Element login_user = {data.user_data}/> :
-        <Navigate to={redirection_url}></Navigate>
-    )
+    if(data && user_data){
+        return(
+            data.server_state && data.log_state ?
+            <Element login_user = {data.user_data}/> :
+            <Navigate to={redirection_url}/>
+        )
+    }
+
 }
 
 export default UserAuthRouter

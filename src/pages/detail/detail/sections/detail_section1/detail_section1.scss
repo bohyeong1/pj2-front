@@ -121,7 +121,7 @@
 .detail-section1__section2 > div > pre{
     width: 100%;    
     height: 100%;
-    white-space: pre;
+    white-space: pre-wrap;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;

@@ -99,9 +99,9 @@ function useUserProfileManageBusiness(cons, states, refs, props){
     // check information data //
     function check_fetch_information_data(user, data1, data2, data3){
         if(
-            (user.name === data1 &&
-            user.nickname === data2 &&
-            user.profileImg === data3) ||
+            (user?.name === data1 &&
+            user?.nickname === data2 &&
+            user?.profileImg === data3) ||
             (errors.name || errors.nickname)
         ){
             return false
@@ -121,7 +121,7 @@ function useUserProfileManageBusiness(cons, states, refs, props){
         if(!check_fetch_information_data(user_data, watch('name'), watch('nickname'), profile_img.img_display_url) && fetch_state){
             setFetch_state(false)
         }
-    },[user_data, watch('name'), watch('nickname')])
+    },[user_data, watch('name'), watch('nickname'), profile_img.img_display_url, errors.name, errors.nickname])
 
     // =================================================
     // check password data //
@@ -163,12 +163,42 @@ function useUserProfileManageBusiness(cons, states, refs, props){
         if(profile_img.img_file) form_data.append('userImg', profile_img.img_file)        
         if(profile_img.delete_prev_img) form_data.append('delete_prev_img', profile_img.delete_prev_img)        
         if(watch('name') !== user_data.name) form_data.append('name', watch('name'))        
-        if(watch('nickname') !== user_data.nickname) form_data.append('initial_message', watch('nickname'))
+        if(watch('nickname') !== user_data.nickname) form_data.append('nickname', watch('nickname'))
 
-        information_mutation.mutate({
-            file : form_data
-        })
+        information_mutation.mutate(
+            {
+                file : form_data
+            }
+        )
     }
+
+    // =================================================
+    // update password fetch state controll //
+    useEffect(()=>{
+        if(password_mutation.data || password_mutation.error){
+            reset(
+                {
+                    prev_password : '',
+                    password : '',
+                    password_confirm : ''
+                }
+            )
+        }
+    },[password_mutation.data, password_mutation.error])
+
+    // =================================================
+    // update information fetch state controll //
+    useEffect(()=>{
+        if(information_mutation.data && profile_img.delete_prev_img){
+            setProfile_img({
+                img : information_mutation.data.user_data.profileImg,
+                delete_prev_img : null,
+                img_file : null,
+                img_display_url : information_mutation.data.user_data.profileImg
+            })
+        }
+    },[information_mutation.data])
+
 
     return {
         register, 
@@ -176,7 +206,9 @@ function useUserProfileManageBusiness(cons, states, refs, props){
         errors,
         isValid,
         fetch_password_data,
-        fetch_information_data
+        fetch_information_data,
+        password_mutation,
+        information_mutation
     }
 }
 

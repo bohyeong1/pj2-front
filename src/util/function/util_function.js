@@ -25,18 +25,28 @@ export default connect_data
 // =================================================
 // file data fetch utill function //
 export async function file_data(url, method, data){
-    if(!url || !method || !data){
-        alert('파라미터를 제대로 넣어주세요')
-        return
+    try{
+        const response = await fetch(url, {
+            credentials: 'include',
+            method : method,
+            body : data
+        })
+    
+        if(!response.ok){
+            const error_result = await response.json()
+            throw error_result
+        }
+        const result = await response.json()
+        return result
     }
-    const data_file = await fetch(url, {
-        credentials: 'include',
-        method : method,
-        body : data
-    })
-
-    const result = await data_file.json()
-    return result
+    catch(e){
+        if(typeof e === 'string'){
+            throw new Error(e)
+        }
+        else{
+            throw e
+        }
+    }
 }
 
 // =================================================
@@ -470,6 +480,7 @@ export function get_date_difference(date, only_day = false){
     const year_difference = differenceInYears(new Date(), new Date(date))
     const month_difference = differenceInMonths(new Date(), new Date(date))
     const day_difference = differenceInDays(new Date(), new Date(date))
+
     if(only_day){
         return day_difference ? day_difference + '일' : 
         '0일'

@@ -148,6 +148,16 @@
 }
 
 // =================================================
+// input success text //
+.input-success-text{
+    font-size: 0.825rem;    
+    color: $blue-default;    
+    margin-top: 10px;    
+    font-weight: 100;
+    display: block;
+}
+
+// =================================================
 // border on textarea //
 .border-textarea{
     overflow: auto;

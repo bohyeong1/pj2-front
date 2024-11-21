@@ -9,6 +9,7 @@ import useUserProfileManageStyle from '../../hook_store/style_hooks/user_profile
 import useUserProfileManageBusiness from '../../hook_store/business_hooks/user_profile_manage_business';
 import { state_store, reference_store } from "@/util/function/util_function";
 import ImgRegistModal from "@/utilComponent/modal/img_regist_modal/img_regist_modal";
+import Loading from "@/utilComponent/material/loading/loading"
 
 function UserProfileManage(){
 
@@ -22,10 +23,10 @@ function UserProfileManage(){
     const [fetch_state, setFetch_state] = useState(false)
     const [password_fetch_state, setPassword_fetch_state] = useState(false)
     const [profile_img, setProfile_img] = useState({
-        img : user_data.profileImg ? user_data.profileImg : null,
+        img : user_data && user_data.profileImg ? user_data.profileImg : null,
         delete_prev_img : null,
         img_file : null,
-        img_display_url : user_data.profileImg ? user_data.profileImg : null
+        img_display_url : user_data && user_data.profileImg ? user_data.profileImg : null
     })
 
     // =================================================
@@ -39,7 +40,11 @@ function UserProfileManage(){
         register, 
         watch,
         errors,
-        isValid
+        isValid,
+        fetch_password_data,
+        fetch_information_data,
+        password_mutation,
+        information_mutation
     } = useUserProfileManageBusiness(
         {
             user_data,
@@ -71,6 +76,12 @@ function UserProfileManage(){
     // hook form api에서 ref 설정 필요한 필드 //
     const {ref, ...rest} = register('name')    
 
+    // =================================================
+    // fetch loading //
+    if(password_mutation.isPending || information_mutation.isPending){
+        return <Loading/>
+    }
+
     return (
         <div className="user-profile-manage__container">
             <div className="user-profile-manage__content">
@@ -88,6 +99,8 @@ function UserProfileManage(){
                 {/* section2 */}
                 <div className="user-profile-manage__section2">
                     <span className='user-profile-manage__sub-title'>내 정보 관리</span>
+                    {information_mutation.data && <span className='input-success-text'>{information_mutation.data.message}</span>}
+                    {information_mutation.error && information_mutation.error.message && <span className='input-alert-text'>{information_mutation.error.message}</span>}
                     <div className="user-profile-manage__section2-input">
                         <div className="user-profile-manage__text">
                             <span>사진</span>
@@ -98,7 +111,7 @@ function UserProfileManage(){
                         <div className='user-profile-manage__profile-img-wrapper'>
                             <div className='user-profile-manage__profile-img box-shadow-lv2'>
                                 <UserProfileImg 
-                                    url={profile_img.img_display_url}
+                                    url={profile_img?.img_display_url}
                                     user_data = {user_data}/>                            
                             </div>
                             {modify_state && <button 
@@ -148,11 +161,12 @@ function UserProfileManage(){
                                 <div></div>
                             </div>
                         </div>
-                        <span>{user_data.email}</span> 
+                        <span>{user_data?.email}</span> 
                     </div>
 
                     {modify_state && <button 
                         className={`user-profile-manage__fetch-button ${fetch_state ? 'button-enable' : 'button-disable'}`}
+                        onClick={fetch_information_data}
                         disabled = {fetch_state ? false : true}>
                             수정완료
                     </button>}
@@ -160,6 +174,8 @@ function UserProfileManage(){
                 {/* section3 */}
                 <div className='user-profile-manage__section3'>
                     <span className='user-profile-manage__sub-title'>비밀번호 관리</span>
+                    {password_mutation.data && <span className='input-success-text'>{password_mutation.data.message}</span>}
+                    {password_mutation.error && password_mutation.error.message && <span className='input-alert-text'>{password_mutation.error.message}</span>}
                     <div className="user-profile-manage__section2-input">
                         <div className="user-profile-manage__text">
                             <span>현재 비밀번호</span>
@@ -204,6 +220,7 @@ function UserProfileManage(){
                     </div>
                     {modify_state && <button 
                         className={`user-profile-manage__fetch-button ${password_fetch_state ? 'button-enable' : 'button-disable'}`}
+                        onClick={fetch_password_data}
                         disabled = {password_fetch_state ? false : true}>
                             수정완료
                     </button>}

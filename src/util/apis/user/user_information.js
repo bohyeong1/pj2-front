@@ -4,13 +4,41 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import query_key from "@/util/query_key/query_key";
 
 // =================================================
+// get user evaluations //
+export function useGetUserEvaluations(user_id){
+    const query_client = useQueryClient()
+    return useQuery(
+        {
+            queryKey : [query_key.user_evaluations, user_id],
+            queryFn : async({queryKey}) => {
+                const [, parameter] = queryKey
+                const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/get-evaluations`, 'POST', {
+                    _id : parameter
+                })
+                return response
+            },
+            onError : (e) => {
+                console.error(e)
+                if(e.ui_action !== 'retry'){
+                    query_client.removeQueries(query_key.user)
+                    query_client.removeQueries(query_key.user_evaluations)
+                    // redirection login page
+                }
+            },
+            retry : false,
+            refetchOnWindowFocus : false
+        }
+    )
+}
+
+// =================================================
 // user password update //
 export function useUpdateUserPassword(){
     const query_client = useQueryClient()
     return useMutation(
         {
             mutationFn : async({password, password_confirm, prev_password}) => {
-                const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/reservation/evaluation`, 'POST',
+                const response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/update-password`, 'POST',
                     {
                         password : password,
                         password_confirm : password_confirm,
@@ -24,7 +52,9 @@ export function useUpdateUserPassword(){
             },
             onError : (e) => {
                 console.error(e)
-                // error page redirection
+                if(e.ui_action !== 'retry'){
+                    // error page redirection
+                }
             }
         }
     )
@@ -37,7 +67,7 @@ export function useUpdateUserInformation(){
     return useMutation(
         {
             mutationFn : async({file}) => {
-                const response = await file_data(`${default_data.d_base_url}/api/reservation/evaluation`, 'POST',file
+                const response = await file_data(`${default_data.d_base_url}/api/users/update-information`, 'POST', file
                 )
                 return response
             },    
@@ -46,7 +76,9 @@ export function useUpdateUserInformation(){
             },
             onError : (e) => {
                 console.error(e)
-                // error page redirection
+                if(e.ui_action !== 'retry'){
+                    // error page redirection
+                }
             }
         }
     )
