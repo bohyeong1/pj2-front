@@ -6,7 +6,8 @@ import Loading from "@/utilComponent/material/loading/loading";
 // user profile component //
 const user_profile_routes = {
     route1 : React.lazy(() => import('@/pages/user/profile/views/user_profile_manage/user_profile_manage')),
-    route2 : React.lazy(() => import('@/pages/user/profile/views/user_profile_main/user_profile_main'))
+    route2 : React.lazy(() => import('@/pages/user/profile/views/user_profile_main/user_profile_main')),
+    route3 : React.lazy(() => import('@/pages/user/profile/views/user_profile_cash/user_profile_cash'))
 }
 
 function set_user_profile_routes(){
@@ -24,6 +25,13 @@ function set_user_profile_routes(){
                 element={
                     <Suspense fallback={<Loading part = {true}/>}>
                         <user_profile_routes.route2/>
+                    </Suspense>}>
+            </Route>
+            <Route 
+                exact path="cash" 
+                element={
+                    <Suspense fallback={<Loading part = {true}/>}>
+                        <user_profile_routes.route3/>
                     </Suspense>}>
             </Route>
         </>

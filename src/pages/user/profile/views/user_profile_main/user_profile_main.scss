@@ -140,8 +140,7 @@
 }
 .user-profile-main__evaluations-item-wrapper{
     width: 100%;
-    display: flex;
-    gap:30px;
+    // display: flex;
     height: 220px;
 }
 .user-profile-main__evaluations-list-button-wrapper{
@@ -168,7 +167,8 @@
     transform: rotateZ(180deg);
 }
 .user-profile-main__evaluations-item{
-    flex: 0 0 calc((100% - 30px) / 2);
+    // flex: 0 0 calc((100% - 30px) / 2);
+    height: 220px;
     border: solid 1px $grey-lv10;
     border-radius: 10px;
     padding: 30px 20px;
@@ -224,9 +224,74 @@
 .user-profile-main__evaluations-list-footer-title{
     font-size: 1.125rem;
     cursor: pointer;
-    color: $grey-lv1;
+    text-decoration: underline;
 
     & > span{
         font-weight: 600;
     }
+}
+
+// modal
+.user-profile-main-evaluation-list__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+.user-profile-main-evaluation-list__title{
+    font-size: 1.225rem;
+    font-weight: 600;
+}
+.user-profile-main-evaluation-list__contents{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+}
+.user-profile-main-evaluation-list__evaluations-item{
+    display: flex;
+    flex-direction: column;
+    gap:20px;
+    padding-bottom: 20px;
+    border-bottom: solid 1px $grey-lv10;
+}
+.user-profile-main-evaluation-list__evaluations-item-footer{
+    display: flex;
+    gap:10px;
+    height: 50px;
+}
+.user-profile-main-evaluation-list__evaluations-item-footer-img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 100%;
+}
+.user-profile-main-evaluation-list__evaluations-item-footer-contents{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap:10px;
+
+    & > span:nth-child(2){
+        font-size: 0.9375rem;
+        color: $grey-lv1;
+    }
+}
+.user-profile-main-evaluation-list__evaluation-item-text{
+    width: 100%;
+    white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    background: none;
+    color: $black-lv1;   
+    line-height: 1.3;
+    font-size: 1rem;
+}
+.user-profile-main-evaluation-list__button{
+    font-size: 1.125rem;
+    padding: 10px 20px;
+    width: fit-content
 }

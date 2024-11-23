@@ -12,13 +12,13 @@ function useSwiperButtonContoll(number, handler){
 
     // 오른쪽버튼
     function moveRSlide(){
-        if (swiper_ref.current) {
+        if(swiper_ref.current){
             swiper_ref.current.slideNext()
             const btn_state = swiper_ref.current.isEnd
-            if (LbtnState) {
+            if(LbtnState){
                 setLbtnState(false)
             }
-            if (btn_state) {
+            if(btn_state){
                 setRbtnState(true)
             }
         }
@@ -26,13 +26,13 @@ function useSwiperButtonContoll(number, handler){
 
     // 왼쪽버튼
     function moveLslide(){
-        if (swiper_ref.current) {
+        if(swiper_ref.current){
             swiper_ref.current.slidePrev()
             const btn_state = swiper_ref.current.isBeginning
-            if (btn_state) {
+            if(btn_state){
                 setLbtnState(true)
             }
-            if (RbtnState) {
+            if(RbtnState){
                 setRbtnState(false)
             }
         }
@@ -42,32 +42,42 @@ function useSwiperButtonContoll(number, handler){
     function swiper_change(){
         const index = swiper_ref.current.activeIndex
         const length = swiper_ref.current.slides.length
-        if (index === 0) {
-            if (!LbtnState) {
+        if(index === 0) {
+            if(!LbtnState){
                 setLbtnState(true)
             }
-        } else {
-            if (LbtnState) {
+        }else{
+            if(LbtnState){
                 setLbtnState(false)
             }
         }
 
-        if (index === length - number) {
-            if (!RbtnState) {
+        if(index === length - number){
+            if(!RbtnState){
                 setRbtnState(true)
             }
-        } else {
-            if (RbtnState) {
+        }else{
+            if(RbtnState){
                 setRbtnState(false)
             }
         }
+
         if(handler){
             // handler
             handler(index)
         }
 
     }
-    return {RbtnState,setRbtnState,LbtnState,setLbtnState,swiper_ref, moveRSlide, moveLslide, swiper_change}
+    return {
+        RbtnState,
+        setRbtnState,
+        LbtnState,
+        setLbtnState,
+        swiper_ref, 
+        moveRSlide, 
+        moveLslide, 
+        swiper_change
+    }
 }
 export default useSwiperButtonContoll
 

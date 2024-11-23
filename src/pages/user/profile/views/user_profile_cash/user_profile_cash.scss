@@ -1,0 +1,31 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-profile-cash__container{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.user-profile-cash__title{
+    font-size: 1.525rem;
+    font-weight: 600;
+}
+// contents
+.user-profile-cash__contents{
+    width: 100%;
+    height: fit-content;
+    background: linear-gradient(to right, $blue-lv4, $blue-lv3);
+    border-radius: 10px;
+    padding: 30px 45px;
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+
+    & > span:nth-child(1){
+        color: $blue-default;
+    }
+}
+.user-profile-cash__text{
+    font-size: 1.125rem;
+}
+

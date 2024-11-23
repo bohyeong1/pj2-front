@@ -13,7 +13,14 @@ function MainSection2({title, data}){
     // =================================================
     // hooks //
     // style
-    const {RbtnState, LbtnState, swiper_ref, moveRSlide, moveLslide, swiper_change} = useMainSection2Style()
+    const {
+        RbtnState, 
+        LbtnState, 
+        swiper_ref, 
+        moveRSlide, 
+        moveLslide, 
+        swiper_change
+    } = useMainSection2Style()
 
     return(
         <div className="main-section2__container">

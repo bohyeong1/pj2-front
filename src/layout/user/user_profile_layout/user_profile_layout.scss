@@ -3,7 +3,7 @@
 .user-profile__layout{
     width: 100%;
     display: flex;
-    gap:30px;
+    // gap:10px;
     min-height: calc((calc(var(--vh) * 100) - 76.23px));
     padding-top: 50px;    
     padding-bottom: 50px;
@@ -42,6 +42,8 @@
 
 // main
 .user-profile-layout__content{
+    overflow: hidden;
     width: 100%;
     height: 100%;
+    padding-left: 30px;
 }
