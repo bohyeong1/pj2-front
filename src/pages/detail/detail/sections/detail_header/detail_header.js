@@ -1,11 +1,22 @@
 import './detail_header.scss';
 import AlertModal from "@/utilComponent/modal/alert_modal/alert_modal";
 import useDetailHeaderStyle from '../../hook_store/style_hooks/detail_header_style';
+import heart_icon from '@/assets/icon/heart-icon.png'
+import heart_empty_icon from '@/assets/icon/heart-empty-icon.png'
+import useDetailHeaderBusiness from '../../hook_store/business_hooks/detail_header_business';
 
-function DetailHeader({data}){
+function DetailHeader({data, user, wishlist}){
 
     // =================================================
     // hooks
+    // business
+    const {
+        click_wish_list_button
+    } = useDetailHeaderBusiness(
+        {
+            user
+        }
+    )
     // style
     const {
         modal_toggle,
@@ -18,10 +29,20 @@ function DetailHeader({data}){
                 <div className="detail-header__section1">
                     <div className="detail-header__section1-part1">
                         {/* 숙소 제목 */}
-                        <div className="detail-header__section1-part1-title">
-                            <span>{`${data.category.name}`} · {`${data.space_category.name}`}</span>
-                            <span>{`${data.title}`}</span>
+                        <div className='detail-header__section1-part1-header'>
+                            <div className="detail-header__section1-part1-title">
+                                <span>{`${data.category.name}`} · {`${data.space_category.name}`}</span>
+                                <span>{`${data.title}`}</span>
+                            </div>
+                            {user && <div 
+                                className='detail-header__section1-part1-wish-list not-user-sellect'
+                                onClick={click_wish_list_button}>
+                                <img src={wishlist && wishlist.wishlist ? heart_icon : heart_empty_icon}/>
+                                <span>찜하기</span>
+                            </div>}
                         </div>
+
+                        {/* contents */}
                         <div className="detail-header__section1-part1-category">
                             <div 
                                 className="detail-header__section1-part1-category-item"

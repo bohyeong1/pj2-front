@@ -4,9 +4,10 @@ import { auth } from "@/firebase/firebase"
 import {differenceInMonths, differenceInDays, differenceInYears, format} from 'date-fns'
 import { isInteger } from "lodash"
 import { renew_fresh_token } from "@/firebase/firebase"
+import { debounce } from "lodash"
 
 // =================================================
-// 데이터 fetch 비로그인 페이지에서 사용 //
+// 데이터 fetch common 페이지에서 사용 //
 async function connect_data(url, method, data = null, token = null){
     const data_json = await fetch(url,{
         headers:{
@@ -61,21 +62,25 @@ export async function user_login(id, password){
         // db login
         if(user_data && user_token){
         const data = await fetch(`${default_data.d_base_url}/api/users/login`,{
-            headers:{
-            'Authorization' : `Bearer ${user_token}`,
-            'Content-Type' : 'application/json'
+            headers : 
+            {
+                'Authorization' : `Bearer ${user_token}`,
+                'Content-Type' : 'application/json'
             },
-            method:'POST',
-            body:JSON.stringify({
-            userId : id
-            }),
+            method : 'POST',
+            body : JSON.stringify(
+                {
+                    userId : id
+                }
+            ),
             credentials : 'include'
         })
+
         const parsing_data = await data.json()
         return parsing_data
         }
         else{
-        console.log('firebase login 실패')
+            console.log('firebase login 실패')
         }
     }catch(e){
         console.log(e)
@@ -97,15 +102,32 @@ export async function update_user_token(user_token){
 }
 
 // =================================================
-// only login check //
-export async function check_login(){    
-    const data = await fetch(`${default_data.d_base_url}/api/users/login-check`,{
-        method : 'GET',
-        credentials : 'include'
-    })
+// common page login 체크 && 유저 정보 얻는 함수 //
+export async function check_optimistic_user(){
+    try{
+        await renew_fresh_token()
 
-    const result = await data.json()
-    return result
+        const response = await fetch(`${default_data.d_base_url}/api/users/optimistic-user-check`,{
+            method : 'GET',
+            credentials : 'include'
+        })
+
+        if(!response.ok){
+            const error_result = await response.json()
+            throw error_result
+        }
+
+        const result = await response.json()
+        return result
+
+    }catch(e){
+        if(typeof e === 'string'){
+            throw new Error(e)
+        }
+        else{
+            throw e
+        }
+    }
 }
 
 // =================================================
@@ -114,16 +136,26 @@ export async function get_user(){
     try{
         await renew_fresh_token()
 
-        const data = await fetch(`${default_data.d_base_url}/api/users/getuser`,{
+        const response = await fetch(`${default_data.d_base_url}/api/users/getuser`,{
             method : 'GET',
             credentials : 'include'
         })
-    
-        const result = await data.json()
 
+        if(!response.ok){
+            const error_result = await response.json()
+            throw error_result
+        }
+
+        const result = await response.json()
         return result
+
     }catch(e){
-        throw new Error(e)
+        if(typeof e === 'string'){
+            throw new Error(e)
+        }
+        else{
+            throw e
+        }
     }
 }
 
@@ -520,5 +552,3 @@ export function get_discount_price(price, rate){
     }
     return (100 - rate) / 100 * price
 }
-
-

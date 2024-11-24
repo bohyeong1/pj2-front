@@ -15,6 +15,8 @@ import useDetailDetailAppBusiness from "../hook_store/business_hooks/detail_deta
 import { state_store } from "@/util/function/util_function";
 import DetailDetailLayout from "@/layout/detail/detail_detail_layout/detail_detail_layout";
 import DetailImgDisplay from "../sections/detail_img_display/detail_img_display";
+import { UserContext } from "@/context/user_context/config/user_context"
+import { useContext } from "react"
 
 function Detail(){
 
@@ -23,11 +25,24 @@ function Detail(){
     const [sellect_data, setSellect_data] = useState() ///숙소, User, 평가 data
     const [sub_img, setSub_img] = useState(null)
     const [loading , setLoading] = useState(true)   
-    
+
+    // =================================================
+    // context states //
+    const {user_data, setUser_data} = useContext(UserContext)
+
     // =================================================
     // hooks //
     // business
-    const {house_param} = useDetailDetailAppBusiness(undefined,
+    const {
+        house_param,
+        data, 
+        isLoading, 
+        isError
+    } = useDetailDetailAppBusiness(
+        {
+            user_data,
+            setUser_data
+        },
         state_store([
             {sellect_data, setSellect_data},
             {sub_img, setSub_img},
@@ -47,6 +62,8 @@ function Detail(){
                 role = {'fix_menu'}/>
             <DetailHeader 
                 data = {sellect_data?.accomodation}
+                user = {user_data}
+                wishlist = {data}
                 role = {'header'}/>
             <DetailImgDisplay 
                 data = {sellect_data?.accomodation}

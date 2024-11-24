@@ -43,6 +43,7 @@ import LogCheckRouter from './router/custom_router/log_check_router';
 import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 import HostLogCheckRouter from './router/custom_router/host_log_check_router';
 import UserAuthRouter from './router/custom_router/user_auth_router'
+import UserOptimisticAuthRouter from './router/custom_router/user_optimistic_auth_router';
 // =================================================
 // context provider //
 import CommonAccProvider from '@/context/common_acc_context/provider/common_acc_provider';
@@ -111,8 +112,13 @@ function FinalRoutes(){
                 {/* // ================================================================================================================================================================
                     // detail // */}                    
                 {/* detail - 숙소 상세 페이지 */}
-                <Route path = '/detail' element = {<LogCheckRouter element={DefaultLayout}/>}>                                                                
-                    <Route path=':house' element={<Detail/>}></Route>
+                <Route
+                    path = '/detail' 
+                    element = {
+                        <UserProvider>
+                            <UserOptimisticAuthRouter element={DefaultLayout}/>
+                        </UserProvider>}>    
+                    <Route path=':house' element={<Detail/>}/>
                 </Route>
 
                 {/* // ================================================================================================================================================================

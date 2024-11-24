@@ -4,10 +4,12 @@ import { get_user } from "@/util/function/util_function"
 import { useQuery, useQueryClient } from "@tanstack/react-query"
 import Loading from "@/utilComponent/material/loading/loading"
 import { UserContext } from "@/context/user_context/config/user_context"
+import query_box from "@/util/query_key/query_key"
+import { useUserOptimisticAuthCheck } from "@/util/apis/user/user_auth"
 
 // =================================================
-// user auth router //
-function UserAuthRouter({element : Element, redirection_url = null}){
+// 회원 / 비회원 둘다 접근 가능한 페이지 라우터 //
+function UserOptimisticAuthRouter({element : Element, redirection_url = null}){
     // =================================================
     // context states //
     const {user_data, setUser_data} = useContext(UserContext)
@@ -15,12 +17,7 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     // =================================================
     // react query //
     const query_client = useQueryClient()
-    const {data, error, isLoading, refetch} = useQuery({
-        queryKey : ['user_auth'], 
-        queryFn : get_user,
-        staleTime: 1000 * 60 * 20,
-        cacheTime : 1000 * 60 * 30
-    })
+    const {data, error, isLoading, refetch} = useUserOptimisticAuthCheck()
 
     // =================================================
     // 새로운 parent url 진입 시 재인증 //
@@ -31,13 +28,19 @@ function UserAuthRouter({element : Element, redirection_url = null}){
     // =================================================
     // user data 전역 관리 //
     useEffect(() => {
-        if(data && data.server_state && data.log_state){
+        if(data){
+            if(!data.user_data){
+                setUser_data(null)
+                query_client.removeQueries(query_box.user)
+                query_client.removeQueries(query_box.optimistic_user)
+            }
             setUser_data(data.user_data)
         }
         if(error){
             setUser_data(null)
-            query_client.removeQueries('user_auth')
-            // redirection error page or login page
+            query_client.removeQueries(query_box.user)
+            query_client.removeQueries(query_box.optimistic_user)
+            // redirection error page
         }
     }, [data, error])
 
@@ -45,14 +48,12 @@ function UserAuthRouter({element : Element, redirection_url = null}){
         return <Loading></Loading>
     }    
 
-    if(data && user_data){
+    if(data){
         return(
-            data.server_state && data.log_state ?
-            <Element login_user = {data.user_data}/> :
-            <Navigate to={redirection_url}/>
+            <Element login_user = {data.user_data}/>
         )
     }
 
 }
 
-export default UserAuthRouter
+export default UserOptimisticAuthRouter

@@ -8,10 +8,39 @@
 }
 
 /* title */
+.detail-header__section1-part1-header{
+    display: flex;
+    justify-content: space-between;
+}
 .detail-header__section1-part1{
     display: flex;  
     flex-direction: column; 
     gap: 32px; 
+}
+.detail-header__section1-part1-wish-list{
+    display: flex;
+    gap:10px;
+    align-items: flex-end;
+    padding: 10px;
+    height: fit-content;
+    width: fit-content;
+    border-radius: 10px;
+    cursor: pointer;
+
+    & > img{
+        width: 20px;
+        height: 20px;
+        filter: invert(91%) sepia(11%) saturate(2536%) hue-rotate(342deg) brightness(93%) contrast(91%);
+    }
+
+    & > span{
+        font-size: 0.9375rem;
+        text-decoration: underline;
+    }
+
+    &:hover{
+        background-color: $grey-end;
+    }
 }
 .detail-header__section1-part1-title{
     font-size: 28px;  

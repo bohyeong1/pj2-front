@@ -1,4 +1,4 @@
-import { connect_data_width_cookies } from "@/util/function/util_function";
+import { connect_data_width_cookies, check_optimistic_user } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import query_key from "@/util/query_key/query_key";
@@ -21,9 +21,22 @@ export function useUserPasswordAuthCheck(input, start_state){
             },
             onError : (e) => {
                 console.log(e)
-                query_client.removeQueries(query_key.user)
-                // redirection login page
             },
+            retry : false,
+            refetchOnWindowFocus : false
+        }
+    )
+}
+
+// =================================================
+// user optimistic auth check //
+export function useUserOptimisticAuthCheck(){
+    return useQuery(
+        {
+            queryKey : [query_key.optimistic_user], 
+            queryFn : check_optimistic_user,
+            staleTime: 1000 * 60 * 20,
+            cacheTime : 1000 * 60 * 30,
             retry : false,
             refetchOnWindowFocus : false
         }

@@ -1,0 +1,81 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.user-reservation-wish-list__container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap:40px;
+}
+.user-reservation-wish-list__title{
+    font-size: 1.525rem;
+    font-weight: 600;
+}
+
+// contents
+.user-reservation-wish-list__contents{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap:30px;
+    grid-auto-rows: 1fr;
+}
+.user-reservation-wish-list__item{
+    position: relative;
+    aspect-ratio: 1/1;
+    display: flex;
+    gap:10px;
+    flex-direction: column;
+
+    cursor: pointer;
+
+    & > span{
+        font-size: 1.125rem;
+        font-weight: 600;
+        flex-grow: 1;
+        display: flex;
+        align-items: center;
+        padding-left: 5px;
+        border-radius: 10px;
+    }
+
+    &:hover > span {
+        box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    }
+    &:hover > button {
+        opacity: 1;
+    }
+}
+.user-reservation-wish-list__item-img-wrapper{
+    width: 100%;
+    height: 85%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+.user-reservation-wish-list__item-button{
+    position: absolute;
+    border: none;
+    outline: none;
+    background-color: white;
+    z-index: 2;
+    border-radius: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    left: 5px;
+    top:5px;
+    cursor: pointer;
+    opacity: 0;
+    box-shadow: 0 8px 28px rgba(0,0,0,0.28);
+    transition : 0.2s;
+
+    & > img{
+        width: 18px;
+        height: 18px;
+    }
+
+    &:hover{
+        transform : rotateZ(90deg);
+    }
+}
