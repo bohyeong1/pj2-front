@@ -73,12 +73,12 @@ function UserReservationDetailMessage(){
                     <span>{data.message.reservation_title}</span>
                 </div>
                 <div className='user-reservation-detail-message__header-part3'>
-                    <div className='user-reservation-detail-message__header-profile'>
+                    <div className='user-reservation-detail-message__header-profile box-shadow-lv2'>
                         <UserProfileImg
                             url = {user_data.profileImg}
                             user_data = {user_data}/>
                     </div>
-                    <div className='user-reservation-detail-message__header-profile'>
+                    <div className='user-reservation-detail-message__header-profile box-shadow-lv2'>
                         <UserProfileImg
                             url = {data.message.other_profile.profileImg}
                             user_data = {data.message.other_profile}/>

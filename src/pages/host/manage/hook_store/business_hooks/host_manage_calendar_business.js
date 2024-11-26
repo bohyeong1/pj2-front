@@ -5,8 +5,24 @@ import { useEffect } from "react";
 import { connect_data_width_cookies } from "@/util/function/util_function";
 import default_data from "@/util/default_data/default_data";
 import _ from 'lodash'
+import { useGetHostReservationList } from "@/util/apis/host/host_manage";
+import { 
+    useUpdateUserMinReservationDate,
+    useUpdateUserMaxReservationDate,
+    useUpdateUserPossibleDate,
+    useUpdateUserReservationDeadlineDate,
+    useUpdateUserBeforeDate,
+    useUpdateUserImpossibleReservation
+} from "@/util/apis/user/user_reservation";
 
-function useHostManageCalendarBusiness(data, states, refs, props){
+function useHostManageCalendarBusiness(cons, states, refs, props){
+
+    // =================================================
+    // const //
+    const {
+        user_data,
+        setUser_data
+    } = cons
 
     // =================================================
     // states //
@@ -26,6 +42,19 @@ function useHostManageCalendarBusiness(data, states, refs, props){
         host_data,
         setHost_data
     } = states
+
+    // =================================================
+    // react query //
+    const {data, isLoading, error} = useGetHostReservationList(user_data._id, user_data)
+
+    // =================================================
+    // mutation //
+    const min_reservation_date_mutation = useUpdateUserMinReservationDate()
+    const max_reservation_date_mutation = useUpdateUserMaxReservationDate()
+    const possible_date_mutation = useUpdateUserPossibleDate()
+    const reservation_deadline_date_mutation = useUpdateUserReservationDeadlineDate()
+    const before_date_mutation = useUpdateUserBeforeDate()
+    const impossible_reservation_mutation = useUpdateUserImpossibleReservation()   
 
     // =================================================
     // validation schema //
@@ -64,6 +93,14 @@ function useHostManageCalendarBusiness(data, states, refs, props){
     },[host_data, reset])
 
     // =================================================
+    // data synchronization //
+    useEffect(()=>{
+        if(user_data){
+            setHost_data(user_data.host_text)
+        }
+    },[user_data])
+
+    // =================================================
     // 배열이 같은 지 검사 //
     function is_array_same(pre, cur){
         if(!pre.length){
@@ -83,123 +120,69 @@ function useHostManageCalendarBusiness(data, states, refs, props){
     // =================================================
     // 최소 숙박 일수 api 요청 //
     async function fetch_min_reservation_date(min, max){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/min-reservation-date`, 'PUT', 
+        min_reservation_date_mutation.mutate(
             {
                 min_reservation_date : min,
                 max_reservation_date : max
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     // =================================================
     // 최대 숙박 일수 api 요청 //
     async function fetch_max_reservation_date(min, max){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/max-reservation-date`, 'PUT', 
+        max_reservation_date_mutation.mutate(
             {
                 min_reservation_date : min,
                 max_reservation_date : max
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     // =================================================
     // 예약 가능 기간 api 요청 //
     async function fetch_possible_date(data){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/possible-date`, 'PUT', 
+        possible_date_mutation.mutate(
             {
                 possible_date : data
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     // =================================================
     // 예약 마감 시한 api 요청 //
     async function fetch_reservation_deadline_date(data){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/reservation-deadline`, 'PUT', 
+        reservation_deadline_date_mutation.mutate(
             {
                 reservation_deadline : data
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     // =================================================
     // 준비 기간 api 요청 //
     async function fetch_before_date(data){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/before-date`, 'PUT', 
+        before_date_mutation.mutate(
             {
                 before_date : data
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     // =================================================
     // 예약 가능일 api 요청 //
     async function fetch_impossible_reservation(data){
-        setLoading(false)
-
-        const host_response = await connect_data_width_cookies(`${default_data.d_base_url}/api/users/impossible-reservation`, 'PUT', 
+        impossible_reservation_mutation.mutate(
             {
                 impossible_reservation : data
-            })
-
-        if(host_response && host_response.host_state && host_response.server_state){
-            setHost_data(host_response.host)
-        }        
-        else{
-            // error page redirection
-        }
+            }
+        )
         setModal_state(null)
-        setLoading(true)
     }
 
     return {
@@ -212,7 +195,16 @@ function useHostManageCalendarBusiness(data, states, refs, props){
         fetch_reservation_deadline_date,
         fetch_before_date,
         fetch_impossible_reservation,
-        is_array_same
+        is_array_same,
+        data, 
+        isLoading, 
+        error,
+        min_reservation_date_mutation,
+        max_reservation_date_mutation,
+        possible_date_mutation,
+        reservation_deadline_date_mutation,
+        before_date_mutation,
+        impossible_reservation_mutation
     }
 }
 

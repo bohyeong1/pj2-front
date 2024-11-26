@@ -7,7 +7,7 @@ import checkin_icon from '@/assets/icon/checkin-icon.png'
 import checkout_icon from '@/assets/icon/checkout-icon.png'
 import human_icon from '@/assets/icon/human-icon.png'
 
-function DetailSection1({data, user, evaluations}){
+function DetailSection1({data, user, evaluations, host}){
 
     // =================================================
     // hooks //
@@ -47,12 +47,12 @@ function DetailSection1({data, user, evaluations}){
                 </div>
                 {/* 섹션 2 */}
                 <div className="detail-section1__section2">
-                    <span>숙소 메뉴얼</span>
+                    <span>예약 메뉴얼</span>
                     <div>
-                       { data.manual &&
-                        <button onClick={()=>{modal_toggle('detail-section1-manual')}}>자세히 보기</button>}
                         <pre>
-                            {data.manual ? data.manual : '호스트가 설정한 메뉴얼이 없습니다.'}
+                            {host.reservation_rule ? 
+                            '호스트가 자동예약 서비스를 등록한 상품입니다. 예약신청과 동시에 예약이 확정됩니다.' : 
+                            `호스트가 48시간 이내 예약 요청을 수락하기 전까지는 예약이 아직 확정된 것이 아닙니다. 예약 확정 전까지는 요금이 청구되지 않습니다.`}
                         </pre>
                     </div>
                 </div>
@@ -259,18 +259,6 @@ function DetailSection1({data, user, evaluations}){
                                 <span>호스트가 체크아웃 방법을 설정하지 않았습니다. 추후 메세지를 통해 정보를 요청하세요.</span>}
                             </div>
                         </div>
-                    </div>
-                </AlertModal>
-
-                {/* manual modal */}
-                <AlertModal
-                    key_name = {'detail-section1-manual'}
-                    title = {'숙소 메뉴얼'}
-                    modal_toggle = {modal_toggle}>
-                    <div className='detail-section1__manual-modal-container'>
-                        <p>
-                            {data.manual ? data.manual : ''}
-                        </p>
                     </div>
                 </AlertModal>
             </div>

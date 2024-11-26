@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import useMainSection5Business from '../../hook_store/business_hooks/main_section5_business';
 import useMainSection5Style from '../../hook_store/style_hooks/main_section5_style';
 import { useState } from 'react';
+import PartLoading from '@/utilComponent/material/part_loading/part_loding'
 
 function MainSection5({title}){
 
@@ -21,34 +22,39 @@ function MainSection5({title}){
     // =================================================
     // hooks //
     // style
-    const {RbtnState, LbtnState, swiper_ref, moveRSlide,
-           moveLslide, swiper_change, toggle_btn} = useMainSection5Style()
+    const {
+        RbtnState, 
+        LbtnState, 
+        swiper_ref, 
+        moveRSlide,
+        moveLslide, 
+        swiper_change, 
+        toggle_btn
+    } = useMainSection5Style()
     // business
-    const {main_click} = useMainSection5Business({
-                                'toggle_btn' : toggle_btn
-                            },
-                            state_store([
-                                {
-                                    'data_store' : data_store,
-                                    'setData_store' : setData_store
-                                },
-                                {
-                                    'toggle' : toggle,
-                                    'setToggle' : setToggle
-                                }
-                            ])
-                         )
+    const {
+        main_click,
+        main_category_query
+    } = useMainSection5Business(
+        {
+            toggle_btn
+        },
+        state_store([
+            {data_store, setData_store},
+            {toggle, setToggle}
+        ])
+    )
 
     return(
-        <div className="main-section5__container">
-            <div className="main-section5__title-container">
-                <p className="main-section5__title">
+        <div className = "main-section5__container">
+            <div className = "main-section5__title-container">
+                <p className = "main-section5__title">
                     {title}
                 </p>
                 <div className="main-section5__selection">                  
-                    <MainBtn keyword={'d_category_icon'} 
-                             total={true} 
-                             drop_function={main_click} 
+                    <MainBtn keyword = {'d_category_icon'} 
+                             total = {true} 
+                             drop_function = {main_click} 
                              toggle = {toggle}/>
                 </div>
             </div>
@@ -67,7 +73,7 @@ function MainSection5({title}){
                             slidesPerView={4} 
                             onSwiper={(target)=>{swiper_ref.current=target}} 
                             onSlideChange={swiper_change}>
-                        {data_store ? data_store.map((el,id)=>{  
+                        {main_category_query.data && main_category_query.data.accomodations.map((el,id)=>{  
                             return(
                                 <SwiperSlide key={id}>
                                     <NavLink to={`/detail/${el._id}`} 
@@ -101,7 +107,7 @@ function MainSection5({title}){
                                     </NavLink>
                                 </SwiperSlide>
                             )                              
-                        }) : null}
+                        })}
                     </Swiper>                    
                 </div>
             </div>           

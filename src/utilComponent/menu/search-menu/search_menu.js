@@ -6,7 +6,7 @@ import { useSelector } from "react-redux"
 import useMenuSearchBusiness from '../hook-store/business-hooks/menu_search_business';
 import useMenuSearchStyle from '../hook-store/style-hooks/menu_search_style';
 import { state_store } from "@/util/function/util_function";
-import Calendar from '../../material/calendar/calendar';
+import CommonCalendar from '../../material/common_calendar/common_calendar';
 import '@/manage_scss_style/commonness/commonness.scss'
 import marker_icon from '@/assets/icon/marker-icon.png'
 import capacity_icon from '@/assets/icon/capacity-icon.png'
@@ -189,8 +189,7 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
                             onClick={close_modal}>
                             닫기
                         </button>
-                        <Calendar
-                            container_width = {'600px'}
+                        <CommonCalendar
                             set_checkout_handler = {click_check_out}
                             set_checkin_handler = {click_check_in}
                             checkin_date={checkin_data ? new Date(checkin_data) : null}

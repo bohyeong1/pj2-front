@@ -24,7 +24,6 @@ function Detail(){
     // states //
     const [sellect_data, setSellect_data] = useState() ///숙소, User, 평가 data
     const [sub_img, setSub_img] = useState(null)
-    const [loading , setLoading] = useState(true)   
 
     // =================================================
     // context states //
@@ -37,7 +36,8 @@ function Detail(){
         house_param,
         data, 
         isLoading, 
-        isError
+        isError,
+        common_detail_query
     } = useDetailDetailAppBusiness(
         {
             user_data,
@@ -45,62 +45,72 @@ function Detail(){
         },
         state_store([
             {sellect_data, setSellect_data},
-            {sub_img, setSub_img},
-            {loading, setLoading}
+            {sub_img, setSub_img}
         ])
     )
     // style
     const {img_modal_toggle} = useDetailDetailAppStyle()
 
-    return(
-        loading ? <Loading></Loading> : 
-        <>
-        <DetailDetailLayout>
-            <DetailFixMenu 
-                data = {sellect_data?.accomodation}
-                evaluations = {sellect_data?.evaluations[0]}
-                role = {'fix_menu'}/>
-            <DetailHeader 
-                data = {sellect_data?.accomodation}
-                user = {user_data}
-                wishlist = {data}
-                role = {'header'}/>
-            <DetailImgDisplay 
-                data = {sellect_data?.accomodation}
-                click_handler = {img_modal_toggle}
-                role = {'img_display'}/>
-            <DetailSection1 
-                data = {sellect_data?.accomodation} 
-                user = {sellect_data?.seller} 
-                evaluations = {sellect_data?.evaluations[0]}
-                role = {'summary'}/>
-            <Section1Payment 
-                data = {sellect_data?.accomodation} 
-                host = {sellect_data?.seller.host_text}
-                params = {house_param}
-                role = {'payment'}/>                                    
-            <DetailSection2 
-                data = {sellect_data?.accomodation}
-                role = {'map'}/>  
-            <DetailSection3 
-                evaluations = {sellect_data?.evaluations[0]} 
-                role = {'evaluation'}/>                            
-            <DetailSection4 
-                evaluations = {sellect_data?.evaluations[0]}
-                role = {'reply'}/>                    
-            <DetailSection5 
-                seller = {sellect_data?.seller} 
-                role = {'host_information'}/>
-            <DetailSection6 
-                data = {sellect_data?.accomodation}
-                role = {'rule'}/>                   
-        </DetailDetailLayout>
-        <Img_dis_modal 
-            data = {sellect_data?.accomodation} 
-            imgs = {sellect_data ? [sellect_data.accomodation.main_img, ...sellect_data.accomodation.sub_img] : null} 
-            img_modal_toggle = {img_modal_toggle}/>
-        </>
-    )
+    if(
+        isLoading ||
+        common_detail_query.isLoading
+    ){
+        <Loading/>
+    }
+
+    if(sellect_data && sub_img){
+        return(
+            <>
+            <DetailDetailLayout>
+                <DetailFixMenu 
+                    data = {sellect_data.accomodation}
+                    evaluations = {sellect_data?.evaluations[0]}
+                    role = {'fix_menu'}/>
+                <DetailHeader 
+                    data = {sellect_data.accomodation}
+                    user = {user_data}
+                    wishlist = {data}
+                    role = {'header'}/>
+                <DetailImgDisplay 
+                    data = {sellect_data.accomodation}
+                    click_handler = {img_modal_toggle}
+                    role = {'img_display'}/>
+                <DetailSection1 
+                    data = {sellect_data.accomodation} 
+                    host = {sellect_data.seller.host_text}
+                    user = {sellect_data.seller} 
+                    evaluations = {sellect_data?.evaluations[0]}
+                    role = {'summary'}/>
+                <Section1Payment 
+                    data = {sellect_data.accomodation} 
+                    host = {sellect_data.seller.host_text}
+                    reservation = {sellect_data.reservation}
+                    params = {house_param}
+                    role = {'payment'}/>                                    
+                <DetailSection2 
+                    data = {sellect_data.accomodation}
+                    role = {'map'}/>  
+                <DetailSection3 
+                    evaluations = {sellect_data.evaluations[0]} 
+                    role = {'evaluation'}/>                            
+                <DetailSection4 
+                    evaluations = {sellect_data.evaluations[0]}
+                    role = {'reply'}/>                    
+                <DetailSection5 
+                    seller = {sellect_data.seller} 
+                    role = {'host_information'}/>
+                <DetailSection6 
+                    data = {sellect_data.accomodation}
+                    role = {'rule'}/>                   
+            </DetailDetailLayout>
+            <Img_dis_modal 
+                data = {sellect_data.accomodation} 
+                imgs = {sellect_data ? [sellect_data.accomodation.main_img, ...sellect_data.accomodation.sub_img] : null} 
+                img_modal_toggle = {img_modal_toggle}/>
+            </>
+        )
+    }
+
 }
 
 export default Detail 

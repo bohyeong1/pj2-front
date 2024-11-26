@@ -222,16 +222,29 @@
 }
 .section1-payment__calendar-modal-footer{
     display: flex;
+    justify-content: space-between;
+}
+.section1-payment__calendar-modal-footer-button-wrapper{
+    display: flex;
     justify-content: flex-end;
     gap:15px;
 }
-.section1-payment__calendar-modal-footer > button{
+.section1-payment__calendar-modal-footer-button-wrapper > button{
     display: flex;
     justify-content: center;
     align-items: center;
     width: fit-content;
     font-size: 0.935rem;
     padding: 5px 15px;
+}
+.section1-payment__calendar-modal-footer-error-wrapper{
+    display: flex;
+    align-items: flex-end;
+
+    & > span{
+        color: $red-lv2;
+        font-size: 0.875rem;
+    }
 }
 
 // capacity modal

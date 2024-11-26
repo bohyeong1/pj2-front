@@ -14,12 +14,6 @@ export {default as Email_prove} from './membership/email_prove_app/email_prove'
 export {default as Profile} from './membership/profile_app/profile'
 export {default as Agree} from './membership/agree_app/agree'
 export {default as Join_complete} from './membership/join_complete_app/join_complete'
-// =================================================
-// 회원정보 관리 //
-export {default as Private_history} from './Privacy/private-history/Private-history'
-export {default as Private_management} from './Privacy/private-management/Private-management'
-export {default as Private_point} from './Privacy/private-point/Private-point'
-export {default as Private_wish} from './Privacy/private-wish/Private-wish'
 
 // =================================================
 // user //
@@ -32,11 +26,11 @@ export {default as Detail} from './detail/detail/app/detail'
 
 // =================================================
 // host //
-export {default as HostRegistView0} from './acc_regist/regist/views/host_regist_view0/host_regist_view0'
-export {default as AccRegist} from './acc_regist/regist/app/regist'
-export {default as AccUpdate} from './acc_regist/update/app/update'
-export {default as AccManage} from './acc_regist/manage/app/manage'
-export {default as AccMyPage} from './acc_regist/mypage/app/mypage'
+export {default as HostRegistView0} from './host/regist/views/host_regist_view0/host_regist_view0'
+export {default as AccRegist} from './host/regist/app/regist'
+export {default as AccUpdate} from './host/update/app/update'
+export {default as AccManage} from './host/manage/app/manage'
+export {default as AccMyPage} from './host/mypage/app/mypage'
 
 // =================================================
 // reservation //

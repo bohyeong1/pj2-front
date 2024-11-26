@@ -52,7 +52,7 @@ function MainMainLayout({login_user = null, children}){
                     {children_object.introduce}
                 </section>
                 {/* 공간 유형 별 숙소 */}
-                <section>
+                <section className="main-main-layout__section-space-category">
                     {children_object.space}
                 </section>
                 {/* 강조할 category 숙소 */}

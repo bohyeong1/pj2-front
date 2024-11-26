@@ -1,7 +1,7 @@
 import gsap from "gsap"
 import ScrollToPlugin from "gsap/ScrollToPlugin"
 import _ from "lodash"
-
+import { useNavigate } from "react-router-dom"
 
 function useHostManageCalendarStyle(data, states, refs, props){
 
@@ -21,6 +21,10 @@ function useHostManageCalendarStyle(data, states, refs, props){
         error_state,
         setError_state
     } = states
+
+    // =================================================
+    // navigate //
+    const navigate = useNavigate()
 
     // =================================================
     // click box //
@@ -93,12 +97,17 @@ function useHostManageCalendarStyle(data, states, refs, props){
         })
     }
 
+    function click_mypage_link(){
+        navigate('/host/mypage/information')
+    }
+
     return {
         click_box,
         imppssible_date_select_click,
         reservation_deadline_select_click,
         before_date_select_click,
-        impossible_reservation_select_click
+        impossible_reservation_select_click,
+        click_mypage_link
     }
 }
 

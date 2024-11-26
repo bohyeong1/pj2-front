@@ -1,7 +1,7 @@
 import gsap from "gsap"
 import { startOfDay, isBefore, isWithinInterval, isAfter, differenceInDays} from "date-fns";
 
-function useMaterialCalendarStyle(cons, states, refs, props){
+function useMaterialCommonCalendarStyle(cons, states, refs, props){
 
     // =================================================
     // states //
@@ -28,10 +28,7 @@ function useMaterialCalendarStyle(cons, states, refs, props){
         set_checkout_handler,
         set_checkin_handler,
         checkin_date,
-        checkout_date,
-        calendar_error_handler,
-        min_date,
-        max_date
+        checkout_date
         } = props
 
     // =================================================
@@ -108,13 +105,7 @@ function useMaterialCalendarStyle(cons, states, refs, props){
             set_checkin_handler(click_date)
         }
         else if(checkin_date && !checkout_date && isAfter(startOfDay(click_date), checkin_date)){
-            if(differenceInDays(click_date, checkin_date) + 1 >= min_date && differenceInDays(click_date, checkin_date) + 1 <= max_date){
-                set_checkout_handler(click_date)
-                calendar_error_handler(null)
-            }
-            else{
-                calendar_error_handler(`해당 숙소는 ${min_date}일 이상 ${max_date}일 이하 예약 가능 상품 입니다.`)
-            }
+            set_checkout_handler(click_date)
         }
         else if(checkin_date && isBefore(startOfDay(click_date), checkin_date) && !checkout_date){
             set_checkin_handler(click_date)
@@ -139,4 +130,4 @@ function useMaterialCalendarStyle(cons, states, refs, props){
             click_date,                
             date_range_style}
 }
-export default useMaterialCalendarStyle
+export default useMaterialCommonCalendarStyle

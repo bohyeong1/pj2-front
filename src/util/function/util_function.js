@@ -9,17 +9,33 @@ import { debounce } from "lodash"
 // =================================================
 // 데이터 fetch common 페이지에서 사용 //
 async function connect_data(url, method, data = null, token = null){
-    const data_json = await fetch(url,{
-        headers:{
-            'Content-Type':'application/json',
-            'Authorization': `${token? 'Bearer ' + token : ''}`, 
-        },
-        method: method,
-        body: data? JSON.stringify(data) : undefined 
-    })
+    try{
+        const response = await fetch(url,{
+            headers:{
+                'Content-Type':'application/json',
+                'Authorization': `${token? 'Bearer ' + token : ''}`, 
+            },
+            method: method,
+            body: data? JSON.stringify(data) : undefined 
+        })
 
-    const result = await data_json.json()
-    return result
+        if(!response.ok){
+            const error_result = await response.json()
+            throw error_result
+        }
+
+        const result = await response.json()
+        return result
+    }
+    catch(e){
+        if(typeof e === 'string'){
+            throw new Error(e)
+        }
+        else{
+            throw e
+        }
+    }
+
 }
 export default connect_data
 

@@ -65,7 +65,7 @@ function UserProfileMain(){
     if(isLoading){
         return <Loading/>
     }
-
+    console.log(main_view)
     return (
         <div className="user-profile-main__container">
             <span className="user-profile-main__title">{user_data.nickname ? user_data.nickname : user_data.name} 님 소개</span>
@@ -88,7 +88,7 @@ function UserProfileMain(){
                         <div>
                             <span>후기</span>
                             <div>
-                                <span>{data.user_evaluations.evaluations_counts}개</span>
+                                <span>{data.user_evaluations ? data.user_evaluations.evaluations_counts : 0}개</span>
                             </div>
                         </div>
                         <div>
@@ -125,7 +125,7 @@ function UserProfileMain(){
             </div>
 
             {/* evaluations list */}
-            {main_view && main_view.user_evaluations.evaluations.length &&
+            {main_view && main_view.user_evaluations && main_view.user_evaluations.evaluations.length &&
             <div className="user-profile-main__evaluations-list">
                 <span className="user-profile-main__evaluations-list-title"><span>{user_data.nickname ? user_data.nickname : user_data.name}</span> 님이 작성한 리뷰</span>
                 <div className="user-profile-main__evaluations-list-button-wrapper">

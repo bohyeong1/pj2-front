@@ -5,26 +5,26 @@ import Loading from "@/utilComponent/material/loading/loading";
 // =================================================
 // accomodation update component //
 const host_update_accomodation_routes = {
-    route1 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view1/host_update_accomodation_view1')),
-    route2 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view2/host_update_accomodation_view2')),
-    route3 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view3/host_update_accomodation_view3')),
-    route4 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view4/host_update_accomodation_view4')),
-    route5 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view5/host_update_accomodation_view5')),
-    route6 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view6/host_update_accomodation_view6')),
-    route7 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view7/host_update_accomodation_view7')),
-    route8 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view8/host_update_accomodation_view8')),
-    route9 : React.lazy(() => import('@/pages/acc_regist/update/views/accomodation/host_update_accomodation_view9/host_update_accomodation_view9')),
+    route1 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view1/host_update_accomodation_view1')),
+    route2 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view2/host_update_accomodation_view2')),
+    route3 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view3/host_update_accomodation_view3')),
+    route4 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view4/host_update_accomodation_view4')),
+    route5 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view5/host_update_accomodation_view5')),
+    route6 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view6/host_update_accomodation_view6')),
+    route7 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view7/host_update_accomodation_view7')),
+    route8 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view8/host_update_accomodation_view8')),
+    route9 : React.lazy(() => import('@/pages/host/update/views/accomodation/host_update_accomodation_view9/host_update_accomodation_view9')),
 }
 
 // =================================================
 // check in out update component //
 const host_update_check_routes = {
-    route1 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view1/host_update_check_view1')),
-    route2 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view2/host_update_check_view2')),
-    route3 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view3/host_update_check_view3')),
-    route4 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view4/host_update_check_view4')),
-    route5 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view5/host_update_check_view5')),
-    route6 : React.lazy(() => import('@/pages/acc_regist/update/views/check/host_update_check_view6/host_update_check_view6'))
+    route1 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view1/host_update_check_view1')),
+    route2 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view2/host_update_check_view2')),
+    route3 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view3/host_update_check_view3')),
+    route4 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view4/host_update_check_view4')),
+    route5 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view5/host_update_check_view5')),
+    route6 : React.lazy(() => import('@/pages/host/update/views/check/host_update_check_view6/host_update_check_view6'))
 }
 
 function set_host_update_routes(keyword){

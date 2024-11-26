@@ -5,11 +5,11 @@ import Loading from "@/utilComponent/material/loading/loading";
 // =================================================
 // host manage component //
 const host_manage_routes = {
-    route1 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_calendar/host_manage_calendar')),
-    route2 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_initial_regist_step1/host_manage_initial_regist_step1')),
-    route3 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_initial_regist_step2/host_manage_initial_regist_step2')),
-    route4 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_main/host_manage_main')),
-    route5 : React.lazy(() => import('@/pages/acc_regist/manage/views/host_manage_list/host_manage_list'))
+    route1 : React.lazy(() => import('@/pages/host/manage/views/host_manage_calendar/host_manage_calendar')),
+    route2 : React.lazy(() => import('@/pages/host/manage/views/host_manage_initial_regist_step1/host_manage_initial_regist_step1')),
+    route3 : React.lazy(() => import('@/pages/host/manage/views/host_manage_initial_regist_step2/host_manage_initial_regist_step2')),
+    route4 : React.lazy(() => import('@/pages/host/manage/views/host_manage_main/host_manage_main')),
+    route5 : React.lazy(() => import('@/pages/host/manage/views/host_manage_list/host_manage_list'))
 }
 
 function set_host_manage_routes(){
@@ -18,7 +18,7 @@ function set_host_manage_routes(){
             <Route 
                 exact path="calendar" 
                 element={
-                    <Suspense fallback={<Loading part = {true}/>}>
+                    <Suspense fallback={<Loading/>}>
                         <host_manage_routes.route1/>
                     </Suspense>}>
             </Route>
@@ -26,7 +26,7 @@ function set_host_manage_routes(){
             <Route 
                 exact path="regist-1" 
                 element={
-                    <Suspense fallback={<Loading part = {true}/>}>
+                    <Suspense fallback={<Loading/>}>
                         <host_manage_routes.route2/>
                     </Suspense>}>
             </Route>
@@ -34,7 +34,7 @@ function set_host_manage_routes(){
             <Route 
                 exact path="regist-2" 
                 element={
-                    <Suspense fallback={<Loading part = {true}/>}>
+                    <Suspense fallback={<Loading/>}>
                         <host_manage_routes.route3/>
                     </Suspense>}>
             </Route>
@@ -42,7 +42,7 @@ function set_host_manage_routes(){
             <Route 
                 exact path="main" 
                 element={
-                    <Suspense fallback={<Loading part = {true}/>}>
+                    <Suspense fallback={<Loading/>}>
                         <host_manage_routes.route4/>
                     </Suspense>}>
             </Route>
@@ -50,7 +50,7 @@ function set_host_manage_routes(){
             <Route 
                 exact path="list" 
                 element={
-                    <Suspense fallback={<Loading part = {true}/>}>
+                    <Suspense fallback={<Loading/>}>
                         <host_manage_routes.route5/>
                     </Suspense>}>
             </Route>

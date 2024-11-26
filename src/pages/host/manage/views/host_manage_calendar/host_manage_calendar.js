@@ -41,8 +41,21 @@ function HostManageCalendar(){
         fetch_reservation_deadline_date,
         fetch_before_date,
         fetch_impossible_reservation,
-        is_array_same
-    } = useHostManageCalendarBusiness(undefined,
+        is_array_same,
+        data, 
+        isLoading, 
+        error,
+        min_reservation_date_mutation,
+        max_reservation_date_mutation,
+        possible_date_mutation,
+        reservation_deadline_date_mutation,
+        before_date_mutation,
+        impossible_reservation_mutation
+    } = useHostManageCalendarBusiness(
+        {
+            user_data,
+            setUser_data
+        },
         state_store([
             {modal_state, setModal_state},
             {possible_date_state, setPossible_date_state},
@@ -59,7 +72,8 @@ function HostManageCalendar(){
         imppssible_date_select_click,
         reservation_deadline_select_click,
         before_date_select_click,
-        impossible_reservation_select_click
+        impossible_reservation_select_click,
+        click_mypage_link
     } = useHostManageCalendarStyle(undefined,
         state_store([
             {modal_state, setModal_state},
@@ -71,21 +85,35 @@ function HostManageCalendar(){
         ])
     )
 
+    if(
+        isLoading ||
+        min_reservation_date_mutation.isPending ||
+        max_reservation_date_mutation.isPending ||
+        possible_date_mutation.isPending ||
+        reservation_deadline_date_mutation.isPending ||
+        before_date_mutation.isPending ||
+        impossible_reservation_mutation.isPending
+    ){
+        return <Loading/>
+    }
+
+    if(error){
+        // redirection error page 
+    }
+
     return (
         loading === false ? <Loading part={true}></Loading> :
         <div className="host-manage-calendar__container">
             <div className='host-manage-calendar__calendar-wrapper common-scroll-bar'>
                 <div className='host-manage-calendar__calendar'>
                     <Calendar
-                        // set_checkin_handler = {setCheckin_date} 
-                        // set_checkout_handler = {setCheckout_date}
-                        // checkin_date = {checkin_date}
-                        // checkout_date = {checkout_date}
+                        reservation = {data.reservation}
                         possible_date = {host_data.possible_date.data}
                         impossible_reservation = {host_data.impossible_reservation}
                         reservation_deadline = {host_data.reservation_deadline.data}
                         header_font = {'1.325rem'}
                         double = {false}
+                        pointer_event = {false}
                         container_width = {'200%'}/>
                 </div>
             </div>
@@ -361,7 +389,9 @@ function HostManageCalendar(){
                             <div className='host-manage-calendar__navigate-to-mypage-text'>
                                 <span>환불 규정 및 자동, 수동 예약을 설정하시기<br/> 위해서 이곳으로 이동해 주세요!</span>
                             </div>
-                            <button className='host-manage-calendar__navigate-to-mypage-button'>이동하기</button>
+                            <button 
+                                className='host-manage-calendar__navigate-to-mypage-button'
+                                onClick={click_mypage_link}>이동하기</button>
                         </div>
                     </div>
                 </div>

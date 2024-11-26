@@ -6,7 +6,7 @@ import useDetailSection1PaymentStyle from "../../../hook_store/style_hooks/detai
 import default_data from "@/util/default_data/default_data";
 import useDetailSection1PaymentBusiness from "../../../hook_store/business_hooks/detail_section1_payment_business";
 
-function Section1Payment({data, params, host}){
+function Section1Payment({data, params, host, reservation}){
 
     // =================================================
     // const //
@@ -18,6 +18,7 @@ function Section1Payment({data, params, host}){
     // states //
     const [checkin_date, setCheckin_date] = useState(null)
     const [checkout_date, setCheckout_date] = useState()
+    const [calendar_error, setCalendar_error] = useState(null)
     const [pay_day, setPay_day] = useState(null)
     const [capacity, setCapacity] = useState(1)
     const [animal, setAnimal] = useState(0)
@@ -214,18 +215,28 @@ function Section1Payment({data, params, host}){
                             checkin_date = {checkin_date}
                             checkout_date = {checkout_date}
                             container_width = {'100%'}
+                            reservation = {reservation}
                             possible_date = {host.possible_date.data}
                             impossible_reservation = {host.impossible_reservation}
-                            reservation_deadline = {host.reservation_deadline.data}/>
+                            reservation_deadline = {host.reservation_deadline.data}
+                            min_date = {host.min_reservation_date}
+                            max_date = {host.max_reservation_date}
+                            calendar_error_handler = {setCalendar_error}/>
                         <div className="section1-payment__calendar-modal-footer">
-                            <button className = 'small-button'
-                                    onClick={delete_calendar}>
-                                날짜 지우기
-                            </button>
-                            <button  className = {`small-button`}
-                                     onClick={confirm_calendar}>
-                                닫기
-                            </button>
+                            <div className="section1-payment__calendar-modal-footer-error-wrapper">
+                                {calendar_error && 
+                                <span>{calendar_error}</span>}
+                            </div>
+                            <div className="section1-payment__calendar-modal-footer-button-wrapper">
+                                <button className = 'small-button'
+                                        onClick={delete_calendar}>
+                                    날짜 지우기
+                                </button>
+                                <button  className = {`small-button`}
+                                        onClick={confirm_calendar}>
+                                    닫기
+                                </button>
+                            </div>                            
                         </div>
                     </div>}
                 </div>

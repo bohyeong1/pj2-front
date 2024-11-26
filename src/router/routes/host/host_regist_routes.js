@@ -5,19 +5,19 @@ import Loading from "@/utilComponent/material/loading/loading";
 // =================================================
 // accomodation regist component //
 const accomodation_regist_routes = {
-    route1 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view0/host_regist_view0')),
-    route2 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view1/host_regist_view1')),
-    route3 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view2/host_regist_view2')),
-    route4 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view3/host_regist_view3')),
-    route5 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view4/host_regist_view4')),
-    route6 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view5/host_regist_view5')),
-    route7 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view6/host_regist_view6')),
-    route8 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view7/host_regist_view7')),
-    route9 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view8/host_regist_view8')),
-    route10 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view9/host_regist_view9')),
-    route11 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view10/host_regist_view10')),
-    route12 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view11/host_regist_view11')),
-    route13 : React.lazy(() => import('@/pages/acc_regist/regist/views/host_regist_view12/host_regist_view12'))
+    route1 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view0/host_regist_view0')),
+    route2 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view1/host_regist_view1')),
+    route3 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view2/host_regist_view2')),
+    route4 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view3/host_regist_view3')),
+    route5 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view4/host_regist_view4')),
+    route6 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view5/host_regist_view5')),
+    route7 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view6/host_regist_view6')),
+    route8 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view7/host_regist_view7')),
+    route9 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view8/host_regist_view8')),
+    route10 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view9/host_regist_view9')),
+    route11 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view10/host_regist_view10')),
+    route12 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view11/host_regist_view11')),
+    route13 : React.lazy(() => import('@/pages/host/regist/views/host_regist_view12/host_regist_view12'))
 }
 
 function set_host_regist_routes(){

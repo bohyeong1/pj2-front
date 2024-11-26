@@ -19,8 +19,6 @@ import {
     AccMyPage,
     AccRegist,
 
-    // private page //
-    Private_history,Private_management, Private_point, Private_wish,
     // reservation page //
     Reservation,
     ReservationDetail,
@@ -39,7 +37,7 @@ import set_user_profile_routes from './router/routes/user/user_profile_routes';
 // custom router //
 import Private_router from './router/custom_router/private_router';
 import HostRegistCheckRouter from './router/custom_router/host_regist_check_router';
-import LogCheckRouter from './router/custom_router/log_check_router';
+import HostAuthRouter from './router/custom_router/host_auth_router';
 import GetAccUserRouter from './router/custom_router/get_acc_user_router';
 import HostLogCheckRouter from './router/custom_router/host_log_check_router';
 import UserAuthRouter from './router/custom_router/user_auth_router'
@@ -56,7 +54,11 @@ function FinalRoutes(){
             <Routes>            
                 {/* // ================================================================================================================================================================
                     // main // */}
-                <Route path='/' element={<Main/>}></Route>                                                                                
+                <Route path='/' element={
+                    <UserProvider>
+                        <UserOptimisticAuthRouter element={Main}/>
+                    </UserProvider>}>
+                </Route>                                                                                
                 
                 {/* // ================================================================================================================================================================
                     // user // */}
@@ -225,7 +227,7 @@ function FinalRoutes(){
                     path='/host'
                     element = {
                         <UserProvider>
-                            <HostLogCheckRouter
+                            <HostAuthRouter
                                 element={DefaultLayout}
                                 redirection_url={'manage/regist-1'}
                                 host={true}/>
@@ -244,7 +246,7 @@ function FinalRoutes(){
                     element = 
                         {
                             <UserProvider>
-                                <HostLogCheckRouter
+                                <HostAuthRouter
                                     element={DefaultLayout}
                                     redirection_url={'manage/regist-1'}
                                     host={true}/>
@@ -256,14 +258,7 @@ function FinalRoutes(){
                             {set_host_mypage_routes()}
                         </Route>
 
-                </Route>
-
-                {/* // =================================================
-                    // 마이 페이지 // */}
-                <Route path='/Private_history' element={<Private_history></Private_history>}></Route>                                                   {/*마이페이지 - 예약내역 리스트*/}
-                <Route path='/Private_management' element={<Private_management></Private_management>}></Route>                                          {/*마이페이지 - 정보수정*/}
-                <Route path='/Private_point' element={<Private_point></Private_point>}></Route>                                                         {/*마이페이지 - 포인트확인*/}
-                <Route path='/Private_wish' element={<Private_wish></Private_wish>}></Route>                                                            {/*위시리스트*/}        
+                </Route> 
 
                 {/* // =================================================
                     // 약관 페이지 // */}

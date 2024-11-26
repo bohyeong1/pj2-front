@@ -1,6 +1,5 @@
-import { useEffect } from 'react'
-import connect_data from "@/util/function/util_function";
-import default_data from "@/util/default_data/default_data";
+import { useUpdateCommonCategoryData } from '@/util/apis/common/common_main';
+import { useGetCommonMainData } from "@/util/apis/common/common_main";
 
 function useMainSection5Business(data, states, refs, props){
 
@@ -16,42 +15,32 @@ function useMainSection5Business(data, states, refs, props){
     const {toggle_btn} = data
 
     // =================================================
-    // 분류 버튼 클릭 //
-    function main_click(e){
-        setToggle({key:e.target.dataset.value})
-    }
+    // react query //   
+    const main_category_query = useGetCommonMainData('all', 12)
 
     // =================================================
-    // api 호출 //
-    useEffect(() => {
-        // fetch data
-        async function select_data(filter_category, toggle_key) {
-            let data
-            try{
-                data = await connect_data(`${default_data.d_base_url}/api/common`, 'POST', {
-                filter: filter_category,
-                counts: 12,
-                keyword: toggle_key || null,
-                })
-            }catch(e){
-                console.log(e)
-            }finally{
-                setData_store(data.accomodations)
-                const data_length = data.accomodations.length
-                toggle_btn(data_length)
-            }}
+    // mutation //   
+    const category_mutation = useUpdateCommonCategoryData()
 
-        // 초기 렌딩 & 전체 클릭
-        if (toggle.key === 'default') {
-            select_data('all')
-        } 
-        // 버튼 클릭
-        else {
-            select_data('category', toggle.key)
-        }
-    }, [toggle])
+    // =================================================
+    // 분류 버튼 클릭 //
+    function main_click(e){
+        const key_value = e.target.dataset.value
+        setToggle({key : key_value})
+        category_mutation.mutate(
+            {
+                filter : key_value === 'default' ? 'all' : 'category',
+                keyword : key_value === 'default' ? null : key_value
+            }
+        )
+        toggle_btn()
+    }
 
-    return {main_click}
+    return {
+        main_click,
+        main_category_query,
+        category_mutation
+    }
 }
 
 export default useMainSection5Business
