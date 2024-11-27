@@ -1,4 +1,3 @@
-import React from "react";
 import { NavLink } from "react-router-dom";
 import './SubList.css'
 import Pagination from "react-js-pagination";
@@ -14,14 +13,12 @@ function SubList({data, current_page, setCurrent_page, total_count, count_number
     // =================================================
     // hooks //
     // business
-
     const {sellectPageData} = useSubSubListBusiness(data,undefined, undefined,
         {
             'current_page':current_page,
             'setCurrent_page':setCurrent_page
         }
     )   
-
     // style
     const {modal_list_click, modal_list_hover,modal_list_out,map_state} = useSubSubListStyle()
 

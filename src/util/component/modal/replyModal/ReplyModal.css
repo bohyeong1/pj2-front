@@ -1,0 +1,37 @@
+.ReplyModal-container{
+    position: fixed;
+    top:50%; left:50%; transform: translate(-50%, -60%);
+    width: 500px;   height: 600px;    box-shadow: 0 0 10px 1px rgb(207, 207, 207) ; background: white;  border-radius: 15px;   z-index: 4;
+    display: flex;  flex-direction: column; gap:30px;   align-items: center;
+}
+.ReplyModal-wrapper{
+    width: 1920px;  height: 1080px; position: fixed;    top:0; left: 0; z-index: 3;    background: black; opacity: 0.4;
+}
+
+/* 헤더 */
+.ReplyModal-con-sec1{
+    display: flex;  justify-content: space-between; box-sizing: border-box; padding: 10px;  width: 100%; border-bottom: solid 1px rgb(210,210,210);
+}
+.ReplyModal-con-s1-b1{
+    height: 40px; width: 40px;  transition: 0.3s;   border-radius: 50%; display: flex;  justify-content: center;    align-items: center;
+}
+.ReplyModal-con-s1-b1 > img{
+    height: 70%;
+}
+.ReplyModal-con-s1-b1:hover{
+    background: rgb(220,220,220);
+}
+.ReplyModal-con-s1-b2{
+    display: flex;  align-items: center;    font-size: 1.2rem;
+}
+
+/* 섹션 2 */
+.ReplyModal-con-sec2{
+    width: 80%;    height: 80%;  position: relative; font-size: 1.1rem;  border-radius: 15px; 
+    border: none;   resize: none;
+    font-family: inherit;    font-size: 1.2rem; box-sizing: border-box; padding: 10px;
+}
+
+.ReplyModal-con-sec2:focus{
+    outline: none;
+}

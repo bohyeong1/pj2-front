@@ -6,12 +6,13 @@ import DefaultLayout from './layout/default_layout/default_layout';
 // parent url routes //
 import { 
     Main, 
+    List,
     // user //
     Login, Join, Profile, Email_prove, Agree, Join_complete,
 
     UserReservation,
     UserProfile,
-    SubApp,
+
     Detail,
     AccUpdate, 
     HostRegistView0,
@@ -58,7 +59,15 @@ function FinalRoutes(){
                     <UserProvider>
                         <UserOptimisticAuthRouter element={Main}/>
                     </UserProvider>}>
-                </Route>                                                                                
+                </Route>      
+
+                {/* // ================================================================================================================================================================
+                    // list // */}
+                <Route path='/list' element={
+                    <UserProvider>
+                        <UserOptimisticAuthRouter element={List}/>
+                    </UserProvider>}>
+                </Route>                                                                    
                 
                 {/* // ================================================================================================================================================================
                     // user // */}
@@ -105,11 +114,6 @@ function FinalRoutes(){
                 <Route path='/Profile' element={<Private_router data_state={true} element={Profile} />}></Route>                                        {/*프로필 이미지 + 닉네임 등록*/}
                 <Route path='Join_complete' element = {<Private_router data_state={true} element={Join_complete}/>}></Route>                            {/*회원가입 완료*/}
 
-                {/* // ================================================================================================================================================================
-                    // 숙소 분류 페이지 // */}
-                <Route path='/SubApp' element={<SubApp></SubApp>}>                                                                                     
-                    <Route path=':city' element={<SubApp></SubApp>}></Route>
-                </Route>
 
                 {/* // ================================================================================================================================================================
                     // detail // */}                    
@@ -155,7 +159,6 @@ function FinalRoutes(){
               
                 {/* // ================================================================================================================================================================
                     // host // */}
-
                 {/* host - 숙소 등록 페이지 */}
                 <Route 
                     path='/host' 
@@ -257,7 +260,6 @@ function FinalRoutes(){
                             element = {<AccMyPage/>}>
                             {set_host_mypage_routes()}
                         </Route>
-
                 </Route> 
 
                 {/* // =================================================

@@ -1,0 +1,13 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.custom-map-overlay__container{
+    padding: 5px 10px;
+    border-radius: 10px;
+    color: white;
+    transform: translateY(-60px);
+    opacity: 0.8;
+}
+
+.custom-map-overlay__unactive{
+    display: none;
+}

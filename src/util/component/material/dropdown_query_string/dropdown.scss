@@ -1,0 +1,63 @@
+// 커스텀 드롭다운 
+.dropdown__custom-dr{
+    height: 100%;   width: 148px;
+    position:relative;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none; 
+    -ms-user-select: none;
+}
+.dropdown__custom-options{
+    width: 100%;    height: fit-content;  overflow: hidden;  
+    opacity: 1;     z-index: 3;
+    font-size: 0.875rem;    position: absolute;
+    padding-top: 8px;   padding-bottom: 8px;    box-shadow: 0 0 5px 1px rgb(207, 207, 207,0.4);
+    top : 52px; border-radius: 10px; 
+    display: none;
+}
+.dropdown__custom-logo{
+    height: 44px;    background-color: rgb(245,245,245);   border-radius: 10px;    display: flex;  align-items: center;     padding: 8px 16px;    cursor: pointer;    
+    position: relative;     overflow: hidden;   z-index: 3;    font-size: 1rem;     font-weight: 600;
+    justify-content: space-between;
+}
+.dropdown__custom-logo > span{
+    height: 19px;
+}
+.dropdown__arrow-img{
+    height: 15px;   object-fit: cover;
+    transform: rotateZ(-90deg);
+    transition: transform 0.2s;
+}
+// 드롭다운 리스트 
+.dropdown__list{
+    position: relative; width: 100%;    height: 100%;
+    padding: 8px 16px;   z-index: 3;    cursor: pointer;
+
+}
+
+// 호버 
+.dropdown__list:hover{
+    background-color: rgb(235,235,235);
+}
+
+
+// 드롭다운 엑티브 
+.dr-active{
+    display: block;
+}
+
+// 포커스 
+.dropdown__custom-logo:focus{
+    outline: solid 1px black;
+    background-color: white;
+}
+
+// 옵션 엑티브 
+.dropdown__list-active{
+    color:#1273E4;
+    pointer-events: none;
+    cursor: default;
+}
+
+
+

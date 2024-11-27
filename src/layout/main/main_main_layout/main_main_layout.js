@@ -3,7 +3,7 @@ import './main_main_layout.scss'
 import React from "react"
 import { useRef } from "react"
 
-function MainMainLayout({login_user = null, children}){
+function MainMainLayout({children}){
     // =================================================
     // mapping children //    
     const children_object = {}

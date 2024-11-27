@@ -1,0 +1,71 @@
+.footer-container{
+    width:1200px;
+    /* border: solid 1px black; */
+    box-sizing: border-box; padding-top: 50px;
+    display: flex;  flex-direction: column; gap:30px;
+}
+/* 섹션1 */
+.footer-con-sec1{
+    width: 100%;  min-height: 100px;  display: flex;  justify-content: space-between; gap: 50px;
+    border-bottom: solid 1px rgb(230,230,230); box-sizing: border-box; padding-bottom: 50px;
+}
+/* sec1-1 */
+.footer-con-s1-b1{
+    width:40%;   height: 100%;   display: flex;  flex-direction: column; gap: 30px;
+}
+.footer-con-s1-b1-header{
+    display: flex;  flex-direction: column; gap: 10px;
+}
+.footer-con-s1-b1-h-t1{
+    font-size: 1.125rem;  color: #707070; font-weight: bold;
+}
+.footer-con-s1-b1-h-t2{
+    font-size: 0.875rem;  color: #999999;
+}
+.footer-con-s1-b1-sub{
+    display: flex;  flex-direction: column; gap: 15px;
+}
+.footer-con-s1-b1-sub-t1{
+    display: flex;  gap:20px;  align-items: center;
+    width:max-content;  box-sizing: border-box; padding: 10px;  border-radius: 10px;    border: solid 2px rgb(235,235,235);
+}
+.footer-con-s1-b1-sub-t2{
+    color: red; text-decoration: underline;
+}
+
+
+/* sec1-2 */
+.footer-con-s1-b2{
+    width:50%;  height: 100%; display: flex;    justify-content: space-between;   color: rgb(60,60,60);
+}
+.footer-con-s1-b2-p1{
+    display: flex;  flex-direction: column; gap: 25px;
+}
+.footer-con-s1-b2-p1 > div:nth-child(1){
+    color: #999999; font-size: 0.9375rem;
+    font-weight: 700;
+}
+.footer-con-s1-b2-p1-container{
+    display: flex;  flex-direction: column; gap: 10px;
+    color:rgb(112,112,112); font-size: 0.875rem;
+}
+.footer-link-to-terms{
+    cursor: pointer;    color: rgb(120,120,120);
+}
+.footer-link-to-terms:hover{
+    color: rgb(190,190,190);
+}
+
+
+
+/* 섹션 2 */
+.footer-con-sec2{
+    width: 100%;  min-height: 100px;  display: flex; flex-direction: column; gap: 30px;
+    box-sizing: border-box; padding-bottom: 50px;
+}
+.fooer-con-s2-b1{
+    font-size: 0.75rem;  color: #999999;    width: 100%;    line-height: 1.25;
+}
+.fooer-con-s2-b2{
+    font-size: 0.875rem;  color: rgb(120,120,120);   width: 100%;
+}

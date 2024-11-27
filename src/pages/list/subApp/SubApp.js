@@ -12,7 +12,6 @@ import useSubSubAppBusiness from "../hook-store/business-hooks/sub-subApp-busine
 import useSubSubAppStyle from "../hook-store/style-hooks/sub-subApp-style";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 
-
 function SubApp (){
 
     // console.log('렌더회수 체크')
@@ -34,35 +33,16 @@ function SubApp (){
     // =================================================
     // hooks //
     // business
-    const {city} = useSubSubAppBusiness(undefined, state_store([
-        {
-            'list':list,
-            'setList':setList
-        },
-        {
-            'def_list':def_list,
-            'setDef_list':setDef_list
-        },
-        {
-            'current_page':current_page,
-            'setCurrent_page':setCurrent_page
-        },
-        {
-            'total_count':total_count,
-            'setTotal_count':setTotal_count
-        },
-        {
-            'count_number':count_number,
-            'setCount_number':setCount_number
-        },
-        {
-            'total_page':total_page,
-            'setTotal_page':setTotal_page
-        },
-        {
-            'search_keyword':search_keyword,
-            'setSearch_keyword':setSearch_keyword
-        }
+    const {city} = useSubSubAppBusiness(
+        undefined, 
+        state_store([
+        {list, setList},
+        {def_list, setDef_list},
+        {current_page, setCurrent_page},
+        {total_count, setTotal_count },
+        {count_number, setCount_number},
+        {total_page, setTotal_page},
+        {search_keyword, setSearch_keyword}
     ]))
 
     // style
@@ -70,7 +50,6 @@ function SubApp (){
 
     return(
         <div className="subApp">
-            {/* sub modal => data 개수 페이지 네이션으로 잘라온 30개 기준 정렬 지도에 표시 */}
             <Sub_modal ref = {modal} 
                        city={city} 
                        data={list}/>

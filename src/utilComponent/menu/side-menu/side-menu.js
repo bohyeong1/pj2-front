@@ -37,9 +37,6 @@ const Side_menu = forwardRef((props, ref) => {
         handle_ref : ref
         })
 
-
-
-
     return(
         <div className="side-menu-container">
             {!modal ? 

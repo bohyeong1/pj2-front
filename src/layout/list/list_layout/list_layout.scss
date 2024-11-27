@@ -1,0 +1,62 @@
+.list-layout__container{
+    width:1920px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap:30px;
+    position: relative;
+}
+
+// 메뉴 
+.list-layout__menu-container{
+    width: 1920px;    
+    height: fit-content;
+    position:fixed; 
+    top:0;  
+    left:50%; 
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: white;
+}
+
+// 사이드 바
+.list-layout__content-sidebar{
+    width: 300px;   
+    height: fit-content;
+}
+
+// 메인 컨텐츠
+.list-layout__content{
+    width:1200px;
+    display: flex;
+    gap:32px;
+    padding-top: 107px;
+}
+.list-layout__main-content{
+    width:fit-content;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.list-layout__board{
+    width: 100%;    
+    height: 60px;
+    padding-top: 15px;  
+    padding-bottom: 5px;
+    display: flex;  
+    justify-content: space-between;
+}
+.list-layout__board-list-count{
+    font-size: 1.5rem;  
+    font-weight: 700;
+}
+
+// footer
+.list-layout__footer{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgb(243, 243, 243);
+}
+

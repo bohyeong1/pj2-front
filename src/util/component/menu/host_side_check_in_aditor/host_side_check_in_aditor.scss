@@ -1,0 +1,113 @@
+@import '@/manage_scss_style/commonness/colors';
+
+// container
+.host-side-check-in-aditor__container{
+    height: calc(calc(var(--vh) * 100) - 264.23px);
+    overflow-y: auto;
+    overflow-x: visible;
+    width: calc(100% + 15px);    
+    transform: translateX(-15px);
+}
+// wrapper
+.host-side-check-in-aditor__wrapper{
+    width: 100%;    
+    padding-bottom: 50px;
+    display: flex;  
+    flex-direction: column;
+    gap:10px;   
+    padding-right: 15px; 
+    padding-left: 10px;    
+    padding-top: 15px;
+}
+
+// sellect box
+.host-side-check-in-aditor__sellect-box{
+    padding: 15px;  
+    border-radius: 10px;
+    display: flex;  
+    flex-direction: column; 
+    gap:10px;   
+    cursor: pointer;
+    transition: 0.2s background-color;
+}
+.host-side-check-in-aditor__sellect-box > div{
+    color: $grey-lv3;   
+    font-size: 0.8575rem;
+}
+.host-side-check-in-aditor__sellect-box-title{
+    font-size: 1.1125rem;
+}
+.host-side-aditor__sellect-box-check-in{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-in > div{
+    display: flex; 
+    gap:5px;
+}
+.host-side-aditor__sellect-box-check-in > div:nth-child(2){
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.host-side-aditor__sellect-box-check-in > div:nth-child(2) > span:nth-child(1){
+    font-weight: 600;
+    color: black;
+}
+.host-side-aditor__sellect-box-check-out{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(1){
+    display: flex; 
+    gap:5px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2){
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2) > div{
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+}
+.host-side-aditor__sellect-box-check-out > div:nth-child(2) > span:nth-child(1){
+    font-weight: 600;
+    color: black;
+}
+.host-side-aditor__sellect-box-custom-navigation-text{
+    width: 100%;    
+    max-height: 48px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    background: none;
+    color: $grey-lv3;   
+    font-size: 0.8575rem;
+    font-weight: 600;
+}
+.host-side-aditor__sellect-box-manual-text{
+    width: 100%;    
+    max-height: 48px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    background: none;
+    color: $grey-lv3;   
+    font-size: 0.8575rem;
+    font-weight: 600;
+}
+.host-side-aditor__sellect-box-wifi-information{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

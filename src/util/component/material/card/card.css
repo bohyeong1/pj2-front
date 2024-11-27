@@ -1,0 +1,91 @@
+
+.card-container{
+    width: 170px; height: 28px;
+    display: flex;  
+    flex-direction: column; gap: 5px;  align-items: center;
+    position: relative;
+    z-index: 2;    
+}
+
+/* // 제목(가격) */
+.card-title{
+    text-align: center;
+    width: fit-content;
+    background-color: white;
+    padding: 5px 10px;
+    border-radius: 8px ;
+    font-size: 0.875rem;
+    border: solid 1px rgb(140,140,140);    cursor: pointer;
+}
+/* // 컨텐츠 */
+.card-contents{
+    width: 324px;   height: 174px;  padding: 14px;
+    background-color: white;
+    position: absolute; top:33px; left:50%; transform: translateX(-50%);
+    display: none;  border-radius: 15px;
+    box-shadow: 0 0 7px 1px rgba(0,0,0,0.2);
+}
+
+/* hover & active */
+.card-contents__active{
+    display: flex;     
+}
+.card-title__active{
+    color: white;
+    border: solid 1px #1273E4;
+    background-color: #1273E4;
+}
+.card-title__hover{
+    background-color: rgb(240, 247, 255);
+    color: #1273E4;    
+    border: solid 1px rgb(171, 210, 255);
+}
+/* 호버 시 나타나는 클래스 */
+.card-contents__img{
+    width: 116px;   height: 145px;  margin-right: 10px;
+    overflow: hidden;   border-radius: 8px; position: relative;
+}
+.card-contents__text{
+    width: 170px;   height: 145px;
+    display: flex;  flex-direction: column; gap:3px;
+    position: relative;
+}
+
+/* text */
+.card-contents__tex4{
+    position: absolute; right: 0;   bottom: 0;
+}
+.card-contents__tex4 > span:nth-child(1){
+    font-size: 1rem;
+}
+.card-contents__tex4 > span:nth-child(2){
+    font-size: 0.8725rem;
+}
+.card-contents__tex1{
+    color:rgb(112,112,112);
+    font-size:0.7125rem;
+}
+.card-contents__tex3{
+    font-size:0.9325rem;
+    font-weight: 400;
+}        
+.card-contents__tex2{
+    font-size: 1rem;  font-weight: bold;
+}
+.card-contents__evaluation{
+    display: flex;  align-items: center;    gap:10px;
+    font-size: 0.75rem; height: 21px;
+}
+.card-contents__evaluation > span:nth-child(2){
+    font-size: 0.8125rem;   color: #707070;
+}
+.card-contents__star-box{
+    height: 100%;   width: fit-content;
+    display: flex;  align-items: center;    padding: 4px 5px 3px 3px;   gap:3px;
+    border-radius: 6px;    background-color: #FFAD0A;
+}
+.card-contents__star-box > img{
+    width: 11px;    position: relative; top:-1px;
+}
+
+

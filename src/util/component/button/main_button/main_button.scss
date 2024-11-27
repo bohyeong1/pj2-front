@@ -1,0 +1,16 @@
+.main-btn{
+    border-radius: 100px;
+    border: solid 1.5px rgb(235,235,235);   
+    font-size: 0.8125rem; 
+    transition: 0.2s;
+    line-height: 0.8125rem; 
+    font-weight: 600;
+    cursor: pointer; 
+    padding: 8px 16px;
+    background-color: white;
+}
+
+.main_active{
+    background: #1273E4;
+    color: white;
+}

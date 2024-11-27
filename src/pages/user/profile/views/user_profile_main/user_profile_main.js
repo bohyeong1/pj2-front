@@ -65,7 +65,7 @@ function UserProfileMain(){
     if(isLoading){
         return <Loading/>
     }
-    console.log(main_view)
+
     return (
         <div className="user-profile-main__container">
             <span className="user-profile-main__title">{user_data.nickname ? user_data.nickname : user_data.name} 님 소개</span>

@@ -1,0 +1,60 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.alert-modal__container{
+    position: fixed;
+    top:50%; 
+    left:50%; 
+    transform: translate(-50%, -50%);
+    height: fit-content;    
+    background: white;  
+    border-radius: 10px;   
+    z-index: 16;
+    display: flex;  
+    flex-direction: column; 
+    align-items: center;
+    padding-bottom: 32px;
+}
+
+// header
+.alert-modal__container-header{
+    display: flex;  
+    justify-content: space-between;  
+    padding: 0 20px;  
+    width: 100%;
+    height: 60px;   
+    align-items: center;
+}
+.alert-modal__container-header-button{
+    height: 20px; 
+    width: 20px;  
+    transition: 0.3s;   
+    border-radius: 50%; 
+    display: flex;  
+    justify-content: center;    
+    align-items: center;
+    cursor: pointer;
+}
+.alert-modal__container-header-button > img{
+    height: 18px;   
+    width: 18px;    
+}
+.alert-modal__container-header-title{
+    display: flex;  
+    align-items: center;    
+    font-size: 1.125rem;
+}
+.alert-modal__container-header-gurabox{
+    width: 20px;
+}
+
+// main
+.alert-modal__main{
+    width: 100%;
+    max-height: 700px;
+    overflow-y: auto;
+    border-bottom: solid 1px $grey-lv10;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 40px;
+    padding-top: 40px;
+}

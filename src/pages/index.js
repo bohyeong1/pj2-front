@@ -4,7 +4,8 @@ export {default as Main} from './main/main/app/main'
 
 // =================================================
 // list //
-export {default as SubApp} from './sub/subApp/SubApp'
+// export {default as SubApp} from './sub/subApp/SubApp'
+export {default as List} from './list/list/app/list'
 
 // =================================================
 // 로그인 / 회원가입 //

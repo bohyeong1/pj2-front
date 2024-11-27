@@ -1,0 +1,16 @@
+.check_btn{
+    display: none;
+}
+.check_btn_gura{
+    height: 18px;   
+    width: 18px;    
+    border-radius: 100px; 
+    border: solid 1px rgb(215,215,215);
+    display: block; cursor: pointer;
+}
+.check-btn__text{
+    line-height: 19px;
+}
+.check_btn_gura-active{
+    background-color: #1273E4;
+}
