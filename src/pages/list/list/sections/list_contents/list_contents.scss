@@ -1,0 +1,148 @@
+@import '@/manage_scss_style/commonness/colors';
+
+.list-contents__container{
+    width:100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.list-contents__sub-board{
+    width: 100%;    
+    height: 60px;
+    padding-top: 15px;  
+    padding-bottom: 5px;
+    display: flex;  
+    justify-content: space-between;
+}
+.list-contents__sub-board-list-count{
+    font-size: 1.5rem;  
+    font-weight: 700;
+}
+
+
+
+
+// contents
+// 숙소 지역 대분류 
+.list-contents__sublist-container{
+    width: 880px;
+
+    .list-contents__sublist-list{
+        width:100%;
+        height: 261px;
+        margin-top: 15px;
+        display: flex;
+        justify-content: space-between;
+        text-decoration: none;
+        color: black;
+        border-bottom: solid 1px $grey-lv10;
+        padding-bottom: 20px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none; 
+        -ms-user-select: none;
+    }
+    .list-contents__list-img{
+        height:240px; width: 396px;
+        border-radius: 15px;
+        overflow: hidden;
+        background: black;
+    }
+    .list-contents__list-text{
+        height:100%; width: 484px;
+        padding-left: 20px;
+        display: flex;  flex-direction: column; gap:3px;
+        position: relative;
+    }
+    // text
+    .list-contents__list-text-tex6{
+        position: absolute;
+        bottom: 0;
+        right: 0;   
+        font-weight: bold;
+    }
+    .list-contents__list-text-tex6 > span:nth-child(1){
+        font-size: 1.25rem;
+    }
+    .list-contents__list-text-tex6 > span:nth-child(2){
+        font-size: 1rem;
+    }
+    .list-contents__list-text-tex1{
+        color:rgb(112,112,112);
+        font-size:0.6875rem;
+    }
+    .list-contents__list-text-tex3{
+        font-size:0.9875rem;
+        font-weight: bold;
+    }
+    
+    .list-contents__list-text-tex2{
+        font-size: 1.125rem;  font-weight: bold;
+    }
+    .list-contents__list-text-tex4{
+        width: 70%; display: flex;  flex-wrap: wrap;    gap:10px;    color:rgb(110,110,110);
+        font-size: 0.8125rem;
+    }
+}
+.sublist__city-title{
+    width: 100%;    
+    padding-left: 20px;
+    font-size: 0.875rem;    
+    font-weight: 600;   
+    color: rgb(112,112,112);
+}
+// text 
+.list-contents__list-text-t5-b1{
+    font-size: 1rem;  
+    font-weight: bold;
+}
+.list-contents__list-text-t5-b2{
+    display: flex;  
+    column-gap:7px;    
+    width: 80%; 
+    flex-wrap: wrap;
+}
+.list-contents__list-text-t5-b2 > span{
+    color: rgb(110,110,110);    
+    font-size: 0.8125rem;
+}
+.list-contents__list-text-tex5{
+    display: flex;  
+    flex-direction: column; 
+    gap:5px;
+}
+.list-contents__list-text-evaluation{
+    display: flex;  
+    align-items: center;    
+    gap:10px;
+    font-size: 0.75rem; 
+    height: 21px;
+}
+.list-contents__list-text-evaluation > span:nth-child(2){
+    font-size: 0.8125rem;   
+    color: #707070;
+}
+.list-evaluation__star-box{
+    height: 100%;   
+    width: fit-content;
+    display: flex;  
+    align-items: center;    
+    padding: 4px 5px 3px 3px;   
+    gap:3px;
+    border-radius: 6px;    
+    background-color: #FFAD0A;
+}
+.list-evaluation__star-box > img{
+    width: 11px;    
+    position: relative; 
+    top:-1px;
+}
+// 데이터 없을 때 
+.list-contents__sublist-list-no-data{
+    font-size: 1.25rem;
+    display: block; 
+    width: 100%;    
+    text-align: center;
+    margin-top: 50px;
+}

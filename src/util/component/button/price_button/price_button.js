@@ -1,12 +1,11 @@
 import React, {useRef, useState} from "react";
 import './price_button.scss'
 import { useSearchParams } from "react-router-dom";
-import { state_store, reference_store } from "../../../utilData/UtilFunction";
+import { state_store, reference_store, pop_three_texts } from "@/util/function/util_function";
 import useButtonPricebtnBusiness from "../hook-store/business-hooks/button-pricebtn-business";
-import { pop_three_texts } from "../../../utilData/UtilFunction";
 import '@/manage_scss_style/commonness/commonness.scss'
 
-function PriceButton({keyValue1, keyValue2}){
+function PriceButton({key_value1, key_value2}){
 
     // =================================================
     // query string //
@@ -21,18 +20,11 @@ function PriceButton({keyValue1, keyValue2}){
     
     // =================================================
     // const //
-    // 인덱스 range
-    const index_range = [0, 1, 2, 3, 4, 5, 6, 7]
-
-    // max 인덱스
-    const max_index = 7
-
-    // 가격 range
-    const value_collections = [0, 30000, 50000, 100000, 200000, 300000, 400000, 500000]
-
-    // 새로고침 시 대응하기 위한 인덱스 추출
-    const min_index = value_collections.indexOf(parseInt(SearchParams.get('price-min').split('%')[0]))
-    const over_index = value_collections.indexOf(parseInt(SearchParams.get('price-over').split('%')[0]))
+    const [index_range] = useState([0, 1, 2, 3, 4, 5, 6, 7])
+    const [max_index] = useState(7)
+    const [value_collections] = useState([0, 30000, 50000, 100000, 200000, 300000, 400000, 500000])
+    const [min_index] = useState(value_collections.indexOf(parseInt(SearchParams.get(key_value1))))
+    const [over_index] = useState(value_collections.indexOf(parseInt(SearchParams.get(key_value2))))
 
     // =================================================
     // states //
@@ -62,8 +54,8 @@ function PriceButton({keyValue1, keyValue2}){
             {button_target}
         ]),
         {
-            keyValue1,
-            keyValue2
+            key_value1,
+            key_value2
         })
 
     return(

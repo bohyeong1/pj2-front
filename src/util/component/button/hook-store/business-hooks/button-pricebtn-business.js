@@ -6,7 +6,11 @@ import { useSearchParams } from "react-router-dom";
 function useButtonPricebtnBusiness(data, states, refs, props){
 
     // 상수
-    const {index_range, max_index, value_collections} = data
+    const {
+        index_range, 
+        max_index, 
+        value_collections
+    } = data
     
     // refs
     const {price_target, price_thumb, price_track, button_target} = refs
@@ -15,7 +19,10 @@ function useButtonPricebtnBusiness(data, states, refs, props){
     const [SearchParams, setSearchParams] = useSearchParams()
 
     // props
-    const {keyValue1, keyValue2} = props
+    const {
+        key_value1, 
+        key_value2
+    } = props
 
     // states
     const {index_min_state, setIndex_min_state, index_max_state, setIndex_max_state} = states
@@ -42,13 +49,13 @@ function useButtonPricebtnBusiness(data, states, refs, props){
             if(target.classList.contains('pricebtn-min') && index_min_state !== index){
                 setIndex_min_state(parseInt(index))
                 // 파라미터 변경
-                SearchParams.set(keyValue1, value_collections[index] +'%min')
+                SearchParams.set(key_value1, value_collections[index])
                 setSearchParams(SearchParams)
             }
             if(target.classList.contains('pricebtn-max') && index_max_state !== index){
                 setIndex_max_state(parseInt(index))
                 // 파라미터 변경
-                SearchParams.set(keyValue2, value_collections[index] +'%max')
+                SearchParams.set(key_value2, value_collections[index])
                 setSearchParams(SearchParams)
             }
             // drag상태 유지하는 dataset 초기화 & 파라미터 변경
@@ -182,13 +189,13 @@ function useButtonPricebtnBusiness(data, states, refs, props){
         if(target.classList.contains('pricebtn-min') && index_min_state !== filtered_index){
             setIndex_min_state(parseInt(filtered_index))
             // 파라미터 변경
-            SearchParams.set(keyValue1, value_collections[filtered_index] +'%min')
+            SearchParams.set(key_value1, value_collections[filtered_index] +'%min')
             setSearchParams(SearchParams)
         }
         if(target.classList.contains('pricebtn-max') && index_max_state !== filtered_index){
             setIndex_max_state(parseInt(filtered_index))
             // 파라미터 변경
-            SearchParams.set(keyValue2, value_collections[filtered_index] +'%max')
+            SearchParams.set(key_value2, value_collections[filtered_index] +'%max')
             setSearchParams(SearchParams)
         }
 

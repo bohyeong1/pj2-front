@@ -82,49 +82,6 @@ function useSwiperButtonContoll(number, handler){
 export default useSwiperButtonContoll
 
 // =================================================
-// querystring 조회 후 query obj 객체 변환 훅 //
-export function useExploreQueryString(){ 
-    const [SearchParams, setSearchParams] = useSearchParams()
-
-    const keyInv = []
-    for(const key of SearchParams.keys()){
-        if(!keyInv.includes(key)){
-            keyInv.push(key)
-        }
-    }
-    //서버로 보내는 쿼리 데이터 생성 for문
-    const final_key = {}       
-    const sort_key = {}          
-    for(const value of keyInv){
-        if(value === 'discount'){
-            final_key[value] = {$exists:true}
-        }
-        else if(value === 'price-min'){
-            final_key['price'] = {
-                ...final_key['price'],
-                $gte:parseInt(SearchParams.get(value).split('%')[0])}
-        }
-        else if(value === 'price-over'){
-            if(SearchParams.get(value).split('%')[0] !== '500000'){
-                final_key['price'] = {
-                    ...final_key['price'],
-                    $lte:parseInt(SearchParams.get(value).split('%')[0])}
-            }
-        }
-        else if(value === 'capacity'){
-            final_key[value] = {$gte:SearchParams.get(value)}
-        }
-        else if(value ==='sort'){
-            sort_key[value] = SearchParams.get(value)
-        }
-        else{
-            final_key[`${value}.name`] = {$all:SearchParams.getAll(value)}
-        }       
-    }
-    return {final_key, sort_key}
-}
-
-// =================================================
 // regist page 현재 단계 get //
 export function useGetThisStep(){
 

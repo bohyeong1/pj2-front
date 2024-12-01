@@ -9,7 +9,6 @@ import Dropdown from "../../../utilComponent/material/dropdown_query_string/drop
 import Sub_modal from "../../../utilComponent/modal/mapModal/map-modal";
 
 import useSubSubAppBusiness from "../hook-store/business-hooks/sub-subApp-business";
-import useSubSubAppStyle from "../hook-store/style-hooks/sub-subApp-style";
 import { state_store, reference_store } from "../../../utilData/UtilFunction";
 
 function SubApp (){
@@ -44,9 +43,6 @@ function SubApp (){
         {total_page, setTotal_page},
         {search_keyword, setSearch_keyword}
     ]))
-
-    // style
-    const {} = useSubSubAppStyle()  
 
     return(
         <div className="subApp">

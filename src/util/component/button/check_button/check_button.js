@@ -2,7 +2,7 @@ import React, {useRef} from "react";
 import './check_button.scss'
 import useButtonCheckbtnBusiness from "../hook-store/business-hooks/button-checkbtn-bunisess";
 import useButtonCheckbtnStyle from "../hook-store/style-hooks/button-checkbtn-style";
-import {reference_store } from "../../../utilData/UtilFunction";
+import { reference_store } from "@/util/function/util_function";
 
 function CheckButton({data, c_name ,keyValue, modal}){
 

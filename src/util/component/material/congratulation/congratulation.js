@@ -1,7 +1,7 @@
 import './congratulation.scss'
 import { useRef } from 'react'
 import useMaterialCongratulationStyle from '../hook-store/style-hooks/material_congratulation_style'
-import { reference_store } from '../../../utilData/UtilFunction'
+import { reference_store } from "@/util/function/util_function";
 
 
 function Congratulation(){

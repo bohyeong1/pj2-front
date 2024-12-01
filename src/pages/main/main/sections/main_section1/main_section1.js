@@ -39,7 +39,7 @@ function MainSection1({title, data}){
                             return(
                             <SwiperSlide key={id}>
                                 <NavLink 
-                                    to={`SubApp/${el.city}?sort=createAt&price-min=0%25min&price-over=500000%25max`} 
+                                    to={`list?search-adress=${el.city}&sort=createAt&price-min=0&price-max=500000&page=1&limit=10`} 
                                     key={id} 
                                     className="main-section1__img-wrapper">
                                     <div className="main-section1__img-container">

@@ -15,8 +15,6 @@ function useSubSubAppBusiness(data,states,refs){
     // url로부터 받아온 쿼리데이터 훅
     const {final_key, sort_key} = util_hooks.useJoinUrl()
 
-    // console.log(sort_key)
-
     // 리덕스 디스패치
     const dispatch = useDispatch()
 

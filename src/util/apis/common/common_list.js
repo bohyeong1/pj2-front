@@ -1,18 +1,19 @@
 import default_data from "@/util/default_data/default_data";
-import { useQuery, useQueryClient } from "@tanstack/react-query"
+import { useLocation } from "react-router-dom";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import connect_data from "@/util/function/util_function";
 import query_key from "@/util/query_key/query_key";
 
 // =================================================
-// common detail accomodation get //
-export function useGetCommonDetailAccomodation(accomodation_id){
+// common list accomodation get //
+export function useGetCommonListAccomodation(){
     const query_client = useQueryClient()
+    const query_string = useLocation().search
     return useQuery(
         {
-            queryKey : [query_key.common_accomodation, accomodation_id],
-            queryFn : async({queryKey}) => {
-                const [, parameter] = queryKey
-                const response = await connect_data(`${default_data.d_base_url}/api/common/detail/${parameter}`, 'POST', {_id : parameter})
+            queryKey : [query_key.common_list_data],
+            queryFn : async() => {
+                const response = await connect_data(`${default_data.d_base_url}/api/common/list${query_string}`, 'GET')
                 return response
             },
             onError : (e) => {
@@ -27,4 +28,3 @@ export function useGetCommonDetailAccomodation(accomodation_id){
         }
     )
 }
-

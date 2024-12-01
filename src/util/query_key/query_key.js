@@ -5,6 +5,7 @@ const query_box = {
 
     // common
     common_main_data : 'common_main_data',
+    common_list_data : 'common_list_data',
     common_accomodation : 'common_accomodation',
 
     // guest
