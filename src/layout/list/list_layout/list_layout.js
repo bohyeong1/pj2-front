@@ -15,7 +15,10 @@ function ListLayout({children}){
     return (
         <div className="list-layout__container">
             <nav className="list-layout__menu-container">
-                {children_object.main_menu}
+                <div className="list-layout__header-menu-container">
+                    {children_object.main_menu}
+                    {children_object.search_menu}
+                </div>
             </nav>
             <div className="list-layout__content">
                 <aside className="list-layout__content-sidebar">

@@ -5,12 +5,18 @@ import './list_contents.scss'
 import Pagination from "react-js-pagination";
 import OriginalImg from "@/picture/original_img/original_img"
 import default_data from "@/util/default_data/default_data";
+import useListContentsBusiness from "../../hook_store/business_hooks/list_contents_business";
 
 function ListContents({data}){
 
     // =================================================
     // query sring //
     const [query_string] = useSearchParams()
+
+    // =================================================
+    // hooks //
+    // business
+    const {click_pagenation} = useListContentsBusiness()
 
     return (
         <div className="list-contents__container">
@@ -80,11 +86,11 @@ function ListContents({data}){
 
                 <Pagination 
                     pageCount={data.total_pages} 
-                    activePage={query_string.get('page')}  
-                    itemsCountPerPage={query_string.get('limit')}  
+                    activePage={parseInt(query_string.get('page'))}  
+                    itemsCountPerPage={parseInt(query_string.get('limit'))}  
                     pageRangeDisplayed={5} 
                     totalItemsCount={data.total_counts ? data.total_counts : 0} 
-                    // onChange={sellectPageData}  
+                    onChange={click_pagenation}  
                     prevPageText ={'<'} 
                     nextPageText={'>'} 
                     hideFirstLastPages={true}/>

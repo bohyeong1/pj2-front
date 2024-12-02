@@ -50,6 +50,7 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
     const marker_ref = useRef(null)
     const polyline_ref = useRef([])
     const path_marker_ref = useRef([])
+    const zoom_control_state = useRef(false)
 
     // =================================================
     // kakao map render //  
@@ -214,15 +215,19 @@ function useMaterialKakaomapBusiness(hook_data, states, refs, props){
             }
             // list
             else if(type === 'list'){
-                geocoder.addressSearch(city, function(result, status) {
+                geocoder.addressSearch(city, function(result, status){
                     // 지도 중심 설정(지역)
                     const map_container = document.querySelector('.kakaomap-container')
                     map_ref.current = new kakao.maps.Map(map_container,{
-                        center: new kakao.maps.LatLng(parseFloat(result[0].y) - 0.1, parseFloat(result[0].x) + 0.05),
-                        level:9
+                        center: new kakao.maps.LatLng(parseFloat(result[0].y), parseFloat(result[0].x)),
+                        level:8
                     })
-                    const zoom_control = new kakao.maps.ZoomControl()
-                    map_ref.current.addControl(zoom_control, kakao.maps.ControlPosition.RIGHT)
+                    if(map_ref.current && !zoom_control_state.current){
+                        const zoom_control = new kakao.maps.ZoomControl()
+                        map_ref.current.addControl(zoom_control, kakao.maps.ControlPosition.RIGHT)
+                        zoom_control_state.current = true
+                    }
+
 
                     // 커스텀 오버레이 표시(지역의 숙소 위치 정보)
                     data?.forEach((el)=>{

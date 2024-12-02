@@ -23,7 +23,6 @@ function MainMainLayout({children}){
             <nav className="main-main-layout__header not-user-sellect">
                 <div className="main-main-layout__header-menu-container">
                     {children_object.main_menu}
-                    {children_object.search_modal}
                 </div>
             </nav>
             <main className="main-main-layout__main">

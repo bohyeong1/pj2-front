@@ -4,44 +4,40 @@ import useButtonCheckbtnBusiness from "../hook-store/business-hooks/button-check
 import useButtonCheckbtnStyle from "../hook-store/style-hooks/button-checkbtn-style";
 import { reference_store } from "@/util/function/util_function";
 
-function CheckButton({data, c_name ,keyValue, modal}){
+function CheckButton({data, c_name, value}){
 
     // =================================================
     // refs //
     const check_btn_input = useRef([])
     const check_btn_gura = useRef([])
-
     
     // =================================================
     // hooks //
     // business
     const {
-        check_input_url, 
-        check_click_url, 
-        check_click_state, 
-        check_input_state
+        check_input_url
     } = useButtonCheckbtnBusiness(undefined, undefined,
         reference_store([
             {check_btn_input},
             {check_btn_gura}
         ]),
         {
-            keyValue,
-            modal
+            value
         }
     )
     // style
-    const {click_gurabox} = useButtonCheckbtnStyle(undefined, undefined,
+    const {
+        click_gurabox,
+        SearchParams
+    } = useButtonCheckbtnStyle(undefined, undefined,
         reference_store([
             {check_btn_input},
             {check_btn_gura}
         ]),
         {
-            keyValue
+            value
         }
     )
-
-
 
     return(
         <>
@@ -54,13 +50,14 @@ function CheckButton({data, c_name ,keyValue, modal}){
                             ref={(el)=>{check_btn_input.current[id] = el}} 
                             className="check_btn" 
                             type='checkbox' 
+                            readOnly
                             value={ele.name} 
-                            onClick={!modal ? check_click_url : check_click_state} 
-                            onInput={!modal ? check_input_url : check_input_state} 
-                            name={keyValue}/>
+                            checked = {SearchParams.get(value) === ele.name ? true : false}
+                            onInput={check_input_url} 
+                            name={value}/>
                         <span 
                             ref={(el)=>{check_btn_gura.current[id] = el}} 
-                            className="check_btn_gura" 
+                            className = {`check_btn_gura ${SearchParams.get(value) === ele.name ? 'check_btn_gura-active' : ''}`}
                             onClick={(e)=>{click_gurabox(e,id)}}></span>
                         <label 
                             className="check-btn__text" 

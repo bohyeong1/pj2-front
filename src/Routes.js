@@ -12,17 +12,15 @@ import {
 
     UserReservation,
     UserProfile,
-
     Detail,
     AccUpdate, 
     HostRegistView0,
     AccManage,
     AccMyPage,
     AccRegist,
-
-    // reservation page //
     Reservation,
     ReservationDetail,
+    
     // terms page //
     Terms_host,Terms_creator, Terms_library, Terms_homepage, Terms_develope, Terms_refertosite,
 } from './pages';

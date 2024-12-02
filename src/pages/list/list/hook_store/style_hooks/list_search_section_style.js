@@ -3,7 +3,7 @@ import { useEffect } from "react"
 import { useDispatch } from "react-redux"
 import { close_search_modal } from "@/redux/modules/searchModalSlice"
 
-function useMainSearchModalSectionStyle(data, states, refs, props){
+function useListSearchSection(cons, states, refs, props){
 
     // =================================================
     // dispatch //
@@ -11,18 +11,18 @@ function useMainSearchModalSectionStyle(data, states, refs, props){
 
     // =================================================
     // redux state //
-    const {search_modal_state} = data
+    const {search_modal_state} = cons
 
     useEffect(()=>{
         if(search_modal_state){
-            gsap.to('.main-search-modal-section__container',{
+            gsap.to('.list-search-section__container',{
                 y : 76,
                 duration : 0.3
             })
             document.documentElement.style.overflow = 'hidden'
         }
         else{
-            gsap.to('.main-search-modal-section__container',{
+            gsap.to('.list-search-section__container',{
                 y : 0,
                 duration : 0.3
             })
@@ -35,6 +35,7 @@ function useMainSearchModalSectionStyle(data, states, refs, props){
     }
 
     return {control_modal}
+
 }
 
-export default useMainSearchModalSectionStyle
+export default useListSearchSection

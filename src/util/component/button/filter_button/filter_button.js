@@ -1,40 +1,30 @@
-import {useState} from "react";
 import './filter_button.scss';
-import { state_store } from "@/util/function/util_function";
 import useButtonFilterbtnBusiness from "../hook-store/business-hooks/button-filterbtn-business";
 import useButtonFilterbtnStyle from "../hook-store/style-hooks/button-filterbtn-style";
 
-function FilterButton({text,keyValue, modal}){
-
-    // =================================================
-    // states //
-    const [toggle, setToggle] = useState(false)
+function FilterButton({text, value}){
 
     // =================================================
     // hooks //
     // business
     const {
-        filter_data_url, 
-        filter_data_state
+        filter_data_url,
+        SearchParams
     } = useButtonFilterbtnBusiness(undefined, 
-        state_store([
-            {toggle, setToggle}
-        ]),
+        undefined,
         undefined,
         {
-            keyValue,
+            value,
             text
         }
     )
-
     // style
     const {} = useButtonFilterbtnStyle()
 
-
     return(
         <button 
-            className={`filter-btn ${toggle ? 'fil_active' : ''}`} 
-            onClick={!modal ? filter_data_url : filter_data_state}>
+            className={`filter-btn ${SearchParams.getAll(value).includes(text) ? 'fil_active' : ''}`} 
+            onClick={filter_data_url}>
                 {text}
         </button>
     )

@@ -1,9 +1,8 @@
 import React, {useRef} from "react";
 import default_data from "@/util/default_data/default_data";
 import './map_modal.scss'
-// import Kakaomap from "../../material/kakaomap/Kakaomap";
+import Kakaomap from "../../material/kakaomap/Kakaomap";
 import { state_store, reference_store } from "@/util/function/util_function";
-import { NavLink } from "react-router-dom";
 import useModalMapModalBusiness from "../hook-store/business-hooks/modal_mapmodal_business";
 import useModalMapModalStyle from "../hook-store/style-hooks/modal_mapmodal_style";
 import CheckButton from '@/util/component/button/check_button/check_button'
@@ -15,6 +14,7 @@ import { createPortal } from 'react-dom'
 import OriginalImg from "@/picture/original_img/original_img"
 import { pop_three_texts } from '@/util/function/util_function';
 import '@/manage_scss_style/commonness/commonness.scss'
+import { useSearchParams } from "react-router-dom";
 
 function MapModal({data, modal_toggle, key_name}){
 
@@ -27,13 +27,23 @@ function MapModal({data, modal_toggle, key_name}){
     const modal_ref = useRef(null)
     const filter_ref = useRef(null)
     const list_ref = useRef(null)
-  
+
+    // =================================================
+    // query string //
+    const [query_string] = useSearchParams()
+
     // =================================================
     // hooks //
     // business
     const {} = useModalMapModalBusiness()
     // style
-    const {} =  useModalMapModalStyle(undefined,undefined,
+    const {
+        modal_list_click, 
+        modal_list_hover,
+        modal_list_out,
+        map_state,
+        click_initialized_button
+    } =  useModalMapModalStyle(undefined,undefined,
         reference_store([
             {filter_ref},
             {list_ref}
@@ -42,26 +52,26 @@ function MapModal({data, modal_toggle, key_name}){
 
     return createPortal (
         modal_state === key_name &&
-        <div className="sub-modal__wrapper" ref={modal_ref}>
+        <div className="map-modal__wrapper" ref={modal_ref}>
             {/* header */}
-            <div className="sub-modal__container">
-                <div className="sub-modal__header">
+            <div className="map-modal__container">
+                <div className="map-modal__header">
                     <button 
-                        className="sub-modal__closebtn" 
+                        className="map-modal__closebtn" 
                         onClick={()=>{modal_toggle(null)}}>
                         <img 
-                            className="sub-modal__closebtn-img" 
+                            className="map-modal__closebtn-img" 
                             src={default_data.d_imgs.close}/>
                     </button>
                     <div>지도</div>
-                    <div className="sub-modal__gurabox1"></div>
+                    <div className="map-modal__gurabox1"></div>
                 </div>
 
                 {/* contents */}
-                <div className="sub-modal__contents-container">
+                <div className="map-modal__contents-container">
                     {/* filter section */}
                     <div 
-                        className="sub-modal__filter" 
+                        className="map-modal__filter" 
                         ref={filter_ref}>                        
                         
                         <div className="list-side-bar__container">
@@ -69,8 +79,7 @@ function MapModal({data, modal_toggle, key_name}){
                                 <div>필터</div>
                                 <button 
                                     className="side-menu-fil-btn" 
-                                    // onClick={initial_page}
-                                    >
+                                    onClick={click_initialized_button}>
                                         초기화
                                 </button>
                             </div>
@@ -79,7 +88,7 @@ function MapModal({data, modal_toggle, key_name}){
                                     <div className="category-title">숙소유형</div>
                                     <CheckButton 
                                         data={default_data.d_category_icon} 
-                                        keyValue={'category'} 
+                                        value={'category'} 
                                         c_name={'category-content'}/>
                                 </div>
 
@@ -100,7 +109,7 @@ function MapModal({data, modal_toggle, key_name}){
                                             <FilterButton 
                                                 key={id} 
                                                 text={el.name} 
-                                                keyValue={'keywords'}/>
+                                                value={'keywords'}/>
                                             )
                                         })}
                                     </div>
@@ -111,7 +120,7 @@ function MapModal({data, modal_toggle, key_name}){
                                     <div className="discount-content">
                                         <BooleanButton 
                                             text='할인 상품' 
-                                            keyValue={'discount'}/>
+                                            value={'discount'}/>
                                     </div>
                                 </div>
                                 
@@ -123,7 +132,7 @@ function MapModal({data, modal_toggle, key_name}){
                                             <FilterButton 
                                                 key={id} 
                                                 text={el.name} 
-                                                keyValue={'service_facility'}/>
+                                                value={'service_facility'}/>
                                             )
                                         })                        
                                         }
@@ -135,7 +144,7 @@ function MapModal({data, modal_toggle, key_name}){
 
                     {/* list */}
                     <div 
-                        className="sub-modal__display common-scroll-bar sublist-modal__active" 
+                        className="map-modal__display common-scroll-bar sublist-modal__active" 
                         ref={list_ref}>
                         {data.accomodations.length !== 0 ? 
                         data.accomodations.map((el, id)=>{
@@ -144,10 +153,9 @@ function MapModal({data, modal_toggle, key_name}){
                                     className={`sublist-list`} 
                                     key={id} 
                                     data-key = {el._id} 
-                                    // onClick={modal_list_click} 
-                                    // onMouseEnter={modal_list_hover} 
-                                    // onMouseLeave={modal_list_out}
-                                    > 
+                                    onClick={modal_list_click} 
+                                    onMouseEnter={modal_list_hover} 
+                                    onMouseLeave={modal_list_out}> 
                                     <div className="list-img">
                                         <OriginalImg url={el.main_img}/>
                                     </div>
@@ -157,8 +165,8 @@ function MapModal({data, modal_toggle, key_name}){
                                         {/* 제목 */}
                                         <div className="list-text-tex2">{el.title}</div>
                                         {/* 숙소평가 */}
-                                        <div className="list-text-evaluation">
-                                            <div className="list-evaluation__star-box">
+                                        <div className="map-modal__list-text-evaluation">
+                                            <div className="map-modal__list-evaluation-star-box">
                                                 <img src={default_data.d_imgs.star}></img>
                                                 <span>{`${el.average ? el.average.toFixed(2) : '미평가'}`}</span>
                                             </div>
@@ -183,14 +191,14 @@ function MapModal({data, modal_toggle, key_name}){
                                     </div>
                                 </div>
                             )}) : 
-                            <span className="list-contents__sublist-list-no-data">등록된 숙소가 존재하지 않아요!</span>}
+                            <span className="map-modal__sublist-list-no-data">등록된 숙소가 존재하지 않아요!</span>}
                     </div>
                     {/* map */}
-                    <div className="sub-modal__map">
-                        {/* <Kakaomap 
-                            city = {city} 
-                            type = {'default'}
-                            data={data}/> */}
+                    <div className="map-modal__map">
+                        <Kakaomap 
+                            city = {query_string.get('search-adress')} 
+                            type = {'list'}
+                            data={data.accomodations}/>
                     </div>
                 </div>
             </div>

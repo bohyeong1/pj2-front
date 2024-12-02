@@ -14,34 +14,24 @@ function DetailSection4({evaluations, role}){
     const [reply_modal_state, setReply_modal_state] = useState(false)
     const [sellect_data, setSellect_data] = useState()
 
-    const {sellect_page_data, reply_modal_stateState, click_reply, get_collect_value} = useDetailSection4Style(undefined, 
-                                                                                            state_store([
-                                                                                                {
-                                                                                                    'page_data' : page_data,
-                                                                                                    'setPage_data' : setPage_data
-                                                                                                },
-                                                                                                {
-                                                                                                    'current_page' : current_page,
-                                                                                                    'setCurrent_page' : setCurrent_page
-                                                                                                },
-                                                                                                {
-                                                                                                    'page_count' : page_count,
-                                                                                                    'setPage_count' : setPage_count
-                                                                                                },
-                                                                                                {
-                                                                                                    'reply_modal_state' : reply_modal_state,
-                                                                                                    'setReply_modal_state' : setReply_modal_state
-                                                                                                },
-                                                                                                {
-                                                                                                    'sellect_data' : sellect_data,
-                                                                                                    'setSellect_data' : setSellect_data
-                                                                                                }
-                                                                                            ]),
-                                                                                            undefined,
-                                                                                            {
-                                                                                                evaluations : evaluations
-                                                                                            }
-                                                                                        )
+    const {
+        sellect_page_data, 
+        reply_modal_stateState, 
+        click_reply, 
+        get_collect_value
+    } = useDetailSection4Style(undefined, 
+        state_store([
+            {page_data, setPage_data},
+            {current_page, setCurrent_page},
+            {page_count, setPage_count},
+            {reply_modal_state, setReply_modal_state},
+            {sellect_data, setSellect_data}
+        ]),
+        undefined,
+        {
+            evaluations
+        }
+    )
 
     return(
         <div className="detail-section4__container">

@@ -1,7 +1,7 @@
 
 import { useEffect } from "react"
 import { useDispatch } from "react-redux"
-import { initailized_map_target, update_map_target, set_map_target } from "../../../../redux/modules/mapSlice"
+import { initailized_map_target, update_map_target, set_map_target } from "@/redux/modules/mapSlice"
 
 function useMaterialCardStlye(data, states, refs, props){
 
@@ -13,7 +13,6 @@ function useMaterialCardStlye(data, states, refs, props){
 
     // redux state
     const {map_state, list_hover_state} = data
-    // console.log(custom_overlay)
 
     useEffect(()=>{
         // console.log(map_state)
@@ -32,6 +31,7 @@ function useMaterialCardStlye(data, states, refs, props){
         }else{
             custom_overlay.setZIndex(1)
         }
+        
     },[map_state, list_hover_state])
 
     // 커스텀 오버레이 클릭

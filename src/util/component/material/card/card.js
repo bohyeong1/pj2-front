@@ -1,15 +1,11 @@
 import React from "react";
 import './card.scss'
-import { pop_three_texts } from "../../../utilData/UtilFunction"
+import { pop_three_texts } from '@/util/function/util_function';
 import OriginalImg from "@/picture/original_img/original_img"
-import default_data from "../../../utilData/defaultData";
-
+import default_data from "@/util/default_data/default_data";
 import { useSelector } from "react-redux";
 import useMaterialCardBusiness from '../hook-store/business-hooks/material-card-business'
 import useMaterialCardStyle from '../hook-store/style-hooks/material-card-style'
-
-import '../../../manage_scss_style/responsible/material/card.scss'
-
 
 function Card({data, custom_overlay}){
 

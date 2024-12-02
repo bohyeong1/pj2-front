@@ -1,3 +1,5 @@
+@import '@/manage_scss_style/commonness/colors';
+
 .list-layout__container{
     width:1920px;
     display: flex;
@@ -17,6 +19,20 @@
     transform: translateX(-50%);
     z-index: 10;
     background-color: white;
+    border-bottom: solid 1px $grey-lv10;
+}
+.list-layout__header-menu-container{
+    width: 100%;    
+    height: fit-content;
+    position:fixed; 
+    top:0;  
+    left:50%; 
+    transform: translateX(-50%);
+    z-index: 10;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    border-bottom: solid 1px $grey-lv10;
 }
 
 // 사이드 바

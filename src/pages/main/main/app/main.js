@@ -14,7 +14,6 @@ import useMainBusiness from "../hook_store/business_hooks/main_business";
 import useMainStyle from "../hook_store/style_hooks/main_style";
 import { reference_store, state_store } from "@/util/function/util_function";
 import background from '@/assets/background/background.jpg'
-import MainSearchModalSection from "../sections/main_search_modal_section/main_search_modal_section";
 import Loading from "@/utilComponent/material/loading/loading"
 
 function Main({login_user}){
@@ -72,16 +71,8 @@ function Main({login_user}){
     return(
         <MainMainLayout>
             <Main_menu 
-                data = {section1_query.data.city} 
-                search = {true} 
-                border = {false}
-                ref = {search_menu} 
-                scroll = {true} 
                 login_user = {login_user}
                 role = {'main_menu'}/>
-            <MainSearchModalSection
-                data = {section1_query.data.city} 
-                role = {'search_modal'}/>
             <MainSearchBoard 
                 data = {section1_query.data.city} 
                 role = {'search_board'}/>

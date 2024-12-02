@@ -7,12 +7,20 @@ import FilterButton from '@/util/component/button/filter_button/filter_button'
 import BooleanButton from '@/util/component/button/boolean_button/boolean_button'
 import useListSideBarStyle from '../../hook_store/style_hooks/list_side_bar_style';
 import MapModal from '@/util/component/modal/mapModal/map_modal';
+import useListSideBarBusiness from '../../hook_store/business_hooks/list_side_bar_business';
 
 function ListSideBar({data}){
 
     // =================================================
     // hooks //
-    const {modal_toggle} = useListSideBarStyle()
+    // business
+    const {
+        click_initialized_button
+    } = useListSideBarBusiness()
+    // style
+    const {
+        modal_toggle
+    } = useListSideBarStyle()
 
     return (
         <div className="list-side-bar__container">
@@ -30,8 +38,7 @@ function ListSideBar({data}){
                 <div>필터</div>
                 <button 
                     className="side-menu-fil-btn" 
-                    // onClick={initial_page}
-                    >
+                    onClick={click_initialized_button}>
                         초기화
                 </button>
             </div>
@@ -40,7 +47,7 @@ function ListSideBar({data}){
                     <div className="category-title">숙소유형</div>
                     <CheckButton 
                         data={default_data.d_category_icon} 
-                        keyValue={'category'} 
+                        value={'category'} 
                         c_name={'category-content'}/>
                 </div>
 
@@ -61,7 +68,7 @@ function ListSideBar({data}){
                             <FilterButton 
                                 key={id} 
                                 text={ele.name} 
-                                keyValue={'keywords'}/>
+                                value={'keywords'}/>
                             )
                         })                        
                         }
@@ -85,7 +92,7 @@ function ListSideBar({data}){
                             <FilterButton 
                                 key={id} 
                                 text={ele.name} 
-                                keyValue={'service_facility'}/>
+                                value={'service_facility'}/>
                             )
                         })                        
                         }

@@ -1,9 +1,9 @@
 import SearchMenu from "@/utilComponent/menu/search-menu/search_menu"
-import './main_search_modal_section.scss'
-import useMainSearchModalSectionStyle from "../../hook_store/style_hooks/main_search_modal_section_style"
+import './list_search_section.scss'
+import useListSearchSection from "../../hook_store/style_hooks/list_search_section_style"
 import { useSelector } from "react-redux"
 
-function MainSearchModalSection({data}){
+function ListSearchSection({data}){
 
     // =================================================
     // redux state //
@@ -12,14 +12,14 @@ function MainSearchModalSection({data}){
         (prev, next) => prev === next
     )
 
-    const {control_modal} = useMainSearchModalSectionStyle(
+    const {control_modal} = useListSearchSection(
         {search_modal_state}
     )
 
     return (
         <>
-            <div className="main-search-modal-section__container">
-                <div className="main-search-modal-section__wrapper">
+            <div className="list-search-section__container">
+                <div className="list-search-section__wrapper">
                     <SearchMenu
                         data = {data}
                         related_preview = {true}/>
@@ -27,7 +27,7 @@ function MainSearchModalSection({data}){
             </div>
             {search_modal_state &&
             <div 
-                className="main-search-modal-section__overlay"
+                className="list-search-section__overlay"
                 onClick={control_modal}>
 
             </div>}
@@ -35,4 +35,4 @@ function MainSearchModalSection({data}){
     )
 }
 
-export default MainSearchModalSection
+export default ListSearchSection

@@ -1,5 +1,7 @@
+@import '@/manage_scss_style/commonness/colors';
+
 // wrapper 
-.sub-modal__wrapper{
+.map-modal__wrapper{
     position : fixed;   
     width: calc(100% - 80px);    
     height: calc(100% - 80px);     
@@ -12,15 +14,17 @@
     transform: translate(-50%, -50%);
 }
 // container 
-.sub-modal__container{
+.map-modal__container{
     height: 100%;  
     width: 100%;
     overflow: hidden;   
     border-radius: 12px;    
     background-color: white;
+    display: flex;
+    flex-direction: column;
 }
 // header 
-.sub-modal__header{
+.map-modal__header{
     height: 60px;   
     width: 100%;    
     display: flex;  
@@ -28,9 +32,11 @@
     justify-content: space-between;
     padding: 0 20px;    
     font-size: 1rem;
+    flex-shrink: 0;
+    border-bottom: solid 1px $grey-lv10;
 }
 // close btn 
-.sub-modal__closebtn{
+.map-modal__closebtn{
     width: 20px; 
     height: 20px;  
     background-color: white;    
@@ -41,50 +47,51 @@
     align-items: center;    
     cursor: pointer;
 }
-.sub-modal__closebtn-img{
+.map-modal__closebtn-img{
     width: 18px;    
     height: 18px;
 }
-.sub-modal__gurabox1{
+.map-modal__gurabox1{
     width: 20px; 
     height: 20px;
 }
 
 
 // contents 
-.sub-modal__contents-container{
+.map-modal__contents-container{
     width: 100%;    
     height: 100%;
     display: flex;
     padding: 0 20px;
 }
 // filters 
-.sub-modal__filter{
+.map-modal__filter{
     width: 334px;   
     height: 100%;    
     overflow-y: scroll;
     scrollbar-width: thin;
     scrollbar-color: rgb(235, 235, 235) transparent;
+    padding-bottom: 90px;
 }
-.sub-modal__filter-container{
+.map-modal__filter-container{
     padding-left: 20px; padding-right: 20px; 
     width: 100%;        padding-bottom: 90px
 }
-.sub-modal__filter::-webkit-scrollbar{
+.map-modal__filter::-webkit-scrollbar{
     width: 12px;
 }
-.sub-modal__filter::-webkit-scrollbar-track{
+.map-modal__filter::-webkit-scrollbar-track{
     background-color: transparent;
 }
-.sub-modal__filter::-webkit-scrollbar-thumb{
+.map-modal__filter::-webkit-scrollbar-thumb{
     border-radius: 8px; background-color: rgb(235, 235, 235);   border: 2px solid #ffffff;
 }
-.sub-modal__filter::-webkit-scrollbar-thumb:hover{
+.map-modal__filter::-webkit-scrollbar-thumb:hover{
     background-color: rgb(200, 200, 200);
 }
 
 // list
-.sub-modal__display{
+.map-modal__display{
     width: 375px;   
     height: 100%;  
     padding-bottom: 90px;
@@ -97,20 +104,45 @@
     width: 359px;
     
     .sublist-list{
+        width:100%;
+        display: flex;
+        text-decoration: none;
+        color: black;
+        border-bottom: solid 1px rgb(235,235,235);
+        box-sizing: border-box; padding-bottom: 20px;
+        cursor: pointer;
+        user-select: none;
+        -webkit-user-select: none;
+        -moz-user-select: none; 
+        -ms-user-select: none;
+
         height: 224px;
         justify-content: center;
         margin: 0;
         padding-top: 15px;
     }
     .list-img{
+        border-radius: 15px;
+        overflow: hidden;
         height:172px; 
         width: 115px;
     }
     // text
     .list-text{
+        padding-left: 20px;
+        display: flex;  
+        flex-direction: column; 
+        gap:3px;
+        position: relative;
         height:100%; 
         width: 204px;
         padding-left: 10px;
+    }
+    .list-text-tex6{
+        position: absolute;
+        bottom: 0;
+        right: 0;   
+        font-weight: bold;
     }
     .list-text-tex6 > span:nth-child(1){
         font-size: 1.125rem;
@@ -145,8 +177,62 @@
     background-color:  rgb(171, 210, 255);
 }
 
-// sub-modal__map 
-.sub-modal__map{
-    flex-grow: 1;    height: 100%;  position:relative;
+// map-modal__map 
+.map-modal__map{
+    flex-grow: 1;    
+    height: 100%;  
+    position:relative;
     // background-color: beige; 
+}
+
+.map-modal__list-text-t5-b1{
+    font-size: 1rem;  
+    font-weight: bold;
+}
+.map-modal__list-text-t5-b2{
+    display: flex;  
+    column-gap:7px;    
+    width: 80%; 
+    flex-wrap: wrap;
+}
+.map-modal__list-text-t5-b2 > span{
+    color: rgb(110,110,110);    
+    font-size: 0.8125rem;
+}
+.map-modal__list-text-tex5{
+    display: flex;  
+    flex-direction: column; 
+    gap:5px;
+}
+.map-modal__list-text-evaluation{
+    display: flex;  
+    align-items: center;    
+    gap:10px;
+    font-size: 0.75rem; 
+    height: 21px;
+}
+.map-modal__list-text-evaluation > span:nth-child(2){
+    font-size: 0.8125rem;   
+    color: #707070;
+}
+.map-modal__list-evaluation-star-box{
+    height: 100%;   
+    width: fit-content;
+    display: flex;  
+    align-items: center;    
+    padding: 4px 5px 3px 3px;   
+    gap:3px;
+    border-radius: 6px;    
+    background-color: #FFAD0A;
+}
+.map-modal__list-evaluation-star-box > img{
+    width: 11px;    
+    position: relative; 
+}
+.map-modal__sublist-list-no-data{
+    font-size: 1.125rem;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
 }

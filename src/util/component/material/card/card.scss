@@ -88,4 +88,14 @@
     width: 11px;    position: relative; top:-1px;
 }
 
-
+.card-title__hover-on{
+    // hover
+    &:hover{
+        background-color: rgb(240, 247, 255);
+        color: #1273E4;    
+        border: solid 1px rgb(171, 210, 255);
+        +.card-contents{
+            display: flex;
+        }
+    }
+}
