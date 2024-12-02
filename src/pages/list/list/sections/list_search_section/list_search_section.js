@@ -1,4 +1,4 @@
-import SearchMenu from "@/utilComponent/menu/search-menu/search_menu"
+import SearchMenu from "@/util/component/menu/search-menu/search_menu"
 import './list_search_section.scss'
 import useListSearchSection from "../../hook_store/style_hooks/list_search_section_style"
 import { useSelector } from "react-redux"

@@ -5,6 +5,7 @@ import Lslide_btn from "@/utilComponent/Button/slideBtn/Lslide-btn/Lslide_btn";
 import Pastel_img from "@/picture/pastel-img/pastel-img";
 import { Swiper,SwiperSlide } from "swiper/react";
 import useMainSection1Style from '../../hook_store/style_hooks/main_section1_style';
+import { format, addDays } from 'date-fns';
 
 function MainSection1({title, data}){
 
@@ -39,7 +40,7 @@ function MainSection1({title, data}){
                             return(
                             <SwiperSlide key={id}>
                                 <NavLink 
-                                    to={`list?search-adress=${el.city}&sort=createAt&price-min=0&price-max=500000&page=1&limit=10`} 
+                                    to={`list?search-adress=${el.city}&sort=createAt&price-min=0&price-max=500000&page=1&limit=10&checkin=${format(new Date(), 'yyyy-MM-dd')}&checkout=${format(addDays(new Date(), 1), 'yyyy-MM-dd')}`} 
                                     key={id} 
                                     className="main-section1__img-wrapper">
                                     <div className="main-section1__img-container">

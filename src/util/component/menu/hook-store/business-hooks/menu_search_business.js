@@ -6,7 +6,6 @@ import { useUpdateAndValidateSearchData } from "@/util/apis/common/common_search
 import { useDispatch } from "react-redux";
 import { set_location_data, delete_location_data } from "@/redux/modules/searchModalSlice";
 
-
 function useMenuSearchBusiness(cons, states, refs, props){
 
     // =================================================
@@ -30,7 +29,9 @@ function useMenuSearchBusiness(cons, states, refs, props){
         search_data,
         setSearch_data,
         onchange_search_data,
-        setOnchange_search_data
+        setOnchange_search_data,
+        location_error, 
+        setLocation_error
     } = states
 
     // =================================================
@@ -87,6 +88,8 @@ function useMenuSearchBusiness(cons, states, refs, props){
         }
         else{
             dispatch(delete_location_data())
+            setLocation_error(true)
+            return
         }
         search_check_mutation.mutate(
             {
@@ -99,6 +102,18 @@ function useMenuSearchBusiness(cons, states, refs, props){
             }
         )
     }
+
+    // =================================================
+    // hide error message //
+    useEffect(()=>{
+        if(location_error){
+            const timer = setTimeout(() => {
+                setLocation_error(false)
+            }, 2000)
+          
+            return () => clearTimeout(timer)
+        }
+    },[location_error])
 
     return {
         search_button_click, 

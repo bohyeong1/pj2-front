@@ -32,10 +32,13 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
     const [modal_state, setModal_state] = useState(null)
     const [search_data, setSearch_data] = useState(null)
     const [onchange_search_data, setOnchange_search_data] = useState(null)
+    const [location_error, setLocation_error] = useState(false)
 
     // =================================================
     // refs // 
     const location_input_ref = useRef(null)
+    const date_input_ref = useRef(null)
+    const capacity_input_ref = useRef(null)
 
     // =================================================
     // hooks //
@@ -56,7 +59,8 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
         state_store([
             {modal_state, setModal_state},
             {search_data, setSearch_data},
-            {onchange_search_data, setOnchange_search_data}
+            {onchange_search_data, setOnchange_search_data},
+            {location_error, setLocation_error}
         ]),
         reference_store([
             {location_input_ref}
@@ -86,9 +90,13 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
         state_store([
             {modal_state, setModal_state}
         ]),
-        undefined,
+        reference_store([
+            {date_input_ref},
+            {capacity_input_ref}
+        ]),
         {
-            related_preview
+            related_preview,
+            preview_form
         }
     )
 
@@ -138,6 +146,7 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
                         ref={location_input_ref}
                         onChange={(e) => {location_onchange(e.target.value)}}
                         onClick={()=>{open_modal('location')}}/> 
+                    {location_error && <div className='search-menu__error'>목적지를 설정해 주세요</div>}
                     {/* location modal */}
                     {modal_state && modal_state === 'location' &&
                     <div className={`search-menu__location-modal box-shadow-lv2`}>
@@ -181,11 +190,12 @@ function SearchMenu({data, preview_form = false, related_preview = false}){
                     <img 
                         className='search-menu__img'
                         src={calendar_icon}/>
-                    <div 
+                    <input 
                         className="search-menu__check-in-out-input"
+                        readOnly
+                        ref={date_input_ref}
                         onClick={()=>{open_modal('check-in-out')}}>
-                        <span>{checkin_data && checkout_data ? `${transform_date(new Date(checkin_data))} - ${transform_date(new Date(checkout_data))}` : '날짜'}</span>                        
-                    </div>
+                    </input>
                     {/* check in out modal */}
                     {modal_state && modal_state === 'check-in-out' &&
                     <div className={`search-menu__check-in-out-modal box-shadow-lv2`}>

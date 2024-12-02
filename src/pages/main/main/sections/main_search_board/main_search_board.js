@@ -1,6 +1,6 @@
 import background_img from '@/assets/background/rending.webp'
 import './main_search_board.scss'
-import SearchMenu from '@/utilComponent/menu/search-menu/search_menu'
+import SearchMenu from '@/util/component/menu/search-menu/search_menu'
 
 function MainSearchBoard({data}){
     return (

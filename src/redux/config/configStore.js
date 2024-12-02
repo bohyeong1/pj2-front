@@ -3,7 +3,6 @@ import { Provider } from "react-redux";
 
 // reducer
 import overay_reducer from "../modules/overaySlice";
-import search_reducer from "../modules/searchSlice";
 import map_reducer from "../modules/mapSlice"
 import listhover_reducer from "../modules/listhoverSlice";
 import modaldata_reducer from "../modules/modaldataSlice";
@@ -14,9 +13,6 @@ const store = configureStore({
     reducer:{
         // 오버레이 state
         overay : overay_reducer,
-
-        // 검색어 state
-        search : search_reducer,
 
         // 지도 카드 state
         map : map_reducer,

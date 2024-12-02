@@ -7,6 +7,8 @@ import {
 } from "@/redux/modules/searchModalSlice"
 import { useDispatch } from "react-redux"
 import { useEffect } from "react"
+import { transform_date } from '@/util/function/util_function';
+import { addDays } from "date-fns";
 
 function useMenuSearchStyle(data, states, refs, props){
 
@@ -33,8 +35,29 @@ function useMenuSearchStyle(data, states, refs, props){
     } = states
 
     // =================================================
+    // refs // 
+    const {
+        date_input_ref,
+        capacity_input_ref
+    } = refs
+
+    // =================================================
     // props // 
-    const {related_preview} = props
+    const {
+        related_preview,
+        preview_form
+    } = props
+
+    // =================================================
+    // date input 동기화 // 
+    useEffect(()=>{
+        if(!preview_form && checkin_data && !checkout_data){
+            date_input_ref.current.value = transform_date(new Date(checkin_data))
+        }
+        if(!preview_form && checkin_data && checkout_data){
+            date_input_ref.current.value = `${transform_date(new Date(checkin_data))} - ${transform_date(new Date(checkout_data))}`
+        }
+    },[checkin_data, checkout_data, preview_form])
 
     // =================================================
     // click preview box // 
@@ -107,8 +130,14 @@ function useMenuSearchStyle(data, states, refs, props){
         }else{
             setModal_state(keyword)
         }
-
     }
+
+    useEffect(()=>{
+        if(!checkout_data){
+            const checkin = new Date(checkin_data)
+            dispatch(set_checkout_data({checkout_data : addDays(checkin, 1).toISOString()}))
+        }
+    },[modal_state])
 
     return {
         click_preview, 

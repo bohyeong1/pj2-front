@@ -2,9 +2,9 @@ import ListLayout from "@/layout/list/list_layout/list_layout"
 import ListContents from "../sections/list_contents/list_contents"
 import ListSideBar from "../sections/list_side_bar/list_side_bar"
 import ListSearchSection from "../sections/list_search_section/list_search_section"
-import Main_menu from "@/utilComponent/menu/main-menu/main-menu"
+import Main_menu from "@/util/component/menu/main-menu/main-menu"
 import useListBusiness from "../hook_store/business_hooks/list_business"
-import Loading from '@/utilComponent/material/loading/loading'
+import Loading from '@/util/component/material/loading/loading'
 import { useRef } from "react"
 
 function List({login_user}){

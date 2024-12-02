@@ -2,7 +2,7 @@ import React, { useState, forwardRef} from "react";
 import './main_menu.scss'
 import { Link } from "react-router-dom";
 import LogModal from "../../modal/logModal/LogModal";
-import SearchMenu from "../search-menu/search_menu";
+// import SearchMenu from "../search-menu/search_menu";
 import default_data from "@/util/default_data/default_data";
 import { state_store } from "@/util/function/util_function";
 import useMenuMainBusiness from "../hook-store/business-hooks/menu_main_business";
@@ -101,10 +101,10 @@ const Main_menu = forwardRef((props, ref) => {
                     <div 
                         className={`main-menu__search not-user-sellect`} 
                         ref={ref}>
-                        <SearchMenu 
+                        {/* <SearchMenu 
                             data = {data} 
                             related_preview = {true}
-                            preview_form = {true}/>
+                            preview_form = {true}/> */}
                     </div>
                 </div>}
 
